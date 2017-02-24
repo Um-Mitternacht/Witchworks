@@ -1,0 +1,124 @@
+#################################################
+         ForgeGradle 2.2-SNAPSHOT-c438b06        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+               Powered by MCP unknown               
+             http://modcoderpack.com             
+         by: Searge, ProfMobius, Fesh0r,         
+         R4wk, ZeuX, IngisKahn, bspkrs           
+#################################################
+:extractMcpMappings
+Download http://maven.ilexiconn.net/de/oceanlabs/mcp/mcp_snapshot/20160718-1.10.2/mcp_snapshot-20160718-1.10.2.pom
+[Fatal Error] mcp_snapshot-20160718-1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+:extractMcpMappings SKIPPED
+:deobfCompileDeobfDepTask0 SKIPPED
+:deobfCompileRemapDepSourcesTask1 SKIPPED
+:deobfCompileDummyTask
+:deobfProvidedDummyTask
+:getVersionJson
+:extractUserdev UP-TO-DATE
+:extractDependencyATs SKIPPED
+:extractMcpData
+Download http://maven.ilexiconn.net/de/oceanlabs/mcp/mcp/1.10.2/mcp-1.10.2.pom
+[Fatal Error] mcp-1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+:extractMcpData SKIPPED
+:genSrgs SKIPPED
+:downloadClient SKIPPED
+:downloadServer SKIPPED
+:splitServerJar SKIPPED
+:mergeJars SKIPPED
+:deobfMcSRG
+Applying SpecialSource...
+Applying Exceptor...
+:decompileMc
+:fixMcSources
+:applySourcePatches
+:remapMcSources
+:recompileMc
+:extractNatives SKIPPED
+:getAssetIndex UP-TO-DATE
+:getAssets
+Current status: 731/1112   65%
+:makeStart
+:setupDecompWorkspace
+:ideaModule
+Download http://maven.ilexiconn.net/net/minecraftforge/forgeSrc/1.10.2-12.18.3.2185/forgeSrc-1.10.2-12.18.3.2185.pom
+[Fatal Error] forgeSrc-1.10.2-12.18.3.2185.pom:2:3: The markup in the document preceding the root element must be well-formed.
+Download http://maven.ilexiconn.net//mp3plugin//mp3plugin-.pom
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+Download http://maven.ilexiconn.net//mp3spi1.9.5//mp3spi1.9.5-.pom
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+Download http://maven.ilexiconn.net//tritonus-share-0.3.7-2//tritonus-share-0.3.7-2-.pom
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+Download http://maven.ilexiconn.net//vorbisspi-1.0.3-1//vorbisspi-1.0.3-1-.pom
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+Download http://maven.ilexiconn.net/deobf/mcp/mobius/waila/Hwyla/1.8.1-B13_1.10.2/Hwyla-1.8.1-B13_1.10.2.pom
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+Download http://maven.ilexiconn.net/mezz/jei/jei_1.10.2/3.12.7.387/jei_1.10.2-3.12.7.387.pom
+[Fatal Error] jei_1.10.2-3.12.7.387.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] jei_1.10.2-3.12.7.387.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+Could not resolve: mezz.jei:jei_1.10.2:3.12.7.387
+Could not resolve: net.ilexiconn:llibrary:1.7.2-1.10.2
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] forgeSrc-1.10.2-12.18.3.2185.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3plugin-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] mp3spi1.9.5-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] tritonus-share-0.3.7-2-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] vorbisspi-1.0.3-1-.pom:2:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] Hwyla-1.8.1-B13_1.10.2.pom:2:3: The markup in the document preceding the root element must be well-formed.
+:ideaProject
+:ideaWorkspace
+:idea
+
+BUILD SUCCESSFUL
+
+Total time: 3 mins 3.209 secs
