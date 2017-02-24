@@ -8,13 +8,13 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 @Mod(modid = wiccanArts.MODID, version = wiccanArts.VERSION)
 public class wiccanArts
 {
-    public static final String MODID = "wiccanArts";
-    public static final String VERSION = "0.1";
-    
-    @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
-        // some example code
-        System.out.println("DIRT BLOCK >> "+Blocks.DIRT.getUnlocalizedName());
-    }
+	public static final String MODID = "wiccanArts";
+	public static final String VERSION = "0.1";
+	
+	@EventHandler
+	public void init(FMLInitializationEvent event)
+	{
+	// some example code
+	System.out.println("DIRT BLOCK >> "+Blocks.DIRT.getUnlocalizedName());
+	}
 }
