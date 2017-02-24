@@ -26,7 +26,6 @@ script:
 - travis_wait 100 ./gradlew build
 - ls -la build/libs
 - ls -la build/packages
-- bundle exec ./tools/checksum_builds.rb | tee ./checksums.txt
 
 # Deploy the artifacts back to GitHub
 deploy:
@@ -34,7 +33,6 @@ deploy:
   api_key: $GITHUB_OAUTH
   file_glob: true
   file:
-  - "checksums.txt"
   - "build/libs/wiccanArts.jar"
   skip_cleanup: true
   on:
