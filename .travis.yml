@@ -33,7 +33,7 @@ deploy:
   api_key: $GITHUB_OAUTH
   file_glob: true
   file:
-  - "build/libs/wiccanArts.jar"
+  - "build/packages/wiccanArts.jar"
   skip_cleanup: true
   on:
     tags: true
