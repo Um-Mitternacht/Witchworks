@@ -88,6 +88,9 @@ repositories {
   }
 
 dependencies {
+    compile files(
+        'Baubles-deobf.jar'
+    )
     deobfCompile "mcp.mobius.waila:Hwyla:1.8.10-B24_1.10.2"
     compile "net.ilexiconn:llibrary:1.7.4-1.10.2:dev"
     runtime "mezz.jei:jei_1.10.2:3.14.6.412"
