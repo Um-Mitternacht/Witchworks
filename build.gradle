@@ -29,9 +29,9 @@ checkstyle {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-version = "${minecraft_version}-${CB_version}"
-group = "mod.covetedBiomes"
-archivesBaseName = "covetedBiomes"
+version = "${minecraft_version}-${WA_version}"
+group = "mod.wiccanArts"
+archivesBaseName = "wiccanArts"
 
 class StructExtApi {
     String name
@@ -45,8 +45,8 @@ minecraft {
     mappings = "snapshot_20161111"
     runDir = "run"
     replace "@VERSION@", project.version
-    replace "@CB_MC_VERSION@", minecraft_version
-    replace "@CB_VERSION@", CB_version
+    replace "@WA_MC_VERSION@", minecraft_version
+    replace "@WA_VERSION@", WA_version
 }
 
 processResources {
