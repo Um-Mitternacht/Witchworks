@@ -1,0 +1,132 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.matthewprenger.cursegradle'
+apply plugin: "checkstyle"
+
+checkstyle {
+    toolVersion = "6.11.2"
+    configFile = new File(rootDir, "checkstyle/checkstyle.xml")
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+version = "${minecraft_version}-${CB_version}"
+group = "mod.covetedBiomes"
+archivesBaseName = "covetedBiomes"
+
+class StructExtApi {
+    String name
+    String api
+    String exclusion
+    String root = api
+}
+
+minecraft {
+    version = minecraft_forge_version
+    mappings = "snapshot_20161111"
+    runDir = "run"
+    replace "@VERSION@", project.version
+    replace "@CB_MC_VERSION@", minecraft_version
+    replace "@CB_VERSION@", CB_version
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include "mcmod.info"
+        expand "version":project.version, "mcversion":project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "mcmod.info"
+    }
+}
+
+repositories {
+    flatDir {
+       dirs 'libs'
+    }
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name "chickenbones"
+        url "http://chickenbones.net/maven/"
+    }
+    maven {
+        name = "forge"
+        url = "http://files.minecraftforge.net/maven"
+    }
+        maven {
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        name = "Mobius Repo"
+        url "http://tehnut.info/maven"
+    }
+    maven {
+        name = "ilexiconn"
+        url = "https://maven.mcmoddev.com"
+  }
+
+dependencies {
+    compile files(
+        'Baubles-deobf.jar'
+    )
+    deobfCompile "mcp.mobius.waila:Hwyla:1.8.10-B24_1.10.2"
+    compile "net.ilexiconn:llibrary:1.7.4-1.10.2:dev"
+    runtime "mezz.jei:jei_1.10.2:3.14.6.412"
+    testCompile "junit:junit:4.11"
+}
+
+runClient {
+    if( project.hasProperty("mcUsername") && project.hasProperty("mcPassword") ) {
+        args "--username=${project.mcUsername}"
+        args "--password=${project.mcPassword}"
+    }
+}
+
+// debugClient {
+//    if( project.hasProperty("mcUsername") && project.hasProperty("mcPassword") ) {
+//        args "--username=${project.mcUsername}"
+//        args "--password=${project.mcPassword}"
+//    }
+// }
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ["-Xlint:all", "-Xlint:deprecation", "-Xlint:rawtypes", "-Xlint:unchecked"]
+    options.deprecation = true
+    options.encoding = "utf8"
+}
+
+// task sourceJar(type: Jar) {
+//    from sourceSets.main.allSource
+//    from(sourceSets.api.allSource) {
+//        for (StructExtApi entry in apis) {
+//            exclude entry.exclusion
+//        }
+//    }
+//    classifier = "sources"
+// }
+
+build.dependsOn sourceJar
+
+}
