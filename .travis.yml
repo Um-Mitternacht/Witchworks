@@ -35,7 +35,7 @@ deploy:
   file_glob: true
   file:
   - "checksums.txt"
-  - "build/libs/covetedBiomes.jar"
+  - "build/libs/wiccanArts.jar"
   skip_cleanup: true
   on:
     tags: true
