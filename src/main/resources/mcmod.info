@@ -1,0 +1,16 @@
+[
+{
+  "modid": "covetedBiomes",
+  "name": "Coveted Biomes",
+  "description": "Sunconure11's Biome Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Sunconure11/Spinosaurus111"],
+  "credits": "Sunconure11/Spinosaurus111",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
