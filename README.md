@@ -1,5 +1,5 @@
 # Wiccan_Arts
-Witchery Clone https://travis-ci.org/Um-Mitternacht/Wiccan_Arts.svg?branch=master
+Witchery Clone [![Build Status](https://travis-ci.org/Um-Mitternacht/Wiccan_Arts.svg?branch=master)](https://travis-ci.org/Um-Mitternacht/Wiccan_Arts)
 
 
 WIP
