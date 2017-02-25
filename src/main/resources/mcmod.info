@@ -11,6 +11,7 @@
   "credits": "Sunconure11/Spinosaurus111",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": ["llibrary"]
+  "requiredMods": [ "Baubles", "llibrary" ],
+  "dependencies": [ "Baubles", "llibrary" ]
 }
 ]
