@@ -40,10 +40,6 @@ class StructExtApi {
     String root = api
 }
 
-def mod_file = getModFile()
-version = getVersion("VERSION", mod_file)
-def llibrary_version = getVersion("LLIBRARY_VERSION", mod_file)
-
 minecraft {
     version = minecraft_forge_version
     mappings = "snapshot_20161111"
@@ -96,7 +92,7 @@ dependencies {
         'Baubles-deobf.jar'
     )
     deobfCompile "mcp.mobius.waila:Hwyla:1.8.10-B24_1.10.2"
-    compile "net.ilexiconn:llibrary:$llibrary_version-1.10.2:dev"
+    compile "net.ilexiconn:llibrary:1.7.4-1.10.2:dev"
     runtime "mezz.jei:jei_1.10.2:3.14.6.412"
     testCompile "junit:junit:4.11"
 }
