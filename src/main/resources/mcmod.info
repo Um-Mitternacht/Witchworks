@@ -11,6 +11,6 @@
   "credits": "Sunconure11/Spinosaurus111",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["llibrary@[${llibrary_version},)"]
 }
 ]
