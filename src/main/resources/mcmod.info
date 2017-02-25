@@ -3,15 +3,16 @@
   "modid": "wiccanArts",
   "name": "Wiccan Arts",
   "description": "Witchery Clone",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "version": "0.1",
+  "mcversion": "1.10.2",
   "url": "",
   "updateUrl": "",
   "authorList": ["Sunconure11/Spinosaurus111"],
   "credits": "Sunconure11/Spinosaurus111",
   "logoFile": "",
   "screenshots": [],
-  "requiredMods": [ "Baubles", "llibrary" ],
-  "dependencies": [ "Baubles", "llibrary" ]
+  "requiredMods": [ "Baubles", "llibrary", "Forge" ],
+  "dependencies": [ "Baubles", "llibrary", "Forge" ],
+  "useDependencyInformation": true
 }
 ]
