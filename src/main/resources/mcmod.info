@@ -1,8 +1,8 @@
 [
 {
-  "modid": "covetedBiomes",
-  "name": "Coveted Biomes",
-  "description": "Sunconure11's Biome Mod",
+  "modid": "wiccanArts",
+  "name": "Wiccan Arts",
+  "description": "Witchery Clone",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
