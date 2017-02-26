@@ -19,6 +19,7 @@ before_install:
 # fetch 3rd party apis and such
 - git submodule update --init
 - travis_wait 100 chmod +x ./gradlew
+- chmod +x ./tools/checksum_builds.rb
 
 install: travis_wait 100 ./gradlew setupCIWorkspace -S
 
@@ -27,7 +28,7 @@ script:
 - bundle exec ./tools/split_jars.rb
 - ls -la build/libs
 - ls -la build/packages
-- bundle exec ./tools/checksum_builds.rb | tee ./checksums.txt
+- bundle exec /tools/checksum_builds.rb
 
 # Deploy the artifacts back to GitHub
 deploy:
