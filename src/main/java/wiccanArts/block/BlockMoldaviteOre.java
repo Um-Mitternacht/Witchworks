@@ -3,6 +3,7 @@ package wiccanArts.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import wiccanArts.lib.Strings;
 
 /**
@@ -10,12 +11,12 @@ import wiccanArts.lib.Strings;
  */
 public class BlockMoldaviteOre extends Block {
 
-    public BlockMoldaviteOre(){
+    public BlockMoldaviteOre(IBlockState state){
         super(Material.ROCK);
         setUnlocalizedName(Strings.MOLDAVITE_ORE);
         setRegistryName(Strings.MOLDAVITE_ORE);
         setHardness(1.0F);
-        setHarvestLevel("pickaxe", 1);
+        setHarvestLevel("pickaxe", 1, state);
         setSoundType(SoundType.STONE);
     }
 }
