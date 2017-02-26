@@ -2,44 +2,20 @@ language: java
 sudo: false
 jdk:
 - oraclejdk8
-
+install: "./gradlew setupCIWorkspace"
+script: "./gradlew jar"
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
-
-before_install:
-# ensure we have ruby
-- ruby --version
-- gem install bundler
-- bundle install
-# fetch 3rd party apis and such
-- git submodule update --init
-- travis_wait 100 chmod +x ./gradlew
-- chmod +x ./tools/checksum_builds.rb
-- chmod +x ./tools/split_jars.rb
-
-install: travis_wait 100 ./gradlew setupCIWorkspace -S
-
-script:
-- travis_wait 100 ./gradlew build
-- bundle exec ./tools/split_jars.rb
-- ls -la build/libs
-- ls -la build/packages
-- bundle exec ./tools/checksum_builds.rb
-
-# Deploy the artifacts back to GitHub
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH
   file_glob: true
   file:
-  - "checksums.txt"
-  - "build/libs/wiccan-*-Arts.jar"
-  - "build/packages/wiccan-*-Arts.jar"
+  - "wiccanArts.jar"
   skip_cleanup: true
   on:
     tags: true
