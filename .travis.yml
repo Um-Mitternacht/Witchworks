@@ -6,8 +6,12 @@ before_install:
 - chmod +x ./gradlew
 install: travis_wait 100 ./gradlew setupCIWorkspace -S
 script: 
-"./gradlew jar"
+- travis_wait 100 ./gradlew build
+- bundle exec ./tools/split_jars.rb
+- ls -la build/libs
 - ls -la build/packages
+- bundle exec ./tools/checksum_builds.rb | tee ./checksums.txt
+- bundle exec ./tools/attribution_cross_check.rb
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
@@ -19,6 +23,8 @@ deploy:
   api_key: $GITHUB_OAUTH
   file_glob: true
   file:
+  - "checksums.txt"
+  - "build/libs/wiccan-*-Arts.jar"
   - "build/packages/wiccan-*-Arts.jar"
   skip_cleanup: true
   on:
