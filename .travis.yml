@@ -14,9 +14,7 @@ deploy:
   api_key: $GITHUB_OAUTH
   file_glob: true
   file:
-  - "checksums.txt"
-  - "build/libs/wiccan-*-Arts.jar"
-  - "build/packages/wiccan-*-Arts.jar"
+  - "wiccan-*-Arts.jar"
   skip_cleanup: true
   on:
     tags: true
