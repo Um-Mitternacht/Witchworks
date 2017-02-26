@@ -24,8 +24,8 @@ install: travis_wait 100 ./gradlew setupCIWorkspace -S
 
 script:
 - travis_wait 100 ./gradlew build
-- chmod +x ls -la build/libs
-- chmod +x ls -la build/packages
+- ls -la build/libs
+- ls -la build/packages
 - bundle exec ./tools/checksum_builds.rb
 
 # Deploy the artifacts back to GitHub
