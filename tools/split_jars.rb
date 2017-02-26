@@ -25,7 +25,7 @@ def sh(cmd)
   system(cmd) || fail("Command Failed")
 end
 
-mcmod_info = JSON.parse File.read("src/resources/mcmod.info")
+mcmod_info = JSON.parse File.read("src/main/resources/mcmod.info")
 
 # First we'll need to extract each pack's mcmod info from the given list
 pack_mcmod = mcmod_info.each_with_object({}) do |mcmod, result|
