@@ -15,6 +15,7 @@ public class BlockMoldaviteOre extends Block {
         setUnlocalizedName(Strings.MOLDAVITE_ORE);
         setRegistryName(Strings.MOLDAVITE_ORE);
         setHardness(1.0F);
+        setHarvestLevel("pickaxe", 1);
         setSoundType(SoundType.STONE);
     }
 }
