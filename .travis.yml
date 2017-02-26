@@ -20,7 +20,7 @@ before_install:
 - git submodule update --init
 - chmod +x ./gradlew
 - chmod +x ./tools/checksum_builds.rb
-- chmod +x /checksums.txt
+- chmod +x /checksums
 
 install: travis_wait 100 ./gradlew setupCIWorkspace -S
 
