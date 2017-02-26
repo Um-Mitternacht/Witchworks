@@ -14,13 +14,11 @@ cache:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 deploy:
-  skip_cleanup: true
   provider: releases
   file_glob: true
   api_key: $GITHUB_OAUTH
   file: 
   - "wiccanArts-*-*.jar"
+  skip_cleanup: true
   on:
-    repo: Um-Mitternacht/Wiccan_Arts
-    all_branches: true
     tags: true
