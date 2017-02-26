@@ -6,4 +6,6 @@ package wiccanArts.lib;
 public final class Strings {
 
     public static final String RESORUCE_PREFIX = "WICCAN_ARTS:";
+
+    public static final String MOLDAVITE_ORE = "moldaviteOre";
 }
