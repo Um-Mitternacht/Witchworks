@@ -19,7 +19,7 @@ deploy:
   file_glob: true
   api_key: $GITHUB_OAUTH
   file: 
-  - "wiccanArts-1.10.2-*.jar"
+  - "wiccanArts-*-*.jar"
   on:
     repo: Um-Mitternacht/Wiccan_Arts
     all_branches: true
