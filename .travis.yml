@@ -4,6 +4,7 @@ jdk:
 - oraclejdk8
 before_install: 
 - chmod +x ./gradlew
+- chmod +x ./tools/split_jars.rb
 install: travis_wait 100 ./gradlew setupCIWorkspace -S
 script: 
 - travis_wait 100 ./gradlew build
