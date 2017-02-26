@@ -11,7 +11,8 @@ import wiccanArts.lib.Strings;
  */
 public class BlockMoldaviteOre extends Block
 {
-	public BlockMoldaviteOre(IBlockState state){
+	public BlockMoldaviteOre(IBlockState state)
+    {
 		super(Material.ROCK);
 		setUnlocalizedName(Strings.MOLDAVITE_ORE);
 		setRegistryName(Strings.MOLDAVITE_ORE);
