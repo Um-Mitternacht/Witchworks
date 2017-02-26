@@ -18,7 +18,7 @@ before_install:
 - bundle install
 # fetch 3rd party apis and such
 - git submodule update --init
-- chmod +x ./gradlew
+- chmod +x gradlew
 
 install: travis_wait 100 ./gradlew setupCIWorkspace -S
 
