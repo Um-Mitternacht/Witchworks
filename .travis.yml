@@ -12,3 +12,12 @@ cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
+deploy:
+  provider: releases
+  file_glob: true
+  api_key:
+    secure: Wicms5j9w83ndipPzhMaNi+J85WLjC5/OuA4B6qGj+4beXh2hdw6P+nbFb8Qxq2/X2BMzzpzTv0ssHDd61Ci8+RByb3kOYHZ/f7RH7v+mMvtpNYMVAZUAg70u5wt+JjWI4uLKpE2G6pLNxpce0yxG9JcClzUJTujILei8Ggu70d9yIYSu1t8Cn4Z3DXQcv/ZTq0M7AsCDMXjcs5m4QAOH0rrBqgcpb2GTcyOVEhvJ6ZypVOZkJ4KtJv2DsXtiovJfv5PL5javysUzU0UYDaqutFA3iQ9H+kBVWVD2NizFqT/lQYdDUEVB57PFuekPLYP/8gkAXkTfZiJBz2hCmDSu6Q6SM+wSSlbLCgAYHuXKw7j+PYXpcsjzNUqGwzKI+fe4AtfH0vPxAnR2XgjBD32v5ZC18TxpuTeUhqRdwZ1cqzNCxJcknhXyYtvAlSHMyqsXQ3nR1EOMQ690HhoaNYk1Q7mXiSnBgazXkEW/Xpob1wx6tAmnpbFexttZm3m3cQ3TI+PoWwmPhVLz4hPf2FAimtLv0v9Z9OIL+Q5dwNHQ4jCX9EtkWltUE8q5rhWJbO4WJzszgywDgGS8bgfx94rt3/NM+4b84MaWHTE1+aj7OEE3RHfjzo9QaWrb/ir7xOwNaXzidyHhNxiUoSnXvjR5JXH5rs0E77gj4dCNjrfMcs=
+  file: wiccanArts-1.10.2-*
+  on:
+    repo: Um-Mitternacht/Wiccan_Arts
+    branch: 1.10.2
