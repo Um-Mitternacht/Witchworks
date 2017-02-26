@@ -20,7 +20,6 @@ before_install:
 - git submodule update --init
 - chmod +x ./gradlew
 - chmod +x ./tools/checksum_builds.rb
-- chmod +x /checksums
 
 install: travis_wait 100 ./gradlew setupCIWorkspace -S
 
@@ -28,7 +27,7 @@ script:
 - travis_wait 100 ./gradlew build
 - ls -la build/libs
 - ls -la build/packages
-- bundle exec ./tools/checksum_builds.rb | tee /checksums.txt
+- bundle exec ./tools/checksum_builds.rb
 
 # Deploy the artifacts back to GitHub
 deploy:
