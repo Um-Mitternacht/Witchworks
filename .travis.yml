@@ -14,10 +14,9 @@ cache:
   - "$HOME/.gradle/wrapper/"
 deploy:
   provider: releases
-  api_key: $GITHUB_OAUTH
-  file_glob: true
-  file:
-  - "wiccanArts.jar"
-  skip_cleanup: true
+  api_key:
+    secure: Qkj5wYz7nKXjF6y3MJ4IwMiWO4edn2/oY+T15WviU2i7Jx5wIdVPNuCAEDYBP9u6CtdCw+RQlh5K6OBdVRgsyd8U2ugSJPYXYhI71zKMaRu7tw4R4eS3fFtseUfyfPBfIcNNztJeL7WqLEM5zu2ibJmemHfxZlthiAS9SGAJPikOsAIG5Pkeao0mbQCc9IbXytYZ7nlVtnuIFAHOLLdeF6JcMDP0FdD0FfYBmezeuzMiIXWxYBriJ+brkUlQapPqwJXDj+fQ4+hGGFyxrZyOUQMJH/3VCOjwFE1N+XLRIXsBhwOORTePTPWYaA/Ao9LHF1Ky70eUblRCcd542tIYYhrfdPnbUEWa29cTFLKBBcsMDGQoOoa87L7tYpcsUx4DZphnNGPMrfzRE6C8kPhI8eutgzPtk+aSvgfw88Qbn2i1h3fDdpxxJ8qE/yGxMIcdNmFaQkqVN4xLqHSmAvwsDqp6WSU0rIpBt86swDb5X/Fbr2xep2r4WYb2JW3X5tuWh1kgoOPh4NqXNv7kq/IDisA5uWvBSKF20FbR5tbiVb0ehfYZT5HHDCQUJYkazPgGl6sljQpmEQeXsZ0jRFOflCtWrunXAPzIiAi8utn/olxjyskEJgRRU4umFmnk0mlJ8ANArO8Nkpp8dvBzLX1K7r3FgtU2u3guskvP6dGQZbY=
+  file: WiccanArts.jar
   on:
-    tags: true
+    repo: Um-Mitternacht/Wiccan_Arts
+    branch: 1.10.2
