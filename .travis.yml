@@ -21,5 +21,5 @@ deploy:
   file: wiccanArts-1.10.2-*
   on:
     repo: Um-Mitternacht/Wiccan_Arts
-    branch: 1.10.2
+    all_branches: true
     tags: true
