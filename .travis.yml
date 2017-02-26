@@ -5,7 +5,9 @@ jdk:
 before_install: 
 - chmod +x ./gradlew
 install: travis_wait 100 ./gradlew setupCIWorkspace -S
-script: "./gradlew jar"
+script: 
+"./gradlew jar"
+- ls -la build/packages
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
@@ -17,7 +19,7 @@ deploy:
   api_key: $GITHUB_OAUTH
   file_glob: true
   file:
-  - "wiccan-*-Arts.jar"
+  - "build/packages/wiccan-*-Arts.jar"
   skip_cleanup: true
   on:
     tags: true
