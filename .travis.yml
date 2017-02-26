@@ -1,7 +1,10 @@
 language: java
+sudo: false
+jdk:
+- oraclejdk8
 before_install: 
 - chmod +x ./gradlew
-install: "./gradlew setupCIWorkspace"
+install: travis_wait 100 ./gradlew setupCIWorkspace -S
 script: "./gradlew jar"
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
