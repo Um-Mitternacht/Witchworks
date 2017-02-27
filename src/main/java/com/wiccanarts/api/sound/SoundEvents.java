@@ -9,11 +9,11 @@ import net.minecraft.util.SoundEvent;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public final class GrimoireSoundEvents {
+public final class SoundEvents {
 
-	private GrimoireSoundEvents() {}
+	private SoundEvents() {}
 
-	//public static final SoundEvent CAMERA_BEEP = getRegisteredSound(ResourceLocationsAPI.TEST_SOUND);
+	public static final SoundEvent TEST_SOUND = getRegisteredSound(ResourceLocationsAPI.TEST_SOUND);
 
 	private static SoundEvent getRegisteredSound(ResourceLocation name) {
 		return SoundEvent.REGISTRY.getObject(name);
