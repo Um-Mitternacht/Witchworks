@@ -14,7 +14,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static net.minecraftforge.fml.common.Mod.*;
+import static net.minecraftforge.fml.common.Mod.EventHandler;
+import static net.minecraftforge.fml.common.Mod.Instance;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
