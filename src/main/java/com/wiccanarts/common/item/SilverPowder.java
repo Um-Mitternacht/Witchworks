@@ -5,6 +5,6 @@ package com.wiccanarts.common.item;
  */
 public class SilverPowder extends ItemMod {
 	public SilverPowder() {
-		super("silverpowder");
+		super("silver_powder");
 	}
 }
