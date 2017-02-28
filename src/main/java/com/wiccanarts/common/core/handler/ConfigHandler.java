@@ -2,7 +2,7 @@
  * This class was created by <ArekkuusuJerii>. It's distributed as
  * part of the Grimoire Of Alice Mod. Get the Source Code in github:
  * https://github.com/ArekkuusuJerii/Grimore-Of-Alice
- *
+ * <p>
  * Grimoire Of Alice is Open Source and distributed under the
  * Grimoire Of Alice license: https://github.com/ArekkuusuJerii/Grimoire-Of-Alice/blob/master/LICENSE.md
  */
@@ -21,28 +21,28 @@ import net.minecraftforge.common.config.Config.Comment;
 @Config(modid = LibMod.MOD_ID)
 public class ConfigHandler {
 
-	@Comment("Don't change this if you don't know what you are doing")
-	public static WiccanArts wiccanArts = new WiccanArts();
+    @Comment("Don't change this if you don't know what you are doing")
+    public static WiccanArts wiccanArts = new WiccanArts();
 
-	public static class WiccanArts {
+    public static class WiccanArts {
 
-		@Comment("")
-		public Crafting crafting = new Crafting();
-		@Comment("")
-		public WorldGen worldGen = new WorldGen();
-		@Comment("")
-		public Spawning spawning = new Spawning();
+        @Comment("")
+        public Crafting crafting = new Crafting();
+        @Comment("")
+        public WorldGen worldGen = new WorldGen();
+        @Comment("")
+        public Spawning spawning = new Spawning();
 
-		public static class Crafting {
+        public static class Crafting {
 
-		}
+        }
 
-		public static class WorldGen {
+        public static class WorldGen {
 
-		}
+        }
 
-		public static class Spawning {
+        public static class Spawning {
 
-		}
-	}
+        }
+    }
 }

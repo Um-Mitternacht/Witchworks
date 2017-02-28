@@ -7,10 +7,10 @@ package com.wiccanarts.common.core.event;
  */
 public final class ModEvents {
 
-	private ModEvents() {
-	}
+    private ModEvents() {
+    }
 
-	public static void preInit() {
+    public static void preInit() {
 
-	}
+    }
 }

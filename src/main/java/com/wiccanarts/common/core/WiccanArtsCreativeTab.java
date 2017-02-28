@@ -18,45 +18,45 @@ import java.util.List;
  */
 public class WiccanArtsCreativeTab extends CreativeTabs {
 
-	private List<ItemStack> list;
+    private List<ItemStack> list;
 
-	public WiccanArtsCreativeTab() {
-		super(LibMod.MOD_ID);
-		setNoTitle();
-		setBackgroundImageName("item_search.png");
-	}
+    public WiccanArtsCreativeTab() {
+        super(LibMod.MOD_ID);
+        setNoTitle();
+        setBackgroundImageName("item_search.png");
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ItemStack getIconItemStack() {
-		return new ItemStack(Items.BONE);
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemStack getIconItemStack() {
+        return new ItemStack(Items.BONE);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public Item getTabIconItem() {
-		return getIconItemStack().getItem();
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Item getTabIconItem() {
+        return getIconItemStack().getItem();
+    }
 
-	@Override
-	public boolean hasSearchBar() {
-		return true;
-	}
+    @Override
+    public boolean hasSearchBar() {
+        return true;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void displayAllRelevantItems(List<ItemStack> list) {
-		this.list = list;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void displayAllRelevantItems(List<ItemStack> list) {
+        this.list = list;
+    }
 
-	@SideOnly(Side.CLIENT)
-	private void addItem(Item item) {
-		item.getSubItems(item, this, list);
-	}
+    @SideOnly(Side.CLIENT)
+    private void addItem(Item item) {
+        item.getSubItems(item, this, list);
+    }
 
-	@SideOnly(Side.CLIENT)
-	private void addBlock(Block block) {
-		ItemStack stack = new ItemStack(block);
-		block.getSubBlocks(stack.getItem(), this, list);
-	}
+    @SideOnly(Side.CLIENT)
+    private void addBlock(Block block) {
+        ItemStack stack = new ItemStack(block);
+        block.getSubBlocks(stack.getItem(), this, list);
+    }
 }

@@ -1,7 +1,5 @@
 package com.wiccanarts.common.block;
 
-import com.wiccanarts.common.lib.LibBlockName;
-import com.wiccanarts.api.enums.WAOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

@@ -9,10 +9,10 @@ import net.minecraft.util.ResourceLocation;
  */
 public class ResourceLocationsAPI {
 
-	//Sounds
-	public static final ResourceLocation TEST_SOUND = getLocation("test");
+    //Sounds
+    public static final ResourceLocation TEST_SOUND = getLocation("test");
 
-	private static ResourceLocation getLocation(String name){
-		return new ResourceLocation("wiccanarts", name);
-	}
+    private static ResourceLocation getLocation(String name) {
+        return new ResourceLocation("wiccanarts", name);
+    }
 }

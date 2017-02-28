@@ -12,10 +12,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(LibMod.MOD_ID)
 public final class ModItems {
 
-	public static void init() {
-		VanillaCrafting.items();
-	}
+    public static void init() {
+        VanillaCrafting.items();
+    }
 
-	public static void initOreDictionary() {
-	}
+    public static void initOreDictionary() {
+    }
 }

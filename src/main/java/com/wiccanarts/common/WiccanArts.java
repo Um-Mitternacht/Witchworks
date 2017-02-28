@@ -26,34 +26,34 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 @Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WiccanArts {
 
-	public static final WiccanArtsCreativeTab CREATIVE_TAB = new WiccanArtsCreativeTab();
+    public static final WiccanArtsCreativeTab CREATIVE_TAB = new WiccanArtsCreativeTab();
 
-	@Instance(LibMod.MOD_ID)
-	public static WiccanArts instance;
+    @Instance(LibMod.MOD_ID)
+    public static WiccanArts instance;
 
-	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
-	public static ISidedProxy proxy;
+    @SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
+    public static ISidedProxy proxy;
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		ModEvents.preInit();
-		ModEntities.preInit();
-		ModSounds.preInit();
-		proxy.preInit(event);
-	}
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        ModEvents.preInit();
+        ModEntities.preInit();
+        ModSounds.preInit();
+        proxy.preInit(event);
+    }
 
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init(event);
-		ModItems.init();
-		ModItems.initOreDictionary();
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        proxy.init(event);
+        ModItems.init();
+        ModItems.initOreDictionary();
 
-		ModBlocks.init();
-		ModBlocks.initOreDictionary();
-	}
+        ModBlocks.init();
+        ModBlocks.initOreDictionary();
+    }
 
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit(event);
-	}
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.postInit(event);
+    }
 }

@@ -11,11 +11,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class ModSounds {
 
-	public static void preInit() {
-		//registerSound(ResourceLocationsAPI.TEST_SOUND);
-	}
+    public static void preInit() {
+        //registerSound(ResourceLocationsAPI.TEST_SOUND);
+    }
 
-	private static void registerSound(ResourceLocation soundNameIn) {
-		GameRegistry.register(new SoundEvent(soundNameIn), soundNameIn);
-	}
+    private static void registerSound(ResourceLocation soundNameIn) {
+        GameRegistry.register(new SoundEvent(soundNameIn), soundNameIn);
+    }
 }

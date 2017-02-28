@@ -1,3 +1,8 @@
 {
-	"test": { "sounds":["wiccanarts:test"], "subtitle": "wiccanarts.subtitle.test" }
+  "test": {
+    "sounds": [
+      "wiccanarts:test"
+    ],
+    "subtitle": "wiccanarts.subtitle.test"
+  }
 }

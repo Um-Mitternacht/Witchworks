@@ -11,11 +11,12 @@ import net.minecraft.util.SoundEvent;
  */
 public final class SoundEvents {
 
-	private SoundEvents() {}
+    public static final SoundEvent TEST_SOUND = getRegisteredSound(ResourceLocationsAPI.TEST_SOUND);
 
-	public static final SoundEvent TEST_SOUND = getRegisteredSound(ResourceLocationsAPI.TEST_SOUND);
+    private SoundEvents() {
+    }
 
-	private static SoundEvent getRegisteredSound(ResourceLocation name) {
-		return SoundEvent.REGISTRY.getObject(name);
-	}
+    private static SoundEvent getRegisteredSound(ResourceLocation name) {
+        return SoundEvent.REGISTRY.getObject(name);
+    }
 }
