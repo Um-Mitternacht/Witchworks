@@ -5,6 +5,6 @@ package com.wiccanarts.common.item;
  */
 public class LavenderOil extends ItemMod {
 	public LavenderOil() {
-		super("lavenderoil");
+		super("lavender_oil");
 	}
 }
