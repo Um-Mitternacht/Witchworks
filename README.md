@@ -3,4 +3,4 @@ Witchery Clone [![Build Status](https://travis-ci.org/Um-Mitternacht/Wiccan_Arts
 
 WIP
 
-A work in progress.
+A witchery-like mod in the progress.
