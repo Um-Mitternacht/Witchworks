@@ -7,6 +7,6 @@ package com.wiccanarts.client;
  */
 public final class ResourceLocations {
 
-    private ResourceLocations() {
-    }
+	private ResourceLocations() {
+	}
 }

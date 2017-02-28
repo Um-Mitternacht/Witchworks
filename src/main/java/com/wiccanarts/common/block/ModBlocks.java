@@ -13,10 +13,10 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBlocks {
 
-    public static void init() {
-        VanillaCrafting.blocks();
-    }
+	public static void init() {
+		VanillaCrafting.blocks();
+	}
 
-    public static void initOreDictionary() {
-    }
+	public static void initOreDictionary() {
+	}
 }

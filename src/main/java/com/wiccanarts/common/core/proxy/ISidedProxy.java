@@ -12,11 +12,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  */
 public interface ISidedProxy {
 
-    void preInit(FMLPreInitializationEvent event);
+	void preInit(FMLPreInitializationEvent event);
 
-    void init(FMLInitializationEvent event);
+	void init(FMLInitializationEvent event);
 
-    void postInit(FMLPostInitializationEvent event);
+	void postInit(FMLPostInitializationEvent event);
 
-    void displayRecordText(ITextComponent text);
+	void displayRecordText(ITextComponent text);
 }

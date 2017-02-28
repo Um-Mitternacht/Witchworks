@@ -18,66 +18,66 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public final class ModelHandler {
 
-    private ModelHandler() {
-    }
+	private ModelHandler() {
+	}
 
-    /**
-     * Register all Item and Block models from the registry.
-     */
-    public static void registerModels() {
-        for (Block block : Block.REGISTRY) {
-            if (block instanceof IModelRegister)
-                ((IModelRegister) block).registerModels();
-        }
+	/**
+	 * Register all Item and Block models from the registry.
+	 */
+	public static void registerModels() {
+		for (Block block : Block.REGISTRY) {
+			if (block instanceof IModelRegister)
+				((IModelRegister) block).registerModels();
+		}
 
-        for (Item item : Item.REGISTRY) {
-            if (item instanceof IModelRegister)
-                ((IModelRegister) item).registerModels();
-        }
-    }
+		for (Item item : Item.REGISTRY) {
+			if (item instanceof IModelRegister)
+				((IModelRegister) item).registerModels();
+		}
+	}
 
-    //Items
-    public static void registerItem(Item item) {
-        registerItem(item, 0);
-    }
+	//Items
+	public static void registerItem(Item item) {
+		registerItem(item, 0);
+	}
 
-    public static void registerItem(Item item, int meta) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-    }
+	public static void registerItem(Item item, int meta) {
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+	}
 
-    public static void registerItemAllMeta(Item item, int meta) {
-        registerMetas(item, meta, item.getRegistryName().getResourcePath());
-    }
+	public static void registerItemAllMeta(Item item, int meta) {
+		registerMetas(item, meta, item.getRegistryName().getResourcePath());
+	}
 
-    //Blocks
-    public static void registerBlock(Block block) {
-        registerBlock(block, 0);
-    }
+	//Blocks
+	public static void registerBlock(Block block) {
+		registerBlock(block, 0);
+	}
 
-    public static void registerBlock(Block block, int meta) {
-        Item iBlock = Item.getItemFromBlock(block);
-        if (iBlock == null) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
-        ModelLoader.setCustomModelResourceLocation(iBlock, meta, new ModelResourceLocation(block.getRegistryName(), "inventory"));
-    }
+	public static void registerBlock(Block block, int meta) {
+		Item iBlock = Item.getItemFromBlock(block);
+		if (iBlock == null) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+		ModelLoader.setCustomModelResourceLocation(iBlock, meta, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+	}
 
-    public static void registerBlockAllMeta(Block block, int meta) {
-        Item iBlock = Item.getItemFromBlock(block);
-        if (iBlock == null) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
-        registerMetas(iBlock, meta, block.getRegistryName().getResourcePath());
-    }
+	public static void registerBlockAllMeta(Block block, int meta) {
+		Item iBlock = Item.getItemFromBlock(block);
+		if (iBlock == null) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+		registerMetas(iBlock, meta, block.getRegistryName().getResourcePath());
+	}
 
-    /**
-     * Set a new model resource location to an Item for as many meta the item has.
-     *
-     * @param item     The Item
-     * @param maxMeta  The max meta
-     * @param itemName The name of the Item
-     */
-    public static void registerMetas(Item item, int maxMeta, String itemName) {
-        for (int i = 0; i < maxMeta; i++) {
-            ModelLoader.setCustomModelResourceLocation(item, i,
-                    new ModelResourceLocation(LibMod.MOD_ID + ":" + itemName + "_" + i, "inventory")
-            );
-        }
-    }
+	/**
+	 * Set a new model resource location to an Item for as many meta the item has.
+	 *
+	 * @param item     The Item
+	 * @param maxMeta  The max meta
+	 * @param itemName The name of the Item
+	 */
+	public static void registerMetas(Item item, int maxMeta, String itemName) {
+		for (int i = 0; i < maxMeta; i++) {
+			ModelLoader.setCustomModelResourceLocation(item, i,
+					new ModelResourceLocation(LibMod.MOD_ID + ":" + itemName + "_" + i, "inventory")
+			);
+		}
+	}
 }

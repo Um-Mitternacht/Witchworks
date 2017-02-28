@@ -18,10 +18,10 @@ import net.minecraft.item.Item;
  */
 public class ItemMod extends Item {
 
-    public ItemMod(String id) {
-        super();
-        setRegistryName(id);
-        setUnlocalizedName(id);
-        setCreativeTab(WiccanArts.CREATIVE_TAB);
-    }
+	public ItemMod(String id) {
+		super();
+		setRegistryName(id);
+		setUnlocalizedName(id);
+		setCreativeTab(WiccanArts.CREATIVE_TAB);
+	}
 }

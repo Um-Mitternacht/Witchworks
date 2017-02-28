@@ -21,28 +21,28 @@ import net.minecraftforge.common.config.Config.Comment;
 @Config(modid = LibMod.MOD_ID)
 public class ConfigHandler {
 
-    @Comment("Don't change this if you don't know what you are doing")
-    public static WiccanArts wiccanArts = new WiccanArts();
+	@Comment("Don't change this if you don't know what you are doing")
+	public static WiccanArts wiccanArts = new WiccanArts();
 
-    public static class WiccanArts {
+	public static class WiccanArts {
 
-        @Comment("")
-        public Crafting crafting = new Crafting();
-        @Comment("")
-        public WorldGen worldGen = new WorldGen();
-        @Comment("")
-        public Spawning spawning = new Spawning();
+		@Comment("")
+		public Crafting crafting = new Crafting();
+		@Comment("")
+		public WorldGen worldGen = new WorldGen();
+		@Comment("")
+		public Spawning spawning = new Spawning();
 
-        public static class Crafting {
+		public static class Crafting {
 
-        }
+		}
 
-        public static class WorldGen {
+		public static class WorldGen {
 
-        }
+		}
 
-        public static class Spawning {
+		public static class Spawning {
 
-        }
-    }
+		}
+	}
 }

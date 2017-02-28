@@ -23,72 +23,72 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy implements ISidedProxy {
 
-    /**
-     * Here you can register your Item models that do not have a class.
-     * <p>
-     * According to the registry name of the item, the model loader will look
-     * into the models file and bind the item to its corresponding model.
-     * </p>
-     */
-    @SideOnly(Side.CLIENT)
-    @SubscribeEvent
-    public static void registerItemModels(ModelRegistryEvent event) {
-        ModelHandler.registerModels(); //These do have a class, but need to be registered in the event
-    }
+	/**
+	 * Here you can register your Item models that do not have a class.
+	 * <p>
+	 * According to the registry name of the item, the model loader will look
+	 * into the models file and bind the item to its corresponding model.
+	 * </p>
+	 */
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public static void registerItemModels(ModelRegistryEvent event) {
+		ModelHandler.registerModels(); //These do have a class, but need to be registered in the event
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void preInit(FMLPreInitializationEvent event) {
-        registerRenders();
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void preInit(FMLPreInitializationEvent event) {
+		registerRenders();
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void init(FMLInitializationEvent event) {
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void init(FMLInitializationEvent event) {
 
-    }
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void postInit(FMLPostInitializationEvent event) {
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void postInit(FMLPostInitializationEvent event) {
 
-    }
+	}
 
-    /**
-     * Register here all Renders. For example:
-     * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
-     * or
-     * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
-     *
-     * @see RenderingRegistry
-     */
-    @SideOnly(Side.CLIENT)
-    private void registerRenders() {
+	/**
+	 * Register here all Renders. For example:
+	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
+	 * or
+	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
+	 *
+	 * @see RenderingRegistry
+	 */
+	@SideOnly(Side.CLIENT)
+	private void registerRenders() {
 
-    }
+	}
 
-    /**
-     * Display a Record text with a format and localization.
-     *
-     * @param text An {@link ITextComponent}
-     */
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void displayRecordText(ITextComponent text) {
-        Minecraft.getMinecraft().ingameGUI.setRecordPlaying(text.getFormattedText(), false);
-    }
+	/**
+	 * Display a Record text with a format and localization.
+	 *
+	 * @param text An {@link ITextComponent}
+	 */
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void displayRecordText(ITextComponent text) {
+		Minecraft.getMinecraft().ingameGUI.setRecordPlaying(text.getFormattedText(), false);
+	}
 
-    @SideOnly(Side.CLIENT)
-    private boolean doParticle() {
-        if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
-            return false;
+	@SideOnly(Side.CLIENT)
+	private boolean doParticle() {
+		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
+			return false;
 
-        float chance = 1F;
-        if (Minecraft.getMinecraft().gameSettings.particleSetting == 1)
-            chance = 0.6F;
-        else if (Minecraft.getMinecraft().gameSettings.particleSetting == 2)
-            chance = 0.2F;
+		float chance = 1F;
+		if (Minecraft.getMinecraft().gameSettings.particleSetting == 1)
+			chance = 0.6F;
+		else if (Minecraft.getMinecraft().gameSettings.particleSetting == 2)
+			chance = 0.2F;
 
-        return chance == 1F || Math.random() < chance;
-    }
+		return chance == 1F || Math.random() < chance;
+	}
 }

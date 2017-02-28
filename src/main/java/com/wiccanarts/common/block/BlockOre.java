@@ -9,7 +9,7 @@ import net.minecraft.block.material.Material;
  */
 public class BlockOre extends Block {
 
-    public BlockOre(Material blockMaterialIn, MapColor blockMapColorIn) {
-        super(blockMaterialIn, blockMapColorIn);
-    }
+	public BlockOre(Material blockMaterialIn, MapColor blockMapColorIn) {
+		super(blockMaterialIn, blockMapColorIn);
+	}
 }
