@@ -5,6 +5,6 @@ package com.wiccanarts.common.item;
  */
 public class Nuummite extends ItemMod {
 	public Nuummite() {
-		super("nuumite");
+		super("nuummite");
 	}
 }
