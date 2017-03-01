@@ -2,6 +2,7 @@ package com.wiccanarts.client.core;
 
 import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
+import com.wiccanarts.common.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -33,6 +34,14 @@ public class ClientProxy implements ISidedProxy {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public static void registerItemModels(ModelRegistryEvent event) {
+		ModelHandler.registerItem(ModItems.garnet);
+		ModelHandler.registerItem(ModItems.moldavite);
+		ModelHandler.registerItem(ModItems.nuumite);
+		ModelHandler.registerItem(ModItems.petoskey_stone);
+		ModelHandler.registerItem(ModItems.serpentine);
+		ModelHandler.registerItem(ModItems.tigers_eye);
+		ModelHandler.registerItem(ModItems.tourmaline);
+
 		ModelHandler.registerModels(); //These do have a class, but need to be registered in the event
 	}
 

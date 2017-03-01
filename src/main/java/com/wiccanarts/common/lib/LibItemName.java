@@ -6,5 +6,11 @@ package com.wiccanarts.common.lib;
  * the MIT license.
  */
 public final class LibItemName {
-
+	public static final String GARNET = "garnet";
+	public static final String MOLDAVITE = "moldavite";
+	public static final String NUUMITE = "nuumite";
+	public static final String PETOSKEY_STONE = "petoskey_stone";
+	public static final String SERPENTINE = "serpentine";
+	public static final String TIGERS_EYE = "tigers_eye";
+	public static final String TOURMALINE = "tourmaline";
 }

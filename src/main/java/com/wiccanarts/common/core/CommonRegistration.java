@@ -1,5 +1,7 @@
 package com.wiccanarts.common.core;
 
+import com.wiccanarts.common.item.ItemMod;
+import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -18,7 +20,15 @@ public class CommonRegistration {
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
-		event.getRegistry().registerAll();
+		event.getRegistry().registerAll(
+				new ItemMod(LibItemName.GARNET),
+				new ItemMod(LibItemName.MOLDAVITE),
+				new ItemMod(LibItemName.NUUMITE),
+				new ItemMod(LibItemName.PETOSKEY_STONE),
+				new ItemMod(LibItemName.SERPENTINE),
+				new ItemMod(LibItemName.TIGERS_EYE),
+				new ItemMod(LibItemName.TOURMALINE)
+		);
 	}
 
 	private static Item itemBlock(Block block) {

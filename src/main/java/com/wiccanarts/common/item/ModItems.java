@@ -2,6 +2,7 @@ package com.wiccanarts.common.item;
 
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibMod;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -11,6 +12,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 @GameRegistry.ObjectHolder(LibMod.MOD_ID)
 public final class ModItems {
+
+	public static final Item garnet = new Item();
+	public static final Item moldavite = new Item();
+	public static final Item nuumite = new Item();
+	public static final Item petoskey_stone = new Item();
+	public static final Item serpentine = new Item();
+	public static final Item tigers_eye = new Item();
+	public static final Item tourmaline = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
