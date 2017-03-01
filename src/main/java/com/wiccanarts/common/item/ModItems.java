@@ -15,7 +15,7 @@ public final class ModItems {
 
 	public static final Item garnet = new Item();
 	public static final Item moldavite = new Item();
-	public static final Item nuumite = new Item();
+	public static final Item nummite = new Item();
 	public static final Item petoskey_stone = new Item();
 	public static final Item serpentine = new Item();
 	public static final Item tigers_eye = new Item();
