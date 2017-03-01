@@ -36,7 +36,7 @@ public class ClientProxy implements ISidedProxy {
 	public static void registerItemModels(ModelRegistryEvent event) {
 		ModelHandler.registerItem(ModItems.garnet);
 		ModelHandler.registerItem(ModItems.moldavite);
-		ModelHandler.registerItem(ModItems.nummite);
+		ModelHandler.registerItem(ModItems.nuummite);
 		ModelHandler.registerItem(ModItems.petoskey_stone);
 		ModelHandler.registerItem(ModItems.serpentine);
 		ModelHandler.registerItem(ModItems.tigers_eye);
