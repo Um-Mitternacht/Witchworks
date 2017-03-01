@@ -23,7 +23,7 @@ public class CommonRegistration {
 		event.getRegistry().registerAll(
 				new ItemMod(LibItemName.GARNET),
 				new ItemMod(LibItemName.MOLDAVITE),
-				new ItemMod(LibItemName.NUUMITE),
+				new ItemMod(LibItemName.NUUMMITE),
 				new ItemMod(LibItemName.PETOSKEY_STONE),
 				new ItemMod(LibItemName.SERPENTINE),
 				new ItemMod(LibItemName.TIGERS_EYE),
