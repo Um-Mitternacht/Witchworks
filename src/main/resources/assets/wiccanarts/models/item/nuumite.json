@@ -1,7 +1,7 @@
 {
   "parent": "builtin/generated",
   "textures": {
-	"layer0": "wiccanarts:items/nuumite"
+	"layer0": "wiccanarts:items/nuummite"
   },
   "display": {
 	"firstperson_righthand": {
