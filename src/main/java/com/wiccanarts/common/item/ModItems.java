@@ -1,40 +1,50 @@
 package com.wiccanarts.common.item;
 
 import com.wiccanarts.common.crafting.VanillaCrafting;
+import com.wiccanarts.common.lib.LibItemName;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+
+import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@GameRegistry.ObjectHolder(LibMod.MOD_ID)
+@ObjectHolder(LibMod.MOD_ID)
 public final class ModItems {
 
-	public static final Item garnet = new Item();
-	public static final Item moldavite = new Item();
-	public static final Item nuummite = new Item();
-	public static final Item petoskey_stone = new Item();
-	public static final Item serpentine = new Item();
-	public static final Item tigers_eye = new Item();
-	public static final Item tourmaline = new Item();
-	public static final Item bloodstone = new Item();
+	@ObjectHolder(LibItemName.GARNET)
+	public static final Item GARNET = new Item();
+	@ObjectHolder(LibItemName.MOLDAVITE)
+	public static final Item MOLDAVITE = new Item();
+	@ObjectHolder(LibItemName.NUUMMITE)
+	public static final Item NUUMMITE = new Item();
+	@ObjectHolder(LibItemName.PETOSKEY_STONE)
+	public static final Item PETOSKEY_STONE = new Item();
+	@ObjectHolder(LibItemName.SERPENTINE)
+	public static final Item SERPENTINE = new Item();
+	@ObjectHolder(LibItemName.TIGERS_EYE)
+	public static final Item TIGERS_EYE = new Item();
+	@ObjectHolder(LibItemName.TOURMALINE)
+	public static final Item TOURMALINE = new Item();
+	@ObjectHolder(LibItemName.BLOOD_STONE)
+	public static final Item BLOOD_STONE = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
 	}
 
 	public static void initOreDictionary() {
-		OreDictionary.registerOre("gemBloodstone", new ItemStack(ModItems.bloodstone));
-		OreDictionary.registerOre("gemMoldavite", new ItemStack(ModItems.moldavite));
-		OreDictionary.registerOre("gemNuummite", new ItemStack(ModItems.nuummite));
-		OreDictionary.registerOre("gemGarnet", new ItemStack(ModItems.garnet));
-		OreDictionary.registerOre("gemTourmaline", new ItemStack(ModItems.tourmaline));
-		OreDictionary.registerOre("gemTigersEye", new ItemStack(ModItems.tigers_eye));
-		OreDictionary.registerOre("gemPetoskeyStone", new ItemStack(ModItems.petoskey_stone));
+		OreDictionary.registerOre("gemBloodStone", new ItemStack(ModItems.BLOOD_STONE));
+		OreDictionary.registerOre("gemMoldavite", new ItemStack(ModItems.MOLDAVITE));
+		OreDictionary.registerOre("gemNuummite", new ItemStack(ModItems.NUUMMITE));
+		OreDictionary.registerOre("gemGarnet", new ItemStack(ModItems.GARNET));
+		OreDictionary.registerOre("gemTourmaline", new ItemStack(ModItems.TOURMALINE));
+		OreDictionary.registerOre("gemTigersEye", new ItemStack(ModItems.TIGERS_EYE));
+		OreDictionary.registerOre("gemPetoskeyStone", new ItemStack(ModItems.PETOSKEY_STONE));
 	}
 }

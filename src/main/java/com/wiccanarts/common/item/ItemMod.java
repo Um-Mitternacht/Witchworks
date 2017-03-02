@@ -8,7 +8,7 @@
  */
 package com.wiccanarts.common.item;
 
-import com.wiccanarts.common.WiccanArts;
+import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import net.minecraft.item.Item;
 
 /**
@@ -22,6 +22,6 @@ public class ItemMod extends Item {
 		super();
 		setRegistryName(id);
 		setUnlocalizedName(id);
-		setCreativeTab(WiccanArts.CREATIVE_TAB);
+		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 }

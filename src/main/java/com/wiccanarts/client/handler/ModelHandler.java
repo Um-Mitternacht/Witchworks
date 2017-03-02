@@ -5,6 +5,7 @@ import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.IStringSerializable;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,8 +46,12 @@ public final class ModelHandler {
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
 
-	public static void registerItemAllMeta(Item item, int meta) {
-		registerMetas(item, meta, item.getRegistryName().getResourcePath());
+	public static void registerItemAllType(Item item, IStringSerializable[] values) {
+		registerEnums(item, values, item.getRegistryName().getResourcePath());
+	}
+
+	public static void registerItemAllMeta(Item item, int metas) {
+		registerMetas(item, metas, item.getRegistryName().getResourcePath());
 	}
 
 	//Blocks
@@ -60,10 +65,16 @@ public final class ModelHandler {
 		ModelLoader.setCustomModelResourceLocation(iBlock, meta, new ModelResourceLocation(block.getRegistryName(), "inventory"));
 	}
 
-	public static void registerBlockAllMeta(Block block, int meta) {
+	public static void registerBlockAllType(Block block, IStringSerializable[] values) {
 		Item iBlock = Item.getItemFromBlock(block);
 		if (iBlock == null) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
-		registerMetas(iBlock, meta, block.getRegistryName().getResourcePath());
+		registerEnums(iBlock, values, iBlock.getRegistryName().getResourcePath());
+	}
+
+	public static void registerBlockAllMeta(Block block, int metas) {
+		Item iBlock = Item.getItemFromBlock(block);
+		if (iBlock == null) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+		registerMetas(iBlock, metas, block.getRegistryName().getResourcePath());
 	}
 
 	/**
@@ -77,6 +88,22 @@ public final class ModelHandler {
 		for (int i = 0; i < maxMeta; i++) {
 			ModelLoader.setCustomModelResourceLocation(item, i,
 					new ModelResourceLocation(LibMod.MOD_ID + ":" + itemName + "_" + i, "inventory")
+			);
+		}
+	}
+
+	/**
+	 * Set a new model resource location to an Item for as many enums there are.
+	 *
+	 * @param item     The Item
+	 * @param values   The enum which holds the different Item Types
+	 * @param itemName The name of the Item
+	 */
+	public static void registerEnums(Item item, IStringSerializable[] values, String itemName) {
+		for (int i = 0; i < values.length; i++) {
+			IStringSerializable e = values[i];
+			ModelLoader.setCustomModelResourceLocation(item, i,
+					new ModelResourceLocation(LibMod.MOD_ID + ":" + itemName + "_" + e.getName(), "inventory")
 			);
 		}
 	}

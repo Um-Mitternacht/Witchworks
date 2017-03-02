@@ -8,7 +8,7 @@
  */
 package com.wiccanarts.common.block;
 
-import com.wiccanarts.common.WiccanArts;
+import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -26,7 +26,7 @@ public class BlockMod extends Block {
 		setUnlocalizedName(id);
 		setDefaultState(defaultState());
 		setRegistryName(id);
-		setCreativeTab(WiccanArts.CREATIVE_TAB);
+		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	public Block setSound(SoundType type) {

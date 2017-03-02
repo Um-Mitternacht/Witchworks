@@ -15,5 +15,9 @@ package com.wiccanarts.common.lib;
  */
 public final class LibBlockName {
 
-
+	public static final String CROP_ACONITUM = "crop_aconitum";
+	public static final String CROP_ASPHODEL = "crop_asphodel";
+	public static final String CROP_BELLADONNA = "crop_belladonna";
+	public static final String CROP_GINGER = "crop_ginger";
+	public static final String CROP_KELP= "crop_kelp";
 }

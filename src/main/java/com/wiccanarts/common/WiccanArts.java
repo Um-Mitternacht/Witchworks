@@ -1,7 +1,7 @@
 package com.wiccanarts.common;
 
 import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.core.WiccanArtsCreativeTab;
+import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import com.wiccanarts.common.core.event.ModEvents;
 import com.wiccanarts.common.core.handler.ModSounds;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
@@ -25,8 +25,6 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 @SuppressWarnings("WeakerAccess")
 @Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WiccanArts {
-
-	public static final WiccanArtsCreativeTab CREATIVE_TAB = new WiccanArtsCreativeTab();
 
 	@Instance(LibMod.MOD_ID)
 	public static WiccanArts instance;
