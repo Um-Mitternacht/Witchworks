@@ -30,5 +30,11 @@ public final class ModItems {
 
 	public static void initOreDictionary() {
 		OreDictionary.registerOre("gemBloodstone", new ItemStack(ModItems.bloodstone));
+		OreDictionary.registerOre("gemMoldavite", new ItemStack(ModItems.moldavite));
+		OreDictionary.registerOre("gemNuummite", new ItemStack(ModItems.nuummite));
+		OreDictionary.registerOre("gemGarnet", new ItemStack(ModItems.garnet));
+		OreDictionary.registerOre("gemTourmaline", new ItemStack(ModItems.tourmaline));
+		OreDictionary.registerOre("gemTigersEye", new ItemStack(ModItems.tigers_eye));
+		OreDictionary.registerOre("gemPetoskeyStone", new ItemStack(ModItems.petoskey_stone));
 	}
 }
