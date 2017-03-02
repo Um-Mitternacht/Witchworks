@@ -103,6 +103,13 @@ tasks.withType(JavaCompile) {
     options.encoding = "utf8"
 }
 
+runClient {
+    if( project.hasProperty("mcUsername") && project.hasProperty("mcPassword") ) {
+        args "--username=${project.mcUsername}"
+        args "--password=${project.mcPassword}"
+    }
+}
+
 // task sourceJar(type: Jar) {
 //    from sourceSets.main.allSource
 //    from(sourceSets.api.allSource) {
