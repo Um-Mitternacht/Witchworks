@@ -56,6 +56,7 @@ public class WiccanArtsCreativeTab extends CreativeTabs {
 		addItem(ModItems.serpentine);
 		addItem(ModItems.tourmaline);
 		addItem(ModItems.tigers_eye);
+		addItem(ModItems.bloodstone);
 	}
 
 	@SideOnly(Side.CLIENT)

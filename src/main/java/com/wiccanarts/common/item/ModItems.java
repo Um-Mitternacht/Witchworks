@@ -20,6 +20,7 @@ public final class ModItems {
 	public static final Item serpentine = new Item();
 	public static final Item tigers_eye = new Item();
 	public static final Item tourmaline = new Item();
+	public static final Item bloodstone = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();

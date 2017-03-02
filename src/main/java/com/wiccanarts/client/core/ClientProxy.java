@@ -41,6 +41,7 @@ public class ClientProxy implements ISidedProxy {
 		ModelHandler.registerItem(ModItems.serpentine);
 		ModelHandler.registerItem(ModItems.tigers_eye);
 		ModelHandler.registerItem(ModItems.tourmaline);
+		ModelHandler.registerItem(ModItems.bloodstone);
 
 		ModelHandler.registerModels(); //These do have a class, but need to be registered in the event
 	}

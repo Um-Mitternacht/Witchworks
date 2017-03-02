@@ -13,4 +13,5 @@ public final class LibItemName {
 	public static final String SERPENTINE = "serpentine";
 	public static final String TIGERS_EYE = "tigers_eye";
 	public static final String TOURMALINE = "tourmaline";
+	public static final String BLOODSTONE = "bloodstone";
 }
