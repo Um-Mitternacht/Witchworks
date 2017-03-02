@@ -48,7 +48,7 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SERPENTINE),
 				new ItemMod(LibItemName.TIGERS_EYE),
 				new ItemMod(LibItemName.TOURMALINE),
-				new ItemMod(LibItemName.BLOOD_STONE)
+				new ItemMod(LibItemName.BLOODSTONE)
 		);
 
 		//Item Blocks

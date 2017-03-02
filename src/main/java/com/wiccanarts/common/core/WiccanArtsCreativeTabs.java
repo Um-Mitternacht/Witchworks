@@ -107,7 +107,7 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.SERPENTINE);
 			addItem(ModItems.TOURMALINE);
 			addItem(ModItems.TIGERS_EYE);
-			addItem(ModItems.BLOOD_STONE);
+			addItem(ModItems.BLOODSTONE);
 		}
 	}
 }

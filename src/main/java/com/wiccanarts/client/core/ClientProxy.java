@@ -43,7 +43,7 @@ public class ClientProxy implements ISidedProxy {
 		ModelHandler.registerItem(ModItems.SERPENTINE);
 		ModelHandler.registerItem(ModItems.TIGERS_EYE);
 		ModelHandler.registerItem(ModItems.TOURMALINE);
-		ModelHandler.registerItem(ModItems.BLOOD_STONE);
+		ModelHandler.registerItem(ModItems.BLOODSTONE);
 	}
 
 	@SideOnly(Side.CLIENT)

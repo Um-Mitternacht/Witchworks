@@ -31,15 +31,15 @@ public final class ModItems {
 	public static final Item TIGERS_EYE = new Item();
 	@ObjectHolder(LibItemName.TOURMALINE)
 	public static final Item TOURMALINE = new Item();
-	@ObjectHolder(LibItemName.BLOOD_STONE)
-	public static final Item BLOOD_STONE = new Item();
+	@ObjectHolder(LibItemName.BLOODSTONE)
+	public static final Item BLOODSTONE = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
 	}
 
 	public static void initOreDictionary() {
-		OreDictionary.registerOre("gemBloodStone", new ItemStack(ModItems.BLOOD_STONE));
+		OreDictionary.registerOre("gemBloodStone", new ItemStack(ModItems.BLOODSTONE));
 		OreDictionary.registerOre("gemMoldavite", new ItemStack(ModItems.MOLDAVITE));
 		OreDictionary.registerOre("gemNuummite", new ItemStack(ModItems.NUUMMITE));
 		OreDictionary.registerOre("gemGarnet", new ItemStack(ModItems.GARNET));
