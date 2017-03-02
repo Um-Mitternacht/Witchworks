@@ -18,7 +18,7 @@ public enum Crop {
 
 	private final Block soil;
 
-	Crop(Block soil){
+	Crop(Block soil) {
 		this.soil = soil;
 	}
 

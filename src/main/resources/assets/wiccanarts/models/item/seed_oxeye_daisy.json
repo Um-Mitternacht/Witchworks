@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "grimoireofalice:items/seed_oxeye_daisy"
-    }
+  "parent": "item/generated",
+  "textures": {
+	"layer0": "grimoireofalice:items/seed_oxeye_daisy"
+  }
 }

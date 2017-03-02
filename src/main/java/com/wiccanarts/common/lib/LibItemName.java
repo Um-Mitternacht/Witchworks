@@ -17,7 +17,7 @@ public final class LibItemName {
 	public static final String GINGER = "ginger";
 	public static final String SEED_GINGER = "seed_ginger";
 	public static final String KELP = "kelp";
-	public static final String SEED_KELP= "seed_kelp";
+	public static final String SEED_KELP = "seed_kelp";
 
 	//Gems
 	public static final String GARNET = "garnet";

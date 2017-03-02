@@ -32,8 +32,7 @@ public class ItemKelpSeed extends ItemSeed {
 
 		if (raytraceresult == null) {
 			return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
-		}
-		else {
+		} else {
 			if (raytraceresult.typeOfHit == RayTraceResult.Type.BLOCK) {
 				BlockPos blockpos = raytraceresult.getBlockPos();
 

@@ -9,7 +9,7 @@ import com.wiccanarts.common.lib.LibBlockName;
  */
 public class BlockBelladonna extends BlockCrop {
 
-	public BlockBelladonna(){
+	public BlockBelladonna() {
 		super(LibBlockName.CROP_BELLADONNA);
 	}
 }

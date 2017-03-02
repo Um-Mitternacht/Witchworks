@@ -9,7 +9,7 @@ import com.wiccanarts.common.lib.LibBlockName;
  */
 public class BlockAconitum extends BlockCrop {
 
-	public BlockAconitum(){
+	public BlockAconitum() {
 		super(LibBlockName.CROP_ACONITUM);
 	}
 }

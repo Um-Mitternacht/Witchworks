@@ -10,7 +10,8 @@ import net.minecraft.item.EnumDyeColor;
  */
 public final class WiccanArtsState {
 
-	private WiccanArtsState(){}
-
 	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.create("color", EnumDyeColor.class);
+
+	private WiccanArtsState() {
+	}
 }

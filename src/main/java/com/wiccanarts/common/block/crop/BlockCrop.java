@@ -2,7 +2,6 @@ package com.wiccanarts.common.block.crop;
 
 import com.wiccanarts.api.item.IModelRegister;
 import com.wiccanarts.client.handler.ModelHandler;
-import com.wiccanarts.common.WiccanArts;
 import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.item.Item;
@@ -19,7 +18,8 @@ public class BlockCrop extends BlockCrops implements IModelRegister {
 	private Item seed;
 	private Item crop;
 
-	public BlockCrop(){}
+	public BlockCrop() {
+	}
 
 	public BlockCrop(String id) {
 		super();

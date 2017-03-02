@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "grimoireofalice:items/aconitum"
-    }
+  "parent": "item/generated",
+  "textures": {
+	"layer0": "grimoireofalice:items/aconitum"
+  }
 }

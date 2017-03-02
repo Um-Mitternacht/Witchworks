@@ -1,6 +1,6 @@
 {
-    "parent": "block/cross",
-    "textures": {
-        "cross": "grimoireofalice:blocks/crop_mandrake_root"
-    }
+  "parent": "block/cross",
+  "textures": {
+	"cross": "grimoireofalice:blocks/crop_mandrake_root"
+  }
 }

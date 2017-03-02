@@ -1,7 +1,6 @@
 package com.wiccanarts.common;
 
 import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import com.wiccanarts.common.core.event.ModEvents;
 import com.wiccanarts.common.core.handler.ModSounds;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
