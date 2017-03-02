@@ -1,6 +1,8 @@
 package com.wiccanarts.common.core;
 
 import com.wiccanarts.common.lib.LibMod;
+import com.wiccanarts.common.item.ItemMod;
+import com.wiccanarts.common.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -47,6 +49,13 @@ public class WiccanArtsCreativeTab extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public void displayAllRelevantItems(List<ItemStack> list) {
 		this.list = list;
+		addItem(ModItems.garnet);
+		addItem(ModItems.nuummite);
+		addItem(ModItems.moldavite);
+		addItem(ModItems.petoskey_stone);
+		addItem(ModItems.serpentine);
+		addItem(ModItems.tourmaline);
+		addItem(ModItems.tigers_eye);
 	}
 
 	@SideOnly(Side.CLIENT)
