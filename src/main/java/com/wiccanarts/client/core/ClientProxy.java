@@ -85,7 +85,7 @@ public class ClientProxy implements ISidedProxy {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void displayRecordText(ITextComponent text) {
-		Minecraft.getMinecraft().ingameGUI.setRecordPlaying(text.getFormattedText(), false);
+		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
 
 	@SideOnly(Side.CLIENT)
