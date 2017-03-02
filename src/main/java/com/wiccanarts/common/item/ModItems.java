@@ -3,7 +3,9 @@ package com.wiccanarts.common.item;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
@@ -27,5 +29,6 @@ public final class ModItems {
 	}
 
 	public static void initOreDictionary() {
+		OreDictionary.registerOre("gemBloodstone", new ItemStack(ModItems.bloodstone));
 	}
 }
