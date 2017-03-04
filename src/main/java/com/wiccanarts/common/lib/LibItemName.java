@@ -44,4 +44,5 @@ public final class LibItemName {
 
 	//Ingredients
 	public static final String WAX = "wax";
+	public static final String SALT = "salt";
 }
