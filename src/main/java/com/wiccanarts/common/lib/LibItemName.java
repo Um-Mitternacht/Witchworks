@@ -49,4 +49,13 @@ public final class LibItemName {
 	public static final String BEEGRUB = "bee_grub";
 	public static final String BEEQUEEN = "bee_queen";
 	public static final String HONEYCOMB = "honeycomb";
+
+	//Baubles
+	public static final String RING = "ring";
+	public static final String TALISMAN = "talisman";
+	public static final String BELT = "belt";
+	public static final String CHARM = "charm";
+	public static final String AMULET = "amulet";
+	public static final String CROWN = "crown";
+	public static final String SHIRT = "shirt";
 }
