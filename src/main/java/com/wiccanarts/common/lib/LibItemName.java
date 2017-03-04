@@ -45,4 +45,8 @@ public final class LibItemName {
 	//Ingredients
 	public static final String WAX = "wax";
 	public static final String SALT = "salt";
+	public static final String BEE = "bee";
+	public static final String BEEGRUB = "bee_grub";
+	public static final String BEEQUEEN = "bee_queen";
+	public static final String HONEYCOMB = "honeycomb";
 }
