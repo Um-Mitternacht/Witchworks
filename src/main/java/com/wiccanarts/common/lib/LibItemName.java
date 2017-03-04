@@ -32,10 +32,7 @@ public final class LibItemName {
 	public static final String MALACHITE = "malachite";
 	public static final String AMETHYST = "amethyst";
 	public static final String ALEXANDRITE = "alexandrite";
-	public static final String SERPENTINE = "serpentine";
-	public static final String TIGERS_EYE = "tigers_eye";
-	public static final String TOURMALINE = "tourmaline";
-	public static final String BLOODSTONE = "bloodstone";
+	public static final String QUARTZ = "quartz";
 
 	//Metals
 	public static final String SILVER_NUGGET = "silver_nugget";
