@@ -45,8 +45,6 @@ public final class ModItems {
 	public static final Item QUARTZ = new Item();
 
 
-
-
 	@ObjectHolder(LibItemName.SILVER_INGOT)
 	public static final Item SILVER_INGOT = new Item();
 	@ObjectHolder(LibItemName.SILVER_POWDER)
