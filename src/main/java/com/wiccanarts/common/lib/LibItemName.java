@@ -36,4 +36,7 @@ public final class LibItemName {
 
 	//Food Items
 	public static final String HONEY = "honey";
+
+	//Ingredients
+	public static final String WAX = "wax";
 }
