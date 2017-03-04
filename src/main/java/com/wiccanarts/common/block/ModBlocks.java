@@ -4,7 +4,6 @@ import com.wiccanarts.common.block.crop.BlockCrop;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibMod;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;

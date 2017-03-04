@@ -25,7 +25,7 @@ public class VanillaCrafting {
 				.map('A', Items.APPLE)
 				.outputs(Items.SUGAR)
 				.setMirror(true).build();
-		shaped().grid("NNN", "NNN","NNN")
+		shaped().grid("NNN", "NNN", "NNN")
 				.map('N', ModItems.SILVER_NUGGET)
 				.outputs(ModItems.SILVER_INGOT)
 				.setMirror(true).build();
@@ -40,7 +40,7 @@ public class VanillaCrafting {
 	}
 
 	public static void blocks() {
-		shaped().grid("III", "III","III")
+		shaped().grid("III", "III", "III")
 				.map('I', ModItems.SILVER_INGOT)
 				.outputs(ModBlocks.SILVER_BLOCK)
 				.setMirror(true).build();

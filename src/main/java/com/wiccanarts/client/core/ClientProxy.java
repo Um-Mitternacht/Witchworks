@@ -1,7 +1,6 @@
 package com.wiccanarts.client.core;
 
 import com.wiccanarts.client.handler.ModelHandler;
-import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.client.Minecraft;
