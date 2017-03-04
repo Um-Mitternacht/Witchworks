@@ -12,6 +12,6 @@ public class ItemKelp extends ItemCrop {
 
 	public ItemKelp() {
 		super(LibItemName.KELP, 3, 0.8F, false);
-		addPotion(MobEffects.WATER_BREATHING);
+		addPotion(MobEffects.WATER_BREATHING, MobEffects.LUCK);
 	}
 }

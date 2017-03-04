@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 public class ItemHoney extends ItemCrop {
 
 	public ItemHoney() {
-		super(LibItemName.HONEY, 4, 0.8F, false);
-		addPotion(MobEffects.HASTE);
+		super(LibItemName.HONEY, 2, 0.5F, false);
+		addPotion(MobEffects.HASTE, MobEffects.LUCK);
 	}
 }

@@ -17,7 +17,7 @@ public class ItemAconitum extends ItemCrop {
 
 	public ItemAconitum() {
 		super(LibItemName.ACONITUM, 2, 0.6F, false);
-		addPotion(MobEffects.POISON);
+		addPotion(MobEffects.POISON, MobEffects.NAUSEA);
 	}
 
 	@Override
