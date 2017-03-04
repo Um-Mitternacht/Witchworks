@@ -33,4 +33,7 @@ public final class LibItemName {
 	public static final String SILVER_NUGGET = "silver_nugget";
 	public static final String SILVER_POWDER = "silver_powder";
 	public static final String SILVER_INGOT = "silver_ingot";
+
+	//Food Items
+	public static final String HONEY = "honey";
 }
