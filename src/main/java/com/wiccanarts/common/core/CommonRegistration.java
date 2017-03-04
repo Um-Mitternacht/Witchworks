@@ -48,7 +48,11 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SERPENTINE),
 				new ItemMod(LibItemName.TIGERS_EYE),
 				new ItemMod(LibItemName.TOURMALINE),
-				new ItemMod(LibItemName.BLOODSTONE)
+				new ItemMod(LibItemName.BLOODSTONE),
+				new ItemMod(LibItemName.SILVER_POWDER),
+				new ItemMod(LibItemName.SILVER_INGOT),
+				new ItemMod(LibItemName.SILVER_NUGGET)
+
 		);
 
 		//Item Blocks
@@ -57,7 +61,8 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_ASPHODEL),
 				itemBlock(ModBlocks.CROP_BELLADONNA),
 				itemBlock(ModBlocks.CROP_GINGER),
-				itemBlock(ModBlocks.CROP_KELP)
+				itemBlock(ModBlocks.CROP_KELP),
+				itemBlock(ModBlocks.SILVER_BLOCK)
 		);
 	}
 

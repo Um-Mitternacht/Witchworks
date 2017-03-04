@@ -33,6 +33,12 @@ public final class ModItems {
 	public static final Item TOURMALINE = new Item();
 	@ObjectHolder(LibItemName.BLOODSTONE)
 	public static final Item BLOODSTONE = new Item();
+	@ObjectHolder(LibItemName.SILVER_INGOT)
+	public static final Item SILVER_INGOT = new Item();
+	@ObjectHolder(LibItemName.SILVER_POWDER)
+	public static final Item SILVER_POWDER = new Item();
+	@ObjectHolder(LibItemName.SILVER_NUGGET)
+	public static final Item SILVER_NUGGET = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
@@ -46,5 +52,8 @@ public final class ModItems {
 		OreDictionary.registerOre("gemTourmaline", new ItemStack(ModItems.TOURMALINE));
 		OreDictionary.registerOre("gemTigersEye", new ItemStack(ModItems.TIGERS_EYE));
 		OreDictionary.registerOre("gemPetoskeyStone", new ItemStack(ModItems.PETOSKEY_STONE));
+		OreDictionary.registerOre("nuggetSilver", new ItemStack(ModItems.SILVER_NUGGET));
+		OreDictionary.registerOre("ingotSilver", new ItemStack(ModItems.SILVER_INGOT));
+		OreDictionary.registerOre("powderSilver", new ItemStack(ModItems.SILVER_POWDER));
 	}
 }

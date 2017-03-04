@@ -1,5 +1,7 @@
 package com.wiccanarts.common.crafting;
 
+import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -23,9 +25,25 @@ public class VanillaCrafting {
 				.map('A', Items.APPLE)
 				.outputs(Items.SUGAR)
 				.setMirror(true).build();
+		shaped().grid("NNN", "NNN","NNN")
+				.map('N', ModItems.SILVER_NUGGET)
+				.outputs(ModItems.SILVER_INGOT)
+				.setMirror(true).build();
+		shaped().grid("I")
+				.map('I', ModItems.SILVER_INGOT)
+				.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
+				.setMirror(true).build();
+		shaped().grid("B")
+				.map('B', ModBlocks.SILVER_BLOCK)
+				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
+				.setMirror(true).build();
 	}
 
 	public static void blocks() {
+		shaped().grid("III", "III","III")
+				.map('I', ModItems.SILVER_INGOT)
+				.outputs(ModBlocks.SILVER_BLOCK)
+				.setMirror(true).build();
 	}
 
 	private static ShapedRecipe shaped() {

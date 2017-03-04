@@ -1,7 +1,7 @@
 {
   "parent": "builtin/generated",
   "textures": {
-	"layer0": "wiccanarts:items/blood_stone"
+	"layer0": "wiccanarts:items/bloodstone"
   },
   "display": {
 	"firstperson_righthand": {

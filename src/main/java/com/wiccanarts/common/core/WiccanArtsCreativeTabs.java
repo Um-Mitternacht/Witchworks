@@ -1,6 +1,7 @@
 package com.wiccanarts.common.core;
 
 import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.block.Block;
@@ -108,6 +109,10 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.TOURMALINE);
 			addItem(ModItems.TIGERS_EYE);
 			addItem(ModItems.BLOODSTONE);
+			addItem(ModItems.SILVER_POWDER);
+			addItem(ModItems.SILVER_INGOT);
+			addItem(ModItems.SILVER_NUGGET);
+			addBlock(ModBlocks.SILVER_BLOCK);
 		}
 	}
 }

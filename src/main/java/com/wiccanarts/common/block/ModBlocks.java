@@ -4,6 +4,8 @@ import com.wiccanarts.common.block.crop.BlockCrop;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibMod;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 
 import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
@@ -25,6 +27,8 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_GINGER = new BlockCrop();
 	@ObjectHolder(LibBlockName.CROP_KELP)
 	public static final BlockCrop CROP_KELP = new BlockCrop();
+	@ObjectHolder(LibBlockName.SILVER_BLOCK)
+	public static final BlockMod SILVER_BLOCK = new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON);
 
 	public static void init() {
 		VanillaCrafting.blocks();
