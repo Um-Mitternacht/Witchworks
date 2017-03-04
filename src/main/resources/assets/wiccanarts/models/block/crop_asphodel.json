@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-	"cross": "grimoireofalice:blocks/crop_asphodel"
+	"cross": "wiccanarts:blocks/crop_asphodel"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-	"layer0": "grimoireofalice:items/seed_dandelion_root"
+	"layer0": "wiccanarts:items/seed_dandelion_root"
   }
 }

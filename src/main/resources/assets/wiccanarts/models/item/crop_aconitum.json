@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-	"layer0": "grimoireofalice:blocks/crop_aconitum"
+	"layer0": "wiccanarts:blocks/crop_aconitum"
   }
 }
