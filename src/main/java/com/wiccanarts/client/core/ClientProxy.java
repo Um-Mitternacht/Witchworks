@@ -44,6 +44,11 @@ public class ClientProxy implements ISidedProxy {
 		ModelHandler.registerItem(ModItems.TIGERS_EYE);
 		ModelHandler.registerItem(ModItems.TOURMALINE);
 		ModelHandler.registerItem(ModItems.BLOODSTONE);
+		ModelHandler.registerItem(ModItems.JASPER);
+		ModelHandler.registerItem(ModItems.MALACHITE);
+		ModelHandler.registerItem(ModItems.AMETHYST);
+		ModelHandler.registerItem(ModItems.ALEXANDRITE);
+		ModelHandler.registerItem(ModItems.QUARTZ);
 		ModelHandler.registerItem(ModItems.SILVER_POWDER);
 		ModelHandler.registerItem(ModItems.SILVER_NUGGET);
 		ModelHandler.registerItem(ModItems.SILVER_INGOT);

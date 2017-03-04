@@ -49,6 +49,11 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.TIGERS_EYE),
 				new ItemMod(LibItemName.TOURMALINE),
 				new ItemMod(LibItemName.BLOODSTONE),
+				new ItemMod(LibItemName.JASPER),
+				new ItemMod(LibItemName.MALACHITE),
+				new ItemMod(LibItemName.AMETHYST),
+				new ItemMod(LibItemName.ALEXANDRITE),
+				new ItemMod(LibItemName.QUARTZ),
 				new ItemMod(LibItemName.SILVER_POWDER),
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET)

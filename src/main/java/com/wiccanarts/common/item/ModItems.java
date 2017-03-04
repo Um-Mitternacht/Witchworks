@@ -33,6 +33,20 @@ public final class ModItems {
 	public static final Item TOURMALINE = new Item();
 	@ObjectHolder(LibItemName.BLOODSTONE)
 	public static final Item BLOODSTONE = new Item();
+	@ObjectHolder(LibItemName.JASPER)
+	public static final Item JASPER = new Item();
+	@ObjectHolder(LibItemName.MALACHITE)
+	public static final Item MALACHITE = new Item();
+	@ObjectHolder(LibItemName.AMETHYST)
+	public static final Item AMETHYST = new Item();
+	@ObjectHolder(LibItemName.ALEXANDRITE)
+	public static final Item ALEXANDRITE = new Item();
+	@ObjectHolder(LibItemName.QUARTZ)
+	public static final Item QUARTZ = new Item();
+
+
+
+
 	@ObjectHolder(LibItemName.SILVER_INGOT)
 	public static final Item SILVER_INGOT = new Item();
 	@ObjectHolder(LibItemName.SILVER_POWDER)
@@ -52,6 +66,11 @@ public final class ModItems {
 		OreDictionary.registerOre("gemTourmaline", new ItemStack(ModItems.TOURMALINE));
 		OreDictionary.registerOre("gemTigersEye", new ItemStack(ModItems.TIGERS_EYE));
 		OreDictionary.registerOre("gemPetoskeyStone", new ItemStack(ModItems.PETOSKEY_STONE));
+		OreDictionary.registerOre("gemJasper", new ItemStack(ModItems.JASPER));
+		OreDictionary.registerOre("gemMalachite", new ItemStack(ModItems.MALACHITE));
+		OreDictionary.registerOre("gemAmethyst", new ItemStack(ModItems.AMETHYST));
+		OreDictionary.registerOre("gemAlexandrite", new ItemStack(ModItems.ALEXANDRITE));
+		OreDictionary.registerOre("gemQuartz", new ItemStack(ModItems.QUARTZ));
 		OreDictionary.registerOre("nuggetSilver", new ItemStack(ModItems.SILVER_NUGGET));
 		OreDictionary.registerOre("ingotSilver", new ItemStack(ModItems.SILVER_INGOT));
 		OreDictionary.registerOre("powderSilver", new ItemStack(ModItems.SILVER_POWDER));

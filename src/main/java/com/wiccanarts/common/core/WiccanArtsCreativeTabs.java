@@ -109,6 +109,11 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.TOURMALINE);
 			addItem(ModItems.TIGERS_EYE);
 			addItem(ModItems.BLOODSTONE);
+			addItem(ModItems.JASPER);
+			addItem(ModItems.MALACHITE);
+			addItem(ModItems.AMETHYST);
+			addItem(ModItems.ALEXANDRITE);
+			addItem(ModItems.QUARTZ);
 			addItem(ModItems.SILVER_POWDER);
 			addItem(ModItems.SILVER_INGOT);
 			addItem(ModItems.SILVER_NUGGET);
