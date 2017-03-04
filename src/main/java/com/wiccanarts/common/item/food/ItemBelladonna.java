@@ -12,6 +12,6 @@ public class ItemBelladonna extends ItemCrop {
 
 	public ItemBelladonna() {
 		super(LibItemName.BELLADONNA, 6, 1.5F, false);
-		addPotion(MobEffects.POISON, MobEffects.NAUSEA);
+		addPotion(MobEffects.WITHER, MobEffects.NAUSEA);
 	}
 }
