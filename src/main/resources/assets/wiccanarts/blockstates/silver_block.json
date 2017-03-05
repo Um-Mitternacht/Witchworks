@@ -1,10 +1,14 @@
 {
   "variants": {
-	"normal": [{
-	  "model": "wiccanarts:block/sivler_block"
-	}],
-	"inventory": [{
-	  "model": "wiccanarts:silver_block"
-	}]
+	"normal": [
+	  {
+		"model": "wiccanarts:block/silver_block"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:silver_block"
+	  }
+	]
   }
 }

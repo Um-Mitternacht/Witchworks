@@ -27,14 +27,14 @@ public class VanillaCrafting {
 				.outputs(Items.SUGAR)
 				.setMirror(true).build();
 
-		for(ItemStack item : OreDictionary.getOres("nuggetSilver")){
+		for (ItemStack item : OreDictionary.getOres("nuggetSilver")) {
 			System.out.println(item);
 			shaped().grid("NNN", "NNN", "NNN")
 					.map('N', item)
 					.outputs(ModItems.SILVER_INGOT)
 					.setMirror(true).build();
 		}
-		for(ItemStack item : OreDictionary.getOres("ingotSilver")){
+		for (ItemStack item : OreDictionary.getOres("ingotSilver")) {
 			shaped().grid("I")
 					.map('I', item)
 					.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
