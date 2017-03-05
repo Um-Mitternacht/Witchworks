@@ -42,11 +42,11 @@ public class WiccanArts {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
-		ModItems.init();
 		ModItems.initOreDictionary();
+		ModItems.init();
 
-		ModBlocks.init();
 		ModBlocks.initOreDictionary();
+		ModBlocks.init();
 	}
 
 	@EventHandler

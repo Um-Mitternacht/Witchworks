@@ -7,6 +7,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
@@ -25,14 +26,20 @@ public class VanillaCrafting {
 				.map('A', Items.APPLE)
 				.outputs(Items.SUGAR)
 				.setMirror(true).build();
-		shaped().grid("NNN", "NNN", "NNN")
-				.map('N', ModItems.SILVER_NUGGET)
-				.outputs(ModItems.SILVER_INGOT)
-				.setMirror(true).build();
-		shaped().grid("I")
-				.map('I', ModItems.SILVER_INGOT)
-				.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
-				.setMirror(true).build();
+
+		for(ItemStack item : OreDictionary.getOres("nuggetSilver")){
+			System.out.println(item);
+			shaped().grid("NNN", "NNN", "NNN")
+					.map('N', item)
+					.outputs(ModItems.SILVER_INGOT)
+					.setMirror(true).build();
+		}
+		for(ItemStack item : OreDictionary.getOres("ingotSilver")){
+			shaped().grid("I")
+					.map('I', item)
+					.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
+					.setMirror(true).build();
+		}
 		shaped().grid("B")
 				.map('B', ModBlocks.SILVER_BLOCK)
 				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
