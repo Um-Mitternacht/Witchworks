@@ -77,5 +77,8 @@ public final class ModItems {
 		OreDictionary.registerOre("nuggetSilver", new ItemStack(ModItems.SILVER_NUGGET));
 		OreDictionary.registerOre("ingotSilver", new ItemStack(ModItems.SILVER_INGOT));
 		OreDictionary.registerOre("powderSilver", new ItemStack(ModItems.SILVER_POWDER));
+		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY));
 	}
 }
