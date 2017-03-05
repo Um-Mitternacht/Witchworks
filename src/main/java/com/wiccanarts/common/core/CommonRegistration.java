@@ -56,7 +56,8 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.QUARTZ),
 				new ItemMod(LibItemName.SILVER_POWDER),
 				new ItemMod(LibItemName.SILVER_INGOT),
-				new ItemMod(LibItemName.SILVER_NUGGET)
+				new ItemMod(LibItemName.SILVER_NUGGET),
+				new ItemMod(LibItemName.HONEY)
 
 		);
 

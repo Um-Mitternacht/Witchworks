@@ -17,6 +17,7 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModItems {
 
+	//Gemstones
 	@ObjectHolder(LibItemName.GARNET)
 	public static final Item GARNET = new Item();
 	@ObjectHolder(LibItemName.MOLDAVITE)
@@ -44,13 +45,17 @@ public final class ModItems {
 	@ObjectHolder(LibItemName.QUARTZ)
 	public static final Item QUARTZ = new Item();
 
-
+	//Metals
 	@ObjectHolder(LibItemName.SILVER_INGOT)
 	public static final Item SILVER_INGOT = new Item();
 	@ObjectHolder(LibItemName.SILVER_POWDER)
 	public static final Item SILVER_POWDER = new Item();
 	@ObjectHolder(LibItemName.SILVER_NUGGET)
 	public static final Item SILVER_NUGGET = new Item();
+
+	//Food Items
+	@ObjectHolder(LibItemName.HONEY)
+	public static final Item HONEY = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
