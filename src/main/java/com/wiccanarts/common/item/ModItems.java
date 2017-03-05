@@ -62,7 +62,7 @@ public final class ModItems {
 	}
 
 	public static void initOreDictionary() {
-		OreDictionary.registerOre("gemBloodStone", new ItemStack(ModItems.BLOODSTONE));
+		OreDictionary.registerOre("gemBloodstone", new ItemStack(ModItems.BLOODSTONE));
 		OreDictionary.registerOre("gemMoldavite", new ItemStack(ModItems.MOLDAVITE));
 		OreDictionary.registerOre("gemNuummite", new ItemStack(ModItems.NUUMMITE));
 		OreDictionary.registerOre("gemGarnet", new ItemStack(ModItems.GARNET));
