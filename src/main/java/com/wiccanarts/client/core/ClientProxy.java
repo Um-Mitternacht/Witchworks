@@ -1,6 +1,7 @@
 package com.wiccanarts.client.core;
 
 import com.wiccanarts.client.handler.ModelHandler;
+import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.client.Minecraft;
@@ -52,6 +53,8 @@ public class ClientProxy implements ISidedProxy {
 		ModelHandler.registerItem(ModItems.SILVER_POWDER);
 		ModelHandler.registerItem(ModItems.SILVER_NUGGET);
 		ModelHandler.registerItem(ModItems.SILVER_INGOT);
+
+		ModelHandler.registerBlock(ModBlocks.SILVER_BLOCK);
 	}
 
 	@SideOnly(Side.CLIENT)

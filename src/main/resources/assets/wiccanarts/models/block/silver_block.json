@@ -1,6 +1,6 @@
 {
-  "parent": "block/cross",
+  "parent": "block/cube_all",
   "textures": {
-	"cross": "wiccanarts:blocks/silver_block"
+	"all": "wiccanarts:blocks/silver_block"
   }
 }

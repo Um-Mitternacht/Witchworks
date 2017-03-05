@@ -9,6 +9,7 @@
 package com.wiccanarts.common.block;
 
 import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
+import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -25,7 +26,7 @@ public class BlockMod extends Block {
 		super(material);
 		setUnlocalizedName(id);
 		setDefaultState(defaultState());
-		setRegistryName(id);
+		setRegistryName(LibMod.MOD_ID, id);
 		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 

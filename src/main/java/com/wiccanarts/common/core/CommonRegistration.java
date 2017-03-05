@@ -84,7 +84,8 @@ public class CommonRegistration {
 				new BlockAsphodel(),
 				new BlockBelladonna(),
 				new BlockGinger(),
-				new BlockKelp()
+				new BlockKelp(),
+				ModBlocks.SILVER_BLOCK
 		);
 	}
 
