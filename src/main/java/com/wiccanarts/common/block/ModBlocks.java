@@ -29,7 +29,7 @@ public final class ModBlocks {
 	@ObjectHolder(LibBlockName.CROP_KELP)
 	public static final BlockCrop CROP_KELP = new BlockCrop();
 	@ObjectHolder(LibBlockName.SILVER_BLOCK)
-	public static final BlockMod SILVER_BLOCK = new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON);
+	public static final BlockMod SILVER_BLOCK = (BlockMod) new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F);
 	@ObjectHolder(LibBlockName.COQUINA)
 	public static final BlockMod COQUINA = new BlockMod(LibBlockName.COQUINA, Material.ROCK);
 
