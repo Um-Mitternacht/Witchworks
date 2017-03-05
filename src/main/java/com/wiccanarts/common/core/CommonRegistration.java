@@ -67,7 +67,8 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_BELLADONNA),
 				itemBlock(ModBlocks.CROP_GINGER),
 				itemBlock(ModBlocks.CROP_KELP),
-				itemBlock(ModBlocks.SILVER_BLOCK)
+				itemBlock(ModBlocks.SILVER_BLOCK),
+				itemBlock(ModBlocks.COQUINA)
 		);
 	}
 
