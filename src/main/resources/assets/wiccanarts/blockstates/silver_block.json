@@ -2,7 +2,7 @@
   "variants": {
 	"normal": [
 	  {
-		"model": "wiccanarts:block/silver_block"
+		"model": "wiccanarts:silver_block"
 	  }
 	],
 	"inventory": [
