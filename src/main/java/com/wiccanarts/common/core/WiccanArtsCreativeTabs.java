@@ -118,6 +118,7 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.SILVER_INGOT);
 			addItem(ModItems.SILVER_NUGGET);
 			addBlock(ModBlocks.SILVER_BLOCK);
+			addBlock(ModBlocks.COQUINA);
 		}
 	}
 }

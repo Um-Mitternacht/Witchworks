@@ -28,6 +28,8 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_KELP = new BlockCrop();
 	@ObjectHolder(LibBlockName.SILVER_BLOCK)
 	public static final BlockMod SILVER_BLOCK = new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON);
+	@ObjectHolder(LibBlockName.COQUINA)
+	public static final BlockMod COQUINA = new BlockMod(LibBlockName.COQUINA, Material.ROCK);
 
 	public static void init() {
 		VanillaCrafting.blocks();
