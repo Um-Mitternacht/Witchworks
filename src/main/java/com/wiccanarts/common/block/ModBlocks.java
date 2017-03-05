@@ -5,6 +5,8 @@ import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
@@ -36,5 +38,7 @@ public final class ModBlocks {
 	}
 
 	public static void initOreDictionary() {
+		OreDictionary.registerOre("coquina", new ItemStack(ModBlocks.COQUINA));
+		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.SILVER_BLOCK));
 	}
 }
