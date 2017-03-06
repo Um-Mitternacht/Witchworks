@@ -1,4 +1,4 @@
-package com.wiccanarts.common.tileEntity;
+package com.wiccanarts.common.block.tools;
 
 /**
  * Created by Joseph on 3/4/2017.
