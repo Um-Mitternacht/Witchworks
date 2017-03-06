@@ -120,6 +120,7 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.HONEY);
 			addBlock(ModBlocks.SILVER_BLOCK);
 			addBlock(ModBlocks.COQUINA);
+			addBlock(ModBlocks.KETTLE);
 		}
 	}
 }

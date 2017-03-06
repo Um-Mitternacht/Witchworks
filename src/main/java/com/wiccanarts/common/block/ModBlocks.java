@@ -1,6 +1,7 @@
 package com.wiccanarts.common.block;
 
 import com.wiccanarts.common.block.crop.BlockCrop;
+import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibMod;
@@ -32,6 +33,8 @@ public final class ModBlocks {
 	public static final BlockMod SILVER_BLOCK = (BlockMod) new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F);
 	@ObjectHolder(LibBlockName.COQUINA)
 	public static final BlockMod COQUINA = new BlockMod(LibBlockName.COQUINA, Material.ROCK);
+	@ObjectHolder(LibBlockName.KETTLE)
+	public static final BlockKettle KETTLE = new BlockKettle();
 
 	public static void init() {
 		VanillaCrafting.blocks();

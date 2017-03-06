@@ -3,7 +3,8 @@
   "textures": {
 	"0": "blocks/cauldron_side",
 	"1": "blocks/cauldron_top",
-	"2": "blocks/cauldron_bottom"
+	"2": "blocks/cauldron_bottom",
+	"particle": "blocks/cauldron_side"
   },
   "elements": [
 	{
@@ -1470,7 +1471,6 @@
 			4.0
 		  ]
 		},
-		,
 		"down": {
 		  "texture": "#2",
 		  "uv": [

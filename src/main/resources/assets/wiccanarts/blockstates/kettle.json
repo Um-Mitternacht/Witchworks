@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:kettle"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:kettle"
+	  }
+	]
+  }
+}

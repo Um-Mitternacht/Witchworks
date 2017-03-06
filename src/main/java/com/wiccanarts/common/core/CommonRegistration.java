@@ -3,6 +3,7 @@ package com.wiccanarts.common.core;
 import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.block.crop.*;
+import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
@@ -69,7 +70,8 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_GINGER),
 				itemBlock(ModBlocks.CROP_KELP),
 				itemBlock(ModBlocks.SILVER_BLOCK),
-				itemBlock(ModBlocks.COQUINA)
+				itemBlock(ModBlocks.COQUINA),
+				itemBlock(ModBlocks.KETTLE)
 		);
 	}
 
@@ -85,7 +87,8 @@ public class CommonRegistration {
 				new BlockBelladonna(),
 				new BlockGinger(),
 				new BlockKelp(),
-				ModBlocks.SILVER_BLOCK
+				ModBlocks.SILVER_BLOCK,
+				new BlockKettle()
 		);
 	}
 
