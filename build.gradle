@@ -41,7 +41,7 @@ class StructExtApi {
 
 minecraft {
     version = mc_forge_version
-	mappings = mcp_mappings
+    mappings = "snapshot_20161111"
     runDir = "run"
 }
 
