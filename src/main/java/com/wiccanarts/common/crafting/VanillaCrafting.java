@@ -24,6 +24,7 @@ public class VanillaCrafting {
 		shaped().grid("MAA") //Test recipe
 				.map('M', Items.MELON)
 				.map('A', Items.APPLE)
+				.map('L', new ItemStack(Items.DYE, 1, 4))
 				.outputs(Items.SUGAR)
 				.setMirror(true).build();
 
@@ -40,10 +41,20 @@ public class VanillaCrafting {
 					.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
 					.setMirror(true).build();
 		}
+
+		for (ItemStack item : OreDictionary.getOres("gemMalachite")) {
+			shaped().grid("LJ")
+					.map('L', new ItemStack(Items.DYE, 1, 4))
+					.map('J', ModItems.JASPER)
+					.outputs(new ItemStack(ModItems.MALACHITE, 1))
+					.setMirror(true).build();
+
+		}
 		shaped().grid("B")
 				.map('B', ModBlocks.SILVER_BLOCK)
 				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
 				.setMirror(true).build();
+
 	}
 
 	public static void blocks() {
@@ -51,6 +62,7 @@ public class VanillaCrafting {
 				.map('I', ModItems.SILVER_INGOT)
 				.outputs(ModBlocks.SILVER_BLOCK)
 				.setMirror(true).build();
+
 	}
 
 	private static ShapedRecipe shaped() {
