@@ -24,7 +24,6 @@ public class VanillaCrafting {
 		shaped().grid("MAA") //Test recipe
 				.map('M', Items.MELON)
 				.map('A', Items.APPLE)
-				.map('L', new ItemStack(Items.DYE, 1, 4))
 				.outputs(Items.SUGAR)
 				.setMirror(true).build();
 
