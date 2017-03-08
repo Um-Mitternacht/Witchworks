@@ -73,7 +73,7 @@ public class VanillaCrafting {
 					.setMirror(true).build();
 		}
 
-		for (ItemStack item : OreDictionary.getOres("gemMalachite")) {
+		{
 			shaped().grid("LJ")
 					.map('L', new ItemStack(Items.DYE, 1, 4))
 					.map('J', ModItems.JASPER)
