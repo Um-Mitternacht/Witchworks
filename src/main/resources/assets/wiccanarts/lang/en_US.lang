@@ -55,6 +55,7 @@ tile.crop_oxeye_daisy.name=Oxeye Daisy Crop
 tile.crop_sunflower.name=Sunflower Crop
 tile.crop_lilac.name=Lilac Crop
 tile.crop_peony.name=Peony Crop
+tile.silver_ore.name=Silver Ore
 
 ///ToolTips
 wiccan.tooltip.seed_aconitum_description.name=Seed from a poisonous plant

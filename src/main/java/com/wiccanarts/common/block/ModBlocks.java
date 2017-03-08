@@ -1,6 +1,7 @@
 package com.wiccanarts.common.block;
 
 import com.wiccanarts.common.block.crop.BlockCrop;
+import com.wiccanarts.common.block.ore.oreSilver;
 import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibBlockName;
@@ -39,6 +40,8 @@ public final class ModBlocks {
 	public static final BlockKettle KETTLE = new BlockKettle();
 	@ObjectHolder(LibBlockName.BLOODSTONE_BLOCK)
 	public static final BlockMod BLOODSTONE_BLOCK = (BlockMod) new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setHardness(5.0F);
+	@ObjectHolder(LibBlockName.SILVER_ORE)
+	public static final BlockMod SILVER_ORE = new oreSilver();
 
 	public static void init() {
 		VanillaCrafting.blocks();
@@ -49,5 +52,6 @@ public final class ModBlocks {
 		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.SILVER_BLOCK));
 		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
 		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));
+		OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.SILVER_ORE));
 	}
 }

@@ -3,7 +3,9 @@ package com.wiccanarts.common.core;
 import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.block.crop.*;
+import com.wiccanarts.common.block.ore.oreSilver;
 import com.wiccanarts.common.block.tools.BlockKettle;
+import com.wiccanarts.common.core.handler.ConfigHandler;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
@@ -13,6 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.Potion;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -71,7 +74,10 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_KELP),
 				itemBlock(ModBlocks.SILVER_BLOCK),
 				itemBlock(ModBlocks.COQUINA),
-				itemBlock(ModBlocks.KETTLE)
+				itemBlock(ModBlocks.KETTLE),
+				itemBlock(ModBlocks.SILVER_ORE),
+				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
+				itemBlock(ModBlocks.BLOODSTONE_BLOCK)
 		);
 	}
 
@@ -88,9 +94,13 @@ public class CommonRegistration {
 				new BlockGinger(),
 				new BlockKelp(),
 				ModBlocks.SILVER_BLOCK,
-				new BlockKettle()
+				new BlockKettle(),
+				new oreSilver(),
+				ModBlocks.MOLDAVITE_BLOCK,
+				ModBlocks.BLOODSTONE_BLOCK
 		);
 	}
+
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {

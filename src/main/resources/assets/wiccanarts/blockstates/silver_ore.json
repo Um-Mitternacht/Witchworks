@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:silver_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:silver_ore"
+	  }
+	]
+  }
+}
