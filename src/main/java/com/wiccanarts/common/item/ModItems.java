@@ -1,0 +1,84 @@
+package com.wiccanarts.common.item;
+
+import com.wiccanarts.common.crafting.VanillaCrafting;
+import com.wiccanarts.common.lib.LibItemName;
+import com.wiccanarts.common.lib.LibMod;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+
+/**
+ * This class was created by <Arekkuusu> on 26/02/2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
+ */
+@ObjectHolder(LibMod.MOD_ID)
+public final class ModItems {
+
+	//Gemstones
+	@ObjectHolder(LibItemName.GARNET)
+	public static final Item GARNET = new Item();
+	@ObjectHolder(LibItemName.MOLDAVITE)
+	public static final Item MOLDAVITE = new Item();
+	@ObjectHolder(LibItemName.NUUMMITE)
+	public static final Item NUUMMITE = new Item();
+	@ObjectHolder(LibItemName.PETOSKEY_STONE)
+	public static final Item PETOSKEY_STONE = new Item();
+	@ObjectHolder(LibItemName.SERPENTINE)
+	public static final Item SERPENTINE = new Item();
+	@ObjectHolder(LibItemName.TIGERS_EYE)
+	public static final Item TIGERS_EYE = new Item();
+	@ObjectHolder(LibItemName.TOURMALINE)
+	public static final Item TOURMALINE = new Item();
+	@ObjectHolder(LibItemName.BLOODSTONE)
+	public static final Item BLOODSTONE = new Item();
+	@ObjectHolder(LibItemName.JASPER)
+	public static final Item JASPER = new Item();
+	@ObjectHolder(LibItemName.MALACHITE)
+	public static final Item MALACHITE = new Item();
+	@ObjectHolder(LibItemName.AMETHYST)
+	public static final Item AMETHYST = new Item();
+	@ObjectHolder(LibItemName.ALEXANDRITE)
+	public static final Item ALEXANDRITE = new Item();
+	@ObjectHolder(LibItemName.QUARTZ)
+	public static final Item QUARTZ = new Item();
+
+	//Metals
+	@ObjectHolder(LibItemName.SILVER_INGOT)
+	public static final Item SILVER_INGOT = new Item();
+	@ObjectHolder(LibItemName.SILVER_POWDER)
+	public static final Item SILVER_POWDER = new Item();
+	@ObjectHolder(LibItemName.SILVER_NUGGET)
+	public static final Item SILVER_NUGGET = new Item();
+
+	//Food Items
+	@ObjectHolder(LibItemName.HONEY)
+	public static final Item HONEY = new Item();
+
+	public static void init() {
+		VanillaCrafting.items();
+	}
+
+	public static void initOreDictionary() {
+		OreDictionary.registerOre("gemBloodstone", new ItemStack(ModItems.BLOODSTONE));
+		OreDictionary.registerOre("gemMoldavite", new ItemStack(ModItems.MOLDAVITE));
+		OreDictionary.registerOre("gemNuummite", new ItemStack(ModItems.NUUMMITE));
+		OreDictionary.registerOre("gemGarnet", new ItemStack(ModItems.GARNET));
+		OreDictionary.registerOre("gemTourmaline", new ItemStack(ModItems.TOURMALINE));
+		OreDictionary.registerOre("gemTigersEye", new ItemStack(ModItems.TIGERS_EYE));
+		OreDictionary.registerOre("gemPetoskeyStone", new ItemStack(ModItems.PETOSKEY_STONE));
+		OreDictionary.registerOre("gemJasper", new ItemStack(ModItems.JASPER));
+		OreDictionary.registerOre("gemMalachite", new ItemStack(ModItems.MALACHITE));
+		OreDictionary.registerOre("gemAmethyst", new ItemStack(ModItems.AMETHYST));
+		OreDictionary.registerOre("gemAlexandrite", new ItemStack(ModItems.ALEXANDRITE));
+		OreDictionary.registerOre("gemQuartz", new ItemStack(ModItems.QUARTZ));
+		OreDictionary.registerOre("nuggetSilver", new ItemStack(ModItems.SILVER_NUGGET));
+		OreDictionary.registerOre("ingotSilver", new ItemStack(ModItems.SILVER_INGOT));
+		OreDictionary.registerOre("powderSilver", new ItemStack(ModItems.SILVER_POWDER));
+		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY));
+	}
+}

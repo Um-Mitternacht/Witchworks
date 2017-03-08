@@ -1,0 +1,94 @@
+//CreativeTab
+itemGroup.wiccanarts_plants=Wiccan Arts - Plants and Herbs
+itemGroup.wiccanarts_items=Wiccan Arts - Sticks and Stones
+
+////Names
+//Items
+item.seed_aconitum.name=Aconitum Seed
+item.seed_asphodel.name=Asphodel Seed
+item.seed_belladonna.name=Belladonna Seed
+item.seed_ginger.name=Ginger Root
+item.seed_kelp.name=Kelp Spore
+item.seed_mint.name=Mint Seed
+item.seed_white_sage.name=White Sage Seed
+item.seed_dandelion_root.name=Dandelion root
+item.seed_rose.name=Rose Seed
+item.seed_poppy.name=Poppy Seed
+item.seed_allium.name=Allium Seed
+item.seed_mandrake_root.name=Mandrake Seed
+item.seed_oxeye_daisy.name=Oxeye Daisy Seed
+item.seed_sunflower.name=Sunflower Seed
+item.seed_lilac.name=Lilac Seed
+item.seed_peony.name=Peony Seed
+
+item.aconitum.name=Aconitum
+item.asphodel.name=Asphodel
+item.belladonna.name=Belladonna
+item.ginger.name=Ginger
+item.kelp.name=Kelp
+item.mint.name=Mint
+item.white_sage.name=White Sage
+item.dandelion_root.name=Dandelion
+item.rose.name=Rose
+item.poppy.name=Poppy
+item.allium.name=Allium
+item.mandrake_root.name=Mandrake root
+item.oxeye_daisy.name=Oxeye Daisy
+item.sunflower.name=Sunflower
+item.lilac.name=Lilac
+item.peony.name=Peony
+
+//Blocks
+tile.crop_aconitum.name=Aconitum Crop
+tile.crop_asphodel.name=Asphodel Crop
+tile.crop_belladonna.name=Belladonna Crop
+tile.crop_ginger.name=Ginger Crop
+tile.crop_kelp.name=Kelp Crop
+tile.crop_mint.name=Mint Crop
+tile.crop_white_sage.name=White Sage Crop
+tile.crop_dandelion_root.name=Dandelion root
+tile.crop_rose.name=Rose Crop
+tile.crop_poppy.name=Poppy Crop
+tile.crop_allium.name=Allium Crop
+tile.crop_mandrake_root.name=Mandrake root
+tile.crop_oxeye_daisy.name=Oxeye Daisy Crop
+tile.crop_sunflower.name=Sunflower Crop
+tile.crop_lilac.name=Lilac Crop
+tile.crop_peony.name=Peony Crop
+
+///ToolTips
+wiccan.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
+wiccan.tooltip.seed_asphodel_description.name=Seed from a plant of the dead
+wiccan.tooltip.seed_belladonna_description.name=Seed from a herbaceous plant
+wiccan.tooltip.seed_ginger_description.name=Seed from a flowering plant
+wiccan.tooltip.seed_kelp_description.name=Seed from a large seaweed
+wiccan.tooltip.seed_mint_description.name=Seed from a herbaceous plant
+wiccan.tooltip.seed_white_sage_description.name=Seed from an evergreen perennial shrub
+wiccan.tooltip.seed_dandelion_root_description.name=The root of a plant
+wiccan.tooltip.seed_rose_description.name=Seed from a flowering plant
+wiccan.tooltip.seed_poppy_description.name=Seed from a flowering plant
+wiccan.tooltip.seed_allium_description.name=Seed from a flowering plant
+wiccan.tooltip.seed_mandrake_root_description.name=The root of a plant
+wiccan.tooltip.seed_oxeye_daisy_description.name=Seed from a widespread flowering plant
+wiccan.tooltip.seed_sunflower_description.name=Seed from a flowering plant
+wiccan.tooltip.seed_lilac_description.name=Seed from a flowering woody plant
+wiccan.tooltip.seed_peony_description.name=Seed from a flowering plant
+
+wiccan.tooltip.aconitum_description.name=Poisonous, can prevent or revert shapeshifting, and wolves and lycans have an aversion to it
+wiccan.tooltip.asphodel_description.name=Related to death and the afterlife, but not poisonous
+wiccan.tooltip.belladonna_description.name=Highly toxic, can be used as a hallucinogenic, thought to be used as part of a flying ointment
+wiccan.tooltip.ginger_description.name=Meant to give energy and increased speed
+wiccan.tooltip.kelp_description.name=Related to water and protection overseas
+wiccan.tooltip.mint_description.name=Used for protection against magic
+wiccan.tooltip.white_sage_description.name=Is used as an aid in exorcisms or cleaning an area and to increase wisdom
+wiccan.tooltip.dandelion_root_description.name=Used for divination and spirit calling
+wiccan.tooltip.rose_description.name=Could be used to create splash breeding potions
+wiccan.tooltip.poppy_description.name=Associated with sleep and death
+wiccan.tooltip.allium_description.name=Can be used for medicines
+wiccan.tooltip.mandrake_root_description.name=Used to amplify magical effects
+wiccan.tooltip.oxeye_daisy_description.name=Used for 'silver-tongue' potions, meant to attract wealth or affection
+wiccan.tooltip.sunflower_description.name=Could be used in potions that create light, effectively creating little suns
+wiccan.tooltip.lilac_description.name=Used associated with protection
+wiccan.tooltip.peony_description.name=Seed from a flowering plant
+
+////JEI

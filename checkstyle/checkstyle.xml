@@ -73,10 +73,10 @@
 		</module>
 		<module name="AvoidStarImport">
 			<!-- Rationale: import what you use, and nothing more -->
-			<property name="severity" value="error"/>
+			<property name="severity" value="warning"/>
 		</module>
 		<module name="UnusedImports">
-			<property name="severity" value="error"/>
+			<property name="severity" value="warning"/>
 		</module>
 		<module name="HiddenField" >
     			<property name="ignoreSetter" value="true" />
