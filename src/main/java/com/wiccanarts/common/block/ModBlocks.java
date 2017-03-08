@@ -45,5 +45,6 @@ public final class ModBlocks {
 	public static void initOreDictionary() {
 		OreDictionary.registerOre("coquina", new ItemStack(ModBlocks.COQUINA));
 		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.SILVER_BLOCK));
+		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
 	}
 }
