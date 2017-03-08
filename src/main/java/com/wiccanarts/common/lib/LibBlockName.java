@@ -22,6 +22,7 @@ public final class LibBlockName {
 	public static final String CROP_KELP = "crop_kelp";
 	public static final String SILVER_BLOCK = "silver_block";
 	public static final String MOLDAVITE_BLOCK = "moldavite_block";
+	public static final String BLOODSTONE_BLOCK = "bloodstone_block";
 	public static final String ALTAR = "altar";
 	public static final String CANDLE = "candle";
 	public static final String APIARY = "apiary";

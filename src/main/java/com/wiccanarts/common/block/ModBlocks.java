@@ -37,6 +37,8 @@ public final class ModBlocks {
 	public static final BlockMod COQUINA = new BlockMod(LibBlockName.COQUINA, Material.ROCK);
 	@ObjectHolder(LibBlockName.KETTLE)
 	public static final BlockKettle KETTLE = new BlockKettle();
+	@ObjectHolder(LibBlockName.BLOODSTONE_BLOCK)
+	public static final BlockMod BLOODSTONE_BLOCK = (BlockMod) new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setHardness(5.0F);
 
 	public static void init() {
 		VanillaCrafting.blocks();
@@ -46,5 +48,6 @@ public final class ModBlocks {
 		OreDictionary.registerOre("coquina", new ItemStack(ModBlocks.COQUINA));
 		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.SILVER_BLOCK));
 		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
+		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));
 	}
 }
