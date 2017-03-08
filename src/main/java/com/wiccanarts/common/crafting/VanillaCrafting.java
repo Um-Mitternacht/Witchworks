@@ -34,6 +34,38 @@ public class VanillaCrafting {
 					.outputs(ModItems.SILVER_INGOT)
 					.setMirror(true).build();
 		}
+
+		for (ItemStack item : OreDictionary.getOres("gemBloodstone")) {
+			System.out.println(item);
+			shaped().grid("BBB", "BBB", "BBB")
+					.map('B', item)
+					.outputs(ModBlocks.BLOODSTONE_BLOCK)
+					.setMirror(true).build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("gemMoldavite")) {
+			System.out.println(item);
+			shaped().grid("MMM", "MMM", "MMM")
+					.map('M', item)
+					.outputs(ModBlocks.MOLDAVITE_BLOCK)
+					.setMirror(true).build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("blockMoldavite")) {
+			shaped().grid("M")
+					.map('M', item)
+					.outputs(new ItemStack(ModItems.MOLDAVITE, 9))
+					.setMirror(true).build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("blockBloodstone")) {
+			shaped().grid("B")
+					.map('B', item)
+					.outputs(new ItemStack(ModItems.BLOODSTONE, 9))
+					.setMirror(true).build();
+		}
+
+
 		for (ItemStack item : OreDictionary.getOres("ingotSilver")) {
 			shaped().grid("I")
 					.map('I', item)
