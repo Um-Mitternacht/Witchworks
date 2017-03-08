@@ -31,6 +31,8 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_KELP = new BlockCrop();
 	@ObjectHolder(LibBlockName.SILVER_BLOCK)
 	public static final BlockMod SILVER_BLOCK = (BlockMod) new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F);
+	@ObjectHolder(LibBlockName.MOLDAVITE_BLOCK)
+	public static final BlockMod MOLDAVITE_BLOCK = (BlockMod) new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.GLASS).setHardness(5.0F);
 	@ObjectHolder(LibBlockName.COQUINA)
 	public static final BlockMod COQUINA = new BlockMod(LibBlockName.COQUINA, Material.ROCK);
 	@ObjectHolder(LibBlockName.KETTLE)
