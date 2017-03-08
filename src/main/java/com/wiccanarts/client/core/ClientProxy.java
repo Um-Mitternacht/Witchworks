@@ -56,8 +56,8 @@ public class ClientProxy implements ISidedProxy {
 
 		ModelHandler.registerBlock(ModBlocks.SILVER_BLOCK);
 		ModelHandler.registerBlock(ModBlocks.COQUINA);
-		//ModelHandler.registerBlock(ModBlocks.MOLDAVITE_BLOCK);
-		//ModelHandler.registerBlock(ModBlocks.BLOODSTONE_BLOCK);
+		ModelHandler.registerBlock(ModBlocks.MOLDAVITE_BLOCK);
+		ModelHandler.registerBlock(ModBlocks.BLOODSTONE_BLOCK);
 		ModelHandler.registerBlock(ModBlocks.SILVER_ORE);
 	}
 
