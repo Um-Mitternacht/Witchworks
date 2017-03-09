@@ -90,5 +90,7 @@ public final class ModItems {
 		OreDictionary.registerOre("materialBeeswax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("materialPressedWax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("itemBeeswax", new ItemStack(ModItems.WAX));
+		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER_SPRIG));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER_SPRIG));
 	}
 }
