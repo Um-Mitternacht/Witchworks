@@ -1,7 +1,6 @@
 package com.wiccanarts.common;
 
 import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.block.ore.BlockOre;
 import com.wiccanarts.common.block.ore.oreGenSilver;
 import com.wiccanarts.common.core.event.ModEvents;
 import com.wiccanarts.common.core.handler.ModSounds;
@@ -9,7 +8,6 @@ import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.entity.ModEntities;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
-import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
