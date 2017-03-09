@@ -62,6 +62,12 @@ public final class ModItems {
 	//Materials
 	@ObjectHolder(LibItemName.WAX)
 	public static final Item WAX = new Item();
+	@ObjectHolder(LibItemName.SALT)
+	public static final Item SALT = new Item();
+
+	//Misc
+	@ObjectHolder(LibItemName.BEE)
+	public static final Item BEE = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
@@ -92,5 +98,9 @@ public final class ModItems {
 		OreDictionary.registerOre("itemBeeswax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER_SPRIG));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER_SPRIG));
+		OreDictionary.registerOre("foodSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("dustSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("materialSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("lumpSalt", new ItemStack(ModItems.SALT));
 	}
 }

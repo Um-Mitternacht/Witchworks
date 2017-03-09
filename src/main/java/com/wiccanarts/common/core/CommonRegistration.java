@@ -59,7 +59,11 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SILVER_POWDER),
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET),
-				new ItemMod(LibItemName.HONEY)
+				new ItemMod(LibItemName.HONEY),
+				new ItemMod(LibItemName.SALT),
+				new ItemMod(LibItemName.WAX),
+				new ItemMod(LibItemName.LAVENDER_SPRIG),
+				new ItemMod(LibItemName.BEE)
 
 		);
 

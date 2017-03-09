@@ -55,6 +55,8 @@ public class ClientProxy implements ISidedProxy {
 		ModelHandler.registerItem(ModItems.SILVER_INGOT);
 		ModelHandler.registerItem(ModItems.WAX);
 		ModelHandler.registerItem(ModItems.LAVENDER_SPRIG);
+		ModelHandler.registerItem(ModItems.SALT);
+		ModelHandler.registerItem(ModItems.BEE);
 
 		ModelHandler.registerBlock(ModBlocks.SILVER_BLOCK);
 		ModelHandler.registerBlock(ModBlocks.COQUINA);
