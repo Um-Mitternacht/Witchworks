@@ -64,10 +64,16 @@ public final class ModItems {
 	public static final Item WAX = new Item();
 	@ObjectHolder(LibItemName.SALT)
 	public static final Item SALT = new Item();
+	@ObjectHolder(LibItemName.HONEYCOMB)
+	public static final Item HONEYCOMB = new Item();
 
 	//Misc
 	@ObjectHolder(LibItemName.BEE)
 	public static final Item BEE = new Item();
+	@ObjectHolder(LibItemName.BEEQUEEN)
+	public static final Item BEEQUEEN = new Item();
+	@ObjectHolder(LibItemName.BEEGRUB)
+	public static final Item BEEGRUB = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
