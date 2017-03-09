@@ -42,6 +42,8 @@ public final class ModBlocks {
 	public static final BlockMod BLOODSTONE_BLOCK = (BlockMod) new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setHardness(5.0F);
 	@ObjectHolder(LibBlockName.SILVER_ORE)
 	public static final BlockMod SILVER_ORE = new oreSilver();
+	@ObjectHolder(LibBlockName.NETHERSTEEL)
+	public static final BlockMod NETHERSTEEL = new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON);
 
 	public static void init() {
 		VanillaCrafting.blocks();

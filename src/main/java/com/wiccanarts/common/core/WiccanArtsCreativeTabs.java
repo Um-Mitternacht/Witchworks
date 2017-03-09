@@ -118,12 +118,15 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.SILVER_INGOT);
 			addItem(ModItems.SILVER_NUGGET);
 			addItem(ModItems.HONEY);
+			addItem(ModItems.WAX);
+			addItem(ModItems.LAVENDER_SPRIG);
 			addBlock(ModBlocks.SILVER_BLOCK);
 			addBlock(ModBlocks.COQUINA);
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.SILVER_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
+			addBlock(ModBlocks.NETHERSTEEL);
 		}
 	}
 }
