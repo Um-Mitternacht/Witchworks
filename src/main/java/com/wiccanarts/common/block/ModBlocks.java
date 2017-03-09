@@ -55,5 +55,6 @@ public final class ModBlocks {
 		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
 		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));
 		OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.SILVER_ORE));
+		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 	}
 }

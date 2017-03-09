@@ -75,7 +75,8 @@ public class BlockOre extends WorldGenMinable implements IWorldGenerator {
 
 	public void generateOre(IBlockState blockToGen, World world, Random random, int chunkX, int chunkZ, int minVeinSize, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> generateInBlocks) {
 		int heightRange = maxY - minY;
-		int veinSize = minVeinSize + random.nextInt(maxVeinSize - minVeinSize);
+		int randFactor = (maxVeinSize - minVeinSize) > 0 ? random.nextInt(maxVeinSize - minVeinSize) : 0;
+		int veinSize = minVeinSize + randFactor;
 		WorldGenMinable generator = new WorldGenMinable(blockToGen, veinSize, generateInBlocks);
 
 		for (int i = 0; i < chance; ++i) {

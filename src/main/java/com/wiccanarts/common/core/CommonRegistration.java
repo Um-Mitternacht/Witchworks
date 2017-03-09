@@ -82,7 +82,8 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.KETTLE),
 				itemBlock(ModBlocks.SILVER_ORE),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
-				itemBlock(ModBlocks.BLOODSTONE_BLOCK)
+				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
+				itemBlock(ModBlocks.NETHERSTEEL)
 		);
 	}
 
@@ -102,7 +103,8 @@ public class CommonRegistration {
 				new BlockKettle(),
 				new oreSilver(),
 				ModBlocks.MOLDAVITE_BLOCK,
-				ModBlocks.BLOODSTONE_BLOCK
+				ModBlocks.BLOODSTONE_BLOCK,
+				ModBlocks.NETHERSTEEL
 		);
 	}
 
