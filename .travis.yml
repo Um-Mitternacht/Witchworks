@@ -18,8 +18,8 @@ deploy:
   file_glob: true
   api_key: $GITHUB_OAUTH
   file: 
-  - "./build/libs/wiccanarts-*-*.jar"
-  - "./build/libs/wiccanarts-*-*-sources.jar"
+  - "./build/libs/wiccanArts-*-*.jar"
+  - "./build/libs/wiccanArts-*-*-sources.jar"
   skip_cleanup: true
   on:
     tags: true
