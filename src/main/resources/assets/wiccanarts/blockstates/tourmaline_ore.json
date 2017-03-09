@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:tourmaline_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:tourmaline_ore"
+	  }
+	]
+  }
+}

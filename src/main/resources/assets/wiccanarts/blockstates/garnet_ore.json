@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:garnet_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:garnet_ore"
+	  }
+	]
+  }
+}
