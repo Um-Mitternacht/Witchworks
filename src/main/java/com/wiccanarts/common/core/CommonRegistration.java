@@ -81,6 +81,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.COQUINA),
 				itemBlock(ModBlocks.KETTLE),
 				itemBlock(ModBlocks.SILVER_ORE),
+				itemBlock(ModBlocks.MOLDAVITE_ORE),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock(ModBlocks.NETHERSTEEL)

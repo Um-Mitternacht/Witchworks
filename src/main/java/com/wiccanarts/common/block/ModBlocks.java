@@ -42,6 +42,8 @@ public final class ModBlocks {
 	public static final BlockMod BLOODSTONE_BLOCK = (BlockMod) new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setHardness(5.0F);
 	@ObjectHolder(LibBlockName.SILVER_ORE)
 	public static final BlockMod SILVER_ORE = new oreSilver();
+	@ObjectHolder(LibBlockName.MOLDAVITE_ORE)
+	public static final BlockMod MOLDAVITE_ORE = new oreSilver();
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final BlockMod NETHERSTEEL = new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON);
 
@@ -55,6 +57,7 @@ public final class ModBlocks {
 		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
 		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));
 		OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.SILVER_ORE));
+		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.MOLDAVITE_ORE));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 	}
 }

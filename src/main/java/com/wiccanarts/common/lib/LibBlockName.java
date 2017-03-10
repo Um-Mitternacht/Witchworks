@@ -32,5 +32,6 @@ public final class LibBlockName {
 	public static final String COQUINA = "coquina";
 	public static final String BEEHIVE = "beehive";
 	public static final String SILVER_ORE = "silver_ore";
+	public static final String MOLDAVITE_ORE = "moldavite_ore";
 	public static final String NETHERSTEEL = "nethersteel";
 }
