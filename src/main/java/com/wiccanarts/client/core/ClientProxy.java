@@ -67,6 +67,8 @@ public class ClientProxy implements ISidedProxy {
 		ModelHandler.registerBlock(ModBlocks.BLOODSTONE_BLOCK);
 		ModelHandler.registerBlock(ModBlocks.SILVER_ORE);
 		ModelHandler.registerBlock(ModBlocks.NETHERSTEEL);
+		ModelHandler.registerBlock(ModBlocks.MOLDAVITE_ORE);
+		ModelHandler.registerBlock(ModBlocks.CANDLE);
 	}
 
 	@SideOnly(Side.CLIENT)

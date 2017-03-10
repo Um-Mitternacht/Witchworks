@@ -81,6 +81,16 @@ public class VanillaCrafting {
 					.setMirror(true).build();
 
 		}
+
+		{
+			shaped().grid("S", "W", "W")
+					.map('W', ModItems.WAX)
+					.map('S', Items.STRING)
+					.outputs(new ItemStack(ModBlocks.CANDLE, 1))
+					.setMirror(true).build();
+
+		}
+
 		shaped().grid("B")
 				.map('B', ModBlocks.SILVER_BLOCK)
 				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
