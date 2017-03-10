@@ -129,6 +129,7 @@ public class WiccanArtsCreativeTabs {
 			addBlock(ModBlocks.COQUINA);
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.SILVER_ORE);
+			addBlock(ModBlocks.MOLDAVITE_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
 			addBlock(ModBlocks.NETHERSTEEL);
