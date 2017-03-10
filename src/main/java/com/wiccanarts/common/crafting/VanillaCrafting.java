@@ -91,6 +91,24 @@ public class VanillaCrafting {
 
 		}
 
+		{
+			shaped().grid("C", "W", "W")
+					.map('W', ModItems.WAX)
+					.map('C', ModBlocks.CANDLE)
+					.outputs(new ItemStack(ModBlocks.MEDCANDLE, 1))
+					.setMirror(true).build();
+
+		}
+
+		{
+			shaped().grid("C", "W", "W")
+					.map('W', ModItems.WAX)
+					.map('C', ModBlocks.MEDCANDLE)
+					.outputs(new ItemStack(ModBlocks.LRGCANDLE, 1))
+					.setMirror(true).build();
+
+		}
+
 		shaped().grid("B")
 				.map('B', ModBlocks.SILVER_BLOCK)
 				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
