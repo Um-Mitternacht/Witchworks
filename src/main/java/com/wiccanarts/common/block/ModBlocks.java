@@ -49,6 +49,10 @@ public final class ModBlocks {
 	public static final BlockMod NETHERSTEEL = new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON);
 	@ObjectHolder(LibBlockName.CANDLE)
 	public static final BlockMod CANDLE = new BlockMod(LibBlockName.CANDLE, Material.CLOTH);
+	@ObjectHolder(LibBlockName.MEDCANDLE)
+	public static final BlockMod MEDCANDLE = new BlockMod(LibBlockName.MEDCANDLE, Material.CLOTH);
+	@ObjectHolder(LibBlockName.LRGCANDLE)
+	public static final BlockMod LRGCANDLE = new BlockMod(LibBlockName.LRGCANDLE, Material.CLOTH);
 
 	public static void init() {
 		VanillaCrafting.blocks();
