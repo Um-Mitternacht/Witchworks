@@ -25,6 +25,8 @@ public final class LibBlockName {
 	public static final String BLOODSTONE_BLOCK = "bloodstone_block";
 	public static final String ALTAR = "altar";
 	public static final String CANDLE = "candle";
+	public static final String MEDCANDLE = "medium_candle";
+	public static final String LRGCANDLE = "large_candle";
 	public static final String APIARY = "apiary";
 	public static final String MORTARPESTLE = "mortar_and_pestle";
 	public static final String OILPRESS = "oil_press";

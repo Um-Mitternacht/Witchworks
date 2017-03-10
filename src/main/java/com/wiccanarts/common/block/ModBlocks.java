@@ -1,6 +1,7 @@
 package com.wiccanarts.common.block;
 
 import com.wiccanarts.common.block.crop.BlockCrop;
+import com.wiccanarts.common.block.ore.oreMoldavite;
 import com.wiccanarts.common.block.ore.oreSilver;
 import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.crafting.VanillaCrafting;
@@ -43,9 +44,11 @@ public final class ModBlocks {
 	@ObjectHolder(LibBlockName.SILVER_ORE)
 	public static final BlockMod SILVER_ORE = new oreSilver();
 	@ObjectHolder(LibBlockName.MOLDAVITE_ORE)
-	public static final BlockMod MOLDAVITE_ORE = new oreSilver();
+	public static final BlockMod MOLDAVITE_ORE = new oreMoldavite();
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final BlockMod NETHERSTEEL = new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON);
+	@ObjectHolder(LibBlockName.CANDLE)
+	public static final BlockMod CANDLE = new BlockMod(LibBlockName.CANDLE, Material.CLOTH);
 
 	public static void init() {
 		VanillaCrafting.blocks();
