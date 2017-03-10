@@ -53,6 +53,10 @@ public final class LibItemName {
 	public static final String BEEQUEEN = "bee_queen";
 	public static final String HONEYCOMB = "honeycomb";
 
+	//Staves
+	public static final String STAFFV1 = "staff_1";
+	public static final String STAFFV2 = "staff_2";
+
 	//Baubles
 	public static final String RING = "ring";
 	public static final String TALISMAN = "talisman";
