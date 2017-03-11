@@ -72,6 +72,9 @@ public class CommonRegistration {
 
 		//Item Blocks
 		event.getRegistry().registerAll(
+				itemBlock(ModBlocks.CANDLE_SMALL),
+				itemBlock(ModBlocks.CANDLE_LARGE),
+				itemBlock(ModBlocks.CANDLE_MEDIUM),
 				itemBlock(ModBlocks.CROP_ACONITUM),
 				itemBlock(ModBlocks.CROP_ASPHODEL),
 				itemBlock(ModBlocks.CROP_BELLADONNA),
@@ -84,10 +87,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.MOLDAVITE_ORE),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
-				itemBlock(ModBlocks.NETHERSTEEL),
-				itemBlock(ModBlocks.CANDLE_SMALL),
-				itemBlock(ModBlocks.CANDLE_LARGE),
-				itemBlock(ModBlocks.CANDLE_MEDIUM)
+				itemBlock(ModBlocks.NETHERSTEEL)
 		);
 	}
 
@@ -108,7 +108,10 @@ public class CommonRegistration {
 				new oreSilver(),
 				ModBlocks.MOLDAVITE_BLOCK,
 				ModBlocks.BLOODSTONE_BLOCK,
-				ModBlocks.NETHERSTEEL
+				ModBlocks.NETHERSTEEL,
+				ModBlocks.CANDLE_SMALL,
+				ModBlocks.CANDLE_MEDIUM,
+				ModBlocks.CANDLE_LARGE
 		);
 	}
 
