@@ -71,7 +71,6 @@ repositories {
         name = "JEI"
         url = "http://dvs1.progwml6.com/files/maven"
     }
-    /*
     maven {
         name = "ilexiconn"
         url = "https://maven.mcmoddev.com"
