@@ -2,7 +2,8 @@
   "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
   "textures": {
 	"particle": "wiccanarts:blocks/candle_texture",
-	"0": "wiccanarts:blocks/candle_texture"
+	"0": "wiccanarts:blocks/candle_texture",
+	"parent": "block/block"
   },
   "elements": [
 	{
