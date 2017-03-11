@@ -80,11 +80,12 @@ repositories {
         url 'https://jitpack.io'	
 		}
 	}
+    /*	
 }
 
 dependencies {
     deobfCompile "mcp.mobius.waila:Hwyla:${hwyla_version}"
-    deobfCompile 'com.github.Darkhax-Forked:Baubles:1.10.2-SNAPSHOT'
+	compile 'com.github.azanor:baubles:1.10.2-SNAPSHOT'
     compile "net.ilexiconn:llibrary:${llibrary_version}:dev"
     deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
