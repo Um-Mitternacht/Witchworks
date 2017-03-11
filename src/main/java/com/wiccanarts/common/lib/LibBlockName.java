@@ -26,7 +26,7 @@ public final class LibBlockName {
 	public static final String ALTAR = "altar";
 	public static final String CANDLE = "candle_small";
 	public static final String MEDCANDLE = "candle_medium";
-	public static final String LRGCANDLE = "candle_large";
+	public static final String LRGCANDLE = "candle_big";
 	public static final String APIARY = "apiary";
 	public static final String MORTARPESTLE = "mortar_and_pestle";
 	public static final String OILPRESS = "oil_press";
