@@ -79,14 +79,10 @@ repositories {
     maven {
         url 'https://jitpack.io'	
 		}
-	{	
-    */
+	}
 }
 
 dependencies {
-    compile files(
-            'Baubles-deobf.jar'
-    )
     deobfCompile "mcp.mobius.waila:Hwyla:${hwyla_version}"
     deobfCompile 'com.github.Darkhax-Forked:Baubles:1.10.2-SNAPSHOT'
     compile "net.ilexiconn:llibrary:${llibrary_version}:dev"
