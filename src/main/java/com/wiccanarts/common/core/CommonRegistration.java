@@ -85,9 +85,9 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock(ModBlocks.NETHERSTEEL),
-				itemBlock(ModBlocks.CANDLE),
-				itemBlock(ModBlocks.LRGCANDLE),
-				itemBlock(ModBlocks.MEDCANDLE)
+				itemBlock(ModBlocks.CANDLE_SMALL),
+				itemBlock(ModBlocks.CANDLE_LARGE),
+				itemBlock(ModBlocks.CANDLE_MEDIUM)
 		);
 	}
 

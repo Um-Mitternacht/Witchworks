@@ -133,9 +133,9 @@ public class WiccanArtsCreativeTabs {
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
 			addBlock(ModBlocks.NETHERSTEEL);
-			addBlock(ModBlocks.CANDLE);
-			addBlock(ModBlocks.MEDCANDLE);
-			addBlock(ModBlocks.LRGCANDLE);
+			addBlock(ModBlocks.CANDLE_SMALL);
+			addBlock(ModBlocks.CANDLE_MEDIUM);
+			addBlock(ModBlocks.CANDLE_LARGE);
 		}
 	}
 }

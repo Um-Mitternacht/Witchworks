@@ -47,12 +47,12 @@ public final class ModBlocks {
 	public static final BlockMod MOLDAVITE_ORE = new oreMoldavite();
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final BlockMod NETHERSTEEL = new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON);
-	@ObjectHolder(LibBlockName.CANDLE)
-	public static final BlockMod CANDLE = new BlockMod(LibBlockName.CANDLE, Material.CLOTH);
-	@ObjectHolder(LibBlockName.MEDCANDLE)
-	public static final BlockMod MEDCANDLE = new BlockMod(LibBlockName.MEDCANDLE, Material.CLOTH);
-	@ObjectHolder(LibBlockName.LRGCANDLE)
-	public static final BlockMod LRGCANDLE = new BlockMod(LibBlockName.LRGCANDLE, Material.CLOTH);
+	@ObjectHolder(LibBlockName.CANDLE_SMALL)
+	public static final BlockMod CANDLE_SMALL = new BlockMod(LibBlockName.CANDLE_SMALL, Material.CLOTH);
+	@ObjectHolder(LibBlockName.CANDLE_MEDIUM)
+	public static final BlockMod CANDLE_MEDIUM = new BlockMod(LibBlockName.CANDLE_MEDIUM, Material.CLOTH);
+	@ObjectHolder(LibBlockName.CANDLE_LARGE)
+	public static final BlockMod CANDLE_LARGE = new BlockMod(LibBlockName.CANDLE_LARGE, Material.CLOTH);
 
 	public static void init() {
 		VanillaCrafting.blocks();

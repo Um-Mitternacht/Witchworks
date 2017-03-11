@@ -86,7 +86,7 @@ public class VanillaCrafting {
 			shaped().grid("S", "W", "W")
 					.map('W', ModItems.WAX)
 					.map('S', Items.STRING)
-					.outputs(new ItemStack(ModBlocks.CANDLE, 1))
+					.outputs(new ItemStack(ModBlocks.CANDLE_SMALL, 1))
 					.setMirror(true).build();
 
 		}
@@ -94,8 +94,8 @@ public class VanillaCrafting {
 		{
 			shaped().grid("C", "W", "W")
 					.map('W', ModItems.WAX)
-					.map('C', ModBlocks.CANDLE)
-					.outputs(new ItemStack(ModBlocks.MEDCANDLE, 1))
+					.map('C', ModBlocks.CANDLE_SMALL)
+					.outputs(new ItemStack(ModBlocks.CANDLE_MEDIUM, 1))
 					.setMirror(true).build();
 
 		}
@@ -103,8 +103,8 @@ public class VanillaCrafting {
 		{
 			shaped().grid("C", "W", "W")
 					.map('W', ModItems.WAX)
-					.map('C', ModBlocks.MEDCANDLE)
-					.outputs(new ItemStack(ModBlocks.LRGCANDLE, 1))
+					.map('C', ModBlocks.CANDLE_MEDIUM)
+					.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1))
 					.setMirror(true).build();
 
 		}
