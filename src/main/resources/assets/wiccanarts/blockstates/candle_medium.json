@@ -2,6 +2,11 @@
   "variants": {
 	"normal": {
 	  "model": "wiccanarts:candle_medium"
-	}
+	},
+	"inventory": [
+	  {
+		"model": "wiccanarts:candle_medium"
+	  }
+	]
   }
 }
