@@ -3,8 +3,7 @@
   "parent": "block/block",
   "textures": {
 	"particle": "wiccanarts:blocks/candle_texture",
-	"0": "wiccanarts:blocks/candle_texture",
-	"parent": "block/block"
+	"0": "wiccanarts:blocks/candle_texture"
   },
   "elements": [
 	{
