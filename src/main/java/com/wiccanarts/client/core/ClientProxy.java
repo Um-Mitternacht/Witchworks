@@ -1,12 +1,19 @@
 package com.wiccanarts.client.core;
 
+import com.wiccanarts.client.handler.BlockColorHandler;
+import com.wiccanarts.client.handler.ItemColorHandler;
 import com.wiccanarts.client.handler.ModelHandler;
+import com.wiccanarts.client.render.tile.TileRenderKettle;
 import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.block.tile.TileKettle;
+import com.wiccanarts.common.block.tools.BlockCandleLarge;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -36,41 +43,6 @@ public class ClientProxy implements ISidedProxy {
 	@SubscribeEvent
 	public static void registerItemModels(ModelRegistryEvent event) {
 		ModelHandler.registerModels(); //These do have a class, but need to be registered in the event
-
-		ModelHandler.registerItem(ModItems.GARNET);
-		ModelHandler.registerItem(ModItems.MOLDAVITE);
-		ModelHandler.registerItem(ModItems.NUUMMITE);
-		ModelHandler.registerItem(ModItems.PETOSKEY_STONE);
-		ModelHandler.registerItem(ModItems.SERPENTINE);
-		ModelHandler.registerItem(ModItems.TIGERS_EYE);
-		ModelHandler.registerItem(ModItems.TOURMALINE);
-		ModelHandler.registerItem(ModItems.BLOODSTONE);
-		ModelHandler.registerItem(ModItems.JASPER);
-		ModelHandler.registerItem(ModItems.MALACHITE);
-		ModelHandler.registerItem(ModItems.AMETHYST);
-		ModelHandler.registerItem(ModItems.ALEXANDRITE);
-		ModelHandler.registerItem(ModItems.QUARTZ);
-		ModelHandler.registerItem(ModItems.SILVER_POWDER);
-		ModelHandler.registerItem(ModItems.SILVER_NUGGET);
-		ModelHandler.registerItem(ModItems.SILVER_INGOT);
-		ModelHandler.registerItem(ModItems.WAX);
-		ModelHandler.registerItem(ModItems.LAVENDER_SPRIG);
-		ModelHandler.registerItem(ModItems.SALT);
-		ModelHandler.registerItem(ModItems.BEE);
-		ModelHandler.registerItem(ModItems.BEEGRUB);
-		ModelHandler.registerItem(ModItems.BEEQUEEN);
-		ModelHandler.registerItem(ModItems.HONEYCOMB);
-
-		ModelHandler.registerBlock(ModBlocks.SILVER_BLOCK);
-		ModelHandler.registerBlock(ModBlocks.COQUINA);
-		ModelHandler.registerBlock(ModBlocks.MOLDAVITE_BLOCK);
-		ModelHandler.registerBlock(ModBlocks.BLOODSTONE_BLOCK);
-		ModelHandler.registerBlock(ModBlocks.SILVER_ORE);
-		ModelHandler.registerBlock(ModBlocks.NETHERSTEEL);
-		ModelHandler.registerBlock(ModBlocks.MOLDAVITE_ORE);
-		ModelHandler.registerBlock(ModBlocks.CANDLE_SMALL);
-		ModelHandler.registerBlock(ModBlocks.CANDLE_MEDIUM);
-		ModelHandler.registerBlock(ModBlocks.CANDLE_LARGE);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -82,7 +54,12 @@ public class ClientProxy implements ISidedProxy {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void init(FMLInitializationEvent event) {
-
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new BlockColorHandler(),
+				ModBlocks.CANDLE_LARGE, ModBlocks.CANDLE_MEDIUM, ModBlocks.CANDLE_SMALL);
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorHandler(),
+				Item.getItemFromBlock(ModBlocks.CANDLE_LARGE),
+				Item.getItemFromBlock(ModBlocks.CANDLE_MEDIUM),
+				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -101,7 +78,7 @@ public class ClientProxy implements ISidedProxy {
 	 */
 	@SideOnly(Side.CLIENT)
 	private void registerRenders() {
-
+		ClientRegistry.bindTileEntitySpecialRenderer(TileKettle.class, new TileRenderKettle());
 	}
 
 	/**

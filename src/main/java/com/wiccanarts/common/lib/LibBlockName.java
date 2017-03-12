@@ -20,13 +20,20 @@ public final class LibBlockName {
 	public static final String CROP_BELLADONNA = "crop_belladonna";
 	public static final String CROP_GINGER = "crop_ginger";
 	public static final String CROP_KELP = "crop_kelp";
+	public static final String CROP_MINT = "crop_mint";
+	public static final String CROP_WHITE_SAGE = "crop_white_sage";
+	public static final String CROP_DANDELION_ROOT = "crop_dandelion_root";
+	public static final String CROP_ALLIUM = "crop_allium";
+	public static final String CROP_MANDRAKE_ROOT = "crop_mandrake_root";
+	public static final String CROP_LILAC = "crop_lilac";
+
 	public static final String SILVER_BLOCK = "silver_block";
 	public static final String MOLDAVITE_BLOCK = "moldavite_block";
 	public static final String BLOODSTONE_BLOCK = "bloodstone_block";
 	public static final String ALTAR = "altar";
-	public static final String CANDLE_SMALL = "candle_small";
+	public static final String CANDLE_LARGE = "candle_large";
 	public static final String CANDLE_MEDIUM = "candle_medium";
-	public static final String CANDLE_LARGE = "candle_big";
+	public static final String CANDLE_SMALL = "candle_small";
 	public static final String APIARY = "apiary";
 	public static final String MORTARPESTLE = "mortar_and_pestle";
 	public static final String OILPRESS = "oil_press";

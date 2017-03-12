@@ -14,7 +14,13 @@ public enum Crop {
 	ASPHODEL(Blocks.FARMLAND),
 	BELLADONNA(Blocks.FARMLAND),
 	GINGER(Blocks.FARMLAND),
-	KELP(Blocks.WATER);
+	KELP(Blocks.WATER),
+	MINT(Blocks.FARMLAND),
+	WHITE_SAGE(Blocks.FARMLAND),
+	DANDELION_ROOT(Blocks.FARMLAND),
+	ALLIUM(Blocks.FARMLAND),
+	MANDRAKE_ROOT(Blocks.FARMLAND),
+	LILAC(Blocks.FARMLAND);
 
 	private final Block soil;
 

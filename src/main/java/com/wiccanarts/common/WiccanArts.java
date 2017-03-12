@@ -1,8 +1,8 @@
 package com.wiccanarts.common;
 
 import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.block.ore.oreGenSilver;
 import com.wiccanarts.common.core.event.ModEvents;
+import com.wiccanarts.common.core.gen.WorldGenOre;
 import com.wiccanarts.common.core.handler.ModSounds;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.entity.ModEntities;
@@ -50,7 +50,8 @@ public class WiccanArts {
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
 
-		GameRegistry.registerWorldGenerator(new oreGenSilver(), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);
 	}
 
 	@EventHandler
