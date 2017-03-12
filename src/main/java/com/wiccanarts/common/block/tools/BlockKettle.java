@@ -5,6 +5,7 @@ import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.block.BlockMod;
 import com.wiccanarts.common.block.tile.TileKettle;
 import com.wiccanarts.common.lib.LibBlockName;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -99,9 +100,9 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
+	public IBlockState onBlockPlaced(World worldIn, Block block, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
 									 EntityLivingBase placer) {
-		IBlockState iblockstate = super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
+		IBlockState iblockstate = onBlockPlaced(worldIn, block, pos, facing, hitX, hitY, hitZ, meta, placer);
 		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
 		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
