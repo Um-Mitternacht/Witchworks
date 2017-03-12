@@ -18,6 +18,7 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -42,6 +43,7 @@ public class TileKettle extends TileMod implements ITickable {
 	private int waterLevel;
 	private int heat;
 	private int tickCount;
+	protected World worldObj;
 
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
