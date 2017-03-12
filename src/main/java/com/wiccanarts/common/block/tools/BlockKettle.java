@@ -99,7 +99,6 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	}
 
 	@SuppressWarnings("deprecation")
-	@Override
 	public IBlockState onBlockPlaced(World worldIn, Block block, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
 									 EntityLivingBase placer) {
 		IBlockState iblockstate = onBlockPlaced(worldIn, block, pos, facing, hitX, hitY, hitZ, meta, placer);
@@ -111,7 +110,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileKettle(worldObj);
+		return new TileKettle();
 	}
 
 	@SuppressWarnings("deprecation")

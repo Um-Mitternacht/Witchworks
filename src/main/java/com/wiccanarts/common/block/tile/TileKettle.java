@@ -45,7 +45,7 @@ public class TileKettle extends TileMod implements ITickable {
 	private int tickCount;
 	private World worldObj;
 
-	public TileKettle(World worldObj) {
+	public TileKettle() {
 		this.worldObj = worldObj;
 	}
 
