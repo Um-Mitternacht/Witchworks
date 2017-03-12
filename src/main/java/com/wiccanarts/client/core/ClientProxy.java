@@ -53,11 +53,24 @@ public class ClientProxy implements ISidedProxy {
 		ModelHandler.registerItem(ModItems.SILVER_POWDER);
 		ModelHandler.registerItem(ModItems.SILVER_NUGGET);
 		ModelHandler.registerItem(ModItems.SILVER_INGOT);
+		ModelHandler.registerItem(ModItems.WAX);
+		ModelHandler.registerItem(ModItems.LAVENDER_SPRIG);
+		ModelHandler.registerItem(ModItems.SALT);
+		ModelHandler.registerItem(ModItems.BEE);
+		ModelHandler.registerItem(ModItems.BEEGRUB);
+		ModelHandler.registerItem(ModItems.BEEQUEEN);
+		ModelHandler.registerItem(ModItems.HONEYCOMB);
 
 		ModelHandler.registerBlock(ModBlocks.SILVER_BLOCK);
 		ModelHandler.registerBlock(ModBlocks.COQUINA);
 		ModelHandler.registerBlock(ModBlocks.MOLDAVITE_BLOCK);
 		ModelHandler.registerBlock(ModBlocks.BLOODSTONE_BLOCK);
+		ModelHandler.registerBlock(ModBlocks.SILVER_ORE);
+		ModelHandler.registerBlock(ModBlocks.NETHERSTEEL);
+		ModelHandler.registerBlock(ModBlocks.MOLDAVITE_ORE);
+		ModelHandler.registerBlock(ModBlocks.CANDLE_SMALL);
+		ModelHandler.registerBlock(ModBlocks.CANDLE_MEDIUM);
+		ModelHandler.registerBlock(ModBlocks.CANDLE_LARGE);
 	}
 
 	@SideOnly(Side.CLIENT)

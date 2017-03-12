@@ -3,6 +3,7 @@ package com.wiccanarts.common.core;
 import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.block.crop.*;
+import com.wiccanarts.common.block.ore.oreSilver;
 import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.food.*;
@@ -58,12 +59,22 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SILVER_POWDER),
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET),
-				new ItemMod(LibItemName.HONEY)
+				new ItemMod(LibItemName.HONEY),
+				new ItemMod(LibItemName.SALT),
+				new ItemMod(LibItemName.WAX),
+				new ItemMod(LibItemName.LAVENDER_SPRIG),
+				new ItemMod(LibItemName.BEE),
+				new ItemMod(LibItemName.BEEGRUB),
+				new ItemMod(LibItemName.BEEQUEEN),
+				new ItemMod(LibItemName.HONEYCOMB)
 
 		);
 
 		//Item Blocks
 		event.getRegistry().registerAll(
+				itemBlock(ModBlocks.CANDLE_SMALL),
+				itemBlock(ModBlocks.CANDLE_LARGE),
+				itemBlock(ModBlocks.CANDLE_MEDIUM),
 				itemBlock(ModBlocks.CROP_ACONITUM),
 				itemBlock(ModBlocks.CROP_ASPHODEL),
 				itemBlock(ModBlocks.CROP_BELLADONNA),
@@ -71,7 +82,12 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_KELP),
 				itemBlock(ModBlocks.SILVER_BLOCK),
 				itemBlock(ModBlocks.COQUINA),
-				itemBlock(ModBlocks.KETTLE)
+				itemBlock(ModBlocks.KETTLE),
+				itemBlock(ModBlocks.SILVER_ORE),
+				itemBlock(ModBlocks.MOLDAVITE_ORE),
+				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
+				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
+				itemBlock(ModBlocks.NETHERSTEEL)
 		);
 	}
 
@@ -88,9 +104,17 @@ public class CommonRegistration {
 				new BlockGinger(),
 				new BlockKelp(),
 				ModBlocks.SILVER_BLOCK,
-				new BlockKettle()
+				new BlockKettle(),
+				new oreSilver(),
+				ModBlocks.MOLDAVITE_BLOCK,
+				ModBlocks.BLOODSTONE_BLOCK,
+				ModBlocks.NETHERSTEEL,
+				ModBlocks.CANDLE_SMALL,
+				ModBlocks.CANDLE_MEDIUM,
+				ModBlocks.CANDLE_LARGE
 		);
 	}
+
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {

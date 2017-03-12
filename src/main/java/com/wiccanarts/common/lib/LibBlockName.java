@@ -24,11 +24,16 @@ public final class LibBlockName {
 	public static final String MOLDAVITE_BLOCK = "moldavite_block";
 	public static final String BLOODSTONE_BLOCK = "bloodstone_block";
 	public static final String ALTAR = "altar";
-	public static final String CANDLE = "candle";
+	public static final String CANDLE_SMALL = "candle_small";
+	public static final String CANDLE_MEDIUM = "candle_medium";
+	public static final String CANDLE_LARGE = "candle_big";
 	public static final String APIARY = "apiary";
 	public static final String MORTARPESTLE = "mortar_and_pestle";
 	public static final String OILPRESS = "oil_press";
 	public static final String KETTLE = "kettle";
 	public static final String COQUINA = "coquina";
 	public static final String BEEHIVE = "beehive";
+	public static final String SILVER_ORE = "silver_ore";
+	public static final String MOLDAVITE_ORE = "moldavite_ore";
+	public static final String NETHERSTEEL = "nethersteel";
 }

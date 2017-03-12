@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:nuummite_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:nuummite_ore"
+	  }
+	]
+  }
+}

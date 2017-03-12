@@ -1,0 +1,12 @@
+{
+  "variants": {
+	"normal": {
+	  "model": "wiccanarts:candle_big"
+	},
+	"inventory": [
+	  {
+		"model": "wiccanarts:candle_big"
+	  }
+	]
+  }
+}

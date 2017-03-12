@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-	"layer0": "wiccanarts:items/silver_powder"
+	"layer0": "wiccanarts:items/wax"
   }
 }

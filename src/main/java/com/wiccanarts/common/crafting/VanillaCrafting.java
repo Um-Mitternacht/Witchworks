@@ -34,6 +34,38 @@ public class VanillaCrafting {
 					.outputs(ModItems.SILVER_INGOT)
 					.setMirror(true).build();
 		}
+
+		for (ItemStack item : OreDictionary.getOres("gemBloodstone")) {
+			System.out.println(item);
+			shaped().grid("BBB", "BBB", "BBB")
+					.map('B', item)
+					.outputs(ModBlocks.BLOODSTONE_BLOCK)
+					.setMirror(true).build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("gemMoldavite")) {
+			System.out.println(item);
+			shaped().grid("MMM", "MMM", "MMM")
+					.map('M', item)
+					.outputs(ModBlocks.MOLDAVITE_BLOCK)
+					.setMirror(true).build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("blockMoldavite")) {
+			shaped().grid("M")
+					.map('M', item)
+					.outputs(new ItemStack(ModItems.MOLDAVITE, 9))
+					.setMirror(true).build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("blockBloodstone")) {
+			shaped().grid("B")
+					.map('B', item)
+					.outputs(new ItemStack(ModItems.BLOODSTONE, 9))
+					.setMirror(true).build();
+		}
+
+
 		for (ItemStack item : OreDictionary.getOres("ingotSilver")) {
 			shaped().grid("I")
 					.map('I', item)
@@ -41,7 +73,7 @@ public class VanillaCrafting {
 					.setMirror(true).build();
 		}
 
-		for (ItemStack item : OreDictionary.getOres("gemMalachite")) {
+		{
 			shaped().grid("LJ")
 					.map('L', new ItemStack(Items.DYE, 1, 4))
 					.map('J', ModItems.JASPER)
@@ -49,6 +81,34 @@ public class VanillaCrafting {
 					.setMirror(true).build();
 
 		}
+
+		{
+			shaped().grid("S", "W", "W")
+					.map('W', ModItems.WAX)
+					.map('S', Items.STRING)
+					.outputs(new ItemStack(ModBlocks.CANDLE_SMALL, 1))
+					.setMirror(true).build();
+
+		}
+
+		{
+			shaped().grid("C", "W", "W")
+					.map('W', ModItems.WAX)
+					.map('C', ModBlocks.CANDLE_SMALL)
+					.outputs(new ItemStack(ModBlocks.CANDLE_MEDIUM, 1))
+					.setMirror(true).build();
+
+		}
+
+		{
+			shaped().grid("C", "W", "W")
+					.map('W', ModItems.WAX)
+					.map('C', ModBlocks.CANDLE_MEDIUM)
+					.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1))
+					.setMirror(true).build();
+
+		}
+
 		shaped().grid("B")
 				.map('B', ModBlocks.SILVER_BLOCK)
 				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))

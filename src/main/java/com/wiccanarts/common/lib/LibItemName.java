@@ -18,6 +18,8 @@ public final class LibItemName {
 	public static final String SEED_GINGER = "seed_ginger";
 	public static final String KELP = "kelp";
 	public static final String SEED_KELP = "seed_kelp";
+	public static final String LAVENDER = "lavender";
+	public static final String SEED_LAVENDER = "seed_lavender";
 
 	//Gems
 	public static final String GARNET = "garnet";
@@ -41,6 +43,7 @@ public final class LibItemName {
 
 	//Food Items
 	public static final String HONEY = "honey";
+	public static final String LAVENDER_SPRIG = "lavender_sprig";
 
 	//Ingredients
 	public static final String WAX = "wax";
@@ -49,6 +52,10 @@ public final class LibItemName {
 	public static final String BEEGRUB = "bee_grub";
 	public static final String BEEQUEEN = "bee_queen";
 	public static final String HONEYCOMB = "honeycomb";
+
+	//Staves
+	public static final String STAFFV1 = "staff_1";
+	public static final String STAFFV2 = "staff_2";
 
 	//Baubles
 	public static final String RING = "ring";

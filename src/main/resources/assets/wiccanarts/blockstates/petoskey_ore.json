@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:petoskey_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:petoskey_ore"
+	  }
+	]
+  }
+}

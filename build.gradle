@@ -71,22 +71,19 @@ repositories {
         name = "JEI"
         url = "http://dvs1.progwml6.com/files/maven"
     }
-    /*
     maven {
         name = "ilexiconn"
         url = "https://maven.mcmoddev.com"
     }
-    */
+    maven {
+        url 'https://jitpack.io'	
+	}
 }
 
 dependencies {
-    compile files(
-            'Baubles-deobf.jar'
-    )
     deobfCompile "mcp.mobius.waila:Hwyla:${hwyla_version}"
-
+	compile 'com.github.azanor:baubles:1.10.2-SNAPSHOT'
     compile "net.ilexiconn:llibrary:${llibrary_version}:dev"
-
     deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 }

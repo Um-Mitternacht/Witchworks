@@ -56,6 +56,24 @@ public final class ModItems {
 	//Food Items
 	@ObjectHolder(LibItemName.HONEY)
 	public static final Item HONEY = new Item();
+	@ObjectHolder(LibItemName.LAVENDER_SPRIG)
+	public static final Item LAVENDER_SPRIG = new Item();
+
+	//Materials
+	@ObjectHolder(LibItemName.WAX)
+	public static final Item WAX = new Item();
+	@ObjectHolder(LibItemName.SALT)
+	public static final Item SALT = new Item();
+	@ObjectHolder(LibItemName.HONEYCOMB)
+	public static final Item HONEYCOMB = new Item();
+
+	//Misc
+	@ObjectHolder(LibItemName.BEE)
+	public static final Item BEE = new Item();
+	@ObjectHolder(LibItemName.BEEQUEEN)
+	public static final Item BEEQUEEN = new Item();
+	@ObjectHolder(LibItemName.BEEGRUB)
+	public static final Item BEEGRUB = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
@@ -80,5 +98,15 @@ public final class ModItems {
 		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY));
 		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY));
 		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("materialWax", new ItemStack(ModItems.WAX));
+		OreDictionary.registerOre("materialBeeswax", new ItemStack(ModItems.WAX));
+		OreDictionary.registerOre("materialPressedWax", new ItemStack(ModItems.WAX));
+		OreDictionary.registerOre("itemBeeswax", new ItemStack(ModItems.WAX));
+		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER_SPRIG));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER_SPRIG));
+		OreDictionary.registerOre("foodSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("dustSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("materialSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("lumpSalt", new ItemStack(ModItems.SALT));
 	}
 }
