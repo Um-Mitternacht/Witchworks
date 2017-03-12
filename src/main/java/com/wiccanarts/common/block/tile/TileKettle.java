@@ -43,7 +43,11 @@ public class TileKettle extends TileMod implements ITickable {
 	private int waterLevel;
 	private int heat;
 	private int tickCount;
-	protected World worldObj;
+	private World worldObj;
+
+	public TileKettle(World worldObj) {
+		this.worldObj = worldObj;
+	}
 
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;

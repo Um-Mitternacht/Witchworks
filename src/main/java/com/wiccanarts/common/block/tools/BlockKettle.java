@@ -110,7 +110,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileKettle();
+		return new TileKettle(worldObj);
 	}
 
 	@SuppressWarnings("deprecation")
