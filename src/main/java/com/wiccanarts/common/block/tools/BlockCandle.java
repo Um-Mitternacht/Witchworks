@@ -53,7 +53,7 @@ public class BlockCandle extends BlockMod {
 	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		if(meta >= EnumDyeColor.values().length) {
+		if (meta >= EnumDyeColor.values().length) {
 			meta = 0;
 		}
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));

@@ -21,7 +21,7 @@ public final class PacketHandler {
 
 	private static final SimpleNetworkWrapper HANDLER = new SimpleNetworkWrapper(LibMod.MOD_ID);
 
-	public static void init(){
+	public static void init() {
 		//int id = 0;
 		//HANDLER.registerMessage(Message.Handler.class, MessageUpdate.class, id++, Side.CLIENT);
 	}
@@ -30,11 +30,11 @@ public final class PacketHandler {
 		HANDLER.sendToServer(message);
 	}
 
-	public static void sendTo(EntityPlayerMP player, IMessage message){
+	public static void sendTo(EntityPlayerMP player, IMessage message) {
 		HANDLER.sendTo(message, player);
 	}
 
-	public static void sendToNear(Entity entity, IMessage message){
+	public static void sendToNear(Entity entity, IMessage message) {
 		sendToNear(entity.worldObj, new BlockPos(entity), message);
 	}
 
@@ -53,12 +53,12 @@ public final class PacketHandler {
 		}
 	}
 
-	public static void sendTileUpdateNearbyPlayers(TileEntity tile){
+	public static void sendTileUpdateNearbyPlayers(TileEntity tile) {
 		IBlockState state = tile.getWorld().getBlockState(tile.getPos());
 		tile.getWorld().notifyBlockUpdate(tile.getPos(), state, state, 8);
 	}
 
-	public static void updateToNearbyPlayers(World worldObj, BlockPos pos){
+	public static void updateToNearbyPlayers(World worldObj, BlockPos pos) {
 		IBlockState state = worldObj.getBlockState(pos);
 		worldObj.notifyBlockUpdate(pos, state, state, 8);
 	}

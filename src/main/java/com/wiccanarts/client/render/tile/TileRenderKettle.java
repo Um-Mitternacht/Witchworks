@@ -22,7 +22,7 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
-		if(te.hasWater()) {
+		if (te.hasWater()) {
 			GlStateManager.pushMatrix();
 			GlStateManager.disableLighting();
 			double level = y + 0.155D + (te.getWaterLevel() * 0.075D);

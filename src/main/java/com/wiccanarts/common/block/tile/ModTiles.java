@@ -10,7 +10,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public final class ModTiles {
 
-	private ModTiles(){}
+	private ModTiles() {
+	}
 
 	public static void registerAll() {
 
