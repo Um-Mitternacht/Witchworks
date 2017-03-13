@@ -50,7 +50,7 @@ public class TileKettle extends TileMod implements ITickable {
 		if (stack == null || entityItem.isDead)
 			return;
 
-		if(!getWorld().isRemote) {
+		if (!getWorld().isRemote) {
 			PacketHandler.sendTileUpdateNearbyPlayers(this);
 			updateRecipe(stack.copy());
 			fancySplash();
@@ -70,7 +70,7 @@ public class TileKettle extends TileMod implements ITickable {
 	}
 
 	private void fancySplash() {
-		if(getWorld() instanceof WorldServer) {
+		if (getWorld() instanceof WorldServer) {
 			for (int i = 0; i < 10; i++) {
 				BlockPos pos = getPos();
 				Random rand = new Random();
@@ -152,13 +152,13 @@ public class TileKettle extends TileMod implements ITickable {
 		heat = cmp.getInteger(TAG_HEAT);
 	}
 
+	public int getWaterLevel() {
+		return waterLevel;
+	}
+
 	public void setWaterLevel(int water) {
 		waterLevel = water;
 		PacketHandler.updateToNearbyPlayers(getWorld(), pos);
-	}
-
-	public int getWaterLevel() {
-		return waterLevel;
 	}
 
 	public boolean hasWater() {
@@ -191,7 +191,7 @@ public class TileKettle extends TileMod implements ITickable {
 			handleRain();
 		}
 
-		if(tickCount % 20 == 0) {
+		if (tickCount % 20 == 0) {
 			handleHeat();
 		}
 		++tickCount;
