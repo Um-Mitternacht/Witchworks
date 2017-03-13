@@ -99,8 +99,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	}
 
 	@SuppressWarnings("deprecation")
-	public IBlockState onBlockPlaced(World worldIn, Block block, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
-									 EntityLivingBase placer) {
+	public IBlockState onBlockPlaced(World worldIn, Block block, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		IBlockState iblockstate = onBlockPlaced(worldIn, block, pos, facing, hitX, hitY, hitZ, meta, placer);
 		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
 		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?

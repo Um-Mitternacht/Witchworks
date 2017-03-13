@@ -35,7 +35,7 @@ public final class PacketHandler {
 	}
 
 	public static void sendToNear(Entity entity, IMessage message) {
-		sendToNear(entity.worldObj, new BlockPos(entity), message);
+		sendToNear(entity.getEntityWorld(), new BlockPos(entity), message);
 	}
 
 	public static void sendToNear(World world, BlockPos pos, IMessage message) {
