@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:nethersteel"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:nethersteel"
+	  }
+	]
+  }
+}

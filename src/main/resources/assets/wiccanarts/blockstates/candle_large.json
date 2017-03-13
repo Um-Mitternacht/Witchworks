@@ -1,0 +1,52 @@
+{
+  "variants": {
+	"color=white": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=orange": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=magenta": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=light_blue": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=yellow": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=lime": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=pink": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=gray": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=silver": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=cyan": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=purple": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=blue": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=brown": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=green": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=red": {
+	  "model": "wiccanarts:candle_large"
+	},
+	"color=black": {
+	  "model": "wiccanarts:candle_large"
+	}
+  }
+}
