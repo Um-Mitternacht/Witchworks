@@ -8,19 +8,23 @@
  */
 package com.wiccanarts.common.block;
 
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class BlockMod extends Block {
+public class BlockMod extends Block implements IModelRegister {
 
 	public BlockMod(String id, Material material) {
 		super(material);
@@ -34,7 +38,13 @@ public class BlockMod extends Block {
 		return super.setSoundType(type);
 	}
 
-	private IBlockState defaultState() {
+	protected IBlockState defaultState() {
 		return blockState.getBaseState();
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerModels() {
+		ModelHandler.registerBlock(this);
 	}
 }

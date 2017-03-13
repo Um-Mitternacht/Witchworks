@@ -18,18 +18,18 @@ import java.util.List;
 /**
  * Created by Joseph on 3/4/2017.
  */
-public class BlockCandleMedium extends BlockCandle implements IModelRegister {
+public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 
-	private static final AxisAlignedBB MEDIUM_BOX = new AxisAlignedBB(0.25, 0, 0.25, 0.75, 0.75, 0.75);
+	private static final AxisAlignedBB LARGE_BOX = new AxisAlignedBB(0.25, 0, 0.25, 0.75, 1, 0.75);
 
-	public BlockCandleMedium() {
-		super(LibBlockName.CANDLE_MEDIUM);
+	public BlockCandleLarge() {
+		super(LibBlockName.CANDLE_LARGE);
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return MEDIUM_BOX;
+		return LARGE_BOX;
 	}
 
 	@Override

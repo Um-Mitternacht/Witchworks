@@ -3,43 +3,131 @@ package com.wiccanarts.common.block.tools;
 import com.wiccanarts.api.item.IModelRegister;
 import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.block.BlockMod;
+import com.wiccanarts.common.block.tile.TileKettle;
 import com.wiccanarts.common.lib.LibBlockName;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+import static com.wiccanarts.api.state.WiccanArtsState.HALF;
+import static net.minecraft.block.BlockHorizontal.FACING;
 
 /**
  * Created by Joseph on 3/4/2017.
  */
-public class BlockKettle extends BlockMod implements IModelRegister {
-	//public static final int FIRE_TICKS = 20 * 5;//for the "5 seconds above fire in order to heat up" thing. can be increased.
+public class BlockKettle extends BlockMod implements IModelRegister, ITileEntityProvider {
 
-	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(1 * 0.0625, 0, 1 * 0.0625, 15 * 0.0625, 11 * 0.0625, 15 * 0.0625);
+	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0625, 0, 0.0625, 15 * 0.0625, 11 * 0.0625, 15 * 0.0625);
+
+	private static final AxisAlignedBB AABB_LEGS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.3125D, 1.0D);
+	private static final AxisAlignedBB AABB_WALL_NORTH = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 11 * 0.0625, 0.125D);
+	private static final AxisAlignedBB AABB_WALL_SOUTH = new AxisAlignedBB(0.0D, 0.0D, 0.875D, 1.0D, 11 * 0.0625, 1.0D);
+	private static final AxisAlignedBB AABB_WALL_EAST = new AxisAlignedBB(0.875D, 0.0D, 0.0D, 1.0D, 11 * 0.0625, 1.0D);
+	private static final AxisAlignedBB AABB_WALL_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.125D, 11 * 0.0625, 1.0D);
 
 	public BlockKettle() {
 		super(LibBlockName.KETTLE, Material.IRON);
-		setHardness(5.0F);
+		setResistance(5F);
+		setHardness(5F);
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerBlock(this);
+	protected IBlockState defaultState() {
+		return super.defaultState()
+				.withProperty(FACING, EnumFacing.NORTH)
+				.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM);
 	}
 
+	@SuppressWarnings("deprecation")
+	@Override
+	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn) {
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_LEGS);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_WEST);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_NORTH);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_EAST);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_SOUTH);
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		IBlockState iblockstate = getDefaultState().withProperty(HALF, (meta & 4) > 0 ? BlockStairs.EnumHalf.TOP : BlockStairs.EnumHalf.BOTTOM);
+		iblockstate = iblockstate.withProperty(FACING, EnumFacing.getFront(5 - (meta & 3)));
+		return iblockstate;
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		int i = 0;
+
+		if (state.getValue(HALF) == BlockStairs.EnumHalf.TOP) {
+			i |= 4;
+		}
+
+		i = i | 5 - state.getValue(FACING).getIndex();
+		return i;
+	}
+
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING, HALF);
+	}
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+		TileKettle tile = (TileKettle) worldIn.getTileEntity(pos);
+		return tile != null && heldItem != null && tile.handleWater(playerIn, hand, heldItem);
+	}
+
+	@SuppressWarnings("deprecation")
+	public IBlockState onBlockPlaced(World worldIn, Block block, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
+									 EntityLivingBase placer) {
+		IBlockState iblockstate = onBlockPlaced(worldIn, block, pos, facing, hitX, hitY, hitZ, meta, placer);
+		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
+		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
+				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
+				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileKettle();
+	}
+
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
+	}
+
+	@Override
+	public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
+		return true;
 	}
 
 	@Override
@@ -47,8 +135,15 @@ public class BlockKettle extends BlockMod implements IModelRegister {
 		return BlockRenderLayer.SOLID;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return this.BOUNDING_BOX;
+		return BOUNDING_BOX;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerModels() {
+		ModelHandler.registerBlock(this);
 	}
 }

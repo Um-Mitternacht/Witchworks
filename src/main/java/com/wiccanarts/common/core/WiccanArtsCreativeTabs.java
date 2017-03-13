@@ -73,7 +73,6 @@ public class WiccanArtsCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(List<ItemStack> list) {
 			this.list = list;
-			WiccanArtsAPI.CropRegistry.getCrops().forEach((crop, blockCrop) -> addBlock(blockCrop));
 			WiccanArtsAPI.CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			WiccanArtsAPI.CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
 		}
@@ -133,9 +132,9 @@ public class WiccanArtsCreativeTabs {
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
 			addBlock(ModBlocks.NETHERSTEEL);
-			addBlock(ModBlocks.CANDLE_SMALL);
-			addBlock(ModBlocks.CANDLE_MEDIUM);
 			addBlock(ModBlocks.CANDLE_LARGE);
+			addBlock(ModBlocks.CANDLE_MEDIUM);
+			addBlock(ModBlocks.CANDLE_SMALL);
 		}
 	}
 }

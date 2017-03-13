@@ -8,20 +8,30 @@
  */
 package com.wiccanarts.common.item;
 
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class ItemMod extends Item {
+public class ItemMod extends Item implements IModelRegister {
 
 	public ItemMod(String id) {
 		super();
 		setRegistryName(id);
 		setUnlocalizedName(id);
 		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerModels() {
+		ModelHandler.registerItem(this);
 	}
 }
