@@ -18,7 +18,6 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -43,11 +42,6 @@ public class TileKettle extends TileMod implements ITickable {
 	private int waterLevel;
 	private int heat;
 	private int tickCount;
-	private World worldObj;
-
-	public TileKettle() {
-		this.worldObj = worldObj;
-	}
 
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
@@ -56,7 +50,7 @@ public class TileKettle extends TileMod implements ITickable {
 		if (stack == null || entityItem.isDead)
 			return;
 
-		if (!worldObj.isRemote) {
+		if (!getWorld().isRemote) {
 			PacketHandler.sendTileUpdateNearbyPlayers(this);
 			updateRecipe(stack.copy());
 			fancySplash();
@@ -66,24 +60,24 @@ public class TileKettle extends TileMod implements ITickable {
 				entityItem.setDead();
 		}
 
-		worldObj.playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 0.1F, 8F);
-		float r = worldObj.rand.nextFloat();
-		float g = worldObj.rand.nextFloat();
-		float b = worldObj.rand.nextFloat();
+		getWorld().playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 0.1F, 8F);
+		float r = getWorld().rand.nextFloat();
+		float g = getWorld().rand.nextFloat();
+		float b = getWorld().rand.nextFloat();
 		colors[0] = r;
 		colors[1] = g;
 		colors[2] = b;
 	}
 
 	private void fancySplash() {
-		if (worldObj instanceof WorldServer) {
+		if (getWorld() instanceof WorldServer) {
 			for (int i = 0; i < 10; i++) {
 				BlockPos pos = getPos();
 				Random rand = new Random();
 				float d3 = (pos.getX() + rand.nextFloat());
 				float d4 = (float) (pos.getY() + 1);
 				float d5 = (pos.getZ() + rand.nextFloat());
-				((WorldServer) worldObj).spawnParticle(EnumParticleTypes.CRIT_MAGIC, d3, d4, d5, 1, 0, 0, 0, 0D);
+				((WorldServer) getWorld()).spawnParticle(EnumParticleTypes.CRIT_MAGIC, d3, d4, d5, 1, 0, 0, 0, 0D);
 			}
 		}
 	}
@@ -101,11 +95,11 @@ public class TileKettle extends TileMod implements ITickable {
 				if (drainWater != null && drainWater.getFluid() == FluidRegistry.WATER
 						&& drainWater.amount == Fluid.BUCKET_VOLUME) {
 					if (player != null)
-						worldObj.playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
+						getWorld().playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
 
 					fluidHandler.drain(new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME), true);
 					setWaterLevel(6);
-					worldObj.updateComparatorOutputLevel(pos, worldObj.getBlockState(pos).getBlock());
+					getWorld().updateComparatorOutputLevel(pos, getWorld().getBlockState(pos).getBlock());
 
 					colors = new float[]{0.0f, 0.39215687f, 0.0f};
 				}
@@ -114,14 +108,14 @@ public class TileKettle extends TileMod implements ITickable {
 
 				if (fill == Fluid.BUCKET_VOLUME) {
 					if (player != null)
-						worldObj.playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0F, 5F);
+						getWorld().playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0F, 5F);
 
 					fluidHandler.fill(new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME), true);
 					setWaterLevel(0);
-					worldObj.updateComparatorOutputLevel(pos, worldObj.getBlockState(pos).getBlock());
+					getWorld().updateComparatorOutputLevel(pos, getWorld().getBlockState(pos).getBlock());
 				}
 			}
-		} else if (!worldObj.isRemote && stack.getItem() == Items.GLASS_BOTTLE && waterLevel > 0) {
+		} else if (!getWorld().isRemote && stack.getItem() == Items.GLASS_BOTTLE && waterLevel > 0) {
 			if (player != null && !player.capabilities.isCreativeMode) {
 				ItemStack potion = getPotionFromRecipe();
 
@@ -135,7 +129,7 @@ public class TileKettle extends TileMod implements ITickable {
 			}
 
 			if (player != null)
-				worldObj.playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
+				getWorld().playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
 			setWaterLevel(waterLevel - 1);
 		}
 		return true;
@@ -164,7 +158,7 @@ public class TileKettle extends TileMod implements ITickable {
 
 	public void setWaterLevel(int water) {
 		waterLevel = water;
-		PacketHandler.updateToNearbyPlayers(worldObj, pos);
+		PacketHandler.updateToNearbyPlayers(getWorld(), pos);
 	}
 
 	public boolean hasWater() {
@@ -181,16 +175,16 @@ public class TileKettle extends TileMod implements ITickable {
 
 	@Override
 	public void update() {
-		List<EntityItem> entityItemList = worldObj.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
+		List<EntityItem> entityItemList = getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
 		entityItemList.forEach(this::collideItem);
 
-		if (worldObj.rand.nextInt(10) == 0 && isHot() && hasWater() && worldObj.isRemote) {
+		if (getWorld().rand.nextInt(10) == 0 && isHot() && hasWater() && getWorld().isRemote) {
 			BlockPos pos = getPos();
 			float d3 = ((float) pos.getX() + getWorld().rand.nextFloat());
 			float d4 = ((float) pos.getY() + 0.65F);
 			float d5 = ((float) pos.getZ() + getWorld().rand.nextFloat());
-			worldObj.spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D);
-			worldObj.playSound(null, getPos(), SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 1.0F, 5F);
+			getWorld().spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D);
+			getWorld().playSound(null, getPos(), SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 1.0F, 5F);
 		}
 
 		if (tickCount % 10 == 0) {
@@ -212,23 +206,23 @@ public class TileKettle extends TileMod implements ITickable {
 	}
 
 	private boolean isAboveFire() {
-		IBlockState state = worldObj.getBlockState(getPos().down());
+		IBlockState state = getWorld().getBlockState(getPos().down());
 
 		return state.getMaterial() == Material.FIRE;
 	}
 
 	private void handleRain() {
-		if (waterLevel != 6 && worldObj.isRainingAt(getPos().up())) {
+		if (waterLevel != 6 && getWorld().isRainingAt(getPos().up())) {
 			Random rand = new Random();
-			if (worldObj.isRemote) {
+			if (getWorld().isRemote) {
 				for (int i = 0; i < 4; i++) {
 					double d3 = pos.getX() + rand.nextFloat();
 					double d4 = pos.getY() + 0.65F;
 					double d5 = pos.getZ() + rand.nextFloat();
-					worldObj.spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+					getWorld().spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
 				}
 			}
-			worldObj.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 0.2F, 5F);
+			getWorld().playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 0.2F, 5F);
 			setWaterLevel(waterLevel + 1);
 		}
 	}
