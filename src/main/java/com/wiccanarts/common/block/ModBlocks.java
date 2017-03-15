@@ -43,27 +43,29 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_LILAC = new BlockCrop();
 
 	@ObjectHolder(LibBlockName.SILVER_BLOCK)
-	public static final Block SILVER_BLOCK = new Block(Material.ROCK);
+	public static final Block SILVER_BLOCK = new Block(Material.IRON);
 	@ObjectHolder(LibBlockName.MOLDAVITE_BLOCK)
-	public static final Block MOLDAVITE_BLOCK = new Block(Material.ROCK);
+	public static final Block MOLDAVITE_BLOCK = new Block(Material.GLASS);
 	@ObjectHolder(LibBlockName.COQUINA)
 	public static final Block COQUINA = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.BLOODSTONE_BLOCK)
 	public static final Block BLOODSTONE_BLOCK = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.KETTLE)
-	public static final Block KETTLE = new Block(Material.ROCK);
+	public static final Block KETTLE = new Block(Material.IRON);
 	@ObjectHolder(LibBlockName.SILVER_ORE)
 	public static final Block SILVER_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.MOLDAVITE_ORE)
 	public static final Block MOLDAVITE_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.BLOODSTONE_ORE)
+	public static final Block BLOODSTONE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final Block NETHERSTEEL = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.CANDLE_LARGE)
-	public static final Block CANDLE_LARGE = new Block(Material.ROCK);
+	public static final Block CANDLE_LARGE = new Block(Material.CLOTH);
 	@ObjectHolder(LibBlockName.CANDLE_MEDIUM)
-	public static final Block CANDLE_MEDIUM = new Block(Material.ROCK);
+	public static final Block CANDLE_MEDIUM = new Block(Material.CLOTH);
 	@ObjectHolder(LibBlockName.CANDLE_SMALL)
-	public static final Block CANDLE_SMALL = new Block(Material.ROCK);
+	public static final Block CANDLE_SMALL = new Block(Material.CLOTH);
 
 	public static void init() {
 		VanillaCrafting.blocks();
@@ -76,6 +78,7 @@ public final class ModBlocks {
 		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));
 		OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.SILVER_ORE));
 		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.MOLDAVITE_ORE));
+		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.BLOODSTONE_ORE));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 	}
 }

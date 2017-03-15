@@ -101,6 +101,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.KETTLE),
 				itemBlock(ModBlocks.SILVER_ORE),
 				itemBlock(ModBlocks.MOLDAVITE_ORE),
+				itemBlock(ModBlocks.BLOODSTONE_ORE),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
