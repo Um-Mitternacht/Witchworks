@@ -77,8 +77,6 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.WAX),
 				new ItemMod(LibItemName.LAVENDER_SPRIG),
 				new ItemMod(LibItemName.BEE),
-				new ItemMod(LibItemName.BEEGRUB),
-				new ItemMod(LibItemName.BEEQUEEN),
 				new ItemMod(LibItemName.HONEYCOMB)
 		);
 
