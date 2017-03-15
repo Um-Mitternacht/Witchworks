@@ -188,8 +188,8 @@ public class VanillaCrafting {
 		public void build() {
 
 			if (ingredients.isEmpty())
-				throw new IllegalArgumentException("You have to specify ingredients for the recipe!");
-			if (out == null) throw new IllegalArgumentException("Output not specified!");
+				throw new IllegalArgumentException("You have to specify ingredients for the recipe, please report this!");
+			if (out == null) throw new IllegalArgumentException("Output not specified, please report this!");
 
 			ShapelessOreRecipe recipe = new ShapelessOreRecipe(out, ingredients.toArray());
 			CraftingManager.getInstance().getRecipeList().add(recipe);
