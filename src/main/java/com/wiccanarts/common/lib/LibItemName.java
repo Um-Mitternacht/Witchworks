@@ -30,6 +30,18 @@ public final class LibItemName {
 	public static final String SEED_MANDRAKE_ROOT = "seed_mandrake_root";
 	public static final String LILAC = "lilac";
 	public static final String SEED_LILAC = "seed_lilac";
+	public static final String LAVENDER = "lavender";
+	public static final String SEED_LAVENDER = "seed_lavender";
+	public static final String SILPHIUM = "silphium";
+	public static final String SEED_SILPHIUM = "seed_silphium";
+	public static final String TULSI = "tulsi";
+	public static final String SEED_TULSI = "seed_tulsi";
+	public static final String GARLIC = "garlic";
+	public static final String SEED_GARLIC = "seed_garlic";
+	public static final String WORMWOOD = "wormwood";
+	public static final String SEED_WORMWOOD = "seed_wormwood";
+	public static final String FLAX = "flax";
+	public static final String SEED_FLAX = "seed_flax";
 
 	//Gems
 	public static final String GARNET = "garnet";
@@ -59,13 +71,11 @@ public final class LibItemName {
 	public static final String WAX = "wax";
 	public static final String SALT = "salt";
 	public static final String BEE = "bee";
-	public static final String BEEGRUB = "bee_grub";
-	public static final String BEEQUEEN = "bee_queen";
 	public static final String HONEYCOMB = "honeycomb";
 
 	//Staves
-	public static final String STAFFV1 = "staff_1"; //FIXME: What kind of name is this?
-	public static final String STAFFV2 = "staff_2";
+	public static final String STAFFV1 = "mundaneStaff";
+	public static final String STAFFV2 = "impregnatedStaff"; //FIXME Think of better names for the staves.
 
 	//Baubles
 	public static final String RING = "ring";

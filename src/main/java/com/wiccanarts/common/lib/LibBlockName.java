@@ -26,6 +26,12 @@ public final class LibBlockName {
 	public static final String CROP_ALLIUM = "crop_allium";
 	public static final String CROP_MANDRAKE_ROOT = "crop_mandrake_root";
 	public static final String CROP_LILAC = "crop_lilac";
+	public static final String CROP_LAVENDER = "crop_lavender";
+	public static final String CROP_SILPHIUM = "crop_silphium";
+	public static final String CROP_TULSI = "crop_tulsi";
+	public static final String CROP_GARLIC = "crop_garlic";
+	public static final String CROP_WORMWOOD = "crop_wormwood";
+	public static final String CROP_FLAX = "crop_flax";
 
 	public static final String SILVER_BLOCK = "silver_block";
 	public static final String MOLDAVITE_BLOCK = "moldavite_block";

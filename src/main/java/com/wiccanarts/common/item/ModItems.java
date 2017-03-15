@@ -70,10 +70,6 @@ public final class ModItems {
 	//Misc
 	@ObjectHolder(LibItemName.BEE)
 	public static final Item BEE = new Item();
-	@ObjectHolder(LibItemName.BEEQUEEN)
-	public static final Item BEEQUEEN = new Item();
-	@ObjectHolder(LibItemName.BEEGRUB)
-	public static final Item BEEGRUB = new Item();
 
 	public static void init() {
 		VanillaCrafting.items();
