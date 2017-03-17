@@ -125,7 +125,6 @@ public class CommonRegistration {
 				new BlockAsphodel(),
 				new BlockBelladonna(),
 				new BlockGinger(),
-				new BlockLavender(),
 				new BlockKelp(),
 				new BlockCrop(LibBlockName.CROP_MINT),
 				new BlockCrop(LibBlockName.CROP_WHITE_SAGE),
@@ -133,6 +132,7 @@ public class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_ALLIUM),
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LILAC),
+				new BlockCrop(LibBlockName.CROP_LAVENDER),
 
 				//Ore
 				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F),

@@ -20,7 +20,8 @@ public enum Crop {
 	DANDELION_ROOT(Blocks.FARMLAND),
 	ALLIUM(Blocks.FARMLAND),
 	MANDRAKE_ROOT(Blocks.FARMLAND),
-	LILAC(Blocks.FARMLAND);
+	LILAC(Blocks.FARMLAND),
+	LAVENDER(Blocks.FARMLAND);
 
 	private final Block soil;
 
