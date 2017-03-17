@@ -103,6 +103,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.MOLDAVITE_ORE),
 				itemBlock(ModBlocks.BLOODSTONE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_ORE),
+				itemBlock(ModBlocks.TOURMALINE_BLOCK),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
@@ -137,6 +138,7 @@ public class CommonRegistration {
 				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.GLASS).setHardness(5.0F),
 				new BlockMod(LibBlockName.MOLDAVITE_ORE, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
 

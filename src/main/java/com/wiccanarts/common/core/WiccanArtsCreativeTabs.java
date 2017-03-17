@@ -131,6 +131,7 @@ public class WiccanArtsCreativeTabs {
 			addBlock(ModBlocks.BLOODSTONE_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
+			addBlock(ModBlocks.TOURMALINE_BLOCK);
 			addBlock(ModBlocks.NETHERSTEEL);
 			addBlock(ModBlocks.CANDLE_LARGE);
 			addBlock(ModBlocks.CANDLE_MEDIUM);
