@@ -62,7 +62,8 @@ class ShapedRecipe {
 			recipes.add(true);
 		}
 
-		if (rows.isEmpty()) throw new IllegalArgumentException("There must be at least one row in the recipe!");
+		if (rows.isEmpty())
+			throw new IllegalArgumentException("There must be at least one row in the recipe, please report this to the mod author!");
 		Collections.addAll(recipes, rows.toArray());
 
 		characters.forEach(((character, o) -> {

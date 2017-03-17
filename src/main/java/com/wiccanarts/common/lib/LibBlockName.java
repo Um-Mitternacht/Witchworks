@@ -47,6 +47,9 @@ public final class LibBlockName {
 	public static final String COQUINA = "coquina";
 	public static final String BEEHIVE = "beehive";
 	public static final String SILVER_ORE = "silver_ore";
+	public static final String TOURMALINE_ORE = "tourmaline_ore";
 	public static final String MOLDAVITE_ORE = "moldavite_ore";
+	public static final String BLOODSTONE_ORE = "bloodstone_ore";
+	public static final String TOURMALINE_BLOCK = "tourmaline_block";
 	public static final String NETHERSTEEL = "nethersteel";
 }

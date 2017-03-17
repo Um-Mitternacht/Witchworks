@@ -51,7 +51,7 @@ public class ItemColorHandler implements IItemColor {
 				color = 7105791;
 				break;
 			case 12:
-				color = 10831173;
+				color = 8606770;
 				break;
 			case 13:
 				color = 48896;

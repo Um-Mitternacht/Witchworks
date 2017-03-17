@@ -121,14 +121,16 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.SALT);
 			addItem(ModItems.HONEYCOMB);
 			addItem(ModItems.BEE);
-			addItem(ModItems.LAVENDER_SPRIG);
 			addBlock(ModBlocks.SILVER_BLOCK);
 			addBlock(ModBlocks.COQUINA);
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.SILVER_ORE);
 			addBlock(ModBlocks.MOLDAVITE_ORE);
+			addBlock(ModBlocks.TOURMALINE_ORE);
+			addBlock(ModBlocks.BLOODSTONE_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
+			addBlock(ModBlocks.TOURMALINE_BLOCK);
 			addBlock(ModBlocks.NETHERSTEEL);
 			addBlock(ModBlocks.CANDLE_LARGE);
 			addBlock(ModBlocks.CANDLE_MEDIUM);
