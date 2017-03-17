@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-	"layer0": "wiccanarts:items/lavender_sprig"
+	"layer0": "wiccanarts:items/lavender"
   },
   "display": {
 	"firstperson_righthand": {
