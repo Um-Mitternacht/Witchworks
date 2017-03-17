@@ -1,0 +1,20 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cross",
+    "textures": {
+      "crop": "wiccanarts:blocks/crop_belladonna_0"
+    }
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "age": {
+      "0": { "textures": { "crop": "wiccanarts:blocks/crop_belladonna_0" } },
+      "1": { "textures": { "crop": "wiccanarts:blocks/crop_belladonna_1" } },
+      "2": { "textures": { "crop": "wiccanarts:blocks/crop_belladonna_2" } },
+      "3": { "textures": { "crop": "wiccanarts:blocks/crop_belladonna_3" } },
+      "4": { "textures": { "crop": "wiccanarts:blocks/crop_belladonna_4" } }
+    }
+  }
+}
