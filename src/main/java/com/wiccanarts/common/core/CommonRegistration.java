@@ -50,6 +50,7 @@ public class CommonRegistration {
 		registerCrop(ALLIUM, ModBlocks.CROP_ALLIUM, new ItemAllium(), LibItemName.SEED_ALLIUM);
 		registerCrop(MANDRAKE_ROOT, ModBlocks.CROP_MANDRAKE_ROOT, new ItemMandrakeRoot(), LibItemName.SEED_MANDRAKE_ROOT);
 		registerCrop(LILAC, ModBlocks.CROP_LILAC, new ItemLilac(), LibItemName.SEED_LILAC);
+		registerCrop(LAVENDER, ModBlocks.CROP_LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
 
 		CropRegistry.getFoods().forEach((crop, item) -> event.getRegistry().register(item));
 		CropRegistry.getSeeds().forEach((crop, item) -> event.getRegistry().register(item));
@@ -75,7 +76,6 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.HONEY),
 				new ItemMod(LibItemName.SALT),
 				new ItemMod(LibItemName.WAX),
-				new ItemMod(LibItemName.LAVENDER_SPRIG),
 				new ItemMod(LibItemName.BEE),
 				new ItemMod(LibItemName.HONEYCOMB)
 		);
@@ -93,6 +93,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_ALLIUM),
 				itemBlock(ModBlocks.CROP_MANDRAKE_ROOT),
 				itemBlock(ModBlocks.CROP_LILAC),
+				itemBlock(ModBlocks.CROP_LAVENDER),
 
 				itemBlock(ModBlocks.SILVER_BLOCK),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
@@ -101,6 +102,9 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.KETTLE),
 				itemBlock(ModBlocks.SILVER_ORE),
 				itemBlock(ModBlocks.MOLDAVITE_ORE),
+				itemBlock(ModBlocks.BLOODSTONE_ORE),
+				itemBlock(ModBlocks.TOURMALINE_ORE),
+				itemBlock(ModBlocks.TOURMALINE_BLOCK),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
@@ -128,12 +132,16 @@ public class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_ALLIUM),
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LILAC),
+				new BlockCrop(LibBlockName.CROP_LAVENDER),
 
 				//Ore
 				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F),
 				new BlockMod(LibBlockName.SILVER_ORE, Material.ROCK).setHardness(2.0F),
 				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.GLASS).setHardness(5.0F),
-				new BlockMod(LibBlockName.MOLDAVITE_ORE, Material.GLASS).setHardness(5.0F),
+				new BlockMod(LibBlockName.MOLDAVITE_ORE, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
 
 				//Normal Blocks

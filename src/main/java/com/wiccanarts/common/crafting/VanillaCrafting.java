@@ -79,14 +79,14 @@ public class VanillaCrafting {
 					.add(ModItems.WAX)
 					.add(ModItems.WAX)
 					.add(Items.STRING)
-					.add(new ItemStack(Items.DYE, 1, i))
+					.add(new ItemStack(Items.DYE, 1, 15 - i))
 					.outputs(new ItemStack(ModBlocks.CANDLE_SMALL, 1, i))
 					.build();
 		}
 
 		shapeless()
 				.add(ModItems.WAX)
-				.add(ModBlocks.CANDLE_SMALL)
+				.add(ModItems.WAX)
 				.add(ModBlocks.CANDLE_SMALL)
 				.outputs(new ItemStack(ModBlocks.CANDLE_MEDIUM, 1))
 				.build();
@@ -94,16 +94,16 @@ public class VanillaCrafting {
 		for (int i = 0; i < 16; i++) {
 			shapeless()
 					.add(ModItems.WAX)
+					.add(ModItems.WAX)
 					.add(ModBlocks.CANDLE_SMALL)
-					.add(ModBlocks.CANDLE_SMALL)
-					.add(new ItemStack(Items.DYE, 1, i))
+					.add(new ItemStack(Items.DYE, 1, 15 - i))
 					.outputs(new ItemStack(ModBlocks.CANDLE_MEDIUM, 1, i))
 					.build();
 		}
 
 		shapeless()
 				.add(ModItems.WAX)
-				.add(ModBlocks.CANDLE_MEDIUM)
+				.add(ModItems.WAX)
 				.add(ModBlocks.CANDLE_MEDIUM)
 				.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1))
 				.build();
@@ -111,9 +111,9 @@ public class VanillaCrafting {
 		for (int i = 0; i < 16; i++) {
 			shapeless()
 					.add(ModItems.WAX)
+					.add(ModItems.WAX)
 					.add(ModBlocks.CANDLE_MEDIUM)
-					.add(ModBlocks.CANDLE_MEDIUM)
-					.add(new ItemStack(Items.DYE, 1, i))
+					.add(new ItemStack(Items.DYE, 1, 15 - i))
 					.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1, i))
 					.build();
 		}
@@ -188,8 +188,8 @@ public class VanillaCrafting {
 		public void build() {
 
 			if (ingredients.isEmpty())
-				throw new IllegalArgumentException("You have to specify ingredients for the recipe!");
-			if (out == null) throw new IllegalArgumentException("Output not specified!");
+				throw new IllegalArgumentException("You have to specify ingredients for the recipe, please report this!");
+			if (out == null) throw new IllegalArgumentException("Output not specified, please report this!");
 
 			ShapelessOreRecipe recipe = new ShapelessOreRecipe(out, ingredients.toArray());
 			CraftingManager.getInstance().getRecipeList().add(recipe);

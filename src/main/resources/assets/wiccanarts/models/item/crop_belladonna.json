@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-	"layer0": "wiccanarts:items/seed_white_sage"
+	"layer0": "wiccanarts:blocks/crop_belladonna_0"
   }
 }
