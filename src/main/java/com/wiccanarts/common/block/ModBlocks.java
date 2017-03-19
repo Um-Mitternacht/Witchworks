@@ -64,6 +64,8 @@ public final class ModBlocks {
 	public static final Block BLOODSTONE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.TOURMALINE_ORE)
 	public static final Block TOURMALINE_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.MALACHITE_ORE)
+	public static final Block MALACHITE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final Block NETHERSTEEL = new Block(Material.IRON);
 	@ObjectHolder(LibBlockName.CANDLE_LARGE)
@@ -86,6 +88,7 @@ public final class ModBlocks {
 		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.MOLDAVITE_ORE));
 		OreDictionary.registerOre("oreBloodstone", new ItemStack(ModBlocks.BLOODSTONE_ORE));
 		OreDictionary.registerOre("oreTourmaline", new ItemStack(ModBlocks.TOURMALINE_ORE));
+		OreDictionary.registerOre("oreMalachite", new ItemStack(ModBlocks.MALACHITE_ORE));
 		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.TOURMALINE_BLOCK));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 	}
