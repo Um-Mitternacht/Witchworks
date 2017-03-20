@@ -20,7 +20,7 @@ item.seed_oxeye_daisy.name=Oxeye Daisy Seed
 item.seed_sunflower.name=Sunflower Seed
 item.seed_lilac.name=Lilac Seed
 item.seed_peony.name=Peony Seed
-item.seed_peony.name=Lavender Seed
+item.seed_lavender.name=Lavender Seed
 
 item.aconitum.name=Aconitum
 item.asphodel.name=Asphodel
@@ -41,8 +41,22 @@ item.lavender.name=Lavender
 item.peony.name=Peony
 
 item.garnet.name=Garnet
+item.moldavite.name=Moldavite
+item.nuummite.name=Nuummite
+item.petoskey_stone.name=Petoskey Stone
+item.serpentine.name=Serpentine
+item.tourmaline.name=Tourmaline
+item.tigers_eye.name=Tiger's Eye
+item.bloodstone.name=Bloodstone
+item.jasper.name=Jasper
+item.malachite.name=Malachite
 
 item.wax.name=Wax
+item.honey.name=Honey
+item.salt.name=Salt
+item.silver_ingot.name=Silver Ingot
+item.silver_nugget.name=Silver Nugget
+item.silver_powder.name=Silver Powder
 
 //Blocks
 tile.crop_aconitum.name=Aconitum Crop
@@ -72,6 +86,7 @@ tile.moldavite_block.name=Moldavite Block
 tile.bloodstone_block.name=Bloodstone Block
 tile.silver_block.name=Silver Block
 tile.nethersteel.name=Nethersteel
+tile.kettle.name=Kettle
 
 ///ToolTips
 wiccan.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
