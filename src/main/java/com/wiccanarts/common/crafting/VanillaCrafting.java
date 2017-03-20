@@ -38,6 +38,14 @@ public class VanillaCrafting {
 					.setMirror(true).build();
 		}
 
+		for (ItemStack item : OreDictionary.getOres("gemTourmaline")) {
+			System.out.println(item);
+			shaped().grid("TTT", "TTT", "TTT")
+					.map('T', item)
+					.outputs(ModBlocks.TOURMALINE_BLOCK)
+					.setMirror(true).build();
+		}
+
 		for (ItemStack item : OreDictionary.getOres("gemMoldavite")) {
 			System.out.println(item);
 			shaped().grid("MMM", "MMM", "MMM")
@@ -50,6 +58,13 @@ public class VanillaCrafting {
 			shapeless()
 					.add(item)
 					.outputs(new ItemStack(ModItems.MOLDAVITE, 9))
+					.build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("blockTourmaline")) {
+			shapeless()
+					.add(item)
+					.outputs(new ItemStack(ModItems.TOURMALINE, 9))
 					.build();
 		}
 
