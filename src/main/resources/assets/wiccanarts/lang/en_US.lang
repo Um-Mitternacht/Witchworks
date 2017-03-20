@@ -71,6 +71,7 @@ tile.tourmaline_block.name=Tourmaline Block
 tile.moldavite_block.name=Moldavite Block
 tile.bloodstone_block.name=Bloodstone Block
 tile.silver_block.name=Silver Block
+tile.nethersteel.name=Nethersteel
 
 ///ToolTips
 wiccan.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
