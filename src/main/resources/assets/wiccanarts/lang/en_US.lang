@@ -50,9 +50,14 @@ item.tigers_eye.name=Tiger's Eye
 item.bloodstone.name=Bloodstone
 item.jasper.name=Jasper
 item.malachite.name=Malachite
+item.amethyst.name=Amethyst
+item.alexandrite.name=Alexandrite
+item.quartz.name=Quartz
 
 item.wax.name=Wax
 item.honey.name=Honey
+item.honeycomb.name=Honeycomb
+item.bee.name=Bee
 item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
 item.silver_nugget.name=Silver Nugget
@@ -87,6 +92,7 @@ tile.bloodstone_block.name=Bloodstone Block
 tile.silver_block.name=Silver Block
 tile.nethersteel.name=Nethersteel
 tile.kettle.name=Kettle
+tile.coquina.name=Coquina
 
 ///ToolTips
 wiccan.tooltip.seed_aconitum_description.name=Seed from a poisonous plant

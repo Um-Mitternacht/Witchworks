@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:coquina"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:coquina"
+	  }
+	]
+  }
+}
