@@ -60,6 +60,7 @@ public class VanillaCrafting {
 					.build();
 		}
 
+		//fixme HIDE THIS RECIPE FROM JEI
 		shapeless()
 				.add(new ItemStack(Items.DYE, 1, 4))
 				.add(ModItems.JASPER)
