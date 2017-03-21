@@ -18,7 +18,9 @@ import java.util.List;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class VanillaCrafting {
+public final class VanillaCrafting {
+
+    private VanillaCrafting() {}
 
 	public static void items() {
 
