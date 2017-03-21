@@ -20,7 +20,8 @@ import java.util.List;
  */
 public final class VanillaCrafting {
 
-    private VanillaCrafting() {}
+	private VanillaCrafting() {
+	}
 
 	public static void items() {
 
