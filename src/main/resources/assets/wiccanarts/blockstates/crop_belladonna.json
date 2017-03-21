@@ -17,27 +17,27 @@
 	  },
 	  "2": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_belladonna_2"
+		  "cross": "wiccanarts:blocks/crop_belladonna_1"
 		}
 	  },
 	  "3": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_belladonna_3"
+		  "cross": "wiccanarts:blocks/crop_belladonna_2"
 		}
 	  },
 	  "4": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_belladonna_4"
+		  "cross": "wiccanarts:blocks/crop_belladonna_2"
 		}
 	  },
 	  "5": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_belladonna_4"
+		  "cross": "wiccanarts:blocks/crop_belladonna_3"
 		}
 	  },
 	  "6": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_belladonna_4"
+		  "cross": "wiccanarts:blocks/crop_belladonna_3"
 		}
 	  },
 	  "7": {

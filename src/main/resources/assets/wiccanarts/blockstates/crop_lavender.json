@@ -17,27 +17,27 @@
 	  },
 	  "2": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_lavender_2"
+		  "cross": "wiccanarts:blocks/crop_lavender_1"
 		}
 	  },
 	  "3": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_lavender_3"
+		  "cross": "wiccanarts:blocks/crop_lavender_1"
 		}
 	  },
 	  "4": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_lavender_3"
+		  "cross": "wiccanarts:blocks/crop_lavender_2"
 		}
 	  },
 	  "5": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_lavender_3"
+		  "cross": "wiccanarts:blocks/crop_lavender_2"
 		}
 	  },
 	  "6": {
 		"textures": {
-		  "cross": "wiccanarts:blocks/crop_lavender_3"
+		  "cross": "wiccanarts:blocks/crop_lavender_2"
 		}
 	  },
 	  "7": {
