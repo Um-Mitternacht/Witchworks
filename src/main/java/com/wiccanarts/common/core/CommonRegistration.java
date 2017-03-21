@@ -122,11 +122,9 @@ public class CommonRegistration {
 		ModTiles.registerAll();
 		event.getRegistry().registerAll(
 				//Crops
-				new BlockAconitum(),
-				new BlockAsphodel(),
-				new BlockBelladonna(),
-				new BlockGinger(),
-				new BlockKelp(),
+				new BlockCrop(LibBlockName.CROP_ACONITUM),
+				new BlockCrop(LibBlockName.CROP_ASPHODEL),
+				new BlockCrop(LibBlockName.CROP_GINGER),
 				new BlockCrop(LibBlockName.CROP_MINT),
 				new BlockCrop(LibBlockName.CROP_WHITE_SAGE),
 				new BlockCrop(LibBlockName.CROP_DANDELION_ROOT),
@@ -134,6 +132,8 @@ public class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LILAC),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
+                new BlockKelp(),
+                new BlockBelladonna(),
 
 				//Ore
 				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F),

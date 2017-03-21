@@ -15,20 +15,34 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class BlockCrop extends BlockCrops implements IModelRegister {
 
+    private int maxAge;
 	private Item seed;
 	private Item crop;
 
-	public BlockCrop() {
-	}
+	public BlockCrop() {}
 
-	public BlockCrop(String id) {
+    public BlockCrop(String id) {
+        super();
+        setUnlocalizedName(id);
+        setRegistryName(id);
+        setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+        this.maxAge = 7;
+    }
+
+	public BlockCrop(String id, int maxAge) {
 		super();
 		setUnlocalizedName(id);
 		setRegistryName(id);
 		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
-	}
+        this.maxAge = maxAge;
+    }
 
-	@Override
+    @Override
+    public int getMaxAge() {
+        return maxAge;
+    }
+
+    @Override
 	public Item getSeed() {
 		return seed;
 	}
