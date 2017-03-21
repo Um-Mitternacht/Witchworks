@@ -1,5 +1,6 @@
 package com.wiccanarts.common.item;
 
+import com.wiccanarts.common.crafting.KettleCrafting;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibItemName;
 import com.wiccanarts.common.lib.LibMod;
@@ -71,7 +72,8 @@ public final class ModItems {
 
 	public static void init() {
 		VanillaCrafting.items();
-	}
+        KettleCrafting.init();
+    }
 
 	public static void initOreDictionary() {
 		OreDictionary.registerOre("gemBloodstone", new ItemStack(ModItems.BLOODSTONE));
