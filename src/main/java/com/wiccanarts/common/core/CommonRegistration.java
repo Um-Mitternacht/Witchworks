@@ -3,7 +3,9 @@ package com.wiccanarts.common.core;
 import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.common.block.BlockMod;
 import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.block.crop.*;
+import com.wiccanarts.common.block.crop.BlockBelladonna;
+import com.wiccanarts.common.block.crop.BlockCrop;
+import com.wiccanarts.common.block.crop.BlockKelp;
 import com.wiccanarts.common.block.tile.ModTiles;
 import com.wiccanarts.common.block.tools.BlockCandleLarge;
 import com.wiccanarts.common.block.tools.BlockCandleMedium;
@@ -132,8 +134,8 @@ public class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LILAC),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
-                new BlockKelp(),
-                new BlockBelladonna(),
+				new BlockKelp(),
+				new BlockBelladonna(),
 
 				//Ore
 				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F),
