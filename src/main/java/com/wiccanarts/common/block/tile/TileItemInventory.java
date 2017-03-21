@@ -22,106 +22,106 @@ import net.minecraftforge.items.ItemStackHandler;
 @SuppressWarnings("WeakerAccess")
 public abstract class TileItemInventory extends TileEntity {
 
-    public ItemStackHandlerTile itemHandler = createItemHandler();
+	public ItemStackHandlerTile itemHandler = createItemHandler();
 
-    @Override
-    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
-        return oldState.getBlock() != newState.getBlock();
-    }
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
+	}
 
-    @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound nbtTagCompound) {
-        NBTTagCompound ret = super.writeToNBT(nbtTagCompound);
-        writeDataNBT(ret);
-        return ret;
-    }
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound nbtTagCompound) {
+		NBTTagCompound ret = super.writeToNBT(nbtTagCompound);
+		writeDataNBT(ret);
+		return ret;
+	}
 
-    @Override
-    public final SPacketUpdateTileEntity getUpdatePacket() {
-        NBTTagCompound tag = new NBTTagCompound();
-        writeDataNBT(tag);
-        return new SPacketUpdateTileEntity(pos, -999, tag);
-    }
+	@Override
+	public final SPacketUpdateTileEntity getUpdatePacket() {
+		NBTTagCompound tag = new NBTTagCompound();
+		writeDataNBT(tag);
+		return new SPacketUpdateTileEntity(pos, -999, tag);
+	}
 
-    @Override
-    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
-        super.onDataPacket(net, packet);
-        readDataNBT(packet.getNbtCompound());
-    }
+	@Override
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
+		super.onDataPacket(net, packet);
+		readDataNBT(packet.getNbtCompound());
+	}
 
-    @Override
-    public void readFromNBT(NBTTagCompound nbtTagCompound) {
-        super.readFromNBT(nbtTagCompound);
-        readDataNBT(nbtTagCompound);
-    }
+	@Override
+	public void readFromNBT(NBTTagCompound nbtTagCompound) {
+		super.readFromNBT(nbtTagCompound);
+		readDataNBT(nbtTagCompound);
+	}
 
-    @Override
-    public final NBTTagCompound getUpdateTag() {
-        return writeToNBT(new NBTTagCompound());
-    }
+	@Override
+	public final NBTTagCompound getUpdateTag() {
+		return writeToNBT(new NBTTagCompound());
+	}
 
-    public void writeDataNBT(NBTTagCompound nbtTagCompound) {
-        nbtTagCompound.merge(itemHandler.serializeNBT());
-    }
+	public void writeDataNBT(NBTTagCompound nbtTagCompound) {
+		nbtTagCompound.merge(itemHandler.serializeNBT());
+	}
 
-    public void readDataNBT(NBTTagCompound tagCompound) {
-        itemHandler = createItemHandler();
-        itemHandler.deserializeNBT(tagCompound);
-    }
+	public void readDataNBT(NBTTagCompound tagCompound) {
+		itemHandler = createItemHandler();
+		itemHandler.deserializeNBT(tagCompound);
+	}
 
-    protected ItemStackHandlerTile createItemHandler() {
-        return new ItemStackHandlerTile(this, true);
-    }
+	protected ItemStackHandlerTile createItemHandler() {
+		return new ItemStackHandlerTile(this, true);
+	}
 
-    @Override
-    public boolean hasCapability( Capability<?> cap, EnumFacing side) {
-        return cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(cap, side);
-    }
+	@Override
+	public boolean hasCapability(Capability<?> cap, EnumFacing side) {
+		return cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(cap, side);
+	}
 
-    @Override
-    public <T> T getCapability(Capability<T> capability, EnumFacing side) {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-            return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(itemHandler);
-        return super.getCapability(capability, side);
-    }
+	@Override
+	public <T> T getCapability(Capability<T> capability, EnumFacing side) {
+		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(itemHandler);
+		return super.getCapability(capability, side);
+	}
 
-    public abstract int getSizeInventory();
+	public abstract int getSizeInventory();
 
-    public static class ItemStackHandlerTile extends ItemStackHandler {
+	public static class ItemStackHandlerTile extends ItemStackHandler {
 
-        private boolean allow;
-        private final TileItemInventory tile;
+		private final TileItemInventory tile;
+		private boolean allow;
 
-        ItemStackHandlerTile(TileItemInventory tile, boolean allow) {
-            super(tile.getSizeInventory());
-            this.tile = tile;
-            this.allow = allow;
-        }
+		ItemStackHandlerTile(TileItemInventory tile, boolean allow) {
+			super(tile.getSizeInventory());
+			this.tile = tile;
+			this.allow = allow;
+		}
 
-        @Override
-        public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-            if (allow) {
-                return super.insertItem(slot, stack, simulate);
-            } else return stack;
-        }
+		@Override
+		public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+			if (allow) {
+				return super.insertItem(slot, stack, simulate);
+			} else return stack;
+		}
 
-        @Override
-        public ItemStack extractItem(int slot, int amount, boolean simulate) {
-            if (allow) {
-                return super.extractItem(slot, 1, simulate);
-            } else return null;
-        }
+		@Override
+		public ItemStack extractItem(int slot, int amount, boolean simulate) {
+			if (allow) {
+				return super.extractItem(slot, 1, simulate);
+			} else return null;
+		}
 
 
-        public ItemStack getItemSimulate(int slot) {
-            if (allow) {
-                return super.extractItem(slot, 1, true);
-            } else return null;
-        }
+		public ItemStack getItemSimulate(int slot) {
+			if (allow) {
+				return super.extractItem(slot, 1, true);
+			} else return null;
+		}
 
-        @Override
-        public void onContentsChanged(int slot) {
-            tile.markDirty();
-        }
-    }
+		@Override
+		public void onContentsChanged(int slot) {
+			tile.markDirty();
+		}
+	}
 }

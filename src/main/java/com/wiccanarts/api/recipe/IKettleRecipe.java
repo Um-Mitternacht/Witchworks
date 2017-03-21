@@ -12,9 +12,9 @@ import net.minecraftforge.items.IItemHandler;
  */
 public interface IKettleRecipe {
 
-    boolean checkRecipe(IItemHandler usedItems, World world);
+	boolean checkRecipe(IItemHandler usedItems, World world);
 
-    ImmutableList<Object> getNeededItems();
+	ImmutableList<Object> getNeededItems();
 
-    ItemStack getResult();
+	ItemStack getResult();
 }

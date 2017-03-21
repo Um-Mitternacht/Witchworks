@@ -19,21 +19,21 @@ import java.util.Map;
  */
 public class WiccanArtsAPI {
 
-    private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
+	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
 
-    public static IKettleRecipe registerKettleRecipe(ItemStack stack, Object... objects) {
-        IKettleRecipe recipe = new KettleRecipe(stack, objects);
-        return registerKettleRecipe(recipe);
-    }
+	public static IKettleRecipe registerKettleRecipe(ItemStack stack, Object... objects) {
+		IKettleRecipe recipe = new KettleRecipe(stack, objects);
+		return registerKettleRecipe(recipe);
+	}
 
-    public static IKettleRecipe registerKettleRecipe(IKettleRecipe kettleRecipe) {
-        kettleRecipes.add(kettleRecipe);
-        return  kettleRecipe;
-    }
+	public static IKettleRecipe registerKettleRecipe(IKettleRecipe kettleRecipe) {
+		kettleRecipes.add(kettleRecipe);
+		return kettleRecipe;
+	}
 
-    public static List<IKettleRecipe> getKettleRecipes() {
-        return kettleRecipes;
-    }
+	public static List<IKettleRecipe> getKettleRecipes() {
+		return kettleRecipes;
+	}
 
 	public static class CropRegistry {
 

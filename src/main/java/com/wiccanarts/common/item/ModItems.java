@@ -72,8 +72,8 @@ public final class ModItems {
 
 	public static void init() {
 		VanillaCrafting.items();
-        KettleCrafting.init();
-    }
+		KettleCrafting.init();
+	}
 
 	public static void initOreDictionary() {
 		OreDictionary.registerOre("gemBloodstone", new ItemStack(ModItems.BLOODSTONE));

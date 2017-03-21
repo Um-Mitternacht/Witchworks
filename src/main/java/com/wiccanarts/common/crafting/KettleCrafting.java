@@ -14,16 +14,17 @@ import net.minecraft.potion.PotionUtils;
  */
 public final class KettleCrafting {
 
-    public static IKettleRecipe HEALING;
-    public static IKettleRecipe LEAPING;
+	public static IKettleRecipe HEALING;
+	public static IKettleRecipe LEAPING;
 
-    private KettleCrafting() {}
+	private KettleCrafting() {
+	}
 
-    public static void init() {
-        ItemStack potion = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.HEALING);
-        HEALING = WiccanArtsAPI.registerKettleRecipe(potion, Items.WHEAT_SEEDS, Items.WHEAT_SEEDS, Items.WHEAT_SEEDS);
+	public static void init() {
+		ItemStack potion = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.HEALING);
+		HEALING = WiccanArtsAPI.registerKettleRecipe(potion, Items.WHEAT_SEEDS, Items.WHEAT_SEEDS, Items.WHEAT_SEEDS);
 
-        ItemStack potion0 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.LEAPING);
-        LEAPING = WiccanArtsAPI.registerKettleRecipe(potion0, Items.WHEAT_SEEDS, Items.COAL, Items.WHEAT_SEEDS);
-    }
+		ItemStack potion0 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.LEAPING);
+		LEAPING = WiccanArtsAPI.registerKettleRecipe(potion0, Items.WHEAT_SEEDS, Items.COAL, Items.WHEAT_SEEDS);
+	}
 }
