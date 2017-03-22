@@ -194,7 +194,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			getWorld().playSound(null, getPos(), SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 1.0F, 5F);
 		}
 
-		if (!worldObj.isRemote && tickCount % 5 == 0) {
+		if (!getWorld().isRemote && tickCount % 5 == 0) {
 			if (result != null) {
 				double d3 = pos.getX() + 0.5;
 				double d4 = pos.getY() + 0.65;
