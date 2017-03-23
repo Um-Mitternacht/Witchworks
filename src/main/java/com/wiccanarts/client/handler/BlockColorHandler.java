@@ -26,16 +26,16 @@ public class BlockColorHandler implements IBlockColor {
 				color = 15658734;
 				break;
 			case 1:
-				color = 16758062;
+				color = 16087062;
 				break;
 			case 2:
-				color = 16594685;
+				color = 11745961;
 				break;
 			case 3:
-				color = 11393254;
+				color = 3847130;
 				break;
 			case 4:
-				color = 16777042;
+				color = 16435754;
 				break;
 			case 5:
 				color = 5634389;
