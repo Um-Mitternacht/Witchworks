@@ -1,5 +1,6 @@
 package com.wiccanarts.common.block.tile;
 
+import com.wiccanarts.api.WiccanArtsAPI;
 import com.wiccanarts.common.net.PacketHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -34,7 +35,7 @@ import java.util.Random;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class TileKettle extends TileMod implements ITickable {
+public class TileKettle extends TileItemInventory implements ITickable {
 
 	private static final String TAG_WATER = "waterLevel";
 	private static final String TAG_HEAT = "heat";
@@ -42,6 +43,7 @@ public class TileKettle extends TileMod implements ITickable {
 	private int waterLevel;
 	private int heat;
 	private int tickCount;
+	private ItemStack result;
 
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
@@ -52,12 +54,20 @@ public class TileKettle extends TileMod implements ITickable {
 
 		if (!getWorld().isRemote) {
 			PacketHandler.sendTileUpdateNearbyPlayers(this);
-			updateRecipe(stack.copy());
 			fancySplash();
 
 			stack.stackSize--;
 			if (stack.stackSize == 0)
 				entityItem.setDead();
+
+			for (int i = 0; i < getSizeInventory(); i++) {
+				if (itemHandler.getItemSimulate(i) == null) {
+					ItemStack stackToAdd = stack.copy();
+					stackToAdd.stackSize = 1;
+					itemHandler.insertItem(i, stackToAdd, false);
+					break;
+				}
+			}
 		}
 
 		getWorld().playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 0.1F, 8F);
@@ -82,8 +92,11 @@ public class TileKettle extends TileMod implements ITickable {
 		}
 	}
 
-	private void updateRecipe(ItemStack stack) {
-		//TODO: Check the recipe here, update the output each time a recipe matches
+	private void updateRecipe() {
+		WiccanArtsAPI.getKettleRecipes().stream().filter(kettleRecipe ->
+				kettleRecipe.checkRecipe(itemHandler, getWorld())).forEach(kettleRecipe ->
+				result = kettleRecipe.getResult()
+		);
 	}
 
 	public boolean handleWater(@Nullable EntityPlayer player, EnumHand hand, ItemStack stack) {
@@ -102,6 +115,8 @@ public class TileKettle extends TileMod implements ITickable {
 					getWorld().updateComparatorOutputLevel(pos, getWorld().getBlockState(pos).getBlock());
 
 					colors = new float[]{0.0f, 0.39215687f, 0.0f};
+
+					removeItems();
 				}
 			} else if (waterLevel == 6) {
 				int fill = fluidHandler.fill(new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME), false);
@@ -113,6 +128,8 @@ public class TileKettle extends TileMod implements ITickable {
 					fluidHandler.fill(new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME), true);
 					setWaterLevel(0);
 					getWorld().updateComparatorOutputLevel(pos, getWorld().getBlockState(pos).getBlock());
+
+					removeItems();
 				}
 			}
 		} else if (!getWorld().isRemote && stack.getItem() == Items.GLASS_BOTTLE && waterLevel > 0) {
@@ -135,42 +152,32 @@ public class TileKettle extends TileMod implements ITickable {
 		return true;
 	}
 
+	private void removeItems() {
+		result = null;
+		for (int i = 0; i < itemHandler.getSlots(); i++) {
+			itemHandler.extractItem(i, 1, false);
+		}
+	}
+
 	private ItemStack getPotionFromRecipe() {
-		//TODO: Return the correct potion from recipe when player uses a Bottle
+		if (result != null && PotionUtils.getPotionFromItem(result) != PotionTypes.WATER) {
+			return result.copy();
+		}
 		return PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
 	}
 
 	@Override
-	void writeDataNBT(NBTTagCompound cmp) {
+	public void writeDataNBT(NBTTagCompound cmp) {
+		super.writeDataNBT(cmp);
 		cmp.setInteger(TAG_WATER, waterLevel);
 		cmp.setInteger(TAG_HEAT, heat);
 	}
 
 	@Override
-	void readDataNBT(NBTTagCompound cmp) {
+	public void readDataNBT(NBTTagCompound cmp) {
+		super.readDataNBT(cmp);
 		waterLevel = cmp.getInteger(TAG_WATER);
 		heat = cmp.getInteger(TAG_HEAT);
-	}
-
-	public int getWaterLevel() {
-		return waterLevel;
-	}
-
-	public void setWaterLevel(int water) {
-		waterLevel = water;
-		PacketHandler.updateToNearbyPlayers(getWorld(), pos);
-	}
-
-	public boolean hasWater() {
-		return waterLevel > 0;
-	}
-
-	public boolean isHot() {
-		return heat == 5;
-	}
-
-	public float[] getColor() {
-		return colors;
 	}
 
 	@Override
@@ -178,13 +185,28 @@ public class TileKettle extends TileMod implements ITickable {
 		List<EntityItem> entityItemList = getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
 		entityItemList.forEach(this::collideItem);
 
-		if (getWorld().rand.nextInt(10) == 0 && isHot() && hasWater() && getWorld().isRemote) {
+		if (getWorld().rand.nextInt(10) == 0 && isHot() && hasWater()) {
 			BlockPos pos = getPos();
 			float d3 = ((float) pos.getX() + getWorld().rand.nextFloat());
 			float d4 = ((float) pos.getY() + 0.65F);
 			float d5 = ((float) pos.getZ() + getWorld().rand.nextFloat());
 			getWorld().spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D);
 			getWorld().playSound(null, getPos(), SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 1.0F, 5F);
+		}
+
+		if (!getWorld().isRemote && tickCount % 5 == 0) {
+			if (result != null) {
+				double d3 = pos.getX() + 0.5;
+				double d4 = pos.getY() + 0.65;
+				double d5 = pos.getZ() + 0.5;
+				if (getWorld() instanceof WorldServer)
+					((WorldServer) getWorld()).spawnParticle(EnumParticleTypes.SPELL, d3, d4, d5, 1, 0D, 0D, 0D, 0D);
+
+				if (!hasWater()) {
+					removeItems();
+				}
+			}
+			updateRecipe();
 		}
 
 		if (tickCount % 10 == 0) {
@@ -224,6 +246,33 @@ public class TileKettle extends TileMod implements ITickable {
 			}
 			getWorld().playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 0.2F, 5F);
 			setWaterLevel(waterLevel + 1);
+			removeItems();
 		}
+	}
+
+	@Override
+	public int getSizeInventory() {
+		return 8;
+	}
+
+	public int getWaterLevel() {
+		return waterLevel;
+	}
+
+	public void setWaterLevel(int water) {
+		waterLevel = water;
+		PacketHandler.updateToNearbyPlayers(getWorld(), pos);
+	}
+
+	public boolean hasWater() {
+		return waterLevel > 0;
+	}
+
+	public boolean isHot() {
+		return heat == 5;
+	}
+
+	public float[] getColor() {
+		return colors;
 	}
 }
