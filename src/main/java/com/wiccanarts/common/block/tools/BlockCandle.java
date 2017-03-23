@@ -64,6 +64,16 @@ public class BlockCandle extends BlockMod {
 		return this.getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}
 
+	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+		return worldIn.getBlockState(
+				pos.down()).isSideSolid(
+				worldIn,
+				pos.down(),
+				EnumFacing.UP
+		);
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {

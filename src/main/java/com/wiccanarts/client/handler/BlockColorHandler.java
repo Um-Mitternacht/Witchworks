@@ -23,52 +23,52 @@ public class BlockColorHandler implements IBlockColor {
 		int color = 0;
 		switch (state.getValue(WiccanArtsState.COLOR).getMetadata()) {
 			case 0:
-				color = 15658734;
+				color = 15987957;
 				break;
 			case 1:
-				color = 16758062;
+				color = 16087062;
 				break;
 			case 2:
-				color = 16594685;
+				color = 11745961;
 				break;
 			case 3:
-				color = 11393254;
+				color = 3847130;
 				break;
 			case 4:
-				color = 16777042;
+				color = 16435754;
 				break;
 			case 5:
-				color = 5634389;
+				color = 8834086;
 				break;
 			case 6:
-				color = 16766429;
+				color = 16030389;
 				break;
 			case 7:
-				color = 12237498;
+				color = 4673362;
 				break;
 			case 8:
-				color = 14671839;
+				color = 9737358;
 				break;
 			case 9:
-				color = 6291455;
+				color = 1413268;
 				break;
 			case 10:
-				color = 11665586;
+				color = 8400048;
 				break;
 			case 11:
-				color = 7105791;
+				color = 2895503;
 				break;
 			case 12:
 				color = 8606770;
 				break;
 			case 13:
-				color = 48896;
+				color = 6653465;
 				break;
 			case 14:
-				color = 16730184;
+				color = 10955043;
 				break;
 			case 15:
-				color = 3223857;
+				color = 987157;
 				break;
 		}
 		return color;

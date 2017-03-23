@@ -18,7 +18,10 @@ import java.util.List;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class VanillaCrafting {
+public final class VanillaCrafting {
+
+	private VanillaCrafting() {
+	}
 
 	public static void items() {
 
@@ -38,6 +41,14 @@ public class VanillaCrafting {
 					.setMirror(true).build();
 		}
 
+		for (ItemStack item : OreDictionary.getOres("gemTourmaline")) {
+			System.out.println(item);
+			shaped().grid("TTT", "TTT", "TTT")
+					.map('T', item)
+					.outputs(ModBlocks.TOURMALINE_BLOCK)
+					.setMirror(true).build();
+		}
+
 		for (ItemStack item : OreDictionary.getOres("gemMoldavite")) {
 			System.out.println(item);
 			shaped().grid("MMM", "MMM", "MMM")
@@ -53,6 +64,13 @@ public class VanillaCrafting {
 					.build();
 		}
 
+		for (ItemStack item : OreDictionary.getOres("blockTourmaline")) {
+			shapeless()
+					.add(item)
+					.outputs(new ItemStack(ModItems.TOURMALINE, 9))
+					.build();
+		}
+
 		for (ItemStack item : OreDictionary.getOres("blockBloodstone")) {
 			shapeless()
 					.add(item)
@@ -60,6 +78,7 @@ public class VanillaCrafting {
 					.build();
 		}
 
+		//fixme HIDE THIS RECIPE FROM JEI
 		shapeless()
 				.add(new ItemStack(Items.DYE, 1, 4))
 				.add(ModItems.JASPER)

@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:malachite_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:malachite_ore"
+	  }
+	]
+  }
+}
