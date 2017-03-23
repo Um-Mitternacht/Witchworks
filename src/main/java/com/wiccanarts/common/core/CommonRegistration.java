@@ -19,6 +19,7 @@ import com.wiccanarts.common.item.seed.ItemSeed;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -138,25 +139,25 @@ public class CommonRegistration {
 				new BlockBelladonna(),
 
 				//Ore
-				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F),
-				new BlockMod(LibBlockName.SILVER_ORE, Material.ROCK).setHardness(2.0F),
-				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.MOLDAVITE_ORE, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
+				new BlockMod(LibBlockName.SILVER_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(2.0F),
+				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.ROCK).setSound(SoundType.GLASS).setHardness(5.0F),
+				new BlockMod(LibBlockName.MOLDAVITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 
 				//Normal Blocks
-				new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON),
+				new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
 
 				//Tool Blocks
-				new BlockKettle(),
-				new BlockCandleLarge(),
-				new BlockCandleMedium(),
-				new BlockCandleSmall()
+				new BlockKettle().setSound(SoundType.METAL),
+				new BlockCandleLarge().setSound(SoundType.CLOTH),
+				new BlockCandleMedium().setSound(SoundType.CLOTH),
+				new BlockCandleSmall().setSound(SoundType.CLOTH)
 		);
 	}
 
