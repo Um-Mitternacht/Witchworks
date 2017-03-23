@@ -141,6 +141,16 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	}
 
 	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+		return worldIn.getBlockState(
+				pos.down()).isSideSolid(
+				worldIn,
+				pos.down(),
+				EnumFacing.UP
+		);
+	}
+
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerBlock(this);
