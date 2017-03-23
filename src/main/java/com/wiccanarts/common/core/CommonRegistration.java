@@ -140,7 +140,7 @@ public class CommonRegistration {
 				//Ore
 				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setHardness(5.0F),
 				new BlockMod(LibBlockName.SILVER_ORE, Material.ROCK).setHardness(2.0F),
-				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.GLASS).setHardness(5.0F),
+				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.MOLDAVITE_ORE, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setHardness(5.0F),
