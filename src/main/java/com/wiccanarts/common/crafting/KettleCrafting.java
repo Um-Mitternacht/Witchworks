@@ -2,6 +2,7 @@ package com.wiccanarts.common.crafting;
 
 import com.wiccanarts.api.WiccanArtsAPI;
 import com.wiccanarts.api.recipe.IKettleRecipe;
+import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
@@ -31,5 +32,8 @@ public final class KettleCrafting {
 
 		ItemStack potion1 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.POISON);
 		POISON = WiccanArtsAPI.registerKettleRecipe(potion1, Items.WHEAT_SEEDS, ModItems.MALACHITE, Items.SPIDER_EYE);
+
+		ItemStack potion2 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER_BREATHING);
+		POISON = WiccanArtsAPI.registerKettleRecipe(potion2, Items.WHEAT_SEEDS, Items.FISH, ModBlocks.COQUINA);
 	}
 }
