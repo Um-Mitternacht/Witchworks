@@ -1,6 +1,7 @@
 package com.wiccanarts.common.crafting;
 
 import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.api.recipe.IKettleRecipe;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
@@ -25,15 +26,15 @@ public final class KettleCrafting {
 
 	public static void init() {
 		ItemStack potion = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.HEALING);
-		HEALING = WiccanArtsAPI.registerKettleRecipe(potion, Items.WHEAT_SEEDS, ModItems.BLOODSTONE, Items.COAL);
+		HEALING = WiccanArtsAPI.registerKettleRecipe(potion, Crop.MANDRAKE_ROOT, ModItems.BLOODSTONE, Items.COAL);
 
 		ItemStack potion0 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.LEAPING);
-		LEAPING = WiccanArtsAPI.registerKettleRecipe(potion0, Items.WHEAT_SEEDS, Items.RABBIT_FOOT, Items.FEATHER);
+		LEAPING = WiccanArtsAPI.registerKettleRecipe(potion0, Crop.MANDRAKE_ROOT, Items.RABBIT_FOOT, Items.FEATHER);
 
 		ItemStack potion1 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.POISON);
-		POISON = WiccanArtsAPI.registerKettleRecipe(potion1, Items.WHEAT_SEEDS, ModItems.MALACHITE, Items.SPIDER_EYE);
+		POISON = WiccanArtsAPI.registerKettleRecipe(potion1, Crop.MANDRAKE_ROOT, ModItems.MALACHITE, Items.SPIDER_EYE);
 
 		ItemStack potion2 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER_BREATHING);
-		POISON = WiccanArtsAPI.registerKettleRecipe(potion2, Items.WHEAT_SEEDS, Items.FISH, ModBlocks.COQUINA);
+		POISON = WiccanArtsAPI.registerKettleRecipe(potion2, Crop.MANDRAKE_ROOT, Items.FISH, ModBlocks.COQUINA);
 	}
 }
