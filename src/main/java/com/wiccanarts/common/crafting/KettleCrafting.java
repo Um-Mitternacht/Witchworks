@@ -20,6 +20,7 @@ public final class KettleCrafting {
 	public static IKettleRecipe HEALING;
 	public static IKettleRecipe LEAPING;
 	public static IKettleRecipe POISON;
+	public static IKettleRecipe WATERBREATHING;
 
 	private KettleCrafting() {
 	}
@@ -35,6 +36,6 @@ public final class KettleCrafting {
 		POISON = WiccanArtsAPI.registerKettleRecipe(potion1, Crop.MANDRAKE_ROOT, ModItems.MALACHITE, Items.SPIDER_EYE);
 
 		ItemStack potion2 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER_BREATHING);
-		POISON = WiccanArtsAPI.registerKettleRecipe(potion2, Crop.MANDRAKE_ROOT, Items.FISH, ModBlocks.COQUINA);
+		WATERBREATHING = WiccanArtsAPI.registerKettleRecipe(potion2, Crop.MANDRAKE_ROOT, Items.FISH, ModBlocks.COQUINA);
 	}
 }
