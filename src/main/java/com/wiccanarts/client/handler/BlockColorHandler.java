@@ -68,7 +68,7 @@ public class BlockColorHandler implements IBlockColor {
 				color = 10955043;
 				break;
 			case 15:
-				color = 987157;
+				color = 1184535;
 				break;
 		}
 		return color;
