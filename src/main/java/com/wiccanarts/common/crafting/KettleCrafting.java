@@ -2,6 +2,7 @@ package com.wiccanarts.common.crafting;
 
 import com.wiccanarts.api.WiccanArtsAPI;
 import com.wiccanarts.api.recipe.IKettleRecipe;
+import com.wiccanarts.common.item.ModItems;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
@@ -16,15 +17,19 @@ public final class KettleCrafting {
 
 	public static IKettleRecipe HEALING;
 	public static IKettleRecipe LEAPING;
+	public static IKettleRecipe POISON;
 
 	private KettleCrafting() {
 	}
 
 	public static void init() {
 		ItemStack potion = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.HEALING);
-		HEALING = WiccanArtsAPI.registerKettleRecipe(potion, Items.WHEAT_SEEDS, Items.WHEAT_SEEDS, Items.WHEAT_SEEDS);
+		HEALING = WiccanArtsAPI.registerKettleRecipe(potion, Items.WHEAT_SEEDS, ModItems.BLOODSTONE, Items.COAL);
 
 		ItemStack potion0 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.LEAPING);
-		LEAPING = WiccanArtsAPI.registerKettleRecipe(potion0, Items.WHEAT_SEEDS, Items.COAL, Items.WHEAT_SEEDS);
+		LEAPING = WiccanArtsAPI.registerKettleRecipe(potion0, Items.WHEAT_SEEDS, Items.RABBIT_FOOT, Items.FEATHER);
+
+		ItemStack potion1 = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.POISON);
+		POISON = WiccanArtsAPI.registerKettleRecipe(potion1, Items.WHEAT_SEEDS, ModItems.MALACHITE, Items.SPIDER_EYE);
 	}
 }
