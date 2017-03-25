@@ -57,6 +57,8 @@ public final class ModItems {
 	//Food Items
 	@ObjectHolder(LibItemName.HONEY)
 	public static final Item HONEY = new Item();
+	@ObjectHolder(LibItemName.LAVENDER)
+	public static final Item LAVENDER = new Item();
 
 	//Materials
 	@ObjectHolder(LibItemName.WAX)
@@ -102,5 +104,7 @@ public final class ModItems {
 		OreDictionary.registerOre("dustSalt", new ItemStack(ModItems.SALT));
 		OreDictionary.registerOre("materialSalt", new ItemStack(ModItems.SALT));
 		OreDictionary.registerOre("lumpSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER));
 	}
 }
