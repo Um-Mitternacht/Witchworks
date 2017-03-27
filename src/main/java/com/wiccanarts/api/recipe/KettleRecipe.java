@@ -100,5 +100,7 @@ public class KettleRecipe implements IKettleRecipe {
 	}
 
 	@Override
-	public List<PotionEffect> getExpectedEffects() { return expectedEffects;}
+	public List<PotionEffect> getExpectedEffects() {
+		return expectedEffects;
+	}
 }

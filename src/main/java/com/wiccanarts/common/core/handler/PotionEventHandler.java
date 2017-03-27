@@ -17,9 +17,9 @@ public class PotionEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onEntityUpdate (LivingEvent.LivingUpdateEvent event) {
+	public void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
 
-		if(event.getEntityLiving().isPotionActive(ModBrews.test)) {
+		if (event.getEntityLiving().isPotionActive(ModBrews.test)) {
 			BlockPos position = event.getEntityLiving().getPosition();
 			World world = event.getEntityLiving().getEntityWorld();
 			float d1 = position.getX();

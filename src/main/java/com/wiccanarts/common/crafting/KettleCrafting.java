@@ -11,7 +11,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 
@@ -52,7 +51,7 @@ public final class KettleCrafting {
 
 
 		ArrayList<PotionEffect> list = new ArrayList<>();
-		list.add(new PotionEffect(ModBrews.test, 20*15));
+		list.add(new PotionEffect(ModBrews.test, 20 * 15));
 
 		ItemStack potion4 = ModBrewUtils.setEffects(new ItemStack(ModItems.BREW_PHIAL), list);
 		TEST1 = WiccanArtsAPI.registerKettleRecipe(potion4, Crop.MANDRAKE_ROOT, Blocks.TNT); //gotta add a method somewhere to get effects from recipe, not potions
