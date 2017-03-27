@@ -1,7 +1,6 @@
 package com.wiccanarts.common.item.tool;
 
 import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
-import com.wiccanarts.common.item.ModItems;
 import net.minecraft.item.ItemSpade;
 
 /**
