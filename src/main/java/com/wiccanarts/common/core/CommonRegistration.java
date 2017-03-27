@@ -14,9 +14,11 @@ import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.item.ItemBlockColor;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.ItemBrewPhial;
+import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
+import com.wiccanarts.common.item.tool.*;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.block.Block;
@@ -82,7 +84,12 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.WAX),
 				new ItemMod(LibItemName.BEE),
 				new ItemMod(LibItemName.HONEYCOMB),
-				new ItemBrewPhial(LibItemName.BREW_PHIAL)
+				new ItemBrewPhial(LibItemName.BREW_PHIAL),
+				new ItemSilverPickaxe(LibItemName.SILVER_PICKAXE, MaterialSilver.SILVER),
+				new ItemSilverAxe(LibItemName.SILVER_AXE, MaterialSilver.SILVER),
+				new ItemSilverSpade(LibItemName.SILVER_SPADE, MaterialSilver.SILVER),
+				new ItemSilverHoe(LibItemName.SILVER_HOE, MaterialSilver.SILVER),
+				new ItemSilverSword(LibItemName.SILVER_SWORD, MaterialSilver.SILVER)
 		);
 
 		//Item Blocks

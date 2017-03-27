@@ -122,6 +122,11 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.HONEYCOMB);
 			addItem(ModItems.BEE);
 			addItem(ModItems.BREW_PHIAL);
+			addItem(ModItems.SILVER_PICKAXE);
+			addItem(ModItems.SILVER_AXE);
+			addItem(ModItems.SILVER_SPADE);
+			addItem(ModItems.SILVER_HOE);
+			addItem(ModItems.SILVER_SWORD);
 			addBlock(ModBlocks.SILVER_BLOCK);
 			addBlock(ModBlocks.COQUINA);
 			addBlock(ModBlocks.KETTLE);

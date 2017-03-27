@@ -74,6 +74,19 @@ public final class ModItems {
 	@ObjectHolder(LibItemName.BREW_PHIAL)
 	public static final Item BREW_PHIAL = new Item();
 
+	//Tools
+	@ObjectHolder(LibItemName.SILVER_PICKAXE)
+	public static final Item SILVER_PICKAXE = new Item();
+	@ObjectHolder(LibItemName.SILVER_AXE)
+	public static final Item SILVER_AXE = new Item();
+	@ObjectHolder(LibItemName.SILVER_SPADE)
+	public static final Item SILVER_SPADE = new Item();
+	@ObjectHolder(LibItemName.SILVER_HOE)
+	public static final Item SILVER_HOE = new Item();
+	@ObjectHolder(LibItemName.SILVER_SWORD)
+	public static final Item SILVER_SWORD = new Item();
+
+
 	public static void init() {
 		VanillaCrafting.items();
 		KettleCrafting.init();
