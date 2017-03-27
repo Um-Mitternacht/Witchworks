@@ -1,6 +1,5 @@
 package com.wiccanarts.common.potions;
 
-import com.wiccanarts.client.ResourceLocations;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,6 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class BrewMod extends Potion {
 	public static ResourceLocation texture = new ResourceLocation(LibMod.MOD_ID, "textures/misc/potions.png");
+
 	public BrewMod(String name, ResourceLocation location, boolean badEffect, int potionColor, int indexInPictureX, int indexInPictureY) {
 		super(badEffect, potionColor);
 		this.setIconIndex(indexInPictureX, indexInPictureY);
@@ -42,14 +42,14 @@ public class BrewMod extends Potion {
 
 	public int getLevel(EntityLivingBase entity) {
 		PotionEffect effect = entity.getActivePotionEffect(this);
-		if(effect != null) {
+		if (effect != null) {
 			return effect.getAmplifier();
 		}
 		return 0;
 	}
 
 	@Override
-	public boolean shouldRender(PotionEffect effect){
+	public boolean shouldRender(PotionEffect effect) {
 		return true;
 	}
 

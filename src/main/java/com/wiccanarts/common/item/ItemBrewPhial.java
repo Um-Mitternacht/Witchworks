@@ -4,8 +4,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGlassBottle;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
@@ -13,7 +11,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * Created by BerciTheBeast on 27.3.2017.
@@ -28,48 +25,40 @@ public class ItemBrewPhial extends ItemMod {
 	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
 		EntityPlayer player = entity instanceof EntityPlayer ? (EntityPlayer) entity : null;
 
-		if(player != null || !player.capabilities.isCreativeMode) {
-			--stack.stackSize;
-		}
+		assert player != null;
+		--stack.stackSize;
 
-		if(!world.isRemote) {
-			for(PotionEffect effect : PotionUtils.getEffectsFromStack(stack)) {
+		if (!world.isRemote) {
+			for (PotionEffect effect : PotionUtils.getEffectsFromStack(stack)) {
 				System.out.println(effect);
 				entity.addPotionEffect(effect);
 			}
 		}
 
-		if (player == null || !player.capabilities.isCreativeMode) {
-			if (stack.stackSize <= 0)
-			{
+		if (!player.capabilities.isCreativeMode) {
+			if (stack.stackSize <= 0) {
 				return new ItemStack(Items.GLASS_BOTTLE);
 			}
 
-			if (player != null)
-			{
-				player.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
-			}
+			player.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
 		}
 		return stack;
 	}
 
 
 	@Override
-	public int getMaxItemUseDuration(ItemStack stack)
-	{
+	public int getMaxItemUseDuration(ItemStack stack) {
 		return 32;
 	}
 
 	@Override
-	public EnumAction getItemUseAction(ItemStack stack)
-	{
+	public EnumAction getItemUseAction(ItemStack stack) {
 		return EnumAction.DRINK;
 	}
 
 
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand)
-	{
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
-		return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
 	}
 }

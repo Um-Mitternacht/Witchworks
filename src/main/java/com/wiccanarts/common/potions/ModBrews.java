@@ -1,10 +1,10 @@
 package com.wiccanarts.common.potions;
 
+import com.wiccanarts.common.core.handler.PotionEventHandler;
 import com.wiccanarts.common.lib.LibBrewName;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import com.wiccanarts.common.core.handler.PotionEventHandler;
 
 public final class ModBrews {
 
