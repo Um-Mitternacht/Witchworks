@@ -13,6 +13,7 @@ import com.wiccanarts.common.block.tools.BlockCandleSmall;
 import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.item.ItemBlockColor;
 import com.wiccanarts.common.item.ItemMod;
+import com.wiccanarts.common.item.ItemBrewPhial;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
@@ -80,7 +81,8 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SALT),
 				new ItemMod(LibItemName.WAX),
 				new ItemMod(LibItemName.BEE),
-				new ItemMod(LibItemName.HONEYCOMB)
+				new ItemMod(LibItemName.HONEYCOMB),
+				new ItemBrewPhial(LibItemName.BREW_PHIAL)
 		);
 
 		//Item Blocks
@@ -165,7 +167,9 @@ public class CommonRegistration {
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {
-		event.getRegistry().registerAll();
+		event.getRegistry().registerAll(
+				//new BrewMod("Test", new ResourceLocation(LibBrewName.TEST1), false, 0x000000, 0, 0)
+		);
 	}
 
 	/**

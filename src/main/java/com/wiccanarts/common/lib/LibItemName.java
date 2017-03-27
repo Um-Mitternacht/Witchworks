@@ -84,4 +84,7 @@ public final class LibItemName {
 	public static final String AMULET = "amulet";
 	public static final String CROWN = "crown";
 	public static final String SHIRT = "shirt";
+
+	//Misc
+	public static final String BREW_PHIAL = "brew_phial";
 }

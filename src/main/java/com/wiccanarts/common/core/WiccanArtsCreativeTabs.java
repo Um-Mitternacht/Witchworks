@@ -121,6 +121,7 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.SALT);
 			addItem(ModItems.HONEYCOMB);
 			addItem(ModItems.BEE);
+			addItem(ModItems.BREW_PHIAL);
 			addBlock(ModBlocks.SILVER_BLOCK);
 			addBlock(ModBlocks.COQUINA);
 			addBlock(ModBlocks.KETTLE);

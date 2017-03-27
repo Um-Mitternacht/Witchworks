@@ -8,6 +8,7 @@ import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.entity.ModEntities;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
+import com.wiccanarts.common.potions.ModBrews;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -44,11 +45,16 @@ public class WiccanArts {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
+
+		ModBrews.init();
+
 		ModItems.initOreDictionary();
 		ModItems.init();
 
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
+
+
 
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);

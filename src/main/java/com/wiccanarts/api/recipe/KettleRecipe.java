@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.oredict.OreDictionary;
@@ -23,11 +25,13 @@ import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
 public class KettleRecipe implements IKettleRecipe {
 
 	private final ItemStack result;
+	private final List<PotionEffect> expectedEffects;
 	private final ImmutableList<Object> neededItems;
 
 	public KettleRecipe(ItemStack result, Object... inputs) {
 		this.result = result;
 
+		this.expectedEffects = PotionUtils.getEffectsFromStack(result);
 		List<Object> stackedList = Arrays.stream(inputs).map(obj -> {
 			if (obj instanceof Item) return new ItemStack((Item) obj);
 			else if (obj instanceof Block) return new ItemStack((Block) obj);
@@ -94,4 +98,7 @@ public class KettleRecipe implements IKettleRecipe {
 	public ItemStack getResult() {
 		return result;
 	}
+
+	@Override
+	public List<PotionEffect> getExpectedEffects() { return expectedEffects;}
 }

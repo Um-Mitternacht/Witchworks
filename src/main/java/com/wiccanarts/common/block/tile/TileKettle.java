@@ -2,6 +2,7 @@ package com.wiccanarts.common.block.tile;
 
 import com.wiccanarts.api.WiccanArtsAPI;
 import com.wiccanarts.common.net.PacketHandler;
+import com.wiccanarts.common.potions.ModBrewUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -12,6 +13,7 @@ import net.minecraft.init.PotionTypes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
@@ -44,6 +46,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private int heat;
 	private int tickCount;
 	private ItemStack result;
+	private List<PotionEffect> expectedEffects;
 
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
@@ -96,6 +99,11 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		WiccanArtsAPI.getKettleRecipes().stream().filter(kettleRecipe ->
 				kettleRecipe.checkRecipe(itemHandler, getWorld())).forEach(kettleRecipe ->
 				result = kettleRecipe.getResult()
+		);
+
+		WiccanArtsAPI.getKettleRecipes().stream().filter(kettleRecipe ->
+				kettleRecipe.checkRecipe(itemHandler, getWorld())).forEach(kettleRecipe ->
+				expectedEffects = kettleRecipe.getExpectedEffects()
 		);
 	}
 
@@ -163,6 +171,11 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		if (result != null && PotionUtils.getPotionFromItem(result) != PotionTypes.WATER) {
 			return result.copy();
 		}
+		if (result != null) {
+			List<PotionEffect> list = expectedEffects;
+			ModBrewUtils.setEffects(result, list);
+			return result.copy();
+		}
 		return PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
 	}
 
@@ -220,9 +233,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	private void handleHeat() {
-		if (isAboveFire() && heat < 5) {
+		if (isAboveFire() && hasWater() && heat < 5) {
 			++heat;
-		} else if (!isAboveFire() && heat > 0) {
+		} else if ((!isAboveFire() || !hasWater()) && heat > 0) {
 			--heat;
 		}
 	}
