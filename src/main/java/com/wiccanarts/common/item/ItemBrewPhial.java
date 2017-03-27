@@ -25,9 +25,8 @@ public class ItemBrewPhial extends ItemMod {
 	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
 		EntityPlayer player = entity instanceof EntityPlayer ? (EntityPlayer) entity : null;
 
-		if (player != null || !player.capabilities.isCreativeMode) {
-			--stack.stackSize;
-		}
+		assert player != null;
+		--stack.stackSize;
 
 		if (!world.isRemote) {
 			for (PotionEffect effect : PotionUtils.getEffectsFromStack(stack)) {
@@ -36,14 +35,12 @@ public class ItemBrewPhial extends ItemMod {
 			}
 		}
 
-		if (player == null || !player.capabilities.isCreativeMode) {
+		if (!player.capabilities.isCreativeMode) {
 			if (stack.stackSize <= 0) {
 				return new ItemStack(Items.GLASS_BOTTLE);
 			}
 
-			if (player != null) {
-				player.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
-			}
+			player.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
 		}
 		return stack;
 	}
@@ -62,6 +59,6 @@ public class ItemBrewPhial extends ItemMod {
 
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
-		return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
 	}
 }
