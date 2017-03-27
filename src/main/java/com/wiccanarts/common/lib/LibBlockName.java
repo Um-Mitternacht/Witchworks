@@ -51,6 +51,7 @@ public final class LibBlockName {
 	public static final String MOLDAVITE_ORE = "moldavite_ore";
 	public static final String MALACHITE_ORE = "malachite_ore";
 	public static final String BLOODSTONE_ORE = "bloodstone_ore";
+	public static final String TIGERS_EYE_ORE = "tigers_eye_ore";
 	public static final String TOURMALINE_BLOCK = "tourmaline_block";
 	public static final String NETHERSTEEL = "nethersteel";
 }
