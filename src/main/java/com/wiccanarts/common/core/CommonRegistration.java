@@ -6,6 +6,7 @@ import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.block.crop.BlockBelladonna;
 import com.wiccanarts.common.block.crop.BlockCrop;
 import com.wiccanarts.common.block.crop.BlockKelp;
+import com.wiccanarts.common.block.magic.BlockSaltBarrier;
 import com.wiccanarts.common.block.tile.ModTiles;
 import com.wiccanarts.common.block.tools.BlockCandleLarge;
 import com.wiccanarts.common.block.tools.BlockCandleMedium;
@@ -14,6 +15,7 @@ import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.item.ItemBlockColor;
 import com.wiccanarts.common.item.ItemBrewPhial;
 import com.wiccanarts.common.item.ItemMod;
+import com.wiccanarts.common.item.ItemSalt;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
@@ -79,7 +81,7 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET),
 				new ItemMod(LibItemName.HONEY),
-				new ItemMod(LibItemName.SALT),
+				new ItemSalt(LibItemName.SALT),
 				new ItemMod(LibItemName.WAX),
 				new ItemMod(LibItemName.BEE),
 				new ItemMod(LibItemName.HONEYCOMB),
@@ -121,7 +123,8 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
-				new ItemBlockColor(ModBlocks.CANDLE_SMALL)
+				new ItemBlockColor(ModBlocks.CANDLE_SMALL),
+				itemBlock(ModBlocks.SALT_BARRIER)
 		);
 	}
 
@@ -167,7 +170,8 @@ public class CommonRegistration {
 				new BlockKettle().setSound(SoundType.METAL),
 				new BlockCandleLarge().setSound(SoundType.CLOTH),
 				new BlockCandleMedium().setSound(SoundType.CLOTH),
-				new BlockCandleSmall().setSound(SoundType.CLOTH)
+				new BlockCandleSmall().setSound(SoundType.CLOTH),
+				new BlockSaltBarrier().setSound(SoundType.CLOTH)
 		);
 	}
 

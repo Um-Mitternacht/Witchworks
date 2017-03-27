@@ -76,6 +76,9 @@ public final class ModBlocks {
 	public static final Block CANDLE_MEDIUM = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.CANDLE_SMALL)
 	public static final Block CANDLE_SMALL = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.SALT_BARRIER)
+	public static final Block SALT_BARRIER = new Block(Material.ROCK);
+
 
 	public static void init() {
 		VanillaCrafting.blocks();
