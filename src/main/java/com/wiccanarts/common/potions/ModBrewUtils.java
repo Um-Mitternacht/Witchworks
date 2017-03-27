@@ -16,7 +16,7 @@ public class ModBrewUtils {
 		if (effects.isEmpty()) {
 			return stack;
 		} else {
-			NBTTagCompound nbttagcompound = (NBTTagCompound) Objects.firstNonNull(stack.getTagCompound(), new NBTTagCompound());
+			NBTTagCompound nbttagcompound = Objects.firstNonNull(stack.getTagCompound(), new NBTTagCompound());
 			NBTTagList nbttaglist = new NBTTagList();
 
 			for (PotionEffect potioneffect : effects) {
