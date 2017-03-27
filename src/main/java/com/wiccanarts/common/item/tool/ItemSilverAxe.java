@@ -8,7 +8,7 @@ import net.minecraft.item.ItemAxe;
  */
 public class ItemSilverAxe extends ItemAxe {
 	public ItemSilverAxe(String id, ToolMaterial material) {
-		super(MaterialSilver.SILVER);
+		super(MaterialSilver.SILVER, MaterialSilver.SILVER.getDamageVsEntity(), MaterialSilver.SILVER.getEfficiencyOnProperMaterial());
 		setRegistryName(id);
 		setUnlocalizedName(id);
 		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
