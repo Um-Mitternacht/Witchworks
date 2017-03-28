@@ -119,6 +119,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.BLOODSTONE_ORE),
 				itemBlock(ModBlocks.TIGERS_EYE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_ORE),
+				itemBlock(ModBlocks.SERPENTINE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_BLOCK),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),

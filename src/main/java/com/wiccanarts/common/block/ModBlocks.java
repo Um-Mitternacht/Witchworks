@@ -68,6 +68,8 @@ public final class ModBlocks {
 	public static final Block MALACHITE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.TIGERS_EYE_ORE)
 	public static final Block TIGERS_EYE_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.SERPENTINE_ORE)
+	public static final Block SERPENTINE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final Block NETHERSTEEL = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.CANDLE_LARGE)
@@ -95,6 +97,7 @@ public final class ModBlocks {
 		OreDictionary.registerOre("oreTourmaline", new ItemStack(ModBlocks.TOURMALINE_ORE));
 		OreDictionary.registerOre("oreMalachite", new ItemStack(ModBlocks.MALACHITE_ORE));
 		OreDictionary.registerOre("oreTigersEye", new ItemStack(ModBlocks.TIGERS_EYE_ORE));
+		OreDictionary.registerOre("oreSerpentine", new ItemStack(ModBlocks.SERPENTINE_ORE));
 		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.TOURMALINE_BLOCK));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 	}
