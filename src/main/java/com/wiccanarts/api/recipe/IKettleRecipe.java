@@ -2,11 +2,8 @@ package com.wiccanarts.api.recipe;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
-
-import java.util.List;
 
 /**
  * This class was created by Arekkuusu on 21/03/2017.

@@ -12,9 +12,10 @@ public final class ResourceLocations {
 
 	public static final ResourceLocation POTION_TEXTURES = getLocation("textures/gui/potions.png");
 
-	private ResourceLocations() {}
+	private ResourceLocations() {
+	}
 
-	private static ResourceLocation getLocation(String name){
+	private static ResourceLocation getLocation(String name) {
 		return new ResourceLocation(LibMod.MOD_ID, name);
 	}
 }

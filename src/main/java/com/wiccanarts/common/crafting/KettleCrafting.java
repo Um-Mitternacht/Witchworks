@@ -19,7 +19,8 @@ public final class KettleCrafting {
 
 	public static IKettleRecipe TEST;
 
-	private KettleCrafting() {}
+	private KettleCrafting() {
+	}
 
 	public static void init() {
 		ItemStack potion4 = BrewUtils.createPotion(new PotionEffect(ModBrews.TEST, 20 * 15));

@@ -10,7 +10,7 @@ import java.util.Arrays;
 /**
  * Created by BerciTheBeast on 27.3.2017.
  */
-@SuppressWarnings({"WeakerAccess","unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class BrewUtils {
 
 	public static ItemStack createPotion(PotionEffect... effects) {

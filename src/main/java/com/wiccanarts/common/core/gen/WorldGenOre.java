@@ -20,7 +20,7 @@ import java.util.Set;
 /**
  * Created by BerciTheBeast on 4.3.2017.
  */
-@SuppressWarnings({"WeakerAccess","unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 
 	private final Set<DimensionType> dimensionList = new HashSet<>();

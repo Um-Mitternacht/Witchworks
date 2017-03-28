@@ -8,7 +8,6 @@ import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.entity.ModEntities;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
-import com.wiccanarts.common.potions.ModBrews;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

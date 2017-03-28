@@ -9,7 +9,8 @@ import net.minecraftforge.common.MinecraftForge;
  */
 public final class ModEvents {
 
-	private ModEvents() {}
+	private ModEvents() {
+	}
 
 	public static void preInit() {
 		MinecraftForge.EVENT_BUS.register(new PotionEvents());
