@@ -21,7 +21,9 @@ import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
 import com.wiccanarts.common.item.tool.*;
 import com.wiccanarts.common.lib.LibBlockName;
+import com.wiccanarts.common.lib.LibBrewName;
 import com.wiccanarts.common.lib.LibItemName;
+import com.wiccanarts.common.potions.BrewMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -178,7 +180,7 @@ public class CommonRegistration {
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().registerAll(
-				//new BrewMod("Test", new ResourceLocation(LibBrewName.TEST1), false, 0x000000, 0, 0)
+				new BrewMod(LibBrewName.TEST, false, 0x000000, 0)
 		);
 	}
 

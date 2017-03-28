@@ -20,6 +20,4 @@ public interface IKettleRecipe {
 	ImmutableList<Object> getNeededItems();
 
 	ItemStack getResult();
-
-	public List<PotionEffect> getExpectedEffects();
 }

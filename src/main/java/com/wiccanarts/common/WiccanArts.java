@@ -46,14 +46,11 @@ public class WiccanArts {
 	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
 
-		ModBrews.init();
-
 		ModItems.initOreDictionary();
 		ModItems.init();
 
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
-
 
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);

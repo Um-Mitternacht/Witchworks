@@ -1,63 +1,67 @@
 package com.wiccanarts.common.potions;
 
+import com.wiccanarts.client.ResourceLocations;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Created by BerciTheBeast on 26.3.2017.
+ * This class was created by Arekkuusu on 27/03/2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
 public class BrewMod extends Potion {
-	public static ResourceLocation texture = new ResourceLocation(LibMod.MOD_ID, "textures/misc/potions.png");
 
-	public BrewMod(String name, ResourceLocation location, boolean badEffect, int potionColor, int indexInPictureX, int indexInPictureY) {
-		super(badEffect, potionColor);
-		this.setIconIndex(indexInPictureX, indexInPictureY);
-		this.setPotionName(name);
+	private final int iconIndex;
+
+	BrewMod() {
+		super(false, 0);
+		iconIndex = 0;
 	}
 
-	@Override
-	public boolean shouldRenderInvText(PotionEffect effect) {
-		return true;
+	public BrewMod(String name, boolean badEffect, int color, int iconIndex) {
+		super(badEffect, color);
+		setPotionName("effect." + LibMod.MOD_ID + "." + name);
+		setRegistryName(name);
+		this.iconIndex = iconIndex;
 	}
 
-	public PotionEffect apply(EntityLivingBase entity, int duration) {
-		return apply(entity, duration, 0);
-	}
-
-	public PotionEffect apply(EntityLivingBase entity, int duration, int level) {
-		return apply(entity, duration, level, false, false);
-	}
-
-	public PotionEffect apply(EntityLivingBase entity, int duration, int level, boolean fromAmbient, boolean showParticles) {
-		PotionEffect effect = new PotionEffect(this, duration, level, fromAmbient, showParticles);
-		entity.addPotionEffect(effect);
-		return effect;
-	}
-
-	public int getLevel(EntityLivingBase entity) {
-		PotionEffect effect = entity.getActivePotionEffect(this);
-		if (effect != null) {
-			return effect.getAmplifier();
-		}
-		return 0;
-	}
-
-	@Override
-	public boolean shouldRender(PotionEffect effect) {
-		return true;
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
-	public int getStatusIconIndex() {
-		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
-		return super.getStatusIconIndex();
+	@Override
+	public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
+		render(x + 6, y + 7, 1);
 	}
 
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void renderHUDEffect(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
+		render(x + 3, y + 3, alpha);
+	}
+
+	@SideOnly(Side.CLIENT)
+	private void render(int x, int y, float alpha) {
+		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceLocations.POTION_TEXTURES);
+		Tessellator tessellator = Tessellator.getInstance();
+		VertexBuffer buf = tessellator.getBuffer();
+		buf.begin(7, DefaultVertexFormats.POSITION_TEX);
+		GlStateManager.color(1, 1, 1, alpha);
+
+		int textureX = iconIndex % 8 * 18;
+		int textureY = 198 + iconIndex / 8 * 18;
+		float f = 0.00390625F;
+
+		buf.pos(x, y + 18, 0).tex(textureX * f, (textureY + 18) * f).endVertex();
+		buf.pos(x + 18, y + 18, 0).tex((textureX + 18) * f, (textureY + 18) * f).endVertex();
+		buf.pos(x + 18, y, 0).tex((textureX + 18) * f, textureY * f).endVertex();
+		buf.pos(x, y, 0).tex(textureX * f, textureY * f).endVertex();
+
+		tessellator.draw();
+	}
 }
