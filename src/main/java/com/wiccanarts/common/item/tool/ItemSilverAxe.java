@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by BerciTheBeast on 27.3.2017.
  */
-public class ItemSilverAxe extends ItemAxe implements IModelRegister{
+public class ItemSilverAxe extends ItemAxe implements IModelRegister {
 	public ItemSilverAxe(String id, ToolMaterial material) {
 		super(MaterialSilver.SILVER, MaterialSilver.SILVER.getDamageVsEntity(), MaterialSilver.SILVER.getEfficiencyOnProperMaterial());
 		setRegistryName(id);
