@@ -98,10 +98,9 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	}
 
 	@SuppressWarnings("deprecation")
-	public IBlockState onBlockPlacedBy(World worldIn, IBlockState state, BlockPos pos, ItemStack stack, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-		IBlockState iblockstate = null;
-		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
-		assert false;
+	@Override
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		IBlockState iblockstate = super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
 		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
 		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
