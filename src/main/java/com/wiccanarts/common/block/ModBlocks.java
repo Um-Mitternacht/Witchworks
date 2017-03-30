@@ -70,6 +70,8 @@ public final class ModBlocks {
 	public static final Block TIGERS_EYE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.SERPENTINE_ORE)
 	public static final Block SERPENTINE_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.NUUMMITE_ORE)
+	public static final Block NUUMMITE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final Block NETHERSTEEL = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.CANDLE_LARGE)
