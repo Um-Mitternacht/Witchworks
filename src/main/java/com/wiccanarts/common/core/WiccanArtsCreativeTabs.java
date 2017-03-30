@@ -139,6 +139,7 @@ public class WiccanArtsCreativeTabs {
 			addBlock(ModBlocks.SERPENTINE_ORE);
 			addBlock(ModBlocks.NUUMMITE_ORE);
 			addBlock(ModBlocks.GARNET_ORE);
+			addBlock(ModBlocks.PETOSKEY_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
 			addBlock(ModBlocks.TOURMALINE_BLOCK);

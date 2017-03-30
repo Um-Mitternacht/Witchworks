@@ -122,6 +122,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.TIGERS_EYE_ORE),
 				itemBlock(ModBlocks.NUUMMITE_ORE),
 				itemBlock(ModBlocks.GARNET_ORE),
+				itemBlock(ModBlocks.PETOSKEY_ORE),
 				itemBlock(ModBlocks.TOURMALINE_ORE),
 				itemBlock(ModBlocks.SERPENTINE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_BLOCK),
@@ -168,6 +169,7 @@ public class CommonRegistration {
 				new BlockMod(LibBlockName.TIGERS_EYE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.NUUMMITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.GARNET_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.PETOSKEY_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 
 				//Normal Blocks
