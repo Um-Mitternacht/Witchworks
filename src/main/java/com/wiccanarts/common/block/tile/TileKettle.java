@@ -220,16 +220,15 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	private void handleHeat() {
-		if (isAboveFire() && heat < 5) {
+		if (isAboveFire() && hasWater() && heat < 5) {
 			++heat;
-		} else if (!isAboveFire() && heat > 0) {
+		} else if ((!isAboveFire() || !hasWater()) && heat > 0) {
 			--heat;
 		}
 	}
 
 	private boolean isAboveFire() {
 		IBlockState state = getWorld().getBlockState(getPos().down());
-
 		return state.getMaterial() == Material.FIRE;
 	}
 

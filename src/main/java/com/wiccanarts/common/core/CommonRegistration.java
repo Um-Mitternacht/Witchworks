@@ -6,18 +6,24 @@ import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.block.crop.BlockBelladonna;
 import com.wiccanarts.common.block.crop.BlockCrop;
 import com.wiccanarts.common.block.crop.BlockKelp;
+import com.wiccanarts.common.block.magic.BlockSaltBarrier;
 import com.wiccanarts.common.block.tile.ModTiles;
 import com.wiccanarts.common.block.tools.BlockCandleLarge;
 import com.wiccanarts.common.block.tools.BlockCandleMedium;
 import com.wiccanarts.common.block.tools.BlockCandleSmall;
 import com.wiccanarts.common.block.tools.BlockKettle;
 import com.wiccanarts.common.item.ItemBlockColor;
+import com.wiccanarts.common.item.ItemBrewPhial;
 import com.wiccanarts.common.item.ItemMod;
+import com.wiccanarts.common.item.ItemSalt;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
+import com.wiccanarts.common.item.tool.*;
 import com.wiccanarts.common.lib.LibBlockName;
+import com.wiccanarts.common.lib.LibBrewName;
 import com.wiccanarts.common.lib.LibItemName;
+import com.wiccanarts.common.potions.BrewMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -77,10 +83,16 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET),
 				new ItemMod(LibItemName.HONEY),
-				new ItemMod(LibItemName.SALT),
+				new ItemSalt(LibItemName.SALT),
 				new ItemMod(LibItemName.WAX),
 				new ItemMod(LibItemName.BEE),
-				new ItemMod(LibItemName.HONEYCOMB)
+				new ItemMod(LibItemName.HONEYCOMB),
+				new ItemBrewPhial(LibItemName.BREW_PHIAL),
+				new ItemSilverPickaxe(LibItemName.SILVER_PICKAXE, MaterialSilver.SILVER),
+				new ItemSilverAxe(LibItemName.SILVER_AXE, MaterialSilver.SILVER),
+				new ItemSilverSpade(LibItemName.SILVER_SPADE, MaterialSilver.SILVER),
+				new ItemSilverHoe(LibItemName.SILVER_HOE, MaterialSilver.SILVER),
+				new ItemSilverSword(LibItemName.SILVER_SWORD, MaterialSilver.SILVER)
 		);
 
 		//Item Blocks
@@ -107,12 +119,18 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.MOLDAVITE_ORE),
 				itemBlock(ModBlocks.MALACHITE_ORE),
 				itemBlock(ModBlocks.BLOODSTONE_ORE),
+				itemBlock(ModBlocks.TIGERS_EYE_ORE),
+				itemBlock(ModBlocks.NUUMMITE_ORE),
+				itemBlock(ModBlocks.GARNET_ORE),
+				itemBlock(ModBlocks.PETOSKEY_ORE),
 				itemBlock(ModBlocks.TOURMALINE_ORE),
+				itemBlock(ModBlocks.SERPENTINE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_BLOCK),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
-				new ItemBlockColor(ModBlocks.CANDLE_SMALL)
+				new ItemBlockColor(ModBlocks.CANDLE_SMALL),
+				itemBlock(ModBlocks.SALT_BARRIER)
 		);
 	}
 
@@ -146,7 +164,12 @@ public class CommonRegistration {
 				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.SERPENTINE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.TIGERS_EYE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.NUUMMITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.GARNET_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.PETOSKEY_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 
 				//Normal Blocks
@@ -157,13 +180,16 @@ public class CommonRegistration {
 				new BlockKettle().setSound(SoundType.METAL),
 				new BlockCandleLarge().setSound(SoundType.CLOTH),
 				new BlockCandleMedium().setSound(SoundType.CLOTH),
-				new BlockCandleSmall().setSound(SoundType.CLOTH)
+				new BlockCandleSmall().setSound(SoundType.CLOTH),
+				new BlockSaltBarrier().setSound(SoundType.CLOTH)
 		);
 	}
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {
-		event.getRegistry().registerAll();
+		event.getRegistry().registerAll(
+				new BrewMod(LibBrewName.TEST, false, 0x000000, 0)
+		);
 	}
 
 	/**

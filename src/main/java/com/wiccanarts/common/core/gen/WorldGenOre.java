@@ -1,6 +1,5 @@
 package com.wiccanarts.common.core.gen;
 
-import com.google.common.base.Predicate;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -13,20 +12,20 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Random;
-
+import java.util.Set;
 
 /**
  * Created by BerciTheBeast on 4.3.2017.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 
-	private final List<DimensionType> dimensionList = new ArrayList<>();
+	private final Set<DimensionType> dimensionList = new HashSet<>();
 
-	private Predicate<IBlockState> predicate; //Ignore this warning
+	private BlockMatcher predicate;
 	private IBlockState oreToGen;
 	private int minOreVeinSize;
 	private int maxOreVeinSize;
@@ -69,7 +68,7 @@ public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 		}
 	}
 
-	private void generateOre(IBlockState blockToGen, World world, Random random, int chunkX, int chunkZ, int minVeinSize, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> generateInBlocks) {
+	private void generateOre(IBlockState blockToGen, World world, Random random, int chunkX, int chunkZ, int minVeinSize, int maxVeinSize, int chance, int minY, int maxY, BlockMatcher generateInBlocks) {
 		int heightRange = maxY - minY;
 		int randFactor = (maxVeinSize - minVeinSize) > 0 ? random.nextInt(maxVeinSize - minVeinSize) : 0;
 		int veinSize = minVeinSize + randFactor;

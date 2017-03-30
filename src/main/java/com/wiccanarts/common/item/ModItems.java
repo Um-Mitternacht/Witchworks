@@ -57,6 +57,8 @@ public final class ModItems {
 	//Food Items
 	@ObjectHolder(LibItemName.HONEY)
 	public static final Item HONEY = new Item();
+	@ObjectHolder(LibItemName.LAVENDER)
+	public static final Item LAVENDER = new Item();
 
 	//Materials
 	@ObjectHolder(LibItemName.WAX)
@@ -69,6 +71,21 @@ public final class ModItems {
 	//Misc
 	@ObjectHolder(LibItemName.BEE)
 	public static final Item BEE = new Item();
+	@ObjectHolder(LibItemName.BREW_PHIAL)
+	public static final Item BREW_PHIAL = new Item();
+
+	//Tools
+	@ObjectHolder(LibItemName.SILVER_PICKAXE)
+	public static final Item SILVER_PICKAXE = new Item();
+	@ObjectHolder(LibItemName.SILVER_AXE)
+	public static final Item SILVER_AXE = new Item();
+	@ObjectHolder(LibItemName.SILVER_SPADE)
+	public static final Item SILVER_SPADE = new Item();
+	@ObjectHolder(LibItemName.SILVER_HOE)
+	public static final Item SILVER_HOE = new Item();
+	@ObjectHolder(LibItemName.SILVER_SWORD)
+	public static final Item SILVER_SWORD = new Item();
+
 
 	public static void init() {
 		VanillaCrafting.items();
@@ -102,5 +119,7 @@ public final class ModItems {
 		OreDictionary.registerOre("dustSalt", new ItemStack(ModItems.SALT));
 		OreDictionary.registerOre("materialSalt", new ItemStack(ModItems.SALT));
 		OreDictionary.registerOre("lumpSalt", new ItemStack(ModItems.SALT));
+		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER));
 	}
 }

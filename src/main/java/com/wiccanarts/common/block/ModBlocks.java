@@ -66,6 +66,16 @@ public final class ModBlocks {
 	public static final Block TOURMALINE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.MALACHITE_ORE)
 	public static final Block MALACHITE_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.TIGERS_EYE_ORE)
+	public static final Block TIGERS_EYE_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.GARNET_ORE)
+	public static final Block GARNET_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.PETOSKEY_ORE)
+	public static final Block PETOSKEY_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.SERPENTINE_ORE)
+	public static final Block SERPENTINE_ORE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.NUUMMITE_ORE)
+	public static final Block NUUMMITE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.NETHERSTEEL)
 	public static final Block NETHERSTEEL = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.CANDLE_LARGE)
@@ -74,6 +84,9 @@ public final class ModBlocks {
 	public static final Block CANDLE_MEDIUM = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.CANDLE_SMALL)
 	public static final Block CANDLE_SMALL = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.SALT_BARRIER)
+	public static final Block SALT_BARRIER = new Block(Material.ROCK);
+
 
 	public static void init() {
 		VanillaCrafting.blocks();
@@ -89,6 +102,8 @@ public final class ModBlocks {
 		OreDictionary.registerOre("oreBloodstone", new ItemStack(ModBlocks.BLOODSTONE_ORE));
 		OreDictionary.registerOre("oreTourmaline", new ItemStack(ModBlocks.TOURMALINE_ORE));
 		OreDictionary.registerOre("oreMalachite", new ItemStack(ModBlocks.MALACHITE_ORE));
+		OreDictionary.registerOre("oreTigersEye", new ItemStack(ModBlocks.TIGERS_EYE_ORE));
+		OreDictionary.registerOre("oreSerpentine", new ItemStack(ModBlocks.SERPENTINE_ORE));
 		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.TOURMALINE_BLOCK));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 	}
