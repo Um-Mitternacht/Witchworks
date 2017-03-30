@@ -1,0 +1,6 @@
+{
+  "parent": "wiccanarts:block/salt_side_alt",
+  "textures": {
+	"line": "wiccanarts:blocks/salt_dust_line0"
+  }
+}
