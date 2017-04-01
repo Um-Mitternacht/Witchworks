@@ -85,6 +85,14 @@ public final class VanillaCrafting {
 				.outputs(new ItemStack(ModItems.MALACHITE, 1))
 				.build();
 
+		shapeless()
+				.add(Items.NETHERBRICK)
+				.add(Items.NETHERBRICK)
+				.add(Items.QUARTZ)
+				.add(Items.IRON_INGOT)
+				.outputs(new ItemStack(ModBlocks.NETHERSTEEL, 4))
+				.build();
+
 
 		shapeless()
 				.add(ModItems.WAX)
