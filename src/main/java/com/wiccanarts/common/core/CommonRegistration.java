@@ -60,6 +60,7 @@ public class CommonRegistration {
 		registerCrop(MANDRAKE_ROOT, ModBlocks.CROP_MANDRAKE_ROOT, new ItemMandrakeRoot(), LibItemName.SEED_MANDRAKE_ROOT);
 		registerCrop(LILAC, ModBlocks.CROP_LILAC, new ItemLilac(), LibItemName.SEED_LILAC);
 		registerCrop(LAVENDER, ModBlocks.CROP_LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
+		registerCrop(THISTLE, ModBlocks.CROP_THISTLE, new ItemLavender(), LibItemName.SEED_THISTLE);
 
 		CropRegistry.getFoods().forEach((crop, item) -> event.getRegistry().register(item));
 		CropRegistry.getSeeds().forEach((crop, item) -> event.getRegistry().register(item));
@@ -109,6 +110,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_MANDRAKE_ROOT),
 				itemBlock(ModBlocks.CROP_LILAC),
 				itemBlock(ModBlocks.CROP_LAVENDER),
+				itemBlock(ModBlocks.CROP_THISTLE),
 
 				itemBlock(ModBlocks.SILVER_BLOCK),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
@@ -153,6 +155,7 @@ public class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LILAC),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
+				new BlockCrop(LibBlockName.CROP_THISTLE),
 				new BlockKelp(),
 				new BlockBelladonna(),
 

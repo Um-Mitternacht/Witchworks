@@ -42,6 +42,8 @@ public final class LibItemName {
 	public static final String SEED_WORMWOOD = "seed_wormwood";
 	public static final String FLAX = "flax";
 	public static final String SEED_FLAX = "seed_flax";
+	public static final String THISTLE = "thistle";
+	public static final String SEED_THISTLE = "seed_thistle";
 
 	//Gems
 	public static final String GARNET = "garnet";
