@@ -21,7 +21,7 @@ public enum Crop {
 	ALLIUM(Blocks.FARMLAND),
 	MANDRAKE_ROOT(Blocks.FARMLAND),
 	LILAC(Blocks.FARMLAND),
-	LAVENDER(Blocks.FARMLAND);
+	LAVENDER(Blocks.FARMLAND),
 	THISTLE(Blocks.FARMLAND);
 
 	private final Block soil;
