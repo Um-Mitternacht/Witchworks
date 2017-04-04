@@ -69,10 +69,14 @@ public final class ModItems {
 	public static final Item SALT = new Item();
 	@ObjectHolder(LibItemName.HONEYCOMB)
 	public static final Item HONEYCOMB = new Item();
+	@ObjectHolder(LibItemName.LAVENDER_OIL)
+	public static final Item LAVENDER_OIL = new Item();
 
 	//Misc
 	@ObjectHolder(LibItemName.BEE)
 	public static final Item BEE = new Item();
+	@ObjectHolder(LibItemName.GLASS_JAR)
+	public static final Item GLASS_JAR = new Item();
 	@ObjectHolder(LibItemName.BREW_PHIAL)
 	public static final Item BREW_PHIAL = new Item();
 

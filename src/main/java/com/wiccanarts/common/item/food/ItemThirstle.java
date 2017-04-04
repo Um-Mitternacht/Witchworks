@@ -8,10 +8,10 @@ import net.minecraft.init.MobEffects;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class ItemLavender extends ItemCrop {
+public class ItemThirstle extends ItemCrop {
 
-	public ItemLavender() {
-		super(LibItemName.LAVENDER, 1, 2F, false);
+	public ItemThirstle() {
+		super(LibItemName.THISTLE, 1, 2F, false);
 		addPotion(MobEffects.REGENERATION);
 	}
 }

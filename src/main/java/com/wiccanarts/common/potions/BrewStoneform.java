@@ -16,11 +16,11 @@ public class BrewStoneform extends BrewMod {
 
 	@Override
 	public void performEffect(EntityLivingBase livingBase, int level) {
-		if (livingBase.moveForward > 0) {
-			livingBase.motionX *= 0.5D;
-			livingBase.motionY *= 0.5D;
-			livingBase.motionZ *= 0.5D;
+		livingBase.motionX *= 0.25D;
+		if(!livingBase.onGround) {
+			livingBase.motionY -= 0.05;
 		}
+		livingBase.motionZ *= 0.25D;
 	}
 
 	@Override

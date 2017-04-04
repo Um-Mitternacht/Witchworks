@@ -18,6 +18,7 @@ public final class ResourceLocations {
 
 	//Particles
 	public static final ResourceLocation CAULDRON_BUBBLE = getLocation("particle/cauldron_bubble");
+	public static final ResourceLocation STEAM = getLocation("particle/steam");
 
 	private ResourceLocations() {
 	}

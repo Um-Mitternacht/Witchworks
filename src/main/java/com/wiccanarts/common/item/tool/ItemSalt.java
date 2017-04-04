@@ -1,6 +1,7 @@
-package com.wiccanarts.common.item;
+package com.wiccanarts.common.item.tool;
 
 import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

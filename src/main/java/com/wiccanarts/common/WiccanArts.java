@@ -8,6 +8,7 @@ import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.entity.ModEntities;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
+import com.wiccanarts.common.net.PacketHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -35,6 +36,7 @@ public class WiccanArts {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		PacketHandler.init();
 		ModEvents.preInit();
 		ModEntities.preInit();
 		ModSounds.preInit();

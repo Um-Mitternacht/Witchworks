@@ -97,7 +97,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		TileKettle tile = (TileKettle) worldIn.getTileEntity(pos);
-		return tile != null && heldItem != null && tile.handleWater(playerIn, hand, heldItem);
+		return tile != null && heldItem != null && tile.handleRightClick(playerIn, hand, heldItem);
 	}
 
 	@Override

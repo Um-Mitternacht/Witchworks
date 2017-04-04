@@ -57,6 +57,8 @@ item.quartz.name=Quartz
 item.wax.name=Wax
 item.honey.name=Honey
 item.honeycomb.name=Honeycomb
+item.glass_jar.name=Glass Jar
+item.lavender_oil.name=Lavender Oil
 item.bee.name=Bee
 item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
@@ -81,6 +83,7 @@ tile.crop_sunflower.name=Sunflower Crop
 tile.crop_lilac.name=Lilac Crop
 tile.crop_peony.name=Peony Crop
 tile.crop_lavender.name=Lavender Crop
+
 tile.silver_ore.name=Silver Ore
 tile.moldavite_ore.name=Moldavite Ore
 tile.bloodstone_ore.name=Bloodstone Ore

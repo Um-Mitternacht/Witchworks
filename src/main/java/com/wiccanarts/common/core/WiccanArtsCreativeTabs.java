@@ -61,7 +61,7 @@ public class WiccanArtsCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(Items.FLOWER_POT);
+			return new ItemStack(ModItems.MANDRAKE_ROOT);
 		}
 
 		@Override
@@ -88,7 +88,7 @@ public class WiccanArtsCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(Items.BONE);
+			return new ItemStack(ModBlocks.KETTLE);
 		}
 
 		@Override
@@ -116,6 +116,7 @@ public class WiccanArtsCreativeTabs {
 			addItem(ModItems.SILVER_POWDER);
 			addItem(ModItems.SILVER_INGOT);
 			addItem(ModItems.SILVER_NUGGET);
+			addItem(ModItems.GLASS_JAR);
 			addItem(ModItems.HONEY);
 			addItem(ModItems.WAX);
 			addItem(ModItems.SALT);

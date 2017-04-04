@@ -2,6 +2,7 @@ package com.wiccanarts.api.recipe;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -28,7 +29,7 @@ public class KettleRecipe implements IKettleRecipe {
 	public KettleRecipe(ItemStack result, Object... inputs) {
 		this.result = result;
 
-		List<Object> stackedList = Arrays.stream(inputs).map(obj -> {
+		final List<Object> stackedList = Arrays.stream(inputs).map(obj -> {
 			if (obj instanceof Item) return new ItemStack((Item) obj);
 			else if (obj instanceof Block) return new ItemStack((Block) obj);
 			else return obj;
@@ -39,12 +40,12 @@ public class KettleRecipe implements IKettleRecipe {
 
 	@Override
 	public boolean checkRecipe(IItemHandler usedItems, World world) {
-		List<ItemStack> list = getUsedItems(usedItems);
+		final List<ItemStack> list = getUsedItems(usedItems);
 		if (list.size() == neededItems.size()) {
 			boolean matches = true;
 			for (int i = 0; i < list.size(); i++) {
-				Object needed = neededItems.get(i);
-				ItemStack used = list.get(i);
+				final Object needed = neededItems.get(i);
+				final ItemStack used = list.get(i);
 				if (needed instanceof ItemStack && !ItemStack.areItemStacksEqual(used, (ItemStack) needed)) {
 					matches = false;
 					break;
@@ -58,10 +59,15 @@ public class KettleRecipe implements IKettleRecipe {
 		return false;
 	}
 
+	@Override
+	public boolean canTake(World world, EntityPlayer player, ItemStack stack) {
+		return false;
+	}
+
 	private List<ItemStack> getUsedItems(IItemHandler handler) {
-		List<ItemStack> used = new ArrayList<>();
+		final List<ItemStack> used = new ArrayList<>();
 		for (int i = 0; i < handler.getSlots(); i++) {
-			ItemStack stack = handler.extractItem(i, 1, true);
+			final ItemStack stack = handler.extractItem(i, 1, true);
 			if (stack != null) {
 				used.add(stack);
 			} else {
@@ -92,6 +98,6 @@ public class KettleRecipe implements IKettleRecipe {
 
 	@Override
 	public ItemStack getResult() {
-		return result;
+		return result.copy();
 	}
 }

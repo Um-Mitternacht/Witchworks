@@ -56,13 +56,14 @@ public class CommonRegistration {
 		registerCrop(MANDRAKE_ROOT, ModBlocks.CROP_MANDRAKE_ROOT, new ItemMandrakeRoot(), LibItemName.SEED_MANDRAKE_ROOT);
 		registerCrop(LILAC, ModBlocks.CROP_LILAC, new ItemLilac(), LibItemName.SEED_LILAC);
 		registerCrop(LAVENDER, ModBlocks.CROP_LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
-		registerCrop(THISTLE, ModBlocks.CROP_THISTLE, new ItemLavender(), LibItemName.SEED_THISTLE);
+		registerCrop(THISTLE, ModBlocks.CROP_THISTLE, new ItemThirstle(), LibItemName.SEED_THISTLE);
 
 		CropRegistry.getFoods().forEach((crop, item) -> event.getRegistry().register(item));
 		CropRegistry.getSeeds().forEach((crop, item) -> event.getRegistry().register(item));
 
 		//Normal Items
 		event.getRegistry().registerAll(
+				//Gems
 				new ItemMod(LibItemName.GARNET),
 				new ItemMod(LibItemName.MOLDAVITE),
 				new ItemMod(LibItemName.NUUMMITE),
@@ -79,12 +80,18 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SILVER_POWDER),
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET),
+
+				//Other
 				new ItemMod(LibItemName.HONEY),
 				new ItemSalt(),
 				new ItemMod(LibItemName.WAX),
 				new ItemMod(LibItemName.BEE),
 				new ItemMod(LibItemName.HONEYCOMB),
 				new ItemBrewPhial(),
+				new ItemMod(LibItemName.GLASS_JAR),
+				new ItemMod(LibItemName.LAVENDER_OIL),
+
+				//Tools
 				new ItemSilverPickaxe(ModMaterials.SILVER),
 				new ItemSilverAxe(ModMaterials.SILVER),
 				new ItemSilverSpade(ModMaterials.SILVER),

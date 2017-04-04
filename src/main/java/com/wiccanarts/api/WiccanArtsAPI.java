@@ -2,6 +2,7 @@ package com.wiccanarts.api;
 
 import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.api.recipe.IKettleRecipe;
+import com.wiccanarts.api.recipe.KettleFluidRecipe;
 import com.wiccanarts.api.recipe.KettleRecipe;
 import com.wiccanarts.common.block.crop.BlockCrop;
 import net.minecraft.item.Item;
@@ -21,24 +22,20 @@ import java.util.Map;
 public class WiccanArtsAPI {
 
 	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
-	private static final List<Item> validPotionItems = new ArrayList<>();
 
 	public static IKettleRecipe registerKettleRecipe(ItemStack stack, Object... objects) {
 		IKettleRecipe recipe = new KettleRecipe(stack, objects);
 		return registerKettleRecipe(recipe);
 	}
 
+	public static IKettleRecipe registerKettleFluidRecipe(Item item, ItemStack stack, Object... objects) {
+		IKettleRecipe recipe = new KettleFluidRecipe(item, stack, objects);
+		return registerKettleRecipe(recipe);
+	}
+
 	public static IKettleRecipe registerKettleRecipe(IKettleRecipe kettleRecipe) {
 		kettleRecipes.add(kettleRecipe);
 		return kettleRecipe;
-	}
-
-	public static void addValidPotionItem(Item item) {
-		validPotionItems.add(item);
-	}
-
-	public static List<Item> getValidPotionItems() {
-		return validPotionItems;
 	}
 
 	public static List<IKettleRecipe> getKettleRecipes() {
