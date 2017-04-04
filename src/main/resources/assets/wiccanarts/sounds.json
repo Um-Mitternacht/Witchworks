@@ -1,8 +1,8 @@
 {
-  "test": {
+  "boil": {
 	"sounds": [
-	  "wiccanarts:test"
+	  "wiccanarts:boil"
 	],
-	"subtitle": "wiccanarts.subtitle.test"
+	"subtitle": "wiccanarts.subtitle.boil"
   }
 }

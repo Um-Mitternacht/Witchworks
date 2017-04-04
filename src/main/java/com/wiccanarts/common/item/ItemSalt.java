@@ -1,6 +1,7 @@
 package com.wiccanarts.common.item;
 
 import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -11,11 +12,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /**
- * Created by BerciTheBeast on 27.3.2017.
+ * This class was created by BerciTheBeast on 27.3.2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
 public class ItemSalt extends ItemMod {
-	public ItemSalt(String id) {
-		super(id);
+
+	public ItemSalt() {
+		super(LibItemName.SALT);
 	}
 
 	@Override

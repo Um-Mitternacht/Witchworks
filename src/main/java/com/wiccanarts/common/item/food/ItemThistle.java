@@ -4,7 +4,7 @@ import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.init.MobEffects;
 
 /**
- * This class was created by Arekkuusu on 02/03/2017.
+ * This class was created by Joseph on 02/03/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */

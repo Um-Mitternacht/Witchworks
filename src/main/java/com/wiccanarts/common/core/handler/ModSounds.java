@@ -1,5 +1,6 @@
 package com.wiccanarts.common.core.handler;
 
+import com.wiccanarts.api.ResourceLocationsAPI;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -12,7 +13,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModSounds {
 
 	public static void preInit() {
-		//registerSound(ResourceLocationsAPI.TEST_SOUND);
+		registerSound(ResourceLocationsAPI.BOIL);
 	}
 
 	private static void registerSound(ResourceLocation soundNameIn) {

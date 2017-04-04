@@ -94,6 +94,8 @@ tile.nethersteel.name=Nethersteel
 tile.kettle.name=Kettle
 tile.coquina.name=Coquina
 
+effect.wiccanarts.stoneform_brew=Stoneform
+
 ///ToolTips
 wiccan.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
 wiccan.tooltip.seed_asphodel_description.name=Seed from a plant of the dead

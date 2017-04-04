@@ -1,5 +1,6 @@
 package com.wiccanarts.common.core.proxy;
 
+import com.wiccanarts.client.fx.ParticleF;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -19,4 +20,6 @@ public interface ISidedProxy {
 	void postInit(FMLPostInitializationEvent event);
 
 	void displayRecordText(ITextComponent text);
+
+    void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args);
 }

@@ -7,6 +7,7 @@ import com.wiccanarts.common.block.tile.TileKettle;
 import com.wiccanarts.common.lib.LibBlockName;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -32,12 +33,13 @@ import static com.wiccanarts.api.state.WiccanArtsState.HALF;
 import static net.minecraft.block.BlockHorizontal.FACING;
 
 /**
- * Created by Joseph on 3/4/2017.
+ * This class was created by Joseph on 3/4/2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
 public class BlockKettle extends BlockMod implements IModelRegister, ITileEntityProvider {
 
 	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0625, 0, 0.0625, 15 * 0.0625, 11 * 0.0625, 15 * 0.0625);
-
 	private static final AxisAlignedBB AABB_LEGS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.3125D, 1.0D);
 	private static final AxisAlignedBB AABB_WALL_NORTH = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 11 * 0.0625, 0.125D);
 	private static final AxisAlignedBB AABB_WALL_SOUTH = new AxisAlignedBB(0.0D, 0.0D, 0.875D, 1.0D, 11 * 0.0625, 1.0D);
@@ -46,6 +48,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 
 	public BlockKettle() {
 		super(LibBlockName.KETTLE, Material.IRON);
+        setSound(SoundType.METAL);
 		setResistance(5F);
 		setHardness(5F);
 	}
@@ -97,15 +100,14 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		return tile != null && heldItem != null && tile.handleWater(playerIn, hand, heldItem);
 	}
 
-	@SuppressWarnings("deprecation")
-	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-		IBlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
-		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
-		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
-				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
-				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
-	}
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+        IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, stack);
+        iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
+        return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
+                iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
+                iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
+    }
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {

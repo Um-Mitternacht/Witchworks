@@ -74,11 +74,21 @@ public final class LibItemName {
 	public static final String BEE = "bee";
 	public static final String HONEYCOMB = "honeycomb";
 
-	//Staves
+    //Tools
+    public static final String SILVER_PICKAXE = "silver_pickaxe";
+    public static final String SILVER_AXE = "silver_axe";
+    public static final String SILVER_SPADE = "silver_spade";
+    public static final String SILVER_HOE = "silver_hoe";
+    public static final String SILVER_SWORD = "silver_sword";
+
+    //Misc
+    public static final String BREW_PHIAL = "brew_phial";
+
+	//Staves //TODO: Use this or remove it
 	public static final String STAFFV1 = "mundaneStaff";
 	public static final String STAFFV2 = "impregnatedStaff"; //FIXME Think of better names for the staves.
 
-	//Baubles
+	//Baubles //TODO: Use this or remove it
 	public static final String RING = "ring";
 	public static final String TALISMAN = "talisman";
 	public static final String BELT = "belt";
@@ -87,16 +97,6 @@ public final class LibItemName {
 	public static final String CROWN = "crown";
 	public static final String SHIRT = "shirt";
 
-	//Tools
-	public static final String SILVER_PICKAXE = "silver_pickaxe";
-	public static final String SILVER_AXE = "silver_axe";
-	public static final String SILVER_SPADE = "silver_spade";
-	public static final String SILVER_HOE = "silver_hoe";
-	public static final String SILVER_SWORD = "silver_sword";
-
-	//Material
+	//Materials
 	public static final String SILVER = "silver";
-
-	//Misc
-	public static final String BREW_PHIAL = "brew_phial";
 }

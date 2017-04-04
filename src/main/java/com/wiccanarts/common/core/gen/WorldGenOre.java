@@ -18,7 +18,9 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * Created by BerciTheBeast on 4.3.2017.
+ * This class was created by BerciTheBeast on 4.3.2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {

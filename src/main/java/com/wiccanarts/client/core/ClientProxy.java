@@ -1,5 +1,7 @@
 package com.wiccanarts.client.core;
 
+import com.wiccanarts.client.core.event.TextureStitcher;
+import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.client.handler.BlockColorHandler;
 import com.wiccanarts.client.handler.ItemColorHandler;
 import com.wiccanarts.client.handler.ModelHandler;
@@ -11,6 +13,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -47,6 +50,7 @@ public class ClientProxy implements ISidedProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
+        MinecraftForge.EVENT_BUS.register(new TextureStitcher());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -90,7 +94,15 @@ public class ClientProxy implements ISidedProxy {
 		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
 
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+        if(doParticle()) {
+            Minecraft.getMinecraft().effectRenderer.addEffect(particleF.newInstance(x, y, z, xSpeed, ySpeed, zSpeed, args));
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
 	private boolean doParticle() {
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
 			return false;

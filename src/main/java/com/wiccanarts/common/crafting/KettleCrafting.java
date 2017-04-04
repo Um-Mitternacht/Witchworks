@@ -1,12 +1,12 @@
 package com.wiccanarts.common.crafting;
 
 import com.wiccanarts.api.WiccanArtsAPI;
-import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.api.recipe.IKettleRecipe;
+import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.potions.BrewUtils;
 import com.wiccanarts.common.potions.ModBrews;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
 import net.minecraft.potion.PotionEffect;
 
 /**
@@ -17,13 +17,15 @@ import net.minecraft.potion.PotionEffect;
 @SuppressWarnings("WeakerAccess")
 public final class KettleCrafting {
 
-	public static IKettleRecipe TEST;
+	public static IKettleRecipe STONEFORM_BREW;
 
-	private KettleCrafting() {
-	}
+	private KettleCrafting() {}
 
 	public static void init() {
-		ItemStack potion4 = BrewUtils.createPotion(new PotionEffect(ModBrews.TEST, 20 * 15));
-		TEST = WiccanArtsAPI.registerKettleRecipe(potion4, Crop.MANDRAKE_ROOT, Blocks.TNT); //gotta add a method somewhere to get effects from recipe, not potions
+        WiccanArtsAPI.addValidPotionItem(ModItems.BREW_PHIAL);
+        WiccanArtsAPI.addValidPotionItem(Items.POTIONITEM);
+
+        STONEFORM_BREW = WiccanArtsAPI.registerKettleRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(ModBrews.STONEFORM_BREW, 1800))
+                , Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, ModItems.MANDRAKE_ROOT, ModItems.WAX);
 	}
 }

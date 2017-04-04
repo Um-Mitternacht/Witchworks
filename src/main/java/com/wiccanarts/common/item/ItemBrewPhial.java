@@ -1,5 +1,6 @@
 package com.wiccanarts.common.item;
 
+import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -13,19 +14,20 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 /**
- * Created by BerciTheBeast on 27.3.2017.
+ * This class was created by BerciTheBeast on 27.3.2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
-public class ItemBrewPhial extends ItemMod {
+public class ItemBrewPhial extends ItemMod { //TODO: Make Item texture change color
 
-	public ItemBrewPhial(String id) {
-		super(id);
+	public ItemBrewPhial() {
+		super(LibItemName.BREW_PHIAL);
 	}
 
 	@Override
 	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
 		EntityPlayer player = entity instanceof EntityPlayer ? (EntityPlayer) entity : null;
 
-		assert player != null;
 		--stack.stackSize;
 
 		if (!world.isRemote) {
@@ -35,7 +37,7 @@ public class ItemBrewPhial extends ItemMod {
 			}
 		}
 
-		if (!player.capabilities.isCreativeMode) {
+		if (player != null && !player.capabilities.isCreativeMode) {
 			if (stack.stackSize <= 0) {
 				return new ItemStack(Items.GLASS_BOTTLE);
 			}
@@ -44,7 +46,6 @@ public class ItemBrewPhial extends ItemMod {
 		}
 		return stack;
 	}
-
 
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
@@ -56,7 +57,7 @@ public class ItemBrewPhial extends ItemMod {
 		return EnumAction.DRINK;
 	}
 
-
+	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
 		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);

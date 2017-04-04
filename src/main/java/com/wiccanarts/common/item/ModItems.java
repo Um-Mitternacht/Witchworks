@@ -57,6 +57,8 @@ public final class ModItems {
 	//Food Items
 	@ObjectHolder(LibItemName.HONEY)
 	public static final Item HONEY = new Item();
+    @ObjectHolder(LibItemName.MANDRAKE_ROOT)
+    public static final Item MANDRAKE_ROOT = new Item();
 	@ObjectHolder(LibItemName.LAVENDER)
 	public static final Item LAVENDER = new Item();
 
@@ -85,7 +87,6 @@ public final class ModItems {
 	public static final Item SILVER_HOE = new Item();
 	@ObjectHolder(LibItemName.SILVER_SWORD)
 	public static final Item SILVER_SWORD = new Item();
-
 
 	public static void init() {
 		VanillaCrafting.items();

@@ -17,40 +17,50 @@ import java.util.Map;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
+@SuppressWarnings("WeakerAccess")
 public class WiccanArtsAPI {
 
-	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
+    private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
+    private static final List<Item> validPotionItems = new ArrayList<>();
 
-	public static IKettleRecipe registerKettleRecipe(ItemStack stack, Object... objects) {
-		IKettleRecipe recipe = new KettleRecipe(stack, objects);
-		return registerKettleRecipe(recipe);
-	}
+    public static IKettleRecipe registerKettleRecipe(ItemStack stack, Object... objects) {
+        IKettleRecipe recipe = new KettleRecipe(stack, objects);
+        return registerKettleRecipe(recipe);
+    }
 
-	public static IKettleRecipe registerKettleRecipe(IKettleRecipe kettleRecipe) {
-		kettleRecipes.add(kettleRecipe);
-		return kettleRecipe;
-	}
+    public static IKettleRecipe registerKettleRecipe(IKettleRecipe kettleRecipe) {
+        kettleRecipes.add(kettleRecipe);
+        return kettleRecipe;
+    }
 
-	public static List<IKettleRecipe> getKettleRecipes() {
-		return kettleRecipes;
-	}
+    public static void addValidPotionItem(Item item) {
+        validPotionItems.add(item);
+    }
 
-	public static class CropRegistry {
+    public static List<Item> getValidPotionItems() {
+        return validPotionItems;
+    }
 
-		private static final Map<Crop, Item> seeds = new HashMap<>();
-		private static final Map<Crop, BlockCrop> crops = new HashMap<>();
-		private static final Map<Crop, Item> foods = new HashMap<>();
+    public static List<IKettleRecipe> getKettleRecipes() {
+        return kettleRecipes;
+    }
 
-		public static Map<Crop, Item> getSeeds() {
-			return seeds;
-		}
+    public static class CropRegistry {
 
-		public static Map<Crop, BlockCrop> getCrops() {
-			return crops;
-		}
+        private static final Map<Crop, Item> seeds = new HashMap<>();
+        private static final Map<Crop, BlockCrop> crops = new HashMap<>();
+        private static final Map<Crop, Item> foods = new HashMap<>();
 
-		public static Map<Crop, Item> getFoods() {
-			return foods;
-		}
-	}
+        public static Map<Crop, Item> getSeeds() {
+            return seeds;
+        }
+
+        public static Map<Crop, BlockCrop> getCrops() {
+            return crops;
+        }
+
+        public static Map<Crop, Item> getFoods() {
+            return foods;
+        }
+    }
 }

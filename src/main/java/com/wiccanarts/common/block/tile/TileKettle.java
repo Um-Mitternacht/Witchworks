@@ -1,6 +1,10 @@
 package com.wiccanarts.common.block.tile;
 
 import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.api.sound.WiccaSoundEvents;
+import com.wiccanarts.client.fx.ParticleF;
+import com.wiccanarts.common.WiccanArts;
+import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.net.PacketHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -45,6 +49,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private int tickCount;
 	private ItemStack result;
 
+    @SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
 
@@ -52,7 +57,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		if (stack == null || entityItem.isDead)
 			return;
 
-		if (!getWorld().isRemote) {
+		if (!world.isRemote) {
 			PacketHandler.sendTileUpdateNearbyPlayers(this);
 			fancySplash();
 
@@ -70,33 +75,37 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			}
 		}
 
-		getWorld().playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 0.1F, 8F);
-		float r = getWorld().rand.nextFloat();
-		float g = getWorld().rand.nextFloat();
-		float b = getWorld().rand.nextFloat();
+		world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 0.1F, 8F);
+		float r = world.rand.nextFloat();
+		float g = world.rand.nextFloat();
+		float b = world.rand.nextFloat();
 		colors[0] = r;
 		colors[1] = g;
 		colors[2] = b;
 	}
 
 	private void fancySplash() {
-		if (getWorld() instanceof WorldServer) {
+		if (world instanceof WorldServer) {
 			for (int i = 0; i < 10; i++) {
 				BlockPos pos = getPos();
 				Random rand = new Random();
 				float d3 = (pos.getX() + rand.nextFloat());
 				float d4 = (float) (pos.getY() + 1);
 				float d5 = (pos.getZ() + rand.nextFloat());
-				((WorldServer) getWorld()).spawnParticle(EnumParticleTypes.CRIT_MAGIC, d3, d4, d5, 1, 0, 0, 0, 0D);
+				((WorldServer) world).spawnParticle(EnumParticleTypes.CRIT_MAGIC, d3, d4, d5, 1, 0, 0, 0, 0D);
 			}
 		}
 	}
 
 	private void updateRecipe() {
-		WiccanArtsAPI.getKettleRecipes().stream().filter(kettleRecipe ->
-				kettleRecipe.checkRecipe(itemHandler, getWorld())).forEach(kettleRecipe ->
-				result = kettleRecipe.getResult()
-		);
+        if(isHot() && hasWater()) {
+            WiccanArtsAPI.getKettleRecipes().stream().filter(kettleRecipe ->
+                    kettleRecipe.checkRecipe(itemHandler, world)).forEach(kettleRecipe ->
+                    result = kettleRecipe.getResult()
+            );
+        } else if(result != null) {
+            result = null;
+        }
 	}
 
 	public boolean handleWater(@Nullable EntityPlayer player, EnumHand hand, ItemStack stack) {
@@ -108,11 +117,11 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				if (drainWater != null && drainWater.getFluid() == FluidRegistry.WATER
 						&& drainWater.amount == Fluid.BUCKET_VOLUME) {
 					if (player != null)
-						getWorld().playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
+						world.playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
 
 					fluidHandler.drain(new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME), true);
 					setWaterLevel(6);
-					getWorld().updateComparatorOutputLevel(pos, getWorld().getBlockState(pos).getBlock());
+					world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
 
 					colors = new float[]{0.0f, 0.39215687f, 0.0f};
 
@@ -123,16 +132,16 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 				if (fill == Fluid.BUCKET_VOLUME) {
 					if (player != null)
-						getWorld().playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0F, 5F);
+						world.playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0F, 5F);
 
 					fluidHandler.fill(new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME), true);
 					setWaterLevel(0);
-					getWorld().updateComparatorOutputLevel(pos, getWorld().getBlockState(pos).getBlock());
+					world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
 
 					removeItems();
 				}
 			}
-		} else if (!getWorld().isRemote && stack.getItem() == Items.GLASS_BOTTLE && waterLevel > 0) {
+		} else if (!world.isRemote && stack.getItem() == Items.GLASS_BOTTLE && waterLevel > 0) {
 			if (player != null && !player.capabilities.isCreativeMode) {
 				ItemStack potion = getPotionFromRecipe();
 
@@ -146,7 +155,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			}
 
 			if (player != null)
-				getWorld().playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
+				world.playSound(player, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 5F);
 			setWaterLevel(waterLevel - 1);
 		}
 		return true;
@@ -160,7 +169,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	private ItemStack getPotionFromRecipe() {
-		if (result != null && PotionUtils.getPotionFromItem(result) != PotionTypes.WATER) {
+		if (result != null && WiccanArtsAPI.getValidPotionItems().contains(result.getItem())) {
 			return result.copy();
 		}
 		return PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
@@ -182,25 +191,29 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	@Override
 	public void update() {
-		List<EntityItem> entityItemList = getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
+		List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
 		entityItemList.forEach(this::collideItem);
 
-		if (getWorld().rand.nextInt(10) == 0 && isHot() && hasWater()) {
-			BlockPos pos = getPos();
-			float d3 = ((float) pos.getX() + getWorld().rand.nextFloat());
-			float d4 = ((float) pos.getY() + 0.65F);
-			float d5 = ((float) pos.getZ() + getWorld().rand.nextFloat());
-			getWorld().spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D);
-			getWorld().playSound(null, getPos(), SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 1.0F, 5F);
-		}
+        if(isHot() && hasWater()) {
+            if (world.rand.nextInt(10) == 0) {
+                BlockPos pos = getPos();
+                float d3 = ((float) pos.getX() + world.rand.nextFloat());
+                float d4 = ((float) pos.getY() + 0.65F);
+                float d5 = ((float) pos.getZ() + world.rand.nextFloat());
+                WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, colors);
+            }
+            if(tickCount % 60 == 0) {
+                world.playSound(null, getPos(), WiccaSoundEvents.BOIL, SoundCategory.BLOCKS, 1F, 1F);
+            }
+        }
 
-		if (!getWorld().isRemote && tickCount % 5 == 0) {
+		if (!world.isRemote && tickCount % 5 == 0) {
 			if (result != null) {
 				double d3 = pos.getX() + 0.5;
 				double d4 = pos.getY() + 0.65;
 				double d5 = pos.getZ() + 0.5;
-				if (getWorld() instanceof WorldServer)
-					((WorldServer) getWorld()).spawnParticle(EnumParticleTypes.SPELL, d3, d4, d5, 1, 0D, 0D, 0D, 0D);
+				if (world instanceof WorldServer)
+					((WorldServer) world).spawnParticle(EnumParticleTypes.SPELL, d3, d4, d5, 1, 0D, 0D, 0D, 0D);
 
 				if (!hasWater()) {
 					removeItems();
@@ -228,22 +241,22 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	private boolean isAboveFire() {
-		IBlockState state = getWorld().getBlockState(getPos().down());
+		IBlockState state = world.getBlockState(getPos().down());
 		return state.getMaterial() == Material.FIRE;
 	}
 
 	private void handleRain() {
-		if (waterLevel != 6 && getWorld().isRainingAt(getPos().up())) {
+		if (waterLevel != 6 && world.isRainingAt(getPos().up())) {
 			Random rand = new Random();
-			if (getWorld().isRemote) {
+			if (world.isRemote) {
 				for (int i = 0; i < 4; i++) {
 					double d3 = pos.getX() + rand.nextFloat();
 					double d4 = pos.getY() + 0.65F;
 					double d5 = pos.getZ() + rand.nextFloat();
-					getWorld().spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+					world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
 				}
 			}
-			getWorld().playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 0.2F, 5F);
+			world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 0.2F, 5F);
 			setWaterLevel(waterLevel + 1);
 			removeItems();
 		}
@@ -260,7 +273,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	public void setWaterLevel(int water) {
 		waterLevel = water;
-		PacketHandler.updateToNearbyPlayers(getWorld(), pos);
+		PacketHandler.updateToNearbyPlayers(world, pos);
 	}
 
 	public boolean hasWater() {

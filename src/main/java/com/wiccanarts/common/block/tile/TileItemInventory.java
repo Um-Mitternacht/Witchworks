@@ -13,6 +13,8 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
+import javax.annotation.Nullable;
+
 /**
  * This class was created by Arekkuusu on 21/03/2017.
  * It's distributed as part of Wiccan Arts under
@@ -36,18 +38,18 @@ public abstract class TileItemInventory extends TileEntity {
 		return ret;
 	}
 
-	@Override
-	public final SPacketUpdateTileEntity getUpdatePacket() {
-		NBTTagCompound tag = new NBTTagCompound();
-		writeDataNBT(tag);
-		return new SPacketUpdateTileEntity(pos, -999, tag);
-	}
+    @Override
+    public final SPacketUpdateTileEntity getUpdatePacket() {
+        NBTTagCompound tag = getUpdateTag();
+        writeDataNBT(tag);
+        return new SPacketUpdateTileEntity(pos, 0, tag);
+    }
 
-	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
-		super.onDataPacket(net, packet);
-		readDataNBT(packet.getNbtCompound());
-	}
+    @Override
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
+        super.onDataPacket(net, packet);
+        readDataNBT(packet.getNbtCompound());
+    }
 
 	@Override
 	public void readFromNBT(NBTTagCompound nbtTagCompound) {
@@ -106,13 +108,14 @@ public abstract class TileItemInventory extends TileEntity {
 		}
 
 		@Override
+        @Nullable
 		public ItemStack extractItem(int slot, int amount, boolean simulate) {
 			if (allow) {
 				return super.extractItem(slot, 1, simulate);
 			} else return null;
 		}
 
-
+        @Nullable
 		public ItemStack getItemSimulate(int slot) {
 			if (allow) {
 				return super.extractItem(slot, 1, true);

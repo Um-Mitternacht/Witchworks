@@ -1,12 +1,14 @@
 package com.wiccanarts.common.block.tools;
 
 import com.wiccanarts.common.block.BlockMod;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +25,7 @@ public class BlockCandle extends BlockMod {
 
 	public BlockCandle(String id) {
 		super(id, Material.CLOTH);
+        setSound(SoundType.CLOTH);
 	}
 
 	@Override
@@ -59,12 +62,12 @@ public class BlockCandle extends BlockMod {
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}
 
-	@SuppressWarnings("deprecation")
-	public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-		return this.getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
-	}
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+        return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+    }
 
-	@Override
+    @Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		return worldIn.getBlockState(
 				pos.down()).isSideSolid(

@@ -12,18 +12,14 @@ import com.wiccanarts.common.block.tools.BlockCandleLarge;
 import com.wiccanarts.common.block.tools.BlockCandleMedium;
 import com.wiccanarts.common.block.tools.BlockCandleSmall;
 import com.wiccanarts.common.block.tools.BlockKettle;
-import com.wiccanarts.common.item.ItemBlockColor;
-import com.wiccanarts.common.item.ItemBrewPhial;
-import com.wiccanarts.common.item.ItemMod;
-import com.wiccanarts.common.item.ItemSalt;
+import com.wiccanarts.common.item.*;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
 import com.wiccanarts.common.item.tool.*;
 import com.wiccanarts.common.lib.LibBlockName;
-import com.wiccanarts.common.lib.LibBrewName;
 import com.wiccanarts.common.lib.LibItemName;
-import com.wiccanarts.common.potions.BrewMod;
+import com.wiccanarts.common.potions.BrewStoneform;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -60,7 +56,7 @@ public class CommonRegistration {
 		registerCrop(MANDRAKE_ROOT, ModBlocks.CROP_MANDRAKE_ROOT, new ItemMandrakeRoot(), LibItemName.SEED_MANDRAKE_ROOT);
 		registerCrop(LILAC, ModBlocks.CROP_LILAC, new ItemLilac(), LibItemName.SEED_LILAC);
 		registerCrop(LAVENDER, ModBlocks.CROP_LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
-		registerCrop(THISTLE, ModBlocks.CROP_THISTLE, new ItemLavender(), LibItemName.SEED_THISTLE);
+        registerCrop(THISTLE, ModBlocks.CROP_THISTLE, new ItemLavender(), LibItemName.SEED_THISTLE);
 
 		CropRegistry.getFoods().forEach((crop, item) -> event.getRegistry().register(item));
 		CropRegistry.getSeeds().forEach((crop, item) -> event.getRegistry().register(item));
@@ -84,16 +80,16 @@ public class CommonRegistration {
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET),
 				new ItemMod(LibItemName.HONEY),
-				new ItemSalt(LibItemName.SALT),
+				new ItemSalt(),
 				new ItemMod(LibItemName.WAX),
 				new ItemMod(LibItemName.BEE),
 				new ItemMod(LibItemName.HONEYCOMB),
-				new ItemBrewPhial(LibItemName.BREW_PHIAL),
-				new ItemSilverPickaxe(LibItemName.SILVER_PICKAXE, MaterialSilver.SILVER),
-				new ItemSilverAxe(LibItemName.SILVER_AXE, MaterialSilver.SILVER),
-				new ItemSilverSpade(LibItemName.SILVER_SPADE, MaterialSilver.SILVER),
-				new ItemSilverHoe(LibItemName.SILVER_HOE, MaterialSilver.SILVER),
-				new ItemSilverSword(LibItemName.SILVER_SWORD, MaterialSilver.SILVER)
+				new ItemBrewPhial(),
+				new ItemSilverPickaxe(ModMaterials.SILVER),
+				new ItemSilverAxe(ModMaterials.SILVER),
+				new ItemSilverSpade(ModMaterials.SILVER),
+				new ItemSilverHoe(ModMaterials.SILVER),
+				new ItemSilverSword(ModMaterials.SILVER)
 		);
 
 		//Item Blocks
@@ -110,7 +106,7 @@ public class CommonRegistration {
 				itemBlock(ModBlocks.CROP_MANDRAKE_ROOT),
 				itemBlock(ModBlocks.CROP_LILAC),
 				itemBlock(ModBlocks.CROP_LAVENDER),
-				itemBlock(ModBlocks.CROP_THISTLE),
+                itemBlock(ModBlocks.CROP_THISTLE),
 
 				itemBlock(ModBlocks.SILVER_BLOCK),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
@@ -155,7 +151,7 @@ public class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LILAC),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
-				new BlockCrop(LibBlockName.CROP_THISTLE),
+                new BlockCrop(LibBlockName.CROP_THISTLE),
 				new BlockKelp(),
 				new BlockBelladonna(),
 
@@ -180,18 +176,18 @@ public class CommonRegistration {
 				new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
 
 				//Tool Blocks
-				new BlockKettle().setSound(SoundType.METAL),
-				new BlockCandleLarge().setSound(SoundType.CLOTH),
-				new BlockCandleMedium().setSound(SoundType.CLOTH),
-				new BlockCandleSmall().setSound(SoundType.CLOTH),
-				new BlockSaltBarrier().setSound(SoundType.CLOTH)
+				new BlockKettle(),
+				new BlockCandleLarge(),
+				new BlockCandleMedium(),
+				new BlockCandleSmall(),
+				new BlockSaltBarrier()
 		);
 	}
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().registerAll(
-				new BrewMod(LibBrewName.TEST, false, 0x000000, 0)
+				new BrewStoneform()
 		);
 	}
 

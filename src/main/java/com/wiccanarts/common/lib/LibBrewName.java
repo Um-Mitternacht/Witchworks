@@ -5,5 +5,5 @@ package com.wiccanarts.common.lib;
  */
 public final class LibBrewName {
 
-	public static final String TEST = "test_potion";
+	public static final String STONEFORM_BREW = "stoneform_brew";
 }
