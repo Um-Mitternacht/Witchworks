@@ -74,15 +74,15 @@ public final class LibItemName {
 	public static final String BEE = "bee";
 	public static final String HONEYCOMB = "honeycomb";
 
-    //Tools
-    public static final String SILVER_PICKAXE = "silver_pickaxe";
-    public static final String SILVER_AXE = "silver_axe";
-    public static final String SILVER_SPADE = "silver_spade";
-    public static final String SILVER_HOE = "silver_hoe";
-    public static final String SILVER_SWORD = "silver_sword";
+	//Tools
+	public static final String SILVER_PICKAXE = "silver_pickaxe";
+	public static final String SILVER_AXE = "silver_axe";
+	public static final String SILVER_SPADE = "silver_spade";
+	public static final String SILVER_HOE = "silver_hoe";
+	public static final String SILVER_SWORD = "silver_sword";
 
-    //Misc
-    public static final String BREW_PHIAL = "brew_phial";
+	//Misc
+	public static final String BREW_PHIAL = "brew_phial";
 
 	//Staves //TODO: Use this or remove it
 	public static final String STAFFV1 = "mundaneStaff";

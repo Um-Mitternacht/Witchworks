@@ -11,5 +11,5 @@ import net.minecraftforge.common.util.EnumHelper;
  */
 public class ModMaterials {
 
-    public static final Item.ToolMaterial SILVER = EnumHelper.addToolMaterial(LibItemName.SILVER, 2, 222, 3.5F, 2.5F, 18);
+	public static final Item.ToolMaterial SILVER = EnumHelper.addToolMaterial(LibItemName.SILVER, 2, 222, 3.5F, 2.5F, 18);
 }

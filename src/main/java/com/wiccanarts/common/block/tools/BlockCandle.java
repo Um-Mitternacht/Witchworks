@@ -25,7 +25,7 @@ public class BlockCandle extends BlockMod {
 
 	public BlockCandle(String id) {
 		super(id, Material.CLOTH);
-        setSound(SoundType.CLOTH);
+		setSound(SoundType.CLOTH);
 	}
 
 	@Override
@@ -62,12 +62,12 @@ public class BlockCandle extends BlockMod {
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}
 
-    @Override
-    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
-        return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
-    }
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+	}
 
-    @Override
+	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		return worldIn.getBlockState(
 				pos.down()).isSideSolid(

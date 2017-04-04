@@ -29,7 +29,7 @@ public class ServerProxy implements ISidedProxy {
 	public void displayRecordText(ITextComponent text) {
 	}
 
-    @Override
-    public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
-    }
+	@Override
+	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+	}
 }

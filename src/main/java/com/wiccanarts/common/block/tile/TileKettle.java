@@ -4,7 +4,6 @@ import com.wiccanarts.api.WiccanArtsAPI;
 import com.wiccanarts.api.sound.WiccaSoundEvents;
 import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.common.WiccanArts;
-import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.net.PacketHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -49,7 +48,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private int tickCount;
 	private ItemStack result;
 
-    @SuppressWarnings("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
 
@@ -98,14 +97,14 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	private void updateRecipe() {
-        if(isHot() && hasWater()) {
-            WiccanArtsAPI.getKettleRecipes().stream().filter(kettleRecipe ->
-                    kettleRecipe.checkRecipe(itemHandler, world)).forEach(kettleRecipe ->
-                    result = kettleRecipe.getResult()
-            );
-        } else if(result != null) {
-            result = null;
-        }
+		if (isHot() && hasWater()) {
+			WiccanArtsAPI.getKettleRecipes().stream().filter(kettleRecipe ->
+					kettleRecipe.checkRecipe(itemHandler, world)).forEach(kettleRecipe ->
+					result = kettleRecipe.getResult()
+			);
+		} else if (result != null) {
+			result = null;
+		}
 	}
 
 	public boolean handleWater(@Nullable EntityPlayer player, EnumHand hand, ItemStack stack) {
@@ -194,18 +193,18 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
 		entityItemList.forEach(this::collideItem);
 
-        if(isHot() && hasWater()) {
-            if (world.rand.nextInt(10) == 0) {
-                BlockPos pos = getPos();
-                float d3 = ((float) pos.getX() + world.rand.nextFloat());
-                float d4 = ((float) pos.getY() + 0.65F);
-                float d5 = ((float) pos.getZ() + world.rand.nextFloat());
-                WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, colors);
-            }
-            if(tickCount % 60 == 0) {
-                world.playSound(null, getPos(), WiccaSoundEvents.BOIL, SoundCategory.BLOCKS, 1F, 1F);
-            }
-        }
+		if (isHot() && hasWater()) {
+			if (world.rand.nextInt(10) == 0) {
+				BlockPos pos = getPos();
+				float d3 = ((float) pos.getX() + world.rand.nextFloat());
+				float d4 = ((float) pos.getY() + 0.65F);
+				float d5 = ((float) pos.getZ() + world.rand.nextFloat());
+				WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, colors);
+			}
+			if (tickCount % 60 == 0) {
+				world.playSound(null, getPos(), WiccaSoundEvents.BOIL, SoundCategory.BLOCKS, 1F, 1F);
+			}
+		}
 
 		if (!world.isRemote && tickCount % 5 == 0) {
 			if (result != null) {

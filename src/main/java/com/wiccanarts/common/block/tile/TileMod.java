@@ -32,12 +32,12 @@ public abstract class TileMod extends TileEntity {
 		return ret;
 	}
 
-    @Override
-    public final SPacketUpdateTileEntity getUpdatePacket() {
-        NBTTagCompound tag = getUpdateTag();
-        writeDataNBT(tag);
-        return new SPacketUpdateTileEntity(pos, 0, tag);
-    }
+	@Override
+	public final SPacketUpdateTileEntity getUpdatePacket() {
+		NBTTagCompound tag = getUpdateTag();
+		writeDataNBT(tag);
+		return new SPacketUpdateTileEntity(pos, 0, tag);
+	}
 
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {

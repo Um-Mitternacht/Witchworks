@@ -19,7 +19,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public final class ModelHandler {
 
-	private ModelHandler() {}
+	private ModelHandler() {
+	}
 
 	/**
 	 * Register all Item and Block models from the registry.

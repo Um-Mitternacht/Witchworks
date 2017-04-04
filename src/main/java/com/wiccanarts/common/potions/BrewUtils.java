@@ -1,6 +1,5 @@
 package com.wiccanarts.common.potions;
 
-import com.wiccanarts.common.item.ModItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;

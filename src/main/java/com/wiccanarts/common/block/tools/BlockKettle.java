@@ -48,7 +48,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 
 	public BlockKettle() {
 		super(LibBlockName.KETTLE, Material.IRON);
-        setSound(SoundType.METAL);
+		setSound(SoundType.METAL);
 		setResistance(5F);
 		setHardness(5F);
 	}
@@ -100,14 +100,14 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		return tile != null && heldItem != null && tile.handleWater(playerIn, hand, heldItem);
 	}
 
-    @Override
-    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
-        IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, stack);
-        iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
-        return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
-                iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
-                iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
-    }
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+		IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, stack);
+		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
+		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
+				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
+				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
+	}
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {

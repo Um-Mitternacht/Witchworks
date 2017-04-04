@@ -46,7 +46,7 @@ public class BlockSaltBarrier extends BlockMod {
 	public BlockSaltBarrier() {
 		super(LibBlockName.SALT_BARRIER, Material.CIRCUITS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(NORTH, BlockSaltBarrier.EnumAttachPosition.NONE).withProperty(EAST, BlockSaltBarrier.EnumAttachPosition.NONE).withProperty(SOUTH, BlockSaltBarrier.EnumAttachPosition.NONE).withProperty(WEST, BlockSaltBarrier.EnumAttachPosition.NONE));
-        setSound(SoundType.CLOTH);
+		setSound(SoundType.CLOTH);
 	}
 
 	private static int getAABBIndex(IBlockState state) {
@@ -81,7 +81,7 @@ public class BlockSaltBarrier extends BlockMod {
 
 	private static boolean canConnectTo(IBlockState blockState) {
 		Block block = blockState.getBlock();
-        return block == ModBlocks.SALT_BARRIER;
+		return block == ModBlocks.SALT_BARRIER;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -90,8 +90,8 @@ public class BlockSaltBarrier extends BlockMod {
 		return SALT_BARRIER_AABB[getAABBIndex(state.getActualState(source, pos))];
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		state = state.withProperty(WEST, this.getAttachPosition(worldIn, pos, EnumFacing.WEST));
 		state = state.withProperty(EAST, this.getAttachPosition(worldIn, pos, EnumFacing.EAST));
@@ -125,28 +125,28 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
 		return NULL_AABB;
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		return worldIn.getBlockState(pos.down()).isFullyOpaque() || worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE;
 	}
 
@@ -171,7 +171,7 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-    @Override
+	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
 		if (!worldIn.isRemote) {
 			this.updateSurroundingSalt(worldIn, pos, state);
@@ -223,8 +223,8 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
 		if (!worldIn.isRemote) {
 			if (this.canPlaceBlockAt(worldIn, pos)) {
@@ -236,13 +236,13 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-    @Override
+	@Override
 	@Nullable
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return ModItems.SALT;
 	}
 
-    @Override
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		double d0 = (double) pos.getX() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
@@ -256,31 +256,31 @@ public class BlockSaltBarrier extends BlockMod {
 
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		return new ItemStack(ModItems.SALT);
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState();
 	}
 
-    @Override
+	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
 
-    @Override
+	@Override
 	public int getMetaFromState(IBlockState state) {
 		return 0;
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		switch (rot) {
 			case CLOCKWISE_180:
@@ -294,8 +294,8 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-    @SuppressWarnings("deprecation")
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
 		switch (mirrorIn) {
 			case LEFT_RIGHT:

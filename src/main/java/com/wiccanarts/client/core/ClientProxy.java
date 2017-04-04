@@ -50,7 +50,7 @@ public class ClientProxy implements ISidedProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
-        MinecraftForge.EVENT_BUS.register(new TextureStitcher());
+		MinecraftForge.EVENT_BUS.register(new TextureStitcher());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -94,15 +94,15 @@ public class ClientProxy implements ISidedProxy {
 		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
-        if(doParticle()) {
-            Minecraft.getMinecraft().effectRenderer.addEffect(particleF.newInstance(x, y, z, xSpeed, ySpeed, zSpeed, args));
-        }
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+		if (doParticle()) {
+			Minecraft.getMinecraft().effectRenderer.addEffect(particleF.newInstance(x, y, z, xSpeed, ySpeed, zSpeed, args));
+		}
+	}
 
-    @SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	private boolean doParticle() {
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
 			return false;

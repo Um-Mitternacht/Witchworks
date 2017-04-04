@@ -19,13 +19,14 @@ public final class KettleCrafting {
 
 	public static IKettleRecipe STONEFORM_BREW;
 
-	private KettleCrafting() {}
+	private KettleCrafting() {
+	}
 
 	public static void init() {
-        WiccanArtsAPI.addValidPotionItem(ModItems.BREW_PHIAL);
-        WiccanArtsAPI.addValidPotionItem(Items.POTIONITEM);
+		WiccanArtsAPI.addValidPotionItem(ModItems.BREW_PHIAL);
+		WiccanArtsAPI.addValidPotionItem(Items.POTIONITEM);
 
-        STONEFORM_BREW = WiccanArtsAPI.registerKettleRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(ModBrews.STONEFORM_BREW, 1800))
-                , Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, ModItems.MANDRAKE_ROOT, ModItems.WAX);
+		STONEFORM_BREW = WiccanArtsAPI.registerKettleRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(ModBrews.STONEFORM_BREW, 1800))
+				, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, ModItems.MANDRAKE_ROOT, ModItems.WAX);
 	}
 }

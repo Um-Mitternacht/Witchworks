@@ -38,18 +38,18 @@ public abstract class TileItemInventory extends TileEntity {
 		return ret;
 	}
 
-    @Override
-    public final SPacketUpdateTileEntity getUpdatePacket() {
-        NBTTagCompound tag = getUpdateTag();
-        writeDataNBT(tag);
-        return new SPacketUpdateTileEntity(pos, 0, tag);
-    }
+	@Override
+	public final SPacketUpdateTileEntity getUpdatePacket() {
+		NBTTagCompound tag = getUpdateTag();
+		writeDataNBT(tag);
+		return new SPacketUpdateTileEntity(pos, 0, tag);
+	}
 
-    @Override
-    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
-        super.onDataPacket(net, packet);
-        readDataNBT(packet.getNbtCompound());
-    }
+	@Override
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
+		super.onDataPacket(net, packet);
+		readDataNBT(packet.getNbtCompound());
+	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound nbtTagCompound) {
@@ -108,14 +108,14 @@ public abstract class TileItemInventory extends TileEntity {
 		}
 
 		@Override
-        @Nullable
+		@Nullable
 		public ItemStack extractItem(int slot, int amount, boolean simulate) {
 			if (allow) {
 				return super.extractItem(slot, 1, simulate);
 			} else return null;
 		}
 
-        @Nullable
+		@Nullable
 		public ItemStack getItemSimulate(int slot) {
 			if (allow) {
 				return super.extractItem(slot, 1, true);
