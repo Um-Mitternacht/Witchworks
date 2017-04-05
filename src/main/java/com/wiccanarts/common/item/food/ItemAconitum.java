@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemAconitum extends ItemCrop {
 
 	public ItemAconitum () {
-		super (LibItemName.ACONITUM, 2, 0.6F, false);
-		addPotion (MobEffects.POISON, MobEffects.NAUSEA);
+		super(LibItemName.ACONITUM, 2, 0.6F, false);
+		addPotion(MobEffects.POISON, MobEffects.NAUSEA);
 	}
 
 	@Override
@@ -26,8 +26,8 @@ public class ItemAconitum extends ItemCrop {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels () {
-		ModelHandler.registerItem (this);
+		ModelHandler.registerItem(this);
 	}
 }

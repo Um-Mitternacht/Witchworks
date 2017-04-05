@@ -101,4 +101,7 @@ public final class LibItemName {
 
 	//Materials
 	public static final String SILVER = "silver";
+
+	private LibItemName () {
+	}
 }

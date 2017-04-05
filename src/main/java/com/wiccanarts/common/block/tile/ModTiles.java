@@ -15,6 +15,6 @@ public final class ModTiles {
 
 	public static void registerAll () {
 
-		GameRegistry.registerTileEntity (TileKettle.class, LibBlockName.KETTLE);
+		GameRegistry.registerTileEntity(TileKettle.class, LibBlockName.KETTLE);
 	}
 }

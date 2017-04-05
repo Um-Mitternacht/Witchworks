@@ -24,49 +24,49 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
-@Mod (modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
+@SuppressWarnings("WeakerAccess")
+@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WiccanArts {
 
-	@Instance (LibMod.MOD_ID)
+	@Instance(LibMod.MOD_ID)
 	public static WiccanArts instance;
 
-	@SidedProxy (serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
+	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
 
 	@EventHandler
 	public void preInit (FMLPreInitializationEvent event) {
-		PacketHandler.init ();
-		ModEvents.preInit ();
-		ModEntities.preInit ();
-		ModSounds.preInit ();
-		proxy.preInit (event);
+		PacketHandler.init();
+		ModEvents.preInit();
+		ModEntities.preInit();
+		ModSounds.preInit();
+		proxy.preInit(event);
 	}
 
 	@EventHandler
 	public void init (FMLInitializationEvent event) {
-		proxy.init (event);
+		proxy.init(event);
 
-		ModItems.initOreDictionary ();
-		ModItems.init ();
+		ModItems.initOreDictionary();
+		ModItems.init();
 
-		ModBlocks.initOreDictionary ();
-		ModBlocks.init ();
+		ModBlocks.initOreDictionary();
+		ModBlocks.init();
 
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.SILVER_ORE, 4, 7), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.MOLDAVITE_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.BLOODSTONE_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.TOURMALINE_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.MALACHITE_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.TIGERS_EYE_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.SERPENTINE_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.NUUMMITE_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.GARNET_ORE), 0);
-		GameRegistry.registerWorldGenerator (new WorldGenOre (ModBlocks.PETOSKEY_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.BLOODSTONE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TOURMALINE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MALACHITE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TIGERS_EYE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SERPENTINE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE), 0);
 	}
 
 	@EventHandler
 	public void postInit (FMLPostInitializationEvent event) {
-		proxy.postInit (event);
+		proxy.postInit(event);
 	}
 }

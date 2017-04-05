@@ -13,8 +13,8 @@ class PotionEvents {
 
 	@SubscribeEvent
 	public void onLivingHurt (LivingHurtEvent event) {
-		if (event.getEntityLiving ().isPotionActive (ModBrews.STONEFORM_BREW)) {
-			event.setAmount (event.getAmount () * 0.5F);
+		if (event.getEntityLiving().isPotionActive(ModBrews.STONEFORM_BREW)) {
+			event.setAmount(event.getAmount() * 0.5F);
 		}
 	}
 }

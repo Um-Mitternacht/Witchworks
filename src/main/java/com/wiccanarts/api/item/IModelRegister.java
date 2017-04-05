@@ -9,6 +9,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * the MIT license.
  */
 public interface IModelRegister {
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	void registerModels ();
 }

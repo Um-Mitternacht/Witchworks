@@ -16,15 +16,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemSilverSword extends ItemSword implements IModelRegister {
 
 	public ItemSilverSword (ToolMaterial material) {
-		super (material);
-		setRegistryName (LibItemName.SILVER_SWORD);
-		setUnlocalizedName (LibItemName.SILVER_SWORD);
-		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+		super(material);
+		setRegistryName(LibItemName.SILVER_SWORD);
+		setUnlocalizedName(LibItemName.SILVER_SWORD);
+		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels () {
-		ModelHandler.registerItem (this);
+		ModelHandler.registerItem(this);
 	}
 }

@@ -7,12 +7,15 @@ import net.minecraft.util.ResourceLocation;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class ResourceLocationsAPI {
+public final class ResourceLocationsAPI {
 
 	//Sounds
-	public static final ResourceLocation BOIL = getLocation ("boil");
+	public static final ResourceLocation BOIL = getLocation("boil");
+
+	private ResourceLocationsAPI () {
+	}
 
 	private static ResourceLocation getLocation (String name) {
-		return new ResourceLocation ("wiccanarts", name);
+		return new ResourceLocation("wiccanarts", name);
 	}
 }

@@ -12,11 +12,11 @@ import net.minecraft.init.Blocks;
 public class BlockKelp extends BlockCrop {
 
 	public BlockKelp () {
-		super (LibBlockName.CROP_KELP);
+		super(LibBlockName.CROP_KELP);
 	}
 
 	@Override
 	protected boolean canSustainBush (IBlockState state) {
-		return state.getBlock () == Blocks.WATER;
+		return state.getBlock() == Blocks.WATER;
 	}
 }

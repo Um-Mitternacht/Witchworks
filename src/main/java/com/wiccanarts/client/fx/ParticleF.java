@@ -13,10 +13,10 @@ import net.minecraft.client.particle.Particle;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public enum ParticleF {
-	CAULDRON_BUBBLE (new ParticleCaudronBubble.Factory ()),
-	STEAM (new ParticleSteam.Factory ());
+	CAULDRON_BUBBLE(new ParticleCaudronBubble.Factory()),
+	STEAM(new ParticleSteam.Factory());
 
 	private final IParticleF factory;
 
@@ -25,6 +25,6 @@ public enum ParticleF {
 	}
 
 	public Particle newInstance (double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
-		return factory.createParticle (Minecraft.getMinecraft ().world, x, y, z, xSpeed, ySpeed, zSpeed, args);
+		return factory.createParticle(Minecraft.getMinecraft().world, x, y, z, xSpeed, ySpeed, zSpeed, args);
 	}
 }

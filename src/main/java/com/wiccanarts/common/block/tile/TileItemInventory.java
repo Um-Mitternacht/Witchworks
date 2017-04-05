@@ -21,70 +21,70 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public abstract class TileItemInventory extends TileEntity {
 
-	public ItemStackHandlerTile itemHandler = createItemHandler ();
+	public ItemStackHandlerTile itemHandler = createItemHandler();
 
 	@Override
 	public boolean shouldRefresh (World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
-		return oldState.getBlock () != newState.getBlock ();
+		return oldState.getBlock() != newState.getBlock();
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT (NBTTagCompound nbtTagCompound) {
-		NBTTagCompound ret = super.writeToNBT (nbtTagCompound);
-		writeDataNBT (ret);
+		final NBTTagCompound ret = super.writeToNBT(nbtTagCompound);
+		writeDataNBT(ret);
 		return ret;
 	}
 
 	@Override
 	public final SPacketUpdateTileEntity getUpdatePacket () {
-		NBTTagCompound tag = getUpdateTag ();
-		writeDataNBT (tag);
-		return new SPacketUpdateTileEntity (pos, 0, tag);
+		final NBTTagCompound tag = getUpdateTag();
+		writeDataNBT(tag);
+		return new SPacketUpdateTileEntity(pos, 0, tag);
 	}
 
 	@Override
 	public void onDataPacket (NetworkManager net, SPacketUpdateTileEntity packet) {
-		super.onDataPacket (net, packet);
-		readDataNBT (packet.getNbtCompound ());
+		super.onDataPacket(net, packet);
+		readDataNBT(packet.getNbtCompound());
 	}
 
 	@Override
 	public void readFromNBT (NBTTagCompound nbtTagCompound) {
-		super.readFromNBT (nbtTagCompound);
-		readDataNBT (nbtTagCompound);
+		super.readFromNBT(nbtTagCompound);
+		readDataNBT(nbtTagCompound);
 	}
 
 	@Override
 	public final NBTTagCompound getUpdateTag () {
-		return writeToNBT (new NBTTagCompound ());
+		return writeToNBT(new NBTTagCompound());
 	}
 
 	public void writeDataNBT (NBTTagCompound nbtTagCompound) {
-		nbtTagCompound.merge (itemHandler.serializeNBT ());
+		nbtTagCompound.merge(itemHandler.serializeNBT());
 	}
 
 	public void readDataNBT (NBTTagCompound tagCompound) {
-		itemHandler = createItemHandler ();
-		itemHandler.deserializeNBT (tagCompound);
+		itemHandler = createItemHandler();
+		itemHandler.deserializeNBT(tagCompound);
 	}
 
 	protected ItemStackHandlerTile createItemHandler () {
-		return new ItemStackHandlerTile (this, true);
+		return new ItemStackHandlerTile(this, true);
 	}
 
 	@Override
 	public boolean hasCapability (Capability<?> cap, EnumFacing side) {
-		return cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability (cap, side);
+		return cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(cap, side);
 	}
 
 	@Override
 	public <T> T getCapability (Capability<T> capability, EnumFacing side) {
 		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast (itemHandler);
-		return super.getCapability (capability, side);
+			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(itemHandler);
+		return super.getCapability(capability, side);
 	}
 
 	public abstract int getSizeInventory ();
@@ -92,10 +92,10 @@ public abstract class TileItemInventory extends TileEntity {
 	public static class ItemStackHandlerTile extends ItemStackHandler {
 
 		private final TileItemInventory tile;
-		private boolean allow;
+		private final boolean allow;
 
 		ItemStackHandlerTile (TileItemInventory tile, boolean allow) {
-			super (tile.getSizeInventory ());
+			super(tile.getSizeInventory());
 			this.tile = tile;
 			this.allow = allow;
 		}
@@ -103,7 +103,7 @@ public abstract class TileItemInventory extends TileEntity {
 		@Override
 		public ItemStack insertItem (int slot, ItemStack stack, boolean simulate) {
 			if (allow) {
-				return super.insertItem (slot, stack, simulate);
+				return super.insertItem(slot, stack, simulate);
 			} else return stack;
 		}
 
@@ -111,20 +111,20 @@ public abstract class TileItemInventory extends TileEntity {
 		@Nullable
 		public ItemStack extractItem (int slot, int amount, boolean simulate) {
 			if (allow) {
-				return super.extractItem (slot, 1, simulate);
+				return super.extractItem(slot, 1, simulate);
 			} else return null;
 		}
 
 		@Nullable
 		public ItemStack getItemSimulate (int slot) {
 			if (allow) {
-				return super.extractItem (slot, 1, true);
+				return super.extractItem(slot, 1, true);
 			} else return null;
 		}
 
 		@Override
 		public void onContentsChanged (int slot) {
-			tile.markDirty ();
+			tile.markDirty();
 		}
 	}
 }

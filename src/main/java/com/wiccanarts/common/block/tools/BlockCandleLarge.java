@@ -16,17 +16,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 /**
- * Created by Joseph on 3/4/2017.
+ * This class was created by Joseph on 3/4/2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
 public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 
-	private static final AxisAlignedBB LARGE_BOX = new AxisAlignedBB (0.25, 0, 0.25, 0.75, 1, 0.75);
+	private static final AxisAlignedBB LARGE_BOX = new AxisAlignedBB(0.25, 0, 0.25, 0.75, 1, 0.75);
 
 	public BlockCandleLarge () {
-		super (LibBlockName.CANDLE_LARGE);
+		super(LibBlockName.CANDLE_LARGE);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox (IBlockState state, IBlockAccess source, BlockPos pos) {
 		return LARGE_BOX;
@@ -35,15 +37,15 @@ public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 	@Override
 	public void getSubBlocks (Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < 16; i++) {
-			list.add (new ItemStack (itemIn, 1, i));
+			list.add(new ItemStack(itemIn, 1, i));
 		}
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels () {
 		for (int i = 0; i < 16; i++) {
-			ModelHandler.registerBlock (this, i);
+			ModelHandler.registerBlock(this, i);
 		}
 	}
 }

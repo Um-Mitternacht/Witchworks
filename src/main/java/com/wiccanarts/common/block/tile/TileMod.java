@@ -17,38 +17,38 @@ public abstract class TileMod extends TileEntity {
 
 	@Override
 	public boolean shouldRefresh (World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
-		return oldState.getBlock () != newState.getBlock ();
+		return oldState.getBlock() != newState.getBlock();
 	}
 
 	@Override
 	public final NBTTagCompound getUpdateTag () {
-		return writeToNBT (new NBTTagCompound ());
+		return writeToNBT(new NBTTagCompound());
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT (NBTTagCompound par1nbtTagCompound) {
-		NBTTagCompound ret = super.writeToNBT (par1nbtTagCompound);
-		writeDataNBT (ret);
+		final NBTTagCompound ret = super.writeToNBT(par1nbtTagCompound);
+		writeDataNBT(ret);
 		return ret;
 	}
 
 	@Override
 	public final SPacketUpdateTileEntity getUpdatePacket () {
-		NBTTagCompound tag = getUpdateTag ();
-		writeDataNBT (tag);
-		return new SPacketUpdateTileEntity (pos, 0, tag);
+		final NBTTagCompound tag = getUpdateTag();
+		writeDataNBT(tag);
+		return new SPacketUpdateTileEntity(pos, 0, tag);
 	}
 
 	@Override
 	public void onDataPacket (NetworkManager net, SPacketUpdateTileEntity packet) {
-		super.onDataPacket (net, packet);
-		readDataNBT (packet.getNbtCompound ());
+		super.onDataPacket(net, packet);
+		readDataNBT(packet.getNbtCompound());
 	}
 
 	@Override
 	public void readFromNBT (NBTTagCompound par1nbtTagCompound) {
-		super.readFromNBT (par1nbtTagCompound);
-		readDataNBT (par1nbtTagCompound);
+		super.readFromNBT(par1nbtTagCompound);
+		readDataNBT(par1nbtTagCompound);
 	}
 
 	abstract void writeDataNBT (NBTTagCompound cmp);

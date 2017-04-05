@@ -11,12 +11,12 @@ import net.minecraft.util.SoundEvent;
  */
 public final class WiccaSoundEvents {
 
-	public static final SoundEvent BOIL = getRegisteredSound (ResourceLocationsAPI.BOIL);
+	public static final SoundEvent BOIL = getRegisteredSound(ResourceLocationsAPI.BOIL);
 
 	private WiccaSoundEvents () {
 	}
 
 	private static SoundEvent getRegisteredSound (ResourceLocation name) {
-		return SoundEvent.REGISTRY.getObject (name);
+		return SoundEvent.REGISTRY.getObject(name);
 	}
 }

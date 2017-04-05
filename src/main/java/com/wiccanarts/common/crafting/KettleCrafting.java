@@ -15,7 +15,7 @@ import net.minecraft.potion.PotionEffect;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public final class KettleCrafting {
 
 	//Items
@@ -30,16 +30,16 @@ public final class KettleCrafting {
 
 	public static void init () {
 
-		HONEY = WiccanArtsAPI.registerKettleFluidRecipe (ModItems.GLASS_JAR
-				, new ItemStack (ModItems.HONEY)
+		HONEY = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
+				, new ItemStack(ModItems.HONEY)
 				, ModItems.WAX, ModItems.WAX, ModItems.WAX, ModItems.WAX);
 
-		LAVENDER = WiccanArtsAPI.registerKettleFluidRecipe (ModItems.GLASS_JAR
-				, new ItemStack (ModItems.LAVENDER_OIL)
+		LAVENDER = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
+				, new ItemStack(ModItems.LAVENDER_OIL)
 				, ModItems.LAVENDER, ModItems.LAVENDER, ModItems.LAVENDER, ModItems.LAVENDER);
 
-		STONEFORM_BREW = WiccanArtsAPI.registerKettleFluidRecipe (Items.POTIONITEM
-				, BrewUtils.createPotion (Items.POTIONITEM, new PotionEffect (ModBrews.STONEFORM_BREW, 1800))
+		STONEFORM_BREW = WiccanArtsAPI.registerKettleFluidRecipe(Items.POTIONITEM
+				, BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(ModBrews.STONEFORM_BREW, 1800))
 				, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, ModItems.MANDRAKE_ROOT, ModItems.WAX);
 	}
 }
