@@ -1,9 +1,8 @@
 package com.wiccanarts.common.core.handler;
 
-import com.wiccanarts.api.ResourceLocationsAPI;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import com.wiccanarts.api.*;
+import net.minecraft.util.*;
+import net.minecraftforge.fml.common.registry.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

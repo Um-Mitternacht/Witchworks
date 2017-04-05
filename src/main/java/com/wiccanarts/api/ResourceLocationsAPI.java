@@ -1,6 +1,6 @@
 package com.wiccanarts.api;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

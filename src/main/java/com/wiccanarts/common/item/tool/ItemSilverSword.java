@@ -1,12 +1,11 @@
 package com.wiccanarts.common.item.tool;
 
-import com.wiccanarts.api.item.IModelRegister;
-import com.wiccanarts.client.handler.ModelHandler;
-import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
-import com.wiccanarts.common.lib.LibItemName;
-import net.minecraft.item.ItemSword;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import com.wiccanarts.api.item.*;
+import com.wiccanarts.client.handler.*;
+import com.wiccanarts.common.core.*;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.item.*;
+import net.minecraftforge.fml.relauncher.*;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.

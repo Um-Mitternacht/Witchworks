@@ -1,7 +1,7 @@
 package com.wiccanarts.common.item.food;
 
-import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
-import net.minecraft.item.ItemFood;
+import com.wiccanarts.common.core.*;
+import net.minecraft.item.*;
 
 /**
  * This class was created by Arekkuusu on 28/02/2017.

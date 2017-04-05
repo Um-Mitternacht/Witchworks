@@ -1,20 +1,17 @@
 package com.wiccanarts.api.recipe;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.oredict.OreDictionary;
+import com.google.common.collect.*;
+import net.minecraft.block.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.world.*;
+import net.minecraftforge.items.*;
+import net.minecraftforge.oredict.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
+import java.util.stream.*;
 
-import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
+import static net.minecraftforge.oredict.OreDictionary.*;
 
 /**
  * This class was created by Arekkuusu on 21/03/2017.

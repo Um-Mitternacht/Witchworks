@@ -1,16 +1,13 @@
 package com.wiccanarts.common.potions;
 
-import com.wiccanarts.client.ResourceLocations;
-import com.wiccanarts.common.lib.LibMod;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import com.wiccanarts.client.*;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.client.*;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.VertexBuffer;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.vertex.*;
+import net.minecraft.potion.*;
+import net.minecraftforge.fml.relauncher.*;
 
 /**
  * This class was created by Arekkuusu on 27/03/2017.

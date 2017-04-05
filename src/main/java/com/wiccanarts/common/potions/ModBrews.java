@@ -1,10 +1,9 @@
 package com.wiccanarts.common.potions;
 
-import com.wiccanarts.common.lib.LibBrewName;
-import com.wiccanarts.common.lib.LibMod;
-import net.minecraft.potion.Potion;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.potion.*;
 
-import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import static net.minecraftforge.fml.common.registry.GameRegistry.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

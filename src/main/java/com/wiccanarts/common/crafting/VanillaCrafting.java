@@ -1,17 +1,14 @@
 package com.wiccanarts.common.crafting;
 
-import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.item.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
+import com.wiccanarts.common.block.*;
+import com.wiccanarts.common.item.*;
+import net.minecraft.block.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.item.crafting.*;
+import net.minecraftforge.oredict.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

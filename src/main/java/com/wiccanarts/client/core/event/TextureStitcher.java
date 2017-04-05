@@ -1,10 +1,9 @@
 package com.wiccanarts.client.core.event;
 
-import com.wiccanarts.client.ResourceLocations;
-import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import com.wiccanarts.client.*;
+import net.minecraftforge.client.event.*;
+import net.minecraftforge.fml.common.eventhandler.*;
+import net.minecraftforge.fml.relauncher.*;
 
 @SideOnly(Side.CLIENT)
 public class TextureStitcher {

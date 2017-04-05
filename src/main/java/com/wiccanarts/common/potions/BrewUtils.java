@@ -1,11 +1,9 @@
 package com.wiccanarts.common.potions;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionUtils;
+import net.minecraft.item.*;
+import net.minecraft.potion.*;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Created by BerciTheBeast on 27.3.2017.

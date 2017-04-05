@@ -1,12 +1,10 @@
 package com.wiccanarts.common.item.food;
 
-import com.wiccanarts.client.handler.ModelHandler;
-import com.wiccanarts.common.lib.LibItemName;
-import net.minecraft.init.MobEffects;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import com.wiccanarts.client.handler.*;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraftforge.fml.relauncher.*;
 
 /**
  * This class was created by Arekkuusu on 02/03/2017.

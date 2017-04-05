@@ -1,7 +1,7 @@
 package com.wiccanarts.client.fx;
 
-import net.minecraft.client.particle.Particle;
-import net.minecraft.world.World;
+import net.minecraft.client.particle.*;
+import net.minecraft.world.*;
 
 /**
  * This class was created by Arekkuusu on 02/04/2017.

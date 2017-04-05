@@ -1,15 +1,14 @@
 package com.wiccanarts.common.block;
 
-import com.wiccanarts.common.block.crop.BlockCrop;
-import com.wiccanarts.common.crafting.VanillaCrafting;
-import com.wiccanarts.common.lib.LibBlockName;
-import com.wiccanarts.common.lib.LibMod;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
+import com.wiccanarts.common.block.crop.*;
+import com.wiccanarts.common.crafting.*;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.*;
+import net.minecraft.item.*;
+import net.minecraftforge.oredict.*;
 
-import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import static net.minecraftforge.fml.common.registry.GameRegistry.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

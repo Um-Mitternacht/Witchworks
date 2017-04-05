@@ -1,23 +1,19 @@
 package com.wiccanarts.common;
 
-import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.core.event.ModEvents;
-import com.wiccanarts.common.core.gen.WorldGenOre;
-import com.wiccanarts.common.core.handler.ModSounds;
-import com.wiccanarts.common.core.proxy.ISidedProxy;
-import com.wiccanarts.common.entity.ModEntities;
-import com.wiccanarts.common.item.ModItems;
-import com.wiccanarts.common.lib.LibMod;
-import com.wiccanarts.common.net.PacketHandler;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import com.wiccanarts.common.block.*;
+import com.wiccanarts.common.core.event.*;
+import com.wiccanarts.common.core.gen.*;
+import com.wiccanarts.common.core.handler.*;
+import com.wiccanarts.common.core.proxy.*;
+import com.wiccanarts.common.entity.*;
+import com.wiccanarts.common.item.*;
+import com.wiccanarts.common.lib.*;
+import com.wiccanarts.common.net.*;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.registry.*;
 
-import static net.minecraftforge.fml.common.Mod.EventHandler;
-import static net.minecraftforge.fml.common.Mod.Instance;
+import static net.minecraftforge.fml.common.Mod.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

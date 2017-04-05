@@ -1,7 +1,7 @@
 package com.wiccanarts.common.potions;
 
-import com.wiccanarts.common.lib.LibBrewName;
-import net.minecraft.entity.EntityLivingBase;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.entity.*;
 
 /**
  * This class was created by Arekkuusu on 03/04/2017.

@@ -1,14 +1,13 @@
 package com.wiccanarts.client.handler;
 
-import com.wiccanarts.api.item.IModelRegister;
-import com.wiccanarts.common.lib.LibMod;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraft.util.IStringSerializable;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import com.wiccanarts.api.item.*;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.block.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import net.minecraftforge.client.model.*;
+import net.minecraftforge.fml.relauncher.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

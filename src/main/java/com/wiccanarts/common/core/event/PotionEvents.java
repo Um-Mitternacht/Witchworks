@@ -1,8 +1,8 @@
 package com.wiccanarts.common.core.event;
 
-import com.wiccanarts.common.potions.ModBrews;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import com.wiccanarts.common.potions.*;
+import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.fml.common.eventhandler.*;
 
 /**
  * This class was created by BerciTheBeast on 26.3.2017.

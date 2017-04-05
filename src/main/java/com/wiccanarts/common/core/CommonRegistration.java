@@ -1,39 +1,26 @@
 package com.wiccanarts.common.core;
 
-import com.wiccanarts.api.item.crop.Crop;
-import com.wiccanarts.common.block.BlockMod;
-import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.block.crop.BlockBelladonna;
-import com.wiccanarts.common.block.crop.BlockCrop;
-import com.wiccanarts.common.block.crop.BlockKelp;
-import com.wiccanarts.common.block.magic.BlockSaltBarrier;
-import com.wiccanarts.common.block.tile.ModTiles;
-import com.wiccanarts.common.block.tools.BlockCandleLarge;
-import com.wiccanarts.common.block.tools.BlockCandleMedium;
-import com.wiccanarts.common.block.tools.BlockCandleSmall;
-import com.wiccanarts.common.block.tools.BlockKettle;
-import com.wiccanarts.common.item.ItemBlockColor;
-import com.wiccanarts.common.item.ItemBrewPhial;
-import com.wiccanarts.common.item.ItemMod;
-import com.wiccanarts.common.item.ModMaterials;
+import com.wiccanarts.api.item.crop.*;
+import com.wiccanarts.common.block.*;
+import com.wiccanarts.common.block.crop.*;
+import com.wiccanarts.common.block.magic.*;
+import com.wiccanarts.common.block.tile.*;
+import com.wiccanarts.common.block.tools.*;
+import com.wiccanarts.common.item.*;
 import com.wiccanarts.common.item.food.*;
-import com.wiccanarts.common.item.seed.ItemKelpSeed;
-import com.wiccanarts.common.item.seed.ItemSeed;
+import com.wiccanarts.common.item.seed.*;
 import com.wiccanarts.common.item.tool.*;
-import com.wiccanarts.common.lib.LibBlockName;
-import com.wiccanarts.common.lib.LibItemName;
-import com.wiccanarts.common.potions.BrewStoneform;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.potion.Potion;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import com.wiccanarts.common.lib.*;
+import com.wiccanarts.common.potions.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.*;
+import net.minecraft.item.*;
+import net.minecraft.potion.*;
+import net.minecraftforge.event.*;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.eventhandler.*;
 
-import static com.wiccanarts.api.WiccanArtsAPI.CropRegistry;
+import static com.wiccanarts.api.WiccanArtsAPI.*;
 import static com.wiccanarts.api.item.crop.Crop.*;
 
 /**

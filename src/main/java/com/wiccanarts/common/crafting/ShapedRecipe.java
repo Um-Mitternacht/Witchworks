@@ -1,10 +1,9 @@
 package com.wiccanarts.common.crafting;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraft.block.*;
+import net.minecraft.item.*;
+import net.minecraft.item.crafting.*;
+import net.minecraftforge.oredict.*;
 
 import java.util.*;
 

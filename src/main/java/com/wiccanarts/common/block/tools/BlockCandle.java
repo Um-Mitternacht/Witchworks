@@ -1,20 +1,16 @@
 package com.wiccanarts.common.block.tools;
 
-import com.wiccanarts.common.block.BlockMod;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import com.wiccanarts.common.block.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.*;
+import net.minecraft.block.state.*;
+import net.minecraft.entity.*;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
-import static com.wiccanarts.api.state.WiccanArtsState.COLOR;
+import static com.wiccanarts.api.state.WiccanArtsState.*;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.

@@ -1,10 +1,8 @@
 package com.wiccanarts.common.core.proxy;
 
-import com.wiccanarts.client.fx.ParticleF;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import com.wiccanarts.client.fx.*;
+import net.minecraft.util.text.*;
+import net.minecraftforge.fml.common.event.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

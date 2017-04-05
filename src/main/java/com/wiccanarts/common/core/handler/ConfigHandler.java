@@ -8,9 +8,9 @@
  */
 package com.wiccanarts.common.core.handler;
 
-import com.wiccanarts.common.lib.LibMod;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.Config.Comment;
+import com.wiccanarts.common.lib.*;
+import net.minecraftforge.common.config.*;
+import net.minecraftforge.common.config.Config.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

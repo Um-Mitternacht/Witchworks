@@ -1,7 +1,6 @@
 package com.wiccanarts.api.item;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

@@ -2,6 +2,6 @@
 @ParametersAreNonnullByDefault
 package com.wiccanarts.client.core;
 
-import mcp.MethodsReturnNonnullByDefault;
+import mcp.*;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import javax.annotation.*;

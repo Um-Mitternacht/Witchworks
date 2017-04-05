@@ -1,29 +1,22 @@
 package com.wiccanarts.client.core;
 
-import com.wiccanarts.client.core.event.TextureStitcher;
-import com.wiccanarts.client.fx.ParticleF;
-import com.wiccanarts.client.handler.BlockColorHandler;
-import com.wiccanarts.client.handler.ItemColorHandler;
-import com.wiccanarts.client.handler.ModelHandler;
-import com.wiccanarts.client.render.tile.TileRenderKettle;
-import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.block.tile.TileKettle;
-import com.wiccanarts.common.core.proxy.ISidedProxy;
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.Item;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import com.wiccanarts.client.core.event.*;
+import com.wiccanarts.client.fx.*;
+import com.wiccanarts.client.handler.*;
+import com.wiccanarts.client.render.tile.*;
+import com.wiccanarts.common.block.*;
+import com.wiccanarts.common.block.tile.*;
+import com.wiccanarts.common.core.proxy.*;
+import net.minecraft.client.*;
+import net.minecraft.item.*;
+import net.minecraft.util.text.*;
+import net.minecraftforge.client.event.*;
+import net.minecraftforge.common.*;
+import net.minecraftforge.fml.client.registry.*;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.eventhandler.*;
+import net.minecraftforge.fml.relauncher.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

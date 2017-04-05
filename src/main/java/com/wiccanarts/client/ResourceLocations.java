@@ -1,7 +1,7 @@
 package com.wiccanarts.client;
 
-import com.wiccanarts.common.lib.LibMod;
-import net.minecraft.util.ResourceLocation;
+import com.wiccanarts.common.lib.*;
+import net.minecraft.util.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
