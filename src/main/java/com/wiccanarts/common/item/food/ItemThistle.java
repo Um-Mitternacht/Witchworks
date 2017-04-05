@@ -4,14 +4,14 @@ import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.init.MobEffects;
 
 /**
- * This class was created by Joseph on 02/03/2017.
+ * This class was created by Arekkuusu on 03/07/2017, and modified by Sunconure11 on 03/17/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
 public class ItemThistle extends ItemCrop {
 
 	public ItemThistle() {
-		super(LibItemName.THISTLE, 4, 0.8F, false);
-		addPotion(MobEffects.HASTE, MobEffects.STRENGTH);
+		super(LibItemName.THISTLE, 1, 2F, false);
+		addPotion(MobEffects.REGENERATION);
 	}
 }
