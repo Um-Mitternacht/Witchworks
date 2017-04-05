@@ -15,16 +15,16 @@ import net.minecraftforge.fml.relauncher.*;
  */
 public class ItemSilverPickaxe extends ItemPickaxe implements IModelRegister {
 
-	public ItemSilverPickaxe(ToolMaterial material) {
-		super(material);
-		setRegistryName(LibItemName.SILVER_PICKAXE);
-		setUnlocalizedName(LibItemName.SILVER_PICKAXE);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+	public ItemSilverPickaxe (ToolMaterial material) {
+		super (material);
+		setRegistryName (LibItemName.SILVER_PICKAXE);
+		setUnlocalizedName (LibItemName.SILVER_PICKAXE);
+		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
-	public void registerModels() {
-		ModelHandler.registerItem(this);
+	public void registerModels () {
+		ModelHandler.registerItem (this);
 	}
 }

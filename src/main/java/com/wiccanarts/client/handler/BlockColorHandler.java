@@ -16,11 +16,11 @@ import javax.annotation.*;
  */
 public class BlockColorHandler implements IBlockColor {
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
-	public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
+	public int colorMultiplier (IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 		int color = 0;
-		switch (state.getValue(WiccanArtsState.COLOR).getMetadata()) {
+		switch (state.getValue (WiccanArtsState.COLOR).getMetadata ()) {
 			case 0:
 				color = 15987957;
 				break;

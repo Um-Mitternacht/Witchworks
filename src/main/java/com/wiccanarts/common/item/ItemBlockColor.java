@@ -10,20 +10,20 @@ import net.minecraft.item.*;
  */
 public class ItemBlockColor extends ItemBlock {
 
-	public ItemBlockColor(Block block) {
-		super(block);
-		setRegistryName(block.getRegistryName());
-		setMaxDamage(0);
-		setHasSubtypes(true);
+	public ItemBlockColor (Block block) {
+		super (block);
+		setRegistryName (block.getRegistryName ());
+		setMaxDamage (0);
+		setHasSubtypes (true);
 	}
 
 	@Override
-	public int getMetadata(int damage) {
+	public int getMetadata (int damage) {
 		return damage;
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName() + "." + EnumDyeColor.byMetadata(stack.getMetadata());
+	public String getUnlocalizedName (ItemStack stack) {
+		return super.getUnlocalizedName () + "." + EnumDyeColor.byMetadata (stack.getMetadata ());
 	}
 }

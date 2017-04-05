@@ -14,16 +14,16 @@ import net.minecraftforge.fml.relauncher.*;
  */
 public class ItemSilverHoe extends ItemHoe implements IModelRegister {
 
-	public ItemSilverHoe(ToolMaterial material) {
-		super(material);
-		setRegistryName(LibItemName.SILVER_HOE);
-		setUnlocalizedName(LibItemName.SILVER_HOE);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+	public ItemSilverHoe (ToolMaterial material) {
+		super (material);
+		setRegistryName (LibItemName.SILVER_HOE);
+		setUnlocalizedName (LibItemName.SILVER_HOE);
+		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
-	public void registerModels() {
-		ModelHandler.registerItem(this);
+	public void registerModels () {
+		ModelHandler.registerItem (this);
 	}
 }

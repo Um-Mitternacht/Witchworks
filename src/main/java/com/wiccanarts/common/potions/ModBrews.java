@@ -10,9 +10,9 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.*;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@ObjectHolder(LibMod.MOD_ID)
+@ObjectHolder (LibMod.MOD_ID)
 public final class ModBrews {
 
-	@ObjectHolder(LibBrewName.STONEFORM_BREW)
-	public static final Potion STONEFORM_BREW = new BrewMod();
+	@ObjectHolder (LibBrewName.STONEFORM_BREW)
+	public static final Potion STONEFORM_BREW = new BrewMod ();
 }

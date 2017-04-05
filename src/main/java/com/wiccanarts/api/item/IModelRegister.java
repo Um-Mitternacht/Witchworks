@@ -8,6 +8,6 @@ import net.minecraftforge.fml.relauncher.*;
  * the MIT license.
  */
 public interface IModelRegister {
-	@SideOnly(Side.CLIENT)
-	void registerModels();
+	@SideOnly (Side.CLIENT)
+	void registerModels ();
 }

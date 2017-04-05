@@ -11,9 +11,9 @@ import net.minecraft.item.*;
 public class ItemColorHandler implements IItemColor {
 
 	@Override
-	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+	public int getColorFromItemstack (ItemStack stack, int tintIndex) {
 		int color = 0;
-		switch (stack.getMetadata()) {
+		switch (stack.getMetadata ()) {
 			case 0:
 				color = 15987957;
 				break;

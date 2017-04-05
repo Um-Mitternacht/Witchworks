@@ -21,16 +21,16 @@ import net.minecraftforge.fml.relauncher.*;
  */
 public class ItemMod extends Item implements IModelRegister {
 
-	public ItemMod(String id) {
-		super();
-		setRegistryName(id);
-		setUnlocalizedName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+	public ItemMod (String id) {
+		super ();
+		setRegistryName (id);
+		setUnlocalizedName (id);
+		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerItem(this);
+	@SideOnly (Side.CLIENT)
+	public void registerModels () {
+		ModelHandler.registerItem (this);
 	}
 }
