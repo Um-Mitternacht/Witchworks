@@ -6,7 +6,6 @@ import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

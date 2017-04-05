@@ -1,11 +1,7 @@
 package com.wiccanarts.common.core.proxy;
 
 import com.wiccanarts.client.fx.ParticleF;
-import com.wiccanarts.common.net.PacketHandler;
-import com.wiccanarts.common.net.ParticleMessage;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

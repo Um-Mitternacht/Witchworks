@@ -25,7 +25,8 @@ public class ParticleMessage implements IMessage {
 	private double zSpeed;
 	private float[] args;
 
-	public ParticleMessage(){}
+	public ParticleMessage() {
+	}
 
 	ParticleMessage(ParticleF particleF, double x, double y, double z, int amount, double xSpeed, double ySpeed, double zSpeed, float... args) {
 		this.particleF = particleF;
@@ -86,7 +87,7 @@ public class ParticleMessage implements IMessage {
 
 		@Override
 		public IMessage onMessage(ParticleMessage message, MessageContext ctx) {
-			if(ctx.side == Side.CLIENT) {
+			if (ctx.side == Side.CLIENT) {
 				for (int i = 0; i < message.amount; i++) {
 					WiccanArts.proxy.spawnParticle(message.particleF, message.x, message.y, message.z, message.xSpeed, message.ySpeed, message.zSpeed, message.args);
 				}

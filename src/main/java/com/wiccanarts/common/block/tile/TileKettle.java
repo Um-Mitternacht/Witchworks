@@ -6,7 +6,6 @@ import com.wiccanarts.api.sound.WiccaSoundEvents;
 import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.common.WiccanArts;
 import com.wiccanarts.common.net.PacketHandler;
-import com.wiccanarts.common.net.ParticleMessage;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;

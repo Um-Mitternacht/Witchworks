@@ -12,7 +12,6 @@ import com.wiccanarts.common.core.proxy.ISidedProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
