@@ -86,7 +86,8 @@ public class ClientProxy implements ISidedProxy {
 	/**
 	 * Display a Record text with a format and localization.
 	 *
-	 * @param text An {@link ITextComponent}
+	 * @param text
+	 * 		An {@link ITextComponent}
 	 */
 	@SideOnly (Side.CLIENT)
 	@Override

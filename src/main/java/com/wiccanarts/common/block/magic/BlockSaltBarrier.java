@@ -36,12 +36,12 @@ import java.util.Set;
  */
 public class BlockSaltBarrier extends BlockMod {
 
-	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> NORTH = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition>create ("north", BlockSaltBarrier.EnumAttachPosition.class);
-	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> EAST = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition>create ("east", BlockSaltBarrier.EnumAttachPosition.class);
-	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> SOUTH = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition>create ("south", BlockSaltBarrier.EnumAttachPosition.class);
-	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> WEST = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition>create ("west", BlockSaltBarrier.EnumAttachPosition.class);
+	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> NORTH = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition> create ("north", BlockSaltBarrier.EnumAttachPosition.class);
+	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> EAST = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition> create ("east", BlockSaltBarrier.EnumAttachPosition.class);
+	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> SOUTH = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition> create ("south", BlockSaltBarrier.EnumAttachPosition.class);
+	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> WEST = PropertyEnum.<BlockSaltBarrier.EnumAttachPosition> create ("west", BlockSaltBarrier.EnumAttachPosition.class);
 	private static final AxisAlignedBB[] SALT_BARRIER_AABB = new AxisAlignedBB[] {new AxisAlignedBB (0.1875D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB (0.1875D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB (0.0D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB (0.0D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB (0.1875D, 0.0D, 0.0D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB (0.1875D, 0.0D, 0.0D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB (0.0D, 0.0D, 0.0D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB (0.0D, 0.0D, 0.0D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB (0.1875D, 0.0D, 0.1875D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB (0.1875D, 0.0D, 0.1875D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB (0.0D, 0.0D, 0.1875D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB (0.0D, 0.0D, 0.1875D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB (0.1875D, 0.0D, 0.0D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB (0.1875D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB (0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB (0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D)};
-	private final Set<BlockPos> blocksNeedingUpdate = Sets.<BlockPos>newHashSet ();
+	private final Set<BlockPos> blocksNeedingUpdate = Sets.<BlockPos> newHashSet ();
 
 	public BlockSaltBarrier () {
 		super (LibBlockName.SALT_BARRIER, Material.CIRCUITS);
