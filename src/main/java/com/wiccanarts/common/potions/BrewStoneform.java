@@ -11,7 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 public class BrewStoneform extends BrewMod {
 
 	public BrewStoneform () {
-		super(LibBrewName.STONEFORM_BREW, false, 0x000000, 0);
+		super (LibBrewName.STONEFORM_BREW, false, 0x000000, 0);
 	}
 
 	@Override

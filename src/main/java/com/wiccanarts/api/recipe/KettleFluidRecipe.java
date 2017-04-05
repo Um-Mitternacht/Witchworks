@@ -15,12 +15,12 @@ public class KettleFluidRecipe extends KettleRecipe {
 	private final Item item;
 
 	public KettleFluidRecipe (Item item, ItemStack result, Object... inputs) {
-		super(result, inputs);
+		super (result, inputs);
 		this.item = item;
 	}
 
 	@Override
 	public boolean canTake (World world, EntityPlayer player, ItemStack stack) {
-		return stack.getItem() == item;
+		return stack.getItem () == item;
 	}
 }

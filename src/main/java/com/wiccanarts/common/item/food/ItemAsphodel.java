@@ -11,7 +11,7 @@ import net.minecraft.init.MobEffects;
 public class ItemAsphodel extends ItemCrop {
 
 	public ItemAsphodel () {
-		super(LibItemName.ASPHODEL, 4, 0.2F, false);
-		addPotion(MobEffects.STRENGTH, MobEffects.UNLUCK);
+		super (LibItemName.ASPHODEL, 4, 0.2F, false);
+		addPotion (MobEffects.STRENGTH, MobEffects.UNLUCK);
 	}
 }

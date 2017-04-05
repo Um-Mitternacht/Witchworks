@@ -15,12 +15,12 @@ import net.minecraft.world.World;
 public class ItemHoney extends ItemModFood {
 
 	public ItemHoney () {
-		super(LibItemName.HONEY, 2, 4F, false);
+		super (LibItemName.HONEY, 2, 4F, false);
 	}
 
 	@Override
 	protected void onFoodEaten (ItemStack stack, World worldIn, EntityPlayer player) {
-		player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 50, 0));
-		player.addPotionEffect(new PotionEffect(MobEffects.LUCK, 50, 0));
+		player.addPotionEffect (new PotionEffect (MobEffects.HASTE, 50, 0));
+		player.addPotionEffect (new PotionEffect (MobEffects.LUCK, 50, 0));
 	}
 }

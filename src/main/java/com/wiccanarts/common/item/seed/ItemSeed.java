@@ -24,25 +24,25 @@ import java.util.List;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 
 	protected final Block crop;
 	protected final Block soil;
 
 	public ItemSeed (String id, Block crop, Block soil) {
-		super(crop, soil);
-		setRegistryName(id);
-		setUnlocalizedName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+		super (crop, soil);
+		setRegistryName (id);
+		setUnlocalizedName (id);
+		setCreativeTab (WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.crop = crop;
 		this.soil = soil;
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void addInformation (ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.ITALIC + I18n.format("wiccan.tooltip." + getNameInefficiently(stack) + "_description.name"));
+		tooltip.add (TextFormatting.ITALIC + I18n.format ("wiccan.tooltip." + getNameInefficiently (stack) + "_description.name"));
 	}
 
 	@Override
@@ -51,12 +51,12 @@ public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 	}
 
 	public String getNameInefficiently (ItemStack stack) {
-		return getUnlocalizedName().substring(5);
+		return getUnlocalizedName ().substring (5);
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels () {
-		ModelHandler.registerItem(this);
+		ModelHandler.registerItem (this);
 	}
 }

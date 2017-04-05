@@ -24,66 +24,66 @@ import static com.wiccanarts.api.state.WiccanArtsState.COLOR;
 public class BlockCandle extends BlockMod {
 
 	public BlockCandle (String id) {
-		super(id, Material.CLOTH);
-		setSound(SoundType.CLOTH);
+		super (id, Material.CLOTH);
+		setSound (SoundType.CLOTH);
 	}
 
 	@Override
 	protected IBlockState defaultState () {
-		return super.defaultState().withProperty(COLOR, EnumDyeColor.WHITE);
+		return super.defaultState ().withProperty (COLOR, EnumDyeColor.WHITE);
 	}
 
 	@Override
 	public int damageDropped (IBlockState state) {
-		return getMetaFromState(state);
+		return getMetaFromState (state);
 	}
 
 	@Override
 	public BlockStateContainer createBlockState () {
-		return new BlockStateContainer(this, COLOR);
+		return new BlockStateContainer (this, COLOR);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	public MapColor getMapColor (IBlockState state) {
-		return state.getValue(COLOR).getMapColor();
+		return state.getValue (COLOR).getMapColor ();
 	}
 
 	@Override
 	public int getMetaFromState (IBlockState state) {
-		return state.getValue(COLOR).getMetadata();
+		return state.getValue (COLOR).getMetadata ();
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public IBlockState getStateFromMeta (int meta) {
-		if (meta >= EnumDyeColor.values().length) {
+		if (meta >= EnumDyeColor.values ().length) {
 			meta = 0;
 		}
-		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+		return getDefaultState ().withProperty (COLOR, EnumDyeColor.byMetadata (meta));
 	}
 
 	@Override
 	public IBlockState getStateForPlacement (World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
-		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+		return getDefaultState ().withProperty (COLOR, EnumDyeColor.byMetadata (meta));
 	}
 
 	@Override
 	public boolean canPlaceBlockAt (World worldIn, BlockPos pos) {
-		return worldIn.getBlockState(
-				pos.down()).isSideSolid(
+		return worldIn.getBlockState (
+				pos.down ()).isSideSolid (
 				worldIn,
-				pos.down(),
+				pos.down (),
 				EnumFacing.UP
 		);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public boolean isFullCube (IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public boolean isOpaqueCube (IBlockState state) {
 		return false;

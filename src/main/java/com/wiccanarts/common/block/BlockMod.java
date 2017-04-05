@@ -27,24 +27,24 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockMod extends Block implements IModelRegister {
 
 	public BlockMod (String id, Material material) {
-		super(material);
-		setUnlocalizedName(id);
-		setDefaultState(defaultState());
-		setRegistryName(LibMod.MOD_ID, id);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+		super (material);
+		setUnlocalizedName (id);
+		setDefaultState (defaultState ());
+		setRegistryName (LibMod.MOD_ID, id);
+		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	public Block setSound (SoundType type) {
-		return super.setSoundType(type);
+		return super.setSoundType (type);
 	}
 
 	protected IBlockState defaultState () {
-		return blockState.getBaseState();
+		return blockState.getBaseState ();
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels () {
-		ModelHandler.registerBlock(this);
+		ModelHandler.registerBlock (this);
 	}
 }

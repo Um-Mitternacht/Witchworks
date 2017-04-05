@@ -18,26 +18,26 @@ import java.util.Map;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public final class WiccanArtsAPI {
 
-	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
+	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<> ();
 
 	private WiccanArtsAPI () {
 	}
 
 	public static IKettleRecipe registerKettleRecipe (ItemStack stack, Object... objects) {
-		final IKettleRecipe recipe = new KettleRecipe(stack, objects);
-		return registerKettleRecipe(recipe);
+		final IKettleRecipe recipe = new KettleRecipe (stack, objects);
+		return registerKettleRecipe (recipe);
 	}
 
 	public static IKettleRecipe registerKettleFluidRecipe (Item item, ItemStack stack, Object... objects) {
-		final IKettleRecipe recipe = new KettleFluidRecipe(item, stack, objects);
-		return registerKettleRecipe(recipe);
+		final IKettleRecipe recipe = new KettleFluidRecipe (item, stack, objects);
+		return registerKettleRecipe (recipe);
 	}
 
 	public static IKettleRecipe registerKettleRecipe (IKettleRecipe kettleRecipe) {
-		kettleRecipes.add(kettleRecipe);
+		kettleRecipes.add (kettleRecipe);
 		return kettleRecipe;
 	}
 
@@ -47,9 +47,9 @@ public final class WiccanArtsAPI {
 
 	public static class CropRegistry {
 
-		private static final Map<Crop, Item> seeds = new HashMap<>();
-		private static final Map<Crop, BlockCrop> crops = new HashMap<>();
-		private static final Map<Crop, Item> foods = new HashMap<>();
+		private static final Map<Crop, Item> seeds = new HashMap<> ();
+		private static final Map<Crop, BlockCrop> crops = new HashMap<> ();
+		private static final Map<Crop, Item> foods = new HashMap<> ();
 
 		public static Map<Crop, Item> getSeeds () {
 			return seeds;

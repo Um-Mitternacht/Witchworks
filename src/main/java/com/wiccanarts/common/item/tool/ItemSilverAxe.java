@@ -16,15 +16,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemSilverAxe extends ItemAxe implements IModelRegister {
 
 	public ItemSilverAxe (ToolMaterial material) {
-		super(material, material.getDamageVsEntity(), material.getEfficiencyOnProperMaterial());
-		setRegistryName(LibItemName.SILVER_AXE);
-		setUnlocalizedName(LibItemName.SILVER_AXE);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+		super (material, material.getDamageVsEntity (), material.getEfficiencyOnProperMaterial ());
+		setRegistryName (LibItemName.SILVER_AXE);
+		setUnlocalizedName (LibItemName.SILVER_AXE);
+		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void registerModels () {
-		ModelHandler.registerItem(this);
+		ModelHandler.registerItem (this);
 	}
 }

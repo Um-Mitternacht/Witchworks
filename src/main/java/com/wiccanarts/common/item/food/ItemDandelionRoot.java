@@ -10,6 +10,6 @@ import com.wiccanarts.common.lib.LibItemName;
 public class ItemDandelionRoot extends ItemCrop {
 
 	public ItemDandelionRoot () {
-		super(LibItemName.DANDELION_ROOT, 2, 1.6F, false);
+		super (LibItemName.DANDELION_ROOT, 2, 1.6F, false);
 	}
 }

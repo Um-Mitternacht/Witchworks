@@ -16,50 +16,50 @@ public final class NBTHelper {
 	}
 
 	public static void setByte (ItemStack stack, String tag, byte i) {
-		fixNBT(stack).setByte(tag, i);
+		fixNBT (stack).setByte (tag, i);
 	}
 
 	public static void setInteger (ItemStack stack, String tag, int i) {
-		fixNBT(stack).setInteger(tag, i);
+		fixNBT (stack).setInteger (tag, i);
 	}
 
 	public static void setFloat (ItemStack stack, String tag, float i) {
-		fixNBT(stack).setFloat(tag, i);
+		fixNBT (stack).setFloat (tag, i);
 	}
 
 	public static void setBoolean (ItemStack stack, String tag, boolean i) {
-		fixNBT(stack).setBoolean(tag, i);
+		fixNBT (stack).setBoolean (tag, i);
 	}
 
 	public static void setUniqueID (ItemStack stack, String tag, UUID i) {
-		fixNBT(stack).setUniqueId(tag, i);
+		fixNBT (stack).setUniqueId (tag, i);
 	}
 
 	public static byte getByte (ItemStack stack, String tag) {
-		return fixNBT(stack).getByte(tag);
+		return fixNBT (stack).getByte (tag);
 	}
 
 	public static int getInteger (ItemStack stack, String tag) {
-		return fixNBT(stack).getInteger(tag);
+		return fixNBT (stack).getInteger (tag);
 	}
 
 	public static float getFloat (ItemStack stack, String tag) {
-		return fixNBT(stack).getFloat(tag);
+		return fixNBT (stack).getFloat (tag);
 	}
 
 	public static boolean getBoolean (ItemStack stack, String tag) {
-		return fixNBT(stack).getBoolean(tag);
+		return fixNBT (stack).getBoolean (tag);
 	}
 
 	public static UUID getUniqueID (ItemStack stack, String tag) {
-		return fixNBT(stack).getUniqueId(tag);
+		return fixNBT (stack).getUniqueId (tag);
 	}
 
 	private static NBTTagCompound fixNBT (ItemStack stack) {
-		NBTTagCompound tagCompound = stack.getTagCompound();
+		NBTTagCompound tagCompound = stack.getTagCompound ();
 		if (tagCompound == null) {
-			tagCompound = new NBTTagCompound();
-			stack.setTagCompound(tagCompound);
+			tagCompound = new NBTTagCompound ();
+			stack.setTagCompound (tagCompound);
 		}
 		return tagCompound;
 	}

@@ -10,6 +10,6 @@ import com.wiccanarts.common.lib.LibItemName;
 public class ItemWhiteSage extends ItemCrop {
 
 	public ItemWhiteSage () {
-		super(LibItemName.WHITE_SAGE, 1, 0.4F, false);
+		super (LibItemName.WHITE_SAGE, 1, 0.4F, false);
 	}
 }

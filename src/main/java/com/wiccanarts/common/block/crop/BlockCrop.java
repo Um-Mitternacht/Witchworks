@@ -23,18 +23,18 @@ public class BlockCrop extends BlockCrops implements IModelRegister {
 	}
 
 	public BlockCrop (String id) {
-		super();
-		setUnlocalizedName(id);
-		setRegistryName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+		super ();
+		setUnlocalizedName (id);
+		setRegistryName (id);
+		setCreativeTab (WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.maxAge = 7;
 	}
 
 	public BlockCrop (String id, int maxAge) {
-		super();
-		setUnlocalizedName(id);
-		setRegistryName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+		super ();
+		setUnlocalizedName (id);
+		setRegistryName (id);
+		setCreativeTab (WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.maxAge = maxAge;
 	}
 
@@ -62,8 +62,8 @@ public class BlockCrop extends BlockCrops implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels () {
-		ModelHandler.registerBlock(this);
+		ModelHandler.registerBlock (this);
 	}
 }
