@@ -1,12 +1,14 @@
 package com.wiccanarts.common.crafting;
 
-import com.wiccanarts.api.*;
-import com.wiccanarts.api.recipe.*;
-import com.wiccanarts.common.item.*;
-import com.wiccanarts.common.potions.*;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
+import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.api.recipe.IKettleRecipe;
+import com.wiccanarts.common.item.ModItems;
+import com.wiccanarts.common.potions.BrewUtils;
+import com.wiccanarts.common.potions.ModBrews;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 
 /**
  * This class was created by Arekkuusu on 21/03/2017.

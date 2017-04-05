@@ -2,6 +2,6 @@
 @ParametersAreNonnullByDefault
 package com.wiccanarts.common.block.magic;
 
-import mcp.*;
+import mcp.MethodsReturnNonnullByDefault;
 
-import javax.annotation.*;
+import javax.annotation.ParametersAreNonnullByDefault;

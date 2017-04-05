@@ -1,14 +1,16 @@
 package com.wiccanarts.common.item.tool;
 
-import com.wiccanarts.common.block.*;
-import com.wiccanarts.common.item.*;
-import com.wiccanarts.common.lib.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.item.ItemMod;
+import com.wiccanarts.common.lib.LibItemName;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.

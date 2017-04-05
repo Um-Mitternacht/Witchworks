@@ -8,11 +8,12 @@
  */
 package com.wiccanarts.common.item;
 
-import com.wiccanarts.api.item.*;
-import com.wiccanarts.client.handler.*;
-import com.wiccanarts.common.core.*;
-import net.minecraft.item.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
+import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

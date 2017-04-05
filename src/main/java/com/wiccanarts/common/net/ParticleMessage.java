@@ -1,10 +1,12 @@
 package com.wiccanarts.common.net;
 
-import com.wiccanarts.client.fx.*;
-import com.wiccanarts.common.*;
-import io.netty.buffer.*;
-import net.minecraftforge.fml.common.network.simpleimpl.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.client.fx.ParticleF;
+import com.wiccanarts.common.WiccanArts;
+import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * This class was created by Arekkuusu on 04/04/2017.

@@ -1,16 +1,21 @@
 package com.wiccanarts.common.core.gen;
 
-import net.minecraft.block.*;
-import net.minecraft.block.state.*;
-import net.minecraft.block.state.pattern.*;
-import net.minecraft.init.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.world.chunk.*;
-import net.minecraft.world.gen.feature.*;
-import net.minecraftforge.fml.common.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.pattern.BlockMatcher;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 /**
  * This class was created by BerciTheBeast on 4.3.2017.

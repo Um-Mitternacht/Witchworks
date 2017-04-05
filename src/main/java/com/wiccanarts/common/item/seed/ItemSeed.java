@@ -1,20 +1,23 @@
 package com.wiccanarts.common.item.seed;
 
-import com.wiccanarts.api.item.*;
-import com.wiccanarts.client.handler.*;
-import com.wiccanarts.common.core.*;
-import net.minecraft.block.*;
-import net.minecraft.client.resources.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
+import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
+import net.minecraft.block.Block;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * This class was created by Arekkuusu on 27/02/2017.

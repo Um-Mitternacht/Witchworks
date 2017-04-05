@@ -1,6 +1,6 @@
 package com.wiccanarts.common.core.event;
 
-import net.minecraftforge.common.*;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

@@ -1,11 +1,14 @@
 package com.wiccanarts.common.item;
 
-import com.wiccanarts.common.crafting.*;
-import com.wiccanarts.common.lib.*;
-import net.minecraft.item.*;
-import net.minecraftforge.oredict.*;
+import com.wiccanarts.common.crafting.KettleCrafting;
+import com.wiccanarts.common.crafting.VanillaCrafting;
+import com.wiccanarts.common.lib.LibItemName;
+import com.wiccanarts.common.lib.LibMod;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
-import static net.minecraftforge.fml.common.registry.GameRegistry.*;
+import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

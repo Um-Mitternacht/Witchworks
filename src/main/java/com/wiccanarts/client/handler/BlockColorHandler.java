@@ -1,13 +1,14 @@
 package com.wiccanarts.client.handler;
 
-import com.wiccanarts.api.state.*;
-import net.minecraft.block.state.*;
-import net.minecraft.client.renderer.color.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.state.WiccanArtsState;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.

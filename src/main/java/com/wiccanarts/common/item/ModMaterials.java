@@ -1,8 +1,8 @@
 package com.wiccanarts.common.item;
 
-import com.wiccanarts.common.lib.*;
-import net.minecraft.item.*;
-import net.minecraftforge.common.util.*;
+import com.wiccanarts.common.lib.LibItemName;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.util.EnumHelper;
 
 /**
  * This class was created by Arekkuusu on 04/04/2017.

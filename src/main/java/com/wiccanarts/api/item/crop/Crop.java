@@ -1,7 +1,7 @@
 package com.wiccanarts.api.item.crop;
 
-import net.minecraft.block.*;
-import net.minecraft.init.*;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 
 /**
  * This class was created by Arekkuusu on 28/02/2017.

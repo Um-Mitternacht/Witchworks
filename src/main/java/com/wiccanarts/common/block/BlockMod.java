@@ -8,14 +8,16 @@
  */
 package com.wiccanarts.common.block;
 
-import com.wiccanarts.api.item.*;
-import com.wiccanarts.client.handler.*;
-import com.wiccanarts.common.core.*;
-import com.wiccanarts.common.lib.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.block.state.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
+import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
+import com.wiccanarts.common.lib.LibMod;
+import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

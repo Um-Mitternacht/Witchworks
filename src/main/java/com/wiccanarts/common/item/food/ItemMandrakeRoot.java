@@ -1,6 +1,6 @@
 package com.wiccanarts.common.item.food;
 
-import com.wiccanarts.common.lib.*;
+import com.wiccanarts.common.lib.LibItemName;
 
 /**
  * This class was created by Arekkuusu on 07/03/2017.

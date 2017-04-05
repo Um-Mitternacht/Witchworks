@@ -1,9 +1,9 @@
 package com.wiccanarts.api.item;
 
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
-import java.util.*;
+import java.util.UUID;
 
 /**
  * This class was created by Arekkuusu on 02/03/2017.

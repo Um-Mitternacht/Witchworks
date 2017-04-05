@@ -1,16 +1,21 @@
 package com.wiccanarts.common.item.food;
 
-import com.wiccanarts.api.item.*;
-import com.wiccanarts.client.handler.*;
-import net.minecraft.client.resources.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.api.item.NBTHelper;
+import com.wiccanarts.client.handler.ModelHandler;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * This class was created by Arekkuusu on 01/03/2017.

@@ -1,15 +1,17 @@
 package com.wiccanarts.common.core;
 
-import com.wiccanarts.api.*;
-import com.wiccanarts.common.block.*;
-import com.wiccanarts.common.item.*;
-import com.wiccanarts.common.lib.*;
-import net.minecraft.block.*;
-import net.minecraft.creativetab.*;
-import net.minecraft.item.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.item.ModItems;
+import com.wiccanarts.common.lib.LibMod;
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

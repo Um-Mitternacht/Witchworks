@@ -1,7 +1,7 @@
 package com.wiccanarts.common.item.food;
 
-import com.wiccanarts.common.lib.*;
-import net.minecraft.init.*;
+import com.wiccanarts.common.lib.LibItemName;
+import net.minecraft.init.MobEffects;
 
 /**
  * This class was created by Arekkuusu on 02/03/2017.

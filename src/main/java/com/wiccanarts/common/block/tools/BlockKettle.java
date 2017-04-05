@@ -1,27 +1,36 @@
 package com.wiccanarts.common.block.tools;
 
-import com.wiccanarts.api.item.*;
-import com.wiccanarts.client.handler.*;
-import com.wiccanarts.common.block.*;
-import com.wiccanarts.common.block.tile.*;
-import com.wiccanarts.common.lib.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.block.state.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
+import com.wiccanarts.common.block.BlockMod;
+import com.wiccanarts.common.block.tile.TileKettle;
+import com.wiccanarts.common.lib.LibBlockName;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
-import static com.wiccanarts.api.state.WiccanArtsState.*;
-import static net.minecraft.block.BlockHorizontal.*;
+import static com.wiccanarts.api.state.WiccanArtsState.HALF;
+import static net.minecraft.block.BlockHorizontal.FACING;
 
 /**
  * This class was created by Joseph on 3/4/2017.

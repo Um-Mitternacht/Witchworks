@@ -1,8 +1,9 @@
 package com.wiccanarts.api.recipe;
 
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.world.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 /**
  * This class was created by Arekkuusu on 04/04/2017.

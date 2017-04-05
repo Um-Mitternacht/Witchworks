@@ -1,14 +1,17 @@
 package com.wiccanarts.client.render.tile;
 
-import com.wiccanarts.common.block.tile.*;
-import net.minecraft.client.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.texture.*;
-import net.minecraft.client.renderer.tileentity.*;
-import net.minecraft.client.renderer.vertex.*;
-import net.minecraft.util.*;
-import net.minecraftforge.fluids.*;
-import org.lwjgl.opengl.*;
+import com.wiccanarts.common.block.tile.TileKettle;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import org.lwjgl.opengl.GL11;
 
 /**
  * This class was created by Arekkuusu on 09/03/2017.

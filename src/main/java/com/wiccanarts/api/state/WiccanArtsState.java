@@ -1,9 +1,10 @@
 package com.wiccanarts.api.state;
 
-import net.minecraft.block.*;
-import net.minecraft.block.properties.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.util.EnumFacing;
 
 /**
  * This class was created by Arekkuusu on 28/02/2017.

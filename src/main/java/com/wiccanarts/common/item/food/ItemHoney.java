@@ -1,11 +1,11 @@
 package com.wiccanarts.common.item.food;
 
-import com.wiccanarts.common.lib.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
-import net.minecraft.world.*;
+import com.wiccanarts.common.lib.LibItemName;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 
 /**
  * This class was created by Joseph on 3/4/2017.

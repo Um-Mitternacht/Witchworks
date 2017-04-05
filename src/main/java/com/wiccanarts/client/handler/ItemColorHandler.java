@@ -1,7 +1,7 @@
 package com.wiccanarts.client.handler;
 
-import net.minecraft.client.renderer.color.*;
-import net.minecraft.item.*;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.item.ItemStack;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.

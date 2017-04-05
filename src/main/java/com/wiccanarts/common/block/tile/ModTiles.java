@@ -1,7 +1,7 @@
 package com.wiccanarts.common.block.tile;
 
-import com.wiccanarts.common.lib.*;
-import net.minecraftforge.fml.common.registry.*;
+import com.wiccanarts.common.lib.LibBlockName;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * This class was created by Arekkuusu on 09/03/2017.

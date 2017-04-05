@@ -1,16 +1,19 @@
 package com.wiccanarts.common.block.tools;
 
-import com.wiccanarts.api.item.*;
-import com.wiccanarts.client.handler.*;
-import com.wiccanarts.common.lib.*;
-import net.minecraft.block.state.*;
-import net.minecraft.creativetab.*;
-import net.minecraft.item.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraftforge.fml.relauncher.*;
+import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
+import com.wiccanarts.common.lib.LibBlockName;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Created by Joseph on 3/4/2017.

@@ -1,28 +1,38 @@
 package com.wiccanarts.common.block.tile;
 
-import com.wiccanarts.api.*;
-import com.wiccanarts.api.recipe.*;
-import com.wiccanarts.api.sound.*;
-import com.wiccanarts.client.fx.*;
-import com.wiccanarts.common.*;
-import com.wiccanarts.common.net.*;
-import net.minecraft.block.material.*;
-import net.minecraft.block.state.*;
-import net.minecraft.entity.item.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraftforge.fluids.*;
-import net.minecraftforge.fluids.capability.*;
+import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.api.recipe.IKettleRecipe;
+import com.wiccanarts.api.sound.WiccaSoundEvents;
+import com.wiccanarts.client.fx.ParticleF;
+import com.wiccanarts.common.WiccanArts;
+import com.wiccanarts.common.net.PacketHandler;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ITickable;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 /**
  * This class was created by Arekkuusu on 08/03/2017.
