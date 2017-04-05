@@ -12,6 +12,6 @@ public class ItemThistle extends ItemCrop {
 
 	public ItemThistle () {
 		super (LibItemName.THISTLE, 1, 2F, false);
-		addPotion (MobEffects.REGENERATION);
+		addPotion (MobEffects.STRENGTH);
 	}
 }
