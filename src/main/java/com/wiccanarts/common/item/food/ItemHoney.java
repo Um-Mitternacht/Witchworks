@@ -7,6 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+import static com.wiccanarts.common.lib.LibItemName.HONEY;
+
 /**
  * This class was created by Joseph on 3/4/2017.
  * It's distributed as part of Wiccan Arts under
@@ -15,7 +17,7 @@ import net.minecraft.world.World;
 public class ItemHoney extends ItemModFood {
 
 	public ItemHoney () {
-		super (LibItemName.HONEY, 2, 4F, false);
+		super (HONEY, 2, 4F, false);
 	}
 
 	@Override
