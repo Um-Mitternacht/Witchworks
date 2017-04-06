@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-	"layer0": "wiccanarts:textures/items/honey"
+	"layer0": "wiccanarts:items/honey"
   }
 }

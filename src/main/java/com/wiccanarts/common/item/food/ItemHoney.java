@@ -1,6 +1,7 @@
 package com.wiccanarts.common.item.food;
 
 import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -28,6 +29,6 @@ public class ItemHoney extends ItemModFood implements IModelRegister {
 	//FIXME: Help me fix the textures
 	@Override
 	public void registerModels () {
-
+		ModelHandler.registerItem (this);
 	}
 }
