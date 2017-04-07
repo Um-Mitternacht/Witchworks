@@ -128,11 +128,11 @@ public final class VanillaCrafting {
 				.build ();
 
 		//fixme HIDE THIS RECIPE FROM JEI
-		shapeless()
-				.add(new ItemStack(Items.DYE, 1, 4))
-				.add(ModItems.JASPER)
-				.outputs(new ItemStack(ModItems.MALACHITE, 1))
-				.build();
+		shapeless ()
+				.add (new ItemStack (Items.DYE, 1, 4))
+				.add (ModItems.JASPER)
+				.outputs (new ItemStack (ModItems.MALACHITE, 1))
+				.build ();
 
 		for (int i = 0; i < 16; i++) {
 			shapeless ()
