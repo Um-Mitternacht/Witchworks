@@ -125,6 +125,7 @@ public final class CommonRegistration {
 				itemBlock (ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock (ModBlocks.KETTLE),
 				itemBlock (ModBlocks.ALTAR),
+				itemBlock (ModBlocks.APIARY),
 				itemBlock (ModBlocks.BEEHIVE),
 				itemBlock (ModBlocks.SILVER_ORE),
 				itemBlock (ModBlocks.MOLDAVITE_ORE),
@@ -195,6 +196,7 @@ public final class CommonRegistration {
 				new BlockCandleMedium (),
 				new BlockCandleSmall (),
 				new BlockSaltBarrier (),
+				new BlockApiary (),
 				new BlockAltar ()
 		);
 	}

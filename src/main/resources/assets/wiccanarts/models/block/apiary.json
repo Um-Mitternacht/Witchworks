@@ -1,6 +1,8 @@
 {
-  "ambientocclusion": true,
-  "textures": {},
+  "parent": "block/block",
+  "textures": {
+	"0": "wiccanarts:blocks/apiary"
+  },
   "elements": [
 	{
 	  "name": "bottom",
@@ -17,7 +19,7 @@
 	  "shade": true,
 	  "faces": {
 		"east": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -28,7 +30,7 @@
 		  "tintindex": 0
 		},
 		"south": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -39,7 +41,7 @@
 		  "tintindex": 0
 		},
 		"north": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -50,7 +52,7 @@
 		  "tintindex": 0
 		},
 		"west": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -61,7 +63,7 @@
 		  "tintindex": 0
 		},
 		"up": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -72,7 +74,7 @@
 		  "tintindex": 0
 		},
 		"down": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -99,7 +101,7 @@
 	  "shade": true,
 	  "faces": {
 		"east": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -110,7 +112,7 @@
 		  "tintindex": 0
 		},
 		"south": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -121,7 +123,7 @@
 		  "tintindex": 0
 		},
 		"north": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -132,7 +134,7 @@
 		  "tintindex": 0
 		},
 		"west": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -143,7 +145,7 @@
 		  "tintindex": 0
 		},
 		"up": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
@@ -154,7 +156,7 @@
 		  "tintindex": 0
 		},
 		"down": {
-		  "texture": "#all",
+		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
