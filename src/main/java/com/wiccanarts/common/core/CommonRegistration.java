@@ -9,10 +9,7 @@ import com.wiccanarts.common.block.crop.BlockKelp;
 import com.wiccanarts.common.block.magic.BlockSaltBarrier;
 import com.wiccanarts.common.block.natural.BlockBeehive;
 import com.wiccanarts.common.block.tile.ModTiles;
-import com.wiccanarts.common.block.tools.BlockCandleLarge;
-import com.wiccanarts.common.block.tools.BlockCandleMedium;
-import com.wiccanarts.common.block.tools.BlockCandleSmall;
-import com.wiccanarts.common.block.tools.BlockKettle;
+import com.wiccanarts.common.block.tools.*;
 import com.wiccanarts.common.item.ItemBlockColor;
 import com.wiccanarts.common.item.ItemBrewPhial;
 import com.wiccanarts.common.item.ItemMod;
@@ -127,6 +124,7 @@ public final class CommonRegistration {
 				itemBlock (ModBlocks.COQUINA),
 				itemBlock (ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock (ModBlocks.KETTLE),
+				itemBlock (ModBlocks.ALTAR),
 				itemBlock (ModBlocks.BEEHIVE),
 				itemBlock (ModBlocks.SILVER_ORE),
 				itemBlock (ModBlocks.MOLDAVITE_ORE),
@@ -196,7 +194,8 @@ public final class CommonRegistration {
 				new BlockCandleLarge (),
 				new BlockCandleMedium (),
 				new BlockCandleSmall (),
-				new BlockSaltBarrier ()
+				new BlockSaltBarrier (),
+				new BlockAltar ()
 		);
 	}
 

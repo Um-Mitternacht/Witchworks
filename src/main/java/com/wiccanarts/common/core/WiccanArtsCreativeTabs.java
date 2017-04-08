@@ -151,6 +151,7 @@ public final class WiccanArtsCreativeTabs {
 			addBlock (ModBlocks.CANDLE_MEDIUM);
 			addBlock (ModBlocks.CANDLE_SMALL);
 			addBlock (ModBlocks.BEEHIVE);
+			addBlock (ModBlocks.ALTAR);
 		}
 	}
 }
