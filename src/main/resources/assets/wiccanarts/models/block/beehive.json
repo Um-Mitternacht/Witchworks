@@ -1,9 +1,9 @@
 {
   "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
   "textures": {
-	"particle": "blocks/minecraft:blocks/Bee hive",
-	"0": "blocks/Bee hive",
-	"1": "minecraft:blocks/Bee hive"
+	"particle": "wiccanarts:blocks/beehive",
+	"0": "wiccanarts:blocks/beehive",
+	"1": "wiccanarts:blocks/beehive"
   },
   "elements": [
 	{
