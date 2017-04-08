@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:altar"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:altar"
+	  }
+	]
+  }
+}

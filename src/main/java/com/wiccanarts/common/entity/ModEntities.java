@@ -7,9 +7,9 @@ package com.wiccanarts.common.entity;
  */
 public final class ModEntities {
 
-	private ModEntities() {
+	private ModEntities () {
 	}
 
-	public static void preInit() {
+	public static void preInit () {
 	}
 }

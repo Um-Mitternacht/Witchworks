@@ -10,10 +10,10 @@ import net.minecraft.item.ItemFood;
  */
 public class ItemModFood extends ItemFood {
 
-	public ItemModFood(String id, int amount, float saturation, boolean isWolfFood) {
-		super(amount, saturation, isWolfFood);
-		setRegistryName(id);
-		setUnlocalizedName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+	public ItemModFood (String id, int amount, float saturation, boolean isWolfFood) {
+		super (amount, saturation, isWolfFood);
+		setRegistryName (id);
+		setUnlocalizedName (id);
+		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 }

@@ -32,6 +32,7 @@ public final class LibBlockName {
 	public static final String CROP_GARLIC = "crop_garlic";
 	public static final String CROP_WORMWOOD = "crop_wormwood";
 	public static final String CROP_FLAX = "crop_flax";
+	public static final String CROP_THISTLE = "crop_thistle";
 
 	public static final String SILVER_BLOCK = "silver_block";
 	public static final String MOLDAVITE_BLOCK = "moldavite_block";
@@ -41,7 +42,6 @@ public final class LibBlockName {
 	public static final String CANDLE_MEDIUM = "candle_medium";
 	public static final String CANDLE_SMALL = "candle_small";
 	public static final String APIARY = "apiary";
-	public static final String MORTARPESTLE = "mortar_and_pestle";
 	public static final String OILPRESS = "oil_press";
 	public static final String KETTLE = "kettle";
 	public static final String COQUINA = "coquina";
@@ -59,4 +59,7 @@ public final class LibBlockName {
 	public static final String TOURMALINE_BLOCK = "tourmaline_block";
 	public static final String NETHERSTEEL = "nethersteel";
 	public static final String SALT_BARRIER = "salt_barrier";
+
+	private LibBlockName () {
+	}
 }

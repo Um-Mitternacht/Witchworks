@@ -1,0 +1,172 @@
+{
+  "parent": "block/block",
+  "textures": {
+	"0": "wiccanarts:blocks/apiary"
+  },
+  "elements": [
+	{
+	  "name": "bottom",
+	  "from": [
+		4.0,
+		0.0,
+		4.0
+	  ],
+	  "to": [
+		12.0,
+		6.0,
+		12.0
+	  ],
+	  "shade": true,
+	  "faces": {
+		"east": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"south": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"north": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"west": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"up": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"down": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		}
+	  }
+	},
+	{
+	  "name": "top",
+	  "from": [
+		4.0,
+		6.0,
+		4.0
+	  ],
+	  "to": [
+		12.0,
+		12.0,
+		12.0
+	  ],
+	  "shade": true,
+	  "faces": {
+		"east": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"south": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"north": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"west": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"up": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		},
+		"down": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			0.0,
+			1.0,
+			1.0
+		  ],
+		  "rotation": 0,
+		  "tintindex": 0
+		}
+	  }
+	}
+  ]
+}

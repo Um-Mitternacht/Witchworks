@@ -10,8 +10,8 @@ import net.minecraft.init.MobEffects;
  */
 public class ItemBelladonna extends ItemCrop {
 
-	public ItemBelladonna() {
-		super(LibItemName.BELLADONNA, 6, 1.5F, false);
-		addPotion(MobEffects.WITHER, MobEffects.NAUSEA);
+	public ItemBelladonna () {
+		super (LibItemName.BELLADONNA, 6, 1.5F, false);
+		addPotion (MobEffects.WITHER, MobEffects.NAUSEA);
 	}
 }

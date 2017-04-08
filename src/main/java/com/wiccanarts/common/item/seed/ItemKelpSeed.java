@@ -21,54 +21,54 @@ import net.minecraft.world.World;
  */
 public class ItemKelpSeed extends ItemSeed {
 
-	public ItemKelpSeed() {
-		super(LibItemName.SEED_KELP, ModBlocks.CROP_KELP, Crop.KELP.getSoil());
+	public ItemKelpSeed () {
+		super (LibItemName.SEED_KELP, ModBlocks.CROP_KELP, Crop.KELP.getSoil ());
 	}
 
 	@Override
-	@SuppressWarnings("ConstantConditions")
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, true);
+	@SuppressWarnings ("ConstantConditions")
+	public ActionResult<ItemStack> onItemRightClick (ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		final RayTraceResult raytraceresult = this.rayTrace (worldIn, playerIn, true);
 
 		if (raytraceresult == null) {
-			return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
+			return new ActionResult<> (EnumActionResult.PASS, itemStackIn);
 		} else {
 			if (raytraceresult.typeOfHit == RayTraceResult.Type.BLOCK) {
-				BlockPos blockpos = raytraceresult.getBlockPos();
+				final BlockPos blockpos = raytraceresult.getBlockPos ();
 
-				if (!worldIn.isBlockModifiable(playerIn, blockpos) || !playerIn.canPlayerEdit(blockpos.offset(raytraceresult.sideHit), raytraceresult.sideHit, itemStackIn)) {
-					return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+				if (! worldIn.isBlockModifiable (playerIn, blockpos) || ! playerIn.canPlayerEdit (blockpos.offset (raytraceresult.sideHit), raytraceresult.sideHit, itemStackIn)) {
+					return new ActionResult<> (EnumActionResult.FAIL, itemStackIn);
 				}
 
-				BlockPos blockpos1 = blockpos.up();
-				IBlockState iblockstate = worldIn.getBlockState(blockpos);
+				final BlockPos blockpos1 = blockpos.up ();
+				final IBlockState iblockstate = worldIn.getBlockState (blockpos);
 
-				if (iblockstate.getMaterial() == Material.WATER && iblockstate.getValue(BlockLiquid.LEVEL) == 0 && worldIn.isAirBlock(blockpos1)) {
+				if (iblockstate.getMaterial () == Material.WATER && iblockstate.getValue (BlockLiquid.LEVEL) == 0 && worldIn.isAirBlock (blockpos1)) {
 					// special case for handling block placement with water lilies
-					net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
-					worldIn.setBlockState(blockpos1, this.crop.getDefaultState());
-					if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP, hand).isCanceled()) {
-						blocksnapshot.restore(true, false);
-						return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+					final net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot (worldIn, blockpos1);
+					worldIn.setBlockState (blockpos1, this.crop.getDefaultState ());
+					if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace (playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP, hand).isCanceled ()) {
+						blocksnapshot.restore (true, false);
+						return new ActionResult<> (EnumActionResult.FAIL, itemStackIn);
 					}
 
-					worldIn.setBlockState(blockpos1, this.crop.getDefaultState(), 11);
+					worldIn.setBlockState (blockpos1, this.crop.getDefaultState (), 11);
 
-					if (!playerIn.capabilities.isCreativeMode) {
-						--itemStackIn.stackSize;
+					if (! playerIn.capabilities.isCreativeMode) {
+						-- itemStackIn.stackSize;
 					}
 
-					worldIn.playSound(playerIn, blockpos, SoundEvents.BLOCK_WATERLILY_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-					return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+					worldIn.playSound (playerIn, blockpos, SoundEvents.BLOCK_WATERLILY_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					return new ActionResult<> (EnumActionResult.SUCCESS, itemStackIn);
 				}
 			}
 
-			return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+			return new ActionResult<> (EnumActionResult.FAIL, itemStackIn);
 		}
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse (ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		return EnumActionResult.FAIL;
 	}
 }

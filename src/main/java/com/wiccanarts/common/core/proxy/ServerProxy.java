@@ -1,5 +1,6 @@
 package com.wiccanarts.common.core.proxy;
 
+import com.wiccanarts.client.fx.ParticleF;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -13,18 +14,22 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ServerProxy implements ISidedProxy {
 
 	@Override
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit (FMLPreInitializationEvent event) {
 	}
 
 	@Override
-	public void init(FMLInitializationEvent event) {
+	public void init (FMLInitializationEvent event) {
 	}
 
 	@Override
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit (FMLPostInitializationEvent event) {
 	}
 
 	@Override
-	public void displayRecordText(ITextComponent text) {
+	public void displayRecordText (ITextComponent text) {
+	}
+
+	@Override
+	public void spawnParticle (ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
 	}
 }

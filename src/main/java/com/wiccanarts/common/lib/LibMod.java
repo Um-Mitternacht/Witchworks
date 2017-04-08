@@ -24,4 +24,7 @@ public final class LibMod {
 
 	//Server proxy location
 	public static final String PROXY_COMMON = "com.wiccanarts.common.core.proxy.ServerProxy";
+
+	private LibMod () {
+	}
 }

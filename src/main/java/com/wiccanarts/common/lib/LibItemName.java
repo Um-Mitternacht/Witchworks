@@ -42,6 +42,8 @@ public final class LibItemName {
 	public static final String SEED_WORMWOOD = "seed_wormwood";
 	public static final String FLAX = "flax";
 	public static final String SEED_FLAX = "seed_flax";
+	public static final String THISTLE = "thistle";
+	public static final String SEED_THISTLE = "seed_thistle";
 
 	//Gems
 	public static final String GARNET = "garnet";
@@ -71,19 +73,7 @@ public final class LibItemName {
 	public static final String SALT = "salt";
 	public static final String BEE = "bee";
 	public static final String HONEYCOMB = "honeycomb";
-
-	//Staves
-	public static final String STAFFV1 = "mundaneStaff";
-	public static final String STAFFV2 = "impregnatedStaff"; //FIXME Think of better names for the staves.
-
-	//Baubles
-	public static final String RING = "ring";
-	public static final String TALISMAN = "talisman";
-	public static final String BELT = "belt";
-	public static final String CHARM = "charm";
-	public static final String AMULET = "amulet";
-	public static final String CROWN = "crown";
-	public static final String SHIRT = "shirt";
+	public static final String LAVENDER_OIL = "lavender_oil";
 
 	//Tools
 	public static final String SILVER_PICKAXE = "silver_pickaxe";
@@ -92,9 +82,26 @@ public final class LibItemName {
 	public static final String SILVER_HOE = "silver_hoe";
 	public static final String SILVER_SWORD = "silver_sword";
 
-	//Material
-	public static final String SILVER = "silver";
-
 	//Misc
 	public static final String BREW_PHIAL = "brew_phial";
+	public static final String GLASS_JAR = "glass_jar";
+
+	//Staves //TODO: Use this or remove it
+	public static final String STAFFV1 = "mundaneStaff";
+	public static final String STAFFV2 = "impregnatedStaff"; //FIXME Think of better names for the staves.
+
+	//Baubles //TODO: Use this or remove it
+	public static final String RING = "ring";
+	public static final String TALISMAN = "talisman";
+	public static final String BELT = "belt";
+	public static final String CHARM = "charm";
+	public static final String AMULET = "amulet";
+	public static final String CROWN = "crown";
+	public static final String SHIRT = "shirt";
+
+	//Materials
+	public static final String SILVER = "silver";
+
+	private LibItemName () {
+	}
 }

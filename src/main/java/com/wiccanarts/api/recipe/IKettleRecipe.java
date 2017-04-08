@@ -1,6 +1,7 @@
 package com.wiccanarts.api.recipe;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
@@ -12,9 +13,11 @@ import net.minecraftforge.items.IItemHandler;
  */
 public interface IKettleRecipe {
 
-	boolean checkRecipe(IItemHandler usedItems, World world);
+	boolean checkRecipe (IItemHandler usedItems, World world);
 
-	ImmutableList<Object> getNeededItems();
+	boolean canTake (World world, EntityPlayer player, ItemStack stack);
 
-	ItemStack getResult();
+	ImmutableList<Object> getNeededItems ();
+
+	ItemStack getResult ();
 }
