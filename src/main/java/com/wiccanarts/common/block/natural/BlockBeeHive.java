@@ -16,9 +16,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class BlockBeeHive extends BlockMod implements IModelRegister {
+public class BlockBeehive extends BlockMod implements IModelRegister {
 
-	public BlockBeeHive () {
+	public BlockBeehive () {
 		super (LibBlockName.BEEHIVE, Material.GRASS);
 		setSound (SoundType.PLANT);
 		setResistance (1F);
