@@ -9,7 +9,7 @@ import com.wiccanarts.common.lib.LibItemName;
  */
 public class ItemLilac extends ItemCrop {
 
-	public ItemLilac() {
-		super(LibItemName.LILAC, 1, 1.5F, false);
+	public ItemLilac () {
+		super (LibItemName.LILAC, 1, 1.5F, false);
 	}
 }

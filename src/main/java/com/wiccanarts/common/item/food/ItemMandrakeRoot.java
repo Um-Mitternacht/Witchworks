@@ -9,7 +9,7 @@ import com.wiccanarts.common.lib.LibItemName;
  */
 public class ItemMandrakeRoot extends ItemCrop {
 
-	public ItemMandrakeRoot() {
-		super(LibItemName.MANDRAKE_ROOT, 4, 6F, false);
+	public ItemMandrakeRoot () {
+		super (LibItemName.MANDRAKE_ROOT, 4, 6F, false);
 	}
 }

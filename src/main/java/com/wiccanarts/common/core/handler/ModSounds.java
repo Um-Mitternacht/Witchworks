@@ -1,5 +1,6 @@
 package com.wiccanarts.common.core.handler;
 
+import com.wiccanarts.api.ResourceLocationsAPI;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -9,13 +10,16 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class ModSounds {
+public final class ModSounds {
 
-	public static void preInit() {
-		//registerSound(ResourceLocationsAPI.TEST_SOUND);
+	private ModSounds () {
 	}
 
-	private static void registerSound(ResourceLocation soundNameIn) {
-		GameRegistry.register(new SoundEvent(soundNameIn), soundNameIn);
+	public static void preInit () {
+		registerSound (ResourceLocationsAPI.BOIL);
+	}
+
+	private static void registerSound (ResourceLocation soundNameIn) {
+		GameRegistry.register (new SoundEvent (soundNameIn), soundNameIn);
 	}
 }

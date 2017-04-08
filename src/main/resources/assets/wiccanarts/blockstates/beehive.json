@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:beehive"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:beehive"
+	  }
+	]
+  }
+}

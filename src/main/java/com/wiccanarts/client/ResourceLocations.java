@@ -10,12 +10,20 @@ import net.minecraft.util.ResourceLocation;
  */
 public final class ResourceLocations {
 
-	public static final ResourceLocation POTION_TEXTURES = getLocation("textures/gui/potions.png");
+	//Entity
+	public static final ResourceLocation STONE_SKIN = getLocation ("textures/misc/cobblestone.png");
 
-	private ResourceLocations() {
+	//GUI
+	public static final ResourceLocation POTION_TEXTURES = getLocation ("textures/gui/potions.png");
+
+	//Particles
+	public static final ResourceLocation CAULDRON_BUBBLE = getLocation ("particle/cauldron_bubble");
+	public static final ResourceLocation STEAM = getLocation ("particle/steam");
+
+	private ResourceLocations () {
 	}
 
-	private static ResourceLocation getLocation(String name) {
-		return new ResourceLocation(LibMod.MOD_ID, name);
+	private static ResourceLocation getLocation (String name) {
+		return new ResourceLocation (LibMod.MOD_ID, name);
 	}
 }

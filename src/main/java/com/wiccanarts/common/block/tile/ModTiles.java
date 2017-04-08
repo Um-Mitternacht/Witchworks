@@ -10,11 +10,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public final class ModTiles {
 
-	private ModTiles() {
+	private ModTiles () {
 	}
 
-	public static void registerAll() {
+	public static void registerAll () {
 
-		GameRegistry.registerTileEntity(TileKettle.class, LibBlockName.KETTLE);
+		GameRegistry.registerTileEntity (TileKettle.class, LibBlockName.KETTLE);
 	}
 }

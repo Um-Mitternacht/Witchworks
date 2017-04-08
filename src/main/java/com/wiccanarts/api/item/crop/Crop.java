@@ -8,28 +8,29 @@ import net.minecraft.init.Blocks;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings ("unused")
 public enum Crop {
-	ACONITUM(Blocks.FARMLAND),
-	ASPHODEL(Blocks.FARMLAND),
-	BELLADONNA(Blocks.FARMLAND),
-	GINGER(Blocks.FARMLAND),
-	KELP(Blocks.WATER),
-	MINT(Blocks.FARMLAND),
-	WHITE_SAGE(Blocks.FARMLAND),
-	DANDELION_ROOT(Blocks.FARMLAND),
-	ALLIUM(Blocks.FARMLAND),
-	MANDRAKE_ROOT(Blocks.FARMLAND),
-	LILAC(Blocks.FARMLAND),
-	LAVENDER(Blocks.FARMLAND);
+	ACONITUM (Blocks.FARMLAND),
+	ASPHODEL (Blocks.FARMLAND),
+	BELLADONNA (Blocks.FARMLAND),
+	GINGER (Blocks.FARMLAND),
+	KELP (Blocks.WATER),
+	MINT (Blocks.FARMLAND),
+	WHITE_SAGE (Blocks.FARMLAND),
+	DANDELION_ROOT (Blocks.FARMLAND),
+	ALLIUM (Blocks.FARMLAND),
+	MANDRAKE_ROOT (Blocks.FARMLAND),
+	LILAC (Blocks.FARMLAND),
+	LAVENDER (Blocks.FARMLAND),
+	THISTLE (Blocks.FARMLAND);
 
 	private final Block soil;
 
-	Crop(Block soil) {
+	Crop (Block soil) {
 		this.soil = soil;
 	}
 
-	public Block getSoil() {
+	public Block getSoil () {
 		return soil;
 	}
 }

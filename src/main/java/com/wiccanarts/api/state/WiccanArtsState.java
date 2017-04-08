@@ -13,10 +13,10 @@ import net.minecraft.util.EnumFacing;
  */
 public final class WiccanArtsState {
 
-	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.create("color", EnumDyeColor.class);
-	public static final PropertyEnum<BlockStairs.EnumHalf> HALF = PropertyEnum.create("half", BlockStairs.EnumHalf.class);
-	public static final PropertyDirection HORIZONTAL = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.create ("color", EnumDyeColor.class);
+	public static final PropertyEnum<BlockStairs.EnumHalf> HALF = PropertyEnum.create ("half", BlockStairs.EnumHalf.class);
+	public static final PropertyDirection HORIZONTAL = PropertyDirection.create ("facing", EnumFacing.Plane.HORIZONTAL);
 
-	private WiccanArtsState() {
+	private WiccanArtsState () {
 	}
 }

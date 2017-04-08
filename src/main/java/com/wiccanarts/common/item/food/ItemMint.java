@@ -9,7 +9,7 @@ import com.wiccanarts.common.lib.LibItemName;
  */
 public class ItemMint extends ItemCrop {
 
-	public ItemMint() {
-		super(LibItemName.MINT, 1, 2F, false);
+	public ItemMint () {
+		super (LibItemName.MINT, 1, 2F, false);
 	}
 }

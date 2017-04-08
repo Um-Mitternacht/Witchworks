@@ -9,7 +9,7 @@ import com.wiccanarts.common.lib.LibItemName;
  */
 public class ItemAllium extends ItemCrop {
 
-	public ItemAllium() {
-		super(LibItemName.ALLIUM, 1, 1.8F, false);
+	public ItemAllium () {
+		super (LibItemName.ALLIUM, 1, 1.8F, false);
 	}
 }

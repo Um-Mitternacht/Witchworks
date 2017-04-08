@@ -1,5 +1,7 @@
 package com.wiccanarts.client.core;
 
+import com.wiccanarts.client.core.event.TextureStitcher;
+import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.client.handler.BlockColorHandler;
 import com.wiccanarts.client.handler.ItemColorHandler;
 import com.wiccanarts.client.handler.ModelHandler;
@@ -11,6 +13,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -27,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@Mod.EventBusSubscriber(Side.CLIENT)
+@Mod.EventBusSubscriber (Side.CLIENT)
 public class ClientProxy implements ISidedProxy {
 
 	/**
@@ -37,32 +40,33 @@ public class ClientProxy implements ISidedProxy {
 	 * into the models file and bind the item to its corresponding model.
 	 * </p>
 	 */
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@SubscribeEvent
-	public static void registerItemModels(ModelRegistryEvent event) {
-		ModelHandler.registerModels(); //These do have a class, but need to be registered in the event
+	public static void registerItemModels (ModelRegistryEvent event) {
+		ModelHandler.registerModels ();
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		registerRenders();
+	public void preInit (FMLPreInitializationEvent event) {
+		registerRenders ();
+		MinecraftForge.EVENT_BUS.register (new TextureStitcher ());
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
-	public void init(FMLInitializationEvent event) {
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new BlockColorHandler(),
+	public void init (FMLInitializationEvent event) {
+		Minecraft.getMinecraft ().getBlockColors ().registerBlockColorHandler (new BlockColorHandler (),
 				ModBlocks.CANDLE_LARGE, ModBlocks.CANDLE_MEDIUM, ModBlocks.CANDLE_SMALL);
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorHandler(),
-				Item.getItemFromBlock(ModBlocks.CANDLE_LARGE),
-				Item.getItemFromBlock(ModBlocks.CANDLE_MEDIUM),
-				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
+		Minecraft.getMinecraft ().getItemColors ().registerItemColorHandler (new ItemColorHandler (),
+				Item.getItemFromBlock (ModBlocks.CANDLE_LARGE),
+				Item.getItemFromBlock (ModBlocks.CANDLE_MEDIUM),
+				Item.getItemFromBlock (ModBlocks.CANDLE_SMALL));
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit (FMLPostInitializationEvent event) {
 
 	}
 
@@ -74,33 +78,42 @@ public class ClientProxy implements ISidedProxy {
 	 *
 	 * @see RenderingRegistry
 	 */
-	@SideOnly(Side.CLIENT)
-	private void registerRenders() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileKettle.class, new TileRenderKettle());
+	@SideOnly (Side.CLIENT)
+	private void registerRenders () {
+		ClientRegistry.bindTileEntitySpecialRenderer (TileKettle.class, new TileRenderKettle ());
 	}
 
 	/**
 	 * Display a Record text with a format and localization.
 	 *
-	 * @param text An {@link ITextComponent}
+	 * @param text
+	 * 		An {@link ITextComponent}
 	 */
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
-	public void displayRecordText(ITextComponent text) {
-		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
+	public void displayRecordText (ITextComponent text) {
+		Minecraft.getMinecraft ().ingameGUI.setRecordPlayingMessage (text.getFormattedText ());
 	}
 
-	@SideOnly(Side.CLIENT)
-	private boolean doParticle() {
-		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
+	@SideOnly (Side.CLIENT)
+	@Override
+	public void spawnParticle (ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+		if (doParticle ()) {
+			Minecraft.getMinecraft ().effectRenderer.addEffect (particleF.newInstance (x, y, z, xSpeed, ySpeed, zSpeed, args));
+		}
+	}
+
+	@SideOnly (Side.CLIENT)
+	private boolean doParticle () {
+		if (FMLCommonHandler.instance ().getEffectiveSide () == Side.SERVER)
 			return false;
 
 		float chance = 1F;
-		if (Minecraft.getMinecraft().gameSettings.particleSetting == 1)
+		if (Minecraft.getMinecraft ().gameSettings.particleSetting == 1)
 			chance = 0.6F;
-		else if (Minecraft.getMinecraft().gameSettings.particleSetting == 2)
+		else if (Minecraft.getMinecraft ().gameSettings.particleSetting == 2)
 			chance = 0.2F;
 
-		return chance == 1F || Math.random() < chance;
+		return chance == 1F || Math.random () < chance;
 	}
 }

@@ -9,14 +9,14 @@ import net.minecraft.util.SoundEvent;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public final class SoundEvents {
+public final class WiccaSoundEvents {
 
-	public static final SoundEvent TEST_SOUND = getRegisteredSound(ResourceLocationsAPI.TEST_SOUND);
+	public static final SoundEvent BOIL = getRegisteredSound (ResourceLocationsAPI.BOIL);
 
-	private SoundEvents() {
+	private WiccaSoundEvents () {
 	}
 
-	private static SoundEvent getRegisteredSound(ResourceLocation name) {
-		return SoundEvent.REGISTRY.getObject(name);
+	private static SoundEvent getRegisteredSound (ResourceLocation name) {
+		return SoundEvent.REGISTRY.getObject (name);
 	}
 }

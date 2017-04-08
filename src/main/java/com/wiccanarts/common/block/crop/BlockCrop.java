@@ -19,51 +19,51 @@ public class BlockCrop extends BlockCrops implements IModelRegister {
 	private Item seed;
 	private Item crop;
 
-	public BlockCrop() {
+	public BlockCrop () {
 	}
 
-	public BlockCrop(String id) {
-		super();
-		setUnlocalizedName(id);
-		setRegistryName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+	public BlockCrop (String id) {
+		super ();
+		setUnlocalizedName (id);
+		setRegistryName (id);
+		setCreativeTab (WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.maxAge = 7;
 	}
 
-	public BlockCrop(String id, int maxAge) {
-		super();
-		setUnlocalizedName(id);
-		setRegistryName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+	public BlockCrop (String id, int maxAge) {
+		super ();
+		setUnlocalizedName (id);
+		setRegistryName (id);
+		setCreativeTab (WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.maxAge = maxAge;
 	}
 
 	@Override
-	public int getMaxAge() {
+	public int getMaxAge () {
 		return maxAge;
 	}
 
 	@Override
-	public Item getSeed() {
+	public Item getSeed () {
 		return seed;
 	}
 
-	public void setSeed(Item seed) {
+	public void setSeed (Item seed) {
 		this.seed = seed;
 	}
 
 	@Override
-	public Item getCrop() {
+	public Item getCrop () {
 		return crop;
 	}
 
-	public void setCrop(Item crop) {
+	public void setCrop (Item crop) {
 		this.crop = crop;
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerBlock(this);
+	@SideOnly (Side.CLIENT)
+	public void registerModels () {
+		ModelHandler.registerBlock (this);
 	}
 }
