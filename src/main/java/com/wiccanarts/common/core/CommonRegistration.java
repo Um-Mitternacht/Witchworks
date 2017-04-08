@@ -7,7 +7,7 @@ import com.wiccanarts.common.block.crop.BlockBelladonna;
 import com.wiccanarts.common.block.crop.BlockCrop;
 import com.wiccanarts.common.block.crop.BlockKelp;
 import com.wiccanarts.common.block.magic.BlockSaltBarrier;
-import com.wiccanarts.common.block.natural.BlockBeeHive;
+import com.wiccanarts.common.block.natural.BlockBeehive;
 import com.wiccanarts.common.block.tile.ModTiles;
 import com.wiccanarts.common.block.tools.BlockCandleLarge;
 import com.wiccanarts.common.block.tools.BlockCandleMedium;
@@ -169,7 +169,7 @@ public final class CommonRegistration {
 				new BlockCrop (LibBlockName.CROP_THISTLE),
 				new BlockKelp (),
 				new BlockBelladonna (),
-				new BlockBeeHive (),
+				new BlockBeehive (),
 
 				//Ore
 				new BlockMod (LibBlockName.SILVER_BLOCK, Material.IRON).setSound (SoundType.METAL).setHardness (5.0F),
