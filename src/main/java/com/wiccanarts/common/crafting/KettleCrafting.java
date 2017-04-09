@@ -22,6 +22,7 @@ public final class KettleCrafting {
 
 	//Fluids
 	public static IKettleRecipe HONEY;
+	public static IKettleRecipe WAX;
 	public static IKettleRecipe LAVENDER;
 	public static IKettleRecipe STONEFORM_BREW;
 
@@ -32,7 +33,11 @@ public final class KettleCrafting {
 
 		HONEY = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
 				, new ItemStack(ModItems.HONEY)
-				, ModItems.WAX, ModItems.WAX, ModItems.WAX, ModItems.WAX);
+				, ModItems.HONEYCOMB, ModItems.HONEYCOMB, ModItems.HONEYCOMB, ModItems.HONEYCOMB);
+
+		WAX = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
+				, new ItemStack(ModItems.WAX, 2)
+				, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB);
 
 		LAVENDER = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
 				, new ItemStack(ModItems.LAVENDER_OIL)
