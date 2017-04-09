@@ -40,10 +40,10 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		setHardness (1F);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void randomDisplayTick (IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		if(rand.nextInt (10) == 0) {
+		if (rand.nextInt (10) == 0) {
 			WiccanArts.proxy.spawnParticle (ParticleF.BEE, pos.getX () + 0.5, pos.getY () + 0.5, pos.getZ () + 0.5, 0, 0, 0);
 		}
 	}
@@ -54,7 +54,7 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		return BOX;
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public IBlockState getStateFromMeta (int meta) {
 		final EnumFacing facing = EnumFacing.getHorizontal (meta);
@@ -78,20 +78,20 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		return new BlockStateContainer (this, FACING);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public boolean isFullCube (IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public boolean isOpaqueCube (IBlockState state) {
 		return false;
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels () {
 		ModelHandler.registerBlock (this);
 	}

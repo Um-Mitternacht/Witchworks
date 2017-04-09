@@ -69,6 +69,8 @@ public final class ModItems {
 	public static final Item SALT = new Item ();
 	@ObjectHolder (LibItemName.HONEYCOMB)
 	public static final Item HONEYCOMB = new Item ();
+	@ObjectHolder (LibItemName.EMPTY_HONEYCOMB)
+	public static final Item EMPTY_HONEYCOMB = new Item ();
 	@ObjectHolder (LibItemName.LAVENDER_OIL)
 	public static final Item LAVENDER_OIL = new Item ();
 
@@ -91,6 +93,8 @@ public final class ModItems {
 	public static final Item SILVER_HOE = new Item ();
 	@ObjectHolder (LibItemName.SILVER_SWORD)
 	public static final Item SILVER_SWORD = new Item ();
+	@ObjectHolder (LibItemName.MORTAR_AND_PESTLE)
+	public static final Item MORTAR_AND_PESTLE = new Item ();
 
 	private ModItems () {
 	}

@@ -32,28 +32,28 @@ public class BlockAltar extends BlockMod implements IModelRegister {
 		setHardness (3F);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		final EnumFacing facing = EnumFacing.getHorizontal(meta);
-		return getDefaultState().withProperty(FACING, facing);
+	public IBlockState getStateFromMeta (int meta) {
+		final EnumFacing facing = EnumFacing.getHorizontal (meta);
+		return getDefaultState ().withProperty (FACING, facing);
 	}
 
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		final EnumFacing facing = state.getValue(FACING);
-		return facing.getHorizontalIndex();
+	public int getMetaFromState (IBlockState state) {
+		final EnumFacing facing = state.getValue (FACING);
+		return facing.getHorizontalIndex ();
 	}
 
 	@Override
 	public IBlockState getStateForPlacement (World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
-		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw);
-		return this.getDefaultState().withProperty(FACING, enumfacing);
+		final EnumFacing enumfacing = EnumFacing.fromAngle (placer.rotationYaw);
+		return this.getDefaultState ().withProperty (FACING, enumfacing);
 	}
 
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, FACING);
+	protected BlockStateContainer createBlockState () {
+		return new BlockStateContainer (this, FACING);
 	}
 
 	@SuppressWarnings ("deprecation")

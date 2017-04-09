@@ -130,6 +130,8 @@ public final class WiccanArtsCreativeTabs {
 			addItem (ModItems.SILVER_SPADE);
 			addItem (ModItems.SILVER_HOE);
 			addItem (ModItems.SILVER_SWORD);
+			addItem (ModItems.MORTAR_AND_PESTLE);
+			addItem (ModItems.EMPTY_HONEYCOMB);
 			addBlock (ModBlocks.SILVER_BLOCK);
 			addBlock (ModBlocks.COQUINA);
 			addBlock (ModBlocks.KETTLE);

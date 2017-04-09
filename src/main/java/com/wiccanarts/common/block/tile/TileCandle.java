@@ -20,7 +20,7 @@ public class TileCandle extends TileMod implements ITickable {
 	private int type;
 	private int ticks;
 
-	public TileCandle() {
+	public TileCandle () {
 	}
 
 	public TileCandle (int type, EnumDyeColor color) {

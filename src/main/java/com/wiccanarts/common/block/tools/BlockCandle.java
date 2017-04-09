@@ -39,17 +39,17 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	@Override
 	public boolean onBlockActivated (World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		final TileCandle candle = (TileCandle) worldIn.getTileEntity (pos);
-		if(candle != null) {
-			if(heldItem != null && heldItem.getItem () == Items.FLINT_AND_STEEL) {
+		if (candle != null) {
+			if (heldItem != null && heldItem.getItem () == Items.FLINT_AND_STEEL) {
 				heldItem.damageItem (1, playerIn);
 				candle.litCandle ();
 			} else {
 				candle.unLitCandle ();
 			}
 		}
-		worldIn.theProfiler.startSection("checkLight");
-		worldIn.checkLight(pos);
-		worldIn.theProfiler.endSection();
+		worldIn.theProfiler.startSection ("checkLight");
+		worldIn.checkLight (pos);
+		worldIn.theProfiler.endSection ();
 		return true;
 	}
 
@@ -73,15 +73,15 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return state.getValue (COLOR).getMapColor ();
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata (meta));
+	public IBlockState getStateFromMeta (int meta) {
+		return getDefaultState ().withProperty (COLOR, EnumDyeColor.byMetadata (meta));
 	}
 
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		return state.getValue(COLOR).getMetadata ();
+	public int getMetaFromState (IBlockState state) {
+		return state.getValue (COLOR).getMetadata ();
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	@Override
 	public int getLightValue (IBlockState state, IBlockAccess world, BlockPos pos) {
 		final TileCandle candle = (TileCandle) world.getTileEntity (pos);
-		return candle != null && candle.isLit () ? (int)(15.0F * (0.5F + getType () * 0.25)) : 0;
+		return candle != null && candle.isLit () ? (int) (15.0F * (0.5F + getType () * 0.25)) : 0;
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return false;
 	}
 
-	public int getType() {
+	public int getType () {
 		return 0;
 	}
 }

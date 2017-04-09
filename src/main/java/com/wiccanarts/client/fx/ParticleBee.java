@@ -43,7 +43,7 @@ class ParticleBee extends Particle {
 			final double d0 = x + 0.5D - this.posX;
 			final double d1 = y + 0.1D - this.posY;
 			final double d2 = z + 0.5D - this.posZ;
-			if(rand.nextBoolean ()) {
+			if (rand.nextBoolean ()) {
 				this.motionX += (Math.signum (d0) * 0.5D - this.motionX) * 0.10000000149011612D;
 				this.motionY += (Math.signum (d1) * 0.699999988079071D - this.motionY) * 0.10000000149011612D;
 				this.motionZ += (Math.signum (d2) * 0.5D - this.motionZ) * 0.10000000149011612D;
@@ -67,7 +67,7 @@ class ParticleBee extends Particle {
 		return true;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle (World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
 			return new ParticleBee (worldIn, xCoordIn, yCoordIn, zCoordIn);
