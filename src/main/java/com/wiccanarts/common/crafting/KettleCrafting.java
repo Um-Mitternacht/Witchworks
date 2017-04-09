@@ -33,11 +33,10 @@ public final class KettleCrafting {
 
 		HONEY = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
 				, new ItemStack(ModItems.HONEY)
-				, ModItems.HONEYCOMB, ModItems.HONEYCOMB, ModItems.HONEYCOMB, ModItems.HONEYCOMB);
+				, ModItems.HONEYCOMB, ModItems.HONEYCOMB);
 
-		WAX = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
-				, new ItemStack(ModItems.WAX, 2)
-				, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB);
+		WAX = WiccanArtsAPI.registerKettleRecipe (new ItemStack(ModItems.WAX, 2)
+				, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB);
 
 		LAVENDER = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
 				, new ItemStack(ModItems.LAVENDER_OIL)
