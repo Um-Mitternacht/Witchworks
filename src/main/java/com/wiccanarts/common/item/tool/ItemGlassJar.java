@@ -5,7 +5,6 @@ import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.core.WiccanArtsCreativeTabs;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.lib.LibItemName;
-import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
