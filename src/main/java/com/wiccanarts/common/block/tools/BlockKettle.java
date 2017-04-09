@@ -131,11 +131,6 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		return true;
 	}
 
-	@Override
-	public BlockRenderLayer getBlockLayer () {
-		return BlockRenderLayer.SOLID;
-	}
-
 	@SuppressWarnings ("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox (IBlockState state, IBlockAccess source, BlockPos pos) {

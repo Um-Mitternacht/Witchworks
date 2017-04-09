@@ -176,7 +176,7 @@ public final class VanillaCrafting {
 	private static class ShapelessRecipe {
 
 		private final List<Object> ingredients = new ArrayList<> ();
-		private ItemStack out;
+		private ItemStack output;
 
 		public ShapelessRecipe outputs (Block out) {
 			return outputs (new ItemStack (out));
@@ -187,7 +187,7 @@ public final class VanillaCrafting {
 		}
 
 		public ShapelessRecipe outputs (ItemStack out) {
-			this.out = out;
+			this.output = out;
 			return this;
 		}
 
@@ -215,9 +215,9 @@ public final class VanillaCrafting {
 
 			if (ingredients.isEmpty ())
 				throw new IllegalArgumentException ("You have to specify ingredients for the recipe, please report this!");
-			if (out == null) throw new IllegalArgumentException ("Output not specified, please report this!");
+			if (output == null) throw new IllegalArgumentException ("Output not specified, please report this!");
 
-			final ShapelessOreRecipe recipe = new ShapelessOreRecipe (out, ingredients.toArray ());
+			final ShapelessOreRecipe recipe = new ShapelessOreRecipe (output, ingredients.toArray ());
 			CraftingManager.getInstance ().getRecipeList ().add (recipe);
 		}
 	}

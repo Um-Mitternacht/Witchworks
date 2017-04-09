@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class BlockCandleMedium extends BlockCandle implements IModelRegister {
 
-	private static final AxisAlignedBB MEDIUM_BOX = new AxisAlignedBB (0.25, 0, 0.25, 0.75, 0.75, 0.75);
+	private static final AxisAlignedBB MEDIUM_BOX = new AxisAlignedBB (0.31, 0, 0.31, 0.69, 0.75, 0.69);
 
 	public BlockCandleMedium () {
 		super (LibBlockName.CANDLE_MEDIUM);
@@ -39,6 +39,11 @@ public class BlockCandleMedium extends BlockCandle implements IModelRegister {
 		for (int i = 0; i < 16; i++) {
 			list.add (new ItemStack (itemIn, 1, i));
 		}
+	}
+
+	@Override
+	public int getType () {
+		return 1;
 	}
 
 	@Override

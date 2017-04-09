@@ -8,10 +8,7 @@ import com.wiccanarts.common.block.crop.BlockCrop;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class was created by Arekkuusu on 01/03/2017.
@@ -47,9 +44,9 @@ public final class WiccanArtsAPI {
 
 	public static class CropRegistry {
 
-		private static final Map<Crop, Item> seeds = new HashMap<> ();
-		private static final Map<Crop, BlockCrop> crops = new HashMap<> ();
-		private static final Map<Crop, Item> foods = new HashMap<> ();
+		private static final Map<Crop, Item> seeds = new LinkedHashMap<> ();
+		private static final Map<Crop, BlockCrop> crops = new LinkedHashMap<> ();
+		private static final Map<Crop, Item> foods = new LinkedHashMap<> ();
 
 		public static Map<Crop, Item> getSeeds () {
 			return seeds;

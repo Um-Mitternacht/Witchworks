@@ -13,5 +13,6 @@ public class TextureStitcher {
 	public void stitcherEventPre (TextureStitchEvent.Pre event) {
 		event.getMap ().registerSprite (ResourceLocations.CAULDRON_BUBBLE);
 		event.getMap ().registerSprite (ResourceLocations.STEAM);
+		event.getMap ().registerSprite (ResourceLocations.BEE);
 	}
 }

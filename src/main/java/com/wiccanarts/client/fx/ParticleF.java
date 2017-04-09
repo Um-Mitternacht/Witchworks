@@ -16,7 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly (Side.CLIENT)
 public enum ParticleF {
 	CAULDRON_BUBBLE (new ParticleCaudronBubble.Factory ()),
-	STEAM (new ParticleSteam.Factory ());
+	STEAM (new ParticleSteam.Factory ()),
+	BEE (new ParticleBee.Factory ());
 
 	private final IParticleF factory;
 

@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class BlockCandleSmall extends BlockCandle implements IModelRegister {
 
-	private static final AxisAlignedBB SMALL_BOX = new AxisAlignedBB (0.25, 0, 0.25, 0.75, 0.5, 0.75);
+	private static final AxisAlignedBB SMALL_BOX = new AxisAlignedBB (0.38, 0, 0.38, 0.62, 0.5, 0.62);
 
 	public BlockCandleSmall () {
 		super (LibBlockName.CANDLE_SMALL);

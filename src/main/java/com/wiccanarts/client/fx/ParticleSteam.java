@@ -20,8 +20,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly (Side.CLIENT)
 class ParticleSteam extends Particle {
 
-	private final float particleScaleOverTime;
-
 	private ParticleSteam (World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 		super (world, x, y, z, xSpeed, ySpeed, zSpeed);
 		this.motionY *= 0.20000000298023224D;
@@ -31,20 +29,11 @@ class ParticleSteam extends Particle {
 			this.motionZ *= 0.10000000149011612D;
 		}
 
-		this.particleScale *= 0.75F;
-		this.particleScaleOverTime = this.particleScale;
+		this.particleScale *= 0.5F + rand.nextFloat ();
 		this.particleMaxAge = (int) (8.0D / (Math.random () * 0.8D + 0.2D));
 
 		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft ().getTextureMapBlocks ().getAtlasSprite (ResourceLocations.STEAM.toString ());
 		setParticleTexture (atlasSprite);
-	}
-
-	@Override
-	public void renderParticle (VertexBuffer buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-		float f = ((float) this.particleAge + partialTicks) / (float) this.particleMaxAge * 32.0F;
-		f = MathHelper.clamp (f, 0.0F, 1.0F);
-		this.particleScale = this.particleScaleOverTime * f;
-		super.renderParticle (buffer, entityIn, partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
 	}
 
 	public void onUpdate () {

@@ -42,6 +42,11 @@ public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 	}
 
 	@Override
+	public int getType () {
+		return 2;
+	}
+
+	@Override
 	@SideOnly (Side.CLIENT)
 	public void registerModels () {
 		for (int i = 0; i < 16; i++) {
