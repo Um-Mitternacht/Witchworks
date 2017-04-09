@@ -94,7 +94,7 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.EMPTY_HONEYCOMB),
 				new ItemMod(LibItemName.MORTAR_AND_PESTLE),
 				new ItemBrewPhial(),
-				new ItemGlassJar(),
+				new ItemMod(LibItemName.GLASS_JAR),
 				new ItemMod(LibItemName.LAVENDER_OIL),
 
 				//Tools
