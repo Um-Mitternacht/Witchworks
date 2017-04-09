@@ -15,12 +15,12 @@ import java.util.Arrays;
 @SuppressWarnings ({"WeakerAccess", "unused"})
 public class BrewUtils {
 
-	public static ItemStack createPotion (Item in, PotionEffect... effects) {
-		return createPotion (new ItemStack (in), effects);
+	public static ItemStack createPotion(Item in, PotionEffect... effects) {
+		return createPotion(new ItemStack(in), effects);
 	}
 
-	public static ItemStack createPotion (ItemStack stack, PotionEffect... effects) {
-		PotionUtils.appendEffects (stack, Arrays.asList (effects));
+	public static ItemStack createPotion(ItemStack stack, PotionEffect... effects) {
+		PotionUtils.appendEffects(stack, Arrays.asList(effects));
 		return stack;
 	}
 }

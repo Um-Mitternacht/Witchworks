@@ -15,16 +15,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class ItemSilverSpade extends ItemSpade implements IModelRegister {
 
-	public ItemSilverSpade (ToolMaterial material) {
-		super (material);
-		setRegistryName (LibItemName.SILVER_SPADE);
-		setUnlocalizedName (LibItemName.SILVER_SPADE);
-		setCreativeTab (WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+	public ItemSilverSpade(ToolMaterial material) {
+		super(material);
+		setRegistryName(LibItemName.SILVER_SPADE);
+		setUnlocalizedName(LibItemName.SILVER_SPADE);
+		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@SideOnly (Side.CLIENT)
 	@Override
-	public void registerModels () {
-		ModelHandler.registerItem (this);
+	public void registerModels() {
+		ModelHandler.registerItem(this);
 	}
 }

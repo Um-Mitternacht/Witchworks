@@ -20,57 +20,57 @@ class ParticleBee extends Particle {
 	private final double y;
 	private final double z;
 
-	private ParticleBee (World worldIn, double posXIn, double posYIn, double posZIn) {
-		super (worldIn, posXIn, posYIn, posZIn);
+	private ParticleBee(World worldIn, double posXIn, double posYIn, double posZIn) {
+		super(worldIn, posXIn, posYIn, posZIn);
 		this.particleScale = 0.2F;
 		this.particleMaxAge = 200;
 		this.x = posXIn;
 		this.y = posYIn;
 		this.z = posZIn;
 
-		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft ().getTextureMapBlocks ().getAtlasSprite (ResourceLocations.BEE.toString ());
-		setParticleTexture (atlasSprite);
+		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.BEE.toString());
+		setParticleTexture(atlasSprite);
 	}
 
-	public void onUpdate () {
+	public void onUpdate() {
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
 		this.motionY *= 0.6000000238418579D;
-		this.move (this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 
 		if (this.particleMaxAge-- > 0) {
 			final double d0 = x + 0.5D - this.posX;
 			final double d1 = y + 0.1D - this.posY;
 			final double d2 = z + 0.5D - this.posZ;
-			if (rand.nextBoolean ()) {
-				this.motionX += (Math.signum (d0) * 0.5D - this.motionX) * 0.10000000149011612D;
-				this.motionY += (Math.signum (d1) * 0.699999988079071D - this.motionY) * 0.10000000149011612D;
-				this.motionZ += (Math.signum (d2) * 0.5D - this.motionZ) * 0.10000000149011612D;
+			if (rand.nextBoolean()) {
+				this.motionX += (Math.signum(d0) * 0.5D - this.motionX) * 0.10000000149011612D;
+				this.motionY += (Math.signum(d1) * 0.699999988079071D - this.motionY) * 0.10000000149011612D;
+				this.motionZ += (Math.signum(d2) * 0.5D - this.motionZ) * 0.10000000149011612D;
 			} else {
-				this.motionX -= (Math.signum (d0) * 0.5D - this.motionX) * 0.10000000149011612D;
-				this.motionY -= (Math.signum (d1) * 0.699999988079071D - this.motionY) * 0.10000000149011612D;
-				this.motionZ -= (Math.signum (d2) * 0.5D - this.motionZ) * 0.10000000149011612D;
+				this.motionX -= (Math.signum(d0) * 0.5D - this.motionX) * 0.10000000149011612D;
+				this.motionY -= (Math.signum(d1) * 0.699999988079071D - this.motionY) * 0.10000000149011612D;
+				this.motionZ -= (Math.signum(d2) * 0.5D - this.motionZ) * 0.10000000149011612D;
 			}
 		} else {
-			setExpired ();
+			setExpired();
 		}
 	}
 
 	@Override
-	public int getFXLayer () {
+	public int getFXLayer() {
 		return 1;
 	}
 
 	@Override
-	public boolean isTransparent () {
+	public boolean isTransparent() {
 		return true;
 	}
 
 	@SideOnly (Side.CLIENT)
 	static class Factory implements IParticleF {
-		public Particle createParticle (World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
-			return new ParticleBee (worldIn, xCoordIn, yCoordIn, zCoordIn);
+		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
+			return new ParticleBee(worldIn, xCoordIn, yCoordIn, zCoordIn);
 		}
 	}
 }

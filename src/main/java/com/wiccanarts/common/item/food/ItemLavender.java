@@ -10,8 +10,8 @@ import net.minecraft.init.MobEffects;
  */
 public class ItemLavender extends ItemCrop {
 
-	public ItemLavender () {
-		super (LibItemName.LAVENDER, 1, 2F, false);
-		addPotion (MobEffects.REGENERATION);
+	public ItemLavender() {
+		super(LibItemName.LAVENDER, 1, 2F, false);
+		addPotion(MobEffects.REGENERATION);
 	}
 }

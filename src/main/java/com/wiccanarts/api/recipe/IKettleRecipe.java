@@ -13,11 +13,11 @@ import net.minecraftforge.items.IItemHandler;
  */
 public interface IKettleRecipe {
 
-	boolean checkRecipe (IItemHandler usedItems, World world);
+	boolean checkRecipe(IItemHandler usedItems, World world);
 
-	boolean canTake (World world, EntityPlayer player, ItemStack stack);
+	boolean canTake(World world, EntityPlayer player, ItemStack stack);
 
-	ImmutableList<Object> getNeededItems ();
+	ImmutableList<Object> getNeededItems();
 
-	ItemStack getResult ();
+	ItemStack getResult();
 }

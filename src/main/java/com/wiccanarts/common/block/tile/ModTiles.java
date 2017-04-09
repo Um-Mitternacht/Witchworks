@@ -12,12 +12,12 @@ public final class ModTiles {
 	private static final String KETTLE = "kettle";
 	private static final String CANDLE = "candle";
 
-	private ModTiles () {
+	private ModTiles() {
 	}
 
-	public static void registerAll () {
+	public static void registerAll() {
 
-		GameRegistry.registerTileEntity (TileKettle.class, KETTLE);
-		GameRegistry.registerTileEntity (TileCandle.class, CANDLE);
+		GameRegistry.registerTileEntity(TileKettle.class, KETTLE);
+		GameRegistry.registerTileEntity(TileCandle.class, CANDLE);
 	}
 }

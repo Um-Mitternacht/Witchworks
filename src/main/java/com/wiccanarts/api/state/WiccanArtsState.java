@@ -11,9 +11,9 @@ import net.minecraft.item.EnumDyeColor;
  */
 public final class WiccanArtsState {
 
-	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.create ("color", EnumDyeColor.class);
-	public static final PropertyEnum<BlockStairs.EnumHalf> HALF = PropertyEnum.create ("half", BlockStairs.EnumHalf.class);
+	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.create("color", EnumDyeColor.class);
+	public static final PropertyEnum<BlockStairs.EnumHalf> HALF = PropertyEnum.create("half", BlockStairs.EnumHalf.class);
 
-	private WiccanArtsState () {
+	private WiccanArtsState() {
 	}
 }

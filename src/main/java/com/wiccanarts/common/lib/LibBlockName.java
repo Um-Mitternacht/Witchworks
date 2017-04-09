@@ -60,6 +60,6 @@ public final class LibBlockName {
 	public static final String NETHERSTEEL = "nethersteel";
 	public static final String SALT_BARRIER = "salt_barrier";
 
-	private LibBlockName () {
+	private LibBlockName() {
 	}
 }

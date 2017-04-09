@@ -15,17 +15,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly (Side.CLIENT)
 public enum ParticleF {
-	CAULDRON_BUBBLE (new ParticleCaudronBubble.Factory ()),
-	STEAM (new ParticleSteam.Factory ()),
-	BEE (new ParticleBee.Factory ());
+	CAULDRON_BUBBLE(new ParticleCaudronBubble.Factory()),
+	STEAM(new ParticleSteam.Factory()),
+	BEE(new ParticleBee.Factory());
 
 	private final IParticleF factory;
 
-	ParticleF (IParticleF factory) {
+	ParticleF(IParticleF factory) {
 		this.factory = factory;
 	}
 
-	public Particle newInstance (double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
-		return factory.createParticle (Minecraft.getMinecraft ().world, x, y, z, xSpeed, ySpeed, zSpeed, args);
+	public Particle newInstance(double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+		return factory.createParticle(Minecraft.getMinecraft().world, x, y, z, xSpeed, ySpeed, zSpeed, args);
 	}
 }

@@ -10,12 +10,12 @@ import net.minecraft.util.ResourceLocation;
 public final class ResourceLocationsAPI {
 
 	//Sounds
-	public static final ResourceLocation BOIL = getLocation ("boil");
+	public static final ResourceLocation BOIL = getLocation("boil");
 
-	private ResourceLocationsAPI () {
+	private ResourceLocationsAPI() {
 	}
 
-	private static ResourceLocation getLocation (String name) {
-		return new ResourceLocation ("wiccanarts", name);
+	private static ResourceLocation getLocation(String name) {
+		return new ResourceLocation("wiccanarts", name);
 	}
 }

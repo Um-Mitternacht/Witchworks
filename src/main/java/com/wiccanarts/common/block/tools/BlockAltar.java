@@ -25,52 +25,52 @@ import static net.minecraft.block.BlockHorizontal.FACING;
  */
 public class BlockAltar extends BlockMod implements IModelRegister {
 
-	public BlockAltar () {
-		super (LibBlockName.ALTAR, Material.ROCK);
-		setSound (SoundType.STONE);
-		setResistance (3F);
-		setHardness (3F);
+	public BlockAltar() {
+		super(LibBlockName.ALTAR, Material.ROCK);
+		setSound(SoundType.STONE);
+		setResistance(3F);
+		setHardness(3F);
 	}
 
 	@SuppressWarnings ("deprecation")
 	@Override
-	public IBlockState getStateFromMeta (int meta) {
-		final EnumFacing facing = EnumFacing.getHorizontal (meta);
-		return getDefaultState ().withProperty (FACING, facing);
+	public IBlockState getStateFromMeta(int meta) {
+		final EnumFacing facing = EnumFacing.getHorizontal(meta);
+		return getDefaultState().withProperty(FACING, facing);
 	}
 
 	@Override
-	public int getMetaFromState (IBlockState state) {
-		final EnumFacing facing = state.getValue (FACING);
-		return facing.getHorizontalIndex ();
+	public int getMetaFromState(IBlockState state) {
+		final EnumFacing facing = state.getValue(FACING);
+		return facing.getHorizontalIndex();
 	}
 
 	@Override
-	public IBlockState getStateForPlacement (World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
-		final EnumFacing enumfacing = EnumFacing.fromAngle (placer.rotationYaw);
-		return this.getDefaultState ().withProperty (FACING, enumfacing);
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw);
+		return this.getDefaultState().withProperty(FACING, enumfacing);
 	}
 
 	@Override
-	protected BlockStateContainer createBlockState () {
-		return new BlockStateContainer (this, FACING);
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
 	}
 
 	@SuppressWarnings ("deprecation")
 	@Override
-	public boolean isFullCube (IBlockState state) {
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	@SuppressWarnings ("deprecation")
 	@Override
-	public boolean isOpaqueCube (IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void registerModels () {
-		ModelHandler.registerBlock (this);
+	public void registerModels() {
+		ModelHandler.registerBlock(this);
 	}
 }

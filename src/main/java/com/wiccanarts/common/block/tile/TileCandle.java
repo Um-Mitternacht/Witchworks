@@ -20,58 +20,58 @@ public class TileCandle extends TileMod implements ITickable {
 	private int type;
 	private int ticks;
 
-	public TileCandle () {
+	public TileCandle() {
 	}
 
-	public TileCandle (int type, EnumDyeColor color) {
+	public TileCandle(int type, EnumDyeColor color) {
 		this.type = type;
 		this.color = color;
 	}
 
-	public void litCandle () {
-		world.playSound (null, getPos (), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1F, 1F);
-		setLit (true);
+	public void litCandle() {
+		world.playSound(null, getPos(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1F, 1F);
+		setLit(true);
 	}
 
-	public void unLitCandle () {
-		world.playSound (null, getPos (), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
-		setLit (false);
+	public void unLitCandle() {
+		world.playSound(null, getPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
+		setLit(false);
 	}
 
 	@Override
-	public void update () {
+	public void update() {
 		if (lit && ticks % 10 == 0) {
-			final BlockPos pos = getPos ();
-			world.spawnParticle (EnumParticleTypes.FLAME, pos.getX () + 0.5, pos.getY () + 0.7 + type * 0.25, pos.getZ () + 0.5, 0, 0, 0);
+			final BlockPos pos = getPos();
+			world.spawnParticle(EnumParticleTypes.FLAME, pos.getX() + 0.5, pos.getY() + 0.7 + type * 0.25, pos.getZ() + 0.5, 0, 0, 0);
 		}
 		ticks++;
 	}
 
-	public EnumDyeColor getColor () {
+	public EnumDyeColor getColor() {
 		return color;
 	}
 
-	public void setColor (EnumDyeColor color) {
+	public void setColor(EnumDyeColor color) {
 		this.color = color;
 	}
 
-	public boolean isLit () {
+	public boolean isLit() {
 		return lit;
 	}
 
-	public void setLit (boolean lit) {
+	public void setLit(boolean lit) {
 		this.lit = lit;
 	}
 
 	@Override
-	void writeDataNBT (NBTTagCompound cmp) {
-		cmp.setBoolean ("lit", lit);
-		cmp.setInteger ("color", color.getMetadata ());
+	void writeDataNBT(NBTTagCompound cmp) {
+		cmp.setBoolean("lit", lit);
+		cmp.setInteger("color", color.getMetadata());
 	}
 
 	@Override
-	void readDataNBT (NBTTagCompound cmp) {
-		lit = cmp.getBoolean ("lit");
-		color = EnumDyeColor.byMetadata (cmp.getInteger ("color"));
+	void readDataNBT(NBTTagCompound cmp) {
+		lit = cmp.getBoolean("lit");
+		color = EnumDyeColor.byMetadata(cmp.getInteger("color"));
 	}
 }

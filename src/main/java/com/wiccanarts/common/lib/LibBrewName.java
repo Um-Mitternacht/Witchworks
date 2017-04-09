@@ -9,6 +9,6 @@ public final class LibBrewName {
 
 	public static final String STONEFORM_BREW = "stoneform_brew";
 
-	private LibBrewName () {
+	private LibBrewName() {
 	}
 }
