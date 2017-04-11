@@ -3,6 +3,7 @@ package com.wiccanarts.common.crafting;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -56,6 +57,28 @@ public final class VanillaCrafting {
 					.outputs(ModBlocks.MOLDAVITE_BLOCK)
 					.setMirror(true).build();
 		}
+
+		for (ItemStack item : OreDictionary.getOres("plankWood"))
+		{
+			System.out.println(item);
+			shaped().grid("WWW", "WHW", "WWW")
+					.map('W', item)
+					.map('H', ModItems.EMPTY_HONEYCOMB)
+					.outputs(ModBlocks.APIARY)
+					.setMirror(true).build();
+		}
+
+		for (ItemStack item : OreDictionary.getOres("plankWood"))
+		{
+			System.out.println(item);
+			shaped().grid("LSL", "SSS", "WWW")
+					.map('W', item)
+					.map('S', Blocks.STONE)
+					.map('L', Blocks.CARPET)
+					.outputs(ModBlocks.ALTAR)
+					.setMirror(true).build();
+		}
+
 
 		for (ItemStack item : OreDictionary.getOres("blockMoldavite")) {
 			shapeless()
