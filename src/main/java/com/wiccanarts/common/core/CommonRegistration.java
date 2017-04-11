@@ -14,6 +14,7 @@ import com.wiccanarts.common.item.ItemBlockColor;
 import com.wiccanarts.common.item.ItemBrewPhial;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.ModMaterials;
+import com.wiccanarts.common.item.equipment.ItemSilverArmor;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
@@ -24,12 +25,15 @@ import com.wiccanarts.common.potions.BrewStoneform;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import javax.swing.text.html.parser.Entity;
 
 import static com.wiccanarts.api.WiccanArtsAPI.CropRegistry;
 import static com.wiccanarts.api.item.crop.Crop.*;
@@ -98,11 +102,17 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.LAVENDER_OIL),
 
 				//Tools
-				new ItemSilverPickaxe(ModMaterials.SILVER),
-				new ItemSilverAxe(ModMaterials.SILVER),
-				new ItemSilverSpade(ModMaterials.SILVER),
-				new ItemSilverHoe(ModMaterials.SILVER),
-				new ItemSilverSword(ModMaterials.SILVER)
+				new ItemSilverPickaxe(ModMaterials.TOOL_SILVER),
+				new ItemSilverAxe(ModMaterials.TOOL_SILVER),
+				new ItemSilverSpade(ModMaterials.TOOL_SILVER),
+				new ItemSilverHoe(ModMaterials.TOOL_SILVER),
+				new ItemSilverSword(ModMaterials.TOOL_SILVER),
+
+				//Equipment
+				new ItemSilverArmor(LibItemName.SILVER_HELMET, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.HEAD),
+				new ItemSilverArmor(LibItemName.SILVER_CHESTPLATE, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.CHEST),
+				new ItemSilverArmor(LibItemName.SILVER_LEGGINGS, ModMaterials.ARMOR_SILVER, 2, EntityEquipmentSlot.LEGS),
+				new ItemSilverArmor(LibItemName.SILVER_BOOTS, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.FEET)
 		);
 
 		//Item Blocks
