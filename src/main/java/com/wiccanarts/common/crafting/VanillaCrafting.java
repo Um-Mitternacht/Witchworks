@@ -155,7 +155,7 @@ public final class VanillaCrafting {
 				.add(new ItemStack(Items.DYE, 1, 4))
 				.add(ModItems.JASPER)
 				.outputs(new ItemStack(ModItems.MALACHITE, 1))
-				.build();
+				.buildHidden();
 
 		for (int i = 0; i < 16; i++) {
 			shapeless()
@@ -241,6 +241,15 @@ public final class VanillaCrafting {
 			if (output == null) throw new IllegalArgumentException("Output not specified, please report this!");
 
 			final ShapelessOreRecipe recipe = new ShapelessOreRecipe(output, ingredients.toArray());
+			CraftingManager.getInstance().getRecipeList().add(recipe);
+		}
+
+		public void buildHidden() {
+			if (ingredients.isEmpty())
+				throw new IllegalArgumentException("You have to specify ingredients for the recipe, please report this!");
+			if (output == null) throw new IllegalArgumentException("Output not specified, please report this!");
+
+			final ModShapelessOreRecipe recipe = new ModShapelessOreRecipe(output, ingredients.toArray());
 			CraftingManager.getInstance().getRecipeList().add(recipe);
 		}
 	}
