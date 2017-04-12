@@ -14,7 +14,7 @@ import net.minecraftforge.common.util.EnumHelper;
  */
 public final class ModMaterials {
 
-	public static final Item.ToolMaterial TOOL_SILVER = EnumHelper.addToolMaterial(LibItemName.SILVER, 2, 222, 3.5F, 2.5F, 18);
+	public static final Item.ToolMaterial TOOL_SILVER = EnumHelper.addToolMaterial(LibItemName.SILVER, 1, 250, 3.0F, 2.0F, 22);
 	public static final ItemArmor.ArmorMaterial ARMOR_SILVER = EnumHelper.addArmorMaterial(LibItemName.SILVER, LibMod.MOD_ID+":"+LibItemName.SILVER, 18, new int[] {2, 9, 4, 2}, 22, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.5F);
 
 	private ModMaterials() {
