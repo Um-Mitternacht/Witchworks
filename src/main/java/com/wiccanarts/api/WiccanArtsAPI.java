@@ -1,38 +1,36 @@
 package com.wiccanarts.api;
 
 import com.wiccanarts.api.item.crop.Crop;
-import com.wiccanarts.api.recipe.IKettleRecipe;
-import com.wiccanarts.api.recipe.KettleFluidRecipe;
-import com.wiccanarts.api.recipe.KettleRecipe;
+import com.wiccanarts.api.recipe.*;
 import com.wiccanarts.common.block.crop.BlockCrop;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class was created by Arekkuusu on 01/03/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings ({"WeakerAccess","unused"})
 public final class WiccanArtsAPI {
 
 	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
+	private static final Map<Item, KettleExchange> kettleExchanges = new HashMap<>();
+	private static final Map<Item, PotionValidator<PotionHolder>> kettleEffects = new HashMap<>();
+	private static final Map<Item, PotionValidator<IEffectModifier>> kettleModifiers = new HashMap<>();
 
 	private WiccanArtsAPI() {
 	}
 
-	public static IKettleRecipe registerKettleRecipe(ItemStack stack, Object... objects) {
+	public static IKettleRecipe registerKettleItemRecipe(ItemStack stack, Object... objects) {
 		final IKettleRecipe recipe = new KettleRecipe(stack, objects);
 		return registerKettleRecipe(recipe);
 	}
 
-	public static IKettleRecipe registerKettleFluidRecipe(Item item, ItemStack stack, Object... objects) {
-		final IKettleRecipe recipe = new KettleFluidRecipe(item, stack, objects);
+	public static IKettleRecipe registerKettlePotionRecipe(ItemStack stack, Object... objects) {
+		final IKettleRecipe recipe = new KettleRecipePotion(stack, objects);
 		return registerKettleRecipe(recipe);
 	}
 
@@ -41,8 +39,42 @@ public final class WiccanArtsAPI {
 		return kettleRecipe;
 	}
 
+	public static void addKettleExchange(ItemStack in, ItemStack out, boolean strict) {
+		kettleExchanges.put(in.getItem(), new KettleExchange(in, out, strict));
+	}
+
+	public static void addKettleEffectTo(ItemStack stack, PotionHolder effect) {
+		final Item item = stack.getItem();
+		if(kettleEffects.containsKey(item)) {
+			kettleEffects.get(item).add(stack, effect);
+		} else {
+			kettleEffects.put(item, new PotionValidator<PotionHolder>().add(stack, effect));
+		}
+	}
+
+	public static void addKettleModifierTo(ItemStack stack, IEffectModifier modifier) {
+		final Item item = stack.getItem();
+		if(kettleModifiers.containsKey(item)) {
+			kettleModifiers.get(item).add(stack, modifier);
+		} else {
+			kettleModifiers.put(item, new PotionValidator<IEffectModifier>().add(stack, modifier));
+		}
+	}
+
 	public static List<IKettleRecipe> getKettleRecipes() {
 		return kettleRecipes;
+	}
+
+	public static Map<Item, KettleExchange> getKettleExchanges() {
+		return kettleExchanges;
+	}
+
+	public static Map<Item, PotionValidator<PotionHolder>> getKettleEffects() {
+		return kettleEffects;
+	}
+
+	public static Map<Item, PotionValidator<IEffectModifier>> getKettleModifiers() {
+		return kettleModifiers;
 	}
 
 	public static class CropRegistry {

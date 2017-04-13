@@ -1,7 +1,7 @@
 package com.wiccanarts.api.recipe;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -10,17 +10,19 @@ import net.minecraft.world.World;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class KettleFluidRecipe extends KettleRecipe {
+public class KettleRecipePotion extends KettleRecipe {
 
-	private final Item item;
-
-	public KettleFluidRecipe(Item item, ItemStack result, Object... inputs) {
+	public KettleRecipePotion(ItemStack result, Object... inputs) {
 		super(result, inputs);
-		this.item = item;
 	}
 
 	@Override
 	public boolean canTake(World world, EntityPlayer player, ItemStack stack) {
-		return stack.getItem() == item;
+		return stack.getItem() == Items.GLASS_BOTTLE;
+	}
+
+	@Override
+	public boolean isPotion() {
+		return true;
 	}
 }

@@ -59,11 +59,6 @@ public class KettleRecipe implements IKettleRecipe {
 		return false;
 	}
 
-	@Override
-	public boolean canTake(World world, EntityPlayer player, ItemStack stack) {
-		return false;
-	}
-
 	private List<ItemStack> getUsedItems(IItemHandler handler) {
 		final List<ItemStack> used = new ArrayList<>();
 		for (int i = 0; i < handler.getSlots(); i++) {

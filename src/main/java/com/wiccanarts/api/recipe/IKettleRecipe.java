@@ -15,7 +15,13 @@ public interface IKettleRecipe {
 
 	boolean checkRecipe(IItemHandler usedItems, World world);
 
-	boolean canTake(World world, EntityPlayer player, ItemStack stack);
+	default boolean canTake(World world, EntityPlayer player, ItemStack stack) {
+		return false;
+	}
+
+	default boolean isPotion() {
+		return false;
+	}
 
 	ImmutableList<Object> getNeededItems();
 

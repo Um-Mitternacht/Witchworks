@@ -1,12 +1,12 @@
 package com.wiccanarts.common.crafting;
 
 import com.wiccanarts.api.WiccanArtsAPI;
-import com.wiccanarts.api.recipe.IKettleRecipe;
+import com.wiccanarts.api.recipe.PotionHolder;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.potions.BrewUtils;
-import com.wiccanarts.common.potions.ModBrews;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
@@ -20,30 +20,50 @@ public final class KettleCrafting {
 
 	//Items
 
-	//Fluids
-	public static IKettleRecipe HONEY;
-	public static IKettleRecipe WAX;
-	public static IKettleRecipe LAVENDER;
-	public static IKettleRecipe STONEFORM_BREW;
+	//Potions
 
 	private KettleCrafting() {
 	}
 
 	public static void init() {
+		//Exchanges
+		WiccanArtsAPI.addKettleExchange(getStack(ModItems.EMPTY_HONEYCOMB), getStack(ModItems.WAX), false);
+		WiccanArtsAPI.addKettleExchange(getStack(ModItems.HONEYCOMB), getStack(ModItems.HONEY), false);
+		WiccanArtsAPI.addKettleExchange(getStack(Items.BEEF), getStack(Items.COOKED_BEEF), false);
+		WiccanArtsAPI.addKettleExchange(getStack(Items.FISH), getStack(Items.COOKED_FISH), false);
+		WiccanArtsAPI.addKettleExchange(getStack(Items.CHICKEN), getStack(Items.COOKED_CHICKEN), false);
+		WiccanArtsAPI.addKettleExchange(getStack(Items.MUTTON), getStack(Items.COOKED_MUTTON), false);
+		WiccanArtsAPI.addKettleExchange(getStack(Items.PORKCHOP), getStack(Items.COOKED_PORKCHOP), false);
+		WiccanArtsAPI.addKettleExchange(getStack(Items.RABBIT), getStack(Items.COOKED_RABBIT), false);
 
-		HONEY = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
-				, new ItemStack(ModItems.HONEY)
-				, ModItems.HONEYCOMB, ModItems.HONEYCOMB);
+		//Item Recipes
+		WiccanArtsAPI.registerKettleItemRecipe(getStack(ModItems.SILVER_INGOT)
+				, Items.IRON_INGOT, Items.IRON_INGOT, Items.IRON_INGOT, Items.COAL);
 
-		WAX = WiccanArtsAPI.registerKettleRecipe (new ItemStack(ModItems.WAX, 2)
-				, ModItems.EMPTY_HONEYCOMB, ModItems.EMPTY_HONEYCOMB);
+		WiccanArtsAPI.registerKettleItemRecipe(getStack(Items.GOLD_INGOT)
+				, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET);
 
-		LAVENDER = WiccanArtsAPI.registerKettleFluidRecipe(ModItems.GLASS_JAR
-				, new ItemStack(ModItems.LAVENDER_OIL)
-				, ModItems.LAVENDER, ModItems.LAVENDER, ModItems.LAVENDER, ModItems.LAVENDER);
+		//Potion Recipes
+		WiccanArtsAPI.registerKettlePotionRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(MobEffects.HASTE))
+				, Items.SPECKLED_MELON, Items.SPECKLED_MELON, ModItems.SALT);
 
-		STONEFORM_BREW = WiccanArtsAPI.registerKettleFluidRecipe(Items.POTIONITEM
-				, BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(ModBrews.STONEFORM_BREW, 1800))
-				, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, Blocks.COBBLESTONE, ModItems.MANDRAKE_ROOT, ModItems.WAX);
+		//Custom Effects & Modifiers
+		WiccanArtsAPI.addKettleEffectTo(getStack(Items.APPLE), new PotionHolder(MobEffects.ABSORPTION, 200, 0));
+
+		WiccanArtsAPI.addKettleEffectTo(getStack(Items.IRON_INGOT), new PotionHolder(MobEffects.RESISTANCE, 50, 1));
+
+		WiccanArtsAPI.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(100, 0));
+
+		WiccanArtsAPI.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-50, 1));
+	}
+
+	/**
+	 * Who needs to write the whole thing?
+	 *
+	 * @param item The item to make an ItemStack out of
+	 * @return An ItemStack
+	 */
+	private static ItemStack getStack(Item item) {
+		return new ItemStack(item);
 	}
 }
