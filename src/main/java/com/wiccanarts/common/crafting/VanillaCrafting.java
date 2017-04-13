@@ -58,8 +58,7 @@ public final class VanillaCrafting {
 					.setMirror(true).build();
 		}
 
-		for (ItemStack item : OreDictionary.getOres("plankWood"))
-		{
+		for (ItemStack item : OreDictionary.getOres("plankWood")) {
 			System.out.println(item);
 			shaped().grid("WWW", "WHW", "WWW")
 					.map('W', item)
@@ -68,8 +67,7 @@ public final class VanillaCrafting {
 					.setMirror(true).build();
 		}
 
-		for (ItemStack item : OreDictionary.getOres("plankWood"))
-		{
+		for (ItemStack item : OreDictionary.getOres("plankWood")) {
 			System.out.println(item);
 			shaped().grid("LSL", "SSS", "WWW")
 					.map('W', item)

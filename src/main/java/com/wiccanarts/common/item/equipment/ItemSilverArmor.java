@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by BerciTheBeast on 11.4.2017.
  */
-public class ItemSilverArmor extends ItemArmor implements IModelRegister{
+public class ItemSilverArmor extends ItemArmor implements IModelRegister {
 	public ItemSilverArmor(String id, ArmorMaterial materialIn, int renderIndex, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndex, equipmentSlotIn);
 		setRegistryName(id);
@@ -20,7 +20,7 @@ public class ItemSilverArmor extends ItemArmor implements IModelRegister{
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerItem(this);
 	}

@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
  */
 public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
-	private final float[] color = new float[]{0.0f, 0.39215687f, 0.0f};
+	private final float[] color = new float[] {0.0f, 0.39215687f, 0.0f};
 
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {

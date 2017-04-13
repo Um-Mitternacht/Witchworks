@@ -2,16 +2,13 @@ package com.wiccanarts.common.crafting;
 
 import com.wiccanarts.api.WiccanArtsAPI;
 import com.wiccanarts.api.recipe.PotionHolder;
-import com.wiccanarts.common.WiccanArts;
 import com.wiccanarts.common.item.ModItems;
-import com.wiccanarts.common.potions.BrewStoneform;
 import com.wiccanarts.common.potions.BrewUtils;
 import com.wiccanarts.common.potions.ModBrews;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
@@ -49,7 +46,7 @@ public final class KettleCrafting {
 				, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET);
 
 		//Potion Recipes
-		WiccanArtsAPI.registerKettlePotionRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(MobEffects.HASTE,10*20, 0))
+		WiccanArtsAPI.registerKettlePotionRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(MobEffects.HASTE, 10 * 20, 0))
 				, Items.SPECKLED_MELON, Items.SPECKLED_MELON, ModItems.SALT);
 
 		//Custom Effects & Modifiers
@@ -66,20 +63,21 @@ public final class KettleCrafting {
 		WiccanArtsAPI.addKettleEffectTo(getStack(ModItems.SILVER_INGOT), new PotionHolder(ModBrews.PARALYSIS_BREW, 200, 0));
 
 
-
 		WiccanArtsAPI.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(100, 0));
 
 		WiccanArtsAPI.addKettleModifierTo(getStack(ModItems.QUARTZ), effect -> effect.alter(400, 0));
 
-		WiccanArtsAPI.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-50, 1));
+		WiccanArtsAPI.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(- 50, 1));
 
-		WiccanArtsAPI.addKettleModifierTo(getStack(ModItems.NUUMMITE), effect -> effect.alter(-150, 3));
+		WiccanArtsAPI.addKettleModifierTo(getStack(ModItems.NUUMMITE), effect -> effect.alter(- 150, 3));
 	}
 
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param item The item to make an ItemStack out of
+	 * @param item
+	 * 		The item to make an ItemStack out of
+	 *
 	 * @return An ItemStack
 	 */
 	private static ItemStack getStack(Item item) {

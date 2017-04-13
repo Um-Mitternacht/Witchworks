@@ -13,7 +13,7 @@ import java.util.*;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess","unused"})
+@SuppressWarnings ({"WeakerAccess", "unused"})
 public final class WiccanArtsAPI {
 
 	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
@@ -45,7 +45,7 @@ public final class WiccanArtsAPI {
 
 	public static void addKettleEffectTo(ItemStack stack, PotionHolder effect) {
 		final Item item = stack.getItem();
-		if(kettleEffects.containsKey(item)) {
+		if (kettleEffects.containsKey(item)) {
 			kettleEffects.get(item).add(stack, effect);
 		} else {
 			kettleEffects.put(item, new PotionValidator<PotionHolder>().add(stack, effect));
@@ -54,7 +54,7 @@ public final class WiccanArtsAPI {
 
 	public static void addKettleModifierTo(ItemStack stack, IEffectModifier modifier) {
 		final Item item = stack.getItem();
-		if(kettleModifiers.containsKey(item)) {
+		if (kettleModifiers.containsKey(item)) {
 			kettleModifiers.get(item).add(stack, modifier);
 		} else {
 			kettleModifiers.put(item, new PotionValidator<IEffectModifier>().add(stack, modifier));

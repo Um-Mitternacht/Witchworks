@@ -17,20 +17,20 @@ public class BrewStoneform extends BrewMod {
 
 	@Override
 	public void performEffect(EntityLivingBase livingBase, int level) {
-		if(livingBase instanceof EntityPlayer) {
-			if(!((EntityPlayer)livingBase).capabilities.isCreativeMode) {
-				livingBase.motionX *= (0.25D/((level+1)*20));
-				if (!livingBase.onGround) {
-					livingBase.motionY -= (0.05*((level+1)+1));
+		if (livingBase instanceof EntityPlayer) {
+			if (! ((EntityPlayer) livingBase).capabilities.isCreativeMode) {
+				livingBase.motionX *= (0.25D / ((level + 1) * 20));
+				if (! livingBase.onGround) {
+					livingBase.motionY -= (0.05 * ((level + 1) + 1));
 				}
-				livingBase.motionZ *= (0.25D/(level*20));
+				livingBase.motionZ *= (0.25D / (level * 20));
 			}
 		} else {
-			livingBase.motionX *= (0.25D/((level+1)*20));
-			if (!livingBase.onGround) {
-				livingBase.motionY -= (0.05*(level+1));
+			livingBase.motionX *= (0.25D / ((level + 1) * 20));
+			if (! livingBase.onGround) {
+				livingBase.motionY -= (0.05 * (level + 1));
 			}
-			livingBase.motionZ *= (0.25D/((level+1)*20));
+			livingBase.motionZ *= (0.25D / ((level + 1) * 20));
 		}
 	}
 

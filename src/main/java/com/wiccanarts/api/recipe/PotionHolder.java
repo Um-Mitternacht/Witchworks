@@ -40,8 +40,8 @@ public class PotionHolder {
 		this.duration += durationIn;
 		this.amplifier += amplifierIn;
 
-		if(duration < 0) duration = 0;
-		if(amplifier < 0) amplifier = 0;
+		if (duration < 0) duration = 0;
+		if (amplifier < 0) amplifier = 0;
 		return this;
 	}
 

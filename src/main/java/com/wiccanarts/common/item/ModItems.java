@@ -98,13 +98,13 @@ public final class ModItems {
 	public static final Item SILVER_SWORD = new Item();
 	@ObjectHolder (LibItemName.MORTAR_AND_PESTLE)
 	public static final Item MORTAR_AND_PESTLE = new Item();
-	@ObjectHolder(LibItemName.SILVER_HELMET)
+	@ObjectHolder (LibItemName.SILVER_HELMET)
 	public static final Item SILVER_HELMET = new Item();
-	@ObjectHolder(LibItemName.SILVER_CHESTPLATE)
+	@ObjectHolder (LibItemName.SILVER_CHESTPLATE)
 	public static final Item SILVER_CHESTPLATE = new Item();
-	@ObjectHolder(LibItemName.SILVER_LEGGINGS)
+	@ObjectHolder (LibItemName.SILVER_LEGGINGS)
 	public static final Item SILVER_LEGGINGS = new Item();
-	@ObjectHolder(LibItemName.SILVER_BOOTS)
+	@ObjectHolder (LibItemName.SILVER_BOOTS)
 	public static final Item SILVER_BOOTS = new Item();
 
 	private ModItems() {

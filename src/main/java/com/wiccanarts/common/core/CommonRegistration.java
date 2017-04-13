@@ -34,8 +34,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import javax.swing.text.html.parser.Entity;
-
 import static com.wiccanarts.api.WiccanArtsAPI.CropRegistry;
 import static com.wiccanarts.api.item.crop.Crop.*;
 
