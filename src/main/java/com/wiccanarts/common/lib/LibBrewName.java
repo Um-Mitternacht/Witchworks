@@ -8,6 +8,7 @@ package com.wiccanarts.common.lib;
 public final class LibBrewName {
 
 	public static final String STONEFORM_BREW = "stoneform_brew";
+	public static final String PARALYSIS_BREW = "paralysis_brew";
 
 	private LibBrewName() {
 	}

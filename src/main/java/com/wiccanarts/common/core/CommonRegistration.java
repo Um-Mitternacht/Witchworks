@@ -21,6 +21,7 @@ import com.wiccanarts.common.item.seed.ItemSeed;
 import com.wiccanarts.common.item.tool.*;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibItemName;
+import com.wiccanarts.common.potions.BrewParalysis;
 import com.wiccanarts.common.potions.BrewStoneform;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -216,7 +217,8 @@ public final class CommonRegistration {
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().registerAll(
-				new BrewStoneform()
+				new BrewStoneform(),
+				new BrewParalysis()
 		);
 	}
 

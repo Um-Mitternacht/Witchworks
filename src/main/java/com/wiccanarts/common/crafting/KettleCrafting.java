@@ -2,11 +2,16 @@ package com.wiccanarts.common.crafting;
 
 import com.wiccanarts.api.WiccanArtsAPI;
 import com.wiccanarts.api.recipe.PotionHolder;
+import com.wiccanarts.common.WiccanArts;
 import com.wiccanarts.common.item.ModItems;
+import com.wiccanarts.common.potions.BrewStoneform;
 import com.wiccanarts.common.potions.BrewUtils;
+import com.wiccanarts.common.potions.ModBrews;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
@@ -44,13 +49,19 @@ public final class KettleCrafting {
 				, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET);
 
 		//Potion Recipes
-		WiccanArtsAPI.registerKettlePotionRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(MobEffects.HASTE))
+		WiccanArtsAPI.registerKettlePotionRecipe(BrewUtils.createPotion(Items.POTIONITEM, new PotionEffect(MobEffects.HASTE,10*20, 0))
 				, Items.SPECKLED_MELON, Items.SPECKLED_MELON, ModItems.SALT);
 
 		//Custom Effects & Modifiers
 		WiccanArtsAPI.addKettleEffectTo(getStack(Items.APPLE), new PotionHolder(MobEffects.ABSORPTION, 200, 0));
 
 		WiccanArtsAPI.addKettleEffectTo(getStack(Items.IRON_INGOT), new PotionHolder(MobEffects.RESISTANCE, 50, 1));
+
+		WiccanArtsAPI.addKettleEffectTo(new ItemStack(Blocks.COBBLESTONE), new PotionHolder(ModBrews.STONEFORM_BREW, 240, 0));
+
+		WiccanArtsAPI.addKettleEffectTo(getStack(ModItems.SILVER_INGOT), new PotionHolder(ModBrews.PARALYSIS_BREW, 200, 0));
+
+
 
 		WiccanArtsAPI.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(100, 0));
 

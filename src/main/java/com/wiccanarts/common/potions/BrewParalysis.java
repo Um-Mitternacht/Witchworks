@@ -5,32 +5,34 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 /**
- * This class was created by Arekkuusu on 03/04/2017.
- * It's distributed as part of Wiccan Arts under
- * the MIT license.
+ * Created by BerciTheBeast on 13.4.2017.
  */
-public class BrewStoneform extends BrewMod {
+public class BrewParalysis extends BrewMod {
 
-	public BrewStoneform() {
-		super(LibBrewName.STONEFORM_BREW, false, 0x000000, 0);
+	public BrewParalysis() {
+		super(LibBrewName.PARALYSIS_BREW, true, 0x001234, 1);
 	}
 
 	@Override
 	public void performEffect(EntityLivingBase livingBase, int level) {
 		if(livingBase instanceof EntityPlayer) {
 			if(!((EntityPlayer)livingBase).capabilities.isCreativeMode) {
-				livingBase.motionX *= (0.25D/((level+1)*20));
+				livingBase.motionX = 0;
 				if (!livingBase.onGround) {
 					livingBase.motionY -= (0.05*((level+1)+1));
 				}
-				livingBase.motionZ *= (0.25D/(level*20));
+				livingBase.motionZ = 0;
+				((EntityPlayer) livingBase).rotationYaw = ((EntityPlayer) livingBase).prevRotationYaw;
+				((EntityPlayer) livingBase).rotationPitch = ((EntityPlayer) livingBase).prevRotationPitch;
 			}
 		} else {
-			livingBase.motionX *= (0.25D/((level+1)*20));
+			livingBase.motionX = 0;
 			if (!livingBase.onGround) {
 				livingBase.motionY -= (0.05*(level+1));
 			}
-			livingBase.motionZ *= (0.25D/((level+1)*20));
+			livingBase.motionZ = 0;
+			((EntityPlayer) livingBase).rotationYaw = ((EntityPlayer) livingBase).prevRotationYaw;
+			((EntityPlayer) livingBase).rotationPitch = ((EntityPlayer) livingBase).prevRotationPitch;
 		}
 	}
 
