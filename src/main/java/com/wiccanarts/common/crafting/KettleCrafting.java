@@ -57,6 +57,10 @@ public final class KettleCrafting {
 
 		WiccanArtsAPI.addKettleEffectTo(getStack(Items.IRON_INGOT), new PotionHolder(MobEffects.RESISTANCE, 50, 1));
 
+		WiccanArtsAPI.addKettleEffectTo(getStack(ModItems.BELLADONNA), new PotionHolder(MobEffects.POISON, 200, 0));
+
+		WiccanArtsAPI.addKettleEffectTo(getStack(Items.RABBIT_FOOT), new PotionHolder(MobEffects.LUCK, 200, 0));
+
 		WiccanArtsAPI.addKettleEffectTo(new ItemStack(Blocks.COBBLESTONE), new PotionHolder(ModBrews.STONEFORM_BREW, 240, 0));
 
 		WiccanArtsAPI.addKettleEffectTo(getStack(ModItems.SILVER_INGOT), new PotionHolder(ModBrews.PARALYSIS_BREW, 200, 0));
@@ -65,7 +69,11 @@ public final class KettleCrafting {
 
 		WiccanArtsAPI.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(100, 0));
 
+		WiccanArtsAPI.addKettleModifierTo(getStack(ModItems.QUARTZ), effect -> effect.alter(400, 0));
+
 		WiccanArtsAPI.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-50, 1));
+
+		WiccanArtsAPI.addKettleModifierTo(getStack(ModItems.NUUMMITE), effect -> effect.alter(-150, 3));
 	}
 
 	/**
