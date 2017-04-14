@@ -22,19 +22,19 @@ public class ModelHerbPouch extends ModelBase {
 		this.textureHeight = 32;
 
 		this.Cuboid = new ModelRenderer(this, 0, 4);
-		this.Cuboid.setRotationPoint(- 4.0F, 12.0F, - 2.5F);
+		this.Cuboid.setRotationPoint(-4.0F, 12.0F, -2.5F);
 		this.Cuboid.addBox(0.0F, 0.0F, 0.0F, 9, 3, 1);
 		this.Cuboid2 = new ModelRenderer(this, 0, 8);
-		this.Cuboid2.setRotationPoint(- 3.75F, 12.0F, - 2.5F);
-		this.Cuboid2.addBox(0.0F, 0.0F, - 3.0F, 8, 3, 3);
+		this.Cuboid2.setRotationPoint(-3.75F, 12.0F, -2.5F);
+		this.Cuboid2.addBox(0.0F, 0.0F, -3.0F, 8, 3, 3);
 		this.Cuboid3 = new ModelRenderer(this, 0, 14);
-		this.Cuboid3.setRotationPoint(- 4.0F, 11.5F, - 4.0F);
+		this.Cuboid3.setRotationPoint(-4.0F, 11.5F, -4.0F);
 		this.Cuboid3.addBox(0.0F, 0.0F, 0.0F, 9, 1, 4);
 		this.Cuboid4 = new ModelRenderer(this, 0, 0);
-		this.Cuboid4.setRotationPoint(- 4.0F, 12.0F, - 4.5F);
+		this.Cuboid4.setRotationPoint(-4.0F, 12.0F, -4.5F);
 		this.Cuboid4.addBox(0.0F, 0.0F, 0.0F, 9, 3, 1);
 		this.Cuboid5 = new ModelRenderer(this, 0, 15);
-		this.Cuboid5.setRotationPoint(- 2.25F, 13.1F, - 5.2F);
+		this.Cuboid5.setRotationPoint(-2.25F, 13.1F, -5.2F);
 		this.Cuboid5.addBox(0.0F, 0.0F, 0.6F, 1, 1, 1);
 	}
 

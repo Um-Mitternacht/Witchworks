@@ -36,7 +36,7 @@ public class ItemKelpSeed extends ItemSeed {
 			if (raytraceresult.typeOfHit == RayTraceResult.Type.BLOCK) {
 				final BlockPos blockpos = raytraceresult.getBlockPos();
 
-				if (! worldIn.isBlockModifiable(playerIn, blockpos) || ! playerIn.canPlayerEdit(blockpos.offset(raytraceresult.sideHit), raytraceresult.sideHit, itemStackIn)) {
+				if (!worldIn.isBlockModifiable(playerIn, blockpos) || !playerIn.canPlayerEdit(blockpos.offset(raytraceresult.sideHit), raytraceresult.sideHit, itemStackIn)) {
 					return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
 				}
 
@@ -54,8 +54,8 @@ public class ItemKelpSeed extends ItemSeed {
 
 					worldIn.setBlockState(blockpos1, this.crop.getDefaultState(), 11);
 
-					if (! playerIn.capabilities.isCreativeMode) {
-						-- itemStackIn.stackSize;
+					if (!playerIn.capabilities.isCreativeMode) {
+						--itemStackIn.stackSize;
 					}
 
 					worldIn.playSound(playerIn, blockpos, SoundEvents.BLOCK_WATERLILY_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);

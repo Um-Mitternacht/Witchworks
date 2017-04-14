@@ -68,9 +68,9 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleModifierTo(getStack(ModItems.QUARTZ), effect -> effect.alter(400, 0));
 
-		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(- 50, 1));
+		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-50, 1));
 
-		KettleRegistry.addKettleModifierTo(getStack(ModItems.NUUMMITE), effect -> effect.alter(- 150, 3));
+		KettleRegistry.addKettleModifierTo(getStack(ModItems.NUUMMITE), effect -> effect.alter(-150, 3));
 	}
 
 	/**

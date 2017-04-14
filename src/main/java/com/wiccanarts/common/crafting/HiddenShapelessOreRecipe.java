@@ -79,7 +79,7 @@ public class HiddenShapelessOreRecipe implements IRecipe {
 						match = OreDictionary.itemMatches((ItemStack) aRequired, slot, false);
 					} else if (aRequired instanceof List) {
 						final Iterator<ItemStack> itr = ((List<ItemStack>) aRequired).iterator();
-						while (itr.hasNext() && ! match) {
+						while (itr.hasNext() && !match) {
 							match = OreDictionary.itemMatches(itr.next(), slot, false);
 						}
 					}
@@ -91,7 +91,7 @@ public class HiddenShapelessOreRecipe implements IRecipe {
 					}
 				}
 
-				if (! inRecipe) {
+				if (!inRecipe) {
 					return false;
 				}
 			}

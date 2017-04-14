@@ -75,7 +75,7 @@ public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 		final int veinSize = minVeinSize + randFactor;
 		final WorldGenMinable generator = new WorldGenMinable(blockToGen, veinSize, generateInBlocks);
 
-		for (int i = 0; i < chance; ++ i) {
+		for (int i = 0; i < chance; ++i) {
 			final int xRandom = chunkX * 16 + random.nextInt(16);
 			final int yRandom = random.nextInt(heightRange) + minY;
 			final int zRandom = chunkZ * 16 + random.nextInt(16);

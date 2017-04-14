@@ -28,16 +28,16 @@ public class ItemBrewPhial extends ItemMod { //TODO: Make Item texture change co
 	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
 		final EntityPlayer player = entity instanceof EntityPlayer ? (EntityPlayer) entity : null;
 
-		-- stack.stackSize;
+		--stack.stackSize;
 
-		if (! world.isRemote) {
+		if (!world.isRemote) {
 			for (PotionEffect effect : PotionUtils.getEffectsFromStack(stack)) {
 				System.out.println(effect);
 				entity.addPotionEffect(effect);
 			}
 		}
 
-		if (player != null && ! player.capabilities.isCreativeMode) {
+		if (player != null && !player.capabilities.isCreativeMode) {
 			if (stack.stackSize <= 0) {
 				return new ItemStack(Items.GLASS_BOTTLE);
 			}

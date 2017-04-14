@@ -57,19 +57,19 @@ public class BlockSaltBarrier extends BlockMod {
 		final boolean flag2 = state.getValue(SOUTH) != BlockSaltBarrier.EnumAttachPosition.NONE;
 		final boolean flag3 = state.getValue(WEST) != BlockSaltBarrier.EnumAttachPosition.NONE;
 
-		if (flag || flag2 && ! flag1 && ! flag3) {
+		if (flag || flag2 && !flag1 && !flag3) {
 			i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
 		}
 
-		if (flag1 || flag3 && ! flag && ! flag2) {
+		if (flag1 || flag3 && !flag && !flag2) {
 			i |= 1 << EnumFacing.EAST.getHorizontalIndex();
 		}
 
-		if (flag2 || flag && ! flag1 && ! flag3) {
+		if (flag2 || flag && !flag1 && !flag3) {
 			i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
 		}
 
-		if (flag3 || flag1 && ! flag && ! flag2) {
+		if (flag3 || flag1 && !flag && !flag2) {
 			i |= 1 << EnumFacing.WEST.getHorizontalIndex();
 		}
 
@@ -105,10 +105,10 @@ public class BlockSaltBarrier extends BlockMod {
 		final BlockPos blockpos = pos.offset(direction);
 		final IBlockState iblockstate = worldIn.getBlockState(pos.offset(direction));
 
-		if (! canConnectTo(worldIn.getBlockState(blockpos)) && (iblockstate.isNormalCube() || ! canConnectUpwardsTo(worldIn, blockpos.down()))) {
+		if (!canConnectTo(worldIn.getBlockState(blockpos)) && (iblockstate.isNormalCube() || !canConnectUpwardsTo(worldIn, blockpos.down()))) {
 			final IBlockState iblockstate1 = worldIn.getBlockState(pos.up());
 
-			if (! iblockstate1.isNormalCube()) {
+			if (!iblockstate1.isNormalCube()) {
 				final boolean flag = worldIn.getBlockState(blockpos).isSideSolid(worldIn, blockpos, EnumFacing.UP) || worldIn.getBlockState(blockpos).getBlock() == Blocks.GLOWSTONE;
 
 				if (flag && canConnectUpwardsTo(worldIn, blockpos.up())) {
@@ -174,7 +174,7 @@ public class BlockSaltBarrier extends BlockMod {
 
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-		if (! worldIn.isRemote) {
+		if (!worldIn.isRemote) {
 			this.updateSurroundingSalt(worldIn, state);
 
 			for (EnumFacing enumfacing : EnumFacing.Plane.VERTICAL) {
@@ -201,7 +201,7 @@ public class BlockSaltBarrier extends BlockMod {
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 		super.breakBlock(worldIn, pos, state);
 
-		if (! worldIn.isRemote) {
+		if (!worldIn.isRemote) {
 			for (EnumFacing enumfacing : EnumFacing.values()) {
 				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this);
 			}
@@ -227,7 +227,7 @@ public class BlockSaltBarrier extends BlockMod {
 	@SuppressWarnings ("deprecation")
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
-		if (! worldIn.isRemote) {
+		if (!worldIn.isRemote) {
 			if (this.canPlaceBlockAt(worldIn, pos)) {
 				this.updateSurroundingSalt(worldIn, state);
 			} else {

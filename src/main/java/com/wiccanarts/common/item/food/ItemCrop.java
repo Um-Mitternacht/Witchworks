@@ -45,7 +45,7 @@ public class ItemCrop extends ItemModFood implements IModelRegister {
 
 	@Override
 	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
-		if (! worldIn.isRemote && potions != null) {
+		if (!worldIn.isRemote && potions != null) {
 			final int modifier = isDry(stack) ? 160 : 80;
 			for (Potion effect : potions) {
 				player.addPotionEffect(new PotionEffect(effect, modifier, modifier / 80));

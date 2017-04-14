@@ -16,9 +16,9 @@ public class BrewParalysis extends BrewMod {
 	@Override
 	public void performEffect(EntityLivingBase livingBase, int level) {
 		if (livingBase instanceof EntityPlayer) {
-			if (! ((EntityPlayer) livingBase).capabilities.isCreativeMode) {
+			if (!((EntityPlayer) livingBase).capabilities.isCreativeMode) {
 				livingBase.motionX = 0;
-				if (! livingBase.onGround) {
+				if (!livingBase.onGround) {
 					livingBase.motionY -= (0.05 * ((level + 1) + 1));
 				}
 				livingBase.motionZ = 0;
@@ -27,7 +27,7 @@ public class BrewParalysis extends BrewMod {
 			}
 		} else {
 			livingBase.motionX = 0;
-			if (! livingBase.onGround) {
+			if (!livingBase.onGround) {
 				livingBase.motionY -= (0.05 * (level + 1));
 			}
 			livingBase.motionZ = 0;
