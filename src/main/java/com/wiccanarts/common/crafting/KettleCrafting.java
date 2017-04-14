@@ -68,15 +68,16 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleModifierTo(getStack(ModItems.QUARTZ), effect -> effect.alter(400, 0));
 
-		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-50, 1));
+		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(- 50, 1));
 
-		KettleRegistry.addKettleModifierTo(getStack(ModItems.NUUMMITE), effect -> effect.alter(-150, 3));
+		KettleRegistry.addKettleModifierTo(getStack(ModItems.NUUMMITE), effect -> effect.alter(- 150, 3));
 	}
 
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param item The item to make an ItemStack out of
+	 * @param item
+	 * 		The item to make an ItemStack out of
 	 *
 	 * @return An ItemStack
 	 */
@@ -87,11 +88,12 @@ public final class KettleCrafting {
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param block The block to make an ItemStack out of
+	 * @param block
+	 * 		The block to make an ItemStack out of
 	 *
 	 * @return An ItemStack
 	 */
 	private static ItemStack getStack(Block block) {
-		return new ItemStack (block);
+		return new ItemStack(block);
 	}
 }

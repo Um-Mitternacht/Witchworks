@@ -18,7 +18,7 @@ import java.util.List;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public class HiddenShapelessOreRecipe implements IRecipe {
 
 	private ItemStack output;
@@ -61,7 +61,7 @@ public class HiddenShapelessOreRecipe implements IRecipe {
 		return output.copy();
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	@Override
 	public boolean matches(InventoryCrafting var1, World world) {
 		final ArrayList<Object> required = new ArrayList<>(input);
@@ -79,7 +79,7 @@ public class HiddenShapelessOreRecipe implements IRecipe {
 						match = OreDictionary.itemMatches((ItemStack) aRequired, slot, false);
 					} else if (aRequired instanceof List) {
 						final Iterator<ItemStack> itr = ((List<ItemStack>) aRequired).iterator();
-						while (itr.hasNext() && !match) {
+						while (itr.hasNext() && ! match) {
 							match = OreDictionary.itemMatches(itr.next(), slot, false);
 						}
 					}
@@ -91,7 +91,7 @@ public class HiddenShapelessOreRecipe implements IRecipe {
 					}
 				}
 
-				if (!inRecipe) {
+				if (! inRecipe) {
 					return false;
 				}
 			}
@@ -111,8 +111,7 @@ public class HiddenShapelessOreRecipe implements IRecipe {
 	}
 
 	@Override
-	public ItemStack[] getRemainingItems(InventoryCrafting inv)
-	{
+	public ItemStack[] getRemainingItems(InventoryCrafting inv) {
 		return ForgeHooks.defaultRecipeGetRemainingItems(inv);
 	}
 }

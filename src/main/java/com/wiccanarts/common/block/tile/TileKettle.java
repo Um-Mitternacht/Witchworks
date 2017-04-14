@@ -32,11 +32,7 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This class was created by Arekkuusu on 08/03/2017.
@@ -50,8 +46,8 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private final String TAG_HEAT = "heat";
 	private final String TAG_MODE = "mode";
 	private final String TAG_RECIPE = "recipe";
-	private final int RECIPE_IDLE = -1;
-	private float[] colors = new float[]{0.0f, 0.39215687f, 0.0f};
+	private final int RECIPE_IDLE = - 1;
+	private float[] colors = new float[] {0.0f, 0.39215687f, 0.0f};
 	private KettleMode mode = KettleMode.DEFAULT;
 	private int waterLevel;
 	private int heat;
@@ -60,15 +56,15 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private IKettleRecipe recipe;
 	private int itemTimer;
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
-		if (!hasWater()) return;
+		if (! hasWater()) return;
 
 		final ItemStack stack = entityItem.getEntityItem();
 		if (stack == null || entityItem.isDead)
 			return;
 
-		if (!world.isRemote) {
+		if (! world.isRemote) {
 			PacketHandler.sendTileUpdateNearbyPlayers(this);
 			fancySplash();
 
@@ -124,7 +120,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				}
 			}
 
-			if (loadRecipe() && !recipe.isPotion()) {
+			if (loadRecipe() && ! recipe.isPotion()) {
 				recipeBoilingTime = 10;
 				itemTimer = 5;
 			}
@@ -143,14 +139,14 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				final BlockPos pos = getPos();
 				final float d3 = pos.getX() + world.rand.nextFloat();
 				final float d4 = (float) (pos.getY() + 1);
-				final float d5 = pos.getZ() +  world.rand.nextFloat();
+				final float d5 = pos.getZ() + world.rand.nextFloat();
 				((WorldServer) world).spawnParticle(EnumParticleTypes.CRIT_MAGIC, d3, d4, d5, 1, 0, 0, 0, 0D);
 			}
 		}
 	}
 
 	public boolean useKettle(@Nullable EntityPlayer player, EnumHand hand, ItemStack stack) {
-		if (!world.isRemote) {
+		if (! world.isRemote) {
 			if (stack.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)) {
 				final IFluidHandler handler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
 				final FluidStack drained = new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME);
@@ -183,12 +179,12 @@ public class TileKettle extends TileItemInventory implements ITickable {
 					}
 				}
 			} else if (waterLevel < 6 && stack.getItem() == Items.POTIONITEM && PotionUtils.getEffectsFromStack(stack).isEmpty()) {
-				if (player != null && !player.capabilities.isCreativeMode) {
+				if (player != null && ! player.capabilities.isCreativeMode) {
 					final ItemStack itemStack = new ItemStack(Items.GLASS_BOTTLE);
 
-					if (--stack.stackSize == 0) {
+					if (-- stack.stackSize == 0) {
 						player.setHeldItem(hand, itemStack);
-					} else if (!player.inventory.addItemStackToInventory(itemStack)) {
+					} else if (! player.inventory.addItemStackToInventory(itemStack)) {
 						player.dropItem(itemStack, false);
 					} else if (player instanceof EntityPlayerMP) {
 						((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -211,11 +207,11 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 				if (itemStack == null) return false;
 
-				if (player != null && !player.capabilities.isCreativeMode) {
+				if (player != null && ! player.capabilities.isCreativeMode) {
 
-					if (--stack.stackSize == 0) {
+					if (-- stack.stackSize == 0) {
 						player.setHeldItem(hand, itemStack);
-					} else if (!player.inventory.addItemStackToInventory(itemStack)) {
+					} else if (! player.inventory.addItemStackToInventory(itemStack)) {
 						player.dropItem(itemStack, false);
 					} else if (player instanceof EntityPlayerMP) {
 						((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -237,16 +233,14 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		for (int i = 0, slots = itemHandler.getSlots(); i < slots; i++) {
 			final ItemStack out = itemHandler.getItemSimulate(i);
 			if (out == null) break;
-			if (!isModifier(out) && !isEffect(out)) {
+			if (! isModifier(out) && ! isEffect(out)) {
 				if (out.getItem() == Items.GUNPOWDER) {
 					holder = PotionHolder.HolderType.SPLASH;
 					continue;
-				}
-				else if (out.getItem() == Items.DRAGON_BREATH) {
+				} else if (out.getItem() == Items.DRAGON_BREATH) {
 					holder = PotionHolder.HolderType.LINGERING;
 					continue;
-				}
-				else return null;
+				} else return null;
 			}
 
 			if (isModifier(out)) {
@@ -274,7 +268,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			if (temp.containsKey(potion.getPotion())) continue;
 
 			potions.stream().filter(compared -> potion != compared && compared.getPotion() == potion.getPotion())
-					.forEach(potion::combine);
+					.forEach(potion:: combine);
 
 			temp.put(potion.getPotion(), potion);
 		}
@@ -298,9 +292,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	@Override
 	public void update() {
 		final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
-		entityItemList.forEach(this::collideItem);
+		entityItemList.forEach(this :: collideItem);
 
-		if (!world.isRemote && recipeBoilingTime == 0) {
+		if (! world.isRemote && recipeBoilingTime == 0) {
 			if (ticks % 2 == 0) {
 				final float x = getPos().getX();
 				final float y = getPos().getY() + 0.65F;
@@ -309,7 +303,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), y, z + world.rand.nextFloat(), 3, 0, 0, 0);
 			}
 
-			if (ticks % 20 == 0 && --itemTimer <= 0) {
+			if (ticks % 20 == 0 && -- itemTimer <= 0) {
 				final float x = getPos().getX() + 0.5F;
 				final float y = getPos().getY() + 0.65F;
 				final float z = getPos().getZ() + 0.5F;
@@ -336,21 +330,21 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			}
 		}
 
-		if (!hasWater()) {
+		if (! hasWater()) {
 			removeItems();
 		}
 
 		if (ticks % 10 == 0) {
 			handleRain();
-			if (!world.isRemote && !isEmpty()) {
+			if (! world.isRemote && ! isEmpty()) {
 				final float x = getPos().getX() + world.rand.nextFloat();
 				final float y = getPos().getY() + 0.65F;
 				final float z = getPos().getZ() + world.rand.nextFloat();
 
 				PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 1, 0, 0, 0);
 
-				if(recipeBoilingTime > 0) {
-					--recipeBoilingTime;
+				if (recipeBoilingTime > 0) {
+					-- recipeBoilingTime;
 				}
 			}
 		}
@@ -358,7 +352,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		if (ticks % 20 == 0) {
 			handleHeat();
 		}
-		++ticks;
+		++ ticks;
 	}
 
 	private void removeItems() {
@@ -382,9 +376,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	private void handleHeat() {
 		if (isAboveFire() && hasWater() && heat < 5) {
-			++heat;
-		} else if ((!isAboveFire() || !hasWater()) && heat > 0) {
-			--heat;
+			++ heat;
+		} else if ((! isAboveFire() || ! hasWater()) && heat > 0) {
+			-- heat;
 		}
 	}
 
