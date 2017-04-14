@@ -1,5 +1,6 @@
 package com.wiccanarts.common.core;
 
+import com.wiccanarts.api.CropRegistry;
 import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.common.block.BlockMod;
 import com.wiccanarts.common.block.ModBlocks;
@@ -34,7 +35,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import static com.wiccanarts.api.WiccanArtsAPI.CropRegistry;
 import static com.wiccanarts.api.item.crop.Crop.*;
 
 /**

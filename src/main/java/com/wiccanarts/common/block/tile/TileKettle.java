@@ -18,6 +18,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
@@ -32,9 +33,10 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 /**
  * This class was created by Arekkuusu on 08/03/2017.
@@ -139,10 +141,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		if (world instanceof WorldServer) {
 			for (int i = 0; i < 10; i++) {
 				final BlockPos pos = getPos();
-				final Random rand = new Random();
-				final float d3 = pos.getX() + rand.nextFloat();
+				final float d3 = pos.getX() + world.rand.nextFloat();
 				final float d4 = (float) (pos.getY() + 1);
-				final float d5 = pos.getZ() + rand.nextFloat();
+				final float d5 = pos.getZ() +  world.rand.nextFloat();
 				((WorldServer) world).spawnParticle(EnumParticleTypes.CRIT_MAGIC, d3, d4, d5, 1, 0, 0, 0, 0D);
 			}
 		}
@@ -268,11 +269,17 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			}
 		}
 
+		final Map<Potion, PotionEffect> temp = new LinkedHashMap<>();
 		for (PotionEffect potion : potions) {
-			potions.stream().filter(compared -> potion.getPotion() == compared.getPotion()).forEach(potion::combine);
+			if (temp.containsKey(potion.getPotion())) continue;
+
+			potions.stream().filter(compared -> potion != compared && compared.getPotion() == potion.getPotion())
+					.forEach(potion::combine);
+
+			temp.put(potion.getPotion(), potion);
 		}
 
-		return BrewUtils.createPotion(getItemHolderType(holder), potions.toArray(new PotionEffect[potions.size()]));
+		return BrewUtils.createPotion(getItemHolderType(holder), temp.values());
 	}
 
 	private Item getItemHolderType(PotionHolder.HolderType holder) {

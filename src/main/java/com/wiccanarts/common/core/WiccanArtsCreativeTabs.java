@@ -1,6 +1,6 @@
 package com.wiccanarts.common.core;
 
-import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.api.CropRegistry;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
@@ -75,8 +75,8 @@ public final class WiccanArtsCreativeTabs {
 		@SideOnly (Side.CLIENT)
 		public void displayAllRelevantItems(List<ItemStack> list) {
 			this.list = list;
-			WiccanArtsAPI.CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
-			WiccanArtsAPI.CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
+			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
+			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
 		}
 	}
 

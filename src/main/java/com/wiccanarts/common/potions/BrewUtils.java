@@ -6,6 +6,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 
 import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
@@ -14,6 +15,15 @@ import java.util.Arrays;
  */
 @SuppressWarnings ({"WeakerAccess", "unused"})
 public class BrewUtils {
+
+	public static ItemStack createPotion(Item item, Collection<PotionEffect> effects) {
+		return createPotion(new ItemStack(item), effects);
+	}
+
+	public static ItemStack createPotion(ItemStack stack, Collection<PotionEffect> effects) {
+		PotionUtils.appendEffects(stack, effects);
+		return stack;
+	}
 
 	public static ItemStack createPotion(Item in, PotionEffect... effects) {
 		return createPotion(new ItemStack(in), effects);
