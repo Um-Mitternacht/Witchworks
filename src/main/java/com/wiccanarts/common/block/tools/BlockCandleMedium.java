@@ -28,7 +28,7 @@ public class BlockCandleMedium extends BlockCandle implements IModelRegister {
 		super(LibBlockName.CANDLE_MEDIUM);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return MEDIUM_BOX;
@@ -47,7 +47,7 @@ public class BlockCandleMedium extends BlockCandle implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 		for (int i = 0; i < 16; i++) {
 			ModelHandler.registerBlock(this, i);

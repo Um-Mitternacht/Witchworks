@@ -42,7 +42,7 @@ import java.util.*;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public class TileKettle extends TileItemInventory implements ITickable {
 
 	private final String TAG_WATER = "waterLevel";
@@ -50,8 +50,8 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private final String TAG_MODE = "mode";
 	private final String TAG_RECIPE = "recipe";
 	private final int RECIPE_IDLE = -1;
-	private float[] particleRGB = new float[]{0.0f, 0.39215687f, 0.0f};
-	private float[] waterColor = new float[]{0.0f, 0.39215687f, 0.0f};
+	private float[] particleRGB = new float[] {0.0f, 0.39215687f, 0.0f};
+	private float[] waterColor = new float[] {0.0f, 0.39215687f, 0.0f};
 	private KettleMode mode = KettleMode.DEFAULT;
 	private int waterLevel;
 	private int heat;
@@ -60,7 +60,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private IKettleRecipe recipe;
 	private int itemTimer;
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
 
@@ -284,7 +284,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			if (potions.containsKey(potion.getPotion())) continue;
 
 			tempPotions.stream().filter(compared -> potion != compared && compared.getPotion() == potion.getPotion())
-					.forEach(potion::combine);
+					.forEach(potion:: combine);
 
 			potions.put(potion.getPotion(), potion);
 		}
@@ -326,7 +326,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	@Override
 	public void update() {
 		final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
-		entityItemList.forEach(this::collideItem);
+		entityItemList.forEach(this :: collideItem);
 
 		if (!world.isRemote && recipeBoilingTime == 0) {
 			if (ticks % 2 == 0) {
@@ -365,7 +365,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		}
 
 		if (!hasWater()) {
-			setWaterColor(new float[]{0.0f, 0.39215687f, 0.0f});
+			setWaterColor(new float[] {0.0f, 0.39215687f, 0.0f});
 			if (!isEmpty()) {
 				removeItems();
 			}

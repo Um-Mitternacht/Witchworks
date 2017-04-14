@@ -13,7 +13,7 @@ import java.util.*;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings ({"unused", "WeakerAccess"})
 class ShapedRecipe {
 
 	private final Map<Character, Object> characters = new HashMap<>();

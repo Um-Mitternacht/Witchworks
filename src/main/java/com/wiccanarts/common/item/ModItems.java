@@ -15,96 +15,96 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@ObjectHolder(LibMod.MOD_ID)
+@ObjectHolder (LibMod.MOD_ID)
 public final class ModItems {
 
 	//Gemstones
-	@ObjectHolder(LibItemName.GARNET)
+	@ObjectHolder (LibItemName.GARNET)
 	public static final Item GARNET = new Item();
-	@ObjectHolder(LibItemName.MOLDAVITE)
+	@ObjectHolder (LibItemName.MOLDAVITE)
 	public static final Item MOLDAVITE = new Item();
-	@ObjectHolder(LibItemName.NUUMMITE)
+	@ObjectHolder (LibItemName.NUUMMITE)
 	public static final Item NUUMMITE = new Item();
-	@ObjectHolder(LibItemName.PETOSKEY_STONE)
+	@ObjectHolder (LibItemName.PETOSKEY_STONE)
 	public static final Item PETOSKEY_STONE = new Item();
-	@ObjectHolder(LibItemName.SERPENTINE)
+	@ObjectHolder (LibItemName.SERPENTINE)
 	public static final Item SERPENTINE = new Item();
-	@ObjectHolder(LibItemName.TIGERS_EYE)
+	@ObjectHolder (LibItemName.TIGERS_EYE)
 	public static final Item TIGERS_EYE = new Item();
-	@ObjectHolder(LibItemName.TOURMALINE)
+	@ObjectHolder (LibItemName.TOURMALINE)
 	public static final Item TOURMALINE = new Item();
-	@ObjectHolder(LibItemName.BLOODSTONE)
+	@ObjectHolder (LibItemName.BLOODSTONE)
 	public static final Item BLOODSTONE = new Item();
-	@ObjectHolder(LibItemName.JASPER)
+	@ObjectHolder (LibItemName.JASPER)
 	public static final Item JASPER = new Item();
-	@ObjectHolder(LibItemName.MALACHITE)
+	@ObjectHolder (LibItemName.MALACHITE)
 	public static final Item MALACHITE = new Item();
-	@ObjectHolder(LibItemName.AMETHYST)
+	@ObjectHolder (LibItemName.AMETHYST)
 	public static final Item AMETHYST = new Item();
-	@ObjectHolder(LibItemName.ALEXANDRITE)
+	@ObjectHolder (LibItemName.ALEXANDRITE)
 	public static final Item ALEXANDRITE = new Item();
-	@ObjectHolder(LibItemName.QUARTZ)
+	@ObjectHolder (LibItemName.QUARTZ)
 	public static final Item QUARTZ = new Item();
 
 	//Metals
-	@ObjectHolder(LibItemName.SILVER_INGOT)
+	@ObjectHolder (LibItemName.SILVER_INGOT)
 	public static final Item SILVER_INGOT = new Item();
-	@ObjectHolder(LibItemName.SILVER_POWDER)
+	@ObjectHolder (LibItemName.SILVER_POWDER)
 	public static final Item SILVER_POWDER = new Item();
-	@ObjectHolder(LibItemName.SILVER_NUGGET)
+	@ObjectHolder (LibItemName.SILVER_NUGGET)
 	public static final Item SILVER_NUGGET = new Item();
 
 	//Food Items
-	@ObjectHolder(LibItemName.HONEY)
+	@ObjectHolder (LibItemName.HONEY)
 	public static final Item HONEY = new Item();
-	@ObjectHolder(LibItemName.MANDRAKE_ROOT)
+	@ObjectHolder (LibItemName.MANDRAKE_ROOT)
 	public static final Item MANDRAKE_ROOT = new Item();
-	@ObjectHolder(LibItemName.LAVENDER)
+	@ObjectHolder (LibItemName.LAVENDER)
 	public static final Item LAVENDER = new Item();
-	@ObjectHolder(LibItemName.BELLADONNA)
+	@ObjectHolder (LibItemName.BELLADONNA)
 	public static final Item BELLADONNA = new Item();
 
 
 	//Materials
-	@ObjectHolder(LibItemName.WAX)
+	@ObjectHolder (LibItemName.WAX)
 	public static final Item WAX = new Item();
-	@ObjectHolder(LibItemName.SALT)
+	@ObjectHolder (LibItemName.SALT)
 	public static final Item SALT = new Item();
-	@ObjectHolder(LibItemName.HONEYCOMB)
+	@ObjectHolder (LibItemName.HONEYCOMB)
 	public static final Item HONEYCOMB = new Item();
-	@ObjectHolder(LibItemName.EMPTY_HONEYCOMB)
+	@ObjectHolder (LibItemName.EMPTY_HONEYCOMB)
 	public static final Item EMPTY_HONEYCOMB = new Item();
-	@ObjectHolder(LibItemName.LAVENDER_OIL)
+	@ObjectHolder (LibItemName.LAVENDER_OIL)
 	public static final Item LAVENDER_OIL = new Item();
 
 	//Misc
-	@ObjectHolder(LibItemName.BEE)
+	@ObjectHolder (LibItemName.BEE)
 	public static final Item BEE = new Item();
-	@ObjectHolder(LibItemName.GLASS_JAR)
+	@ObjectHolder (LibItemName.GLASS_JAR)
 	public static final Item GLASS_JAR = new Item();
-	@ObjectHolder(LibItemName.BREW_PHIAL)
+	@ObjectHolder (LibItemName.BREW_PHIAL)
 	public static final Item BREW_PHIAL = new Item();
 
 	//Tools
-	@ObjectHolder(LibItemName.SILVER_PICKAXE)
+	@ObjectHolder (LibItemName.SILVER_PICKAXE)
 	public static final Item SILVER_PICKAXE = new Item();
-	@ObjectHolder(LibItemName.SILVER_AXE)
+	@ObjectHolder (LibItemName.SILVER_AXE)
 	public static final Item SILVER_AXE = new Item();
-	@ObjectHolder(LibItemName.SILVER_SPADE)
+	@ObjectHolder (LibItemName.SILVER_SPADE)
 	public static final Item SILVER_SPADE = new Item();
-	@ObjectHolder(LibItemName.SILVER_HOE)
+	@ObjectHolder (LibItemName.SILVER_HOE)
 	public static final Item SILVER_HOE = new Item();
-	@ObjectHolder(LibItemName.SILVER_SWORD)
+	@ObjectHolder (LibItemName.SILVER_SWORD)
 	public static final Item SILVER_SWORD = new Item();
-	@ObjectHolder(LibItemName.MORTAR_AND_PESTLE)
+	@ObjectHolder (LibItemName.MORTAR_AND_PESTLE)
 	public static final Item MORTAR_AND_PESTLE = new Item();
-	@ObjectHolder(LibItemName.SILVER_HELMET)
+	@ObjectHolder (LibItemName.SILVER_HELMET)
 	public static final Item SILVER_HELMET = new Item();
-	@ObjectHolder(LibItemName.SILVER_CHESTPLATE)
+	@ObjectHolder (LibItemName.SILVER_CHESTPLATE)
 	public static final Item SILVER_CHESTPLATE = new Item();
-	@ObjectHolder(LibItemName.SILVER_LEGGINGS)
+	@ObjectHolder (LibItemName.SILVER_LEGGINGS)
 	public static final Item SILVER_LEGGINGS = new Item();
-	@ObjectHolder(LibItemName.SILVER_BOOTS)
+	@ObjectHolder (LibItemName.SILVER_BOOTS)
 	public static final Item SILVER_BOOTS = new Item();
 
 	private ModItems() {

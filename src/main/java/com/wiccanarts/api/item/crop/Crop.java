@@ -8,7 +8,7 @@ import net.minecraft.init.Blocks;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings ("unused")
 public enum Crop {
 	ACONITUM(Blocks.FARMLAND),
 	ASPHODEL(Blocks.FARMLAND),

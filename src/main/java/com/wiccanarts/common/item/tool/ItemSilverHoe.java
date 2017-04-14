@@ -22,7 +22,7 @@ public class ItemSilverHoe extends ItemHoe implements IModelRegister {
 		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

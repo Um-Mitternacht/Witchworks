@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public abstract class TileItemInventory extends TileEntity {
 
 	public ItemStackHandlerTile itemHandler = createItemHandler();

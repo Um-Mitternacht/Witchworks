@@ -36,17 +36,17 @@ public final class WiccanArtsCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public Item getTabIconItem() {
 			return getIconItemStack().getItem();
 		}
 
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		void addItem(Item item) {
 			item.getSubItems(item, this, list);
 		}
 
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		void addBlock(Block block) {
 			final ItemStack stack = new ItemStack(block);
 			block.getSubBlocks(stack.getItem(), this, list);
@@ -61,7 +61,7 @@ public final class WiccanArtsCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
 			return new ItemStack(ModItems.MANDRAKE_ROOT);
 		}
@@ -72,7 +72,7 @@ public final class WiccanArtsCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public void displayAllRelevantItems(List<ItemStack> list) {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
@@ -88,7 +88,7 @@ public final class WiccanArtsCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
 			return new ItemStack(ModBlocks.KETTLE);
 		}
@@ -99,7 +99,7 @@ public final class WiccanArtsCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public void displayAllRelevantItems(List<ItemStack> list) {
 			this.list = list;
 			addItem(ModItems.GARNET);

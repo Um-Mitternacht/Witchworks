@@ -23,7 +23,7 @@ public class ItemSilverPickaxe extends ItemPickaxe implements IModelRegister {
 		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

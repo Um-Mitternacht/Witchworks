@@ -23,7 +23,7 @@ import java.util.Map;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public final class KettleCrafting {
 
 	//Items
@@ -95,7 +95,9 @@ public final class KettleCrafting {
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param item The item to make an ItemStack out of
+	 * @param item
+	 * 		The item to make an ItemStack out of
+	 *
 	 * @return An ItemStack
 	 */
 	private static ItemStack getStack(Item item) {
@@ -105,8 +107,11 @@ public final class KettleCrafting {
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param item The block to make an ItemStack out of
-	 * @param meta Meta of ItemStack
+	 * @param item
+	 * 		The block to make an ItemStack out of
+	 * @param meta
+	 * 		Meta of ItemStack
+	 *
 	 * @return An ItemStack
 	 */
 	private static ItemStack getStack(Item item, int meta) {
@@ -116,10 +121,12 @@ public final class KettleCrafting {
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param block The block to make an ItemStack out of
+	 * @param block
+	 * 		The block to make an ItemStack out of
+	 *
 	 * @return An ItemStack
 	 */
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	private static ItemStack getStack(Block block) {
 		return getStack(Item.getItemFromBlock(block), 0);
 	}
@@ -127,10 +134,12 @@ public final class KettleCrafting {
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param block The block to make an ItemStack out of
+	 * @param block
+	 * 		The block to make an ItemStack out of
+	 *
 	 * @return An ItemStack
 	 */
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	private static ItemStack getStack(Block block, int meta) {
 		return getStack(Item.getItemFromBlock(block), meta);
 	}

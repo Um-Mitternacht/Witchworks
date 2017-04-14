@@ -18,7 +18,7 @@ import java.util.List;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public class HiddenShapelessOreRecipe implements IRecipe {
 
 	private ItemStack output;
@@ -61,7 +61,7 @@ public class HiddenShapelessOreRecipe implements IRecipe {
 		return output.copy();
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	@Override
 	public boolean matches(InventoryCrafting var1, World world) {
 		final ArrayList<Object> required = new ArrayList<>(input);

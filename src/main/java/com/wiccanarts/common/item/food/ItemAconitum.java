@@ -26,7 +26,7 @@ public class ItemAconitum extends ItemCrop {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerItem(this);
 	}

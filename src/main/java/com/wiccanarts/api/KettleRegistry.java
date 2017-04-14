@@ -14,7 +14,7 @@ import java.util.Map;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings({"WeakerAccess", "unused"})
+@SuppressWarnings ({"WeakerAccess", "unused"})
 public final class KettleRegistry {
 
 	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();

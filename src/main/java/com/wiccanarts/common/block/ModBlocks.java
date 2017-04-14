@@ -16,83 +16,83 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@ObjectHolder(LibMod.MOD_ID)
+@ObjectHolder (LibMod.MOD_ID)
 public final class ModBlocks {
 
-	@ObjectHolder(LibBlockName.CROP_ACONITUM)
+	@ObjectHolder (LibBlockName.CROP_ACONITUM)
 	public static final BlockCrop CROP_ACONITUM = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_ASPHODEL)
+	@ObjectHolder (LibBlockName.CROP_ASPHODEL)
 	public static final BlockCrop CROP_ASPHODEL = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_BELLADONNA)
+	@ObjectHolder (LibBlockName.CROP_BELLADONNA)
 	public static final BlockCrop CROP_BELLADONNA = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_GINGER)
+	@ObjectHolder (LibBlockName.CROP_GINGER)
 	public static final BlockCrop CROP_GINGER = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_KELP)
+	@ObjectHolder (LibBlockName.CROP_KELP)
 	public static final BlockCrop CROP_KELP = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_MINT)
+	@ObjectHolder (LibBlockName.CROP_MINT)
 	public static final BlockCrop CROP_MINT = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_WHITE_SAGE)
+	@ObjectHolder (LibBlockName.CROP_WHITE_SAGE)
 	public static final BlockCrop CROP_WHITE_SAGE = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_DANDELION_ROOT)
+	@ObjectHolder (LibBlockName.CROP_DANDELION_ROOT)
 	public static final BlockCrop CROP_DANDELION_ROOT = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_ALLIUM)
+	@ObjectHolder (LibBlockName.CROP_ALLIUM)
 	public static final BlockCrop CROP_ALLIUM = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_MANDRAKE_ROOT)
+	@ObjectHolder (LibBlockName.CROP_MANDRAKE_ROOT)
 	public static final BlockCrop CROP_MANDRAKE_ROOT = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_LILAC)
+	@ObjectHolder (LibBlockName.CROP_LILAC)
 	public static final BlockCrop CROP_LILAC = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_LAVENDER)
+	@ObjectHolder (LibBlockName.CROP_LAVENDER)
 	public static final BlockCrop CROP_LAVENDER = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_THISTLE)
+	@ObjectHolder (LibBlockName.CROP_THISTLE)
 	public static final BlockCrop CROP_THISTLE = new BlockCrop();
 
-	@ObjectHolder(LibBlockName.SILVER_BLOCK)
+	@ObjectHolder (LibBlockName.SILVER_BLOCK)
 	public static final Block SILVER_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.MOLDAVITE_BLOCK)
+	@ObjectHolder (LibBlockName.MOLDAVITE_BLOCK)
 	public static final Block MOLDAVITE_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.COQUINA)
+	@ObjectHolder (LibBlockName.COQUINA)
 	public static final Block COQUINA = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.BLOODSTONE_BLOCK)
+	@ObjectHolder (LibBlockName.BLOODSTONE_BLOCK)
 	public static final Block BLOODSTONE_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.TOURMALINE_BLOCK)
+	@ObjectHolder (LibBlockName.TOURMALINE_BLOCK)
 	public static final Block TOURMALINE_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.KETTLE)
+	@ObjectHolder (LibBlockName.KETTLE)
 	public static final Block KETTLE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.SILVER_ORE)
+	@ObjectHolder (LibBlockName.SILVER_ORE)
 	public static final Block SILVER_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.MOLDAVITE_ORE)
+	@ObjectHolder (LibBlockName.MOLDAVITE_ORE)
 	public static final Block MOLDAVITE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.BLOODSTONE_ORE)
+	@ObjectHolder (LibBlockName.BLOODSTONE_ORE)
 	public static final Block BLOODSTONE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.TOURMALINE_ORE)
+	@ObjectHolder (LibBlockName.TOURMALINE_ORE)
 	public static final Block TOURMALINE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.MALACHITE_ORE)
+	@ObjectHolder (LibBlockName.MALACHITE_ORE)
 	public static final Block MALACHITE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.TIGERS_EYE_ORE)
+	@ObjectHolder (LibBlockName.TIGERS_EYE_ORE)
 	public static final Block TIGERS_EYE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.GARNET_ORE)
+	@ObjectHolder (LibBlockName.GARNET_ORE)
 	public static final Block GARNET_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.PETOSKEY_ORE)
+	@ObjectHolder (LibBlockName.PETOSKEY_ORE)
 	public static final Block PETOSKEY_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.SERPENTINE_ORE)
+	@ObjectHolder (LibBlockName.SERPENTINE_ORE)
 	public static final Block SERPENTINE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.NUUMMITE_ORE)
+	@ObjectHolder (LibBlockName.NUUMMITE_ORE)
 	public static final Block NUUMMITE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.NETHERSTEEL)
+	@ObjectHolder (LibBlockName.NETHERSTEEL)
 	public static final Block NETHERSTEEL = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CANDLE_LARGE)
+	@ObjectHolder (LibBlockName.CANDLE_LARGE)
 	public static final Block CANDLE_LARGE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CANDLE_MEDIUM)
+	@ObjectHolder (LibBlockName.CANDLE_MEDIUM)
 	public static final Block CANDLE_MEDIUM = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CANDLE_SMALL)
+	@ObjectHolder (LibBlockName.CANDLE_SMALL)
 	public static final Block CANDLE_SMALL = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.SALT_BARRIER)
+	@ObjectHolder (LibBlockName.SALT_BARRIER)
 	public static final Block SALT_BARRIER = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.BEEHIVE)
+	@ObjectHolder (LibBlockName.BEEHIVE)
 	public static final Block BEEHIVE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.ALTAR)
+	@ObjectHolder (LibBlockName.ALTAR)
 	public static final Block ALTAR = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.APIARY)
+	@ObjectHolder (LibBlockName.APIARY)
 	public static final Block APIARY = new Block(Material.ROCK);
 
 	private ModBlocks() {
