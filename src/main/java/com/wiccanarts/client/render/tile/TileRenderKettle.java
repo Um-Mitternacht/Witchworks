@@ -20,8 +20,6 @@ import org.lwjgl.opengl.GL11;
  */
 public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
-	private final float[] color = new float[] {0.0f, 0.39215687f, 0.0f};
-
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
 		if (te.hasWater()) {
@@ -37,6 +35,7 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			GlStateManager.disableAlpha();
 
+			final float[] color = te.getWaterColor();
 			GlStateManager.color(color[0], color[1], color[2]);
 
 			final float w = 0.125F;

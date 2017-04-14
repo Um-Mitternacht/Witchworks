@@ -32,12 +32,24 @@ public class PotionHolder {
 		return new PotionEffect(potion, duration, amplifier);
 	}
 
+	public Potion getPotion() {
+		return potion;
+	}
+
 	public void setPotion(Potion potion) {
 		this.potion = potion;
 	}
 
+	public int getDuration() {
+		return duration;
+	}
+
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+
+	public int getAmplifier() {
+		return amplifier;
 	}
 
 	public void setAmplifier(int amplifier) {

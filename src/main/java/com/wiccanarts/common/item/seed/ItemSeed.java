@@ -24,7 +24,7 @@ import java.util.List;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 
 	protected final Block crop;
@@ -40,7 +40,7 @@ public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 		tooltip.add(TextFormatting.ITALIC + I18n.format("wiccan.tooltip." + getNameInefficiently(stack) + "_description.name"));
 	}
@@ -55,7 +55,7 @@ public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerItem(this);
 	}

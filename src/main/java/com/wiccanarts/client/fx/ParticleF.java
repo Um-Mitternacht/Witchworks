@@ -13,11 +13,12 @@ import net.minecraft.client.particle.Particle;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public enum ParticleF {
 	CAULDRON_BUBBLE(new ParticleCaudronBubble.Factory()),
 	STEAM(new ParticleSteam.Factory()),
-	BEE(new ParticleBee.Factory());
+	BEE(new ParticleBee.Factory()),
+	SPARK(new ParticleSpark.Factory());
 
 	private final IParticleF factory;
 

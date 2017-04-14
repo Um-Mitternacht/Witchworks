@@ -12,7 +12,7 @@ import java.util.Optional;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class PotionValidator <T> {
+public class PotionValidator<T> {
 
 	private final ArrayList<Tuple<ItemStack, T>> list = new ArrayList<>();
 

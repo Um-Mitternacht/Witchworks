@@ -10,10 +10,12 @@ import com.wiccanarts.common.net.PacketHandler;
 import com.wiccanarts.common.potions.BrewUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,6 +26,7 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -39,7 +42,7 @@ import java.util.*;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public class TileKettle extends TileItemInventory implements ITickable {
 
 	private final String TAG_WATER = "waterLevel";
@@ -47,7 +50,8 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private final String TAG_MODE = "mode";
 	private final String TAG_RECIPE = "recipe";
 	private final int RECIPE_IDLE = -1;
-	private float[] colors = new float[] {0.0f, 0.39215687f, 0.0f};
+	private float[] particleRGB = new float[]{0.0f, 0.39215687f, 0.0f};
+	private float[] waterColor = new float[]{0.0f, 0.39215687f, 0.0f};
 	private KettleMode mode = KettleMode.DEFAULT;
 	private int waterLevel;
 	private int heat;
@@ -56,7 +60,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private IKettleRecipe recipe;
 	private int itemTimer;
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
 
@@ -126,9 +130,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			}
 		}
 
-		colors[0] = world.rand.nextFloat();
-		colors[1] = world.rand.nextFloat();
-		colors[2] = world.rand.nextFloat();
+		particleRGB[0] = world.rand.nextFloat();
+		particleRGB[1] = world.rand.nextFloat();
+		particleRGB[2] = world.rand.nextFloat();
 	}
 
 	private void fancySplash() {
@@ -192,8 +196,8 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				}
 				world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1F, 8F);
 				setWaterLevel(getWaterLevel() + 1);
-				if (world.rand.nextBoolean()) {
-					removeItems();
+				if (world.rand.nextBoolean() && !isEmpty()) {
+					fail();
 				}
 			} else if (hasWater()) {
 				ItemStack itemStack = null;
@@ -205,7 +209,14 @@ public class TileKettle extends TileItemInventory implements ITickable {
 					itemStack = buildCustomPotion();
 				}
 
-				if (itemStack == null) return false;
+				if (itemStack == null) {
+					if (!isEmpty()) {
+						fail();
+						return false;
+					} else {
+						itemStack = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
+					}
+				}
 
 				if (player != null && !player.capabilities.isCreativeMode) {
 
@@ -224,11 +235,12 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		return true;
 	}
 
-	private ItemStack buildCustomPotion() {
-		final List<PotionEffect> potions = new ArrayList<>();
-
+	@Nullable
+	public ItemStack buildCustomPotion() {
 		PotionHolder.HolderType holder = PotionHolder.HolderType.BOTTLE;
 
+		final List<IEffectListModifier> listMod = new ArrayList<>();
+		final List<PotionEffect> tempPotions = new ArrayList<>();
 		final List<IEffectModifier> tempModifiers = new ArrayList<>();
 		for (int i = 0, slots = itemHandler.getSlots(); i < slots; i++) {
 			final ItemStack out = itemHandler.getItemSimulate(i);
@@ -247,7 +259,11 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				final PotionValidator<IEffectModifier> validator = KettleRegistry.getKettleModifiers().get(out.getItem());
 				final Optional optional = validator.get(out);
 				if (optional.isPresent()) {
-					tempModifiers.add((IEffectModifier) ((Tuple) optional.get()).getSecond());
+					final IEffectModifier mod = (IEffectModifier) ((Tuple) optional.get()).getSecond();
+					tempModifiers.add(mod);
+					if (mod instanceof IEffectListModifier) {
+						listMod.add((IEffectListModifier) mod);
+					}
 				}
 			} else {
 				final PotionValidator<PotionHolder> validator = KettleRegistry.getKettleEffects().get(out.getItem());
@@ -258,22 +274,27 @@ public class TileKettle extends TileItemInventory implements ITickable {
 						mod.apply(effect);
 					}
 					tempModifiers.clear();
-					potions.add(effect.getPotionEffect());
+					tempPotions.add(effect.getPotionEffect());
 				}
 			}
 		}
 
-		final Map<Potion, PotionEffect> temp = new LinkedHashMap<>();
-		for (PotionEffect potion : potions) {
-			if (temp.containsKey(potion.getPotion())) continue;
+		final Map<Potion, PotionEffect> potions = new LinkedHashMap<>();
+		for (PotionEffect potion : tempPotions) {
+			if (potions.containsKey(potion.getPotion())) continue;
 
-			potions.stream().filter(compared -> potion != compared && compared.getPotion() == potion.getPotion())
-					.forEach(potion:: combine);
+			tempPotions.stream().filter(compared -> potion != compared && compared.getPotion() == potion.getPotion())
+					.forEach(potion::combine);
 
-			temp.put(potion.getPotion(), potion);
+			potions.put(potion.getPotion(), potion);
 		}
 
-		return BrewUtils.createPotion(getItemHolderType(holder), temp.values());
+		Collection<PotionEffect> effects = potions.values();
+		for (IEffectListModifier l : listMod) {
+			effects = l.modify(this, effects);
+		}
+
+		return BrewUtils.createPotion(getItemHolderType(holder), effects);
 	}
 
 	private Item getItemHolderType(PotionHolder.HolderType holder) {
@@ -289,18 +310,31 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		return KettleRegistry.getKettleModifiers().containsKey(stack.getItem());
 	}
 
+	private void fail() {
+		if (world instanceof WorldServer) {
+			((WorldServer) world).spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, getPos().getX(), getPos().getY(), getPos().getZ(), 5
+					, 0D, 0D, 0D, 0D);
+		}
+		world.playSound(null, getPos(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1F, 1F);
+
+		world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(getPos()).expandXyz(1))
+				.forEach(entity -> entity.attackEntityFrom(DamageSource.magic, 2));
+		removeItems();
+		setWaterLevel(0);
+	}
+
 	@Override
 	public void update() {
 		final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
-		entityItemList.forEach(this :: collideItem);
+		entityItemList.forEach(this::collideItem);
 
 		if (!world.isRemote && recipeBoilingTime == 0) {
 			if (ticks % 2 == 0) {
-				final float x = getPos().getX();
+				final float x = getPos().getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 				final float y = getPos().getY() + 0.65F;
-				final float z = getPos().getZ();
+				final float z = getPos().getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 
-				PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), y, z + world.rand.nextFloat(), 3, 0, 0, 0);
+				PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 3, 0, 0, 0);
 			}
 
 			if (ticks % 20 == 0 && --itemTimer <= 0) {
@@ -320,10 +354,10 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		if (isHot() && hasWater()) {
 			if (world.rand.nextInt(10) == 0) {
 				final BlockPos pos = getPos();
-				final float d3 = (float) pos.getX() + world.rand.nextFloat();
+				final float d3 = (float) pos.getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 				final float d4 = (float) pos.getY() + 0.65F;
-				final float d5 = (float) pos.getZ() + world.rand.nextFloat();
-				WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, colors);
+				final float d5 = (float) pos.getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
+				WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, particleRGB);
 			}
 			if (ticks % 60 == 0) {
 				world.playSound(null, getPos(), WiccaSoundEvents.BOIL, SoundCategory.BLOCKS, 0.2F, 1F);
@@ -331,22 +365,25 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		}
 
 		if (!hasWater()) {
-			removeItems();
+			setWaterColor(new float[]{0.0f, 0.39215687f, 0.0f});
+			if (!isEmpty()) {
+				removeItems();
+			}
 		}
 
 		if (ticks % 10 == 0) {
 			handleRain();
-			if (!world.isRemote && !isEmpty()) {
-				final float x = getPos().getX() + world.rand.nextFloat();
-				final float y = getPos().getY() + 0.65F;
-				final float z = getPos().getZ() + world.rand.nextFloat();
-
-				PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 1, 0, 0, 0);
-
-				if (recipeBoilingTime > 0) {
-					--recipeBoilingTime;
-				}
+			if (recipeBoilingTime > 0) {
+				--recipeBoilingTime;
 			}
+		}
+
+		if (!world.isRemote && !isEmpty()) {
+			final float x = getPos().getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
+			final float y = getPos().getY() + 0.65F;
+			final float z = getPos().getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
+
+			PacketHandler.spawnParticle(ParticleF.SPARK, world, x, y, z, 1, 0, 0, 0);
 		}
 
 		if (ticks % 20 == 0) {
@@ -404,7 +441,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	@Override
 	public int getSizeInventory() {
-		return 16;
+		return 32;
 	}
 
 	@Override
@@ -450,8 +487,12 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		return mode;
 	}
 
-	public float[] getColor() {
-		return colors;
+	public float[] getWaterColor() {
+		return waterColor;
+	}
+
+	public void setWaterColor(float[] waterColor) {
+		this.waterColor = waterColor;
 	}
 
 	public enum KettleMode {

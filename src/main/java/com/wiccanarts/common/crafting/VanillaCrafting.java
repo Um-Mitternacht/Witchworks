@@ -164,7 +164,7 @@ public final class VanillaCrafting {
 		return new ShapelessRecipe();
 	}
 
-	@SuppressWarnings ({"unused", "WeakerAccess"})
+	@SuppressWarnings({"unused", "WeakerAccess"})
 	private static class ShapelessRecipe {
 
 		private final List<Object> ingredients = new ArrayList<>();

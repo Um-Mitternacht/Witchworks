@@ -34,8 +34,10 @@ public class TileCandle extends TileMod implements ITickable {
 	}
 
 	public void unLitCandle() {
-		world.playSound(null, getPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
-		setLit(false);
+		if (isLit()) {
+			world.playSound(null, getPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
+			setLit(false);
+		}
 	}
 
 	@Override

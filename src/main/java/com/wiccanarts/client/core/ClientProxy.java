@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@Mod.EventBusSubscriber (Side.CLIENT)
+@Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy implements ISidedProxy {
 
 	/**
@@ -40,20 +40,20 @@ public class ClientProxy implements ISidedProxy {
 	 * into the models file and bind the item to its corresponding model.
 	 * </p>
 	 */
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public static void registerItemModels(ModelRegistryEvent event) {
 		ModelHandler.registerModels();
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
 		MinecraftForge.EVENT_BUS.register(new TextureStitcher());
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void init(FMLInitializationEvent event) {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new BlockColorHandler(),
@@ -64,7 +64,7 @@ public class ClientProxy implements ISidedProxy {
 				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
 
@@ -78,7 +78,7 @@ public class ClientProxy implements ISidedProxy {
 	 *
 	 * @see RenderingRegistry
 	 */
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	private void registerRenders() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileKettle.class, new TileRenderKettle());
 	}
@@ -86,16 +86,15 @@ public class ClientProxy implements ISidedProxy {
 	/**
 	 * Display a Record text with a format and localization.
 	 *
-	 * @param text
-	 * 		An {@link ITextComponent}
+	 * @param text An {@link ITextComponent}
 	 */
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void displayRecordText(ITextComponent text) {
 		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
 		if (doParticle()) {
@@ -103,7 +102,7 @@ public class ClientProxy implements ISidedProxy {
 		}
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	private boolean doParticle() {
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
 			return false;

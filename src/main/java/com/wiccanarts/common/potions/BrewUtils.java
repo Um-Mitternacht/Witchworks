@@ -13,7 +13,7 @@ import java.util.Collection;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class BrewUtils {
 
 	public static ItemStack createPotion(Item item, Collection<PotionEffect> effects) {

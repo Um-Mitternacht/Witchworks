@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
  */
 public class ItemColorHandler implements IItemColor {
 
-	@SuppressWarnings ("IncompleteSwitch")
+	@SuppressWarnings("IncompleteSwitch")
 	@Override
 	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
 		int color = 0;

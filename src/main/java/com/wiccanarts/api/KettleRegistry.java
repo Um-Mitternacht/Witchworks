@@ -14,7 +14,7 @@ import java.util.Map;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public final class KettleRegistry {
 
 	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
@@ -53,7 +53,7 @@ public final class KettleRegistry {
 		}
 	}
 
-	public static void addKettleModifierTo(ItemStack stack, IEffectModifier modifier) {
+	public static <T extends IEffectModifier> void addKettleModifierTo(ItemStack stack, T modifier) {
 		final Item item = stack.getItem();
 		if (kettleModifiers.containsKey(item)) {
 			kettleModifiers.get(item).add(stack, modifier);

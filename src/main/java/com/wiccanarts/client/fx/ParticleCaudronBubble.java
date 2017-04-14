@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleCaudronBubble extends Particle {
 
 	private ParticleCaudronBubble(World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float[] colors) {
@@ -34,6 +34,7 @@ class ParticleCaudronBubble extends Particle {
 		GlStateManager.color(getRedColorF(), getGreenColorF(), getBlueColorF(), 1.0F);
 	}
 
+	@Override
 	public void onUpdate() {
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
@@ -59,7 +60,7 @@ class ParticleCaudronBubble extends Particle {
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
 			return new ParticleCaudronBubble(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn, args);

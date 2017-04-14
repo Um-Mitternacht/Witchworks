@@ -28,7 +28,7 @@ public class BlockCandleSmall extends BlockCandle implements IModelRegister {
 		super(LibBlockName.CANDLE_SMALL);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SMALL_BOX;
@@ -42,7 +42,7 @@ public class BlockCandleSmall extends BlockCandle implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		for (int i = 0; i < 16; i++) {
 			ModelHandler.registerBlock(this, i);

@@ -22,7 +22,7 @@ import java.util.Set;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 
 	private final Set<DimensionType> dimensionList = new HashSet<>();

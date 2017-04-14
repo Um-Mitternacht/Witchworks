@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleBee extends Particle {
 
 	private final double x;
@@ -32,6 +32,7 @@ class ParticleBee extends Particle {
 		setParticleTexture(atlasSprite);
 	}
 
+	@Override
 	public void onUpdate() {
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
@@ -67,7 +68,7 @@ class ParticleBee extends Particle {
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
 			return new ParticleBee(worldIn, xCoordIn, yCoordIn, zCoordIn);

@@ -22,7 +22,7 @@ public class ItemSilverSpade extends ItemSpade implements IModelRegister {
 		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

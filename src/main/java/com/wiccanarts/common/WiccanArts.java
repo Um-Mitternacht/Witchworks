@@ -24,14 +24,14 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
-@Mod (modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
+@SuppressWarnings("WeakerAccess")
+@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WiccanArts {
 
-	@Instance (LibMod.MOD_ID)
+	@Instance(LibMod.MOD_ID)
 	public static WiccanArts instance;
 
-	@SidedProxy (serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
+	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
 
 	@EventHandler

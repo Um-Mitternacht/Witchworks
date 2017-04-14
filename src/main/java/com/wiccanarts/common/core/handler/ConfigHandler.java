@@ -17,11 +17,11 @@ import net.minecraftforge.common.config.Config.Comment;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
-@Config (modid = LibMod.MOD_ID)
+@SuppressWarnings({"WeakerAccess", "unused"})
+@Config(modid = LibMod.MOD_ID)
 public final class ConfigHandler {
 
-	@Comment ("Don't change this if you don't know what you are doing")
+	@Comment("Don't change this if you don't know what you are doing")
 	public static WiccanArts wiccanArts = new WiccanArts();
 
 	private ConfigHandler() {
@@ -29,11 +29,11 @@ public final class ConfigHandler {
 
 	public static class WiccanArts {
 
-		@Comment ("")
+		@Comment("")
 		public Crafting crafting = new Crafting();
-		@Comment ("")
+		@Comment("")
 		public WorldGen worldGen = new WorldGen();
-		@Comment ("")
+		@Comment("")
 		public Spawning spawning = new Spawning();
 
 		public static class Crafting {

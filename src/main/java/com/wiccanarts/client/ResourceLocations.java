@@ -20,6 +20,7 @@ public final class ResourceLocations {
 	public static final ResourceLocation CAULDRON_BUBBLE = getLocation("particle/cauldron_bubble");
 	public static final ResourceLocation STEAM = getLocation("particle/steam");
 	public static final ResourceLocation BEE = getLocation("particle/bee");
+	public static final ResourceLocation SPARK = getLocation("particle/spark");
 
 	private ResourceLocations() {
 	}
