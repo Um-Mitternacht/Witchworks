@@ -1,6 +1,6 @@
 package com.wiccanarts.common.block.tile;
 
-import com.wiccanarts.api.WiccanArtsAPI;
+import com.wiccanarts.api.KettleRegistry;
 import com.wiccanarts.api.recipe.*;
 import com.wiccanarts.api.sound.WiccaSoundEvents;
 import com.wiccanarts.client.fx.ParticleF;
@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
@@ -23,7 +24,6 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -48,8 +48,8 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private final String TAG_HEAT = "heat";
 	private final String TAG_MODE = "mode";
 	private final String TAG_RECIPE = "recipe";
-	private final int RECIPE_IDLE = - 1;
-	private float[] colors = new float[] {0.0f, 0.39215687f, 0.0f};
+	private final int RECIPE_IDLE = -1;
+	private float[] colors = new float[]{0.0f, 0.39215687f, 0.0f};
 	private KettleMode mode = KettleMode.DEFAULT;
 	private int waterLevel;
 	private int heat;
@@ -58,21 +58,21 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private IKettleRecipe recipe;
 	private int itemTimer;
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
-		if (! hasWater()) return;
+		if (!hasWater()) return;
 
 		final ItemStack stack = entityItem.getEntityItem();
 		if (stack == null || entityItem.isDead)
 			return;
 
-		if (! world.isRemote) {
+		if (!world.isRemote) {
 			PacketHandler.sendTileUpdateNearbyPlayers(this);
 			fancySplash();
 
 			if (isHot() && isEmpty()) {
-				if (WiccanArtsAPI.getKettleExchanges().containsKey(stack.getItem())) {
-					final KettleExchange exchange = WiccanArtsAPI.getKettleExchanges().get(stack.getItem());
+				if (KettleRegistry.getKettleExchanges().containsKey(stack.getItem())) {
+					final KettleExchange exchange = KettleRegistry.getKettleExchanges().get(stack.getItem());
 					final ItemStack out = exchange.getExchange(stack);
 					if (out != null) {
 
@@ -122,7 +122,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				}
 			}
 
-			if (loadRecipe() && ! recipe.isPotion()) {
+			if (loadRecipe() && !recipe.isPotion()) {
 				recipeBoilingTime = 10;
 				itemTimer = 5;
 			}
@@ -149,7 +149,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	public boolean useKettle(@Nullable EntityPlayer player, EnumHand hand, ItemStack stack) {
-		if (! world.isRemote) {
+		if (!world.isRemote) {
 			if (stack.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)) {
 				final IFluidHandler handler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
 				final FluidStack drained = new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME);
@@ -182,12 +182,12 @@ public class TileKettle extends TileItemInventory implements ITickable {
 					}
 				}
 			} else if (waterLevel < 6 && stack.getItem() == Items.POTIONITEM && PotionUtils.getEffectsFromStack(stack).isEmpty()) {
-				if (player != null && ! player.capabilities.isCreativeMode) {
+				if (player != null && !player.capabilities.isCreativeMode) {
 					final ItemStack itemStack = new ItemStack(Items.GLASS_BOTTLE);
 
-					if (-- stack.stackSize == 0) {
+					if (--stack.stackSize == 0) {
 						player.setHeldItem(hand, itemStack);
-					} else if (! player.inventory.addItemStackToInventory(itemStack)) {
+					} else if (!player.inventory.addItemStackToInventory(itemStack)) {
 						player.dropItem(itemStack, false);
 					} else if (player instanceof EntityPlayerMP) {
 						((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -208,16 +208,13 @@ public class TileKettle extends TileItemInventory implements ITickable {
 					itemStack = buildCustomPotion();
 				}
 
-				if (itemStack == null) {
+				if (itemStack == null) return false;
 
-					return false;
-				}
+				if (player != null && !player.capabilities.isCreativeMode) {
 
-				if (player != null && ! player.capabilities.isCreativeMode) {
-
-					if (-- stack.stackSize == 0) {
+					if (--stack.stackSize == 0) {
 						player.setHeldItem(hand, itemStack);
-					} else if (! player.inventory.addItemStackToInventory(itemStack)) {
+					} else if (!player.inventory.addItemStackToInventory(itemStack)) {
 						player.dropItem(itemStack, false);
 					} else if (player instanceof EntityPlayerMP) {
 						((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -232,49 +229,71 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	private ItemStack buildCustomPotion() {
 		final List<PotionEffect> potions = new ArrayList<>();
-		final List<IEffectModifier> modifiers = new ArrayList<>();
+
+		PotionHolder.HolderType holder = PotionHolder.HolderType.BOTTLE;
+
+		final List<IEffectModifier> tempModifiers = new ArrayList<>();
 		for (int i = 0, slots = itemHandler.getSlots(); i < slots; i++) {
 			final ItemStack out = itemHandler.getItemSimulate(i);
 			if (out == null) break;
-			if (! isModifier(out) && ! isEffect(out)) return null;
+			if (!isModifier(out) && !isEffect(out)) {
+				if (out.getItem() == Items.GUNPOWDER) {
+					holder = PotionHolder.HolderType.SPLASH;
+					continue;
+				}
+				else if (out.getItem() == Items.DRAGON_BREATH) {
+					holder = PotionHolder.HolderType.LINGERING;
+					continue;
+				}
+				else return null;
+			}
 
 			if (isModifier(out)) {
-				final PotionValidator<IEffectModifier> validator = WiccanArtsAPI.getKettleModifiers().get(out.getItem());
+				final PotionValidator<IEffectModifier> validator = KettleRegistry.getKettleModifiers().get(out.getItem());
 				final Optional optional = validator.get(out);
 				if (optional.isPresent()) {
-					modifiers.add((IEffectModifier) ((Tuple) optional.get()).getSecond());
+					tempModifiers.add((IEffectModifier) ((Tuple) optional.get()).getSecond());
 				}
 			} else {
-				final PotionValidator<PotionHolder> validator = WiccanArtsAPI.getKettleEffects().get(out.getItem());
+				final PotionValidator<PotionHolder> validator = KettleRegistry.getKettleEffects().get(out.getItem());
 				final Optional optional = validator.get(out);
 				if (optional.isPresent()) {
 					final PotionHolder effect = ((PotionHolder) ((Tuple) optional.get()).getSecond()).copy();
-					for (IEffectModifier mod : modifiers) {
+					for (IEffectModifier mod : tempModifiers) {
 						mod.apply(effect);
 					}
-					modifiers.clear();
+					tempModifiers.clear();
 					potions.add(effect.getPotionEffect());
 				}
 			}
 		}
 
-		return BrewUtils.createPotion(Items.POTIONITEM, potions.toArray(new PotionEffect[potions.size()]));
+		for (PotionEffect potion : potions) {
+			potions.stream().filter(compared -> potion.getPotion() == compared.getPotion()).forEach(potion::combine);
+		}
+
+		return BrewUtils.createPotion(getItemHolderType(holder), potions.toArray(new PotionEffect[potions.size()]));
+	}
+
+	private Item getItemHolderType(PotionHolder.HolderType holder) {
+		return holder == PotionHolder.HolderType.BOTTLE ? Items.POTIONITEM : holder == PotionHolder.HolderType.SPLASH
+				? Items.SPLASH_POTION : Items.LINGERING_POTION;
 	}
 
 	private boolean isEffect(ItemStack stack) {
-		return WiccanArtsAPI.getKettleEffects().containsKey(stack.getItem());
+		return KettleRegistry.getKettleEffects().containsKey(stack.getItem());
 	}
 
 	private boolean isModifier(ItemStack stack) {
-		return WiccanArtsAPI.getKettleModifiers().containsKey(stack.getItem());
+		return KettleRegistry.getKettleModifiers().containsKey(stack.getItem());
 	}
 
 	@Override
 	public void update() {
 		final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
-		entityItemList.forEach(this :: collideItem);
+		entityItemList.forEach(this::collideItem);
 
-		if (recipeBoilingTime == 0 && ! world.isRemote) {
+		if (!world.isRemote && recipeBoilingTime == 0) {
 			if (ticks % 2 == 0) {
 				final float x = getPos().getX();
 				final float y = getPos().getY() + 0.65F;
@@ -283,7 +302,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), y, z + world.rand.nextFloat(), 3, 0, 0, 0);
 			}
 
-			if (ticks % 20 == 0 && -- itemTimer <= 0) {
+			if (ticks % 20 == 0 && --itemTimer <= 0) {
 				final float x = getPos().getX() + 0.5F;
 				final float y = getPos().getY() + 0.65F;
 				final float z = getPos().getZ() + 0.5F;
@@ -310,27 +329,29 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			}
 		}
 
-		if (! hasWater()) {
+		if (!hasWater()) {
 			removeItems();
 		}
 
 		if (ticks % 10 == 0) {
 			handleRain();
-			if (! world.isRemote && recipeBoilingTime > 0) {
+			if (!world.isRemote && !isEmpty()) {
 				final float x = getPos().getX() + world.rand.nextFloat();
 				final float y = getPos().getY() + 0.65F;
 				final float z = getPos().getZ() + world.rand.nextFloat();
 
 				PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 1, 0, 0, 0);
 
-				-- recipeBoilingTime;
+				if(recipeBoilingTime > 0) {
+					--recipeBoilingTime;
+				}
 			}
 		}
 
 		if (ticks % 20 == 0) {
 			handleHeat();
 		}
-		++ ticks;
+		++ticks;
 	}
 
 	private void removeItems() {
@@ -345,7 +366,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	private boolean loadRecipe() {
-		recipe = WiccanArtsAPI.getKettleRecipes().stream()
+		recipe = KettleRegistry.getKettleRecipes().stream()
 				.filter(kettleRecipe -> kettleRecipe.checkRecipe(itemHandler, world))
 				.findFirst().orElse(null);
 
@@ -354,9 +375,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	private void handleHeat() {
 		if (isAboveFire() && hasWater() && heat < 5) {
-			++ heat;
-		} else if ((! isAboveFire() || ! hasWater()) && heat > 0) {
-			-- heat;
+			++heat;
+		} else if ((!isAboveFire() || !hasWater()) && heat > 0) {
+			--heat;
 		}
 	}
 
@@ -381,11 +402,6 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing side) {
-		return null;
-	}
-
-	@Override
 	public int getSizeInventory() {
 		return 16;
 	}
@@ -396,7 +412,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		cmp.setInteger(TAG_WATER, waterLevel);
 		cmp.setInteger(TAG_HEAT, heat);
 		cmp.setString(TAG_MODE, mode.name());
-		cmp.setInteger(TAG_RECIPE, WiccanArtsAPI.getKettleRecipes().indexOf(recipe));
+		cmp.setInteger(TAG_RECIPE, KettleRegistry.getKettleRecipes().indexOf(recipe));
 	}
 
 	@Override
@@ -408,7 +424,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 		final int index = cmp.getInteger(TAG_RECIPE);
 		if (index >= 0) {
-			recipe = WiccanArtsAPI.getKettleRecipes().get(index);
+			recipe = KettleRegistry.getKettleRecipes().get(index);
 		}
 	}
 

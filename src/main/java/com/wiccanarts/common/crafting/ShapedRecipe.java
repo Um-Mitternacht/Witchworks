@@ -50,8 +50,8 @@ class ShapedRecipe {
 		return this;
 	}
 
-	public ShapedRecipe setMirror(boolean mirror) {
-		this.mirror = mirror;
+	public ShapedRecipe setMirror(boolean mirrorIn) {
+		this.mirror = mirrorIn;
 		return this;
 	}
 
@@ -95,6 +95,11 @@ class ShapedRecipe {
 
 		public RecipeMapping map(char c, Block block) {
 			recipe.map(c, block);
+			return this;
+		}
+
+		public RecipeMapping map(char c, String ore) {
+			recipe.map(c, ore);
 			return this;
 		}
 

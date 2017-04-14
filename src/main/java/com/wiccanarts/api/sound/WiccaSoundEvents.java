@@ -1,6 +1,6 @@
 package com.wiccanarts.api.sound;
 
-import com.wiccanarts.api.ResourceLocationsAPI;
+import com.wiccanarts.api.WiccanArtsAPI;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
@@ -11,7 +11,7 @@ import net.minecraft.util.SoundEvent;
  */
 public final class WiccaSoundEvents {
 
-	public static final SoundEvent BOIL = getRegisteredSound(ResourceLocationsAPI.BOIL);
+	public static final SoundEvent BOIL = getRegisteredSound(WiccanArtsAPI.BOIL);
 
 	private WiccaSoundEvents() {
 	}

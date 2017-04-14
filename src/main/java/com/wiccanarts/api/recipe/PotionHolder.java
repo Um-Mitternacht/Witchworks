@@ -14,6 +14,14 @@ public class PotionHolder {
 	private int duration;
 	private int amplifier;
 
+	public PotionHolder(Potion potion) {
+		this(potion, 0, 0);
+	}
+
+	public PotionHolder(Potion potion, int duration) {
+		this(potion, duration, 0);
+	}
+
 	public PotionHolder(Potion potion, int duration, int amplifier) {
 		this.potion = potion;
 		this.duration = duration;
@@ -47,5 +55,11 @@ public class PotionHolder {
 
 	public PotionHolder copy() {
 		return new PotionHolder(potion, duration, amplifier);
+	}
+
+	public enum HolderType {
+		BOTTLE,
+		SPLASH,
+		LINGERING
 	}
 }

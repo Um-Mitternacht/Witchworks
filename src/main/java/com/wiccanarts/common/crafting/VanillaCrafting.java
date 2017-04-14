@@ -8,7 +8,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
@@ -26,78 +25,53 @@ public final class VanillaCrafting {
 
 	public static void items() {
 
-		for (ItemStack item : OreDictionary.getOres("nuggetSilver")) {
-			System.out.println(item);
-			shaped().grid("NNN", "NNN", "NNN")
-					.map('N', item)
-					.outputs(ModItems.SILVER_INGOT)
-					.setMirror(true).build();
-		}
+		shaped().grid("NNN", "NNN", "NNN")
+				.map('N', "nuggetSilver")
+				.outputs(ModItems.SILVER_INGOT)
+				.build();
 
-		for (ItemStack item : OreDictionary.getOres("gemBloodstone")) {
-			System.out.println(item);
-			shaped().grid("BBB", "BBB", "BBB")
-					.map('B', item)
-					.outputs(ModBlocks.BLOODSTONE_BLOCK)
-					.setMirror(true).build();
-		}
+		shaped().grid("BBB", "BBB", "BBB")
+				.map('B', "gemBloodstone")
+				.outputs(ModBlocks.BLOODSTONE_BLOCK)
+				.build();
 
-		for (ItemStack item : OreDictionary.getOres("gemTourmaline")) {
-			System.out.println(item);
-			shaped().grid("TTT", "TTT", "TTT")
-					.map('T', item)
-					.outputs(ModBlocks.TOURMALINE_BLOCK)
-					.setMirror(true).build();
-		}
+		shaped().grid("TTT", "TTT", "TTT")
+				.map('T', "gemTourmaline")
+				.outputs(ModBlocks.TOURMALINE_BLOCK)
+				.build();
 
-		for (ItemStack item : OreDictionary.getOres("gemMoldavite")) {
-			System.out.println(item);
-			shaped().grid("MMM", "MMM", "MMM")
-					.map('M', item)
-					.outputs(ModBlocks.MOLDAVITE_BLOCK)
-					.setMirror(true).build();
-		}
+		shaped().grid("MMM", "MMM", "MMM")
+				.map('M', "gemMoldavite")
+				.outputs(ModBlocks.MOLDAVITE_BLOCK)
+				.build();
 
-		for (ItemStack item : OreDictionary.getOres("plankWood")) {
-			System.out.println(item);
-			shaped().grid("WWW", "WHW", "WWW")
-					.map('W', item)
-					.map('H', ModItems.EMPTY_HONEYCOMB)
-					.outputs(ModBlocks.APIARY)
-					.setMirror(true).build();
-		}
+		shaped().grid("WWW", "WHW", "WWW")
+				.map('W', "plankWood")
+				.map('H', ModItems.EMPTY_HONEYCOMB)
+				.outputs(ModBlocks.APIARY)
+				.build();
 
-		for (ItemStack item : OreDictionary.getOres("plankWood")) {
-			System.out.println(item);
-			shaped().grid("LSL", "SSS", "WWW")
-					.map('W', item)
-					.map('S', Blocks.STONE)
-					.map('L', Blocks.CARPET)
-					.outputs(ModBlocks.ALTAR)
-					.setMirror(true).build();
-		}
+		shaped().grid("LSL", "SSS", "WWW")
+				.map('W', "plankWood")
+				.map('S', Blocks.STONE)
+				.map('L', Blocks.CARPET)
+				.outputs(ModBlocks.ALTAR)
+				.build();
 
+		shapeless()
+				.add("blockMoldavite")
+				.outputs(new ItemStack(ModItems.MOLDAVITE, 9))
+				.build();
 
-		for (ItemStack item : OreDictionary.getOres("blockMoldavite")) {
-			shapeless()
-					.add(item)
-					.outputs(new ItemStack(ModItems.MOLDAVITE, 9))
-					.build();
-		}
+		shapeless()
+				.add("blockTourmaline")
+				.outputs(new ItemStack(ModItems.TOURMALINE, 9))
+				.build();
 
-		for (ItemStack item : OreDictionary.getOres("blockTourmaline")) {
-			shapeless()
-					.add(item)
-					.outputs(new ItemStack(ModItems.TOURMALINE, 9))
-					.build();
-		}
-
-		for (ItemStack item : OreDictionary.getOres("blockBloodstone")) {
-			shapeless()
-					.add(item)
-					.outputs(new ItemStack(ModItems.BLOODSTONE, 9))
-					.build();
-		}
+		shapeless()
+				.add("blockBloodstone")
+				.outputs(new ItemStack(ModItems.BLOODSTONE, 9))
+				.build();
 
 		shapeless()
 				.add(Items.NETHERBRICK)
@@ -148,7 +122,6 @@ public final class VanillaCrafting {
 				.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1))
 				.build();
 
-		//fixme HIDE THIS RECIPE FROM JEI
 		shapeless()
 				.add(new ItemStack(Items.DYE, 1, 4))
 				.add(ModItems.JASPER)
@@ -165,12 +138,10 @@ public final class VanillaCrafting {
 					.build();
 		}
 
-		for (ItemStack item : OreDictionary.getOres("ingotSilver")) {
-			shapeless()
-					.add(item)
-					.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
-					.build();
-		}
+		shapeless()
+				.add("ingotSilver")
+				.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
+				.build();
 
 		shapeless().add(ModBlocks.SILVER_BLOCK)
 				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
@@ -233,7 +204,6 @@ public final class VanillaCrafting {
 		}
 
 		public void build() {
-
 			if (ingredients.isEmpty())
 				throw new IllegalArgumentException("You have to specify ingredients for the recipe, please report this!");
 			if (output == null) throw new IllegalArgumentException("Output not specified, please report this!");
@@ -247,7 +217,7 @@ public final class VanillaCrafting {
 				throw new IllegalArgumentException("You have to specify ingredients for the recipe, please report this!");
 			if (output == null) throw new IllegalArgumentException("Output not specified, please report this!");
 
-			final ModShapelessOreRecipe recipe = new ModShapelessOreRecipe(output, ingredients.toArray());
+			final HiddenShapelessOreRecipe recipe = new HiddenShapelessOreRecipe(output, ingredients.toArray());
 			CraftingManager.getInstance().getRecipeList().add(recipe);
 		}
 	}
