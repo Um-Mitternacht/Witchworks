@@ -149,6 +149,7 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.TOURMALINE_ORE),
 				itemBlock(ModBlocks.SERPENTINE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_BLOCK),
+				itemBlock(ModBlocks.SALT_ORE),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),

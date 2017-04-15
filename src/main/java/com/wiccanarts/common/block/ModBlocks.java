@@ -94,6 +94,8 @@ public final class ModBlocks {
 	public static final Block ALTAR = new Block(Material.ROCK);
 	@ObjectHolder (LibBlockName.APIARY)
 	public static final Block APIARY = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.SALT_ORE)
+	public static final Block SALT_ORE = new Block(Material.ROCK);
 
 	private ModBlocks() {
 	}
@@ -116,5 +118,6 @@ public final class ModBlocks {
 		OreDictionary.registerOre("oreSerpentine", new ItemStack(ModBlocks.SERPENTINE_ORE));
 		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.TOURMALINE_BLOCK));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
+		OreDictionary.registerOre("oreSalt", new ItemStack(ModBlocks.SALT_ORE));
 	}
 }

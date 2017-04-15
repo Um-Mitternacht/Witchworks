@@ -137,6 +137,7 @@ public final class WiccanArtsCreativeTabs {
 			addItem(ModItems.SILVER_LEGGINGS);
 			addItem(ModItems.SILVER_BOOTS);
 			addBlock(ModBlocks.SILVER_BLOCK);
+			addBlock(ModBlocks.SALT_ORE);
 			addBlock(ModBlocks.COQUINA);
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.SILVER_ORE);
