@@ -42,31 +42,31 @@ public class ClientProxy implements ISidedProxy {
 	 */
 	@SideOnly (Side.CLIENT)
 	@SubscribeEvent
-	public static void registerItemModels (ModelRegistryEvent event) {
-		ModelHandler.registerModels ();
+	public static void registerItemModels(ModelRegistryEvent event) {
+		ModelHandler.registerModels();
 	}
 
 	@SideOnly (Side.CLIENT)
 	@Override
-	public void preInit (FMLPreInitializationEvent event) {
-		registerRenders ();
-		MinecraftForge.EVENT_BUS.register (new TextureStitcher ());
+	public void preInit(FMLPreInitializationEvent event) {
+		registerRenders();
+		MinecraftForge.EVENT_BUS.register(new TextureStitcher());
 	}
 
 	@SideOnly (Side.CLIENT)
 	@Override
-	public void init (FMLInitializationEvent event) {
-		Minecraft.getMinecraft ().getBlockColors ().registerBlockColorHandler (new BlockColorHandler (),
+	public void init(FMLInitializationEvent event) {
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new BlockColorHandler(),
 				ModBlocks.CANDLE_LARGE, ModBlocks.CANDLE_MEDIUM, ModBlocks.CANDLE_SMALL);
-		Minecraft.getMinecraft ().getItemColors ().registerItemColorHandler (new ItemColorHandler (),
-				Item.getItemFromBlock (ModBlocks.CANDLE_LARGE),
-				Item.getItemFromBlock (ModBlocks.CANDLE_MEDIUM),
-				Item.getItemFromBlock (ModBlocks.CANDLE_SMALL));
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorHandler(),
+				Item.getItemFromBlock(ModBlocks.CANDLE_LARGE),
+				Item.getItemFromBlock(ModBlocks.CANDLE_MEDIUM),
+				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
 	}
 
 	@SideOnly (Side.CLIENT)
 	@Override
-	public void postInit (FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event) {
 
 	}
 
@@ -75,45 +75,42 @@ public class ClientProxy implements ISidedProxy {
 	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
 	 * or
 	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
-	 *
 	 * @see RenderingRegistry
 	 */
 	@SideOnly (Side.CLIENT)
-	private void registerRenders () {
-		ClientRegistry.bindTileEntitySpecialRenderer (TileKettle.class, new TileRenderKettle ());
+	private void registerRenders() {
+		ClientRegistry.bindTileEntitySpecialRenderer(TileKettle.class, new TileRenderKettle());
 	}
 
 	/**
 	 * Display a Record text with a format and localization.
-	 *
-	 * @param text
-	 * 		An {@link ITextComponent}
+	 * @param text An {@link ITextComponent}
 	 */
 	@SideOnly (Side.CLIENT)
 	@Override
-	public void displayRecordText (ITextComponent text) {
-		Minecraft.getMinecraft ().ingameGUI.setRecordPlayingMessage (text.getFormattedText ());
+	public void displayRecordText(ITextComponent text) {
+		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
 
 	@SideOnly (Side.CLIENT)
 	@Override
-	public void spawnParticle (ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
-		if (doParticle ()) {
-			Minecraft.getMinecraft ().effectRenderer.addEffect (particleF.newInstance (x, y, z, xSpeed, ySpeed, zSpeed, args));
+	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+		if (doParticle()) {
+			Minecraft.getMinecraft().effectRenderer.addEffect(particleF.newInstance(x, y, z, xSpeed, ySpeed, zSpeed, args));
 		}
 	}
 
 	@SideOnly (Side.CLIENT)
-	private boolean doParticle () {
-		if (FMLCommonHandler.instance ().getEffectiveSide () == Side.SERVER)
+	private boolean doParticle() {
+		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
 			return false;
 
 		float chance = 1F;
-		if (Minecraft.getMinecraft ().gameSettings.particleSetting == 1)
+		if (Minecraft.getMinecraft().gameSettings.particleSetting == 1)
 			chance = 0.6F;
-		else if (Minecraft.getMinecraft ().gameSettings.particleSetting == 2)
+		else if (Minecraft.getMinecraft().gameSettings.particleSetting == 2)
 			chance = 0.2F;
 
-		return chance == 1F || Math.random () < chance;
+		return chance == 1F || Math.random() < chance;
 	}
 }

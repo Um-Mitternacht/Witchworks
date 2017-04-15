@@ -99,6 +99,9 @@ tile.silver_block.name=Silver Block
 tile.nethersteel.name=Nethersteel
 tile.kettle.name=Kettle
 tile.coquina.name=Coquina
+tile.apiary.name=Apiary
+tile.beehive.name=Beehive
+tile.altar.name=Altar
 
 effect.wiccanarts.stoneform_brew=Stoneform
 

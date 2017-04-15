@@ -10,5 +10,5 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public interface IModelRegister {
 	@SideOnly (Side.CLIENT)
-	void registerModels ();
+	void registerModels();
 }

@@ -25,7 +25,7 @@ import java.util.Set;
 @SuppressWarnings ({"WeakerAccess", "unused"})
 public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 
-	private final Set<DimensionType> dimensionList = new HashSet<> ();
+	private final Set<DimensionType> dimensionList = new HashSet<>();
 	private final BlockMatcher predicate;
 	private final IBlockState oreToGen;
 	private final int minOreVeinSize;
@@ -34,52 +34,52 @@ public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 	private final int maxHeight;
 	private final int genChance;
 
-	public WorldGenOre (Block block, DimensionType... dimensionTypes) {
-		this (block.getDefaultState (), 4, 3, 10, 30, 4, Blocks.STONE, dimensionTypes);
+	public WorldGenOre(Block block, DimensionType... dimensionTypes) {
+		this(block.getDefaultState(), 4, 3, 10, 30, 4, Blocks.STONE, dimensionTypes);
 	}
 
-	public WorldGenOre (Block block, int minVeinSize, int maxVeinSize, DimensionType... dimensionTypes) {
-		this (block.getDefaultState (), minVeinSize, maxVeinSize, 10, 30, 4, Blocks.STONE, dimensionTypes);
+	public WorldGenOre(Block block, int minVeinSize, int maxVeinSize, DimensionType... dimensionTypes) {
+		this(block.getDefaultState(), minVeinSize, maxVeinSize, 10, 30, 4, Blocks.STONE, dimensionTypes);
 	}
 
-	public WorldGenOre (Block block, int minVeinSize, int maxVeinSize, int minHeight, int maxHeight, int generationChance, Block surrounding, DimensionType... dimensionTypes) {
-		this (block.getDefaultState (), minVeinSize, maxVeinSize, minHeight, maxHeight, generationChance, surrounding, dimensionTypes);
+	public WorldGenOre(Block block, int minVeinSize, int maxVeinSize, int minHeight, int maxHeight, int generationChance, Block surrounding, DimensionType... dimensionTypes) {
+		this(block.getDefaultState(), minVeinSize, maxVeinSize, minHeight, maxHeight, generationChance, surrounding, dimensionTypes);
 	}
 
-	public WorldGenOre (IBlockState blockState, int minVeinSize, int maxVeinSize, int minHeight, int maxHeight, int generationChance, Block surrounding, DimensionType... dimensionTypes) {
-		super (blockState, minVeinSize);
+	public WorldGenOre(IBlockState blockState, int minVeinSize, int maxVeinSize, int minHeight, int maxHeight, int generationChance, Block surrounding, DimensionType... dimensionTypes) {
+		super(blockState, minVeinSize);
 		this.oreToGen = blockState;
 		this.minOreVeinSize = minVeinSize;
 		this.maxOreVeinSize = maxVeinSize;
 		this.maxHeight = maxHeight;
 		this.minHeight = minHeight;
 		this.genChance = generationChance;
-		this.predicate = BlockMatcher.forBlock (surrounding);
+		this.predicate = BlockMatcher.forBlock(surrounding);
 		if (dimensionTypes == null) {
-			dimensionList.add (DimensionType.OVERWORLD);
+			dimensionList.add(DimensionType.OVERWORLD);
 		} else {
-			Collections.addAll (dimensionList, dimensionTypes);
+			Collections.addAll(dimensionList, dimensionTypes);
 		}
 	}
 
 	@Override
-	public void generate (Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		if (dimensionList.contains (world.provider.getDimensionType ())) {
-			generateOre (oreToGen, world, random, chunkX, chunkZ, minOreVeinSize, maxOreVeinSize, genChance, minHeight, maxHeight, predicate);
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+		if (dimensionList.contains(world.provider.getDimensionType())) {
+			generateOre(oreToGen, world, random, chunkX, chunkZ, minOreVeinSize, maxOreVeinSize, genChance, minHeight, maxHeight, predicate);
 		}
 	}
 
-	private void generateOre (IBlockState blockToGen, World world, Random random, int chunkX, int chunkZ, int minVeinSize, int maxVeinSize, int chance, int minY, int maxY, BlockMatcher generateInBlocks) {
+	private void generateOre(IBlockState blockToGen, World world, Random random, int chunkX, int chunkZ, int minVeinSize, int maxVeinSize, int chance, int minY, int maxY, BlockMatcher generateInBlocks) {
 		final int heightRange = maxY - minY;
-		final int randFactor = (maxVeinSize - minVeinSize) > 0 ? random.nextInt (maxVeinSize - minVeinSize) : 0;
+		final int randFactor = (maxVeinSize - minVeinSize) > 0 ? random.nextInt(maxVeinSize - minVeinSize) : 0;
 		final int veinSize = minVeinSize + randFactor;
-		final WorldGenMinable generator = new WorldGenMinable (blockToGen, veinSize, generateInBlocks);
+		final WorldGenMinable generator = new WorldGenMinable(blockToGen, veinSize, generateInBlocks);
 
-		for (int i = 0; i < chance; ++ i) {
-			final int xRandom = chunkX * 16 + random.nextInt (16);
-			final int yRandom = random.nextInt (heightRange) + minY;
-			final int zRandom = chunkZ * 16 + random.nextInt (16);
-			generator.generate (world, random, new BlockPos (xRandom, yRandom, zRandom));
+		for (int i = 0; i < chance; ++i) {
+			final int xRandom = chunkX * 16 + random.nextInt(16);
+			final int yRandom = random.nextInt(heightRange) + minY;
+			final int zRandom = chunkZ * 16 + random.nextInt(16);
+			generator.generate(world, random, new BlockPos(xRandom, yRandom, zRandom));
 		}
 	}
 }

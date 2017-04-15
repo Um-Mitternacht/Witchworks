@@ -16,18 +16,18 @@ import net.minecraft.world.World;
  */
 public class ItemHoney extends ItemModFood implements IModelRegister {
 
-	public ItemHoney () {
-		super (LibItemName.HONEY, 2, 4F, false);
+	public ItemHoney() {
+		super(LibItemName.HONEY, 2, 4F, false);
 	}
 
 	@Override
-	protected void onFoodEaten (ItemStack stack, World worldIn, EntityPlayer player) {
-		player.addPotionEffect (new PotionEffect (MobEffects.HASTE, 450, 0));
-		player.addPotionEffect (new PotionEffect (MobEffects.LUCK, 450, 0));
+	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
+		player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 450, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.LUCK, 450, 0));
 	}
 
 	@Override
-	public void registerModels () {
-		ModelHandler.registerItem (this);
+	public void registerModels() {
+		ModelHandler.registerItem(this);
 	}
 }

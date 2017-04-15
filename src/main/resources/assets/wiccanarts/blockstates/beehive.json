@@ -1,14 +1,19 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "wiccanarts:beehive"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "wiccanarts:beehive"
-	  }
-	]
+	"facing=north": {
+	  "model": "wiccanarts:beehive"
+	},
+	"facing=south": {
+	  "model": "wiccanarts:beehive",
+	  "y": 180
+	},
+	"facing=east": {
+	  "model": "wiccanarts:beehive",
+	  "y": 90
+	},
+	"facing=west": {
+	  "model": "wiccanarts:beehive",
+	  "y": 270
+	}
   }
 }

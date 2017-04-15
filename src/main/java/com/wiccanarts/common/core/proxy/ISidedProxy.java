@@ -13,13 +13,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  */
 public interface ISidedProxy {
 
-	void preInit (FMLPreInitializationEvent event);
+	void preInit(FMLPreInitializationEvent event);
 
-	void init (FMLInitializationEvent event);
+	void init(FMLInitializationEvent event);
 
-	void postInit (FMLPostInitializationEvent event);
+	void postInit(FMLPostInitializationEvent event);
 
-	void displayRecordText (ITextComponent text);
+	void displayRecordText(ITextComponent text);
 
-	void spawnParticle (ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args);
+	void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args);
 }
