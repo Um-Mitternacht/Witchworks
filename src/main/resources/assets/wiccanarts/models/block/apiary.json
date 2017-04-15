@@ -1,6 +1,7 @@
 {
   "parent": "block/block",
   "textures": {
+	"particle": "wiccanarts:blocks/apiary",
 	"0": "wiccanarts:blocks/apiary"
   },
   "elements": [

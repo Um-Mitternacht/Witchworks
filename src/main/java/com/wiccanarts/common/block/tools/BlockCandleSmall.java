@@ -22,30 +22,30 @@ import java.util.List;
  */
 public class BlockCandleSmall extends BlockCandle implements IModelRegister {
 
-	private static final AxisAlignedBB SMALL_BOX = new AxisAlignedBB (0.25, 0, 0.25, 0.75, 0.5, 0.75);
+	private static final AxisAlignedBB SMALL_BOX = new AxisAlignedBB(0.38, 0, 0.38, 0.62, 0.5, 0.62);
 
-	public BlockCandleSmall () {
-		super (LibBlockName.CANDLE_SMALL);
+	public BlockCandleSmall() {
+		super(LibBlockName.CANDLE_SMALL);
 	}
 
 	@SuppressWarnings ("deprecation")
 	@Override
-	public AxisAlignedBB getBoundingBox (IBlockState state, IBlockAccess source, BlockPos pos) {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SMALL_BOX;
 	}
 
 	@Override
-	public void getSubBlocks (Item itemIn, CreativeTabs tab, List<ItemStack> list) {
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < 16; i++) {
-			list.add (new ItemStack (itemIn, 1, i));
+			list.add(new ItemStack(itemIn, 1, i));
 		}
 	}
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void registerModels () {
+	public void registerModels() {
 		for (int i = 0; i < 16; i++) {
-			ModelHandler.registerBlock (this, i);
+			ModelHandler.registerBlock(this, i);
 		}
 	}
 }

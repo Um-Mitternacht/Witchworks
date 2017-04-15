@@ -22,19 +22,19 @@ import net.minecraftforge.common.config.Config.Comment;
 public final class ConfigHandler {
 
 	@Comment ("Don't change this if you don't know what you are doing")
-	public static WiccanArts wiccanArts = new WiccanArts ();
+	public static WiccanArts wiccanArts = new WiccanArts();
 
-	private ConfigHandler () {
+	private ConfigHandler() {
 	}
 
 	public static class WiccanArts {
 
 		@Comment ("")
-		public Crafting crafting = new Crafting ();
+		public Crafting crafting = new Crafting();
 		@Comment ("")
-		public WorldGen worldGen = new WorldGen ();
+		public WorldGen worldGen = new WorldGen();
 		@Comment ("")
-		public Spawning spawning = new Spawning ();
+		public Spawning spawning = new Spawning();
 
 		public static class Crafting {
 

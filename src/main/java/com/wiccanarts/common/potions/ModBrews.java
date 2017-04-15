@@ -15,8 +15,10 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 public final class ModBrews {
 
 	@ObjectHolder (LibBrewName.STONEFORM_BREW)
-	public static final Potion STONEFORM_BREW = new BrewMod ();
+	public static final Potion STONEFORM_BREW = new BrewMod();
+	@ObjectHolder (LibBrewName.PARALYSIS_BREW)
+	public static final Potion PARALYSIS_BREW = new BrewMod();
 
-	private ModBrews () {
+	private ModBrews() {
 	}
 }

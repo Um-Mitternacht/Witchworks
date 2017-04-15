@@ -73,6 +73,7 @@ public final class LibItemName {
 	public static final String SALT = "salt";
 	public static final String BEE = "bee";
 	public static final String HONEYCOMB = "honeycomb";
+	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
 	public static final String LAVENDER_OIL = "lavender_oil";
 
 	//Tools
@@ -81,6 +82,14 @@ public final class LibItemName {
 	public static final String SILVER_SPADE = "silver_spade";
 	public static final String SILVER_HOE = "silver_hoe";
 	public static final String SILVER_SWORD = "silver_sword";
+	public static final String MORTAR_AND_PESTLE = "mortar_and_pestle";
+
+	//Equipment
+	public static final String SILVER_HELMET = "silver_helmet";
+	public static final String SILVER_CHESTPLATE = "silver_chestplate";
+	public static final String SILVER_LEGGINGS = "silver_leggings";
+	public static final String SILVER_BOOTS = "silver_boots";
+
 
 	//Misc
 	public static final String BREW_PHIAL = "brew_phial";
@@ -102,6 +111,6 @@ public final class LibItemName {
 	//Materials
 	public static final String SILVER = "silver";
 
-	private LibItemName () {
+	private LibItemName() {
 	}
 }

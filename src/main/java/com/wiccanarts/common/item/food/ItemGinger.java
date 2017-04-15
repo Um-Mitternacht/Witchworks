@@ -10,8 +10,8 @@ import net.minecraft.init.MobEffects;
  */
 public class ItemGinger extends ItemCrop {
 
-	public ItemGinger () {
-		super (LibItemName.GINGER, 4, 0.8F, false);
-		addPotion (MobEffects.HASTE, MobEffects.STRENGTH);
+	public ItemGinger() {
+		super(LibItemName.GINGER, 4, 0.8F, false);
+		addPotion(MobEffects.HASTE, MobEffects.STRENGTH);
 	}
 }

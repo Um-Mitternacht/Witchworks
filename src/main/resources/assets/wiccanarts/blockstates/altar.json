@@ -1,14 +1,19 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "wiccanarts:altar"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "wiccanarts:altar"
-	  }
-	]
+	"facing=north": {
+	  "model": "wiccanarts:altar"
+	},
+	"facing=south": {
+	  "model": "wiccanarts:altar",
+	  "y": 180
+	},
+	"facing=east": {
+	  "model": "wiccanarts:altar",
+	  "y": 90
+	},
+	"facing=west": {
+	  "model": "wiccanarts:altar",
+	  "y": 270
+	}
   }
 }

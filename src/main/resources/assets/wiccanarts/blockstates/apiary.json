@@ -1,14 +1,19 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "wiccanarts:apiary"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "wiccanarts:apiary"
-	  }
-	]
+	"facing=north": {
+	  "model": "wiccanarts:apiary"
+	},
+	"facing=south": {
+	  "model": "wiccanarts:apiary",
+	  "y": 180
+	},
+	"facing=east": {
+	  "model": "wiccanarts:apiary",
+	  "y": 90
+	},
+	"facing=west": {
+	  "model": "wiccanarts:apiary",
+	  "y": 270
+	}
   }
 }

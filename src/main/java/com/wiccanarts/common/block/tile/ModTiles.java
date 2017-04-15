@@ -1,6 +1,5 @@
 package com.wiccanarts.common.block.tile;
 
-import com.wiccanarts.common.lib.LibBlockName;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -10,11 +9,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public final class ModTiles {
 
-	private ModTiles () {
+	private static final String KETTLE = "kettle";
+	private static final String CANDLE = "candle";
+
+	private ModTiles() {
 	}
 
-	public static void registerAll () {
+	public static void registerAll() {
 
-		GameRegistry.registerTileEntity (TileKettle.class, LibBlockName.KETTLE);
+		GameRegistry.registerTileEntity(TileKettle.class, KETTLE);
+		GameRegistry.registerTileEntity(TileCandle.class, CANDLE);
 	}
 }

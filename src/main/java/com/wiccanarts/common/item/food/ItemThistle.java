@@ -10,8 +10,8 @@ import net.minecraft.init.MobEffects;
  */
 public class ItemThistle extends ItemCrop {
 
-	public ItemThistle () {
-		super (LibItemName.THISTLE, 4, 0.8F, false);
-		addPotion (MobEffects.STRENGTH);
+	public ItemThistle() {
+		super(LibItemName.THISTLE, 4, 0.8F, false);
+		addPotion(MobEffects.STRENGTH);
 	}
 }

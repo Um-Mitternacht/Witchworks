@@ -15,19 +15,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class ItemAconitum extends ItemCrop {
 
-	public ItemAconitum () {
-		super (LibItemName.ACONITUM, 2, 0.6F, false);
-		addPotion (MobEffects.POISON, MobEffects.NAUSEA);
+	public ItemAconitum() {
+		super(LibItemName.ACONITUM, 2, 0.6F, false);
+		addPotion(MobEffects.POISON, MobEffects.NAUSEA);
 	}
 
 	@Override
-	public EnumRarity getRarity (ItemStack stack) {
+	public EnumRarity getRarity(ItemStack stack) {
 		return EnumRarity.UNCOMMON;
 	}
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void registerModels () {
-		ModelHandler.registerItem (this);
+	public void registerModels() {
+		ModelHandler.registerItem(this);
 	}
 }
