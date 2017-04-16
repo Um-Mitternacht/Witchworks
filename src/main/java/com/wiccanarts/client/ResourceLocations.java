@@ -10,8 +10,9 @@ import net.minecraft.util.ResourceLocation;
  */
 public final class ResourceLocations {
 
-	//Entity
+	//Misc
 	public static final ResourceLocation STONE_SKIN = getLocation("textures/misc/cobblestone.png");
+	public static final ResourceLocation WATER_STILL = getLocation("textures/misc/water_still.png");
 
 	//GUI
 	public static final ResourceLocation POTION_TEXTURES = getLocation("textures/gui/potions.png");
@@ -20,7 +21,6 @@ public final class ResourceLocations {
 	public static final ResourceLocation CAULDRON_BUBBLE = getLocation("particle/cauldron_bubble");
 	public static final ResourceLocation STEAM = getLocation("particle/steam");
 	public static final ResourceLocation BEE = getLocation("particle/bee");
-	public static final ResourceLocation SPARK = getLocation("particle/spark");
 
 	private ResourceLocations() {
 	}

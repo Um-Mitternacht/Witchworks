@@ -224,10 +224,11 @@ public final class CommonRegistration {
 
 	/**
 	 * Register a Crop to the {@link CropRegistry}, this method creates a new {@link ItemSeed} for you.
-	 * @param crop The Crop enum
+	 *
+	 * @param crop      The Crop enum
 	 * @param blockCrop The block this Crop can have
-	 * @param cropItem The item this Crop will drop when harvested
-	 * @param seedName The name id the new ItemSeed
+	 * @param cropItem  The item this Crop will drop when harvested
+	 * @param seedName  The name id the new ItemSeed
 	 */
 	private static void registerCrop(Crop crop, BlockCrop blockCrop, Item cropItem, String seedName) {
 		registerCrop(crop, blockCrop, cropItem, new ItemSeed(seedName, blockCrop, crop.getSoil()));
@@ -239,10 +240,11 @@ public final class CommonRegistration {
 	 * The Item Seed needs to be different, for ex the Kelp seed,
 	 * that needs to be placed on water so it uses a different placement logic.
 	 * </p>
-	 * @param crop The Crop enum
+	 *
+	 * @param crop      The Crop enum
 	 * @param blockCrop The block this Crop can have
-	 * @param cropItem The item this Crop will drop when harvested
-	 * @param seedItem The seed that will place the Crop
+	 * @param cropItem  The item this Crop will drop when harvested
+	 * @param seedItem  The seed that will place the Crop
 	 */
 	private static void registerCrop(Crop crop, BlockCrop blockCrop, Item cropItem, Item seedItem) {
 		blockCrop.setCrop(cropItem);

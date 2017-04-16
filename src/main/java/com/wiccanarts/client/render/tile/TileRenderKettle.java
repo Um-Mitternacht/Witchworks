@@ -35,15 +35,14 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			GlStateManager.disableAlpha();
 
-			final float[] color = te.getWaterColor();
-			GlStateManager.color(color[0], color[1], color[2]);
-
 			final float w = 0.125F;
 			GlStateManager.translate(w, 0, w);
 			GlStateManager.rotate(90F, 1F, 0F, 0F);
 			final float s = 0.0460425F;
 			GlStateManager.scale(s, s, s);
 
+			final float[] color = te.getColor();
+			GlStateManager.color(color[0], color[1], color[2], 1.0F);
 			renderWater(fluid.getStill());
 
 			GlStateManager.enableAlpha();

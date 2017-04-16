@@ -19,15 +19,15 @@ class ParticleSpark extends Particle {
 
 	private float oSize;
 
-	private ParticleSpark(World world, double x, double y, double z) {
+	private ParticleSpark(World world, double x, double y, double z, float[] color) {
 		super(world, x, y, z, 0.0D, 0.0D, 0.0D);
 		this.motionX *= 0.10000000149011612D;
 		this.motionY *= 0.10000000149011612D;
 		this.motionZ *= 0.10000000149011612D;
 		this.motionX += rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
-		this.motionY += rand.nextFloat() * 0.1D;
+		this.motionY += rand.nextFloat() * 0.25D;
 		this.motionZ += rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
-		setRBGColorF(rand.nextFloat(), rand.nextFloat(), rand.nextFloat());
+		setRBGColorF(color[0], color[1], color[2]);
 		this.particleScale *= 0.25F;
 		this.oSize = this.particleScale;
 		this.particleMaxAge = (int) (6.0D / (Math.random() * 0.8D + 0.6D));
@@ -68,7 +68,7 @@ class ParticleSpark extends Particle {
 	@SideOnly (Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
-			return new ParticleSpark(worldIn, xCoordIn, yCoordIn, zCoordIn);
+			return new ParticleSpark(worldIn, xCoordIn, yCoordIn, zCoordIn, args);
 		}
 	}
 }

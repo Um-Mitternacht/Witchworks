@@ -19,8 +19,12 @@ public interface IKettleRecipe {
 		return false;
 	}
 
-	default boolean isPotion() {
+	default boolean isLiquid() {
 		return false;
+	}
+
+	default int getDrain() {
+		return 1;
 	}
 
 	ImmutableList<Object> getNeededItems();

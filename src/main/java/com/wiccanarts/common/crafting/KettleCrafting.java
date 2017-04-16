@@ -26,17 +26,15 @@ import java.util.Map;
 @SuppressWarnings ("WeakerAccess")
 public final class KettleCrafting {
 
-	//Items
-
-	//Potions
-
 	private KettleCrafting() {
 	}
 
 	public static void init() {
+		//Others
+		KettleRegistry.registerKettleRecipe(new HoneyKettleCrafting());
+
 		//Exchanges
 		KettleRegistry.addKettleExchange(getStack(ModItems.EMPTY_HONEYCOMB), getStack(ModItems.WAX), false);
-		KettleRegistry.addKettleExchange(getStack(ModItems.HONEYCOMB), getStack(ModItems.HONEY), false);
 		KettleRegistry.addKettleExchange(getStack(Items.BEEF), getStack(Items.COOKED_BEEF), false);
 		KettleRegistry.addKettleExchange(getStack(Items.FISH), getStack(Items.COOKED_FISH), false);
 		KettleRegistry.addKettleExchange(getStack(Items.CHICKEN), getStack(Items.COOKED_CHICKEN), false);
@@ -79,9 +77,9 @@ public final class KettleCrafting {
 		//Custom Modifiers
 		KettleRegistry.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(10, 0));
 
-		KettleRegistry.addKettleModifierTo(getStack(Blocks.REDSTONE_BLOCK), effect -> effect.alter(100, -1));
+		KettleRegistry.addKettleModifierTo(getStack(Blocks.REDSTONE_BLOCK), effect -> effect.alter(90, 0));
 
-		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-100, 1));
+		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-90, 1));
 
 		KettleRegistry.addKettleModifierTo(getStack(Blocks.GLOWSTONE), effect -> effect.alter(-10, 2));
 
@@ -94,6 +92,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -103,6 +102,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param meta Meta of ItemStack
 	 * @return An ItemStack
@@ -113,6 +113,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -123,6 +124,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */

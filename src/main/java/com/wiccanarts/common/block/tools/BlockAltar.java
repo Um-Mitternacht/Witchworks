@@ -58,12 +58,6 @@ public class BlockAltar extends BlockMod implements IModelRegister {
 
 	@SuppressWarnings ("deprecation")
 	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-
-	@SuppressWarnings ("deprecation")
-	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
