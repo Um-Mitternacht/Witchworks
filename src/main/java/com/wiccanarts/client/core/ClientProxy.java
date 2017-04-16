@@ -75,7 +75,6 @@ public class ClientProxy implements ISidedProxy {
 	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
 	 * or
 	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
-	 *
 	 * @see RenderingRegistry
 	 */
 	@SideOnly (Side.CLIENT)
@@ -85,7 +84,6 @@ public class ClientProxy implements ISidedProxy {
 
 	/**
 	 * Display a Record text with a format and localization.
-	 *
 	 * @param text An {@link ITextComponent}
 	 */
 	@SideOnly (Side.CLIENT)

@@ -79,9 +79,8 @@ public final class ModelHandler {
 
 	/**
 	 * Set a new model resource location to an Item for as many meta the item has.
-	 *
-	 * @param item     The Item
-	 * @param maxMeta  The max meta
+	 * @param item The Item
+	 * @param maxMeta The max meta
 	 * @param itemName The name of the Item
 	 */
 	public static void registerMetas(Item item, int maxMeta, String itemName) {
@@ -94,9 +93,8 @@ public final class ModelHandler {
 
 	/**
 	 * Set a new model resource location to an Item for as many enums there are.
-	 *
-	 * @param item     The Item
-	 * @param values   The enum which holds the different Item Types
+	 * @param item The Item
+	 * @param values The enum which holds the different Item Types
 	 * @param itemName The name of the Item
 	 */
 	public static void registerEnums(Item item, IStringSerializable[] values, String itemName) {
