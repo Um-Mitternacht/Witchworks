@@ -51,9 +51,9 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
 			final TileEntity tile = worldIn.getTileEntity(pos);
-			if(tile == null || !(tile instanceof TileApiary)) return false;
+			if (tile == null || !(tile instanceof TileApiary)) return false;
 
-			if(heldItem != null && heldItem.getItem() == Items.NAME_TAG) {
+			if (heldItem != null && heldItem.getItem() == Items.NAME_TAG) {
 				((TileApiary) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
 				playerIn.openGui(WiccanArts.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());

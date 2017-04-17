@@ -9,6 +9,6 @@ public final class LibGui {
 
 	public static final int APIARY = 0;
 
-	private LibGui(){
+	private LibGui() {
 	}
 }

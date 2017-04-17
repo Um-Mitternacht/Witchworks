@@ -28,11 +28,15 @@ import javax.annotation.Nullable;
  */
 public class TileApiary extends TileEntityLockable implements ITickable, ISidedInventory {
 
-	private static final int[] SLOT_TOP = new int[]{0};
-	private static final int[] SLOT_BOTTOM = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+	private static final int[] SLOT_TOP = new int[] {0};
+	private static final int[] SLOT_BOTTOM = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
 	private ItemStack[] itemStacks = new ItemStack[19];
 	private String customName;
 	private int tick;
+
+	public static void registerFixesFurnace(DataFixer fixer) {
+		fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists("Apiary", "Items"));
+	}
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
@@ -135,11 +139,11 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	@Override
 	public void update() {
-		if(containsBee()) {
+		if (containsBee()) {
 			++tick;
-			if(tick % 200 == 0 && world.rand.nextBoolean()) {
+			if (tick % 200 == 0 && world.rand.nextBoolean()) {
 				for (int i = 1; i < itemStacks.length; i++) {
-					if(getStackInSlot(i) == null) {
+					if (getStackInSlot(i) == null) {
 						itemStacks[i] = randomItem();
 						markDirty();
 						break;
@@ -180,10 +184,6 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	public void setCustomInventoryName(String name) {
 		this.customName = name;
-	}
-
-	public static void registerFixesFurnace(DataFixer fixer) {
-		fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists("Apiary", "Items"));
 	}
 
 	@Override

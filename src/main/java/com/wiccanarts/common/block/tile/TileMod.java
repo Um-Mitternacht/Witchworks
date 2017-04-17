@@ -41,7 +41,7 @@ public abstract class TileMod extends TileEntity {
 		return new SPacketUpdateTileEntity(pos, 0, tag);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
 		super.onDataPacket(net, packet);
