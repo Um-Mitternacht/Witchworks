@@ -60,6 +60,7 @@ public class WiccanArts {
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MALACHITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TIGERS_EYE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SERPENTINE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.JASPER_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE), 0);

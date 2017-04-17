@@ -145,6 +145,7 @@ public final class WiccanArtsCreativeTabs {
 			addBlock(ModBlocks.TOURMALINE_ORE);
 			addBlock(ModBlocks.BLOODSTONE_ORE);
 			addBlock(ModBlocks.MALACHITE_ORE);
+			addBlock(ModBlocks.JASPER_ORE);
 			addBlock(ModBlocks.TIGERS_EYE_ORE);
 			addBlock(ModBlocks.SERPENTINE_ORE);
 			addBlock(ModBlocks.NUUMMITE_ORE);
