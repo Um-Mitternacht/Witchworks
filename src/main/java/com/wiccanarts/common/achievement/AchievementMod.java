@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 
 /**
- * Created by Joseph on 4/17/2017.
+ * Created by Joseph on 4/17/2017. Original code by Vazkii.
  */
 public class AchievementMod extends Achievement {
 

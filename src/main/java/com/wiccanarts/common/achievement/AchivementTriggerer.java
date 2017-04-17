@@ -1,7 +1,7 @@
 package com.wiccanarts.common.achievement;
 
 /**
- * Created by Joseph on 4/17/2017.
+ * Created by Joseph on 4/17/2017. Original code by Vazkii.
  */
 
 import net.minecraft.item.ItemStack;
