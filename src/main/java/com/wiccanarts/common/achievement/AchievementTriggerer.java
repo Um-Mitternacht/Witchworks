@@ -10,9 +10,9 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 
-public final class AchivementTriggerer {
+public final class AchievementTriggerer {
 
-	private AchivementTriggerer() {
+	private AchievementTriggerer() {
 	}
 
 	@SubscribeEvent
