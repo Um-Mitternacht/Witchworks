@@ -1,6 +1,6 @@
 package com.wiccanarts.common.item.misc;
 
-import com.wiccanarts.common.achievement.ModAchievements;
+import com.wiccanarts.common.achievement.*;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.lib.LibItemName;
 import net.minecraft.entity.player.EntityPlayer;
