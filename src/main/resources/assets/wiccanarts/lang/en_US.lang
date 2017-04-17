@@ -2,6 +2,9 @@
 itemGroup.wiccanarts_plants=Wiccan Arts - Plants and Herbs
 itemGroup.wiccanarts_items=Wiccan Arts - Sticks and Stones
 
+//Gui
+container.apiary=Apiary
+
 ////Names
 //Items
 item.seed_aconitum.name=Aconitum Seed

@@ -11,6 +11,7 @@ public final class ModTiles {
 
 	private static final String KETTLE = "kettle";
 	private static final String CANDLE = "candle";
+	private static final String APIARY = "apiary";
 
 	private ModTiles() {
 	}
@@ -19,5 +20,6 @@ public final class ModTiles {
 
 		GameRegistry.registerTileEntity(TileKettle.class, KETTLE);
 		GameRegistry.registerTileEntity(TileCandle.class, CANDLE);
+		GameRegistry.registerTileEntity(TileApiary.class, APIARY);
 	}
 }

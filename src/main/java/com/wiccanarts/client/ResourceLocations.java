@@ -16,6 +16,7 @@ public final class ResourceLocations {
 
 	//GUI
 	public static final ResourceLocation POTION_TEXTURES = getLocation("textures/gui/potions.png");
+	public static final ResourceLocation APIARY_GUI = getLocation("textures/gui/apiary.png");
 
 	//Particles
 	public static final ResourceLocation CAULDRON_BUBBLE = getLocation("particle/cauldron_bubble");
