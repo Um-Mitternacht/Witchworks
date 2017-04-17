@@ -1,12 +1,12 @@
 package com.wiccanarts.common.achievement;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Joseph on 4/17/2017. Original code by Vazkii, from Botania.

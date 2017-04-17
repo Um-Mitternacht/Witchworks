@@ -1,14 +1,10 @@
 package com.wiccanarts.common.achievement;
 
-import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
+import com.wiccanarts.common.lib.LibAchievementName;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
-import com.wiccanarts.common.lib.LibAchievementName;
-import com.wiccanarts.common.achievement.*;
 
 import static com.wiccanarts.common.lib.LibMod.MOD_NAME;
 

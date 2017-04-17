@@ -1,6 +1,5 @@
 package com.wiccanarts.common.crafting;
 
-import com.wiccanarts.common.achievement.ModAchievements;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.block.Block;
@@ -9,9 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.stats.Achievement;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
