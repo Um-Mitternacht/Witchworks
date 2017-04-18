@@ -42,6 +42,10 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	private int flowerCount;
 	private int tick;
 
+	public static void registerFixesFurnace(DataFixer fixer) {
+		fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists("Apiary", "Items"));
+	}
+
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
 		return side == EnumFacing.UP ? SLOT_TOP : SLOT_BOTTOM;
@@ -237,10 +241,6 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	public void setCustomInventoryName(String name) {
 		this.customName = name;
-	}
-
-	public static void registerFixesFurnace(DataFixer fixer) {
-		fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists("Apiary", "Items"));
 	}
 
 	@Override
