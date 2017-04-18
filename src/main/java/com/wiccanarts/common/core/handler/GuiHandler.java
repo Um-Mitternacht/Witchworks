@@ -1,8 +1,8 @@
 package com.wiccanarts.common.core.handler;
 
 import com.wiccanarts.client.gui.GuiApiary;
+import com.wiccanarts.client.gui.container.ContainerApiary;
 import com.wiccanarts.common.block.tile.TileApiary;
-import com.wiccanarts.common.block.tile.container.ContainerApiary;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;

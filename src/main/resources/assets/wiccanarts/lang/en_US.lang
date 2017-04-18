@@ -1,6 +1,7 @@
 //CreativeTab
 itemGroup.wiccanarts_plants=Wiccan Arts - Plants and Herbs
 itemGroup.wiccanarts_items=Wiccan Arts - Sticks and Stones
+itemGroup.wiccanarts_blockd=Wiccan Arts - Blocks
 
 //Gui
 container.apiary=Apiary
@@ -62,6 +63,7 @@ item.quartz.name=Quartz
 item.wax.name=Wax
 item.honey.name=Honey
 item.honeycomb.name=Honeycomb
+item.empty_honeycomb.name=Empty Honeycomb
 item.glass_jar.name=Glass Jar
 item.lavender_oil.name=Lavender Oil
 item.bee.name=Bee

@@ -92,6 +92,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -101,6 +102,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param meta Meta of ItemStack
 	 * @return An ItemStack
@@ -111,6 +113,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -121,6 +124,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */

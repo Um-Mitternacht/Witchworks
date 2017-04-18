@@ -1,6 +1,6 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package com.wiccanarts.common.item.misc;
+package com.wiccanarts.client.gui.container;
 
 import mcp.MethodsReturnNonnullByDefault;
 

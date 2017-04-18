@@ -37,7 +37,7 @@ import static net.minecraft.block.BlockHorizontal.FACING;
  */
 public class BlockApiary extends BlockMod implements ITileEntityProvider {
 
-	private static final AxisAlignedBB BOX = new AxisAlignedBB(0.11F, 0, 0.11F, 0.89F, 1, 0.89F);
+	private static final AxisAlignedBB BOX = new AxisAlignedBB(0.12F, 0, 0.12F, 0.88F, 1, 0.88F);
 
 	public BlockApiary() {
 		super(LibBlockName.APIARY, Material.WOOD);
@@ -60,6 +60,15 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		final TileEntity tile = worldIn.getTileEntity(pos);
+		if (tile != null && tile instanceof TileApiary) {
+			((TileApiary) tile).dropItems();
+		}
+		worldIn.removeTileEntity(pos);
 	}
 
 	@SideOnly (Side.CLIENT)

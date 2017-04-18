@@ -1,6 +1,5 @@
 package com.wiccanarts.common;
 
-import com.wiccanarts.common.achievement.ModAchievements;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.core.event.ModEvents;
 import com.wiccanarts.common.core.gen.WorldGenOre;
@@ -54,8 +53,6 @@ public class WiccanArts {
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
 
-		ModAchievements.init();
-
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.BLOODSTONE_ORE), 0);
@@ -63,7 +60,6 @@ public class WiccanArts {
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MALACHITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TIGERS_EYE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SERPENTINE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.JASPER_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE), 0);

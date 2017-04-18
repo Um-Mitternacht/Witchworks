@@ -1,7 +1,7 @@
 package com.wiccanarts.client.gui;
 
 import com.wiccanarts.client.ResourceLocations;
-import com.wiccanarts.common.block.tile.container.ContainerApiary;
+import com.wiccanarts.client.gui.container.ContainerApiary;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;

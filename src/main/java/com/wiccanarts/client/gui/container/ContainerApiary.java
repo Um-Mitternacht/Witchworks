@@ -1,4 +1,4 @@
-package com.wiccanarts.common.block.tile.container;
+package com.wiccanarts.client.gui.container;
 
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,12 +32,12 @@ public class ContainerApiary extends Container {
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
-				this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 8, 8 + j * 18, 84 + i * 18));
+				this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 			}
 		}
 
-		for (int i = 0; i < 9; ++i) {
-			this.addSlotToContainer(new Slot(playerInventory, i, 8 + i * 18, 142));
+		for (int k = 0; k < 9; ++k) {
+			this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 142));
 		}
 	}
 
@@ -48,7 +48,7 @@ public class ContainerApiary extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer playerIn) {
-		return true;
+		return !playerIn.isSpectator();
 	}
 
 	@SuppressWarnings ("ConstantConditions")
@@ -62,11 +62,14 @@ public class ContainerApiary extends Container {
 			final ItemStack original = slot.getStack();
 			copy = original.copy();
 
-			if (slotIndex < 18) {
-				if (!mergeItemStack(original, 18, 46, true)) return null;
+			if (slotIndex == 0) {
+				if (!mergeItemStack(original, 19, 55, true)) return null;
+				slot.onSlotChange(original, copy);
+			} else if (slotIndex > 19) {
+				if (original.stackSize == 1 && !mergeItemStack(original, 0, 1, false)) return null;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 0, 18, false)) return null;
+				if (!mergeItemStack(original, 19, 55, true)) return null;
 				slot.onSlotChange(original, copy);
 			}
 
@@ -106,7 +109,9 @@ public class ContainerApiary extends Container {
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null && (stack.getItem() == ModItems.HONEYCOMB || stack.getItem() == ModItems.EMPTY_HONEYCOMB);
+			return stack != null && (stack.getItem() == ModItems.HONEYCOMB
+					|| stack.getItem() == ModItems.EMPTY_HONEYCOMB
+					|| stack.getItem() == ModItems.BEE);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
