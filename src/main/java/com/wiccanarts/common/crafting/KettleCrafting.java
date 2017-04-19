@@ -64,7 +64,7 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.FISH, 3), new PotionHolder(MobEffects.WATER_BREATHING, 500));
 
-		KettleRegistry.addKettleEffectTo(getStack(Items.SPECKLED_MELON), new PotionHolder(MobEffects.INSTANT_HEALTH, 500));
+		KettleRegistry.addKettleEffectTo(getStack(Items.SPECKLED_MELON), new PotionHolder(MobEffects.INSTANT_HEALTH, 1));
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.SPIDER_EYE), new PotionHolder(MobEffects.POISON, 500));
 
