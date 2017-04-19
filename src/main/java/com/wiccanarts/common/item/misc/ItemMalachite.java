@@ -12,7 +12,7 @@ import net.minecraft.stats.Achievement;
 /**
  * Created by Joseph on 4/17/2017.
  */
-public class ItemMalachite extends ItemMod implements ICraftAchievement{
+public class ItemMalachite extends ItemMod implements ICraftAchievement {
 
 	public ItemMalachite() {
 		super(LibItemName.MALACHITE);
