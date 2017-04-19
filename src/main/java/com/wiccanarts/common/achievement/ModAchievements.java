@@ -20,7 +20,7 @@ public final class ModAchievements {
 
 	public static void init() {
 
-		malachiteCraft = new AchievementMod(LibAchievementName.MALACHITE_CRAFT, 0, 11, ModItems.MALACHITE, malachiteCraft);
+		malachiteCraft = new AchievementMod(LibAchievementName.MALACHITE_CRAFT, 0, 11, ModItems.MALACHITE, null);
 
 		pageIndex = AchievementPage.getAchievementPages().size();
 		wiccanArtsPage = new AchievementPage(MOD_NAME, AchievementMod.achievements.toArray(new Achievement[AchievementMod.achievements.size()]));
