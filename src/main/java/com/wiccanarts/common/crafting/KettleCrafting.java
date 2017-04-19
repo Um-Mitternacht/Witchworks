@@ -78,6 +78,10 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.BREAD), new PotionHolder(MobEffects.SATURATION, 600));
 
+		KettleRegistry.addKettleEffectTo(getStack(Items.APPLE), new PotionHolder(MobEffects.INSTANT_HEALTH, 1));
+
+		KettleRegistry.addKettleEffectTo(getStack(Blocks.RED_FLOWER), new PotionHolder(MobEffects.LUCK, 600));
+
 		//Custom Modifiers
 		KettleRegistry.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(10, 0));
 
