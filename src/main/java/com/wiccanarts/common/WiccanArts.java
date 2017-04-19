@@ -10,11 +10,13 @@ import com.wiccanarts.common.entity.ModEntities;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
 import com.wiccanarts.common.net.PacketHandler;
+import com.wiccanarts.common.util.CommandIncantation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static net.minecraftforge.fml.common.Mod.EventHandler;
@@ -73,5 +75,11 @@ public class WiccanArts {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
+	}
+
+	@EventHandler
+	public void start(FMLServerStartingEvent event)
+	{
+		event.registerServerCommand(new CommandIncantation());
 	}
 }
