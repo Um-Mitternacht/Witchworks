@@ -45,21 +45,22 @@ public class CommandIncantation implements ICommand {
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (args.length < 1) return;
 		System.out.println(args[0]);
-		if (args[0].equals("BURN!"));
+		EntityPlayer caster;
+		caster = (EntityPlayer) sender.getCommandSenderEntity();
+		if (caster == null) return;
+		if (args[0].equals("BURN!"))
 		{
-			EntityPlayer caster;
-			caster = (EntityPlayer) sender.getCommandSenderEntity();
 			RayTraceResult rez = caster.rayTrace(3, 1.0F);
 			EnumFacing side = rez.sideHit;
 			BlockPos block = rez.getBlockPos();
 			if (block != null && caster.getEntityWorld().getBlockState(block.offset(side)) == Blocks.AIR.getDefaultState()) {
 				caster.getEntityWorld().playSound(null, block, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, 2F);
 				caster.getEntityWorld().setBlockState(block.offset(side), Blocks.FIRE.getDefaultState());
-			} else if (args[0].equals("HEAL!"));
-			{
-				caster = (EntityPlayer) sender.getCommandSenderEntity();
-				caster.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 0));
 			}
+		} else if (args[0].equals("HEAL!"));
+		{
+			caster = (EntityPlayer) sender.getCommandSenderEntity();
+			caster.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 0));
 		}
 	}
 
