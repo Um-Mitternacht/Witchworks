@@ -7,11 +7,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
+import com.wiccanarts.common.achievement.ICraftAchievement;
 
 /**
  * Created by Joseph on 4/17/2017.
  */
-public class ItemMalachite extends ItemMod {
+public class ItemMalachite extends ItemMod implements ICraftAchievement {
 
 	public ItemMalachite() {
 		super(LibItemName.MALACHITE);
