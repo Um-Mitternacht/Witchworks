@@ -78,8 +78,7 @@ public class WiccanArts {
 	}
 
 	@EventHandler
-	public void start(FMLServerStartingEvent event)
-	{
+	public void start(FMLServerStartingEvent event) {
 		event.registerServerCommand(new CommandIncantation());
 	}
 }
