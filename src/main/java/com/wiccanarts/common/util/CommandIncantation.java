@@ -56,8 +56,7 @@ public class CommandIncantation implements ICommand {
 				caster.getEntityWorld().playSound(null, block, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, 2F);
 				caster.getEntityWorld().setBlockState(block.offset(side), Blocks.FIRE.getDefaultState());
 			}
-		} else if (args[0].equalsIgnoreCase("HEAL!")) ;
-		{
+		} else if (args[0].equalsIgnoreCase("HEAL!")) {
 			caster = (EntityPlayer) sender.getCommandSenderEntity();
 			caster.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 0));
 		}
