@@ -78,9 +78,17 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.BREAD), new PotionHolder(MobEffects.SATURATION, 600));
 
-		KettleRegistry.addKettleEffectTo(getStack(Items.APPLE), new PotionHolder(MobEffects.INSTANT_HEALTH, 1));
+		KettleRegistry.addKettleEffectTo(getStack(ModItems.BLOODSTONE), new PotionHolder(MobEffects.ABSORPTION, 600));
 
 		KettleRegistry.addKettleEffectTo(getStack(Blocks.RED_FLOWER), new PotionHolder(MobEffects.LUCK, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(ModItems.ASPHODEL), new PotionHolder(MobEffects.UNLUCK, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(ModItems.JASPER), new PotionHolder(MobEffects.RESISTANCE, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(Items.CHORUS_FRUIT), new PotionHolder(MobEffects.LEVITATION, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(Items.PRISMARINE_CRYSTALS), new PotionHolder(MobEffects.GLOWING, 600));
 
 		//Custom Modifiers
 		KettleRegistry.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(10, 0));
