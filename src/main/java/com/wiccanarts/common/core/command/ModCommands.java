@@ -10,17 +10,17 @@ import java.util.Map;
  */
 public final class ModCommands {
 
-	static final Map<String, IIncarnation> commands = new HashMap<>();
+	static final Map<String, IIncantation> commands = new HashMap<>();
 
 	private ModCommands() {
 	}
 
 	public static void init() {
-		addIncarnation("heal", new IncarnationHeal());
-		addIncarnation("burn", new IncarnationBurn());
+		addIncantation("heal", new IncantationHeal());
+		addIncantation("burn", new IncantationBurn());
 	}
 
-	private static void addIncarnation(String name, IIncarnation incarnation) {
-		commands.put(name, incarnation);
+	private static void addIncantion(String name, IIncantation incantation) {
+		commands.put(name, incantation);
 	}
 }

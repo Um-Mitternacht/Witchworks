@@ -39,13 +39,13 @@ public class CommandIncantation implements ICommand {
 
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-		if (args.length < 1) throw new WrongUsageException("commands.incarnation.usage");
+		if (args.length < 1) throw new WrongUsageException("commands.incantation.usage");
 		if (sender.getCommandSenderEntity() == null) return;
 		final String command = args[0];
 		if (ModCommands.commands.containsKey(command)) {
 			ModCommands.commands.get(command).cast(server, sender, args);
 		} else {
-			throw new CommandException("commands.incarnation.notFound", sender.getName());
+			throw new CommandException("commands.incantation.notFound", sender.getName());
 		}
 	}
 

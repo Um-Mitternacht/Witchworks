@@ -15,13 +15,13 @@ import static com.wiccanarts.common.lib.LibMod.MOD_NAME;
  * Original code by Vazkii from Botania.
  */
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public final class ModAchievements {
 
 	public static final List<Achievement> achievements = new ArrayList<>();
 	public static Achievement craftMalachite;
 
-	private ModAchievements(){
+	private ModAchievements() {
 	}
 
 	public static void init() {

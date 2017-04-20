@@ -12,13 +12,13 @@ import net.minecraft.server.MinecraftServer;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-class IncarnationHeal implements IIncarnation {
+class IncantationHeal implements IIncantation {
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public void cast(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		final EntityLivingBase entity = (EntityLivingBase) sender.getCommandSenderEntity();
-		if(entity.isEntityAlive() && entity.getHealth() < entity.getMaxHealth()) {
+		if (entity.isEntityAlive() && entity.getHealth() < entity.getMaxHealth()) {
 			entity.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 80, 0));
 		}
 	}

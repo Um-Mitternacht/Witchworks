@@ -9,7 +9,7 @@ import net.minecraft.server.MinecraftServer;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-interface IIncarnation {
+interface IIncantation {
 
 	void cast(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException;
 }
