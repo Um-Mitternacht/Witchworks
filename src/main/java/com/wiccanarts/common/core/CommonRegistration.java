@@ -154,6 +154,7 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.TOURMALINE_BLOCK),
 				itemBlock(ModBlocks.SALT_ORE),
 				itemBlock(ModBlocks.QUARTZ_ORE),
+				itemBlock(ModBlocks.AMETHYST_ORE),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
@@ -203,7 +204,8 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.SALT_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.PETOSKEY_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
-				new BlockMod(LibBlockName.QUARTZ_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.QUARTZ_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
+				new BlockMod(LibBlockName.AMETHYST_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 
 				//Normal Blocks
 				new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),

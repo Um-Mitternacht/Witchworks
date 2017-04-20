@@ -61,6 +61,7 @@ public final class LibBlockName {
 	public static final String PETOSKEY_ORE = "petoskey_ore";
 	public static final String TOURMALINE_BLOCK = "tourmaline_block";
 	public static final String NETHERSTEEL = "nethersteel";
+	public static final String AMETHYST_ORE = "amethyst_ore";
 	public static final String SALT_BARRIER = "salt_barrier";
 
 	private LibBlockName() {
