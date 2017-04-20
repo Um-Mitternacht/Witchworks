@@ -18,6 +18,7 @@ public final class ModCommands {
 	public static void init() {
 		addIncantation("heal", new IncantationHeal());
 		addIncantation("burn", new IncantationBurn());
+		addIncantation("candlelight", new IncantationBurn());
 	}
 
 	private static void addIncantation(String name, IIncantation incantation) {

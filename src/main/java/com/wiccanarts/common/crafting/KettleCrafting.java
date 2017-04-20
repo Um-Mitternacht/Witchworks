@@ -90,7 +90,11 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleEffectTo(getStack(ModItems.JASPER), new PotionHolder(MobEffects.RESISTANCE, 600));
 
+		KettleRegistry.addKettleEffectTo(getStack(Items.WHEAT), new PotionHolder(MobEffects.NAUSEA, 600));
+
 		KettleRegistry.addKettleEffectTo(getStack(Items.CHORUS_FRUIT), new PotionHolder(MobEffects.LEVITATION, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(Blocks.RED_MUSHROOM), new PotionHolder(ModBrews.PARALYSIS_BREW, 600));
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.PRISMARINE_CRYSTALS), new PotionHolder(MobEffects.GLOWING, 600));
 
