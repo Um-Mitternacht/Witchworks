@@ -6,8 +6,10 @@ import com.wiccanarts.client.handler.BlockColorHandler;
 import com.wiccanarts.client.handler.ItemColorHandler;
 import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.client.render.tile.TileRenderKettle;
+import com.wiccanarts.common.WiccanArts;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.block.tile.TileKettle;
+import com.wiccanarts.common.core.handler.GuiHandler;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
@@ -22,6 +24,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -62,6 +65,8 @@ public class ClientProxy implements ISidedProxy {
 				Item.getItemFromBlock(ModBlocks.CANDLE_LARGE),
 				Item.getItemFromBlock(ModBlocks.CANDLE_MEDIUM),
 				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
+
+		NetworkRegistry.INSTANCE.registerGuiHandler(WiccanArts.instance, new GuiHandler());
 	}
 
 	@SideOnly (Side.CLIENT)

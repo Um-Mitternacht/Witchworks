@@ -1,6 +1,5 @@
 package com.wiccanarts.api.recipe;
 
-import com.wiccanarts.common.block.tile.TileKettle;
 import net.minecraft.potion.PotionEffect;
 
 import java.util.Collection;
@@ -17,5 +16,5 @@ public interface IEffectListModifier extends IEffectModifier {
 		return effect;
 	}
 
-	Collection<PotionEffect> modify(TileKettle kettle, Collection<PotionEffect> list);
+	Collection<PotionEffect> modify(Collection<PotionEffect> list);
 }

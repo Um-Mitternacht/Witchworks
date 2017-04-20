@@ -26,22 +26,22 @@ public final class VanillaCrafting {
 	public static void items() {
 
 		shaped().grid("NNN", "NNN", "NNN")
-				.map('N', "nuggetSilver")
+				.map('N', ModItems.SILVER_NUGGET)
 				.outputs(ModItems.SILVER_INGOT)
 				.build();
 
 		shaped().grid("BBB", "BBB", "BBB")
-				.map('B', "gemBloodstone")
+				.map('B', ModItems.BLOODSTONE)
 				.outputs(ModBlocks.BLOODSTONE_BLOCK)
 				.build();
 
 		shaped().grid("TTT", "TTT", "TTT")
-				.map('T', "gemTourmaline")
+				.map('T', ModItems.TOURMALINE)
 				.outputs(ModBlocks.TOURMALINE_BLOCK)
 				.build();
 
 		shaped().grid("MMM", "MMM", "MMM")
-				.map('M', "gemMoldavite")
+				.map('M', ModItems.MOLDAVITE)
 				.outputs(ModBlocks.MOLDAVITE_BLOCK)
 				.build();
 
@@ -59,17 +59,17 @@ public final class VanillaCrafting {
 				.build();
 
 		shapeless()
-				.add("blockMoldavite")
+				.add(ModBlocks.MOLDAVITE_BLOCK)
 				.outputs(new ItemStack(ModItems.MOLDAVITE, 9))
 				.build();
 
 		shapeless()
-				.add("blockTourmaline")
+				.add(ModBlocks.TOURMALINE_BLOCK)
 				.outputs(new ItemStack(ModItems.TOURMALINE, 9))
 				.build();
 
 		shapeless()
-				.add("blockBloodstone")
+				.add(ModBlocks.BLOODSTONE_BLOCK)
 				.outputs(new ItemStack(ModItems.BLOODSTONE, 9))
 				.build();
 
@@ -139,7 +139,7 @@ public final class VanillaCrafting {
 		}
 
 		shapeless()
-				.add("ingotSilver")
+				.add(ModItems.SILVER_INGOT)
 				.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
 				.build();
 

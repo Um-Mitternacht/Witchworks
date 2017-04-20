@@ -17,6 +17,8 @@ import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.ModMaterials;
 import com.wiccanarts.common.item.equipment.ItemSilverArmor;
 import com.wiccanarts.common.item.food.*;
+import com.wiccanarts.common.item.misc.ItemMalachite;
+import com.wiccanarts.common.item.misc.ItemSalt;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
 import com.wiccanarts.common.item.tool.*;
@@ -80,7 +82,7 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.TOURMALINE),
 				new ItemMod(LibItemName.BLOODSTONE),
 				new ItemMod(LibItemName.JASPER),
-				new ItemMod(LibItemName.MALACHITE),
+				new ItemMalachite(),
 				new ItemMod(LibItemName.AMETHYST),
 				new ItemMod(LibItemName.ALEXANDRITE),
 				new ItemMod(LibItemName.QUARTZ),
@@ -92,7 +94,7 @@ public final class CommonRegistration {
 				new ItemHoney(),
 				new ItemSalt(),
 				new ItemMod(LibItemName.WAX),
-				new ItemMod(LibItemName.BEE),
+				new ItemMod(LibItemName.BEE).setMaxDamage(35),
 				new ItemMod(LibItemName.HONEYCOMB),
 				new ItemMod(LibItemName.EMPTY_HONEYCOMB),
 				new ItemMod(LibItemName.MORTAR_AND_PESTLE),
@@ -144,12 +146,16 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.BLOODSTONE_ORE),
 				itemBlock(ModBlocks.TIGERS_EYE_ORE),
 				itemBlock(ModBlocks.NUUMMITE_ORE),
+				itemBlock(ModBlocks.JASPER_ORE),
 				itemBlock(ModBlocks.GARNET_ORE),
 				itemBlock(ModBlocks.PETOSKEY_ORE),
 				itemBlock(ModBlocks.TOURMALINE_ORE),
 				itemBlock(ModBlocks.SERPENTINE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_BLOCK),
 				itemBlock(ModBlocks.SALT_ORE),
+				itemBlock(ModBlocks.QUARTZ_ORE),
+				itemBlock(ModBlocks.AMETHYST_ORE),
+				itemBlock(ModBlocks.ALEXANDRITE_ORE),
 				itemBlock(ModBlocks.NETHERSTEEL),
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
@@ -191,13 +197,17 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.SERPENTINE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.JASPER_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.TIGERS_EYE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.NUUMMITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.GARNET_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.SALT_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.PETOSKEY_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.ALEXANDRITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.QUARTZ_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
+				new BlockMod(LibBlockName.AMETHYST_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 
 				//Normal Blocks
 				new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),

@@ -13,6 +13,7 @@ public class PotionHolder {
 	private Potion potion;
 	private int duration;
 	private int amplifier;
+	private boolean canAdd;
 
 	public PotionHolder(Potion potion) {
 		this(potion, 0, 0);
@@ -54,6 +55,14 @@ public class PotionHolder {
 
 	public void setAmplifier(int amplifier) {
 		this.amplifier = amplifier;
+	}
+
+	public boolean canAdd() {
+		return canAdd;
+	}
+
+	public void setAdd(boolean add) {
+		this.canAdd = add;
 	}
 
 	public PotionHolder alter(int durationIn, int amplifierIn) {

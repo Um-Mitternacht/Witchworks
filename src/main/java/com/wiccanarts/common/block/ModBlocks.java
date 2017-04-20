@@ -96,6 +96,14 @@ public final class ModBlocks {
 	public static final Block APIARY = new Block(Material.ROCK);
 	@ObjectHolder (LibBlockName.SALT_ORE)
 	public static final Block SALT_ORE = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.JASPER_ORE)
+	public static final Block JASPER_ORE = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.QUARTZ_ORE)
+	public static final Block QUARTZ_ORE = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.AMETHYST_ORE)
+	public static final Block AMETHYST_ORE = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.ALEXANDRITE_ORE)
+	public static final Block ALEXANDRITE_ORE = new Block(Material.ROCK);
 
 	private ModBlocks() {
 	}
@@ -115,9 +123,13 @@ public final class ModBlocks {
 		OreDictionary.registerOre("oreTourmaline", new ItemStack(ModBlocks.TOURMALINE_ORE));
 		OreDictionary.registerOre("oreMalachite", new ItemStack(ModBlocks.MALACHITE_ORE));
 		OreDictionary.registerOre("oreTigersEye", new ItemStack(ModBlocks.TIGERS_EYE_ORE));
+		OreDictionary.registerOre("oreJasper", new ItemStack(ModBlocks.JASPER_ORE));
 		OreDictionary.registerOre("oreSerpentine", new ItemStack(ModBlocks.SERPENTINE_ORE));
 		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.TOURMALINE_BLOCK));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 		OreDictionary.registerOre("oreSalt", new ItemStack(ModBlocks.SALT_ORE));
+		OreDictionary.registerOre("oreQuartz", new ItemStack(ModBlocks.QUARTZ_ORE));
+		OreDictionary.registerOre("oreAmethyst", new ItemStack(ModBlocks.AMETHYST_ORE));
+		OreDictionary.registerOre("oreAlexandrite", new ItemStack(ModBlocks.ALEXANDRITE_ORE));
 	}
 }

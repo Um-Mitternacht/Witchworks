@@ -90,7 +90,6 @@ public final class LibItemName {
 	public static final String SILVER_LEGGINGS = "silver_leggings";
 	public static final String SILVER_BOOTS = "silver_boots";
 
-
 	//Misc
 	public static final String BREW_PHIAL = "brew_phial";
 	public static final String GLASS_JAR = "glass_jar";

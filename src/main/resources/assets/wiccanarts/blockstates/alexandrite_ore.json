@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:alexandrite_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:alexandrite_ore"
+	  }
+	]
+  }
+}

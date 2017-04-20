@@ -2,6 +2,7 @@ package com.wiccanarts.common.block.tile;
 
 import com.wiccanarts.api.KettleRegistry;
 import com.wiccanarts.api.recipe.*;
+import com.wiccanarts.api.recipe.PotionHolder.HolderType;
 import com.wiccanarts.api.sound.WiccaSoundEvents;
 import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.common.WiccanArts;
@@ -50,9 +51,8 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	private final String TAG_MODE = "mode";
 	private final String TAG_RECIPE = "recipe";
 	private final int RECIPE_IDLE = -1;
-	private float[] particleRGB = new float[] {0.0f, 0.39215687f, 0.0f};
-	private float[] waterColor = new float[] {0.0f, 0.39215687f, 0.0f};
-	private KettleMode mode = KettleMode.DEFAULT;
+	private float[] color = new float[] {0.0f, 0.39215687f, 0.0f};
+	private KettleMode mode = KettleMode.POTION;
 	private int waterLevel;
 	private int heat;
 	private int ticks;
@@ -64,24 +64,22 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	public void collideItem(EntityItem entityItem) {
 		if (!hasWater()) return;
 
-		final ItemStack stack = entityItem.getEntityItem();
-		if (stack == null || entityItem.isDead)
+		final ItemStack dropped = entityItem.getEntityItem();
+		if (dropped == null || entityItem.isDead)
 			return;
 
 		if (!world.isRemote) {
-			PacketHandler.sendTileUpdateNearbyPlayers(this);
-			fancySplash();
-
 			if (isHot() && isEmpty()) {
-				if (KettleRegistry.getKettleExchanges().containsKey(stack.getItem())) {
-					final KettleExchange exchange = KettleRegistry.getKettleExchanges().get(stack.getItem());
-					final ItemStack out = exchange.getExchange(stack);
+				if (KettleRegistry.getKettleExchanges().containsKey(dropped.getItem())) {
+					final KettleExchange exchange = KettleRegistry.getKettleExchanges().get(dropped.getItem());
+					final ItemStack out = exchange.getExchange(dropped);
 					if (out != null) {
+						PacketHandler.sendTileUpdateNearbyPlayers(this);
+						setWaterLevel(0);
+						fancySplash();
 
-						setWaterLevel(getWaterLevel() - 1);
-
-						stack.stackSize--;
-						if (stack.stackSize == 0)
+						dropped.stackSize--;
+						if (dropped.stackSize == 0)
 							entityItem.setDead();
 
 						final double x = getPos().getX();
@@ -100,159 +98,152 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 						return;
 					}
-				} else if (stack.getItem() == ModItems.MANDRAKE_ROOT) {
+				} else if (dropped.getItem() == ModItems.MANDRAKE_ROOT) {
+					PacketHandler.sendTileUpdateNearbyPlayers(this);
+					fancySplash();
+
 					mode = KettleMode.CUSTOM;
 
-					stack.stackSize--;
-					if (stack.stackSize == 0)
+					dropped.stackSize--;
+					if (dropped.stackSize == 0)
 						entityItem.setDead();
 
 					return;
 				}
 			}
 
-			stack.stackSize--;
-			if (stack.stackSize == 0)
-				entityItem.setDead();
-
 			for (int i = 0; i < getSizeInventory(); i++) {
 				if (itemHandler.getItemSimulate(i) == null) {
-					final ItemStack stackToAdd = stack.copy();
-					stackToAdd.stackSize = 1;
-					itemHandler.insertItem(i, stackToAdd, false);
+					final ItemStack added = dropped.copy();
+					added.stackSize = 1;
+					itemHandler.insertItem(i, added, false);
+
+					dropped.stackSize--;
+					if (dropped.stackSize == 0)
+						entityItem.setDead();
+
+					PacketHandler.sendTileUpdateNearbyPlayers(this);
+					fancySplash();
+					if (loadRecipe() && !recipe.isLiquid()) {
+						mode = KettleMode.ITEM;
+						recipeBoilingTime = 10;
+						itemTimer = 5;
+					}
 					break;
 				}
 			}
-
-			if (loadRecipe() && !recipe.isPotion()) {
-				recipeBoilingTime = 10;
-				itemTimer = 5;
-			}
 		}
-
-		particleRGB[0] = world.rand.nextFloat();
-		particleRGB[1] = world.rand.nextFloat();
-		particleRGB[2] = world.rand.nextFloat();
 	}
 
 	private void fancySplash() {
 		world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 0.1F, 1F);
-
-		if (world instanceof WorldServer) {
-			for (int i = 0; i < 10; i++) {
-				final BlockPos pos = getPos();
-				final float d3 = pos.getX() + world.rand.nextFloat();
-				final float d4 = (float) (pos.getY() + 1);
-				final float d5 = pos.getZ() + world.rand.nextFloat();
-				((WorldServer) world).spawnParticle(EnumParticleTypes.CRIT_MAGIC, d3, d4, d5, 1, 0, 0, 0, 0D);
-			}
-		}
+		color[0] = world.rand.nextFloat();
+		color[1] = world.rand.nextFloat();
+		color[2] = world.rand.nextFloat();
 	}
 
-	public boolean useKettle(@Nullable EntityPlayer player, EnumHand hand, ItemStack stack) {
+	public boolean useKettle(EntityPlayer player, EnumHand hand, ItemStack used) {
 		if (!world.isRemote) {
-			if (stack.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)) {
-				final IFluidHandler handler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-				final FluidStack drained = new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME);
+			if (used.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)) {
+				final IFluidHandler handler = used.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+				final FluidStack taken = new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME);
 				if (waterLevel < 6) {
-					final FluidStack drainWater = handler.drain(drained, false);
+					final FluidStack drain = handler.drain(taken, false);
 
-					if (drainWater != null && drainWater.getFluid() == FluidRegistry.WATER
-							&& drainWater.amount == Fluid.BUCKET_VOLUME) {
+					if (drain != null && drain.getFluid() == FluidRegistry.WATER && drain.amount == Fluid.BUCKET_VOLUME) {
+						world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
+						handler.drain(taken, true);
 
 						world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1F, 8F);
-
-						handler.drain(drained, true);
 						setWaterLevel(6);
-						world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
-
 						removeItems();
 					}
 				} else if (waterLevel == 6) {
-					final int fill = handler.fill(drained, false);
+					final int fill = handler.fill(taken, false);
 
 					if (fill == Fluid.BUCKET_VOLUME) {
+						world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
+						handler.fill(taken, true);
 
 						world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1F, 8F);
-
-						handler.fill(drained, true);
 						setWaterLevel(0);
-						world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
-
 						removeItems();
 					}
 				}
-			} else if (waterLevel < 6 && stack.getItem() == Items.POTIONITEM && PotionUtils.getEffectsFromStack(stack).isEmpty()) {
-				if (player != null && !player.capabilities.isCreativeMode) {
-					final ItemStack itemStack = new ItemStack(Items.GLASS_BOTTLE);
+			} else if (waterLevel < 6 && used.getItem() == Items.POTIONITEM && PotionUtils.getEffectsFromStack(used).isEmpty()) {
+				final ItemStack taken = new ItemStack(Items.GLASS_BOTTLE);
 
-					if (--stack.stackSize == 0) {
-						player.setHeldItem(hand, itemStack);
-					} else if (!player.inventory.addItemStackToInventory(itemStack)) {
-						player.dropItem(itemStack, false);
-					} else if (player instanceof EntityPlayerMP) {
-						((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
-					}
-				}
+				giveItem(player, hand, used, taken);
+
 				world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1F, 8F);
-				setWaterLevel(getWaterLevel() + 1);
-				if (world.rand.nextBoolean() && !isEmpty()) {
-					fail();
-				}
-			} else if (hasWater()) {
-				ItemStack itemStack = null;
-				if (mode == KettleMode.DEFAULT) {
-					if (recipe != null && recipe.canTake(world, player, stack)) {
-						itemStack = recipe.getResult();
+				setWaterLevel(waterLevel + 1);
+				removeItems();
+			} else if (hasWater() && mode != KettleMode.ITEM) {
+				ItemStack taken = null;
+				int drain = 1;
+				if (mode == KettleMode.POTION) {
+					if (recipe != null && recipe.canTake(world, player, used)) {
+						taken = recipe.getResult();
+						drain = recipe.getDrain();
 					}
-				} else {
-					itemStack = buildCustomPotion();
+				} else if (used.getItem() == Items.GLASS_BOTTLE) {
+					taken = buildCustomPotion();
 				}
 
-				if (itemStack == null) {
-					if (!isEmpty()) {
+				if (taken == null) {
+					if (!isEmpty() && mode == KettleMode.CUSTOM) {
 						fail();
 						return false;
-					} else {
-						itemStack = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
+					} else if (used.getItem() == Items.GLASS_BOTTLE) {
+						taken = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
 					}
 				}
 
-				if (player != null && !player.capabilities.isCreativeMode) {
+				if (taken != null) {
+					giveItem(player, hand, used, taken);
 
-					if (--stack.stackSize == 0) {
-						player.setHeldItem(hand, itemStack);
-					} else if (!player.inventory.addItemStackToInventory(itemStack)) {
-						player.dropItem(itemStack, false);
-					} else if (player instanceof EntityPlayerMP) {
-						((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
-					}
+					world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1F, 8F);
+					setWaterLevel(waterLevel - drain);
 				}
-				world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1F, 8F);
-				setWaterLevel(getWaterLevel() - 1);
 			}
 		}
 		return true;
 	}
 
+	private void giveItem(EntityPlayer player, EnumHand hand, ItemStack stack, ItemStack taken) {
+		if (--stack.stackSize == 0) {
+			player.setHeldItem(hand, taken);
+		} else if (!player.inventory.addItemStackToInventory(taken)) {
+			player.dropItem(taken, false);
+		} else if (player instanceof EntityPlayerMP) {
+			((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
+		}
+	}
+
 	@Nullable
 	public ItemStack buildCustomPotion() {
-		PotionHolder.HolderType holder = PotionHolder.HolderType.BOTTLE;
+		HolderType holder = HolderType.BOTTLE;
 
 		final List<IEffectListModifier> listMod = new ArrayList<>();
 		final List<PotionEffect> tempPotions = new ArrayList<>();
 		final List<IEffectModifier> tempModifiers = new ArrayList<>();
 		for (int i = 0, slots = itemHandler.getSlots(); i < slots; i++) {
 			final ItemStack out = itemHandler.getItemSimulate(i);
+
 			if (out == null) break;
 			if (!isModifier(out) && !isEffect(out)) {
 				if (out.getItem() == Items.GUNPOWDER) {
-					holder = PotionHolder.HolderType.SPLASH;
-					continue;
+					if (holder == HolderType.BOTTLE) {
+						holder = HolderType.SPLASH;
+						continue;
+					}
 				} else if (out.getItem() == Items.DRAGON_BREATH) {
-					holder = PotionHolder.HolderType.LINGERING;
-					continue;
-				} else return null;
+					if (holder == HolderType.BOTTLE) {
+						holder = HolderType.LINGERING;
+						continue;
+					}
+				}
+				return null;
 			}
 
 			if (isModifier(out)) {
@@ -291,14 +282,14 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 		Collection<PotionEffect> effects = potions.values();
 		for (IEffectListModifier l : listMod) {
-			effects = l.modify(this, effects);
+			effects = l.modify(effects);
 		}
 
 		return BrewUtils.createPotion(getItemHolderType(holder), effects);
 	}
 
-	private Item getItemHolderType(PotionHolder.HolderType holder) {
-		return holder == PotionHolder.HolderType.BOTTLE ? Items.POTIONITEM : holder == PotionHolder.HolderType.SPLASH
+	private Item getItemHolderType(HolderType holder) {
+		return holder == HolderType.BOTTLE ? Items.POTIONITEM : holder == HolderType.SPLASH
 				? Items.SPLASH_POTION : Items.LINGERING_POTION;
 	}
 
@@ -317,7 +308,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		}
 		world.playSound(null, getPos(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1F, 1F);
 
-		world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(getPos()).expandXyz(1))
+		world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(getPos()).expandXyz(2))
 				.forEach(entity -> entity.attackEntityFrom(DamageSource.magic, 2));
 		removeItems();
 		setWaterLevel(0);
@@ -325,13 +316,15 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	@Override
 	public void update() {
-		final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
-		entityItemList.forEach(this :: collideItem);
+		if (ticks % 2 == 0) {
+			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
+			entityItemList.forEach(this :: collideItem);
+		}
 
 		if (!world.isRemote && recipeBoilingTime == 0) {
 			if (ticks % 2 == 0) {
 				final float x = getPos().getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
-				final float y = getPos().getY() + 0.65F;
+				final float y = getPos().getY() + 0.155F + (waterLevel * 0.075F);
 				final float z = getPos().getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 
 				PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 3, 0, 0, 0);
@@ -345,8 +338,10 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				if (recipe != null) {
 					final EntityItem item = new EntityItem(world, x, y, z, recipe.getResult());
 					world.spawnEntity(item);
+					setWaterLevel(0);
+				} else {
+					fail();
 				}
-				setWaterLevel(0);
 				recipeBoilingTime = RECIPE_IDLE;
 			}
 		}
@@ -355,9 +350,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			if (world.rand.nextInt(10) == 0) {
 				final BlockPos pos = getPos();
 				final float d3 = (float) pos.getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
-				final float d4 = (float) pos.getY() + 0.65F;
+				final float d4 = (float) pos.getY() + 0.155F + (waterLevel * 0.075F);
 				final float d5 = (float) pos.getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
-				WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, particleRGB);
+				WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, color);
 			}
 			if (ticks % 60 == 0) {
 				world.playSound(null, getPos(), WiccaSoundEvents.BOIL, SoundCategory.BLOCKS, 0.2F, 1F);
@@ -365,7 +360,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		}
 
 		if (!hasWater()) {
-			setWaterColor(new float[] {0.0f, 0.39215687f, 0.0f});
+			setColor(new float[] {0.0f, 0.39215687f, 0.0f});
 			if (!isEmpty()) {
 				removeItems();
 			}
@@ -378,12 +373,12 @@ public class TileKettle extends TileItemInventory implements ITickable {
 			}
 		}
 
-		if (!world.isRemote && !isEmpty()) {
+		if (!world.isRemote && ticks % 2 == 0 && !isEmpty()) {
 			final float x = getPos().getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
-			final float y = getPos().getY() + 0.65F;
+			final float y = getPos().getY() + 0.155F + (waterLevel * 0.075F);
 			final float z = getPos().getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 
-			PacketHandler.spawnParticle(ParticleF.SPARK, world, x, y, z, 1, 0, 0, 0);
+			PacketHandler.spawnParticle(ParticleF.SPARK, world, x, y, z, 1, 0, 0, 0, color);
 		}
 
 		if (ticks % 20 == 0) {
@@ -396,7 +391,8 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		for (int i = 0; i < itemHandler.getSlots(); i++) {
 			itemHandler.extractItem(i, 1, false);
 		}
-		mode = KettleMode.DEFAULT;
+		mode = KettleMode.POTION;
+		recipe = null;
 	}
 
 	private boolean isEmpty() {
@@ -426,16 +422,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 
 	private void handleRain() {
 		if (waterLevel != 6 && world.isRainingAt(getPos().up())) {
-			if (world.isRemote) {
-				for (int i = 0; i < 4; i++) {
-					final double d3 = pos.getX() + world.rand.nextFloat();
-					final double d4 = pos.getY() + 0.65F;
-					final double d5 = pos.getZ() + world.rand.nextFloat();
-					world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
-				}
-			}
-			world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 0.2F, 5F);
+			world.playSound(null, getPos(), SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 0.1F, 5F);
 			setWaterLevel(waterLevel + 1);
+			removeItems();
 		}
 	}
 
@@ -451,6 +440,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		cmp.setInteger(TAG_HEAT, heat);
 		cmp.setString(TAG_MODE, mode.name());
 		cmp.setInteger(TAG_RECIPE, KettleRegistry.getKettleRecipes().indexOf(recipe));
+		cmp.setFloat("r", color[0]);
+		cmp.setFloat("g", color[1]);
+		cmp.setFloat("b", color[2]);
 	}
 
 	@Override
@@ -459,6 +451,9 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		waterLevel = cmp.getInteger(TAG_WATER);
 		heat = cmp.getInteger(TAG_HEAT);
 		mode = KettleMode.valueOf(cmp.getString(TAG_MODE));
+		color[0] = cmp.getFloat("r");
+		color[1] = cmp.getFloat("g");
+		color[2] = cmp.getFloat("b");
 
 		final int index = cmp.getInteger(TAG_RECIPE);
 		if (index >= 0) {
@@ -471,7 +466,7 @@ public class TileKettle extends TileItemInventory implements ITickable {
 	}
 
 	public void setWaterLevel(int water) {
-		waterLevel = water;
+		waterLevel = water >= 6 ? 6 : water <= 0 ? 0 : water;
 		PacketHandler.updateToNearbyPlayers(world, pos);
 	}
 
@@ -487,16 +482,18 @@ public class TileKettle extends TileItemInventory implements ITickable {
 		return mode;
 	}
 
-	public float[] getWaterColor() {
-		return waterColor;
+	public float[] getColor() {
+		return color;
 	}
 
-	public void setWaterColor(float[] waterColor) {
-		this.waterColor = waterColor;
+	public void setColor(float[] color) {
+		this.color = color;
 	}
 
 	public enum KettleMode {
-		DEFAULT,
-		CUSTOM
+		ITEM,
+		POTION,
+		CUSTOM,
+		RITUAL
 	}
 }

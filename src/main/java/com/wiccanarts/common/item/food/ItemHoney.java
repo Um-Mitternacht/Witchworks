@@ -8,6 +8,8 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by Joseph on 3/4/2017.
@@ -26,6 +28,7 @@ public class ItemHoney extends ItemModFood implements IModelRegister {
 		player.addPotionEffect(new PotionEffect(MobEffects.LUCK, 450, 0));
 	}
 
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

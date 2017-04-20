@@ -52,6 +52,8 @@ public final class LibBlockName {
 	public static final String MALACHITE_ORE = "malachite_ore";
 	public static final String BLOODSTONE_ORE = "bloodstone_ore";
 	public static final String TIGERS_EYE_ORE = "tigers_eye_ore";
+	public static final String JASPER_ORE = "jasper_ore";
+	public static final String QUARTZ_ORE = "quartz_ore";
 	public static final String GARNET_ORE = "garnet_ore";
 	public static final String SALT_ORE = "salt_ore";
 	public static final String SERPENTINE_ORE = "serpentine_ore";
@@ -59,6 +61,8 @@ public final class LibBlockName {
 	public static final String PETOSKEY_ORE = "petoskey_ore";
 	public static final String TOURMALINE_BLOCK = "tourmaline_block";
 	public static final String NETHERSTEEL = "nethersteel";
+	public static final String AMETHYST_ORE = "amethyst_ore";
+	public static final String ALEXANDRITE_ORE = "alexandrite_ore";
 	public static final String SALT_BARRIER = "salt_barrier";
 
 	private LibBlockName() {

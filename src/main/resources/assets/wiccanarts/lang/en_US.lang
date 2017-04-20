@@ -1,6 +1,10 @@
 //CreativeTab
 itemGroup.wiccanarts_plants=Wiccan Arts - Plants and Herbs
 itemGroup.wiccanarts_items=Wiccan Arts - Sticks and Stones
+itemGroup.wiccanarts_blockd=Wiccan Arts - Blocks
+
+//Gui
+container.apiary=Apiary
 
 ////Names
 //Items
@@ -59,6 +63,7 @@ item.quartz.name=Quartz
 item.wax.name=Wax
 item.honey.name=Honey
 item.honeycomb.name=Honeycomb
+item.empty_honeycomb.name=Empty Honeycomb
 item.glass_jar.name=Glass Jar
 item.lavender_oil.name=Lavender Oil
 item.bee.name=Bee
@@ -66,8 +71,69 @@ item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
 item.silver_nugget.name=Silver Nugget
 item.silver_powder.name=Silver Powder
+item.silver_pickaxe.name=Silver Pickaxe
+item.silver_axe.name=Silver Axe
+item.silver_spade.name=Silver Spade
+item.silver_hoe.name=Silver Hoe
+item.silver_helmet.name=Silver Helmet
+item.silver_chestplate.name=Silver Chestplate
+item.silver_leggings.name=Silver Leggings
+item.silver_boots.name=Silver Boots
+item.mortar_and_pestle.name=Mortar n Pestle
+item.brew_phial.name=Brew Phial
 
 //Blocks
+tile.candle_small.white.name=Small Candle White
+tile.candle_small.orange.name=Small Candle Orange
+tile.candle_small.magenta.name=Small Candle Magenta
+tile.candle_small.lightBlue.name=Small Candle Light Blue
+tile.candle_small.yellow.name=Small Candle Yellow
+tile.candle_small.lime.name=Small Candle Lime
+tile.candle_small.pink.name=Small Candle Pink
+tile.candle_small.gray.name=Small Candle Gray
+tile.candle_small.silver.name=Small Candle Silver
+tile.candle_small.cyan.name=Small Candle Cyan
+tile.candle_small.purple.name=Small Candle Purple
+tile.candle_small.blue.name=Small Candle Blue
+tile.candle_small.brown.name=Small Candle Brown
+tile.candle_small.green.name=Small Candle Green
+tile.candle_small.red.name=Small Candle Red
+tile.candle_small.black.name=Small Candle Black
+
+tile.candle_medium.white.name=Medium Candle White
+tile.candle_medium.orange.name=Medium Candle Orange
+tile.candle_medium.magenta.name=Medium Candle Magenta
+tile.candle_medium.lightBlue.name=Medium Candle Light Blue
+tile.candle_medium.yellow.name=Medium Candle Yellow
+tile.candle_medium.lime.name=Medium Candle Lime
+tile.candle_medium.pink.name=Medium Candle Pink
+tile.candle_medium.gray.name=Medium Candle Gray
+tile.candle_medium.silver.name=Medium Candle Silver
+tile.candle_medium.cyan.name=Medium Candle Cyan
+tile.candle_medium.purple.name=Medium Candle Purple
+tile.candle_medium.blue.name=Medium Candle Blue
+tile.candle_medium.brown.name=Medium Candle Brown
+tile.candle_medium.green.name=Medium Candle Green
+tile.candle_medium.red.name=Medium Candle Red
+tile.candle_medium.black.name=Medium Candle Black
+
+tile.candle_large.white.name=Large Candle White
+tile.candle_large.orange.name=Large Candle Orange
+tile.candle_large.magenta.name=Large Candle Magenta
+tile.candle_large.lightBlue.name=Large Candle Light Blue
+tile.candle_large.yellow.name=Large Candle Yellow
+tile.candle_large.lime.name=Large Candle Lime Gray
+tile.candle_large.pink.name=Large Candle Pink
+tile.candle_large.gray.name=Large Candle Gray
+tile.candle_large.silver.name=Large Candle Silver
+tile.candle_large.cyan.name=Large Candle Cyan
+tile.candle_large.purple.name=Large Candle Purple
+tile.candle_large.blue.name=Large Candle Blue
+tile.candle_large.brown.name=Large Candle Brown
+tile.candle_large.green.name=Large Candle Green
+tile.candle_large.red.name=Large Candle Red
+tile.candle_large.black.name=Large Candle Black
+
 tile.crop_aconitum.name=Aconitum Crop
 tile.crop_asphodel.name=Asphodel Crop
 tile.crop_belladonna.name=Belladonna Crop
@@ -97,6 +163,14 @@ tile.moldavite_block.name=Moldavite Block
 tile.bloodstone_block.name=Bloodstone Block
 tile.silver_block.name=Silver Block
 tile.nethersteel.name=Nethersteel
+tile.jasper_ore.name=Jasper Ore
+tile.tigers_eye_ore.name=Tiger's Eye Ore
+tile.serpentine_ore.name=Serpentine ore
+tile.nuummite_ore.name=Nuummite Ore
+tile.garnet_ore.name=Garnet Ore
+tile.petoskey.name=Petoskey Ore
+tile.salt_ore.name=Salt Ore
+
 tile.kettle.name=Kettle
 tile.coquina.name=Coquina
 tile.apiary.name=Apiary

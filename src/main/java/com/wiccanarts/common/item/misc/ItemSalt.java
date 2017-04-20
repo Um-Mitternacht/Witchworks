@@ -1,4 +1,4 @@
-package com.wiccanarts.common.item.tool;
+package com.wiccanarts.common.item.misc;
 
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ItemMod;

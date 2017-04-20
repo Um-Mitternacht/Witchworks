@@ -1,6 +1,9 @@
 package com.wiccanarts.common;
 
+import com.wiccanarts.common.achievement.ModAchievements;
 import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.core.command.CommandIncantation;
+import com.wiccanarts.common.core.command.ModCommands;
 import com.wiccanarts.common.core.event.ModEvents;
 import com.wiccanarts.common.core.gen.WorldGenOre;
 import com.wiccanarts.common.core.handler.ModSounds;
@@ -14,6 +17,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static net.minecraftforge.fml.common.Mod.EventHandler;
@@ -53,6 +57,8 @@ public class WiccanArts {
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
 
+		ModAchievements.init();
+
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.BLOODSTONE_ORE), 0);
@@ -63,11 +69,21 @@ public class WiccanArts {
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.JASPER_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SALT_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.QUARTZ_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.AMETHYST_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.ALEXANDRITE_ORE), 0);
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
+	}
+
+	@EventHandler
+	public void start(FMLServerStartingEvent event) {
+		ModCommands.init();
+		event.registerServerCommand(new CommandIncantation());
 	}
 }

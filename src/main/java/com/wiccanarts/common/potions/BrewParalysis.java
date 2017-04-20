@@ -35,7 +35,7 @@ public class BrewParalysis extends BrewMod {
 	private void apply(EntityLivingBase livingBase, int level) {
 		livingBase.motionX = 0;
 		if (!livingBase.onGround) {
-			livingBase.motionY -= 0.01 * level;
+			livingBase.motionY -= 0.05 * level;
 		}
 		livingBase.motionZ = 0;
 		livingBase.rotationYaw = livingBase.prevRotationYaw;

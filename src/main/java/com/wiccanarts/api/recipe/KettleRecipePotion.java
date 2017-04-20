@@ -22,7 +22,7 @@ public class KettleRecipePotion extends KettleRecipe {
 	}
 
 	@Override
-	public boolean isPotion() {
+	public boolean isLiquid() {
 		return true;
 	}
 }
