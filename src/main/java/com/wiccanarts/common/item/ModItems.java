@@ -66,7 +66,6 @@ public final class ModItems {
 	@ObjectHolder (LibItemName.ASPHODEL)
 	public static final Item ASPHODEL = new Item();
 
-
 	//Materials
 	@ObjectHolder (LibItemName.WAX)
 	public static final Item WAX = new Item();

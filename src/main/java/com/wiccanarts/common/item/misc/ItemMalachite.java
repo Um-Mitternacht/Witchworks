@@ -10,7 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 
 /**
- * Created by Joseph on 4/17/2017.
+ * This class was created by Joseph on 4/17/2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
 public class ItemMalachite extends ItemMod implements ICraftAchievement {
 
@@ -18,7 +20,8 @@ public class ItemMalachite extends ItemMod implements ICraftAchievement {
 		super(LibItemName.MALACHITE);
 	}
 
+	@Override
 	public Achievement getAchievementOnCraft(ItemStack stack, EntityPlayer player, IInventory matrix) {
-		return ModAchievements.malachiteCraft;
+		return ModAchievements.craftMalachite;
 	}
 }

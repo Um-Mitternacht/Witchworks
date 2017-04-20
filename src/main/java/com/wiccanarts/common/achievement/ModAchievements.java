@@ -6,27 +6,30 @@ import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.wiccanarts.common.lib.LibMod.MOD_NAME;
 
 /**
- * Created by Joseph on 4/17/2017. Original code by Vazkii from Botania.
+ * Original code by Vazkii from Botania.
  */
+
+@SuppressWarnings("WeakerAccess")
 public final class ModAchievements {
 
-	public static Achievement malachiteCraft;
+	public static final List<Achievement> achievements = new ArrayList<>();
+	public static Achievement craftMalachite;
 
-	public static AchievementPage wiccanArtsPage;
-	public static int pageIndex;
-
-	public static void init() {
-
-		malachiteCraft = new AchievementMod(LibAchievementName.MALACHITE_CRAFT, 0, 11, ModItems.MALACHITE, null);
-
-		pageIndex = AchievementPage.getAchievementPages().size();
-		wiccanArtsPage = new AchievementPage(MOD_NAME, AchievementMod.achievements.toArray(new Achievement[AchievementMod.achievements.size()]));
-		AchievementPage.registerAchievementPage(wiccanArtsPage);
-
-		MinecraftForge.EVENT_BUS.register(AchievementTriggerer.class);
+	private ModAchievements(){
 	}
 
+	public static void init() {
+		craftMalachite = new AchievementMod(LibAchievementName.MALACHITE_CRAFT, 0, 0, ModItems.MALACHITE, null);
+
+		final AchievementPage page = new AchievementPage(MOD_NAME, achievements.toArray(new Achievement[achievements.size()]));
+		AchievementPage.registerAchievementPage(page);
+
+		MinecraftForge.EVENT_BUS.register(AchievementTriggers.class);
+	}
 }

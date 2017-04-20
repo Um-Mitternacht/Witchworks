@@ -17,6 +17,8 @@ import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.ModMaterials;
 import com.wiccanarts.common.item.equipment.ItemSilverArmor;
 import com.wiccanarts.common.item.food.*;
+import com.wiccanarts.common.item.misc.ItemMalachite;
+import com.wiccanarts.common.item.misc.ItemSalt;
 import com.wiccanarts.common.item.seed.ItemKelpSeed;
 import com.wiccanarts.common.item.seed.ItemSeed;
 import com.wiccanarts.common.item.tool.*;
@@ -80,7 +82,7 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.TOURMALINE),
 				new ItemMod(LibItemName.BLOODSTONE),
 				new ItemMod(LibItemName.JASPER),
-				new ItemMod(LibItemName.MALACHITE),
+				new ItemMalachite(),
 				new ItemMod(LibItemName.AMETHYST),
 				new ItemMod(LibItemName.ALEXANDRITE),
 				new ItemMod(LibItemName.QUARTZ),
