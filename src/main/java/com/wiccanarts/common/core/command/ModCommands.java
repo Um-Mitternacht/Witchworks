@@ -16,11 +16,11 @@ public final class ModCommands {
 	}
 
 	public static void init() {
-		addIncantion("heal", new IncantationHeal());
-		addIncantion("burn", new IncantationBurn());
+		addIncantation("heal", new IncantationHeal());
+		addIncantation("burn", new IncantationBurn());
 	}
 
-	private static void addIncantion(String name, IIncantation incantation) {
+	private static void addIncantation(String name, IIncantation incantation) {
 		commands.put(name, incantation);
 	}
 }
