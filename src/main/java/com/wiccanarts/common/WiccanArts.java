@@ -73,6 +73,7 @@ public class WiccanArts {
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SALT_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.QUARTZ_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.AMETHYST_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.ALEXANDRITE_ORE), 0);
 	}
 
 	@EventHandler
