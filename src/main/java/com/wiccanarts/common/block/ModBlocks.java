@@ -98,6 +98,8 @@ public final class ModBlocks {
 	public static final Block SALT_ORE = new Block(Material.ROCK);
 	@ObjectHolder (LibBlockName.JASPER_ORE)
 	public static final Block JASPER_ORE = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.QUARTZ_ORE)
+	public static final Block QUARTZ_ORE = new Block(Material.ROCK);
 
 	private ModBlocks() {
 	}
@@ -122,5 +124,6 @@ public final class ModBlocks {
 		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.TOURMALINE_BLOCK));
 		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
 		OreDictionary.registerOre("oreSalt", new ItemStack(ModBlocks.SALT_ORE));
+		OreDictionary.registerOre("oreQuartz", new ItemStack(ModBlocks.QUARTZ_ORE));
 	}
 }
