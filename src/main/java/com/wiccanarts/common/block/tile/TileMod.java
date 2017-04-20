@@ -7,6 +7,8 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by Arekkuusu on 08/03/2017.
@@ -39,6 +41,7 @@ public abstract class TileMod extends TileEntity {
 		return new SPacketUpdateTileEntity(pos, 0, tag);
 	}
 
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
 		super.onDataPacket(net, packet);

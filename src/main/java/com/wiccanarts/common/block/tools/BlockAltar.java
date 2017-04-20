@@ -1,7 +1,5 @@
 package com.wiccanarts.common.block.tools;
 
-import com.wiccanarts.api.item.IModelRegister;
-import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.block.BlockMod;
 import com.wiccanarts.common.lib.LibBlockName;
 import net.minecraft.block.SoundType;
@@ -13,8 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static net.minecraft.block.BlockHorizontal.FACING;
 
@@ -23,10 +19,11 @@ import static net.minecraft.block.BlockHorizontal.FACING;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class BlockAltar extends BlockMod implements IModelRegister {
+public class BlockAltar extends BlockMod {
 
 	public BlockAltar() {
 		super(LibBlockName.ALTAR, Material.ROCK);
+		setDefaultState(defaultState().withProperty(FACING, EnumFacing.NORTH));
 		setSound(SoundType.STONE);
 		setResistance(3F);
 		setHardness(3F);
@@ -58,19 +55,13 @@ public class BlockAltar extends BlockMod implements IModelRegister {
 
 	@SuppressWarnings ("deprecation")
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
 	@SuppressWarnings ("deprecation")
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state) {
 		return false;
-	}
-
-	@Override
-	@SideOnly (Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerBlock(this);
 	}
 }

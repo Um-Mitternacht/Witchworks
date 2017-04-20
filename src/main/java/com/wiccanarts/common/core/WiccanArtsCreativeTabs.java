@@ -22,6 +22,7 @@ public final class WiccanArtsCreativeTabs {
 
 	public static final PlantsCreativeTab PLANTS_CREATIVE_TAB = new PlantsCreativeTab();
 	public static final ItemsCreativeTab ITEMS_CREATIVE_TAB = new ItemsCreativeTab();
+	public static final BlocksCreativeTab BLOCKS_CREATIVE_TAB = new BlocksCreativeTab();
 
 	private WiccanArtsCreativeTabs() {
 	}
@@ -90,7 +91,7 @@ public final class WiccanArtsCreativeTabs {
 		@Override
 		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModBlocks.KETTLE);
+			return new ItemStack(ModItems.TOURMALINE);
 		}
 
 		@Override
@@ -115,51 +116,80 @@ public final class WiccanArtsCreativeTabs {
 			addItem(ModItems.AMETHYST);
 			addItem(ModItems.ALEXANDRITE);
 			addItem(ModItems.QUARTZ);
-			addItem(ModItems.SILVER_POWDER);
-			addItem(ModItems.SILVER_INGOT);
-			addItem(ModItems.SILVER_NUGGET);
+			addItem(ModItems.BEE);
+			addItem(ModItems.HONEYCOMB);
+			addItem(ModItems.EMPTY_HONEYCOMB);
 			addItem(ModItems.GLASS_JAR);
 			addItem(ModItems.HONEY);
 			addItem(ModItems.WAX);
+			addItem(ModItems.MORTAR_AND_PESTLE);
 			addItem(ModItems.SALT);
-			addItem(ModItems.HONEYCOMB);
-			addItem(ModItems.BEE);
 			addItem(ModItems.BREW_PHIAL);
+			addItem(ModItems.SILVER_POWDER);
+			addItem(ModItems.SILVER_INGOT);
+			addItem(ModItems.SILVER_NUGGET);
 			addItem(ModItems.SILVER_PICKAXE);
 			addItem(ModItems.SILVER_AXE);
 			addItem(ModItems.SILVER_SPADE);
 			addItem(ModItems.SILVER_HOE);
 			addItem(ModItems.SILVER_SWORD);
-			addItem(ModItems.MORTAR_AND_PESTLE);
-			addItem(ModItems.EMPTY_HONEYCOMB);
 			addItem(ModItems.SILVER_HELMET);
 			addItem(ModItems.SILVER_CHESTPLATE);
 			addItem(ModItems.SILVER_LEGGINGS);
 			addItem(ModItems.SILVER_BOOTS);
+		}
+	}
+
+	private static class BlocksCreativeTab extends CreativeTab {
+
+		BlocksCreativeTab() {
+			super("_blocks");
+			setBackgroundImageName("item_search.png");
+		}
+
+		@Override
+		@SideOnly (Side.CLIENT)
+		public ItemStack getIconItemStack() {
+			return new ItemStack(ModBlocks.KETTLE);
+		}
+
+		@Override
+		public boolean hasSearchBar() {
+			return true;
+		}
+
+		@Override
+		@SideOnly (Side.CLIENT)
+		public void displayAllRelevantItems(List<ItemStack> list) {
+			this.list = list;
+			addBlock(ModBlocks.KETTLE);
+			addBlock(ModBlocks.BEEHIVE);
+			addBlock(ModBlocks.ALTAR);
+			addBlock(ModBlocks.APIARY);
 			addBlock(ModBlocks.SILVER_BLOCK);
 			addBlock(ModBlocks.SALT_ORE);
 			addBlock(ModBlocks.COQUINA);
-			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.SILVER_ORE);
 			addBlock(ModBlocks.MOLDAVITE_ORE);
 			addBlock(ModBlocks.TOURMALINE_ORE);
 			addBlock(ModBlocks.BLOODSTONE_ORE);
 			addBlock(ModBlocks.MALACHITE_ORE);
+			addBlock(ModBlocks.JASPER_ORE);
 			addBlock(ModBlocks.TIGERS_EYE_ORE);
 			addBlock(ModBlocks.SERPENTINE_ORE);
 			addBlock(ModBlocks.NUUMMITE_ORE);
 			addBlock(ModBlocks.GARNET_ORE);
+			addBlock(ModBlocks.QUARTZ_ORE);
 			addBlock(ModBlocks.PETOSKEY_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
 			addBlock(ModBlocks.TOURMALINE_BLOCK);
+			addBlock(ModBlocks.AMETHYST_ORE);
+			addBlock(ModBlocks.ALEXANDRITE_ORE);
 			addBlock(ModBlocks.NETHERSTEEL);
 			addBlock(ModBlocks.CANDLE_LARGE);
 			addBlock(ModBlocks.CANDLE_MEDIUM);
 			addBlock(ModBlocks.CANDLE_SMALL);
-			addBlock(ModBlocks.BEEHIVE);
-			addBlock(ModBlocks.ALTAR);
-			addBlock(ModBlocks.APIARY);
 		}
 	}
 }

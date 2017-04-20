@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
+@SuppressWarnings ("deprecation")
 public class TileCandle extends TileMod implements ITickable {
 
 	private EnumDyeColor color;
@@ -61,6 +62,7 @@ public class TileCandle extends TileMod implements ITickable {
 		return lit;
 	}
 
+	@Deprecated
 	public void setLit(boolean lit) {
 		this.lit = lit;
 	}

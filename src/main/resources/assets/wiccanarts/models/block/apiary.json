@@ -1,171 +1,149 @@
 {
   "parent": "block/block",
+  "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
   "textures": {
-	"particle": "wiccanarts:blocks/apiary",
-	"0": "wiccanarts:blocks/apiary"
+	"particle": "wiccanarts:blocks/apiary_top",
+	"0": "wiccanarts:blocks/apiary_sides",
+	"1": "wiccanarts:blocks/apiary_top"
   },
   "elements": [
 	{
-	  "name": "bottom",
+	  "name": "Cube",
 	  "from": [
-		4.0,
+		2.0,
 		0.0,
-		4.0
+		2.0
 	  ],
 	  "to": [
-		12.0,
-		6.0,
-		12.0
+		14.0,
+		8.0,
+		14.0
 	  ],
-	  "shade": true,
 	  "faces": {
-		"east": {
-		  "texture": "#0",
-		  "uv": [
-			0.0,
-			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
-		},
-		"south": {
-		  "texture": "#0",
-		  "uv": [
-			0.0,
-			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
-		},
 		"north": {
 		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
-			1.0,
-			1.0
+			16.0,
+			8.0
+		  ]
+		},
+		"east": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			8.0,
+			16.0,
+			16.0
 		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+		  "rotation": 180
+		},
+		"south": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			8.0,
+			16.0,
+			16.0
+		  ]
 		},
 		"west": {
 		  "texture": "#0",
 		  "uv": [
 			0.0,
-			0.0,
-			1.0,
-			1.0
+			8.0,
+			16.0,
+			16.0
 		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+		  "rotation": 180
 		},
 		"up": {
-		  "texture": "#0",
+		  "texture": "#1",
 		  "uv": [
 			0.0,
 			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+			16.0,
+			16.0
+		  ]
 		},
 		"down": {
-		  "texture": "#0",
+		  "texture": "#1",
 		  "uv": [
 			0.0,
 			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+			16.0,
+			16.0
+		  ]
 		}
 	  }
 	},
 	{
-	  "name": "top",
+	  "name": "Cube",
 	  "from": [
-		4.0,
-		6.0,
-		4.0
+		2.0,
+		8.0,
+		2.0
 	  ],
 	  "to": [
-		12.0,
-		12.0,
-		12.0
+		14.0,
+		16.0,
+		14.0
 	  ],
-	  "shade": true,
 	  "faces": {
-		"east": {
-		  "texture": "#0",
-		  "uv": [
-			0.0,
-			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
-		},
-		"south": {
-		  "texture": "#0",
-		  "uv": [
-			0.0,
-			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
-		},
 		"north": {
 		  "texture": "#0",
 		  "uv": [
 			0.0,
 			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+			16.0,
+			8.0
+		  ]
+		},
+		"east": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			8.0,
+			16.0,
+			16.0
+		  ]
+		},
+		"south": {
+		  "texture": "#0",
+		  "uv": [
+			0.0,
+			8.0,
+			16.0,
+			16.0
+		  ]
 		},
 		"west": {
 		  "texture": "#0",
 		  "uv": [
 			0.0,
-			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+			8.0,
+			16.0,
+			16.0
+		  ]
 		},
 		"up": {
-		  "texture": "#0",
+		  "texture": "#1",
 		  "uv": [
 			0.0,
 			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+			16.0,
+			16.0
+		  ]
 		},
 		"down": {
-		  "texture": "#0",
+		  "texture": "#1",
 		  "uv": [
 			0.0,
 			0.0,
-			1.0,
-			1.0
-		  ],
-		  "rotation": 0,
-		  "tintindex": 0
+			16.0,
+			16.0
+		  ]
 		}
 	  }
 	}

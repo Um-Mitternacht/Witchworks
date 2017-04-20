@@ -26,23 +26,22 @@ import java.util.Map;
 @SuppressWarnings ("WeakerAccess")
 public final class KettleCrafting {
 
-	//Items
-
-	//Potions
-
 	private KettleCrafting() {
 	}
 
 	public static void init() {
+		//Others
+		KettleRegistry.registerKettleRecipe(new HoneyKettleCrafting());
+
 		//Exchanges
 		KettleRegistry.addKettleExchange(getStack(ModItems.EMPTY_HONEYCOMB), getStack(ModItems.WAX), false);
-		KettleRegistry.addKettleExchange(getStack(ModItems.HONEYCOMB), getStack(ModItems.HONEY), false);
 		KettleRegistry.addKettleExchange(getStack(Items.BEEF), getStack(Items.COOKED_BEEF), false);
-		KettleRegistry.addKettleExchange(getStack(Items.FISH), getStack(Items.COOKED_FISH), false);
+		KettleRegistry.addKettleExchange(getStack(Items.FISH, 3), getStack(Items.COOKED_FISH), true);
 		KettleRegistry.addKettleExchange(getStack(Items.CHICKEN), getStack(Items.COOKED_CHICKEN), false);
 		KettleRegistry.addKettleExchange(getStack(Items.MUTTON), getStack(Items.COOKED_MUTTON), false);
 		KettleRegistry.addKettleExchange(getStack(Items.PORKCHOP), getStack(Items.COOKED_PORKCHOP), false);
 		KettleRegistry.addKettleExchange(getStack(Items.RABBIT), getStack(Items.COOKED_RABBIT), false);
+		KettleRegistry.addKettleExchange(getStack(Items.POTATO), getStack(Items.BAKED_POTATO), false);
 
 		//Item Recipes
 
@@ -66,7 +65,7 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.FISH, 3), new PotionHolder(MobEffects.WATER_BREATHING, 500));
 
-		KettleRegistry.addKettleEffectTo(getStack(Items.SPECKLED_MELON), new PotionHolder(MobEffects.INSTANT_HEALTH, 500));
+		KettleRegistry.addKettleEffectTo(getStack(Items.SPECKLED_MELON), new PotionHolder(MobEffects.INSTANT_HEALTH, 0));
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.SPIDER_EYE), new PotionHolder(MobEffects.POISON, 500));
 
@@ -76,12 +75,33 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleEffectTo(getStack(Items.GOLDEN_APPLE), new PotionHolder(MobEffects.HEALTH_BOOST, 500));
 
+		KettleRegistry.addKettleEffectTo(getStack(Blocks.MELON_BLOCK), new PotionHolder(MobEffects.SATURATION, 500));
+
+		//TODO: Belladonna gives hallucinations not paralysis
+		//KettleRegistry.addKettleEffectTo(getStack(ModItems.BELLADONNA), new PotionHolder(ModBrews.PARALYSIS_BREW, 240));
+
+		KettleRegistry.addKettleEffectTo(getStack(Items.BREAD), new PotionHolder(MobEffects.SATURATION, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(ModItems.BLOODSTONE), new PotionHolder(MobEffects.ABSORPTION, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(Blocks.RED_FLOWER), new PotionHolder(MobEffects.LUCK, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(ModItems.ASPHODEL), new PotionHolder(MobEffects.UNLUCK, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(ModItems.JASPER), new PotionHolder(MobEffects.RESISTANCE, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(Items.CHORUS_FRUIT), new PotionHolder(MobEffects.LEVITATION, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(Items.PRISMARINE_CRYSTALS), new PotionHolder(MobEffects.GLOWING, 600));
+
+		KettleRegistry.addKettleEffectTo(getStack(Items.NETHER_STAR), new PotionHolder(MobEffects.WITHER, 1000));
+
 		//Custom Modifiers
 		KettleRegistry.addKettleModifierTo(getStack(Items.REDSTONE), effect -> effect.alter(10, 0));
 
-		KettleRegistry.addKettleModifierTo(getStack(Blocks.REDSTONE_BLOCK), effect -> effect.alter(100, -1));
+		KettleRegistry.addKettleModifierTo(getStack(Blocks.REDSTONE_BLOCK), effect -> effect.alter(90, 0));
 
-		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-100, 1));
+		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-90, 1));
 
 		KettleRegistry.addKettleModifierTo(getStack(Blocks.GLOWSTONE), effect -> effect.alter(-10, 2));
 
@@ -140,6 +160,7 @@ public final class KettleCrafting {
 			potionMap.put(MobEffects.JUMP_BOOST, MobEffects.SLOWNESS);
 			potionMap.put(MobEffects.SPEED, MobEffects.SLOWNESS);
 			potionMap.put(MobEffects.INSTANT_HEALTH, MobEffects.INSTANT_DAMAGE);
+			potionMap.put(MobEffects.REGENERATION, MobEffects.POISON);
 			potionMap.put(MobEffects.POISON, MobEffects.INSTANT_DAMAGE);
 			potionMap.put(MobEffects.STRENGTH, MobEffects.WEAKNESS);
 		}

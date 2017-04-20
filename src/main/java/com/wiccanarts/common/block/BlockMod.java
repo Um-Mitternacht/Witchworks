@@ -31,7 +31,7 @@ public class BlockMod extends Block implements IModelRegister {
 		setUnlocalizedName(id);
 		setDefaultState(defaultState());
 		setRegistryName(LibMod.MOD_ID, id);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WiccanArtsCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
 	public Block setSound(SoundType type) {

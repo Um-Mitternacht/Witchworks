@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:quartz_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:quartz_ore"
+	  }
+	]
+  }
+}

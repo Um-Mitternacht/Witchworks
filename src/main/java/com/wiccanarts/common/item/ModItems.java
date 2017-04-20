@@ -63,7 +63,8 @@ public final class ModItems {
 	public static final Item LAVENDER = new Item();
 	@ObjectHolder (LibItemName.BELLADONNA)
 	public static final Item BELLADONNA = new Item();
-
+	@ObjectHolder (LibItemName.ASPHODEL)
+	public static final Item ASPHODEL = new Item();
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)

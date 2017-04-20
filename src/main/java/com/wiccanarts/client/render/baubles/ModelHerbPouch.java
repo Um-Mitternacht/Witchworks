@@ -1,4 +1,4 @@
-package com.wiccanarts.common.item.baubles;
+package com.wiccanarts.client.render.baubles;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -11,11 +11,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 @SideOnly (Side.CLIENT)
 public class ModelHerbPouch extends ModelBase {
-	public ModelRenderer Cuboid;
-	public ModelRenderer Cuboid2;
-	public ModelRenderer Cuboid3;
-	public ModelRenderer Cuboid4;
-	public ModelRenderer Cuboid5;
+
+	private ModelRenderer Cuboid;
+	private ModelRenderer Cuboid2;
+	private ModelRenderer Cuboid3;
+	private ModelRenderer Cuboid4;
+	private ModelRenderer Cuboid5;
 
 	public ModelHerbPouch() {
 		this.textureWidth = 32;

@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "wiccanarts:salt_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "wiccanarts:salt_ore"
+	  }
+	]
+  }
+}
