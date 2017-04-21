@@ -12,6 +12,7 @@ public final class WiccanArtsAPI {
 
 	//Sounds
 	public static final ResourceLocation BOIL = getLocation("boil");
+	public static final ResourceLocation BUZZ = getLocation("buzz");
 
 	private WiccanArtsAPI() {
 	}

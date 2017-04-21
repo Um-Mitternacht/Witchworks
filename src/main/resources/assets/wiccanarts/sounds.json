@@ -1,8 +1,14 @@
 {
-  "boil": {
-	"sounds": [
-	  "wiccanarts:boil"
-	],
-	"subtitle": "wiccanarts.subtitle.boil"
-  }
+    "boil": {
+        "sounds": [
+            "wiccanarts:boil"
+        ],
+        "subtitle": "Kettle boiling"
+    },
+    "buzz": {
+        "sounds": [
+            "wiccanarts:buzz"
+        ],
+        "subtitle": "Bees buzzing"
+    }
 }

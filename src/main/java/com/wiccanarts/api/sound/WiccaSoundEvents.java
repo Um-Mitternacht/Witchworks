@@ -12,6 +12,7 @@ import net.minecraft.util.SoundEvent;
 public final class WiccaSoundEvents {
 
 	public static final SoundEvent BOIL = getRegisteredSound(WiccanArtsAPI.BOIL);
+	public static final SoundEvent BUZZ = getRegisteredSound(WiccanArtsAPI.BUZZ);
 
 	private WiccaSoundEvents() {
 	}

@@ -17,6 +17,7 @@ public final class ModSounds {
 
 	public static void preInit() {
 		registerSound(WiccanArtsAPI.BOIL);
+		registerSound(WiccanArtsAPI.BUZZ);
 	}
 
 	private static void registerSound(ResourceLocation soundNameIn) {
