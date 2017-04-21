@@ -30,18 +30,18 @@ public class ItemBauble extends ItemMod implements IBauble {
 
 		ItemStack toEquip = stack.copy();
 		toEquip.stackSize = 1;
-		if(canEquip(toEquip, player)) {
+		if (canEquip(toEquip, player)) {
 			IInventory baubles = BaublesApi.getBaubles(player);
-			for(int i = 0; i < baubles.getSizeInventory(); i++) {
-				if(baubles.isItemValidForSlot(i, toEquip)) {
+			for (int i = 0; i < baubles.getSizeInventory(); i++) {
+				if (baubles.isItemValidForSlot(i, toEquip)) {
 					ItemStack stackInSlot = baubles.getStackInSlot(i);
-					if(stackInSlot == null || ((IBauble) stackInSlot.getItem()).canUnequip(stackInSlot, player)) {
-						if(!world.isRemote) {
+					if (stackInSlot == null || ((IBauble) stackInSlot.getItem()).canUnequip(stackInSlot, player)) {
+						if (!world.isRemote) {
 							baubles.setInventorySlotContents(i, toEquip);
 							stack.stackSize--;
 						}
 
-						if(stackInSlot != null) {
+						if (stackInSlot != null) {
 							((IBauble) stackInSlot.getItem()).onUnequipped(stackInSlot, player);
 							return ActionResult.newResult(EnumActionResult.SUCCESS, stackInSlot.copy());
 						}

@@ -184,7 +184,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 			}
 			if (!world.isRemote) {
 				++tick;
-				if(tick % 120 == 0)  {
+				if (tick % 120 == 0) {
 					world.playSound(null, getPos(), WiccaSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.2F, 1F);
 				}
 			}
