@@ -2,6 +2,7 @@ package com.wiccanarts.common.item;
 
 import com.wiccanarts.common.crafting.KettleCrafting;
 import com.wiccanarts.common.crafting.VanillaCrafting;
+import com.wiccanarts.common.item.baubles.ItemRing;
 import com.wiccanarts.common.lib.LibItemName;
 import com.wiccanarts.common.lib.LibMod;
 import net.minecraft.item.Item;
@@ -107,6 +108,10 @@ public final class ModItems {
 	public static final Item SILVER_LEGGINGS = new Item();
 	@ObjectHolder (LibItemName.SILVER_BOOTS)
 	public static final Item SILVER_BOOTS = new Item();
+	@ObjectHolder (LibItemName.RING)
+	public static final Item RING = new Item();
+	@ObjectHolder (LibItemName.BELT)
+	public static final Item BELT = new Item();
 
 	private ModItems() {
 	}

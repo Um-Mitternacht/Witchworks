@@ -15,6 +15,8 @@ import com.wiccanarts.common.item.ItemBlockColor;
 import com.wiccanarts.common.item.ItemBrewPhial;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.ModMaterials;
+import com.wiccanarts.common.item.baubles.ItemBelt;
+import com.wiccanarts.common.item.baubles.ItemRing;
 import com.wiccanarts.common.item.equipment.ItemSilverArmor;
 import com.wiccanarts.common.item.food.*;
 import com.wiccanarts.common.item.misc.ItemMalachite;
@@ -113,7 +115,9 @@ public final class CommonRegistration {
 				new ItemSilverArmor(LibItemName.SILVER_HELMET, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.HEAD),
 				new ItemSilverArmor(LibItemName.SILVER_CHESTPLATE, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.CHEST),
 				new ItemSilverArmor(LibItemName.SILVER_LEGGINGS, ModMaterials.ARMOR_SILVER, 2, EntityEquipmentSlot.LEGS),
-				new ItemSilverArmor(LibItemName.SILVER_BOOTS, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.FEET)
+				new ItemSilverArmor(LibItemName.SILVER_BOOTS, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.FEET),
+				new ItemRing(LibItemName.RING),
+				new ItemBelt(LibItemName.BELT)
 		);
 
 		//Item Blocks
