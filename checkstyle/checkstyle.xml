@@ -26,7 +26,6 @@
 		<module name="DefaultComesLast"/>
 		<module name="ExplicitInitialization"/>
 		<module name="FallThrough"/>
-		<module name="FinalLocalVariable"/>
 		<module name="HideUtilityClassConstructor"/>
 		<module name="InterfaceIsType"/>
 		<module name="MissingSwitchDefault"/>
