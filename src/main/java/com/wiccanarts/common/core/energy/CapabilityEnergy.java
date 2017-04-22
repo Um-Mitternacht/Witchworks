@@ -20,7 +20,7 @@ public final class CapabilityEnergy {
 	private static final String USES = "energy_uses";
 	private static final String OVERCHANNEL = "energy_overchannel";
 
-	private CapabilityEnergy(){
+	private CapabilityEnergy() {
 	}
 
 	public static void init() {

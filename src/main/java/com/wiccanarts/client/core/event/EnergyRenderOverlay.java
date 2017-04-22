@@ -21,7 +21,7 @@ import java.util.Optional;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 public class EnergyRenderOverlay {
 
 	private int renderTime;

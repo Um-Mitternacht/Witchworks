@@ -79,7 +79,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		if (rand.nextInt(5) == 0) {
 			WiccanArts.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
 		}
-		if(rand.nextInt(50) == 0) {
+		if (rand.nextInt(50) == 0) {
 			worldIn.playSound(null, pos, WiccaSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.2F, 1F);
 		}
 	}

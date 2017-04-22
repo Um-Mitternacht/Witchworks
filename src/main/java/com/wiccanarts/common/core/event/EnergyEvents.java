@@ -81,7 +81,7 @@ public class EnergyEvents {
 	}
 
 	private void overcast(EntityPlayer player, IEnergy energy) {
-		if(energy.getOverchannel() <= 0) return;
+		if (energy.getOverchannel() <= 0) return;
 
 		energy.setOverchannel(0);
 	}

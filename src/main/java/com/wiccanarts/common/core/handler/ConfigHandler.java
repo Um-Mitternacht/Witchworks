@@ -32,14 +32,14 @@ public final class ConfigHandler {
 	}
 
 	public static class HUD {
-		@Comment("If the HUD should hide")
+		@Comment ("If the HUD should hide")
 		public boolean hide = true;
-		@Comment ({"Pixels before HUD starts","Size is calculated with heightEnd - heightStart"})
+		@Comment ({"Pixels before HUD starts", "Size is calculated with heightEnd - heightStart"})
 		public int heightStart = 32;
-		@Comment ({"Pixels after HUD ends","Size is calculated with heightEnd - heightStart"})
+		@Comment ({"Pixels after HUD ends", "Size is calculated with heightEnd - heightStart"})
 		public int heightEnd = 110;
 
-		@Comment({"Position of the HUD in the screen","\"x\" value is from left to right","\"y\" value is from bottom to top"})
+		@Comment ({"Position of the HUD in the screen", "\"x\" value is from left to right", "\"y\" value is from bottom to top"})
 		public int x = 120;
 		public int y = 129;
 	}

@@ -1,18 +1,18 @@
 package com.wiccanarts.common;
 
-import com.wiccanarts.common.core.achievement.ModAchievements;
 import com.wiccanarts.common.block.ModBlocks;
+import com.wiccanarts.common.core.achievement.ModAchievements;
 import com.wiccanarts.common.core.command.CommandIncantation;
 import com.wiccanarts.common.core.command.ModCommands;
 import com.wiccanarts.common.core.energy.CapabilityEnergy;
 import com.wiccanarts.common.core.event.ModEvents;
 import com.wiccanarts.common.core.gen.WorldGenOre;
 import com.wiccanarts.common.core.handler.ModSounds;
+import com.wiccanarts.common.core.net.PacketHandler;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
 import com.wiccanarts.common.entity.ModEntities;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.lib.LibMod;
-import com.wiccanarts.common.core.net.PacketHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

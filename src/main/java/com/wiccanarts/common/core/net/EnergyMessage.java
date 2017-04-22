@@ -62,9 +62,9 @@ public class EnergyMessage implements IMessage {
 			Minecraft.getMinecraft().addScheduledTask(() -> {
 				final EntityPlayer entityTarget = Minecraft.getMinecraft().world.getPlayerEntityByUUID(message.target);
 
-				if(entityTarget != null) {
+				if (entityTarget != null) {
 					final Optional<IEnergy> optData = EnergyHandler.getEnergy(entityTarget);
-					if(optData.isPresent()) {
+					if (optData.isPresent()) {
 						final IEnergy data = optData.get();
 						data.set(message.energy.get());
 						data.setMax(message.energy.getMax());

@@ -24,7 +24,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble {
 		setMaxStackSize(1);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 		ItemStack toEquip = stack.copy();

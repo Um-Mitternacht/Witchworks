@@ -14,16 +14,15 @@ import java.util.Optional;
  */
 public final class EnergyHandler {
 
-	private EnergyHandler(){
+	private EnergyHandler() {
 	}
 
 	/**
 	 * Adds the given value to the energy of the player.
 	 * <p>
-	 *     If the amount drained is greater than the available amount,
-	 *     it automatically gets stored as overchannel
+	 * If the amount drained is greater than the available amount,
+	 * it automatically gets stored as overchannel
 	 * </p>
-	 *
 	 * @param player The player
 	 * @param amount The amount
 	 * @return If the amount was greater or equal than 0 and less or equal than the max amount
@@ -45,7 +44,6 @@ public final class EnergyHandler {
 
 	/**
 	 * Sets the max energy a player can hold.
-	 *
 	 * @param player The player
 	 * @param maxAmount The new max amount
 	 */
@@ -59,10 +57,9 @@ public final class EnergyHandler {
 	/**
 	 * Sets the regen of the player.
 	 * <p>
-	 *     Any number smaller than 0 will set the regen to -1,
-	 *     thus deactivating regeneration
+	 * Any number smaller than 0 will set the regen to -1,
+	 * thus deactivating regeneration
 	 * </p>
-	 *
 	 * @param player The player
 	 * @param timeInTicks Ticks
 	 */
@@ -75,13 +72,12 @@ public final class EnergyHandler {
 
 	/**
 	 * Returns the {@link IEnergy} interface of the player.
-	 *
 	 * @param player The player
 	 * @return An {@link Optional<IEnergy>} for correctness
 	 */
 	@SuppressWarnings ("ConstantConditions")
 	public static Optional<IEnergy> getEnergy(EntityPlayer player) {
-		if(player.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)) {
+		if (player.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)) {
 			return Optional.of(player.getCapability(EnergyProvider.ENERGY_CAPABILITY, null));
 		}
 		return Optional.empty();
