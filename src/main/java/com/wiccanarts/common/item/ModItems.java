@@ -112,6 +112,12 @@ public final class ModItems {
 	@ObjectHolder (LibItemName.BELT)
 	public static final Item BELT = new Item();
 
+	//Books
+	@ObjectHolder (LibItemName.SHADOW_BOOK)
+	public static final Item SHADOW_BOOK = new Item();
+	@ObjectHolder (LibItemName.DUSTY_GRIMOIRE)
+	public static final Item DUSTY_GRIMOIRE = new Item();
+
 	private ModItems() {
 	}
 

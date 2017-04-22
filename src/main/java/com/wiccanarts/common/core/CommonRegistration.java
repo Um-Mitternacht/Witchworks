@@ -111,6 +111,10 @@ public final class CommonRegistration {
 				new ItemSilverHoe(ModMaterials.TOOL_SILVER),
 				new ItemSilverSword(ModMaterials.TOOL_SILVER),
 
+				//Books
+				new ItemMod(LibItemName.DUSTY_GRIMOIRE),
+				new ItemMod(LibItemName.SHADOW_BOOK),
+
 				//Equipment
 				new ItemSilverArmor(LibItemName.SILVER_HELMET, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.HEAD),
 				new ItemSilverArmor(LibItemName.SILVER_CHESTPLATE, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.CHEST),

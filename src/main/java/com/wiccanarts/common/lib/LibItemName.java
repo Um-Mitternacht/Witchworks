@@ -107,6 +107,10 @@ public final class LibItemName {
 	public static final String CROWN = "crown";
 	public static final String SHIRT = "shirt";
 
+	//Books
+	public static final String SHADOW_BOOK = "book_of_shadows";
+	public static final String DUSTY_GRIMOIRE = "dusty_grimoire";
+
 	//Materials
 	public static final String SILVER = "silver";
 

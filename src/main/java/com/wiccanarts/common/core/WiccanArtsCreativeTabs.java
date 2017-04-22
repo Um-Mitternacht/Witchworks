@@ -139,6 +139,8 @@ public final class WiccanArtsCreativeTabs {
 			addItem(ModItems.SILVER_BOOTS);
 			addItem(ModItems.RING);
 			addItem(ModItems.BELT);
+			addItem(ModItems.SHADOW_BOOK);
+			addItem(ModItems.DUSTY_GRIMOIRE);
 		}
 	}
 
