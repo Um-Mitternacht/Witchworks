@@ -3,12 +3,12 @@
 	"sounds": [
 	  "wiccanarts:boil"
 	],
-	"subtitle": "Kettle boiling"
+	"subtitle": "wiccanarts.subtitle.boil"
   },
   "buzz": {
 	"sounds": [
 	  "wiccanarts:buzz"
 	],
-	"subtitle": "Bees buzzing"
+	"subtitle": "wiccanarts.subtitle.buzz"
   }
 }

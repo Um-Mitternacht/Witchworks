@@ -1,8 +1,6 @@
 package com.wiccanarts.common.potions;
 
-import com.wiccanarts.common.lib.LibBrewName;
 import com.wiccanarts.common.lib.LibMod;
-import net.minecraft.potion.Potion;
 
 import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
@@ -13,11 +11,6 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
  */
 @ObjectHolder (LibMod.MOD_ID)
 public final class ModBrews {
-
-	@ObjectHolder (LibBrewName.STONEFORM_BREW)
-	public static final Potion STONEFORM_BREW = new BrewMod();
-	@ObjectHolder (LibBrewName.PARALYSIS_BREW)
-	public static final Potion PARALYSIS_BREW = new BrewMod();
 
 	private ModBrews() {
 	}

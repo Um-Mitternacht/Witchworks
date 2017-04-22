@@ -21,31 +21,26 @@ import net.minecraftforge.common.config.Config.Comment;
 @Config (modid = LibMod.MOD_ID)
 public final class ConfigHandler {
 
-	@Comment ("Don't change this if you don't know what you are doing")
-	public static WiccanArts wiccanArts = new WiccanArts();
+	public static WorldGen worldGen = new WorldGen();
+	public static HUD HUD = new HUD();
 
 	private ConfigHandler() {
 	}
 
-	public static class WiccanArts {
+	public static class WorldGen {
 
-		@Comment ("")
-		public Crafting crafting = new Crafting();
-		@Comment ("")
-		public WorldGen worldGen = new WorldGen();
-		@Comment ("")
-		public Spawning spawning = new Spawning();
+	}
 
-		public static class Crafting {
+	public static class HUD {
+		@Comment("If the HUD should hide")
+		public boolean hide = true;
+		@Comment ({"Pixels before HUD starts","Size is calculated with heightEnd - heightStart"})
+		public int heightStart = 32;
+		@Comment ({"Pixels after HUD ends","Size is calculated with heightEnd - heightStart"})
+		public int heightEnd = 110;
 
-		}
-
-		public static class WorldGen {
-
-		}
-
-		public static class Spawning {
-
-		}
+		@Comment({"Position of the HUD in the screen","\"x\" value is from left to right","\"y\" value is from bottom to top"})
+		public int x = 120;
+		public int y = 129;
 	}
 }

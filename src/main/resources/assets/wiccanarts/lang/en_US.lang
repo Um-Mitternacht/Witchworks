@@ -180,6 +180,9 @@ tile.altar.name=Altar
 
 effect.wiccanarts.stoneform_brew=Stoneform
 
+wiccanarts.subtitle.boil=Kettle boiling
+wiccanarts.subtitle.buzz=Bees buzzing
+
 ///ToolTips
 wiccan.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
 wiccan.tooltip.seed_asphodel_description.name=Seed from a plant of the dead

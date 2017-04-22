@@ -1,5 +1,6 @@
 package com.wiccanarts.client.core;
 
+import com.wiccanarts.client.core.event.EnergyRenderOverlay;
 import com.wiccanarts.client.core.event.TextureStitcher;
 import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.client.handler.BlockColorHandler;
@@ -9,7 +10,7 @@ import com.wiccanarts.client.render.tile.TileRenderKettle;
 import com.wiccanarts.common.WiccanArts;
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.block.tile.TileKettle;
-import com.wiccanarts.common.core.handler.GuiHandler;
+import com.wiccanarts.common.core.net.GuiHandler;
 import com.wiccanarts.common.core.proxy.ISidedProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
@@ -54,6 +55,7 @@ public class ClientProxy implements ISidedProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
 		MinecraftForge.EVENT_BUS.register(new TextureStitcher());
+		MinecraftForge.EVENT_BUS.register(new EnergyRenderOverlay());
 	}
 
 	@SideOnly (Side.CLIENT)

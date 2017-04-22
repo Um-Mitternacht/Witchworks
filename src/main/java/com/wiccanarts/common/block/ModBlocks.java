@@ -1,6 +1,6 @@
 package com.wiccanarts.common.block;
 
-import com.wiccanarts.common.block.crop.BlockCrop;
+import com.wiccanarts.common.block.natural.crop.BlockCrop;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibMod;

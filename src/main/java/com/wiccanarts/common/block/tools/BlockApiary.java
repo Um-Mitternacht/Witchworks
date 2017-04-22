@@ -1,5 +1,6 @@
 package com.wiccanarts.common.block.tools;
 
+import com.wiccanarts.api.sound.WiccaSoundEvents;
 import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.common.WiccanArts;
 import com.wiccanarts.common.block.BlockMod;
@@ -18,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -76,6 +78,9 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(5) == 0) {
 			WiccanArts.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
+		}
+		if(rand.nextInt(50) == 0) {
+			worldIn.playSound(null, pos, WiccaSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.2F, 1F);
 		}
 	}
 

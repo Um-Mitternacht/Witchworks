@@ -1,7 +1,7 @@
 package com.wiccanarts.api;
 
 import com.wiccanarts.api.item.crop.Crop;
-import com.wiccanarts.common.block.crop.BlockCrop;
+import com.wiccanarts.common.block.natural.crop.BlockCrop;
 import net.minecraft.item.Item;
 
 import java.util.LinkedHashMap;

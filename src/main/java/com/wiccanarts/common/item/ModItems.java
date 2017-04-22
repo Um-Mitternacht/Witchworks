@@ -1,6 +1,6 @@
 package com.wiccanarts.common.item;
 
-import com.wiccanarts.common.crafting.KettleCrafting;
+import com.wiccanarts.common.crafting.kettle.KettleCrafting;
 import com.wiccanarts.common.crafting.VanillaCrafting;
 import com.wiccanarts.common.lib.LibItemName;
 import com.wiccanarts.common.lib.LibMod;

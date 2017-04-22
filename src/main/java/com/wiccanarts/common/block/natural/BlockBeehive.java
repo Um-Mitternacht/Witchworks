@@ -1,6 +1,7 @@
 package com.wiccanarts.common.block.natural;
 
 import com.wiccanarts.api.item.IModelRegister;
+import com.wiccanarts.api.sound.WiccaSoundEvents;
 import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.client.handler.ModelHandler;
 import com.wiccanarts.common.WiccanArts;
@@ -13,6 +14,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -45,6 +47,9 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(10) == 0) {
 			WiccanArts.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
+		}
+		if(rand.nextInt(50) == 0) {
+			worldIn.playSound(null, pos, WiccaSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.2F, 1F);
 		}
 	}
 

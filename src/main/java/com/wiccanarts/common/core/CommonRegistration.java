@@ -4,30 +4,30 @@ import com.wiccanarts.api.CropRegistry;
 import com.wiccanarts.api.item.crop.Crop;
 import com.wiccanarts.common.block.BlockMod;
 import com.wiccanarts.common.block.ModBlocks;
-import com.wiccanarts.common.block.crop.BlockBelladonna;
-import com.wiccanarts.common.block.crop.BlockCrop;
-import com.wiccanarts.common.block.crop.BlockKelp;
 import com.wiccanarts.common.block.magic.BlockSaltBarrier;
 import com.wiccanarts.common.block.natural.BlockBeehive;
+import com.wiccanarts.common.block.natural.crop.BlockBelladonna;
+import com.wiccanarts.common.block.natural.crop.BlockCrop;
+import com.wiccanarts.common.block.natural.crop.BlockKelp;
 import com.wiccanarts.common.block.tile.ModTiles;
 import com.wiccanarts.common.block.tools.*;
-import com.wiccanarts.common.item.ItemBlockColor;
-import com.wiccanarts.common.item.ItemBrewPhial;
+import com.wiccanarts.common.item.ItemMalachite;
 import com.wiccanarts.common.item.ItemMod;
 import com.wiccanarts.common.item.ModMaterials;
 import com.wiccanarts.common.item.baubles.ItemBelt;
 import com.wiccanarts.common.item.baubles.ItemRing;
+import com.wiccanarts.common.item.block.ItemBlockColor;
+import com.wiccanarts.common.item.block.ItemSalt;
 import com.wiccanarts.common.item.equipment.ItemSilverArmor;
 import com.wiccanarts.common.item.food.*;
-import com.wiccanarts.common.item.misc.ItemMalachite;
-import com.wiccanarts.common.item.misc.ItemSalt;
-import com.wiccanarts.common.item.seed.ItemKelpSeed;
-import com.wiccanarts.common.item.seed.ItemSeed;
+import com.wiccanarts.common.item.food.seed.ItemKelpSeed;
+import com.wiccanarts.common.item.food.seed.ItemSeed;
+import com.wiccanarts.common.item.magic.books.ItemDustyGrimoire;
+import com.wiccanarts.common.item.magic.books.ItemShadowBook;
+import com.wiccanarts.common.item.magic.brew.ItemBrewPhial;
 import com.wiccanarts.common.item.tool.*;
 import com.wiccanarts.common.lib.LibBlockName;
 import com.wiccanarts.common.lib.LibItemName;
-import com.wiccanarts.common.potions.BrewParalysis;
-import com.wiccanarts.common.potions.BrewStoneform;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -112,8 +112,8 @@ public final class CommonRegistration {
 				new ItemSilverSword(ModMaterials.TOOL_SILVER),
 
 				//Books
-				new ItemMod(LibItemName.DUSTY_GRIMOIRE),
-				new ItemMod(LibItemName.SHADOW_BOOK),
+				new ItemShadowBook(),
+				new ItemDustyGrimoire(),
 
 				//Equipment
 				new ItemSilverArmor(LibItemName.SILVER_HELMET, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.HEAD),
@@ -235,8 +235,6 @@ public final class CommonRegistration {
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().registerAll(
-				new BrewStoneform(),
-				new BrewParalysis()
 		);
 	}
 

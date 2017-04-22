@@ -1,6 +1,5 @@
 package com.wiccanarts.common.item.baubles;
 
-import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import baubles.api.IBauble;
 import com.wiccanarts.common.item.ItemMod;
@@ -13,21 +12,21 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-import javax.annotation.Nonnull;
-
 /**
- * Created by BerciTheBeast on 21.4.2017.
+ * This class was created by BerciTheBeast on 21.4.2017.
+ * It's distributed as part of Wiccan Arts under
+ * the MIT license.
  */
-public class ItemBauble extends ItemMod implements IBauble {
+public abstract class ItemBauble extends ItemMod implements IBauble {
+
 	public ItemBauble(String id) {
 		super(id);
 		setMaxStackSize(1);
 	}
 
-	@Nonnull
+	@SuppressWarnings("deprecation")
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(@Nonnull ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
-
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 		ItemStack toEquip = stack.copy();
 		toEquip.stackSize = 1;
 		if (canEquip(toEquip, player)) {
@@ -51,11 +50,6 @@ public class ItemBauble extends ItemMod implements IBauble {
 			}
 		}
 		return ActionResult.newResult(EnumActionResult.PASS, stack);
-	}
-
-	@Override
-	public BaubleType getBaubleType(ItemStack itemstack) {
-		return null;
 	}
 
 	@Override

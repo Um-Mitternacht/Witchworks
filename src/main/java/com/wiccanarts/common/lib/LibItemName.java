@@ -90,15 +90,18 @@ public final class LibItemName {
 	public static final String SILVER_LEGGINGS = "silver_leggings";
 	public static final String SILVER_BOOTS = "silver_boots";
 
+	//Book
+	public static final String SHADOW_BOOK = "book_of_shadows";
+	public static final String DUSTY_GRIMOIRE = "dusty_grimoire";
+
 	//Misc
 	public static final String BREW_PHIAL = "brew_phial";
 	public static final String GLASS_JAR = "glass_jar";
 
-	//Staves //TODO: Use this or remove it
-	public static final String STAFFV1 = "mundaneStaff";
-	public static final String STAFFV2 = "impregnatedStaff"; //FIXME Think of better names for the staves.
+	public static final String MUNDANE_STAFF = "mundane_staff";
+	public static final String IMPREGNATED_STAFF = "impregnated_staff"; //FIXME Think of better names for the staves.
 
-	//Baubles //TODO: Use this or remove it
+	//Baubles //TODO: Why are these so generic? What do they do?
 	public static final String RING = "ring";
 	public static final String TALISMAN = "talisman";
 	public static final String BELT = "belt";
@@ -106,10 +109,6 @@ public final class LibItemName {
 	public static final String AMULET = "amulet";
 	public static final String CROWN = "crown";
 	public static final String SHIRT = "shirt";
-
-	//Books
-	public static final String SHADOW_BOOK = "book_of_shadows";
-	public static final String DUSTY_GRIMOIRE = "dusty_grimoire";
 
 	//Materials
 	public static final String SILVER = "silver";

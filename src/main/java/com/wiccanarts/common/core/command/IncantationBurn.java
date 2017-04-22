@@ -1,8 +1,10 @@
 package com.wiccanarts.common.core.command;
 
+import com.wiccanarts.common.core.energy.EnergyHandler;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.server.MinecraftServer;
@@ -22,6 +24,7 @@ class IncantationBurn implements IIncantation {
 	@Override
 	public void cast(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		final EntityLivingBase entity = (EntityLivingBase) sender.getCommandSenderEntity();
+		EnergyHandler.addEnergy((EntityPlayer) entity, -2); //FIXME: Test, remove me
 
 		final Vec3d vec3d = new Vec3d(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
 		final Vec3d vec3d1 = entity.getLookVec();
