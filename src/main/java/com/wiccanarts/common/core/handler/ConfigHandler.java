@@ -37,7 +37,7 @@ public final class ConfigHandler {
 		@Comment ({"Pixels before HUD starts", "Size is calculated with heightEnd - heightStart"})
 		public int heightStart = 32;
 		@Comment ({"Pixels after HUD ends", "Size is calculated with heightEnd - heightStart"})
-		public int heightEnd = 110;
+		public int heightEnd = 134;
 
 		@Comment ({"Position of the HUD in the screen", "\"x\" value is from left to right", "\"y\" value is from bottom to top"})
 		public int x = 120;

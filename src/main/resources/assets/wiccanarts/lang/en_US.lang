@@ -222,4 +222,7 @@ wiccan.tooltip.lavender_description.name=Associated with purity and grace
 wiccan.tooltip.peony_description.name=Seed from a flowering plant
 wiccan.tooltip.thistle_description.name=A flower associated with strength and durability, and is the national flower of Scotland
 
+//Incantation
+commands.incantation.notFound=The powers you cast forth fizzle to nothingness
+
 ////JEI

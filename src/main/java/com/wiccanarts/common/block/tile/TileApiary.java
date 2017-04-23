@@ -1,5 +1,6 @@
 package com.wiccanarts.common.block.tile;
 
+import com.wiccanarts.api.sound.WiccaSoundEvents;
 import com.wiccanarts.client.gui.container.ContainerApiary;
 import com.wiccanarts.common.item.ModItems;
 import net.minecraft.block.Block;
@@ -19,6 +20,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.datafix.walkers.ItemStackDataLists;
@@ -165,6 +167,9 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 			final ItemStack bee = getStackInSlot(0);
 			if (bee != null && bee.getItemDamage() < 35) {
 				lookForFlowers();
+				if (tick % 60 == 0 && world.rand.nextBoolean()) {
+					world.playSound(null, pos, WiccaSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.1F, 1F);
+				}
 				if (flowerCount > 0) {
 					if (world.rand.nextInt(3) == 0 && tick % (GEN - flowerCount * 3) == 0) {
 						for (int i = 1; i < itemStacks.length; i++) {
