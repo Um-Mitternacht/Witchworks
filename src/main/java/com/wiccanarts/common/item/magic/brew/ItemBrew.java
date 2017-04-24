@@ -24,10 +24,10 @@ public class ItemBrew extends ItemMod {
 		setMaxStackSize(1);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		if(BrewUtils.isBrew(stack)) {
+		if (BrewUtils.isBrew(stack)) {
 			BrewUtils.addBrewDescription(tooltip, stack);
 		} else {
 			PotionUtils.addPotionTooltip(stack, tooltip, 1.0F);
@@ -36,7 +36,7 @@ public class ItemBrew extends ItemMod {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-		if(BrewUtils.isBrew(stack)) {
+		if (BrewUtils.isBrew(stack)) {
 			return new TextComponentTranslation(NBTHelper.getString(stack, BrewUtils.NAME_TAG)).getFormattedText();
 		}
 		return super.getItemStackDisplayName(stack);

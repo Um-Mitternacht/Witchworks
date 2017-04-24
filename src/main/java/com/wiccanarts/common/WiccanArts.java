@@ -2,10 +2,10 @@ package com.wiccanarts.common;
 
 import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.core.achievement.ModAchievements;
+import com.wiccanarts.common.core.capability.energy.CapabilityEnergy;
 import com.wiccanarts.common.core.capability.potion.CapabilityBrewStorage;
 import com.wiccanarts.common.core.command.CommandIncantation;
 import com.wiccanarts.common.core.command.ModCommands;
-import com.wiccanarts.common.core.capability.energy.CapabilityEnergy;
 import com.wiccanarts.common.core.event.ModEvents;
 import com.wiccanarts.common.core.gen.WorldGenOre;
 import com.wiccanarts.common.core.handler.ModSounds;

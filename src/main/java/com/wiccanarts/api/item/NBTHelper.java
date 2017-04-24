@@ -10,7 +10,7 @@ import java.util.UUID;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings ("unused")
 public final class NBTHelper {
 
 	private NBTHelper() {

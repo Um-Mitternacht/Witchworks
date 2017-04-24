@@ -66,13 +66,13 @@ public final class CapabilityBrewStorage {
 		private Map<IBrew, BrewEffect> effects = new HashMap<>();
 
 		@Override
-		public void setBrews(Map<IBrew, BrewEffect> effects) {
-			this.effects = effects;
+		public Map<IBrew, BrewEffect> getBrews() {
+			return effects;
 		}
 
 		@Override
-		public Map<IBrew, BrewEffect> getBrews() {
-			return effects;
+		public void setBrews(Map<IBrew, BrewEffect> effects) {
+			this.effects = effects;
 		}
 	}
 }

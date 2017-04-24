@@ -19,7 +19,6 @@ public final class BrewStorageHandler {
 
 	/**
 	 * Returns the {@link IBrewStorage} interface of the brew storage.
-	 *
 	 * @param entity The entity
 	 * @return An {@link Optional <IBrewStorage>} for correctness
 	 */
@@ -33,7 +32,6 @@ public final class BrewStorageHandler {
 
 	/**
 	 * Checks if a Brew is active.
-	 *
 	 * @param entity The entity
 	 * @param brew The brew
 	 * @return If it is active
@@ -45,7 +43,6 @@ public final class BrewStorageHandler {
 
 	/**
 	 * Add a BrewEffect to the entity.
-	 *
 	 * @param entity The entity
 	 * @param effect The effect
 	 */

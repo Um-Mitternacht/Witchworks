@@ -169,8 +169,11 @@ tile.tigers_eye_ore.name=Tiger's Eye Ore
 tile.serpentine_ore.name=Serpentine ore
 tile.nuummite_ore.name=Nuummite Ore
 tile.garnet_ore.name=Garnet Ore
-tile.petoskey.name=Petoskey Ore
+tile.petoskey_ore.name=Petoskey Ore
 tile.salt_ore.name=Salt Ore
+tile.amethyst_ore.name=Amethyst Ore
+tile.quartz_ore.name=Quartz Ore
+tile.alexandrite_ore.name=Alexandrite Ore
 
 tile.kettle.name=Kettle
 tile.coquina.name=Coquina
@@ -179,6 +182,8 @@ tile.beehive.name=Beehive
 tile.altar.name=Altar
 
 effect.wiccanarts.stoneform_brew=Stoneform
+brew.shell_armor.name=Shell Armor
+brew.shell_armor.desc=The edges help cut up your foes
 
 wiccanarts.subtitle.boil=Kettle boiling
 wiccanarts.subtitle.buzz=Bees buzzing

@@ -4,6 +4,7 @@ import com.wiccanarts.api.BrewRegistry;
 import com.wiccanarts.api.KettleRegistry;
 import com.wiccanarts.api.recipe.IEffectModifier;
 import com.wiccanarts.api.recipe.PotionHolder;
+import com.wiccanarts.common.block.ModBlocks;
 import com.wiccanarts.common.item.ModItems;
 import com.wiccanarts.common.potions.BrewUtils;
 import com.wiccanarts.common.potions.ModBrews;
@@ -49,7 +50,7 @@ public final class KettleCrafting {
 		//Potion Recipes
 		KettleRegistry.registerKettlePotionRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK //FIXME: Test
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR))
-				, Items.IRON_INGOT, Items.FERMENTED_SPIDER_EYE, new ItemStack(Items.FISH, 1, 3), Items.BEETROOT);
+				, Items.IRON_INGOT, ModItems.SALT, ModBlocks.COQUINA, Items.FERMENTED_SPIDER_EYE, new ItemStack(Items.FISH, 1, 3), ModItems.KELP);
 
 		// - > Custom Brewing
 		//Custom Effects
@@ -114,7 +115,6 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -124,7 +124,6 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param meta Meta of ItemStack
 	 * @return An ItemStack
@@ -135,7 +134,6 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -146,7 +144,6 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */

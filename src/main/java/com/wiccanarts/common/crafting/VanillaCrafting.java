@@ -51,10 +51,11 @@ public final class VanillaCrafting {
 				.outputs(ModBlocks.APIARY)
 				.build();
 
-		shaped().grid("LSL", "SSS", "WWW")
+		shaped().grid("LML", "SSS", "WWW")
 				.map('W', "plankWood")
 				.map('S', Blocks.STONE)
 				.map('L', Blocks.CARPET)
+				.map('M', ModItems.MOLDAVITE)
 				.outputs(ModBlocks.ALTAR)
 				.build();
 

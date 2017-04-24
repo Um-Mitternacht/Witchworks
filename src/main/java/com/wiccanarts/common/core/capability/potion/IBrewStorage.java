@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public interface IBrewStorage {
 
-	void setBrews(Map<IBrew, BrewEffect> effect);
-
 	Map<IBrew, BrewEffect> getBrews();
+
+	void setBrews(Map<IBrew, BrewEffect> effect);
 }
