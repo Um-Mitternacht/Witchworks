@@ -1,8 +1,8 @@
 package com.wiccanarts.client.core.event;
 
 import com.wiccanarts.client.ResourceLocations;
-import com.wiccanarts.common.core.energy.EnergyHandler;
-import com.wiccanarts.common.core.energy.IEnergy;
+import com.wiccanarts.common.core.capability.energy.EnergyHandler;
+import com.wiccanarts.common.core.capability.energy.IEnergy;
 import com.wiccanarts.common.core.handler.ConfigHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -23,7 +23,7 @@ import java.util.Optional;
  * the MIT license.
  */
 @SideOnly (Side.CLIENT)
-public class EnergyRenderOverlay {
+public class EnergyHUD {
 
 	private int renderTime;
 	private float visible;

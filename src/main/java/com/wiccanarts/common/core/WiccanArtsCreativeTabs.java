@@ -124,7 +124,6 @@ public final class WiccanArtsCreativeTabs {
 			addItem(ModItems.WAX);
 			addItem(ModItems.MORTAR_AND_PESTLE);
 			addItem(ModItems.SALT);
-			addItem(ModItems.BREW_PHIAL);
 			addItem(ModItems.SILVER_POWDER);
 			addItem(ModItems.SILVER_INGOT);
 			addItem(ModItems.SILVER_NUGGET);
@@ -141,6 +140,7 @@ public final class WiccanArtsCreativeTabs {
 			addItem(ModItems.BELT);
 			addItem(ModItems.SHADOW_BOOK);
 			addItem(ModItems.DUSTY_GRIMOIRE);
+			addItem(ModItems.BREW_PHIAL_DRINK);
 		}
 	}
 

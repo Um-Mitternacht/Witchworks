@@ -1,8 +1,8 @@
 package com.wiccanarts.common.core.event;
 
-import com.wiccanarts.common.core.energy.EnergyHandler;
-import com.wiccanarts.common.core.energy.EnergyProvider;
-import com.wiccanarts.common.core.energy.IEnergy;
+import com.wiccanarts.common.core.capability.energy.EnergyHandler;
+import com.wiccanarts.common.core.capability.energy.EnergyProvider;
+import com.wiccanarts.common.core.capability.energy.IEnergy;
 import com.wiccanarts.common.core.net.EnergyMessage;
 import com.wiccanarts.common.core.net.PacketHandler;
 import com.wiccanarts.common.lib.LibMod;

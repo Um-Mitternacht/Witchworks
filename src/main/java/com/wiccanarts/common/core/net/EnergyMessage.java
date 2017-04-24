@@ -1,8 +1,8 @@
 package com.wiccanarts.common.core.net;
 
-import com.wiccanarts.common.core.energy.CapabilityEnergy;
-import com.wiccanarts.common.core.energy.EnergyHandler;
-import com.wiccanarts.common.core.energy.IEnergy;
+import com.wiccanarts.common.core.capability.energy.CapabilityEnergy;
+import com.wiccanarts.common.core.capability.energy.EnergyHandler;
+import com.wiccanarts.common.core.capability.energy.IEnergy;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

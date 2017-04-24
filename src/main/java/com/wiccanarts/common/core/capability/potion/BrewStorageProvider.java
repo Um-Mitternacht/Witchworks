@@ -1,4 +1,4 @@
-package com.wiccanarts.common.core.energy;
+package com.wiccanarts.common.core.capability.potion;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -9,36 +9,36 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import javax.annotation.Nullable;
 
 /**
- * This class was created by Arekkuusu on 20/04/2017.
+ * This class was created by Arekkuusu on 23/04/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class EnergyProvider implements ICapabilitySerializable<NBTTagCompound> {
+public class BrewStorageProvider implements ICapabilitySerializable<NBTTagCompound> {
 
-	@CapabilityInject (IEnergy.class)
-	public static final Capability<IEnergy> ENERGY_CAPABILITY = null;
-	private final IEnergy defaultEnergy = new CapabilityEnergy.DefaultEnergy();
+	@CapabilityInject (IBrewStorage.class)
+	public static final Capability<IBrewStorage> BREW_STORAGE_CAPABILITY = null;
+	private final IBrewStorage defaultPotionStorage = new CapabilityBrewStorage.DefaultBrewStorage();
 
 	@Override
 	public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
-		return ENERGY_CAPABILITY == capability;
+		return BREW_STORAGE_CAPABILITY == capability;
 	}
 
 	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
-		return ENERGY_CAPABILITY == capability ? ENERGY_CAPABILITY.cast(defaultEnergy) : null;
+		return BREW_STORAGE_CAPABILITY == capability ? BREW_STORAGE_CAPABILITY.cast(defaultPotionStorage) : null;
 	}
 
 	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public NBTTagCompound serializeNBT() {
-		return (NBTTagCompound) ENERGY_CAPABILITY.writeNBT(defaultEnergy, null);
+		return (NBTTagCompound) BREW_STORAGE_CAPABILITY.writeNBT(defaultPotionStorage, null);
 	}
 
 	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public void deserializeNBT(NBTTagCompound nbt) {
-		ENERGY_CAPABILITY.readNBT(defaultEnergy, null, nbt);
+		BREW_STORAGE_CAPABILITY.readNBT(defaultPotionStorage, null, nbt);
 	}
 }

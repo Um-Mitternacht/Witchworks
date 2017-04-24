@@ -95,9 +95,10 @@ public final class LibItemName {
 	public static final String DUSTY_GRIMOIRE = "dusty_grimoire";
 
 	//Misc
-	public static final String BREW_PHIAL = "brew_phial";
+	public static final String BREW_PHIAL_DRINK = "brew_phial_drink";
+	public static final String BREW_PHIAL_SPLASH = "brew_phial_splash";
+	public static final String BREW_PHIAL_LINGER = "brew_phial_linger";
 	public static final String GLASS_JAR = "glass_jar";
-
 	public static final String MUNDANE_STAFF = "mundane_staff";
 	public static final String IMPREGNATED_STAFF = "impregnated_staff"; //FIXME Think of better names for the staves.
 

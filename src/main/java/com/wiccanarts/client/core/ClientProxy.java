@@ -1,6 +1,6 @@
 package com.wiccanarts.client.core;
 
-import com.wiccanarts.client.core.event.EnergyRenderOverlay;
+import com.wiccanarts.client.core.event.EnergyHUD;
 import com.wiccanarts.client.core.event.TextureStitcher;
 import com.wiccanarts.client.fx.ParticleF;
 import com.wiccanarts.client.handler.BlockColorHandler;
@@ -55,7 +55,7 @@ public class ClientProxy implements ISidedProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
 		MinecraftForge.EVENT_BUS.register(new TextureStitcher());
-		MinecraftForge.EVENT_BUS.register(new EnergyRenderOverlay());
+		MinecraftForge.EVENT_BUS.register(new EnergyHUD());
 	}
 
 	@SideOnly (Side.CLIENT)
@@ -82,6 +82,7 @@ public class ClientProxy implements ISidedProxy {
 	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
 	 * or
 	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
+	 *
 	 * @see RenderingRegistry
 	 */
 	@SideOnly (Side.CLIENT)
@@ -91,6 +92,7 @@ public class ClientProxy implements ISidedProxy {
 
 	/**
 	 * Display a Record text with a format and localization.
+	 *
 	 * @param text An {@link ITextComponent}
 	 */
 	@SideOnly (Side.CLIENT)

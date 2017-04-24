@@ -10,6 +10,7 @@ import java.util.UUID;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
+@SuppressWarnings("unused")
 public final class NBTHelper {
 
 	private NBTHelper() {
@@ -29,6 +30,10 @@ public final class NBTHelper {
 
 	public static void setBoolean(ItemStack stack, String tag, boolean i) {
 		fixNBT(stack).setBoolean(tag, i);
+	}
+
+	public static void setString(ItemStack stack, String tag, String i) {
+		fixNBT(stack).setString(tag, i);
 	}
 
 	public static void setUniqueID(ItemStack stack, String tag, UUID i) {
@@ -51,8 +56,17 @@ public final class NBTHelper {
 		return fixNBT(stack).getBoolean(tag);
 	}
 
+	public static String getString(ItemStack stack, String tag) {
+		return fixNBT(stack).getString(tag);
+	}
+
 	public static UUID getUniqueID(ItemStack stack, String tag) {
 		return fixNBT(stack).getUniqueId(tag);
+	}
+
+	public static boolean hasTag(ItemStack stack, String tag) {
+		NBTTagCompound tagCompound = stack.getTagCompound();
+		return tagCompound != null && tagCompound.hasKey(tag);
 	}
 
 	private static NBTTagCompound fixNBT(ItemStack stack) {

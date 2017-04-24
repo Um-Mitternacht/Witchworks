@@ -1,9 +1,12 @@
 package com.wiccanarts.common.crafting.kettle;
 
+import com.wiccanarts.api.BrewRegistry;
 import com.wiccanarts.api.KettleRegistry;
 import com.wiccanarts.api.recipe.IEffectModifier;
 import com.wiccanarts.api.recipe.PotionHolder;
 import com.wiccanarts.common.item.ModItems;
+import com.wiccanarts.common.potions.BrewUtils;
+import com.wiccanarts.common.potions.ModBrews;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -44,9 +47,11 @@ public final class KettleCrafting {
 
 
 		//Potion Recipes
+		KettleRegistry.registerKettlePotionRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK //FIXME: Test
+				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR))
+				, Items.IRON_INGOT, Items.FERMENTED_SPIDER_EYE, new ItemStack(Items.FISH, 1, 3), Items.BEETROOT);
 
-
-		//Custom Brewing
+		// - > Custom Brewing
 		//Custom Effects
 		KettleRegistry.addKettleEffectTo(getStack(Items.GOLDEN_CARROT), new PotionHolder(MobEffects.NIGHT_VISION, 500));
 
@@ -109,6 +114,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -118,6 +124,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param meta Meta of ItemStack
 	 * @return An ItemStack
@@ -128,6 +135,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -138,6 +146,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */

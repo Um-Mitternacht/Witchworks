@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-	"layer0": "wiccanarts:items/brew_phial"
+	"layer0": "wiccanarts:items/brew_phial_linger"
   }
 }

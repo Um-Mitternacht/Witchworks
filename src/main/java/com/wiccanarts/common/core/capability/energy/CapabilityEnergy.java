@@ -1,4 +1,4 @@
-package com.wiccanarts.common.core.energy;
+package com.wiccanarts.common.core.capability.energy;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;

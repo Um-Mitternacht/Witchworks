@@ -83,8 +83,12 @@ public final class ModItems {
 	public static final Item BEE = new Item();
 	@ObjectHolder (LibItemName.GLASS_JAR)
 	public static final Item GLASS_JAR = new Item();
-	@ObjectHolder (LibItemName.BREW_PHIAL)
-	public static final Item BREW_PHIAL = new Item();
+	@ObjectHolder (LibItemName.BREW_PHIAL_DRINK)
+	public static final Item BREW_PHIAL_DRINK = new Item();
+	@ObjectHolder (LibItemName.BREW_PHIAL_SPLASH)
+	public static final Item BREW_PHIAL_SPLASH = new Item();
+	@ObjectHolder (LibItemName.BREW_PHIAL_LINGER)
+	public static final Item BREW_PHIAL_LINGER = new Item();
 
 	//Tools
 	@ObjectHolder (LibItemName.SILVER_PICKAXE)
