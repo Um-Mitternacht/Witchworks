@@ -141,6 +141,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.SHADOW_BOOK);
 			addItem(ModItems.DUSTY_GRIMOIRE);
 			addItem(ModItems.BREW_PHIAL_DRINK);
+			addItem(ModItems.CHALK_ITEM);
 		}
 	}
 
@@ -194,6 +195,7 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.CANDLE_LARGE);
 			addBlock(ModBlocks.CANDLE_MEDIUM);
 			addBlock(ModBlocks.CANDLE_SMALL);
+			addBlock(ModBlocks.CHALK);
 		}
 	}
 }

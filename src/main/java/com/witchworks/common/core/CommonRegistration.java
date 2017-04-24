@@ -114,6 +114,7 @@ public final class CommonRegistration {
 				new ItemSilverSpade(ModMaterials.TOOL_SILVER),
 				new ItemSilverHoe(ModMaterials.TOOL_SILVER),
 				new ItemSilverSword(ModMaterials.TOOL_SILVER),
+				new ItemMod(LibItemName.CHALK_ITEM),
 
 				//Books
 				new ItemShadowBook(),
@@ -172,7 +173,8 @@ public final class CommonRegistration {
 				new ItemBlockColor(ModBlocks.CANDLE_LARGE),
 				new ItemBlockColor(ModBlocks.CANDLE_MEDIUM),
 				new ItemBlockColor(ModBlocks.CANDLE_SMALL),
-				itemBlock(ModBlocks.SALT_BARRIER)
+				itemBlock(ModBlocks.SALT_BARRIER),
+				itemBlock(ModBlocks.CHALK)
 		);
 	}
 
@@ -218,6 +220,7 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.PETOSKEY_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.ALEXANDRITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.CHALK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.QUARTZ_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 				new BlockMod(LibBlockName.AMETHYST_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 

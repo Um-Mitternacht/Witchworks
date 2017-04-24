@@ -104,6 +104,8 @@ public final class ModBlocks {
 	public static final Block AMETHYST_ORE = new Block(Material.ROCK);
 	@ObjectHolder (LibBlockName.ALEXANDRITE_ORE)
 	public static final Block ALEXANDRITE_ORE = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.CHALK)
+	public static final Block CHALK = new Block(Material.ROCK);
 
 	private ModBlocks() {
 	}
@@ -131,5 +133,6 @@ public final class ModBlocks {
 		OreDictionary.registerOre("oreQuartz", new ItemStack(ModBlocks.QUARTZ_ORE));
 		OreDictionary.registerOre("oreAmethyst", new ItemStack(ModBlocks.AMETHYST_ORE));
 		OreDictionary.registerOre("oreAlexandrite", new ItemStack(ModBlocks.ALEXANDRITE_ORE));
+		OreDictionary.registerOre("chalk", new ItemStack(ModBlocks.CHALK));
 	}
 }

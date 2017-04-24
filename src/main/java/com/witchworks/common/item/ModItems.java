@@ -117,6 +117,8 @@ public final class ModItems {
 	public static final Item RING = new Item();
 	@ObjectHolder (LibItemName.BELT)
 	public static final Item BELT = new Item();
+	@ObjectHolder (LibItemName.CHALK_ITEM)
+	public static final Item CHALK_ITEM = new Item();
 
 	//Books
 	@ObjectHolder (LibItemName.SHADOW_BOOK)
