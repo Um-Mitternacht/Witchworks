@@ -40,7 +40,7 @@ public class ItemCrop extends ItemModFood implements IModelRegister {
 	@Override
 	@SideOnly (Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.ITALIC + I18n.format("wiccan.tooltip." + getNameInefficiently(stack) + "_description.name"));
+		tooltip.add(TextFormatting.ITALIC + I18n.format("witch.tooltip." + getNameInefficiently(stack) + "_description.name"));
 	}
 
 	@Override
