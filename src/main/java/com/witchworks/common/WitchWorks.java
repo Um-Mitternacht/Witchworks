@@ -33,10 +33,10 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  */
 @SuppressWarnings ("WeakerAccess")
 @Mod (modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
-public class WiccanArts {
+public class WitchWorks {
 
 	@Instance (LibMod.MOD_ID)
-	public static WiccanArts instance;
+	public static WitchWorks instance;
 
 	@SidedProxy (serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;

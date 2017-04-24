@@ -1,6 +1,6 @@
 package com.witchworks.common.block.tile;
 
-import com.witchworks.api.sound.WiccaSoundEvents;
+import com.witchworks.api.sound.WitchSoundEvents;
 import com.witchworks.client.gui.container.ContainerApiary;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.block.Block;
@@ -168,7 +168,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 			if (bee != null && bee.getItemDamage() < 35) {
 				lookForFlowers();
 				if (tick % 60 == 0 && world.rand.nextBoolean()) {
-					world.playSound(null, pos, WiccaSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.1F, 1F);
+					world.playSound(null, pos, WitchSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.1F, 1F);
 				}
 				if (flowerCount > 0) {
 					if (world.rand.nextInt(3) == 0 && tick % (GEN - flowerCount * 3) == 0) {

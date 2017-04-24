@@ -18,13 +18,13 @@ import java.util.List;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public final class WiccanArtsCreativeTabs {
+public final class WitchWorksCreativeTabs {
 
 	public static final PlantsCreativeTab PLANTS_CREATIVE_TAB = new PlantsCreativeTab();
 	public static final ItemsCreativeTab ITEMS_CREATIVE_TAB = new ItemsCreativeTab();
 	public static final BlocksCreativeTab BLOCKS_CREATIVE_TAB = new BlocksCreativeTab();
 
-	private WiccanArtsCreativeTabs() {
+	private WitchWorksCreativeTabs() {
 	}
 
 	private static class CreativeTab extends CreativeTabs {

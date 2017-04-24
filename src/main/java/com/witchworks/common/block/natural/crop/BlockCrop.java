@@ -2,7 +2,7 @@ package com.witchworks.common.block.natural.crop;
 
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WiccanArtsCreativeTabs;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
@@ -26,7 +26,7 @@ public class BlockCrop extends BlockCrops implements IModelRegister {
 		super();
 		setUnlocalizedName(id);
 		setRegistryName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.maxAge = 7;
 	}
 
@@ -34,7 +34,7 @@ public class BlockCrop extends BlockCrops implements IModelRegister {
 		super();
 		setUnlocalizedName(id);
 		setRegistryName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.maxAge = maxAge;
 	}
 

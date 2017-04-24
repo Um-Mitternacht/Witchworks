@@ -7,7 +7,7 @@ import com.witchworks.client.handler.BlockColorHandler;
 import com.witchworks.client.handler.ItemColorHandler;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.client.render.tile.TileRenderKettle;
-import com.witchworks.common.WiccanArts;
+import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.tile.TileKettle;
 import com.witchworks.common.core.net.GuiHandler;
@@ -68,7 +68,7 @@ public class ClientProxy implements ISidedProxy {
 				Item.getItemFromBlock(ModBlocks.CANDLE_MEDIUM),
 				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(WiccanArts.instance, new GuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(WitchWorks.instance, new GuiHandler());
 	}
 
 	@SideOnly (Side.CLIENT)

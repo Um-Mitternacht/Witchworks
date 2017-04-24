@@ -27,7 +27,7 @@ checkstyle {
 
 version = "${mc_version}-${wa_version}"
 group = "com.witchworks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "WiccanArts"
+archivesBaseName = "WitchWorks"
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8

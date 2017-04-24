@@ -2,7 +2,7 @@ package com.witchworks.common.item.food.seed;
 
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WiccanArtsCreativeTabs;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,7 +34,7 @@ public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 		super(crop, soil);
 		setRegistryName(id);
 		setUnlocalizedName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 		this.crop = crop;
 		this.soil = soil;
 	}

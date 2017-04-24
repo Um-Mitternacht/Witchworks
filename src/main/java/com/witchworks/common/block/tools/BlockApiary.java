@@ -1,7 +1,7 @@
 package com.witchworks.common.block.tools;
 
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.WiccanArts;
+import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.block.tile.TileApiary;
 import com.witchworks.common.lib.LibBlockName;
@@ -56,7 +56,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 			if (heldItem != null && heldItem.getItem() == Items.NAME_TAG) {
 				((TileApiary) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
-				playerIn.openGui(WiccanArts.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(WitchWorks.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 		}
 		return true;
@@ -75,7 +75,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(5) == 0) {
-			WiccanArts.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
+			WitchWorks.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
 		}
 	}
 

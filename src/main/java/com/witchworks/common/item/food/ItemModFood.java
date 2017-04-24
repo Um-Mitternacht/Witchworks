@@ -1,6 +1,6 @@
 package com.witchworks.common.item.food;
 
-import com.witchworks.common.core.WiccanArtsCreativeTabs;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.item.ItemFood;
 
 /**
@@ -14,6 +14,6 @@ public class ItemModFood extends ItemFood {
 		super(amount, saturation, isWolfFood);
 		setRegistryName(id);
 		setUnlocalizedName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 }

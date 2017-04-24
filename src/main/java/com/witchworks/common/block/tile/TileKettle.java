@@ -3,9 +3,9 @@ package com.witchworks.common.block.tile;
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.recipe.*;
 import com.witchworks.api.recipe.PotionHolder.HolderType;
-import com.witchworks.api.sound.WiccaSoundEvents;
+import com.witchworks.api.sound.WitchSoundEvents;
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.WiccanArts;
+import com.witchworks.common.WitchWorks;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.potions.BrewUtils;
@@ -352,10 +352,10 @@ public class TileKettle extends TileItemInventory implements ITickable {
 				final float d3 = (float) pos.getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 				final float d4 = (float) pos.getY() + 0.155F + (waterLevel * 0.075F);
 				final float d5 = (float) pos.getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
-				WiccanArts.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, color);
+				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, d3, d4, d5, 0.0D, 0.1D, 0.0D, color);
 			}
 			if (ticks % 60 == 0) {
-				world.playSound(null, getPos(), WiccaSoundEvents.BOIL, SoundCategory.BLOCKS, 0.2F, 1F);
+				world.playSound(null, getPos(), WitchSoundEvents.BOIL, SoundCategory.BLOCKS, 0.2F, 1F);
 			}
 		}
 

@@ -11,7 +11,7 @@ public final class LibMod {
 	public static final String MOD_ID = "witchworks";
 
 	//Name of MOD
-	public static final String MOD_NAME = "WiccanArts";
+	public static final String MOD_NAME = "WitchWorks";
 
 	//Version of MOD
 	public static final String MOD_VER = "@VERSION@";

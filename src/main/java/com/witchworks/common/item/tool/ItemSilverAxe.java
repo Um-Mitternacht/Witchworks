@@ -2,7 +2,7 @@ package com.witchworks.common.item.tool;
 
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WiccanArtsCreativeTabs;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.item.ItemAxe;
 import net.minecraftforge.fml.relauncher.Side;
@@ -19,7 +19,7 @@ public class ItemSilverAxe extends ItemAxe implements IModelRegister {
 		super(material, material.getDamageVsEntity(), material.getEfficiencyOnProperMaterial());
 		setRegistryName(LibItemName.SILVER_AXE);
 		setUnlocalizedName(LibItemName.SILVER_AXE);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@SideOnly (Side.CLIENT)

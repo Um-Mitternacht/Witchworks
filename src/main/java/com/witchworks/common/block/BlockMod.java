@@ -10,7 +10,7 @@ package com.witchworks.common.block;
 
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WiccanArtsCreativeTabs;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -31,7 +31,7 @@ public class BlockMod extends Block implements IModelRegister {
 		setUnlocalizedName(id);
 		setDefaultState(defaultState());
 		setRegistryName(LibMod.MOD_ID, id);
-		setCreativeTab(WiccanArtsCreativeTabs.BLOCKS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
 	public Block setSound(SoundType type) {

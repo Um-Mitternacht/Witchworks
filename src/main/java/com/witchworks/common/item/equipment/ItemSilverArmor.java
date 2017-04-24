@@ -2,7 +2,7 @@ package com.witchworks.common.item.equipment;
 
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WiccanArtsCreativeTabs;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.fml.relauncher.Side;
@@ -19,7 +19,7 @@ public class ItemSilverArmor extends ItemArmor implements IModelRegister {
 		super(materialIn, renderIndex, equipmentSlotIn);
 		setRegistryName(id);
 		setUnlocalizedName(id);
-		setCreativeTab(WiccanArtsCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override
