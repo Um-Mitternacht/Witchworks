@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-import static com.witchworks.api.state.WiccanArtsState.COLOR;
+import static com.witchworks.api.state.WitchWorksState.COLOR;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.

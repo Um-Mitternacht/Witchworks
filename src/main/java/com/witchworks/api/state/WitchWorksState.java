@@ -9,11 +9,11 @@ import net.minecraft.item.EnumDyeColor;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public final class WiccanArtsState {
+public final class WitchWorksState {
 
 	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.create("color", EnumDyeColor.class);
 	public static final PropertyEnum<BlockStairs.EnumHalf> HALF = PropertyEnum.create("half", BlockStairs.EnumHalf.class);
 
-	private WiccanArtsState() {
+	private WitchWorksState() {
 	}
 }

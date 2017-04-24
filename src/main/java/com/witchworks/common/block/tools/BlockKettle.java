@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static com.witchworks.api.state.WiccanArtsState.HALF;
+import static com.witchworks.api.state.WitchWorksState.HALF;
 import static net.minecraft.block.BlockHorizontal.FACING;
 
 /**
