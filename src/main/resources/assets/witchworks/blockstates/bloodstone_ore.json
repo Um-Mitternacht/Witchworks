@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "witchworks:bloodstone_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "witchworks:bloodstone_ore"
+	  }
+	]
+  }
+}

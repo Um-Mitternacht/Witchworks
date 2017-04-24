@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "witchworks:moldavite_block"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "witchworks:moldavite_block"
+	  }
+	]
+  }
+}

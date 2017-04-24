@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "witchworks:salt_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "witchworks:salt_ore"
+	  }
+	]
+  }
+}

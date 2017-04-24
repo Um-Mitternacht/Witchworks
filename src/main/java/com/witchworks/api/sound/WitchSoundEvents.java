@@ -1,6 +1,6 @@
 package com.witchworks.api.sound;
 
-import com.witchworks.api.WiccanArtsAPI;
+import com.witchworks.api.WitchWorksAPI;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
@@ -11,8 +11,8 @@ import net.minecraft.util.SoundEvent;
  */
 public final class WitchSoundEvents {
 
-	public static final SoundEvent BOIL = getRegisteredSound(WiccanArtsAPI.BOIL);
-	public static final SoundEvent BUZZ = getRegisteredSound(WiccanArtsAPI.BUZZ);
+	public static final SoundEvent BOIL = getRegisteredSound(WitchWorksAPI.BOIL);
+	public static final SoundEvent BUZZ = getRegisteredSound(WitchWorksAPI.BUZZ);
 
 	private WitchSoundEvents() {
 	}

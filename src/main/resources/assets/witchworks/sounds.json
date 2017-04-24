@@ -1,0 +1,14 @@
+{
+  "boil": {
+	"sounds": [
+	  "witchworks:boil"
+	],
+	"subtitle": "witchworks.subtitle.boil"
+  },
+  "buzz": {
+	"sounds": [
+	  "witchworks:buzz"
+	],
+	"subtitle": "witchworks.subtitle.buzz"
+  }
+}
