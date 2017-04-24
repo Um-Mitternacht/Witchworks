@@ -25,7 +25,7 @@ checkstyle {
     configFile = new File(rootDir, "checkstyle/checkstyle.xml")
 }
 
-version = "${mc_version}-${wa_version}"
+version = "${mc_version}-${ww_version}"
 group = "com.witchworks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "WitchWorks"
 
