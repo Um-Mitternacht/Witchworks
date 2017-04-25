@@ -70,7 +70,7 @@ public class BrewEvents {
 			}
 
 			storage.setBrews(updated);
-			if(entity instanceof EntityPlayer) {
+			if (entity instanceof EntityPlayer) {
 				PacketHandler.sendTo((EntityPlayerMP) entity, new PotionMessage(updated.keySet(), entity.getUniqueID()));
 			}
 		}

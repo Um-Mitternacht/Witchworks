@@ -79,14 +79,14 @@ public final class CapabilityBrewStorage {
 			this.effects = effects;
 		}
 
-		@SideOnly(Side.CLIENT)
-		public void setClient(Set<IBrew> client) {
-			this.client = client;
-		}
-
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public Set<IBrew> getClient() {
 			return client;
+		}
+
+		@SideOnly (Side.CLIENT)
+		public void setClient(Set<IBrew> client) {
+			this.client = client;
 		}
 	}
 }

@@ -65,7 +65,7 @@ public class PotionMessage implements IMessage {
 
 				if (entityTarget != null) {
 					Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entityTarget);
-					if(optional.isPresent()) {
+					if (optional.isPresent()) {
 						optional.get().setClient(message.client);
 					}
 				}

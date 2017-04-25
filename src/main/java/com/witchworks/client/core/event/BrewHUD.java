@@ -5,10 +5,8 @@ import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.core.capability.potion.IBrewStorage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.resources.I18n;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -21,7 +19,7 @@ import java.util.Set;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 public class BrewHUD {
 
 	@SubscribeEvent
