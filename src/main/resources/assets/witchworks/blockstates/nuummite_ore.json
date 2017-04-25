@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "witchworks:nuummite_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "witchworks:nuummite_ore"
+	  }
+	]
+  }
+}

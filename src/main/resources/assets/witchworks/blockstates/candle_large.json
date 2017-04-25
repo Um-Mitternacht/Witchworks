@@ -1,0 +1,52 @@
+{
+  "variants": {
+	"color=white": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=orange": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=magenta": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=light_blue": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=yellow": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=lime": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=pink": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=gray": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=silver": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=cyan": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=purple": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=blue": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=brown": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=green": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=red": {
+	  "model": "witchworks:candle_large"
+	},
+	"color=black": {
+	  "model": "witchworks:candle_large"
+	}
+  }
+}
