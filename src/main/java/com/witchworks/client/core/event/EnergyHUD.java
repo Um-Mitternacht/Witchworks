@@ -73,7 +73,7 @@ public class EnergyHUD {
 
 	@SubscribeEvent
 	public void renderOverlay(RenderGameOverlayEvent.Post event) {
-		if (event.getType() == RenderGameOverlayEvent.ElementType.ALL && renderTime > 0) {
+		if (event.getType() == RenderGameOverlayEvent.ElementType.HOTBAR && renderTime > 0) {
 			Minecraft mc = Minecraft.getMinecraft();
 			Optional<IEnergy> optional = EnergyHandler.getEnergy(mc.player);
 
@@ -82,6 +82,7 @@ public class EnergyHUD {
 
 				ScaledResolution res = event.getResolution();
 				GlStateManager.pushMatrix();
+				GlStateManager.enableBlend();
 
 				float filled = (float) energy.get() / (float) energy.getMax();
 				int heightEnd = ConfigHandler.HUD.heightEnd;
@@ -124,6 +125,7 @@ public class EnergyHUD {
 				}
 
 				mc.fontRendererObj.drawStringWithShadow("E: " + energy.get(), startPosX, posY - 15, textColor);
+				GlStateManager.disableBlend();
 				GlStateManager.popMatrix();
 			}
 		}

@@ -29,7 +29,8 @@ public final class PacketHandler {
 	public static void init() {
 		int id = 0;
 		HANDLER.registerMessage(ParticleMessage.ParticleMessageHandler.class, ParticleMessage.class, id++, Side.CLIENT);
-		HANDLER.registerMessage(EnergyMessage.EnergyMessageHandler.class, EnergyMessage.class, id, Side.CLIENT);
+		HANDLER.registerMessage(EnergyMessage.EnergyMessageHandler.class, EnergyMessage.class, id++, Side.CLIENT);
+		HANDLER.registerMessage(PotionMessage.PotionMessageHandler.class, PotionMessage.class, id, Side.CLIENT);
 	}
 
 	public static void sendToServer(IMessage message) {

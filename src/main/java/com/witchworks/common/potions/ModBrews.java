@@ -16,6 +16,8 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 public final class ModBrews {
 
 	public static IBrew SHELL_ARMOR;
+	public static IBrew INNER_FIRE;
+	public static IBrew SPIDER_NIGHTMARE;
 
 	private ModBrews() {
 	}
@@ -23,5 +25,11 @@ public final class ModBrews {
 	public static void init() {
 		SHELL_ARMOR = BrewRegistry.registerBrew(new ShellArmorBrew());
 		BrewRegistry.addDefault(new BrewEffect(SHELL_ARMOR, 2500, false));
+
+		INNER_FIRE = BrewRegistry.registerBrew(new InnerFireBrew());
+		BrewRegistry.addDefault(new BrewEffect(INNER_FIRE, 1500, false));
+
+		SPIDER_NIGHTMARE = BrewRegistry.registerBrew(new SpiderNightmareBrew());
+		BrewRegistry.addDefault(new BrewEffect(SPIDER_NIGHTMARE, 500, false));
 	}
 }

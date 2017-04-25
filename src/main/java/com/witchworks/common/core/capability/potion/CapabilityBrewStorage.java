@@ -9,9 +9,12 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * This class was created by Arekkuusu on 23/04/2017.
@@ -64,6 +67,7 @@ public final class CapabilityBrewStorage {
 	public static class DefaultBrewStorage implements IBrewStorage {
 
 		private Map<IBrew, BrewEffect> effects = new HashMap<>();
+		private Set<IBrew> client;
 
 		@Override
 		public Map<IBrew, BrewEffect> getBrews() {
@@ -73,6 +77,16 @@ public final class CapabilityBrewStorage {
 		@Override
 		public void setBrews(Map<IBrew, BrewEffect> effects) {
 			this.effects = effects;
+		}
+
+		@SideOnly(Side.CLIENT)
+		public void setClient(Set<IBrew> client) {
+			this.client = client;
+		}
+
+		@SideOnly(Side.CLIENT)
+		public Set<IBrew> getClient() {
+			return client;
 		}
 	}
 }

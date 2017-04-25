@@ -5,10 +5,13 @@ import com.witchworks.api.item.IBrew;
 import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.core.capability.potion.BrewStorageProvider;
 import com.witchworks.common.core.capability.potion.IBrewStorage;
+import com.witchworks.common.core.net.PacketHandler;
+import com.witchworks.common.core.net.PotionMessage;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -67,6 +70,9 @@ public class BrewEvents {
 			}
 
 			storage.setBrews(updated);
+			if(entity instanceof EntityPlayer) {
+				PacketHandler.sendTo((EntityPlayerMP) entity, new PotionMessage(updated.keySet(), entity.getUniqueID()));
+			}
 		}
 	}
 }

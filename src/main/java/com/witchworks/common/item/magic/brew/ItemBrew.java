@@ -4,6 +4,7 @@ import com.witchworks.api.item.NBTHelper;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.potions.BrewUtils;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -22,6 +23,11 @@ public class ItemBrew extends ItemMod {
 	public ItemBrew(String id) {
 		super(id);
 		setMaxStackSize(1);
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+		return EnumRarity.RARE;
 	}
 
 	@SideOnly (Side.CLIENT)

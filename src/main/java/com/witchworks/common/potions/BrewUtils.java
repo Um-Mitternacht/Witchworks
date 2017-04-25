@@ -82,7 +82,9 @@ public class BrewUtils {
 
 	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
 		if (NBTHelper.hasTag(stack, DESC_TAG)) {
-			tooltip.add(NBTHelper.getString(stack, DESC_TAG));
+			String desc = NBTHelper.getString(stack, DESC_TAG);
+			if(!desc.isEmpty())
+				tooltip.add(desc);
 		}
 	}
 }
