@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "witchworks:bloodstone_block"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "witchworks:bloodstone_block"
+	  }
+	]
+  }
+}

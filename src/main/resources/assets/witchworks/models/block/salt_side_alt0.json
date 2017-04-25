@@ -1,0 +1,6 @@
+{
+  "parent": "witchworks:block/salt_side_alt",
+  "textures": {
+	"line": "witchworks:blocks/salt_dust_line0"
+  }
+}

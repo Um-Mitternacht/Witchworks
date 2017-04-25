@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "witchworks:petoskey_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "witchworks:petoskey_ore"
+	  }
+	]
+  }
+}

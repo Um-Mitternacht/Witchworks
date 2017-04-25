@@ -1,0 +1,14 @@
+{
+  "variants": {
+	"normal": [
+	  {
+		"model": "witchworks:jasper_ore"
+	  }
+	],
+	"inventory": [
+	  {
+		"model": "witchworks:jasper_ore"
+	  }
+	]
+  }
+}

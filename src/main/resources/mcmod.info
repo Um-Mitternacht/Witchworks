@@ -1,7 +1,7 @@
 [
 {
-  "modid": "wiccanarts",
-  "name": "Wiccan Arts",
+  "modid": "witchworks",
+  "name": "Witch Works",
   "description": "A Witchery inspired mod",
   "version":"${version}",
   "mcversion": "${mcversion}",
