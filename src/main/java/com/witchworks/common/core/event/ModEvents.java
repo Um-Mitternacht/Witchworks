@@ -15,6 +15,5 @@ public final class ModEvents {
 	public static void preInit() {
 		MinecraftForge.EVENT_BUS.register(new EnergyEvents());
 		MinecraftForge.EVENT_BUS.register(new BrewEvents());
-		MinecraftForge.EVENT_BUS.register(new BrewEvents());
 	}
 }

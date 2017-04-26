@@ -14,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -45,6 +46,17 @@ public class BrewEvents {
 			final IBrewStorage oldCap = oldPlayer.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
 			final IBrewStorage newCap = oldPlayer.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
 			newCap.setBrews(oldCap.getBrews());
+		}
+	}
+
+	@SubscribeEvent
+	public void onWorldJoin(EntityJoinWorldEvent event) {
+		if (event.getEntity() instanceof EntityPlayerMP) {
+			EntityPlayerMP entity = (EntityPlayerMP) event.getEntity();
+			Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entity);
+			if (optional.isPresent()) {
+				PacketHandler.sendTo(entity, new PotionMessage(optional.get().getBrews().keySet(), entity.getUniqueID()));
+			}
 		}
 	}
 

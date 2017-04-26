@@ -40,7 +40,7 @@ public class ShellArmorBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0x666666;
+		return 0xCCFF00;
 	}
 
 	@Override
