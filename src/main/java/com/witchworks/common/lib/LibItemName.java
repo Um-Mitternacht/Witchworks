@@ -40,8 +40,8 @@ public final class LibItemName {
 	public static final String SEED_GARLIC = "seed_garlic";
 	public static final String WORMWOOD = "wormwood";
 	public static final String SEED_WORMWOOD = "seed_wormwood";
-	public static final String FLAX = "flax";
-	public static final String SEED_FLAX = "seed_flax";
+	public static final String KENAF = "kenaf";
+	public static final String SEED_KENAF = "seed_kenaf";
 	public static final String THISTLE = "thistle";
 	public static final String SEED_THISTLE = "seed_thistle";
 
@@ -84,6 +84,7 @@ public final class LibItemName {
 	public static final String SILVER_SWORD = "silver_sword";
 	public static final String MORTAR_AND_PESTLE = "mortar_and_pestle";
 	public static final String CHALK_ITEM = "chalk_item";
+	public static final String WAND = "wand_item";
 
 	//Equipment
 	public static final String SILVER_HELMET = "silver_helmet";
@@ -100,10 +101,8 @@ public final class LibItemName {
 	public static final String BREW_PHIAL_SPLASH = "brew_phial_splash";
 	public static final String BREW_PHIAL_LINGER = "brew_phial_linger";
 	public static final String GLASS_JAR = "glass_jar";
-	public static final String MUNDANE_STAFF = "mundane_staff";
-	public static final String IMPREGNATED_STAFF = "impregnated_staff"; //FIXME Think of better names for the staves.
 
-	//Baubles //TODO: Why are these so generic? What do they do?
+	//Baubles
 	public static final String RING = "ring";
 	public static final String TALISMAN = "talisman";
 	public static final String BELT = "belt";

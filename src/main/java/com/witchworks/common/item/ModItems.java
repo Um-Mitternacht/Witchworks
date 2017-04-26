@@ -119,6 +119,13 @@ public final class ModItems {
 	public static final Item BELT = new Item();
 	@ObjectHolder (LibItemName.CHALK_ITEM)
 	public static final Item CHALK_ITEM = new Item();
+	@ObjectHolder (LibItemName.CROWN)
+	public static final Item CROWN = new Item();
+	@ObjectHolder (LibItemName.SHIRT)
+	public static final Item SHIRT = new Item();
+	@ObjectHolder (LibItemName.AMULET)
+	public static final Item AMULET = new Item();
+
 
 	//Books
 	@ObjectHolder (LibItemName.SHADOW_BOOK)

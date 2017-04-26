@@ -14,8 +14,7 @@ import com.witchworks.common.block.tools.*;
 import com.witchworks.common.item.ItemMalachite;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.item.ModMaterials;
-import com.witchworks.common.item.baubles.ItemBelt;
-import com.witchworks.common.item.baubles.ItemRing;
+import com.witchworks.common.item.baubles.*;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemSalt;
 import com.witchworks.common.item.equipment.ItemSilverArmor;
@@ -126,7 +125,10 @@ public final class CommonRegistration {
 				new ItemSilverArmor(LibItemName.SILVER_LEGGINGS, ModMaterials.ARMOR_SILVER, 2, EntityEquipmentSlot.LEGS),
 				new ItemSilverArmor(LibItemName.SILVER_BOOTS, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.FEET),
 				new ItemRing(LibItemName.RING),
-				new ItemBelt(LibItemName.BELT)
+				new ItemBelt(LibItemName.BELT),
+				new ItemAmulet(LibItemName.AMULET),
+				new ItemCrown(LibItemName.CROWN),
+				new ItemShirt(LibItemName.SHIRT)
 		);
 
 		//Item Blocks

@@ -83,7 +83,7 @@ public class BrewUtils {
 		return NBTHelper.hasTag(stack, BREW_TAG);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
 		if (NBTHelper.hasTag(stack, DESC_TAG)) {
 			String desc = NBTHelper.getString(stack, DESC_TAG);
