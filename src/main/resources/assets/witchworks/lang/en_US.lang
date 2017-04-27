@@ -181,9 +181,9 @@ tile.apiary.name=Apiary
 tile.beehive.name=Beehive
 tile.altar.name=Altar
 
-effect.witchworks.stoneform_brew=Stoneform
-brew.shell_armor.name=Shell Armor
-brew.shell_armor.desc=The edges help cut up your foes
+//Brews
+brew.shell_armor.name=Shell Armor Brew
+brew.shell_armor.desc=The edges of your shell may hurt those who attack you
 
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
