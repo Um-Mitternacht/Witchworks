@@ -45,6 +45,11 @@ public final class VanillaCrafting {
 				.outputs(ModBlocks.MOLDAVITE_BLOCK)
 				.build();
 
+		shaped().grid("I I", "III", "III")
+				.map('I', Items.IRON_INGOT)
+				.outputs(ModBlocks.KETTLE)
+				.build();
+
 		shaped().grid("WWW", "WHW", "WWW")
 				.map('W', "plankWood")
 				.map('H', ModItems.EMPTY_HONEYCOMB)
