@@ -37,7 +37,7 @@ public class InnerFireBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0;
+		return 0xCC0000;
 	}
 
 	@Override

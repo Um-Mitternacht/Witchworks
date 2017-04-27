@@ -4,8 +4,9 @@ import com.witchworks.client.core.event.BrewHUD;
 import com.witchworks.client.core.event.EnergyHUD;
 import com.witchworks.client.core.event.TextureStitcher;
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.client.handler.BlockColorHandler;
-import com.witchworks.client.handler.ItemColorHandler;
+import com.witchworks.client.handler.BlockCandleColorHandler;
+import com.witchworks.client.handler.BrewItemColorHandler;
+import com.witchworks.client.handler.ItemCandleColorHandler;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.client.render.tile.TileRenderKettle;
 import com.witchworks.common.WitchWorks;
@@ -13,7 +14,10 @@ import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.tile.TileKettle;
 import com.witchworks.common.core.net.GuiHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
+import com.witchworks.common.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -63,12 +67,19 @@ public class ClientProxy implements ISidedProxy {
 	@SideOnly (Side.CLIENT)
 	@Override
 	public void init(FMLInitializationEvent event) {
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new BlockColorHandler(),
+		BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
+		//Block Colors
+		blocks.registerBlockColorHandler(new BlockCandleColorHandler(),
 				ModBlocks.CANDLE_LARGE, ModBlocks.CANDLE_MEDIUM, ModBlocks.CANDLE_SMALL);
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorHandler(),
+
+		ItemColors items = Minecraft.getMinecraft().getItemColors();
+		//Item Colors
+		items.registerItemColorHandler(new ItemCandleColorHandler(),
 				Item.getItemFromBlock(ModBlocks.CANDLE_LARGE),
 				Item.getItemFromBlock(ModBlocks.CANDLE_MEDIUM),
 				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
+		items.registerItemColorHandler(new BrewItemColorHandler(),
+				ModItems.BREW_PHIAL_DRINK, ModItems.BREW_PHIAL_SPLASH, ModItems.BREW_PHIAL_LINGER);
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(WitchWorks.instance, new GuiHandler());
 	}
@@ -76,7 +87,6 @@ public class ClientProxy implements ISidedProxy {
 	@SideOnly (Side.CLIENT)
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
-
 	}
 
 	/**

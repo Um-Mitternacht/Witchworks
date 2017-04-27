@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -44,6 +45,17 @@ public class EnergyEvents {
 			newCap.setRegen(oldCap.getRegen());
 			newCap.setUses(oldCap.getUses());
 			newCap.setOverchannel(oldCap.getOverchannel());
+		}
+	}
+
+	@SubscribeEvent
+	public void onWorldJoin(EntityJoinWorldEvent event) {
+		if (event.getEntity() instanceof EntityPlayerMP) {
+			EntityPlayerMP entity = (EntityPlayerMP) event.getEntity();
+			Optional<IEnergy> optional = EnergyHandler.getEnergy(entity);
+			if (optional.isPresent()) {
+				PacketHandler.sendTo(entity, new EnergyMessage(optional.get(), entity.getUniqueID()));
+			}
 		}
 	}
 

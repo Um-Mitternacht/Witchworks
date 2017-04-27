@@ -1,25 +1,19 @@
 package com.witchworks.client.handler;
 
-import com.witchworks.api.state.WitchWorksState;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-
-import javax.annotation.Nullable;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.item.ItemStack;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public class BlockColorHandler implements IBlockColor {
+public class ItemCandleColorHandler implements IItemColor {
 
-	@SuppressWarnings ("IncompleteSwitch")
 	@Override
-	public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
+	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
 		int color = 0;
-		switch (state.getValue(WitchWorksState.COLOR).getMetadata()) {
+		switch (stack.getMetadata()) {
 			case 0:
 				color = 15987957;
 				break;
@@ -67,6 +61,8 @@ public class BlockColorHandler implements IBlockColor {
 				break;
 			case 15:
 				color = 1184535;
+				break;
+			default:
 				break;
 		}
 		return color;

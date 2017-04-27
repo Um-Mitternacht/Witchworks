@@ -4,10 +4,13 @@ import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.item.BrewEffect;
 import com.witchworks.api.item.IBrew;
 import com.witchworks.api.item.NBTHelper;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -80,11 +83,12 @@ public class BrewUtils {
 		return NBTHelper.hasTag(stack, BREW_TAG);
 	}
 
+	@SideOnly (Side.CLIENT)
 	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
 		if (NBTHelper.hasTag(stack, DESC_TAG)) {
 			String desc = NBTHelper.getString(stack, DESC_TAG);
 			if (!desc.isEmpty())
-				tooltip.add(desc);
+				tooltip.add(I18n.format(desc));
 		}
 	}
 }

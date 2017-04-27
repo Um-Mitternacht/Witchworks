@@ -138,6 +138,9 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.SILVER_BOOTS);
 			addItem(ModItems.RING);
 			addItem(ModItems.BELT);
+			addItem(ModItems.AMULET);
+			addItem(ModItems.SHIRT);
+			addItem(ModItems.CROWN);
 			addItem(ModItems.SHADOW_BOOK);
 			addItem(ModItems.DUSTY_GRIMOIRE);
 			addItem(ModItems.BREW_PHIAL_DRINK);

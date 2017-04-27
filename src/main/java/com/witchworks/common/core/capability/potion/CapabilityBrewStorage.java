@@ -13,6 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -66,7 +67,7 @@ public final class CapabilityBrewStorage {
 
 	public static class DefaultBrewStorage implements IBrewStorage {
 
-		private Map<IBrew, BrewEffect> effects = new HashMap<>();
+		private Map<IBrew, BrewEffect> effects = new LinkedHashMap<>();
 		private Set<IBrew> client;
 
 		@Override
