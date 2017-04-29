@@ -15,7 +15,7 @@ import java.util.UUID;
 
 /**
  * This class was created by Arekkuusu on 04/04/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public class EnergyMessage implements IMessage {

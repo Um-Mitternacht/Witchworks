@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @SuppressWarnings ({"WeakerAccess", "unused"})

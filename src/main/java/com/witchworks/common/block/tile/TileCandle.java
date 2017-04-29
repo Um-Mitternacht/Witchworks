@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 
 /**
  * This class was created by Arekkuusu on 08/04/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @SuppressWarnings ("deprecation")
