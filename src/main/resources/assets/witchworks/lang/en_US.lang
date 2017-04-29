@@ -186,7 +186,7 @@ brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
 
 brew.fire_brew.name=Inner Fire Brew
-brew.fire_brew.desc=Bring forth your inner fire, and breathe like the dragons of old
+brew.fire_brew.desc=Spew forth your inner fire, and breathe like the dragons of old
 
 brew.spider_nightmare_brew.name=Spider Nightmare
 brew.spider_nightmare_brew.desc=Spiderman, Spiderman, does whatever a spider can
@@ -199,7 +199,7 @@ witch.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
 witch.tooltip.seed_asphodel_description.name=Seed from a plant of the dead
 witch.tooltip.seed_belladonna_description.name=Seed from a herbaceous plant
 witch.tooltip.seed_ginger_description.name=Seed from a flowering plant
-witch.tooltip.seed_kelp_description.name=Spore from a large seaweed
+witch.tooltip.seed_kelp_description.name=Spore from a large algae
 witch.tooltip.seed_mint_description.name=Seed from a herbaceous plant
 witch.tooltip.seed_white_sage_description.name=Seed from an evergreen perennial shrub
 witch.tooltip.seed_dandelion_root_description.name=The root of a plant
