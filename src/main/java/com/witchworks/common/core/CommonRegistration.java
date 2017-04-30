@@ -128,6 +128,8 @@ public final class CommonRegistration {
 				new ItemBelt(LibItemName.BELT),
 				new ItemAmulet(LibItemName.AMULET),
 				new ItemCrown(LibItemName.CROWN),
+				new ItemAmulet(LibItemName.TRINKET),
+				new ItemCrown(LibItemName.CHARM),
 				new ItemShirt(LibItemName.SHIRT)
 		);
 

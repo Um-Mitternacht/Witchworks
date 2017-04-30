@@ -1,7 +1,7 @@
 //CreativeTab
-itemGroup.witchworks_plants=Witch Works - Plants and Herbs
-itemGroup.witchworks_items=Witch Works - Sticks and Stones
-itemGroup.witchworks_blocks=Witch Works - Blocks
+itemGroup.witchworks_plants=Witchworks - Plants and Herbs
+itemGroup.witchworks_items=Witchworks - Sticks and Stones
+itemGroup.witchworks_blocks=Witchworks - Blocks
 
 //Gui
 container.apiary=Apiary

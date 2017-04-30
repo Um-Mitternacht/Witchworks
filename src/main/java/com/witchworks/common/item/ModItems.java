@@ -125,6 +125,10 @@ public final class ModItems {
 	public static final Item SHIRT = new Item();
 	@ObjectHolder (LibItemName.AMULET)
 	public static final Item AMULET = new Item();
+	@ObjectHolder (LibItemName.TRINKET)
+	public static final Item TRINKET = new Item();
+	@ObjectHolder (LibItemName.CHARM)
+	public static final Item CHARM = new Item();
 
 
 	//Books

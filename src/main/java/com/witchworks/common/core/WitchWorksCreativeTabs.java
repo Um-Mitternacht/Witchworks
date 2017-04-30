@@ -145,6 +145,8 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.DUSTY_GRIMOIRE);
 			addItem(ModItems.BREW_PHIAL_DRINK);
 			addItem(ModItems.CHALK_ITEM);
+			addItem(ModItems.TRINKET);
+			addItem(ModItems.CHARM);
 		}
 	}
 
