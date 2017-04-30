@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * This class was created by Arekkuusu on 27/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @SuppressWarnings ("WeakerAccess")

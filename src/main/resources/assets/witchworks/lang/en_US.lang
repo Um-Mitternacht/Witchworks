@@ -1,7 +1,7 @@
 //CreativeTab
-itemGroup.witchworks_plants=Witch Works - Plants and Herbs
-itemGroup.witchworks_items=Witch Works - Sticks and Stones
-itemGroup.witchworks_blocks=Witch Works - Blocks
+itemGroup.witchworks_plants=Witchworks - Plants and Herbs
+itemGroup.witchworks_items=Witchworks - Sticks and Stones
+itemGroup.witchworks_blocks=Witchworks - Blocks
 
 //Gui
 container.apiary=Apiary
@@ -185,6 +185,12 @@ tile.altar.name=Altar
 brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
 
+brew.fire_brew.name=Inner Fire Brew
+brew.fire_brew.desc=Spew forth your inner fire, and breathe like the dragons of old
+
+brew.spider_nightmare_brew.name=Spider Nightmare
+brew.spider_nightmare_brew.desc=Spiderman, Spiderman, does whatever a spider can
+
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
 
@@ -193,14 +199,14 @@ witch.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
 witch.tooltip.seed_asphodel_description.name=Seed from a plant of the dead
 witch.tooltip.seed_belladonna_description.name=Seed from a herbaceous plant
 witch.tooltip.seed_ginger_description.name=Seed from a flowering plant
-witch.tooltip.seed_kelp_description.name=Spore from a large seaweed
+witch.tooltip.seed_kelp_description.name=Spore from a large algae
 witch.tooltip.seed_mint_description.name=Seed from a herbaceous plant
 witch.tooltip.seed_white_sage_description.name=Seed from an evergreen perennial shrub
 witch.tooltip.seed_dandelion_root_description.name=The root of a plant
 witch.tooltip.seed_rose_description.name=Seed from a flowering plant
 witch.tooltip.seed_poppy_description.name=Seed from a flowering plant
 witch.tooltip.seed_allium_description.name=Seed from a flowering plant
-witch.tooltip.seed_mandrake_root_description.name=The root of a plant
+witch.tooltip.seed_mandrake_root_description.name=Seed from a plant with a strange root
 witch.tooltip.seed_oxeye_daisy_description.name=Seed from a widespread flowering plant
 witch.tooltip.seed_sunflower_description.name=Seed from a flowering plant
 witch.tooltip.seed_lilac_description.name=Seed from a flowering woody plant

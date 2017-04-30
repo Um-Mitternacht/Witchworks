@@ -2,7 +2,7 @@ package com.witchworks.common.lib;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public final class LibItemName {
@@ -84,7 +84,7 @@ public final class LibItemName {
 	public static final String SILVER_SWORD = "silver_sword";
 	public static final String MORTAR_AND_PESTLE = "mortar_and_pestle";
 	public static final String CHALK_ITEM = "chalk_item";
-	public static final String WAND = "wand_item";
+	public static final String WAND = "wand";
 
 	//Equipment
 	public static final String SILVER_HELMET = "silver_helmet";
@@ -104,9 +104,9 @@ public final class LibItemName {
 
 	//Baubles
 	public static final String RING = "ring";
-	public static final String TALISMAN = "talisman";
 	public static final String BELT = "belt";
 	public static final String CHARM = "charm";
+	public static final String TRINKET = "trinket";
 	public static final String AMULET = "amulet";
 	public static final String CROWN = "crown";
 	public static final String SHIRT = "shirt";

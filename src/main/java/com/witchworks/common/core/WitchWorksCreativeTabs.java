@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public final class WitchWorksCreativeTabs {
@@ -145,6 +145,9 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.DUSTY_GRIMOIRE);
 			addItem(ModItems.BREW_PHIAL_DRINK);
 			addItem(ModItems.CHALK_ITEM);
+			addItem(ModItems.TRINKET);
+			addItem(ModItems.CHARM);
+			addItem(ModItems.WAND);
 		}
 	}
 
@@ -199,6 +202,7 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.CANDLE_MEDIUM);
 			addBlock(ModBlocks.CANDLE_SMALL);
 			addBlock(ModBlocks.CHALK);
+			addBlock(ModBlocks.OILPRESS);
 		}
 	}
 }

@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 21/03/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @SuppressWarnings ("WeakerAccess")
@@ -51,6 +51,14 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettlePotionRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK //FIXME: Test
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR))
 				, Items.IRON_INGOT, ModItems.SALT, ModBlocks.COQUINA, Items.FERMENTED_SPIDER_EYE, new ItemStack(Items.FISH, 1, 3), ModItems.KELP);
+
+		KettleRegistry.registerKettlePotionRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK //FIXME: Test
+				, BrewRegistry.getDefault(ModBrews.INNER_FIRE))
+				, Items.BLAZE_POWDER, ModItems.SALT, ModItems.TIGERS_EYE, Items.MAGMA_CREAM, Items.FLINT, Blocks.NETHER_WART);
+
+		KettleRegistry.registerKettlePotionRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK //FIXME: Test
+				, BrewRegistry.getDefault(ModBrews.SPIDER_NIGHTMARE))
+				, Items.SPIDER_EYE, Blocks.WEB, Items.FERMENTED_SPIDER_EYE, ModItems.BELLADONNA, Items.STRING, Items.SLIME_BALL);
 
 		// - > Custom Brewing
 		//Custom Effects

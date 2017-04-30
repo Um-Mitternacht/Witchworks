@@ -14,7 +14,7 @@ import net.minecraftforge.common.config.Config.Comment;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @SuppressWarnings ({"WeakerAccess", "unused"})
@@ -40,7 +40,7 @@ public final class ConfigHandler {
 		public static BrewHUD BREW_HUD = new BrewHUD();
 
 		public static class EnergyHUD {
-			@Comment ("If the HUD should hide")
+			@Comment ("Should the energy HUD be hidden?")
 			public boolean hide = true;
 			@Comment ({"Pixels before HUD starts", "Size is calculated with heightEnd - heightStart"})
 			public int heightStart = 32;
@@ -55,7 +55,7 @@ public final class ConfigHandler {
 		}
 
 		public static class BrewHUD {
-			@Comment ("If the Brews should be hidden")
+			@Comment ("Should the brew HUD be hidden?")
 			public boolean hide;
 			@Comment ({"Position of the HUD in the screen", "\"x\" value is from right to left", "\"y\" value is from top to bottom"})
 			public int x = 21;

@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by BerciTheBeast on 11.4.2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public class ItemSilverArmor extends ItemArmor implements IModelRegister {

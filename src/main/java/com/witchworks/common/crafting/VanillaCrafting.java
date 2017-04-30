@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public final class VanillaCrafting {
@@ -45,10 +45,22 @@ public final class VanillaCrafting {
 				.outputs(ModBlocks.MOLDAVITE_BLOCK)
 				.build();
 
+		shaped().grid("I I", "III", "III")
+				.map('I', Items.IRON_INGOT)
+				.outputs(ModBlocks.KETTLE)
+				.build();
+
 		shaped().grid("WWW", "WHW", "WWW")
 				.map('W', "plankWood")
 				.map('H', ModItems.EMPTY_HONEYCOMB)
 				.outputs(ModBlocks.APIARY)
+				.build();
+
+		shaped().grid("III", "IWI", "PIP")
+				.map('W', Blocks.PISTON)
+				.map('I', Items.IRON_INGOT)
+				.map('P', "plankWood")
+				.outputs(ModBlocks.OILPRESS)
 				.build();
 
 		shaped().grid("LML", "SSS", "WWW")
@@ -57,6 +69,73 @@ public final class VanillaCrafting {
 				.map('L', Blocks.CARPET)
 				.map('M', ModItems.MOLDAVITE)
 				.outputs(ModBlocks.ALTAR)
+				.build();
+
+		shaped().grid(" S ", "S S", " S ")
+				.map('S', ModItems.SILVER_NUGGET)
+				.outputs(ModItems.RING)
+				.build();
+
+		shaped().grid(" S ", "S S", " S ")
+				.map('S', Items.GOLD_NUGGET)
+				.outputs(ModItems.RING)
+				.build();
+
+		shaped().grid(" S ", "S S", " N ")
+				.map('S', Items.STRING)
+				.map('N', ModItems.SILVER_NUGGET)
+				.outputs(ModItems.AMULET)
+				.build();
+
+		shaped().grid("NNN", "N N", "N N")
+				.map('N', Items.GOLD_NUGGET)
+				.outputs(ModItems.CROWN)
+				.build();
+
+		shaped().grid("NNN", "N N", "N N")
+				.map('N', ModItems.SILVER_NUGGET)
+				.outputs(ModItems.CROWN)
+				.build();
+
+		shaped().grid(" S ", "S S", " N ")
+				.map('S', Items.STRING)
+				.map('N', Items.GOLD_NUGGET)
+				.outputs(ModItems.AMULET)
+				.build();
+
+		shaped().grid("S S", "SSS", "SSS")
+				.map('S', Items.STRING)
+				.outputs(ModItems.SHIRT)
+				.build();
+
+		shaped().grid("NMN", "MNM", "NMN")
+				.map('N', Items.GOLD_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.TRINKET)
+				.build();
+
+		shaped().grid("NMN", "MNM", "NMN")
+				.map('N', ModItems.SILVER_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.TRINKET)
+				.build();
+
+		shaped().grid(" M ", "MNM", " M ")
+				.map('N', ModItems.SILVER_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.CHARM)
+				.build();
+
+		shaped().grid(" M ", "MNM", " M ")
+				.map('N', Items.GOLD_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.CHARM)
+				.build();
+
+		shaped().grid(" L ", "LIL", " L ")
+				.map('L', Items.LEATHER)
+				.map('I', Items.IRON_INGOT)
+				.outputs(ModItems.BELT)
 				.build();
 
 		shapeless()
