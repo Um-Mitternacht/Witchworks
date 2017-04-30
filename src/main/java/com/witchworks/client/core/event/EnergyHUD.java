@@ -20,7 +20,7 @@ import static com.witchworks.common.core.handler.ConfigHandler.HUD.ENERGY_HUD;
 
 /**
  * This class was created by Arekkuusu on 21/04/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @SideOnly (Side.CLIENT)

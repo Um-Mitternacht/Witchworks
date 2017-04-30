@@ -28,7 +28,7 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @SuppressWarnings ("WeakerAccess")
@@ -80,6 +80,8 @@ public class WitchWorks {
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.QUARTZ_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.AMETHYST_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.ALEXANDRITE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.COQUINA), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.CHALK), 0);
 	}
 
 	@EventHandler

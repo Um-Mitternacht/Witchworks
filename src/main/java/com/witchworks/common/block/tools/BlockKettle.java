@@ -33,7 +33,7 @@ import static net.minecraft.block.BlockHorizontal.FACING;
 
 /**
  * This class was created by Joseph on 3/4/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public class BlockKettle extends BlockMod implements IModelRegister, ITileEntityProvider {

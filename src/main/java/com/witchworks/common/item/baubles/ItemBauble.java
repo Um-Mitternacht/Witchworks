@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 /**
  * This class was created by BerciTheBeast on 21.4.2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public abstract class ItemBauble extends ItemMod implements IBauble {

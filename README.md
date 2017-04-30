@@ -5,4 +5,4 @@ A mod inspired by Witchery
 
 WIP
 
-A witchery-like mod in the progress. Some code has been done.
+A witchery-like mod in the progress. A decent amount of code has been done.

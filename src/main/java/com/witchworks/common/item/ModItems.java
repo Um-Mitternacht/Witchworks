@@ -12,7 +12,7 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @ObjectHolder (LibMod.MOD_ID)
@@ -67,6 +67,18 @@ public final class ModItems {
 	public static final Item ASPHODEL = new Item();
 	@ObjectHolder (LibItemName.KELP)
 	public static final Item KELP = new Item();
+	@ObjectHolder (LibItemName.GINGER)
+	public static final Item GINGER = new Item();
+	@ObjectHolder (LibItemName.MINT)
+	public static final Item MINT = new Item();
+	@ObjectHolder (LibItemName.THISTLE)
+	public static final Item THISTLE = new Item();
+	@ObjectHolder (LibItemName.GARLIC)
+	public static final Item GARLIC = new Item();
+	@ObjectHolder (LibItemName.ACONITUM)
+	public static final Item ACONITUM = new Item();
+	@ObjectHolder (LibItemName.WHITE_SAGE)
+	public static final Item WHITE_SAGE = new Item();
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)
@@ -125,6 +137,12 @@ public final class ModItems {
 	public static final Item SHIRT = new Item();
 	@ObjectHolder (LibItemName.AMULET)
 	public static final Item AMULET = new Item();
+	@ObjectHolder (LibItemName.TRINKET)
+	public static final Item TRINKET = new Item();
+	@ObjectHolder (LibItemName.CHARM)
+	public static final Item CHARM = new Item();
+	@ObjectHolder (LibItemName.WAND)
+	public static final Item WAND = new Item();
 
 
 	//Books
@@ -170,5 +188,23 @@ public final class ModItems {
 		OreDictionary.registerOre("lumpSalt", new ItemStack(ModItems.SALT));
 		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER));
+		OreDictionary.registerOre("cropBelladonna", new ItemStack(ModItems.BELLADONNA));
+		OreDictionary.registerOre("cropMandrake", new ItemStack(ModItems.MANDRAKE_ROOT));
+		OreDictionary.registerOre("cropKelp", new ItemStack(ModItems.KELP));
+		OreDictionary.registerOre("cropSeaweed", new ItemStack(ModItems.KELP));
+		OreDictionary.registerOre("listAllveggie", new ItemStack(ModItems.KELP));
+		OreDictionary.registerOre("listAllgreenveggie", new ItemStack(ModItems.KELP));
+		OreDictionary.registerOre("cropAsphodel", new ItemStack(ModItems.ASPHODEL));
+		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.GINGER));
+		OreDictionary.registerOre("cropGinger", new ItemStack(ModItems.GINGER));
+		OreDictionary.registerOre("cropMint", new ItemStack(ModItems.MINT));
+		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.MINT));
+		OreDictionary.registerOre("cropSpiceleaf", new ItemStack(ModItems.MINT));
+		OreDictionary.registerOre("listAllgreenveggie", new ItemStack(ModItems.MINT));
+		OreDictionary.registerOre("cropThistle", new ItemStack(ModItems.THISTLE));
+		OreDictionary.registerOre("cropGarlic", new ItemStack(ModItems.GARLIC));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.GARLIC));
+		OreDictionary.registerOre("cropAconitum", new ItemStack(ModItems.ACONITUM));
+		OreDictionary.registerOre("cropWhiteSage", new ItemStack(ModItems.WHITE_SAGE));
 	}
 }

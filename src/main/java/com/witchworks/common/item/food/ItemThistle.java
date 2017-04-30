@@ -5,7 +5,7 @@ import net.minecraft.init.MobEffects;
 
 /**
  * This class was created by Joseph on 02/03/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public class ItemThistle extends ItemCrop {

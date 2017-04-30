@@ -8,7 +8,7 @@ import net.minecraftforge.items.IItemHandler;
 
 /**
  * This class was created by Arekkuusu on 21/03/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 public interface IKettleRecipe {

@@ -13,7 +13,7 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witchworks under
  * the MIT license.
  */
 @ObjectHolder (LibMod.MOD_ID)
@@ -106,6 +106,8 @@ public final class ModBlocks {
 	public static final Block ALEXANDRITE_ORE = new Block(Material.ROCK);
 	@ObjectHolder (LibBlockName.CHALK)
 	public static final Block CHALK = new Block(Material.ROCK);
+	@ObjectHolder (LibBlockName.OILPRESS)
+	public static final Block OILPRESS = new Block(Material.ROCK);
 
 	private ModBlocks() {
 	}
