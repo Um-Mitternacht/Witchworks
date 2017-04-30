@@ -56,12 +56,86 @@ public final class VanillaCrafting {
 				.outputs(ModBlocks.APIARY)
 				.build();
 
+		shaped().grid("III", "IWI", "PIP")
+				.map('W', Blocks.PISTON)
+				.map('I', Items.IRON_INGOT)
+				.map('P', "plankWood")
+				.outputs(ModBlocks.OILPRESS)
+				.build();
+
 		shaped().grid("LML", "SSS", "WWW")
 				.map('W', "plankWood")
 				.map('S', Blocks.STONE)
 				.map('L', Blocks.CARPET)
 				.map('M', ModItems.MOLDAVITE)
 				.outputs(ModBlocks.ALTAR)
+				.build();
+
+		shaped().grid(" S ", "S S", " S ")
+				.map('S', ModItems.SILVER_NUGGET)
+				.outputs(ModItems.RING)
+				.build();
+
+		shaped().grid(" S ", "S S", " S ")
+				.map('S', Items.GOLD_NUGGET)
+				.outputs(ModItems.RING)
+				.build();
+
+		shaped().grid(" S ", "S S", " N ")
+				.map('S', Items.STRING)
+				.map('N', ModItems.SILVER_NUGGET)
+				.outputs(ModItems.AMULET)
+				.build();
+
+		shaped().grid("NNN", "N N", "N N")
+				.map('N', Items.GOLD_NUGGET)
+				.outputs(ModItems.CROWN)
+				.build();
+
+		shaped().grid("NNN", "N N", "N N")
+				.map('N', ModItems.SILVER_NUGGET)
+				.outputs(ModItems.CROWN)
+				.build();
+
+		shaped().grid(" S ", "S S", " N ")
+				.map('S', Items.STRING)
+				.map('N', Items.GOLD_NUGGET)
+				.outputs(ModItems.AMULET)
+				.build();
+
+		shaped().grid("S S", "SSS", "SSS")
+				.map('S', Items.STRING)
+				.outputs(ModItems.SHIRT)
+				.build();
+
+		shaped().grid("NMN", "MNM", "NMN")
+				.map('N', Items.GOLD_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.TRINKET)
+				.build();
+
+		shaped().grid("NMN", "MNM", "NMN")
+				.map('N', ModItems.SILVER_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.TRINKET)
+				.build();
+
+		shaped().grid(" M ", "MNM", " M ")
+				.map('N', ModItems.SILVER_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.CHARM)
+				.build();
+
+		shaped().grid(" M ", "MNM", " M ")
+				.map('N', Items.GOLD_NUGGET)
+				.map('M', ModItems.MOLDAVITE)
+				.outputs(ModItems.CHARM)
+				.build();
+
+		shaped().grid(" L ", "LIL", " L ")
+				.map('L', Items.LEATHER)
+				.map('I', Items.IRON_INGOT)
+				.outputs(ModItems.BELT)
 				.build();
 
 		shapeless()
