@@ -147,6 +147,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.CHALK_ITEM);
 			addItem(ModItems.TRINKET);
 			addItem(ModItems.CHARM);
+			addItem(ModItems.WAND);
 		}
 	}
 
@@ -201,6 +202,7 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.CANDLE_MEDIUM);
 			addBlock(ModBlocks.CANDLE_SMALL);
 			addBlock(ModBlocks.CHALK);
+			addBlock(ModBlocks.OILPRESS);
 		}
 	}
 }

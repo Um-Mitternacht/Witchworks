@@ -84,7 +84,7 @@ public final class LibItemName {
 	public static final String SILVER_SWORD = "silver_sword";
 	public static final String MORTAR_AND_PESTLE = "mortar_and_pestle";
 	public static final String CHALK_ITEM = "chalk_item";
-	public static final String WAND = "wand_item";
+	public static final String WAND = "wand";
 
 	//Equipment
 	public static final String SILVER_HELMET = "silver_helmet";

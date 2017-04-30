@@ -26,6 +26,7 @@ import com.witchworks.common.item.magic.books.ItemShadowBook;
 import com.witchworks.common.item.magic.brew.ItemBrewDrink;
 import com.witchworks.common.item.magic.brew.ItemBrewLinger;
 import com.witchworks.common.item.magic.brew.ItemBrewSplash;
+import com.witchworks.common.item.magic.wands.ItemWand;
 import com.witchworks.common.item.tool.*;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibItemName;
@@ -130,7 +131,8 @@ public final class CommonRegistration {
 				new ItemCrown(LibItemName.CROWN),
 				new ItemAmulet(LibItemName.TRINKET),
 				new ItemCrown(LibItemName.CHARM),
-				new ItemShirt(LibItemName.SHIRT)
+				new ItemShirt(LibItemName.SHIRT),
+				new ItemWand(LibItemName.WAND)
 		);
 
 		//Item Blocks
@@ -155,6 +157,7 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock(ModBlocks.KETTLE),
 				itemBlock(ModBlocks.ALTAR),
+				itemBlock(ModBlocks.OILPRESS),
 				itemBlock(ModBlocks.APIARY),
 				itemBlock(ModBlocks.BEEHIVE),
 				itemBlock(ModBlocks.SILVER_ORE),
@@ -239,6 +242,7 @@ public final class CommonRegistration {
 				new BlockCandleSmall(),
 				new BlockSaltBarrier(),
 				new BlockApiary(),
+				new BlockOilPress(),
 				new BlockAltar()
 		);
 	}

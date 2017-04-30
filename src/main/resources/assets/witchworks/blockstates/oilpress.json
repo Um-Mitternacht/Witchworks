@@ -1,0 +1,19 @@
+{
+  "variants": {
+	"facing=north": {
+	  "model": "witchworks:oilpress"
+	},
+	"facing=south": {
+	  "model": "witchworks:oilpress",
+	  "y": 180
+	},
+	"facing=east": {
+	  "model": "witchworks:oilpress",
+	  "y": 90
+	},
+	"facing=west": {
+	  "model": "witchworks:oilpress",
+	  "y": 270
+	}
+  }
+}
