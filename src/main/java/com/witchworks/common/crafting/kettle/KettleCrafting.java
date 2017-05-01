@@ -112,7 +112,7 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-90, 1));
 
-		KettleRegistry.addKettleModifierTo(getStack(Blocks.GLOWSTONE), effect -> effect.alter(-10, 2));
+		KettleRegistry.addKettleModifierTo(getStack(Blocks.GLOWSTONE), effect -> effect.alter(-100, 2));
 
 		KettleRegistry.addKettleModifierTo(getStack(Items.FERMENTED_SPIDER_EYE), new FermentedEyeModifier());
 
