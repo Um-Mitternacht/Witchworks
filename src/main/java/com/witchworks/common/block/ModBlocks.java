@@ -33,14 +33,8 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_MINT = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_WHITE_SAGE)
 	public static final BlockCrop CROP_WHITE_SAGE = new BlockCrop();
-	@ObjectHolder (LibBlockName.CROP_DANDELION_ROOT)
-	public static final BlockCrop CROP_DANDELION_ROOT = new BlockCrop();
-	@ObjectHolder (LibBlockName.CROP_ALLIUM)
-	public static final BlockCrop CROP_ALLIUM = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_MANDRAKE_ROOT)
 	public static final BlockCrop CROP_MANDRAKE_ROOT = new BlockCrop();
-	@ObjectHolder (LibBlockName.CROP_LILAC)
-	public static final BlockCrop CROP_LILAC = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_LAVENDER)
 	public static final BlockCrop CROP_LAVENDER = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_THISTLE)

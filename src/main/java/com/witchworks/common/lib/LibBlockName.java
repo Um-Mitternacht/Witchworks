@@ -22,10 +22,7 @@ public final class LibBlockName {
 	public static final String CROP_KELP = "crop_kelp";
 	public static final String CROP_MINT = "crop_mint";
 	public static final String CROP_WHITE_SAGE = "crop_white_sage";
-	public static final String CROP_DANDELION_ROOT = "crop_dandelion_root";
-	public static final String CROP_ALLIUM = "crop_allium";
 	public static final String CROP_MANDRAKE_ROOT = "crop_mandrake_root";
-	public static final String CROP_LILAC = "crop_lilac";
 	public static final String CROP_LAVENDER = "crop_lavender";
 	public static final String CROP_SILPHIUM = "crop_silphium";
 	public static final String CROP_TULSI = "crop_tulsi";

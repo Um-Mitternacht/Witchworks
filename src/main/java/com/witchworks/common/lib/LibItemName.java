@@ -22,14 +22,8 @@ public final class LibItemName {
 	public static final String SEED_MINT = "seed_mint";
 	public static final String WHITE_SAGE = "white_sage";
 	public static final String SEED_WHITE_SAGE = "seed_white_sage";
-	public static final String DANDELION_ROOT = "dandelion_root";
-	public static final String SEED_DANDELION_ROOT = "seed_dandelion_root";
-	public static final String ALLIUM = "allium";
-	public static final String SEED_ALLIUM = "seed_allium";
 	public static final String MANDRAKE_ROOT = "mandrake_root";
 	public static final String SEED_MANDRAKE_ROOT = "seed_mandrake_root";
-	public static final String LILAC = "lilac";
-	public static final String SEED_LILAC = "seed_lilac";
 	public static final String LAVENDER = "lavender";
 	public static final String SEED_LAVENDER = "seed_lavender";
 	public static final String SILPHIUM = "silphium";
