@@ -110,7 +110,7 @@ public final class KettleCrafting {
 
 		KettleRegistry.addKettleModifierTo(getStack(Blocks.REDSTONE_BLOCK), effect -> effect.alter(90, 0));
 
-		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-90, 1));
+		KettleRegistry.addKettleModifierTo(getStack(Items.GLOWSTONE_DUST), effect -> effect.alter(-50, 1));
 
 		KettleRegistry.addKettleModifierTo(getStack(Blocks.GLOWSTONE), effect -> effect.alter(-100, 2));
 
