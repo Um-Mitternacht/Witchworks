@@ -208,5 +208,7 @@ public final class ModItems {
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.GARLIC));
 		OreDictionary.registerOre("cropAconitum", new ItemStack(ModItems.ACONITUM));
 		OreDictionary.registerOre("cropWhiteSage", new ItemStack(ModItems.WHITE_SAGE));
+		OreDictionary.registerOre("cropTulsi", new ItemStack(ModItems.TULSI));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.TULSI));
 	}
 }
