@@ -203,6 +203,7 @@ public final class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_WHITE_SAGE),
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
+				new BlockCrop(LibBlockName.CROP_SILPHIUM),
 				new BlockCrop(LibBlockName.CROP_THISTLE),
 				new BlockCrop(LibBlockName.CROP_TULSI),
 				new BlockCrop(LibBlockName.CROP_KENAF),
