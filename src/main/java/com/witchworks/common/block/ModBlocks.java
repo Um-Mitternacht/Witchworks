@@ -39,6 +39,8 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_LAVENDER = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_THISTLE)
 	public static final BlockCrop CROP_THISTLE = new BlockCrop();
+	@ObjectHolder (LibBlockName.CROP_TULSI)
+	public static final BlockCrop CROP_TULSI = new BlockCrop();
 
 	@ObjectHolder (LibBlockName.SILVER_BLOCK)
 	public static final Block SILVER_BLOCK = new Block(Material.ROCK);
@@ -112,6 +114,7 @@ public final class ModBlocks {
 
 	public static void initOreDictionary() {
 		OreDictionary.registerOre("coquina", new ItemStack(ModBlocks.COQUINA));
+		OreDictionary.registerOre("limestone", new ItemStack(ModBlocks.COQUINA));
 		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.SILVER_BLOCK));
 		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
 		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));

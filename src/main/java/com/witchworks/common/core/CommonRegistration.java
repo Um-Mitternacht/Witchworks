@@ -144,6 +144,7 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.CROP_MANDRAKE_ROOT),
 				itemBlock(ModBlocks.CROP_LAVENDER),
 				itemBlock(ModBlocks.CROP_THISTLE),
+				itemBlock(ModBlocks.CROP_TULSI),
 
 				itemBlock(ModBlocks.SILVER_BLOCK),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
@@ -196,6 +197,7 @@ public final class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
 				new BlockCrop(LibBlockName.CROP_THISTLE),
+				new BlockCrop(LibBlockName.CROP_TULSI),
 				new BlockKelp(),
 				new BlockBelladonna(),
 				new BlockBeehive(),

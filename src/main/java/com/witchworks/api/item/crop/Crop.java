@@ -20,6 +20,7 @@ public enum Crop {
 	MANDRAKE_ROOT(Blocks.FARMLAND),
 	LAVENDER(Blocks.FARMLAND),
 	THISTLE(Blocks.FARMLAND);
+	TULSI(Blocks.FARMLAND);
 
 	private final Block soil;
 

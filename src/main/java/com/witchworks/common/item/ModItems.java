@@ -79,6 +79,8 @@ public final class ModItems {
 	public static final Item ACONITUM = new Item();
 	@ObjectHolder (LibItemName.WHITE_SAGE)
 	public static final Item WHITE_SAGE = new Item();
+	@ObjectHolder (LibItemName.TULSI)
+	public static final Item TULSI = new Item();
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)
