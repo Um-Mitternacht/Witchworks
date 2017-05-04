@@ -45,6 +45,8 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_KENAF = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_SILPHIUM)
 	public static final BlockCrop CROP_SILPHIUM = new BlockCrop();
+	@ObjectHolder (LibBlockName.CROP_GARLIC)
+	public static final BlockCrop CROP_GARLIC = new BlockCrop();
 
 	@ObjectHolder (LibBlockName.SILVER_BLOCK)
 	public static final Block SILVER_BLOCK = new Block(Material.ROCK);

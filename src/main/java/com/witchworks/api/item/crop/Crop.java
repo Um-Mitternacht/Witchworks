@@ -22,6 +22,7 @@ public enum Crop {
 	THISTLE(Blocks.FARMLAND),
 	KENAF(Blocks.FARMLAND),
 	SILPHIUM(Blocks.FARMLAND),
+	GARLIC(Blocks.FARMLAND),
 	TULSI(Blocks.FARMLAND);
 
 	private final Block soil;

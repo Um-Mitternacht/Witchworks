@@ -214,5 +214,10 @@ public final class ModItems {
 		OreDictionary.registerOre("cropWhiteSage", new ItemStack(ModItems.WHITE_SAGE));
 		OreDictionary.registerOre("cropTulsi", new ItemStack(ModItems.TULSI));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.TULSI));
+		OreDictionary.registerOre("cropKenaf", new ItemStack(ModItems.KENAF));
+		OreDictionary.registerOre("cropSilphium", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllgreenveggie", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.SILPHIUM));
 	}
 }
