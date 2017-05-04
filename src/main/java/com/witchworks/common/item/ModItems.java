@@ -81,6 +81,10 @@ public final class ModItems {
 	public static final Item WHITE_SAGE = new Item();
 	@ObjectHolder (LibItemName.TULSI)
 	public static final Item TULSI = new Item();
+	@ObjectHolder (LibItemName.KENAF)
+	public static final Item KENAF = new Item();
+	@ObjectHolder (LibItemName.SILPHIUM)
+	public static final Item SILPHIUM = new Item();
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)

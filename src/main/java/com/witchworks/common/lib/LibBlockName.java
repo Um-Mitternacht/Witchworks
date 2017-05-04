@@ -29,6 +29,7 @@ public final class LibBlockName {
 	public static final String CROP_GARLIC = "crop_garlic";
 	public static final String CROP_WORMWOOD = "crop_wormwood";
 	public static final String CROP_FLAX = "crop_flax";
+	public static final String CROP_KENAF = "crop_kenaf";
 	public static final String CROP_THISTLE = "crop_thistle";
 
 	public static final String SILVER_BLOCK = "silver_block";
