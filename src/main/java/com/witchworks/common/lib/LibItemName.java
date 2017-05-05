@@ -60,7 +60,7 @@ public final class LibItemName {
 	public static final String SILVER_INGOT = "silver_ingot";
 
 	//Food Items
-	public static final String HONEY = "honey";
+	public static final String HONEY_ITEM = "honey_item";
 
 	//Ingredients
 	public static final String WAX = "wax";

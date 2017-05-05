@@ -71,7 +71,7 @@ public final class CommonRegistration {
 		registerCrop(MANDRAKE_ROOT, new ItemCrop(LibItemName.MANDRAKE_ROOT, 4, 6F, false), LibItemName.SEED_MANDRAKE_ROOT);
 		registerCrop(LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
 		registerCrop(THISTLE, new ItemThistle(), LibItemName.SEED_THISTLE);
-		registerCrop(TULSI, new ItemCrop(LibItemName.TULSI, 1, 0.4F, false), LibItemName.SEED_THISTLE);
+		registerCrop(TULSI, new ItemCrop(LibItemName.TULSI, 1, 0.4F, false), LibItemName.SEED_TULSI);
 		registerCrop(KENAF, new ItemCrop(LibItemName.KENAF, 4, 6F, false), LibItemName.SEED_KENAF);
 		registerCrop(SILPHIUM, new ItemCrop(LibItemName.SILPHIUM, 4, 6F, false), LibItemName.SEED_SILPHIUM);
 		registerCrop(GARLIC, new ItemCrop(LibItemName.GARLIC, 4, 6F, false), LibItemName.SEED_GARLIC);

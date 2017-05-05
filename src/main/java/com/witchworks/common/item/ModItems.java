@@ -55,8 +55,8 @@ public final class ModItems {
 	public static final Item SILVER_NUGGET = new Item();
 
 	//Food Items
-	@ObjectHolder (LibItemName.HONEY)
-	public static final Item HONEY = new Item();
+	@ObjectHolder (LibItemName.HONEY_ITEM)
+	public static final Item HONEY_ITEM = new Item();
 	@ObjectHolder (LibItemName.MANDRAKE_ROOT)
 	public static final Item MANDRAKE_ROOT = new Item();
 	@ObjectHolder (LibItemName.LAVENDER)
@@ -181,9 +181,9 @@ public final class ModItems {
 		OreDictionary.registerOre("nuggetSilver", new ItemStack(ModItems.SILVER_NUGGET));
 		OreDictionary.registerOre("ingotSilver", new ItemStack(ModItems.SILVER_INGOT));
 		OreDictionary.registerOre("powderSilver", new ItemStack(ModItems.SILVER_POWDER));
-		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY));
-		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY));
-		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY_ITEM));
+		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY_ITEM));
+		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY_ITEM));
 		OreDictionary.registerOre("materialWax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("materialBeeswax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("materialPressedWax", new ItemStack(ModItems.WAX));
