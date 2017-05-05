@@ -36,13 +36,14 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 @Mod (modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WitchWorks {
 
-	static { FluidRegistry.enableUniversalBucket(); }
-
 	@Instance (LibMod.MOD_ID)
 	public static WitchWorks instance;
-
 	@SidedProxy (serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
+
+	static {
+		FluidRegistry.enableUniversalBucket();
+	}
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

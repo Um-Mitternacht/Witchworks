@@ -1,7 +1,6 @@
 package com.witchworks.client.render.tile;
 
 import com.witchworks.client.ResourceLocations;
-import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.block.tile.TileKettle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -27,11 +26,11 @@ import java.util.Optional;
  */
 public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
 		Optional<FluidStack> optional = te.getFluid();
-		if(optional.isPresent() && optional.get().amount > 0) {
+		if (optional.isPresent() && optional.get().amount > 0) {
 			FluidStack fluidStack = optional.get();
 			Fluid fluid = fluidStack.getFluid();
 			ResourceLocation location = fluid.getStill();
@@ -40,7 +39,7 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.pushMatrix();
 			GlStateManager.disableLighting();
 			GlStateManager.translate(x, y + 0.1 + level, z);
-			if(fluid == FluidRegistry.WATER) {
+			if (fluid == FluidRegistry.WATER) {
 				float r = te.getColorRGB().getRed() / 255F;
 				float g = te.getColorRGB().getGreen() / 255F;
 				float b = te.getColorRGB().getBlue() / 255F;
@@ -73,7 +72,7 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 		ItemStack stack = te.getContainer();
 		GlStateManager.translate(x + 0.5, y + 0.2D, z + 0.35);
 		GlStateManager.rotate(90F, 1F, 0, 0);
-		if(stack != null) {
+		if (stack != null) {
 			Minecraft mc = Minecraft.getMinecraft();
 			mc.getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.GROUND);
 		}

@@ -27,7 +27,7 @@ import java.util.function.Function;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public final class Fluids {
 
 	public static final Set<IFluidBlock> MOD_FLUID_BLOCKS = new HashSet<>();
@@ -40,7 +40,7 @@ public final class Fluids {
 			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.YELLOW)) {
 				@Override
 				public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-					if(entityIn instanceof EntityLivingBase)
+					if (entityIn instanceof EntityLivingBase)
 						((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 60));
 				}
 			}, true);
@@ -78,7 +78,7 @@ public final class Fluids {
 		if (useOwnFluid) {
 			fluidPropertyApplier.accept(fluid);
 			MOD_FLUID_BLOCKS.add(blockFactory.apply(fluid));
-			if(hasBucket)
+			if (hasBucket)
 				FluidRegistry.addBucketForFluid(fluid);
 		} else {
 			fluid = FluidRegistry.getFluid(name);

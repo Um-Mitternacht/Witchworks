@@ -86,7 +86,7 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 		final Item item = Item.getItemFromBlock(this);
 		assert item != null;

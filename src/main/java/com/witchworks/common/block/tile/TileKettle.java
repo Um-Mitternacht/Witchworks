@@ -102,8 +102,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			//Held Item is not null
 			if (heldItem.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)) {
 				handleLiquid(heldItem.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null));
-			} else
-			if (heldItem.getItem() == Items.POTIONITEM && PotionUtils.getEffectsFromStack(heldItem).isEmpty()) {
+			} else if (heldItem.getItem() == Items.POTIONITEM && PotionUtils.getEffectsFromStack(heldItem).isEmpty()) {
 				int level = tank.getFluidAmount();
 				if (level < BUCKET_VOLUME && (tank.getFluid() == null || tank.containsFluid(FluidRegistry.WATER))) {
 					play(SoundEvents.ITEM_BUCKET_FILL, 1F, 1F);
@@ -111,11 +110,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 					FluidStack fluidStack = new FluidStack(FluidRegistry.WATER, 250);
 					tank.fill(fluidStack, true);
 				}
-			} else
-			if (heldItem.getItem() == Items.GLASS_BOTTLE) {
+			} else if (heldItem.getItem() == Items.GLASS_BOTTLE) {
 				//TODO: Add Potion Logic here
-			} else
-			if (getContainer() == null) {
+			} else if (getContainer() == null) {
 				setContainer(heldItem.copy());
 				giveItem(player, hand, heldItem, null);
 			}
@@ -182,8 +179,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				if (ticks % 60 == 0) {
 					play(WitchSoundEvents.BOIL, 0.1F, 1F);
 				}
-			} else
-			if (ticks % 5 == 0 && world.rand.nextInt(20) == 0) {
+			} else if (ticks % 5 == 0 && world.rand.nextInt(20) == 0) {
 				play(SoundEvents.BLOCK_LAVA_AMBIENT, 1F, 1F);
 			}
 		}
@@ -319,12 +315,12 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		return ingredients[0] != null;
 	}
 
-	public void setColorRGB(Color rgb) {
-		this.rgb = rgb;
-	}
-
 	public Color getColorRGB() {
 		return rgb;
+	}
+
+	public void setColorRGB(Color rgb) {
+		this.rgb = rgb;
 	}
 
 	public float getParticleLevel() {
@@ -345,9 +341,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	//------------------------------------Crafting Logic------------------------------------//
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	public boolean processingLogic(ItemStack stack) {
-		if(!isHeat() || hasIngredients()) return false;
+		if (!isHeat() || hasIngredients()) return false;
 		Map<Item, ItemValidator<ItemStack>> processing = KettleRegistry.getKettleProcessing(tank.getInnerFluid());
 		if (processing != null && processing.containsKey(stack.getItem())) {
 			ItemValidator<ItemStack> validator = processing.get(stack.getItem());
@@ -360,17 +356,17 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				int fluid = tank.getFluidAmount();
 				int taken = 0;
 
-				if(stack.stackSize <= 16) {
+				if (stack.stackSize <= 16) {
 					taken = 250;
 					out.stackSize = stack.stackSize;
 					stack.stackSize = 0;
 				} else
-				while (stack.stackSize > 0 && taken <= fluid) {
-					--stack.stackSize;
-					++out.stackSize;
-					if (out.stackSize % 16 == 0)
-						taken += 250;
-				}
+					while (stack.stackSize > 0 && taken <= fluid) {
+						--stack.stackSize;
+						++out.stackSize;
+						if (out.stackSize % 16 == 0)
+							taken += 250;
+					}
 
 				if (out.stackSize > 0) {
 					final double x = getPos().getX();

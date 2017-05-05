@@ -1,7 +1,6 @@
 package com.witchworks.api.recipe;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
