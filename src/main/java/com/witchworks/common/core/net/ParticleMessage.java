@@ -23,12 +23,12 @@ public class ParticleMessage implements IMessage {
 	private double xSpeed;
 	private double ySpeed;
 	private double zSpeed;
-	private float[] args;
+	private int[] args;
 
 	public ParticleMessage() {
 	}
 
-	ParticleMessage(ParticleF particleF, double x, double y, double z, int amount, double xSpeed, double ySpeed, double zSpeed, float... args) {
+	ParticleMessage(ParticleF particleF, double x, double y, double z, int amount, double xSpeed, double ySpeed, double zSpeed, int... args) {
 		this.particleF = particleF;
 		this.x = x;
 		this.y = y;
@@ -56,9 +56,9 @@ public class ParticleMessage implements IMessage {
 
 		int argCount = buf.readInt();
 
-		args = new float[argCount];
+		args = new int[argCount];
 		for (int i = 0; i < argCount; i++) {
-			args[i] = buf.readFloat();
+			args[i] = buf.readInt();
 		}
 	}
 
@@ -78,8 +78,8 @@ public class ParticleMessage implements IMessage {
 
 		buf.writeInt(args.length);
 
-		for (float arg : args) {
-			buf.writeFloat(arg);
+		for (int arg : args) {
+			buf.writeInt(arg);
 		}
 	}
 

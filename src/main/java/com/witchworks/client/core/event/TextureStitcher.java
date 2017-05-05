@@ -14,5 +14,6 @@ public class TextureStitcher {
 		event.getMap().registerSprite(ResourceLocations.CAULDRON_BUBBLE);
 		event.getMap().registerSprite(ResourceLocations.STEAM);
 		event.getMap().registerSprite(ResourceLocations.BEE);
+		event.getMap().registerSprite(ResourceLocations.GRAY_WATER);
 	}
 }

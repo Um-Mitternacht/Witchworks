@@ -189,10 +189,10 @@ brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
 
 brew.fire_brew.name=Inner Fire Brew
-brew.fire_brew.desc=Spew forth your inner fire, and breathe like the dragons of old
+brew.fire_brew.desc=Spew forth your inner fire
 
 brew.spider_nightmare_brew.name=Spider Nightmare
-brew.spider_nightmare_brew.desc=Spiderman, Spiderman, does whatever a spider can
+brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
 
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing

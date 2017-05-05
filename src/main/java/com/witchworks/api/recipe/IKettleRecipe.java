@@ -15,18 +15,6 @@ public interface IKettleRecipe {
 
 	boolean checkRecipe(IItemHandler usedItems, World world);
 
-	default boolean canTake(World world, EntityPlayer player, ItemStack stack) {
-		return false;
-	}
-
-	default boolean isLiquid() {
-		return false;
-	}
-
-	default int getDrain() {
-		return 1;
-	}
-
 	ImmutableList<Object> getNeededItems();
 
 	ItemStack getResult();

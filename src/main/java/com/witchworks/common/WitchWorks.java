@@ -15,6 +15,7 @@ import com.witchworks.common.entity.ModEntities;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.lib.LibMod;
 import com.witchworks.common.potions.ModBrews;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -34,6 +35,8 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 @SuppressWarnings ("WeakerAccess")
 @Mod (modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WitchWorks {
+
+	static { FluidRegistry.enableUniversalBucket(); }
 
 	@Instance (LibMod.MOD_ID)
 	public static WitchWorks instance;

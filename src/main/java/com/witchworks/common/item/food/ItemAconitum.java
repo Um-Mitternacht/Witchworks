@@ -24,10 +24,4 @@ public class ItemAconitum extends ItemCrop {
 	public EnumRarity getRarity(ItemStack stack) {
 		return EnumRarity.UNCOMMON;
 	}
-
-	@Override
-	@SideOnly (Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerItem(this);
-	}
 }

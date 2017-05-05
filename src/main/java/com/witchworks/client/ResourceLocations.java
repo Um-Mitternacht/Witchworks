@@ -11,8 +11,7 @@ import net.minecraft.util.ResourceLocation;
 public final class ResourceLocations {
 
 	//Misc
-	public static final ResourceLocation STONE_SKIN = getLocation("textures/misc/cobblestone.png");
-	public static final ResourceLocation WATER_STILL = getLocation("textures/misc/water_still.png");
+	public static final ResourceLocation GRAY_WATER = getLocation("blocks/fluid/gray_scale_fluid");
 
 	//GUI
 	public static final ResourceLocation POTION_TEXTURES = getLocation("textures/gui/potions.png");
