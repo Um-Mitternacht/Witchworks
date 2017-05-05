@@ -4,45 +4,45 @@
 	"model": "forge:fluid"
   },
   "variants": {
-	"w_honey": [
+	"honey": [
 	  {
 		"custom": {
-		  "fluid": "w_honey"
+		  "fluid": "honey"
 		}
 	  }
 	],
-	"w_oil_mundane": [
+	"oil_mundane": [
 	  {
 		"custom": {
-		  "fluid": "w_oil_mundane"
+		  "fluid": "oil_mundane"
 		}
 	  }
 	],
-	"w_oil_soothing": [
+	"oil_soothing": [
 	  {
 		"custom": {
-		  "fluid": "w_oil_soothing"
+		  "fluid": "oil_soothing"
 		}
 	  }
 	],
-	"w_oil_spicy": [
+	"oil_spicy": [
 	  {
 		"custom": {
-		  "fluid": "w_oil_spicy"
+		  "fluid": "oil_spicy"
 		}
 	  }
 	],
-	"w_oil_toxic": [
+	"oil_toxic": [
 	  {
 		"custom": {
-		  "fluid": "w_oil_toxic"
+		  "fluid": "oil_toxic"
 		}
 	  }
 	],
-	"w_oil_magical": [
+	"oil_magical": [
 	  {
 		"custom": {
-		  "fluid": "w_oil_magical"
+		  "fluid": "oil_magical"
 		}
 	  }
 	]

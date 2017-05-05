@@ -213,7 +213,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private void handleHeat() {
 		boolean aboveFire = world.getBlockState(getPos().down()).getMaterial() == Material.FIRE;
-		if (aboveFire && tank.getFluidAmount() > 0 && heat < 5) {
+		if (aboveFire && tank.getFluidAmount() > 0 && heat < 10) {
 			++heat;
 		} else if ((!aboveFire || !(tank.getFluidAmount() > 0)) && heat > 0) {
 			--heat;
@@ -276,6 +276,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
 		ingredients = new ItemStack[64];
 		mode = Mode.NORMAL;
+		if (tank.getInnerFluid() == FluidRegistry.WATER) {
+			setColorRGB(new Color(0x194919));
+		}
 		PacketHandler.updateToNearbyPlayers(world, pos);
 	}
 
@@ -303,7 +306,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public boolean isHeat() {
-		return heat == 5;
+		return heat == 10;
 	}
 
 	public Optional<FluidStack> getFluid() {
@@ -360,13 +363,14 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 					taken = 250;
 					out.stackSize = stack.stackSize;
 					stack.stackSize = 0;
-				} else
+				} else {
 					while (stack.stackSize > 0 && taken <= fluid) {
 						--stack.stackSize;
 						++out.stackSize;
 						if (out.stackSize % 16 == 0)
 							taken += 250;
 					}
+				}
 
 				if (out.stackSize > 0) {
 					final double x = getPos().getX();
