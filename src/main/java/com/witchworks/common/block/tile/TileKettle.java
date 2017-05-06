@@ -44,6 +44,7 @@ import static net.minecraftforge.fluids.Fluid.BUCKET_VOLUME;
 public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private final String TAG_HEAT = "heat";
+	private final KettleFluid inv = tank();
 
 	private Color rgb = new Color(0x194919);
 	private Mode mode = Mode.NORMAL;
@@ -58,9 +59,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		if (dropped == null || entityItem.isDead)
 			return;
 
-		FluidStack fluidStack = tank.getFluid();
-		if (fluidStack != null && fluidStack.amount > 0) {
-			if (!tank.containsFluid(FluidRegistry.LAVA)) {
+		if (inv.hasFluid()) {
+			if (!inv.hasFluid(FluidRegistry.LAVA)) {
 				boolean splash = false;
 				if (isHeat()) {
 					splash = recipeDropLogic(dropped);
@@ -103,12 +103,12 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			if (heldItem.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)) {
 				handleLiquid(heldItem.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null));
 			} else if (heldItem.getItem() == Items.POTIONITEM && PotionUtils.getEffectsFromStack(heldItem).isEmpty()) {
-				int level = tank.getFluidAmount();
-				if (level < BUCKET_VOLUME && (tank.getFluid() == null || tank.containsFluid(FluidRegistry.WATER))) {
+				int level = inv.getFluidAmount();
+				if (level < BUCKET_VOLUME && (inv.getFluid() == null || inv.hasFluid(FluidRegistry.WATER))) {
 					play(SoundEvents.ITEM_BUCKET_FILL, 1F, 1F);
 					giveItem(player, hand, heldItem, new ItemStack(Items.GLASS_BOTTLE));
 					FluidStack fluidStack = new FluidStack(FluidRegistry.WATER, 250);
-					tank.fill(fluidStack, true);
+					inv.fill(fluidStack, true);
 				}
 			} else if (heldItem.getItem() == Items.GLASS_BOTTLE) {
 				//TODO: Add Potion Logic here
@@ -121,34 +121,34 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	private void handleLiquid(IFluidHandler handler) {
-		if (tank.getFluidAmount() == 0) {
+		if (inv.isEmpty()) {
 			FluidStack drain = handler.drain(BUCKET_VOLUME, false);
 
 			if (drain != null && drain.amount <= BUCKET_VOLUME) {
 				handler.drain(drain.amount, true);
-				tank.setFluid(drain);
+				inv.setFluid(drain);
 				onLiquidChange();
 
 				play(drain.getFluid().getEmptySound(), 1F, 1F);
 			}
 		} else {
-			if (tank.getFluidAmount() == BUCKET_VOLUME) {
-				FluidStack fill = tank.drain(BUCKET_VOLUME, false);
+			if (inv.isFull()) {
+				FluidStack fill = inv.drain(BUCKET_VOLUME, false);
 				FluidStack compare = handler.drain(BUCKET_VOLUME, false);
 				int filled = handler.fill(fill, false);
 
 				if (fill != null && (compare == null || fill.isFluidEqual(compare)) && filled <= BUCKET_VOLUME) {
 					handler.fill(fill, true);
-					tank.drain(filled, true);
+					inv.drain(filled, true);
 
 					play(fill.getFluid().getEmptySound(), 1F, 1F);
 				}
 			} else {
 				FluidStack drain = handler.drain(BUCKET_VOLUME, false);
 
-				if (drain != null && drain.isFluidEqual(tank.getFluid()) && drain.amount <= BUCKET_VOLUME) {
+				if (drain != null && drain.isFluidEqual(inv.getFluid()) && drain.amount <= BUCKET_VOLUME) {
 					handler.drain(drain.amount, true);
-					tank.fill(drain, true);
+					inv.fill(drain, true);
 
 					play(drain.getFluid().getFillSound(), 1F, 1F);
 				}
@@ -173,8 +173,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			entityItemList.forEach(this :: collideItem);
 		}
 
-		if (tank.getFluidAmount() > 0) {
-			if (!tank.containsFluid(FluidRegistry.LAVA) && isHeat()) {
+		if (inv.hasFluid()) {
+			if (!inv.hasFluid(FluidRegistry.LAVA) && isHeat()) {
 				handleParticles();
 				if (ticks % 60 == 0) {
 					play(WitchSoundEvents.BOIL, 0.1F, 1F);
@@ -213,9 +213,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private void handleHeat() {
 		boolean aboveFire = world.getBlockState(getPos().down()).getMaterial() == Material.FIRE;
-		if (aboveFire && tank.getFluidAmount() > 0 && heat < 10) {
+		if (aboveFire && inv.getFluidAmount() > 0 && heat < 10) {
 			++heat;
-		} else if ((!aboveFire || !(tank.getFluidAmount() > 0)) && heat > 0) {
+		} else if ((!aboveFire || !(inv.getFluidAmount() > 0)) && heat > 0) {
 			--heat;
 		}
 	}
@@ -273,10 +273,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	@SuppressWarnings ("ConstantConditions")
 	@Override
 	void onLiquidChange() {
-		world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
 		ingredients = new ItemStack[64];
 		mode = Mode.NORMAL;
-		if (tank.getInnerFluid() == FluidRegistry.WATER) {
+		if (inv.getInnerFluid() == FluidRegistry.WATER) {
 			setColorRGB(new Color(0x194919));
 		}
 		PacketHandler.updateToNearbyPlayers(world, pos);
@@ -310,7 +309,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public Optional<FluidStack> getFluid() {
-		FluidStack stack = tank.getFluid();
+		FluidStack stack = inv.getFluid();
 		return stack != null ? Optional.of(stack) : Optional.empty();
 	}
 
@@ -327,7 +326,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public float getParticleLevel() {
-		float level = (float) tank.getFluidAmount() / (Fluid.BUCKET_VOLUME * 2F);
+		float level = (float) inv.getFluidAmount() / (Fluid.BUCKET_VOLUME * 2F);
 		return getPos().getY() + 0.1F + level;
 	}
 
@@ -347,7 +346,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	@SuppressWarnings ("ConstantConditions")
 	public boolean processingLogic(ItemStack stack) {
 		if (!isHeat() || hasIngredients()) return false;
-		Map<Item, ItemValidator<ItemStack>> processing = KettleRegistry.getKettleProcessing(tank.getInnerFluid());
+		Map<Item, ItemValidator<ItemStack>> processing = KettleRegistry.getKettleProcessing(inv.getInnerFluid());
 		if (processing != null && processing.containsKey(stack.getItem())) {
 			ItemValidator<ItemStack> validator = processing.get(stack.getItem());
 			Optional<ItemStack> optional = validator.getMatchFor(stack);
@@ -356,7 +355,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				if (stack.isItemDamaged() && out.isItemStackDamageable())
 					out.setItemDamage(stack.getItemDamage());
 				out.stackSize = 0;
-				int fluid = tank.getFluidAmount();
+				int fluid = inv.getFluidAmount();
 				int taken = 0;
 
 				if (stack.stackSize <= 16) {
@@ -388,7 +387,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), y, z + world.rand.nextFloat(), 5, 0, 0, 0);
 					}
 
-					tank.drain(taken, true);
+					inv.drain(taken, true);
 					return true;
 				}
 			}

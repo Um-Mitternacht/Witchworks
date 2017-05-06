@@ -4,17 +4,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidTankProperties;
+import net.minecraftforge.fluids.capability.TileFluidHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -25,21 +23,21 @@ import javax.annotation.Nullable;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public abstract class TileFluidInventory extends TileEntity {
+public abstract class TileFluidInventory extends TileFluidHandler {
 
-	KettleFluid tank = createFluidHandler();
+	public TileFluidInventory() {
+		tank = createFluidHandler();
+	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		tank.readFromNBT(tag);
 		readDataNBT(tag);
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
 		tag = super.writeToNBT(tag);
-		tank.writeToNBT(tag);
 		writeDataNBT(tag);
 		return tag;
 	}
@@ -59,19 +57,6 @@ public abstract class TileFluidInventory extends TileEntity {
 	}
 
 	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		return capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
-	}
-
-	@SuppressWarnings ("unchecked")
-	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
-			return (T) tank;
-		return super.getCapability(capability, facing);
-	}
-
-	@Override
 	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
 		return oldState.getBlock() != newState.getBlock();
 	}
@@ -86,6 +71,10 @@ public abstract class TileFluidInventory extends TileEntity {
 		return new SPacketUpdateTileEntity(getPos(), 0, getUpdateTag());
 	}
 
+	KettleFluid tank() {
+		return (KettleFluid) tank;
+	}
+
 	@SideOnly (Side.CLIENT)
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
@@ -95,7 +84,8 @@ public abstract class TileFluidInventory extends TileEntity {
 	@SuppressWarnings ("WeakerAccess")
 	public class KettleFluid extends FluidTank {
 
-		final TileFluidInventory tile;
+		private static final int DEFAULT_COLOR = 0xFFFFFF;
+		private final TileFluidInventory tile;
 
 		public KettleFluid(TileFluidInventory tile, int capacity) {
 			super(capacity);
@@ -112,18 +102,55 @@ public abstract class TileFluidInventory extends TileEntity {
 			this.tile = tile;
 		}
 
+		@Override
+		public int fillInternal(FluidStack resource, boolean doFill) {
+			int filled = super.fillInternal(resource, doFill);
+			if (doFill && filled > 0) {
+				world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
+			}
+			return filled;
+		}
+
+		@Nullable
+		@Override
+		public FluidStack drainInternal(int maxDrain, boolean doDrain) {
+			FluidStack drained = super.drainInternal(maxDrain, doDrain);
+			if (doDrain && drained != null && drained.amount > 0) {
+				world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
+			}
+			return drained;
+		}
+
+		@Override
+		public String toString() {
+			return String.format("Kettle: %s, %d/%d", fluid != null && fluid.getFluid() != null ? fluid.getFluid().getName() : "Empty", getFluidAmount(), getCapacity());
+		}
+
+		public boolean hasFluid() {
+			FluidStack fluid = getFluid();
+			return fluid != null && fluid.amount > 0 && fluid.getFluid() != null;
+		}
+
+		public boolean hasFluid(Fluid other) {
+			return fluid != null && fluid.getFluid() == other;
+		}
+
 		@Nullable
 		public Fluid getInnerFluid() {
 			return fluid != null ? fluid.getFluid() : null;
 		}
 
+		public boolean isEmpty() {
+			return getFluid() == null || getFluid().amount <= 0;
+		}
+
+		public boolean isFull() {
+			return getFluid() != null && getFluid().amount == getCapacity();
+		}
+
 		@Override
 		protected void onContentsChanged() {
 			tile.onLiquidChange();
-		}
-
-		public boolean containsFluid(Fluid other) {
-			return fluid != null && fluid.getFluid() == other;
 		}
 	}
 }
