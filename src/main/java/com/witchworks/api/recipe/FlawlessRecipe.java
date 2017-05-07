@@ -4,11 +4,8 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,12 +17,12 @@ import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class KettleRecipe implements IKettleRecipe {
+public class FlawlessRecipe implements IOreMatchRecipe {
 
 	private final ItemStack result;
 	private final ImmutableList<Object> neededItems;
 
-	public KettleRecipe(ItemStack result, Object... inputs) {
+	public FlawlessRecipe(ItemStack result, Object... inputs) {
 		this.result = result;
 
 		final List<Object> stackedList = Arrays.stream(inputs).map(obj -> {
@@ -38,7 +35,7 @@ public class KettleRecipe implements IKettleRecipe {
 	}
 
 	@Override
-	public boolean checkRecipe(IItemHandler usedItems, World world) {
+	public boolean matches(ItemStack[] usedItems) {
 		final List<ItemStack> list = getUsedItems(usedItems);
 		if (list.size() == neededItems.size()) {
 			boolean matches = true;
@@ -58,30 +55,9 @@ public class KettleRecipe implements IKettleRecipe {
 		return false;
 	}
 
-	private List<ItemStack> getUsedItems(IItemHandler handler) {
-		final List<ItemStack> used = new ArrayList<>();
-		for (int i = 0; i < handler.getSlots(); i++) {
-			final ItemStack stack = handler.extractItem(i, 1, true);
-			if (stack != null) {
-				used.add(stack);
-			} else {
-				break;
-			}
-		}
-		return used;
-	}
-
-	private boolean containsMatch(List<ItemStack> inputs, ItemStack target) {
-		for (ItemStack input : inputs) {
-			if (itemMatches(target, input)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private boolean itemMatches(ItemStack target, ItemStack input) {
-		return input != null && target != null && target.getItem() == input.getItem() && (target.getItemDamage() == input.getItemDamage()
+	@Override
+	public boolean itemMatches(ItemStack target, ItemStack input) {
+		return input != null && target != null && target.getItem() == input.getItem() && target.stackSize == input.stackSize && (target.getItemDamage() == input.getItemDamage()
 				|| input.getItemDamage() == WILDCARD_VALUE);
 	}
 

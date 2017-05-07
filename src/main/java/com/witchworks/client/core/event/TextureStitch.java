@@ -7,10 +7,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly (Side.CLIENT)
-public class TextureStitcher {
+public class TextureStitch {
 
 	@SubscribeEvent
-	public void stitcherEventPre(TextureStitchEvent.Pre event) {
+	public void stitchEventPre(TextureStitchEvent.Pre event) {
 		event.getMap().registerSprite(ResourceLocations.CAULDRON_BUBBLE);
 		event.getMap().registerSprite(ResourceLocations.STEAM);
 		event.getMap().registerSprite(ResourceLocations.BEE);

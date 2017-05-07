@@ -4,19 +4,21 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
-import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.Optional;
 
 /**
  * This class was created by Arekkuusu on 01/05/2017.
@@ -52,8 +54,15 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 
 	abstract void onLiquidChange();
 
-	public void play(SoundEvent events, float volume, float pitch) {
+	void play(SoundEvent events, float volume, float pitch) {
 		world.playSound(null, getPos(), events, SoundCategory.BLOCKS, volume, pitch);
+	}
+
+	void particleServerSide(EnumParticleTypes particle, double x, double y, double z, double xOffset, double yOffset, double zOffset, int count) {
+		if (world instanceof WorldServer) {
+			BlockPos pos = getPos();
+			((WorldServer) world).spawnParticle(particle, pos.getX() + x, pos.getY() + y, pos.getZ() + z, count, xOffset, yOffset, zOffset, 0D);
+		}
 	}
 
 	@Override
@@ -71,6 +80,11 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 		return new SPacketUpdateTileEntity(getPos(), 0, getUpdateTag());
 	}
 
+	public Optional<FluidStack> getFluid() {
+		FluidStack stack = tank.getFluid();
+		return stack != null ? Optional.of(stack) : Optional.empty();
+	}
+
 	KettleFluid tank() {
 		return (KettleFluid) tank;
 	}
@@ -84,7 +98,6 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 	@SuppressWarnings ("WeakerAccess")
 	public class KettleFluid extends FluidTank {
 
-		private static final int DEFAULT_COLOR = 0xFFFFFF;
 		private final TileFluidInventory tile;
 
 		public KettleFluid(TileFluidInventory tile, int capacity) {

@@ -1,21 +1,23 @@
 package com.witchworks.api.recipe;
 
+import com.witchworks.api.ritual.IKettleRitual;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 /**
  * This class was created by Arekkuusu on 04/04/2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class KettleItemRecipe extends KettleRecipe {
+public class KettleItemRecipe extends FlawlessRecipe {
 
-	public KettleItemRecipe(ItemStack result, Object... inputs) {
+	private final IKettleRitual ritual;
+
+	public KettleItemRecipe(IKettleRitual ritual, ItemStack result, Object... inputs) {
 		super(result, inputs);
+		this.ritual = ritual;
 	}
 
-	public boolean performRitual(World world, BlockPos pos) {
-		return true;
+	public IKettleRitual getRitual() {
+		return ritual;
 	}
 }

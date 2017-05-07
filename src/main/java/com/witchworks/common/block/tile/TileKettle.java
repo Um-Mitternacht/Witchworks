@@ -2,11 +2,14 @@ package com.witchworks.common.block.tile;
 
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.recipe.ItemValidator;
+import com.witchworks.api.recipe.KettleItemRecipe;
+import com.witchworks.api.ritual.Ritual;
 import com.witchworks.api.sound.WitchSoundEvents;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.core.net.PacketHandler;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -17,7 +20,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -44,9 +49,14 @@ import static net.minecraftforge.fluids.Fluid.BUCKET_VOLUME;
 public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private final String TAG_HEAT = "heat";
+	private final String TAG_RGB = "rgb";
+	private final String TAG_MODE = "mode";
+	private final String TAG_INGREDIENTS = "ingredients";
+	private final String TAG_CONTAINER = "container";
 	private final KettleFluid inv = tank();
 
 	private Color rgb = new Color(0x194919);
+	private Ritual ritual;
 	private Mode mode = Mode.NORMAL;
 	private ItemStack[] ingredients = new ItemStack[64];
 	private ItemStack container;
@@ -80,7 +90,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	public boolean recipeDropLogic(ItemStack dropped) {
 		switch (mode) {
 			case NORMAL:
-				return processingLogic(dropped) || acceptIngredient(dropped);
+				return processingLogic(dropped)
+						|| (inv.hasFluid(FluidRegistry.WATER) && acceptIngredient(dropped));
 			case POTION:
 				return false;
 			case CUSTOM:
@@ -93,9 +104,11 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	public boolean useKettle(EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem) {
 		if (!world.isRemote) {
 			if (heldItem == null) {
-				if (getContainer() != null) {
+				if (getContainer() != null && mode != Mode.RITUAL) {
 					giveItem(player, hand, null, getContainer());
 					setContainer(null);
+				} else if (inv.isFull() && hasIngredients() && mode != Mode.RITUAL) {
+					itemRitualLogic();
 				}
 				return true;
 			}
@@ -113,7 +126,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			} else if (heldItem.getItem() == Items.GLASS_BOTTLE) {
 				//TODO: Add Potion Logic here
 			} else if (getContainer() == null) {
-				setContainer(heldItem.copy());
+				ItemStack copy = heldItem.copy();
+				copy.stackSize = 1;
+				setContainer(copy);
 				giveItem(player, hand, heldItem, null);
 			}
 		}
@@ -174,10 +189,12 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 
 		if (inv.hasFluid()) {
-			if (!inv.hasFluid(FluidRegistry.LAVA) && isHeat()) {
-				handleParticles();
-				if (ticks % 60 == 0) {
-					play(WitchSoundEvents.BOIL, 0.1F, 1F);
+			if (!inv.hasFluid(FluidRegistry.LAVA)) {
+				if(isHeat()) {
+					handleParticles();
+					if (ticks % 60 == 0) {
+						play(WitchSoundEvents.BOIL, 0.1F, 1F);
+					}
 				}
 			} else if (ticks % 5 == 0 && world.rand.nextInt(20) == 0) {
 				play(SoundEvents.BLOCK_LAVA_AMBIENT, 1F, 1F);
@@ -188,7 +205,38 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			handleHeat();
 		}
 
+		if(!world.isRemote && mode == Mode.RITUAL && ritual != null) {
+			handleRitual();
+		}
+
 		++ticks;
+	}
+
+	@SuppressWarnings("unchecked")
+	private void handleRitual() {
+		if (ritual.update(this) && !ritual.isFail()) {
+			if (ritual.hasEnded()) {
+				for (int i = 0; i < 20; i++) {
+					final float x = getPos().getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
+					final float y = getPos().getY() + 0.2F + world.rand.nextFloat();
+					final float z = getPos().getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
+
+					PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 10, 0, 0, 0);
+				}
+				play(SoundEvents.BLOCK_LAVA_EXTINGUISH, 1F, 1F);
+				setContainer(ritual.getStack());
+				tank.setFluid(null);
+				onLiquidChange();
+			}
+			if (ticks % 5 == 0) {
+				double x = world.rand.nextFloat();
+				double y = 0.2F + world.rand.nextFloat();
+				double z = world.rand.nextFloat();
+				particleServerSide(EnumParticleTypes.SPELL_WITCH, 0.5, 0.5, 0.5, x, y, z, 4);
+			}
+		} else {
+			failHorribly();
+		}
 	}
 
 	private void handleParticles() {
@@ -224,12 +272,15 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	void writeDataNBT(NBTTagCompound cmp) {
 		saveItems(cmp);
 		cmp.setInteger(TAG_HEAT, heat);
-		cmp.setInteger("rgb", getColorRGB().getRGB());
+		cmp.setInteger(TAG_RGB, getColorRGB().getRGB());
+		cmp.setString(TAG_MODE, mode.name());
+		if (ritual != null) {
+			ritual.writeNBT(cmp);
+		}
 	}
 
 	private void saveItems(NBTTagCompound cmp) {
 		NBTTagList nbttaglist = new NBTTagList();
-
 		for (int i = 0; i < ingredients.length; ++i) {
 			if (ingredients[i] != null) {
 				NBTTagCompound tag = new NBTTagCompound();
@@ -239,23 +290,30 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				nbttaglist.appendTag(tag);
 			}
 		}
+		cmp.setTag(TAG_INGREDIENTS, nbttaglist);
 
 		if (container != null) {
-			container.writeToNBT(cmp);
+			NBTTagCompound tag = new NBTTagCompound();
+			container.writeToNBT(tag);
+			cmp.setTag(TAG_CONTAINER, tag);
 		}
-		cmp.setTag("ingredients", nbttaglist);
 	}
 
 	@Override
 	void readDataNBT(NBTTagCompound cmp) {
 		loadItems(cmp);
 		heat = cmp.getInteger(TAG_HEAT);
-		if (cmp.hasKey("rgb"))
-			setColorRGB(new Color(cmp.getInteger("rgb")));
+		setColorRGB(new Color(cmp.getInteger(TAG_RGB)));
+		setMode(Mode.valueOf(cmp.getString(TAG_MODE)));
+		String TAG_RITUAL_DATA = "ritual_data";
+		if (cmp.hasKey(TAG_RITUAL_DATA)) {
+			ritual = Ritual.newInstance();
+			ritual.readNBT(cmp);
+		}
 	}
 
 	private void loadItems(NBTTagCompound cmp) {
-		NBTTagList nbttaglist = cmp.getTagList("ingredients", 10);
+		NBTTagList nbttaglist = cmp.getTagList(TAG_INGREDIENTS, 10);
 		ingredients = new ItemStack[64];
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
@@ -267,7 +325,12 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			}
 		}
 
-		container = ItemStack.loadItemStackFromNBT(cmp);
+		if (cmp.hasKey(TAG_CONTAINER)) {
+			NBTTagCompound tag = cmp.getCompoundTag(TAG_CONTAINER);
+			container = ItemStack.loadItemStackFromNBT(tag);
+		} else {
+			container = null;
+		}
 	}
 
 	@SuppressWarnings ("ConstantConditions")
@@ -275,10 +338,12 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	void onLiquidChange() {
 		ingredients = new ItemStack[64];
 		mode = Mode.NORMAL;
+		ritual = null;
 		if (inv.getInnerFluid() == FluidRegistry.WATER) {
 			setColorRGB(new Color(0x194919));
 		}
-		PacketHandler.updateToNearbyPlayers(world, pos);
+		if(!world.isRemote)
+			PacketHandler.updateToNearbyPlayers(world, pos);
 	}
 
 	public boolean acceptIngredient(ItemStack stack) {
@@ -308,11 +373,6 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		return heat == 10;
 	}
 
-	public Optional<FluidStack> getFluid() {
-		FluidStack stack = inv.getFluid();
-		return stack != null ? Optional.of(stack) : Optional.empty();
-	}
-
 	public boolean hasIngredients() {
 		return ingredients[0] != null;
 	}
@@ -321,8 +381,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		return rgb;
 	}
 
-	public void setColorRGB(Color rgb) {
-		this.rgb = rgb;
+	public void setColorRGB(Color rgbIn) {
+		this.rgb = rgbIn;
 	}
 
 	public float getParticleLevel() {
@@ -339,6 +399,16 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		this.container = container;
 		world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
 		PacketHandler.updateToNearbyPlayers(world, pos);
+	}
+
+	public void setMode(Mode mode) {
+		this.mode = mode;
+		markDirty();
+	}
+
+	public void setRitual(Ritual ritual) {
+		this.ritual = ritual;
+		markDirty();
 	}
 
 	//------------------------------------Crafting Logic------------------------------------//
@@ -384,7 +454,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 					play(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1F, 1F);
 					for (int i = 0; i < 4; i++) {
-						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), y, z + world.rand.nextFloat(), 5, 0, 0, 0);
+						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), getParticleLevel(), z + world.rand.nextFloat(), 5, 0, 0, 0);
 					}
 
 					inv.drain(taken, true);
@@ -394,6 +464,35 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 		return false;
 	}
+
+	@SuppressWarnings ("unchecked")
+	public void itemRitualLogic() {
+		Optional<KettleItemRecipe> optional = KettleRegistry.getKettleItemRecipes().stream().filter(
+				i -> i.matches(ingredients)
+		).findAny();
+		if (optional.isPresent()) {
+			KettleItemRecipe recipe = optional.get();
+			setRitual(new Ritual<>(recipe.getRitual(), recipe.getResult()));
+			if (ritual.canPerform(world, getPos())) {
+				play(SoundEvents.ENTITY_WITCH_AMBIENT, 1F, 1F);
+				setMode(Mode.RITUAL);
+			} else {
+				failHorribly();
+			}
+		}
+	}
+
+	public void failHorribly() {
+		play(SoundEvents.ENTITY_GENERIC_EXPLODE, 1F, 1F);
+		particleServerSide(EnumParticleTypes.EXPLOSION_HUGE, 0.5, 0.5, 0.5, 0, 0, 0, 5);
+		inv.setFluid(null);
+		onLiquidChange();
+
+		world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(getPos()).expandXyz(2))
+				.forEach(entity -> entity.attackEntityFrom(DamageSource.magic, ingredients.length / 2));
+	}
+
+	//------------------------------------Crafting Logic------------------------------------//
 
 	public enum Mode {
 		NORMAL,

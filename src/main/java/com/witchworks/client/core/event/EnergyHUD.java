@@ -46,7 +46,7 @@ public class EnergyHUD {
 					visible = 1F;
 				}
 
-				if (renderTime > 0) {
+				if (renderTime > 0 && energy.get() == energy.getMax()) {
 					if (ENERGY_HUD.hide && renderTime < 20) {
 						visible -= 0.05F;
 						visible = MathHelper.clamp(visible, 0F, 1F);

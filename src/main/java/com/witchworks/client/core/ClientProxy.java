@@ -2,7 +2,7 @@ package com.witchworks.client.core;
 
 import com.witchworks.client.core.event.BrewHUD;
 import com.witchworks.client.core.event.EnergyHUD;
-import com.witchworks.client.core.event.TextureStitcher;
+import com.witchworks.client.core.event.TextureStitch;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.client.handler.BlockCandleColorHandler;
 import com.witchworks.client.handler.BrewItemColorHandler;
@@ -58,7 +58,7 @@ public class ClientProxy implements ISidedProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
-		MinecraftForge.EVENT_BUS.register(new TextureStitcher());
+		MinecraftForge.EVENT_BUS.register(new TextureStitch());
 		MinecraftForge.EVENT_BUS.register(new EnergyHUD());
 		MinecraftForge.EVENT_BUS.register(new BrewHUD());
 	}

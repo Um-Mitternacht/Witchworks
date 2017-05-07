@@ -1,6 +1,7 @@
 package com.witchworks.common.crafting.kettle;
 
 import com.witchworks.api.KettleRegistry;
+import com.witchworks.api.ritual.Ritual;
 import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.block.Block;
@@ -37,44 +38,84 @@ public final class KettleCrafting {
 		KettleRegistry.addKettleProcessing(Fluids.MUNDANE_OIL, Items.POTATO, getStack(Items.BAKED_POTATO), true);
 
 		KettleRegistry.addKettleProcessing(FluidRegistry.WATER, ModItems.EMPTY_HONEYCOMB, getStack(ModItems.WAX), true);
+
+		//------------------------------------Item Rituals------------------------------------//
+		//Test recipe ignore
+		KettleRegistry.registerKettleItemRecipe(Ritual.DEFAULT_NO_ENERGY
+				, getStack(Items.GOLDEN_APPLE)
+				, getStack(Items.GOLD_INGOT, 4), Items.BONE, Items.BONE, Items.BONE, Items.BONE);
+		//Test recipe ignore
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(5)
+				, getStack(Items.SADDLE)
+				, getStack(Items.LEATHER), Items.LEATHER, Items.IRON_INGOT, ModItems.BELLADONNA);
 	}
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
 	private static ItemStack getStack(Item item) {
-		return getStack(item, 0);
+		return getStack(item, 1, 0);
 	}
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
+	 * @param size Size of ItemStack
+	 * @return An ItemStack
+	 */
+	private static ItemStack getStack(Item item, int size) {
+		return new ItemStack(item, size, 0);
+	}
+
+	/**
+	 * Who needs to write the whole thing?
+	 *
+	 * @param item The block to make an ItemStack out of
+	 * @param size Size of ItemStack
 	 * @param meta Meta of ItemStack
 	 * @return An ItemStack
 	 */
-	private static ItemStack getStack(Item item, int meta) {
-		return new ItemStack(item, 1, meta);
+	private static ItemStack getStack(Item item, int size, int meta) {
+		return new ItemStack(item, size, meta);
 	}
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
 	@SuppressWarnings ("ConstantConditions")
 	private static ItemStack getStack(Block block) {
-		return getStack(Item.getItemFromBlock(block), 0);
+		return getStack(Item.getItemFromBlock(block), 1, 0);
 	}
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
+	 * @param size  Size of ItemStack
 	 * @return An ItemStack
 	 */
 	@SuppressWarnings ("ConstantConditions")
-	private static ItemStack getStack(Block block, int meta) {
-		return getStack(Item.getItemFromBlock(block), meta);
+	private static ItemStack getStack(Block block, int size) {
+		return getStack(Item.getItemFromBlock(block), size, 0);
+	}
+
+	/**
+	 * Who needs to write the whole thing?
+	 *
+	 * @param block The block to make an ItemStack out of
+	 * @param size  Size of ItemStack
+	 * @param meta  Meta of ItemStack
+	 * @return An ItemStack
+	 */
+	@SuppressWarnings ("ConstantConditions")
+	private static ItemStack getStack(Block block, int size, int meta) {
+		return getStack(Item.getItemFromBlock(block), size, meta);
 	}
 }
