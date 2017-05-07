@@ -52,6 +52,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -61,6 +62,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param size Size of ItemStack
 	 * @return An ItemStack
@@ -71,6 +73,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param size Size of ItemStack
 	 * @param meta Meta of ItemStack
@@ -82,6 +85,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -92,8 +96,9 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
-	 * @param size Size of ItemStack
+	 * @param size  Size of ItemStack
 	 * @return An ItemStack
 	 */
 	@SuppressWarnings ("ConstantConditions")
@@ -103,9 +108,10 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
-	 * @param size Size of ItemStack
-	 * @param meta Meta of ItemStack
+	 * @param size  Size of ItemStack
+	 * @param meta  Meta of ItemStack
 	 * @return An ItemStack
 	 */
 	@SuppressWarnings ("ConstantConditions")

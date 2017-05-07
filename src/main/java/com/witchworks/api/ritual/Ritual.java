@@ -68,7 +68,7 @@ public class Ritual <T extends TileEntity> {
 
 	@SuppressWarnings ("ConstantConditions")
 	private void drainEnergy(World world, BlockPos pos) {
-		List<EntityPlayer> list = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos).expandXyz(10)).stream()
+		List<EntityPlayer> list = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos).expandXyz(5)).stream()
 				.filter(player -> player.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)).collect(Collectors.toList());
 		if (!list.isEmpty()) {
 			list.forEach(player -> {
@@ -155,7 +155,7 @@ public class Ritual <T extends TileEntity> {
 
 		@Override
 		public boolean check(World world, BlockPos pos) {
-			return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos).expandXyz(10)).isEmpty();
+			return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos).expandXyz(5)).isEmpty();
 		}
 
 		@Override
