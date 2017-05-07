@@ -5,6 +5,7 @@ import com.witchworks.api.ritual.Ritual;
 import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -48,11 +49,14 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(5)
 				, getStack(Items.SADDLE)
 				, getStack(Items.LEATHER), Items.LEATHER, Items.IRON_INGOT, ModItems.BELLADONNA);
+
+		KettleRegistry.registerKettleItemRecipe(Ritual.DEFAULT_NO_ENERGY
+				, getStack(Items.GOLDEN_APPLE,1, 1)
+				, getStack(Blocks.GOLD_BLOCK, 9), Items.APPLE);
 	}
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -62,7 +66,6 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param size Size of ItemStack
 	 * @return An ItemStack
@@ -73,7 +76,6 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param size Size of ItemStack
 	 * @param meta Meta of ItemStack
@@ -85,7 +87,6 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -96,9 +97,8 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param block The block to make an ItemStack out of
-	 * @param size  Size of ItemStack
+	 * @param size Size of ItemStack
 	 * @return An ItemStack
 	 */
 	@SuppressWarnings ("ConstantConditions")
@@ -108,10 +108,9 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
-	 *
 	 * @param block The block to make an ItemStack out of
-	 * @param size  Size of ItemStack
-	 * @param meta  Meta of ItemStack
+	 * @param size Size of ItemStack
+	 * @param meta Meta of ItemStack
 	 * @return An ItemStack
 	 */
 	@SuppressWarnings ("ConstantConditions")
