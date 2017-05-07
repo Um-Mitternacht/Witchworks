@@ -33,7 +33,7 @@ public final class KettleRegistry {
 	public static KettleItemRecipe registerKettleItemRecipe(IKettleRitual ritual, ItemStack stack, Object... objects) {
 		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, stack, objects);
 		KETTLE_ITEM_RECIPES.add(recipe);
-		if (ritual != Ritual.DEFAULT_NO_ENERGY)
+		if (!KETTLE_RITUALS.contains(ritual))
 			KETTLE_RITUALS.add(ritual);
 		return recipe;
 	}
