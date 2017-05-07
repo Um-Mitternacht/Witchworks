@@ -190,7 +190,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 		if (inv.hasFluid()) {
 			if (!inv.hasFluid(FluidRegistry.LAVA)) {
-				if(isHeat()) {
+				if (isHeat()) {
 					handleParticles();
 					if (ticks % 60 == 0) {
 						play(WitchSoundEvents.BOIL, 0.1F, 1F);
@@ -205,14 +205,14 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			handleHeat();
 		}
 
-		if(!world.isRemote && mode == Mode.RITUAL && ritual != null) {
+		if (!world.isRemote && mode == Mode.RITUAL && ritual != null) {
 			handleRitual();
 		}
 
 		++ticks;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	private void handleRitual() {
 		if (ritual.update(this) && !ritual.isFail()) {
 			if (ritual.hasEnded()) {
@@ -342,7 +342,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		if (inv.getInnerFluid() == FluidRegistry.WATER) {
 			setColorRGB(new Color(0x194919));
 		}
-		if(!world.isRemote)
+		if (!world.isRemote)
 			PacketHandler.updateToNearbyPlayers(world, pos);
 	}
 

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public interface IKettleRitual<T extends TileEntity> {
+public interface IKettleRitual <T extends TileEntity> {
 
 	boolean check(World world, BlockPos pos);
 

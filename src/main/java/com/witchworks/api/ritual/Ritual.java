@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
-public class Ritual<T extends TileEntity> {
+@SuppressWarnings ("WeakerAccess")
+public class Ritual <T extends TileEntity> {
 
 	public static final IKettleRitual DEFAULT_NO_ENERGY = new DefaultRitual();
 
@@ -66,7 +66,7 @@ public class Ritual<T extends TileEntity> {
 		return ritual != null && ritual.tick(tile, tick++);
 	}
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	private void drainEnergy(World world, BlockPos pos) {
 		List<EntityPlayer> list = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos).expandXyz(10)).stream()
 				.filter(player -> player.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)).collect(Collectors.toList());
@@ -108,7 +108,7 @@ public class Ritual<T extends TileEntity> {
 		return stack;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	public void readNBT(NBTTagCompound cmp) {
 		NBTTagCompound tag = cmp.getCompoundTag("ritual_data");
 		ritual = KettleRegistry.getKettleRituals().get(tag.getInteger("ritual"));
@@ -119,7 +119,7 @@ public class Ritual<T extends TileEntity> {
 
 	public void writeNBT(NBTTagCompound cmp) {
 		NBTTagCompound tag = new NBTTagCompound();
-		if(stack != null)
+		if (stack != null)
 			tag = stack.writeToNBT(tag);
 		tag.setInteger("ritual", KettleRegistry.getKettleRituals().indexOf(ritual));
 		tag.setInteger("drained", drained);
