@@ -9,6 +9,7 @@ import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.crop.BlockBelladonna;
 import com.witchworks.common.block.natural.crop.BlockCrop;
 import com.witchworks.common.block.natural.crop.BlockKelp;
+import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.block.tile.ModTiles;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.item.ItemMalachite;
@@ -38,8 +39,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.IForgeRegistry;
 
 import static com.witchworks.api.item.crop.Crop.*;
 
@@ -56,26 +59,29 @@ public final class CommonRegistration {
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
+		final IForgeRegistry<Item> registry = event.getRegistry();
 		//Crops
-		registerCrop(ACONITUM, ModBlocks.CROP_ACONITUM, new ItemAconitum(), LibItemName.SEED_ACONITUM);
-		registerCrop(ASPHODEL, ModBlocks.CROP_ASPHODEL, new ItemAsphodel(), LibItemName.SEED_ASPHODEL);
-		registerCrop(BELLADONNA, ModBlocks.CROP_BELLADONNA, new ItemBelladonna(), LibItemName.SEED_BELLADONNA);
-		registerCrop(GINGER, ModBlocks.CROP_GINGER, new ItemGinger(), LibItemName.SEED_GINGER);
-		registerCrop(KELP, ModBlocks.CROP_KELP, new ItemKelp(), new ItemKelpSeed());
-		registerCrop(MINT, ModBlocks.CROP_MINT, new ItemMint(), LibItemName.SEED_MINT);
-		registerCrop(WHITE_SAGE, ModBlocks.CROP_WHITE_SAGE, new ItemWhiteSage(), LibItemName.SEED_WHITE_SAGE);
-		registerCrop(DANDELION_ROOT, ModBlocks.CROP_DANDELION_ROOT, new ItemDandelionRoot(), LibItemName.SEED_DANDELION_ROOT);
-		registerCrop(ALLIUM, ModBlocks.CROP_ALLIUM, new ItemAllium(), LibItemName.SEED_ALLIUM);
-		registerCrop(MANDRAKE_ROOT, ModBlocks.CROP_MANDRAKE_ROOT, new ItemMandrakeRoot(), LibItemName.SEED_MANDRAKE_ROOT);
-		registerCrop(LILAC, ModBlocks.CROP_LILAC, new ItemLilac(), LibItemName.SEED_LILAC);
-		registerCrop(LAVENDER, ModBlocks.CROP_LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
-		registerCrop(THISTLE, ModBlocks.CROP_THISTLE, new ItemThistle(), LibItemName.SEED_THISTLE);
+		registerCrop(ACONITUM, new ItemAconitum(), LibItemName.SEED_ACONITUM);
+		registerCrop(ASPHODEL, new ItemAsphodel(), LibItemName.SEED_ASPHODEL);
+		registerCrop(BELLADONNA, new ItemBelladonna(), LibItemName.SEED_BELLADONNA);
+		registerCrop(GINGER, new ItemGinger(), LibItemName.SEED_GINGER);
+		registerCrop(KELP, new ItemKelp(), new ItemKelpSeed());
+		registerCrop(MINT, new ItemCrop(LibItemName.MINT, 1, 2F, false), LibItemName.SEED_MINT);
+		registerCrop(WHITE_SAGE, new ItemCrop(LibItemName.WHITE_SAGE, 1, 0.4F, false), LibItemName.SEED_WHITE_SAGE);
+		registerCrop(MANDRAKE_ROOT, new ItemCrop(LibItemName.MANDRAKE_ROOT, 4, 6F, false), LibItemName.SEED_MANDRAKE_ROOT);
+		registerCrop(LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
+		registerCrop(THISTLE, new ItemThistle(), LibItemName.SEED_THISTLE);
+		registerCrop(TULSI, new ItemCrop(LibItemName.TULSI, 1, 0.4F, false), LibItemName.SEED_TULSI);
+		registerCrop(KENAF, new ItemCrop(LibItemName.KENAF, 4, 6F, false), LibItemName.SEED_KENAF);
+		registerCrop(SILPHIUM, new ItemCrop(LibItemName.SILPHIUM, 4, 6F, false), LibItemName.SEED_SILPHIUM);
+		registerCrop(GARLIC, new ItemCrop(LibItemName.GARLIC, 4, 6F, false), LibItemName.SEED_GARLIC);
+		registerCrop(WORMWOOD, new ItemCrop(LibItemName.WORMWOOD, 4, 0.8F, false), LibItemName.SEED_WORMWOOD);
 
-		CropRegistry.getFoods().forEach((crop, item) -> event.getRegistry().register(item));
-		CropRegistry.getSeeds().forEach((crop, item) -> event.getRegistry().register(item));
+		CropRegistry.getFoods().forEach((crop, item) -> registry.register(item));
+		CropRegistry.getSeeds().forEach((crop, item) -> registry.register(item));
 
 		//Normal Items
-		event.getRegistry().registerAll(
+		registry.registerAll(
 				//Gems
 				new ItemMod(LibItemName.GARNET),
 				new ItemMod(LibItemName.MOLDAVITE),
@@ -136,20 +142,22 @@ public final class CommonRegistration {
 		);
 
 		//Item Blocks
-		event.getRegistry().registerAll(
+		registry.registerAll(
 				itemBlock(ModBlocks.CROP_ACONITUM),
 				itemBlock(ModBlocks.CROP_ASPHODEL),
 				itemBlock(ModBlocks.CROP_BELLADONNA),
 				itemBlock(ModBlocks.CROP_GINGER),
 				itemBlock(ModBlocks.CROP_KELP),
 				itemBlock(ModBlocks.CROP_MINT),
+				itemBlock(ModBlocks.CROP_SILPHIUM),
 				itemBlock(ModBlocks.CROP_WHITE_SAGE),
-				itemBlock(ModBlocks.CROP_DANDELION_ROOT),
-				itemBlock(ModBlocks.CROP_ALLIUM),
 				itemBlock(ModBlocks.CROP_MANDRAKE_ROOT),
-				itemBlock(ModBlocks.CROP_LILAC),
 				itemBlock(ModBlocks.CROP_LAVENDER),
 				itemBlock(ModBlocks.CROP_THISTLE),
+				itemBlock(ModBlocks.CROP_TULSI),
+				itemBlock(ModBlocks.CROP_KENAF),
+				itemBlock(ModBlocks.CROP_GARLIC),
+				itemBlock(ModBlocks.CROP_WORMWOOD),
 
 				itemBlock(ModBlocks.SILVER_BLOCK),
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
@@ -183,6 +191,9 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.SALT_BARRIER),
 				itemBlock(ModBlocks.CHALK)
 		);
+		for (final IFluidBlock fluidBlock : Fluids.MOD_FLUID_BLOCKS) {
+			registry.register(itemBlock((Block) fluidBlock));
+		}
 	}
 
 	private static Item itemBlock(Block block) {
@@ -191,20 +202,23 @@ public final class CommonRegistration {
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
+		final IForgeRegistry<Block> registry = event.getRegistry();
 		ModTiles.registerAll();
-		event.getRegistry().registerAll(
+		registry.registerAll(
 				//Crops
 				new BlockCrop(LibBlockName.CROP_ACONITUM),
 				new BlockCrop(LibBlockName.CROP_ASPHODEL),
 				new BlockCrop(LibBlockName.CROP_GINGER),
 				new BlockCrop(LibBlockName.CROP_MINT),
 				new BlockCrop(LibBlockName.CROP_WHITE_SAGE),
-				new BlockCrop(LibBlockName.CROP_DANDELION_ROOT),
-				new BlockCrop(LibBlockName.CROP_ALLIUM),
 				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
-				new BlockCrop(LibBlockName.CROP_LILAC),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
+				new BlockCrop(LibBlockName.CROP_SILPHIUM),
 				new BlockCrop(LibBlockName.CROP_THISTLE),
+				new BlockCrop(LibBlockName.CROP_TULSI),
+				new BlockCrop(LibBlockName.CROP_KENAF),
+				new BlockCrop(LibBlockName.CROP_GARLIC),
+				new BlockCrop(LibBlockName.CROP_WORMWOOD),
 				new BlockKelp(),
 				new BlockBelladonna(),
 				new BlockBeehive(),
@@ -245,6 +259,9 @@ public final class CommonRegistration {
 				new BlockOilPress(),
 				new BlockAltar()
 		);
+		for (final IFluidBlock fluidBlock : Fluids.MOD_FLUID_BLOCKS) {
+			registry.register((Block) fluidBlock);
+		}
 	}
 
 	@SubscribeEvent
@@ -256,31 +273,30 @@ public final class CommonRegistration {
 	/**
 	 * Register a Crop to the {@link CropRegistry}, this method creates a new {@link ItemSeed} for you.
 	 * @param crop The Crop enum
-	 * @param blockCrop The block this Crop can have
 	 * @param cropItem The item this Crop will drop when harvested
 	 * @param seedName The name id the new ItemSeed
 	 */
-	private static void registerCrop(Crop crop, BlockCrop blockCrop, Item cropItem, String seedName) {
-		registerCrop(crop, blockCrop, cropItem, new ItemSeed(seedName, blockCrop, crop.getSoil()));
+	private static void registerCrop(Crop crop, Item cropItem, String seedName) {
+		registerCrop(crop, cropItem, new ItemSeed(seedName, crop.getPlaced(), crop.getSoil()));
 	}
 
 	/**
 	 * Register a Crop to the {@link CropRegistry}, this method accepts a custom {@link ItemSeed}.
 	 * <p>
 	 * The Item Seed needs to be different, for ex the Kelp seed,
-	 * that needs to be placed on water so it uses a different placement logic.
+	 * that needs to be placed on water so it uses a different placement recipeDropLogic.
 	 * </p>
 	 * @param crop The Crop enum
-	 * @param blockCrop The block this Crop can have
 	 * @param cropItem The item this Crop will drop when harvested
 	 * @param seedItem The seed that will place the Crop
 	 */
-	private static void registerCrop(Crop crop, BlockCrop blockCrop, Item cropItem, Item seedItem) {
-		blockCrop.setCrop(cropItem);
-		blockCrop.setSeed(seedItem);
+	private static void registerCrop(Crop crop, Item cropItem, Item seedItem) {
+		BlockCrop placed = crop.getPlaced();
+		placed.setCrop(cropItem);
+		placed.setSeed(seedItem);
 
 		CropRegistry.getSeeds().put(crop, seedItem);
-		CropRegistry.getCrops().put(crop, blockCrop);
+		CropRegistry.getCrops().put(crop, placed);
 		CropRegistry.getFoods().put(crop, cropItem);
 	}
 }

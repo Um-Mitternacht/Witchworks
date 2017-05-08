@@ -34,7 +34,7 @@ public class ServerProxy implements ISidedProxy {
 	}
 
 	@Override
-	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... args) {
 		//NO-OP
 	}
 }

@@ -53,7 +53,7 @@ public final class CapabilityEnergy {
 
 		private int amount;
 		private int max = 8;
-		private int regen = 20;
+		private int regen = 60;
 		private int uses;
 		private int overchannel;
 		private int tick;

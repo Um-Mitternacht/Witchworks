@@ -26,7 +26,7 @@ public enum ParticleF {
 		this.factory = factory;
 	}
 
-	public Particle newInstance(double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+	public Particle newInstance(double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... args) {
 		return factory.createParticle(Minecraft.getMinecraft().world, x, y, z, xSpeed, ySpeed, zSpeed, args);
 	}
 }

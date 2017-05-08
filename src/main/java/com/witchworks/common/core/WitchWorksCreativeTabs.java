@@ -120,7 +120,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.HONEYCOMB);
 			addItem(ModItems.EMPTY_HONEYCOMB);
 			addItem(ModItems.GLASS_JAR);
-			addItem(ModItems.HONEY);
+			addItem(ModItems.HONEY_ITEM);
 			addItem(ModItems.WAX);
 			addItem(ModItems.MORTAR_AND_PESTLE);
 			addItem(ModItems.SALT);

@@ -26,6 +26,7 @@ item.seed_lilac.name=Lilac Seed
 item.seed_peony.name=Peony Seed
 item.seed_lavender.name=Lavender Seed
 item.seed_thistle.name=Thistle Seed
+item.seed_silphium.name=Silphium Seed
 
 item.aconitum.name=Aconitum
 item.asphodel.name=Asphodel
@@ -45,6 +46,7 @@ item.lilac.name=Lilac
 item.lavender.name=Lavender
 item.peony.name=Peony
 item.thistle.name=Thistle
+item.silphium.name=Silphium
 
 item.garnet.name=Garnet
 item.moldavite.name=Moldavite
@@ -153,6 +155,7 @@ tile.crop_lilac.name=Lilac Crop
 tile.crop_peony.name=Peony Crop
 tile.crop_lavender.name=Lavender Crop
 tile.crop_thistle.name=Thistle Crop
+tile.crop_thistle.name=Silphium Crop
 
 tile.silver_ore.name=Silver Ore
 tile.moldavite_ore.name=Moldavite Ore
@@ -186,10 +189,10 @@ brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
 
 brew.fire_brew.name=Inner Fire Brew
-brew.fire_brew.desc=Spew forth your inner fire, and breathe like the dragons of old
+brew.fire_brew.desc=Spew forth your inner fire
 
 brew.spider_nightmare_brew.name=Spider Nightmare
-brew.spider_nightmare_brew.desc=Spiderman, Spiderman, does whatever a spider can
+brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
 
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
@@ -213,6 +216,7 @@ witch.tooltip.seed_lilac_description.name=Seed from a flowering woody plant
 witch.tooltip.seed_peony_description.name=Seed from a flowering plant
 witch.tooltip.seed_lavender_description.name=Seed from a flowering plant
 witch.tooltip.seed_thistle_description.name=Seed from a thorny flower
+witch.tooltip.seed_silphium_description.name=Seedpod from a strange fennel
 
 witch.tooltip.aconitum_description.name=Poisonous, can prevent or revert shapeshifting, and wolves and therians have an aversion to it
 witch.tooltip.asphodel_description.name=Related to death and the afterlife, but not poisonous
@@ -232,6 +236,7 @@ witch.tooltip.lilac_description.name=Associated with protection
 witch.tooltip.lavender_description.name=Associated with purity and grace
 witch.tooltip.peony_description.name=Seed from a flowering plant
 witch.tooltip.thistle_description.name=A flower associated with strength and durability, and is the national flower of Scotland
+witch.tooltip.silphium_description.name=A rather large and unusual fennel prized by the romans for its many uses
 
 //Incantation
 commands.incantation.notFound=The powers you cast forth fizzle to nothingness

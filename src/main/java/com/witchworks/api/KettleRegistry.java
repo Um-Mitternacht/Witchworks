@@ -1,8 +1,12 @@
 package com.witchworks.api;
 
-import com.witchworks.api.recipe.*;
+import com.witchworks.api.recipe.ItemValidator;
+import com.witchworks.api.recipe.KettleItemRecipe;
+import com.witchworks.api.recipe.KettlePotionRecipe;
+import com.witchworks.api.ritual.IKettleRitual;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,64 +21,61 @@ import java.util.Map;
 @SuppressWarnings ({"WeakerAccess", "unused"})
 public final class KettleRegistry {
 
-	private static final List<IKettleRecipe> kettleRecipes = new ArrayList<>();
-	private static final Map<Item, KettleExchange> kettleExchanges = new HashMap<>();
-	private static final Map<Item, PotionValidator<PotionHolder>> kettleEffects = new HashMap<>();
-	private static final Map<Item, PotionValidator<IEffectModifier>> kettleModifiers = new HashMap<>();
+	private static final List<IKettleRitual> KETTLE_RITUALS = new ArrayList<>();
+	private static final List<KettleItemRecipe> KETTLE_ITEM_RECIPES = new ArrayList<>();
+	private static final List<KettlePotionRecipe> KETTLE_POTION_RECIPES = new ArrayList<>();
+	private static final Map<Fluid, Map<Item, ItemValidator<ItemStack>>> KETTLE_PROCESSING = new HashMap<>();
 
 	private KettleRegistry() {
 	}
 
-	public static IKettleRecipe registerKettleItemRecipe(ItemStack stack, Object... objects) {
-		final IKettleRecipe recipe = new KettleRecipe(stack, objects);
-		return registerKettleRecipe(recipe);
+	public static KettleItemRecipe registerKettleItemRecipe(IKettleRitual ritual, ItemStack stack, Object... objects) {
+		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, stack, objects);
+		KETTLE_ITEM_RECIPES.add(recipe);
+		if (!KETTLE_RITUALS.contains(ritual))
+			KETTLE_RITUALS.add(ritual);
+		return recipe;
 	}
 
-	public static IKettleRecipe registerKettlePotionRecipe(ItemStack stack, Object... objects) {
-		final IKettleRecipe recipe = new KettleRecipePotion(stack, objects);
-		return registerKettleRecipe(recipe);
+	public static KettlePotionRecipe registerKettlePotionRecipe(ItemStack stack, Object... objects) {
+		final KettlePotionRecipe recipe = new KettlePotionRecipe(stack, objects);
+		KETTLE_POTION_RECIPES.add(recipe);
+		return recipe;
 	}
 
-	public static IKettleRecipe registerKettleRecipe(IKettleRecipe kettleRecipe) {
-		kettleRecipes.add(kettleRecipe);
-		return kettleRecipe;
+	public static void addKettleProcessing(Fluid fluid, Item in, ItemStack out, boolean strict) {
+		addKettleProcessing(fluid, new ItemStack(in), out, strict);
 	}
 
-	public static void addKettleExchange(ItemStack in, ItemStack out, boolean strict) {
-		kettleExchanges.put(in.getItem(), new KettleExchange(in, out, strict));
-	}
-
-	public static void addKettleEffectTo(ItemStack stack, PotionHolder effect) {
-		final Item item = stack.getItem();
-		if (kettleEffects.containsKey(item)) {
-			kettleEffects.get(item).add(stack, effect);
+	public static void addKettleProcessing(Fluid fluid, ItemStack in, ItemStack out, boolean strict) {
+		if (KETTLE_PROCESSING.containsKey(fluid)) {
+			Map<Item, ItemValidator<ItemStack>> map = KETTLE_PROCESSING.get(fluid);
+			Item item = in.getItem();
+			if (map.containsKey(item)) {
+				map.get(item).add(in, out, strict);
+			} else {
+				map.put(item, new ItemValidator<ItemStack>().add(in, out, strict));
+			}
 		} else {
-			kettleEffects.put(item, new PotionValidator<PotionHolder>().add(stack, effect));
+			Map<Item, ItemValidator<ItemStack>> map = new HashMap<>();
+			map.put(in.getItem(), new ItemValidator<ItemStack>().add(in, out, strict));
+			KETTLE_PROCESSING.put(fluid, map);
 		}
 	}
 
-	public static <T extends IEffectModifier> void addKettleModifierTo(ItemStack stack, T modifier) {
-		final Item item = stack.getItem();
-		if (kettleModifiers.containsKey(item)) {
-			kettleModifiers.get(item).add(stack, modifier);
-		} else {
-			kettleModifiers.put(item, new PotionValidator<IEffectModifier>().add(stack, modifier));
-		}
+	public static List<IKettleRitual> getKettleRituals() {
+		return KETTLE_RITUALS;
 	}
 
-	public static List<IKettleRecipe> getKettleRecipes() {
-		return kettleRecipes;
+	public static List<KettleItemRecipe> getKettleItemRecipes() {
+		return KETTLE_ITEM_RECIPES;
 	}
 
-	public static Map<Item, KettleExchange> getKettleExchanges() {
-		return kettleExchanges;
+	public static List<KettlePotionRecipe> getKettlePotionRecipes() {
+		return KETTLE_POTION_RECIPES;
 	}
 
-	public static Map<Item, PotionValidator<PotionHolder>> getKettleEffects() {
-		return kettleEffects;
-	}
-
-	public static Map<Item, PotionValidator<IEffectModifier>> getKettleModifiers() {
-		return kettleModifiers;
+	public static Map<Item, ItemValidator<ItemStack>> getKettleProcessing(Fluid fluid) {
+		return KETTLE_PROCESSING.get(fluid);
 	}
 }

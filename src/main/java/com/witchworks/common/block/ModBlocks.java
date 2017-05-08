@@ -33,18 +33,22 @@ public final class ModBlocks {
 	public static final BlockCrop CROP_MINT = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_WHITE_SAGE)
 	public static final BlockCrop CROP_WHITE_SAGE = new BlockCrop();
-	@ObjectHolder (LibBlockName.CROP_DANDELION_ROOT)
-	public static final BlockCrop CROP_DANDELION_ROOT = new BlockCrop();
-	@ObjectHolder (LibBlockName.CROP_ALLIUM)
-	public static final BlockCrop CROP_ALLIUM = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_MANDRAKE_ROOT)
 	public static final BlockCrop CROP_MANDRAKE_ROOT = new BlockCrop();
-	@ObjectHolder (LibBlockName.CROP_LILAC)
-	public static final BlockCrop CROP_LILAC = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_LAVENDER)
 	public static final BlockCrop CROP_LAVENDER = new BlockCrop();
 	@ObjectHolder (LibBlockName.CROP_THISTLE)
 	public static final BlockCrop CROP_THISTLE = new BlockCrop();
+	@ObjectHolder (LibBlockName.CROP_TULSI)
+	public static final BlockCrop CROP_TULSI = new BlockCrop();
+	@ObjectHolder (LibBlockName.CROP_KENAF)
+	public static final BlockCrop CROP_KENAF = new BlockCrop();
+	@ObjectHolder (LibBlockName.CROP_SILPHIUM)
+	public static final BlockCrop CROP_SILPHIUM = new BlockCrop();
+	@ObjectHolder (LibBlockName.CROP_GARLIC)
+	public static final BlockCrop CROP_GARLIC = new BlockCrop();
+	@ObjectHolder (LibBlockName.CROP_WORMWOOD)
+	public static final BlockCrop CROP_WORMWOOD = new BlockCrop();
 
 	@ObjectHolder (LibBlockName.SILVER_BLOCK)
 	public static final Block SILVER_BLOCK = new Block(Material.ROCK);
@@ -118,6 +122,7 @@ public final class ModBlocks {
 
 	public static void initOreDictionary() {
 		OreDictionary.registerOre("coquina", new ItemStack(ModBlocks.COQUINA));
+		OreDictionary.registerOre("limestone", new ItemStack(ModBlocks.COQUINA));
 		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.SILVER_BLOCK));
 		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
 		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));

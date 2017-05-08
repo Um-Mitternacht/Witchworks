@@ -10,5 +10,5 @@ import net.minecraft.world.World;
  */
 interface IParticleF {
 
-	Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... p_178902_15_);
+	Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args);
 }
