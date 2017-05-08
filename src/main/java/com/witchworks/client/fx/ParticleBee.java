@@ -70,7 +70,7 @@ class ParticleBee extends Particle {
 
 	@SideOnly (Side.CLIENT)
 	static class Factory implements IParticleF {
-		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
+		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			return new ParticleBee(worldIn, xCoordIn, yCoordIn, zCoordIn);
 		}
 	}

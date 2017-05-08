@@ -1,17 +1,23 @@
 package com.witchworks.client.render.tile;
 
+import com.witchworks.client.ResourceLocations;
 import com.witchworks.common.block.tile.TileKettle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import org.lwjgl.opengl.GL11;
+
+import java.util.Optional;
 
 /**
  * This class was created by Arekkuusu on 09/03/2017.
@@ -20,16 +26,28 @@ import org.lwjgl.opengl.GL11;
  */
 public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
+	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
-		if (te.hasWater()) {
+		Optional<FluidStack> optional = te.getFluid();
+		if (optional.isPresent() && optional.get().amount > 0) {
+			FluidStack fluidStack = optional.get();
+			Fluid fluid = fluidStack.getFluid();
+			ResourceLocation location = fluid.getStill();
+			double level = (double) fluidStack.amount / (Fluid.BUCKET_VOLUME * 2D);
+
 			GlStateManager.pushMatrix();
 			GlStateManager.disableLighting();
-			final double level = y + 0.155D + (te.getWaterLevel() * 0.075D);
-			GlStateManager.translate(x, level, z);
+			GlStateManager.translate(x, y + 0.1 + level, z);
+			if (fluid == FluidRegistry.WATER || te.hasIngredients()) {
+				float r = te.getColorRGB().getRed() / 255F;
+				float g = te.getColorRGB().getGreen() / 255F;
+				float b = te.getColorRGB().getBlue() / 255F;
+				GlStateManager.color(r, g, b);
+				location = ResourceLocations.GRAY_WATER;
+			}
 
 			Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-			final Fluid fluid = FluidRegistry.WATER;
 
 			GlStateManager.enableBlend();
 			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
@@ -41,9 +59,7 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			final float s = 0.0460425F;
 			GlStateManager.scale(s, s, s);
 
-			final float[] color = te.getColor();
-			GlStateManager.color(color[0], color[1], color[2], 1.0F);
-			renderWater(fluid.getStill());
+			renderWater(location);
 
 			GlStateManager.enableAlpha();
 			GlStateManager.disableBlend();
@@ -51,6 +67,15 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.enableLighting();
 			GlStateManager.popMatrix();
 		}
+		GlStateManager.pushMatrix();
+		ItemStack stack = te.getContainer();
+		GlStateManager.translate(x + 0.5, y + 0.2D, z + 0.35);
+		GlStateManager.rotate(90F, 1F, 0, 0);
+		if (stack != null) {
+			Minecraft mc = Minecraft.getMinecraft();
+			mc.getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.GROUND);
+		}
+		GlStateManager.popMatrix();
 	}
 
 	private void renderWater(ResourceLocation loc) {

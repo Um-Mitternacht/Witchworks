@@ -1,12 +1,9 @@
 package com.witchworks.common.item.food;
 
-import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by Arekkuusu on 02/03/2017.
@@ -23,11 +20,5 @@ public class ItemAconitum extends ItemCrop {
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 		return EnumRarity.UNCOMMON;
-	}
-
-	@Override
-	@SideOnly (Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerItem(this);
 	}
 }

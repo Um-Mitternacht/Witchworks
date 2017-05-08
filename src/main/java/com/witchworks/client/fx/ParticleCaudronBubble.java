@@ -11,16 +11,23 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.awt.*;
+
 @SideOnly (Side.CLIENT)
 class ParticleCaudronBubble extends Particle {
 
-	private ParticleCaudronBubble(World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float[] colors) {
+	private ParticleCaudronBubble(World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int color) {
 		super(world, x, y, z, xSpeed, ySpeed, zSpeed);
+		this.motionX = 0;
+		this.motionY = 0;
+		this.motionZ = 0;
 		this.setSize(0.02F, 0.02F);
 		this.particleScale *= 0.2F;
 		this.motionY = ySpeed * 0.20000000298023224D + (Math.random() * 2.0D - 1.0D) * 0.019999999552965164D;
 		this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D));
-		setRBGColorF(colors[0], colors[1], colors[2]);
+		Color rgb = new Color(color);
+		setRBGColorF(rgb.getRed() / 255, rgb.getGreen() / 255, rgb.getBlue() / 255);
+		setAlphaF(rgb.getAlpha() / 255);
 
 		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.CAULDRON_BUBBLE.toString());
 		setParticleTexture(atlasSprite);
@@ -37,7 +44,7 @@ class ParticleCaudronBubble extends Particle {
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
-		this.motionY += 0.002D;
+		this.motionY += 0.001D;
 		this.move(0, this.motionY, 0);
 		this.motionY *= 0.4500000238418579D;
 
@@ -58,8 +65,8 @@ class ParticleCaudronBubble extends Particle {
 
 	@SideOnly (Side.CLIENT)
 	static class Factory implements IParticleF {
-		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float... args) {
-			return new ParticleCaudronBubble(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn, args);
+		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
+			return new ParticleCaudronBubble(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn, args[0]);
 		}
 	}
 }

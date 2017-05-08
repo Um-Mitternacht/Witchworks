@@ -46,7 +46,7 @@ public class EnergyHUD {
 					visible = 1F;
 				}
 
-				if (renderTime > 0) {
+				if (renderTime > 0 && energy.get() == energy.getMax()) {
 					if (ENERGY_HUD.hide && renderTime < 20) {
 						visible -= 0.05F;
 						visible = MathHelper.clamp(visible, 0F, 1F);
@@ -92,7 +92,7 @@ public class EnergyHUD {
 				int width = ENERGY_HUD.width;
 
 				int heightUsed = heightEnd - heightStart;
-				int heightFilled = (int) (heightUsed * filled);
+				int heightFilled = (int) ((heightUsed - 28) * filled);
 
 				int posX = ENERGY_HUD.x;
 				int posY = res.getScaledHeight() - ENERGY_HUD.y;
@@ -103,14 +103,14 @@ public class EnergyHUD {
 					GlStateManager.color(1F, 1F, 1F, visible);
 
 				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY_BACKGROUND[0]);
-				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY, 0F, heightUsed, width, heightFilled, width, heightUsed);
+				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY + 14, 0F, heightUsed - 28, width, heightFilled, width, heightUsed - 28);
 
 				GlStateManager.pushMatrix();
 
 				GlStateManager.color(1F, 1F, 1F, visible == 1F ? barAlpha : visible);
 
 				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY_BACKGROUND[1]);
-				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY, 0F, heightUsed, width, heightFilled, width, heightUsed);
+				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY + 14, 0F, heightUsed - 28, width, heightFilled, width, heightUsed - 28);
 				GlStateManager.popMatrix();
 
 				if (ENERGY_HUD.hide)
@@ -119,10 +119,10 @@ public class EnergyHUD {
 				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY);
 				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY, 0F, 0F, width, heightUsed, width, heightUsed);
 
-				int textColor = 0xFFFFFF;
+				int textColor = 0x990066;
 				if (ENERGY_HUD.hide) {
 					int alpha = (int) (visible * 255);
-					textColor = alpha << 24 | 0xFFFFFF;
+					textColor = alpha << 24 | 0x990066;
 				}
 
 				mc.fontRendererObj.drawStringWithShadow("E: " + energy.get(), startPosX, posY - 15, textColor);

@@ -94,18 +94,18 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-		final TileKettle tile = (TileKettle) worldIn.getTileEntity(pos);
-		return tile != null && heldItem != null && tile.useKettle(playerIn, hand, heldItem);
-	}
-
-	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
 		IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, stack);
 		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
 		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
+	}
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+		final TileKettle tile = (TileKettle) worldIn.getTileEntity(pos);
+		return tile != null && tile.useKettle(playerIn, hand, heldItem);
 	}
 
 	@Override
@@ -134,16 +134,6 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return BOUNDING_BOX;
-	}
-
-	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return worldIn.getBlockState(
-				pos.down()).isSideSolid(
-				worldIn,
-				pos.down(),
-				EnumFacing.UP
-		);
 	}
 
 	@Override

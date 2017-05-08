@@ -55,8 +55,8 @@ public final class ModItems {
 	public static final Item SILVER_NUGGET = new Item();
 
 	//Food Items
-	@ObjectHolder (LibItemName.HONEY)
-	public static final Item HONEY = new Item();
+	@ObjectHolder (LibItemName.HONEY_ITEM)
+	public static final Item HONEY_ITEM = new Item();
 	@ObjectHolder (LibItemName.MANDRAKE_ROOT)
 	public static final Item MANDRAKE_ROOT = new Item();
 	@ObjectHolder (LibItemName.LAVENDER)
@@ -79,6 +79,12 @@ public final class ModItems {
 	public static final Item ACONITUM = new Item();
 	@ObjectHolder (LibItemName.WHITE_SAGE)
 	public static final Item WHITE_SAGE = new Item();
+	@ObjectHolder (LibItemName.TULSI)
+	public static final Item TULSI = new Item();
+	@ObjectHolder (LibItemName.KENAF)
+	public static final Item KENAF = new Item();
+	@ObjectHolder (LibItemName.SILPHIUM)
+	public static final Item SILPHIUM = new Item();
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)
@@ -175,9 +181,9 @@ public final class ModItems {
 		OreDictionary.registerOre("nuggetSilver", new ItemStack(ModItems.SILVER_NUGGET));
 		OreDictionary.registerOre("ingotSilver", new ItemStack(ModItems.SILVER_INGOT));
 		OreDictionary.registerOre("powderSilver", new ItemStack(ModItems.SILVER_POWDER));
-		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY));
-		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY));
-		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY_ITEM));
+		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY_ITEM));
+		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY_ITEM));
 		OreDictionary.registerOre("materialWax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("materialBeeswax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("materialPressedWax", new ItemStack(ModItems.WAX));
@@ -206,5 +212,12 @@ public final class ModItems {
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.GARLIC));
 		OreDictionary.registerOre("cropAconitum", new ItemStack(ModItems.ACONITUM));
 		OreDictionary.registerOre("cropWhiteSage", new ItemStack(ModItems.WHITE_SAGE));
+		OreDictionary.registerOre("cropTulsi", new ItemStack(ModItems.TULSI));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.TULSI));
+		OreDictionary.registerOre("cropKenaf", new ItemStack(ModItems.KENAF));
+		OreDictionary.registerOre("cropSilphium", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllgreenveggie", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.SILPHIUM));
 	}
 }

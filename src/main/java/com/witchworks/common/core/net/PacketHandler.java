@@ -60,7 +60,7 @@ public final class PacketHandler {
 		}
 	}
 
-	public static void spawnParticle(ParticleF particleF, World world, double x, double y, double z, int amount, double xSpeed, double ySpeed, double zSpeed, float... args) {
+	public static void spawnParticle(ParticleF particleF, World world, double x, double y, double z, int amount, double xSpeed, double ySpeed, double zSpeed, int... args) {
 		sendToNear(world, new BlockPos(x, y, z), new ParticleMessage(particleF, x, y, z, amount, xSpeed, ySpeed, zSpeed, args));
 	}
 

@@ -2,7 +2,7 @@ package com.witchworks.client.core;
 
 import com.witchworks.client.core.event.BrewHUD;
 import com.witchworks.client.core.event.EnergyHUD;
-import com.witchworks.client.core.event.TextureStitcher;
+import com.witchworks.client.core.event.TextureStitch;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.client.handler.BlockCandleColorHandler;
 import com.witchworks.client.handler.BrewItemColorHandler;
@@ -39,6 +39,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
+@SideOnly (Side.CLIENT)
 @Mod.EventBusSubscriber (Side.CLIENT)
 public class ClientProxy implements ISidedProxy {
 
@@ -49,22 +50,19 @@ public class ClientProxy implements ISidedProxy {
 	 * into the models file and bind the item to its corresponding model.
 	 * </p>
 	 */
-	@SideOnly (Side.CLIENT)
 	@SubscribeEvent
 	public static void registerItemModels(ModelRegistryEvent event) {
 		ModelHandler.registerModels();
 	}
 
-	@SideOnly (Side.CLIENT)
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
-		MinecraftForge.EVENT_BUS.register(new TextureStitcher());
+		MinecraftForge.EVENT_BUS.register(new TextureStitch());
 		MinecraftForge.EVENT_BUS.register(new EnergyHUD());
 		MinecraftForge.EVENT_BUS.register(new BrewHUD());
 	}
 
-	@SideOnly (Side.CLIENT)
 	@Override
 	public void init(FMLInitializationEvent event) {
 		BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
@@ -84,7 +82,6 @@ public class ClientProxy implements ISidedProxy {
 		NetworkRegistry.INSTANCE.registerGuiHandler(WitchWorks.instance, new GuiHandler());
 	}
 
-	@SideOnly (Side.CLIENT)
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
 	}
@@ -96,7 +93,6 @@ public class ClientProxy implements ISidedProxy {
 	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
 	 * @see RenderingRegistry
 	 */
-	@SideOnly (Side.CLIENT)
 	private void registerRenders() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileKettle.class, new TileRenderKettle());
 	}
@@ -105,21 +101,18 @@ public class ClientProxy implements ISidedProxy {
 	 * Display a Record text with a format and localization.
 	 * @param text An {@link ITextComponent}
 	 */
-	@SideOnly (Side.CLIENT)
 	@Override
 	public void displayRecordText(ITextComponent text) {
 		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
 
-	@SideOnly (Side.CLIENT)
 	@Override
-	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, float... args) {
+	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... args) {
 		if (doParticle()) {
 			Minecraft.getMinecraft().effectRenderer.addEffect(particleF.newInstance(x, y, z, xSpeed, ySpeed, zSpeed, args));
 		}
 	}
 
-	@SideOnly (Side.CLIENT)
 	private boolean doParticle() {
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
 			return false;
