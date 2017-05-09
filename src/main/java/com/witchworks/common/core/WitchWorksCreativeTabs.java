@@ -114,6 +114,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.JASPER);
 			addItem(ModItems.MALACHITE);
 			addItem(ModItems.AMETHYST);
+			addItem(ModItems.GEMSTONE_AMALGAM);
 			addItem(ModItems.ALEXANDRITE);
 			addItem(ModItems.QUARTZ);
 			addItem(ModItems.BEE);

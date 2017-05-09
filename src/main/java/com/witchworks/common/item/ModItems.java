@@ -45,6 +45,8 @@ public final class ModItems {
 	public static final Item ALEXANDRITE = new Item();
 	@ObjectHolder (LibItemName.QUARTZ)
 	public static final Item QUARTZ = new Item();
+	@ObjectHolder (LibItemName.GEMSTONE_AMALGAM)
+	public static final Item GEMSTONE_AMALGAM = new Item();
 
 	//Metals
 	@ObjectHolder (LibItemName.SILVER_INGOT)
