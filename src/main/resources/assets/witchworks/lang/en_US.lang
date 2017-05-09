@@ -63,7 +63,7 @@ item.alexandrite.name=Alexandrite
 item.quartz.name=Quartz
 
 item.wax.name=Wax
-item.honey.name=Honey
+item.honey_item.name=Honey
 item.honeycomb.name=Honeycomb
 item.empty_honeycomb.name=Empty Honeycomb
 item.glass_jar.name=Glass Jar
