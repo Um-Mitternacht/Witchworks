@@ -50,7 +50,7 @@ public final class KettleCrafting {
 				, getStack(Items.SADDLE)
 				, getStack(Items.LEATHER), Items.LEATHER, Items.IRON_INGOT, ModItems.BELLADONNA);
 
-		KettleRegistry.registerKettleItemRecipe(Ritual.DEFAULT_NO_ENERGY
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(40)
 				, getStack(Items.GOLDEN_APPLE, 1, 1)
 				, getStack(Blocks.GOLD_BLOCK, 9), Items.APPLE);
 	}

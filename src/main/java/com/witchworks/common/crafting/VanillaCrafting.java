@@ -203,6 +203,12 @@ public final class VanillaCrafting {
 				.build();
 
 		shapeless()
+				.add(ModItems.MORTAR_AND_PESTLE)
+				.add(ModBlocks.SILVER_ORE)
+				.outputs(new ItemStack(ModItems.SILVER_POWDER, 1))
+				.build();
+
+		shapeless()
 				.add(new ItemStack(Items.DYE, 1, 4))
 				.add(ModItems.JASPER)
 				.outputs(new ItemStack(ModItems.MALACHITE, 1))
