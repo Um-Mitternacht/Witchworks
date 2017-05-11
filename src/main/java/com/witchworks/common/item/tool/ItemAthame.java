@@ -36,7 +36,7 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 		if (!target.world.isRemote
 				&& target instanceof EntityEnderman
 				&& attacker instanceof EntityPlayer) {
-			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 40);
+			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 20);
 		}
 
 		stack.damageItem(1, attacker);
