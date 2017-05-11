@@ -1,7 +1,7 @@
 # Witchworks
 A mod inspired by Witchery
 
-[![Build Status](https://travis-ci.org/Um-Mitternacht/Wiccan_Arts.svg?branch=1.10.2)](https://travis-ci.org/Um-Mitternacht/Wiccan_Arts)
+[![Build Status](https://travis-ci.org/Um-Mitternacht/Witchworks.svg?branch=1.10.2)](https://travis-ci.org/Um-Mitternacht/Witchworks)
 
 WIP
 

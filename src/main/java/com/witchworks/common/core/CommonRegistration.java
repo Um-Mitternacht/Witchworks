@@ -92,6 +92,7 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.TOURMALINE),
 				new ItemMod(LibItemName.BLOODSTONE),
 				new ItemMod(LibItemName.JASPER),
+				new ItemMod(LibItemName.GEMSTONE_AMALGAM),
 				new ItemMalachite(),
 				new ItemMod(LibItemName.AMETHYST),
 				new ItemMod(LibItemName.ALEXANDRITE),

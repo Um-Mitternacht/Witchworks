@@ -53,6 +53,7 @@ public final class LibItemName {
 	public static final String AMETHYST = "amethyst";
 	public static final String ALEXANDRITE = "alexandrite";
 	public static final String QUARTZ = "quartz";
+	public static final String GEMSTONE_AMALGAM = "gemstone_amalgam";
 
 	//Metals
 	public static final String SILVER_NUGGET = "silver_nugget";
