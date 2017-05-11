@@ -30,6 +30,26 @@ public final class VanillaCrafting {
 				.outputs(ModItems.SILVER_INGOT)
 				.build();
 
+		shaped().grid("N N", "NNN", "NNN")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_CHESTPLATE)
+				.build();
+
+		shaped().grid("NNN", "N N", "   ")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_HELMET)
+				.build();
+
+		shaped().grid("NNN", "N N", "N N")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_LEGGINGS)
+				.build();
+
+		shaped().grid("   ", "N N", "N N")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_BOOTS)
+				.build();
+
 		shaped().grid("BBB", "BBB", "BBB")
 				.map('B', ModItems.BLOODSTONE)
 				.outputs(ModBlocks.BLOODSTONE_BLOCK)

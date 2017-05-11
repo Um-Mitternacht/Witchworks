@@ -53,6 +53,10 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(40)
 				, getStack(Items.GOLDEN_APPLE, 1, 1)
 				, getStack(Blocks.GOLD_BLOCK, 9), Items.APPLE);
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(10)
+				, getStack(ModItems.GEMSTONE_AMALGAM)
+				, getStack(Items.DYE, 1, 4), ModItems.ALEXANDRITE, ModItems.AMETHYST, ModItems.BLOODSTONE, ModItems.GARNET, ModItems.JASPER, ModItems.MALACHITE, ModItems.MOLDAVITE, ModItems.NUUMMITE, ModItems.PETOSKEY_STONE, ModItems.QUARTZ, ModItems.SERPENTINE, ModItems.TIGERS_EYE, ModItems.TIGERS_EYE, ModItems.TOURMALINE, ModItems.SALT, Items.EMERALD, Items.DIAMOND, Items.QUARTZ);
 	}
 
 	/**
