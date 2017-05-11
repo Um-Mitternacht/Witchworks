@@ -36,7 +36,7 @@ public class ItemSilverPickaxe extends ItemPickaxe implements IModelRegister {
 		if (!target.world.isRemote
 				&& target.getCreatureAttribute() == EnumCreatureAttribute.UNDEAD
 				&& attacker instanceof EntityPlayer) {
-			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 10);
+			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 12);
 		}
 
 		stack.damageItem(1, attacker);
