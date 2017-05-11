@@ -50,6 +50,12 @@ public final class VanillaCrafting {
 				.outputs(ModItems.SILVER_BOOTS)
 				.build();
 
+		shaped().grid(" N ", " N ", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('S', Items.STICK)
+				.outputs(ModItems.SILVER_SWORD)
+				.build();
+
 		shaped().grid("BBB", "BBB", "BBB")
 				.map('B', ModItems.BLOODSTONE)
 				.outputs(ModBlocks.BLOODSTONE_BLOCK)
