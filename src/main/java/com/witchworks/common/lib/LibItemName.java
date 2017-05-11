@@ -80,6 +80,8 @@ public final class LibItemName {
 	public static final String MORTAR_AND_PESTLE = "mortar_and_pestle";
 	public static final String CHALK_ITEM = "chalk_item";
 	public static final String WAND = "wand";
+	public static final String ATHAME = "athame";
+	public static final String BOLINE = "boline";
 
 	//Equipment
 	public static final String SILVER_HELMET = "silver_helmet";
@@ -108,6 +110,7 @@ public final class LibItemName {
 
 	//Materials
 	public static final String SILVER = "silver";
+	public static final String RITUAL = "ritual";
 
 	private LibItemName() {
 	}

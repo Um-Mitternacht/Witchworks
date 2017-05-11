@@ -149,6 +149,8 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.TRINKET);
 			addItem(ModItems.CHARM);
 			addItem(ModItems.WAND);
+			addItem(ModItems.BOLINE);
+			addItem(ModItems.ATHAME);
 		}
 	}
 

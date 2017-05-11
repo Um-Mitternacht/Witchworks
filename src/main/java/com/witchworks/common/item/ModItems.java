@@ -151,6 +151,10 @@ public final class ModItems {
 	public static final Item CHARM = new Item();
 	@ObjectHolder (LibItemName.WAND)
 	public static final Item WAND = new Item();
+	@ObjectHolder (LibItemName.ATHAME)
+	public static final Item ATHAME = new Item();
+	@ObjectHolder (LibItemName.BOLINE)
+	public static final Item BOLINE = new Item();
 
 
 	//Books
