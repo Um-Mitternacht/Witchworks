@@ -64,7 +64,7 @@ public final class WitchWorksCreativeTabs {
 		@Override
 		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModItems.MANDRAKE_ROOT);
+			return new ItemStack(ModItems.MANDRAKE);
 		}
 
 		@Override

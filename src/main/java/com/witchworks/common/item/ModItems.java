@@ -59,8 +59,8 @@ public final class ModItems {
 	//Food Items
 	@ObjectHolder (LibItemName.HONEY_ITEM)
 	public static final Item HONEY_ITEM = new Item();
-	@ObjectHolder (LibItemName.MANDRAKE_ROOT)
-	public static final Item MANDRAKE_ROOT = new Item();
+	@ObjectHolder (LibItemName.MANDRAKE)
+	public static final Item MANDRAKE = new Item();
 	@ObjectHolder (LibItemName.LAVENDER)
 	public static final Item LAVENDER = new Item();
 	@ObjectHolder (LibItemName.BELLADONNA)
@@ -201,7 +201,7 @@ public final class ModItems {
 		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER));
 		OreDictionary.registerOre("cropBelladonna", new ItemStack(ModItems.BELLADONNA));
-		OreDictionary.registerOre("cropMandrake", new ItemStack(ModItems.MANDRAKE_ROOT));
+		OreDictionary.registerOre("cropMandrake", new ItemStack(ModItems.MANDRAKE));
 		OreDictionary.registerOre("cropKelp", new ItemStack(ModItems.KELP));
 		OreDictionary.registerOre("cropSeaweed", new ItemStack(ModItems.KELP));
 		OreDictionary.registerOre("listAllveggie", new ItemStack(ModItems.KELP));

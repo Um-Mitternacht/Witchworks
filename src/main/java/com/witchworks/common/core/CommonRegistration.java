@@ -68,7 +68,7 @@ public final class CommonRegistration {
 		registerCrop(KELP, new ItemKelp(), new ItemKelpSeed());
 		registerCrop(MINT, new ItemCrop(LibItemName.MINT, 1, 2F, false), LibItemName.SEED_MINT);
 		registerCrop(WHITE_SAGE, new ItemCrop(LibItemName.WHITE_SAGE, 1, 0.4F, false), LibItemName.SEED_WHITE_SAGE);
-		registerCrop(MANDRAKE_ROOT, new ItemCrop(LibItemName.MANDRAKE_ROOT, 4, 6F, false), LibItemName.SEED_MANDRAKE_ROOT);
+		registerCrop(MANDRAKE, new ItemCrop(LibItemName.MANDRAKE, 4, 6F, false), LibItemName.SEED_MANDRAKE);
 		registerCrop(LAVENDER, new ItemLavender(), LibItemName.SEED_LAVENDER);
 		registerCrop(THISTLE, new ItemThistle(), LibItemName.SEED_THISTLE);
 		registerCrop(TULSI, new ItemCrop(LibItemName.TULSI, 1, 0.4F, false), LibItemName.SEED_TULSI);
@@ -154,7 +154,7 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.CROP_MINT),
 				itemBlock(ModBlocks.CROP_SILPHIUM),
 				itemBlock(ModBlocks.CROP_WHITE_SAGE),
-				itemBlock(ModBlocks.CROP_MANDRAKE_ROOT),
+				itemBlock(ModBlocks.CROP_MANDRAKE),
 				itemBlock(ModBlocks.CROP_LAVENDER),
 				itemBlock(ModBlocks.CROP_THISTLE),
 				itemBlock(ModBlocks.CROP_TULSI),
@@ -214,7 +214,7 @@ public final class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_GINGER),
 				new BlockCrop(LibBlockName.CROP_MINT),
 				new BlockCrop(LibBlockName.CROP_WHITE_SAGE),
-				new BlockCrop(LibBlockName.CROP_MANDRAKE_ROOT),
+				new BlockCrop(LibBlockName.CROP_MANDRAKE),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
 				new BlockCrop(LibBlockName.CROP_SILPHIUM),
 				new BlockCrop(LibBlockName.CROP_THISTLE),

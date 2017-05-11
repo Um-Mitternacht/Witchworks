@@ -22,8 +22,8 @@ public final class LibItemName {
 	public static final String SEED_MINT = "seed_mint";
 	public static final String WHITE_SAGE = "white_sage";
 	public static final String SEED_WHITE_SAGE = "seed_white_sage";
-	public static final String MANDRAKE_ROOT = "mandrake_root";
-	public static final String SEED_MANDRAKE_ROOT = "seed_mandrake_root";
+	public static final String MANDRAKE = "mandrake_root";
+	public static final String SEED_MANDRAKE = "seed_mandrake";
 	public static final String LAVENDER = "lavender";
 	public static final String SEED_LAVENDER = "seed_lavender";
 	public static final String SILPHIUM = "silphium";
