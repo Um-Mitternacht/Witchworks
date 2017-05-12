@@ -122,7 +122,7 @@ public final class CommonRegistration {
 				new ItemSilverHoe(ModMaterials.TOOL_SILVER),
 				new ItemSilverSword(ModMaterials.TOOL_SILVER),
 				new ItemAthame(ModMaterials.TOOL_RITUAL),
-				new ItemBoline(ModMaterials.TOOL_RITUAL),
+				new ItemBoline(),
 				new ItemMod(LibItemName.CHALK_ITEM),
 
 				//Books
