@@ -87,8 +87,41 @@ public final class ModItems {
 	public static final Item KENAF = new Item();
 	@ObjectHolder (LibItemName.SILPHIUM)
 	public static final Item SILPHIUM = new Item();
+	@ObjectHolder (LibItemName.WORMWOOD)
+	public static final Item WORMWOOD = new Item();
+
+	//Seeds
 	@ObjectHolder (LibItemName.SEED_MANDRAKE)
 	public static final Item SEED_MANDRAKE = new Item();
+	@ObjectHolder (LibItemName.SEED_SILPHIUM)
+	public static final Item SEED_SILPHIUM = new Item();
+	@ObjectHolder (LibItemName.SEED_ACONITUM)
+	public static final Item SEED_ACONITUM = new Item();
+	@ObjectHolder (LibItemName.SEED_ASPHODEL)
+	public static final Item SEED_ASPHODEL = new Item();
+	@ObjectHolder (LibItemName.SEED_MINT)
+	public static final Item SEED_MINT = new Item();
+	@ObjectHolder (LibItemName.SEED_BELLADONNA)
+	public static final Item SEED_BELLADONNA = new Item();
+	@ObjectHolder (LibItemName.SEED_GARLIC)
+	public static final Item SEED_GARLIC = new Item();
+	@ObjectHolder (LibItemName.SEED_GINGER)
+	public static final Item SEED_GINGER = new Item();
+	@ObjectHolder (LibItemName.SEED_KELP)
+	public static final Item SEED_KELP = new Item();
+	@ObjectHolder (LibItemName.SEED_TULSI)
+	public static final Item SEED_TULSI = new Item();
+	@ObjectHolder (LibItemName.SEED_THISTLE)
+	public static final Item SEED_THISTLE = new Item();
+	@ObjectHolder (LibItemName.SEED_KENAF)
+	public static final Item SEED_KENAF = new Item();
+	@ObjectHolder (LibItemName.SEED_WHITE_SAGE)
+	public static final Item SEED_WHITE_SAGE = new Item();
+	@ObjectHolder (LibItemName.SEED_WORMWOOD)
+	public static final Item SEED_WORMWOOD = new Item();
+	@ObjectHolder (LibItemName.SEED_LAVENDER)
+	public static final Item SEED_LAVENDER = new Item();
+
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)
