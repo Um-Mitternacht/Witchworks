@@ -260,5 +260,7 @@ public final class ModItems {
 		OreDictionary.registerOre("listAllgreenveggie", new ItemStack(ModItems.SILPHIUM));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.SILPHIUM));
 		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.WORMWOOD));
+		OreDictionary.registerOre("cropWormwood", new ItemStack(ModItems.WORMWOOD));
 	}
 }
