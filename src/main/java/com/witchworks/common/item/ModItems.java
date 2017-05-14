@@ -87,6 +87,8 @@ public final class ModItems {
 	public static final Item KENAF = new Item();
 	@ObjectHolder (LibItemName.SILPHIUM)
 	public static final Item SILPHIUM = new Item();
+	@ObjectHolder (LibItemName.SEED_MANDRAKE)
+	public static final Item SEED_MANDRAKE = new Item();
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)

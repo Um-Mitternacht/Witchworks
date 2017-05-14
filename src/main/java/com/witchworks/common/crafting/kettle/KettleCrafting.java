@@ -57,6 +57,35 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(10)
 				, getStack(ModItems.GEMSTONE_AMALGAM)
 				, getStack(Items.DYE, 1, 4), ModItems.ALEXANDRITE, ModItems.AMETHYST, ModItems.BLOODSTONE, ModItems.GARNET, ModItems.JASPER, ModItems.MALACHITE, ModItems.MOLDAVITE, ModItems.NUUMMITE, ModItems.PETOSKEY_STONE, ModItems.QUARTZ, ModItems.SERPENTINE, ModItems.TIGERS_EYE, ModItems.TIGERS_EYE, ModItems.TOURMALINE, ModItems.SALT, Items.EMERALD, Items.DIAMOND, Items.QUARTZ);
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
+				, getStack(Items.BEETROOT_SEEDS)
+				, getStack(Items.WHEAT_SEEDS));
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
+				, getStack(Items.PUMPKIN_SEEDS)
+				, getStack(Items.BEETROOT_SEEDS));
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
+				, getStack(Items.MELON_SEEDS)
+				, getStack(Items.PUMPKIN_SEEDS));
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
+				, getStack(Items.CARROT)
+				, getStack(Items.MELON_SEEDS));
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
+				, getStack(Items.POTATO)
+				, getStack(Items.CARROT));
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
+				, getStack(Items.NETHER_WART)
+				, getStack(Items.POTATO));
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
+				, getStack(Items.WHEAT_SEEDS)
+				, getStack(Items.NETHER_WART));
+
 	}
 
 	/**
