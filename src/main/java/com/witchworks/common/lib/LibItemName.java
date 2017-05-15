@@ -82,6 +82,7 @@ public final class LibItemName {
 	public static final String WAND = "wand";
 	public static final String ATHAME = "athame";
 	public static final String BOLINE = "boline";
+	public static final String TAGLOCK = "taglock";
 
 	//Equipment
 	public static final String SILVER_HELMET = "silver_helmet";

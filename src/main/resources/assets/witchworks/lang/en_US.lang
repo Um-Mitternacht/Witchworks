@@ -32,6 +32,7 @@ item.seed_garlic.name=Garlic Seeds
 item.seed_kenaf.name=Kenaf Seeds
 item.seed_wormwood.name=Wormwood Seeds
 
+//Crops
 item.aconitum.name=Aconitum
 item.asphodel.name=Asphodel
 item.belladonna.name=Belladonna
@@ -43,7 +44,7 @@ item.dandelion_root.name=Dandelion
 item.rose.name=Rose
 item.poppy.name=Poppy
 item.allium.name=Allium
-item.mandrake_root.name=Mandrake root
+item.mandrake_root.name=Mandrake Root
 item.oxeye_daisy.name=Oxeye Daisy
 item.sunflower.name=Sunflower
 item.lilac.name=Lilac
@@ -56,6 +57,7 @@ item.kenaf.name=Kenaf
 item.garlic.name=Garlic
 item.tulsi.name=Tulsi
 
+//Gemstones
 item.garnet.name=Garnet
 item.moldavite.name=Moldavite
 item.nuummite.name=Nuummite
@@ -69,7 +71,9 @@ item.malachite.name=Malachite
 item.amethyst.name=Amethyst
 item.alexandrite.name=Alexandrite
 item.quartz.name=Quartz
+item.gemstone_amalgam.name=Gemstone Amalgam
 
+//Resources and Tools
 item.wax.name=Wax
 item.honey_item.name=Honey
 item.honeycomb.name=Honeycomb
@@ -94,6 +98,9 @@ item.athame.name=Athame
 item.boline.name=Boline
 item.mortar_and_pestle.name=Mortar and Pestle
 item.brew_phial.name=Brew Phial
+item.taglock.name=Taglock Kit
+item.chalk_item.name=Mundane Chalk
+item.wand.name=Wand
 
 //Blocks
 tile.candle_small.white.name=Small White Candle
@@ -170,6 +177,7 @@ tile.crop_wormwood.name=Wormwood Crop
 tile.crop_kenaf.name=Kenaf Crop
 tile.crop_tulsi.name=Tulsi Crop
 
+//Metals and Ores
 tile.silver_ore.name=Silver Ore
 tile.moldavite_ore.name=Moldavite Ore
 tile.bloodstone_ore.name=Bloodstone Ore
@@ -190,12 +198,15 @@ tile.salt_ore.name=Salt Ore
 tile.amethyst_ore.name=Amethyst Ore
 tile.quartz_ore.name=Quartz Ore
 tile.alexandrite_ore.name=Alexandrite Ore
-
-tile.kettle.name=Kettle
 tile.coquina.name=Coquina
+tile.chalk.name=Raw Chalk
+
+//Devices
+tile.kettle.name=Kettle
 tile.apiary.name=Apiary
 tile.beehive.name=Beehive
 tile.altar.name=Altar
+tile.oilpress.name=Oilpress
 
 //Brews
 brew.shell_armor.name=Shell Armor Brew
@@ -259,7 +270,24 @@ witch.tooltip.wormwood_description.name=A rather weedy herb which bugs do not se
 witch.tooltip.kenaf_description.name=A tall plant with useful fibers.
 witch.tooltip.tulsi_description.name=A small herb considered sacred by some.
 
+//Baubles
+item.shirt.name=Shirt
+item.ring.name=Ring
+item.belt.name=Belt
+item.amulet.name=Amulet
+item.trinket.name=Trinket
+item.crown.name=Crown
+item.charm.name=Charm
+
+//Books
+item.book_of_shadows.name=Book of Shadows
+item.dusty_grimoire.name=Dusty Grimoire
+
 //Incantation
 commands.incantation.notFound=The powers you cast forth fizzle to nothingness
+
+//Achievements
+achievement.witchworks:craftMalachite=Let's Be Malachite Again!
+achievement.witchworks:craftMalachite.desc=This Is Between Us!
 
 ////JEI

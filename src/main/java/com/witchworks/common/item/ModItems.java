@@ -190,6 +190,8 @@ public final class ModItems {
 	public static final Item ATHAME = new Item();
 	@ObjectHolder (LibItemName.BOLINE)
 	public static final Item BOLINE = new Item();
+	@ObjectHolder (LibItemName.TAGLOCK)
+	public static final Item TAGLOCK = new Item();
 
 
 	//Books

@@ -27,6 +27,7 @@ import com.witchworks.common.item.magic.books.ItemShadowBook;
 import com.witchworks.common.item.magic.brew.ItemBrewDrink;
 import com.witchworks.common.item.magic.brew.ItemBrewLinger;
 import com.witchworks.common.item.magic.brew.ItemBrewSplash;
+import com.witchworks.common.item.magic.tools.ItemTaglock;
 import com.witchworks.common.item.magic.wands.ItemWand;
 import com.witchworks.common.item.tool.*;
 import com.witchworks.common.lib.LibBlockName;
@@ -123,6 +124,7 @@ public final class CommonRegistration {
 				new ItemSilverSword(ModMaterials.TOOL_SILVER),
 				new ItemAthame(ModMaterials.TOOL_RITUAL),
 				new ItemBoline(),
+				new ItemTaglock(),
 				new ItemMod(LibItemName.CHALK_ITEM),
 
 				//Books

@@ -151,6 +151,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.WAND);
 			addItem(ModItems.BOLINE);
 			addItem(ModItems.ATHAME);
+			addItem(ModItems.TAGLOCK);
 		}
 	}
 
