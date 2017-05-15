@@ -22,8 +22,8 @@ public final class LibItemName {
 	public static final String SEED_MINT = "seed_mint";
 	public static final String WHITE_SAGE = "white_sage";
 	public static final String SEED_WHITE_SAGE = "seed_white_sage";
-	public static final String MANDRAKE_ROOT = "mandrake_root";
-	public static final String SEED_MANDRAKE_ROOT = "seed_mandrake_root";
+	public static final String MANDRAKE = "mandrake_root";
+	public static final String SEED_MANDRAKE = "seed_mandrake";
 	public static final String LAVENDER = "lavender";
 	public static final String SEED_LAVENDER = "seed_lavender";
 	public static final String SILPHIUM = "silphium";
@@ -53,6 +53,7 @@ public final class LibItemName {
 	public static final String AMETHYST = "amethyst";
 	public static final String ALEXANDRITE = "alexandrite";
 	public static final String QUARTZ = "quartz";
+	public static final String GEMSTONE_AMALGAM = "gemstone_amalgam";
 
 	//Metals
 	public static final String SILVER_NUGGET = "silver_nugget";
@@ -79,6 +80,9 @@ public final class LibItemName {
 	public static final String MORTAR_AND_PESTLE = "mortar_and_pestle";
 	public static final String CHALK_ITEM = "chalk_item";
 	public static final String WAND = "wand";
+	public static final String ATHAME = "athame";
+	public static final String BOLINE = "boline";
+	public static final String TAGLOCK = "taglock";
 
 	//Equipment
 	public static final String SILVER_HELMET = "silver_helmet";
@@ -107,6 +111,7 @@ public final class LibItemName {
 
 	//Materials
 	public static final String SILVER = "silver";
+	public static final String RITUAL = "ritual";
 
 	private LibItemName() {
 	}

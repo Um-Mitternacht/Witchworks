@@ -30,6 +30,69 @@ public final class VanillaCrafting {
 				.outputs(ModItems.SILVER_INGOT)
 				.build();
 
+		shaped().grid("N N", "NNN", "NNN")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_CHESTPLATE)
+				.build();
+
+		shaped().grid("NNN", "N N", "   ")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_HELMET)
+				.build();
+
+		shaped().grid("NNN", "N N", "N N")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_LEGGINGS)
+				.build();
+
+		shaped().grid(" N ", "NGN", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('G', ModItems.ALEXANDRITE)
+				.map('S', Items.STICK)
+				.outputs(ModItems.ATHAME)
+				.build();
+
+		shaped().grid("NN ", "  N", " B ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('B', ModItems.BLOODSTONE)
+				.outputs(ModItems.BOLINE)
+				.build();
+
+		shaped().grid("   ", "N N", "N N")
+				.map('N', ModItems.SILVER_INGOT)
+				.outputs(ModItems.SILVER_BOOTS)
+				.build();
+
+		shaped().grid(" N ", " N ", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('S', Items.STICK)
+				.outputs(ModItems.SILVER_SWORD)
+				.build();
+
+		shaped().grid(" N ", " S ", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('S', Items.STICK)
+				.outputs(ModItems.SILVER_SPADE)
+				.build();
+
+		shaped().grid("NN ", "NS ", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('S', Items.STICK)
+				.outputs(ModItems.SILVER_AXE)
+				.build();
+
+		shaped().grid("NN ", " S ", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('S', Items.STICK)
+				.outputs(ModItems.SILVER_HOE)
+				.build();
+
+		shaped().grid("NNN", " S ", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('S', Items.STICK)
+				.outputs(ModItems.SILVER_PICKAXE)
+				.build();
+
 		shaped().grid("BBB", "BBB", "BBB")
 				.map('B', ModItems.BLOODSTONE)
 				.outputs(ModBlocks.BLOODSTONE_BLOCK)
@@ -200,6 +263,12 @@ public final class VanillaCrafting {
 				.add(ModItems.WAX)
 				.add(ModBlocks.CANDLE_MEDIUM)
 				.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1))
+				.build();
+
+		shapeless()
+				.add(ModItems.MORTAR_AND_PESTLE)
+				.add(ModBlocks.SILVER_ORE)
+				.outputs(new ItemStack(ModItems.SILVER_POWDER, 1))
 				.build();
 
 		shapeless()

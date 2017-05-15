@@ -45,6 +45,8 @@ public final class ModItems {
 	public static final Item ALEXANDRITE = new Item();
 	@ObjectHolder (LibItemName.QUARTZ)
 	public static final Item QUARTZ = new Item();
+	@ObjectHolder (LibItemName.GEMSTONE_AMALGAM)
+	public static final Item GEMSTONE_AMALGAM = new Item();
 
 	//Metals
 	@ObjectHolder (LibItemName.SILVER_INGOT)
@@ -57,8 +59,8 @@ public final class ModItems {
 	//Food Items
 	@ObjectHolder (LibItemName.HONEY_ITEM)
 	public static final Item HONEY_ITEM = new Item();
-	@ObjectHolder (LibItemName.MANDRAKE_ROOT)
-	public static final Item MANDRAKE_ROOT = new Item();
+	@ObjectHolder (LibItemName.MANDRAKE)
+	public static final Item MANDRAKE = new Item();
 	@ObjectHolder (LibItemName.LAVENDER)
 	public static final Item LAVENDER = new Item();
 	@ObjectHolder (LibItemName.BELLADONNA)
@@ -85,6 +87,41 @@ public final class ModItems {
 	public static final Item KENAF = new Item();
 	@ObjectHolder (LibItemName.SILPHIUM)
 	public static final Item SILPHIUM = new Item();
+	@ObjectHolder (LibItemName.WORMWOOD)
+	public static final Item WORMWOOD = new Item();
+
+	//Seeds
+	@ObjectHolder (LibItemName.SEED_MANDRAKE)
+	public static final Item SEED_MANDRAKE = new Item();
+	@ObjectHolder (LibItemName.SEED_SILPHIUM)
+	public static final Item SEED_SILPHIUM = new Item();
+	@ObjectHolder (LibItemName.SEED_ACONITUM)
+	public static final Item SEED_ACONITUM = new Item();
+	@ObjectHolder (LibItemName.SEED_ASPHODEL)
+	public static final Item SEED_ASPHODEL = new Item();
+	@ObjectHolder (LibItemName.SEED_MINT)
+	public static final Item SEED_MINT = new Item();
+	@ObjectHolder (LibItemName.SEED_BELLADONNA)
+	public static final Item SEED_BELLADONNA = new Item();
+	@ObjectHolder (LibItemName.SEED_GARLIC)
+	public static final Item SEED_GARLIC = new Item();
+	@ObjectHolder (LibItemName.SEED_GINGER)
+	public static final Item SEED_GINGER = new Item();
+	@ObjectHolder (LibItemName.SEED_KELP)
+	public static final Item SEED_KELP = new Item();
+	@ObjectHolder (LibItemName.SEED_TULSI)
+	public static final Item SEED_TULSI = new Item();
+	@ObjectHolder (LibItemName.SEED_THISTLE)
+	public static final Item SEED_THISTLE = new Item();
+	@ObjectHolder (LibItemName.SEED_KENAF)
+	public static final Item SEED_KENAF = new Item();
+	@ObjectHolder (LibItemName.SEED_WHITE_SAGE)
+	public static final Item SEED_WHITE_SAGE = new Item();
+	@ObjectHolder (LibItemName.SEED_WORMWOOD)
+	public static final Item SEED_WORMWOOD = new Item();
+	@ObjectHolder (LibItemName.SEED_LAVENDER)
+	public static final Item SEED_LAVENDER = new Item();
+
 
 	//Materials
 	@ObjectHolder (LibItemName.WAX)
@@ -149,6 +186,12 @@ public final class ModItems {
 	public static final Item CHARM = new Item();
 	@ObjectHolder (LibItemName.WAND)
 	public static final Item WAND = new Item();
+	@ObjectHolder (LibItemName.ATHAME)
+	public static final Item ATHAME = new Item();
+	@ObjectHolder (LibItemName.BOLINE)
+	public static final Item BOLINE = new Item();
+	@ObjectHolder (LibItemName.TAGLOCK)
+	public static final Item TAGLOCK = new Item();
 
 
 	//Books
@@ -195,7 +238,7 @@ public final class ModItems {
 		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.LAVENDER));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.LAVENDER));
 		OreDictionary.registerOre("cropBelladonna", new ItemStack(ModItems.BELLADONNA));
-		OreDictionary.registerOre("cropMandrake", new ItemStack(ModItems.MANDRAKE_ROOT));
+		OreDictionary.registerOre("cropMandrake", new ItemStack(ModItems.MANDRAKE));
 		OreDictionary.registerOre("cropKelp", new ItemStack(ModItems.KELP));
 		OreDictionary.registerOre("cropSeaweed", new ItemStack(ModItems.KELP));
 		OreDictionary.registerOre("listAllveggie", new ItemStack(ModItems.KELP));
@@ -219,5 +262,7 @@ public final class ModItems {
 		OreDictionary.registerOre("listAllgreenveggie", new ItemStack(ModItems.SILPHIUM));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.SILPHIUM));
 		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.SILPHIUM));
+		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.WORMWOOD));
+		OreDictionary.registerOre("cropWormwood", new ItemStack(ModItems.WORMWOOD));
 	}
 }

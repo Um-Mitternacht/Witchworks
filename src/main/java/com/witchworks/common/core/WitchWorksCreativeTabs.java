@@ -64,7 +64,7 @@ public final class WitchWorksCreativeTabs {
 		@Override
 		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModItems.MANDRAKE_ROOT);
+			return new ItemStack(ModItems.MANDRAKE);
 		}
 
 		@Override
@@ -114,6 +114,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.JASPER);
 			addItem(ModItems.MALACHITE);
 			addItem(ModItems.AMETHYST);
+			addItem(ModItems.GEMSTONE_AMALGAM);
 			addItem(ModItems.ALEXANDRITE);
 			addItem(ModItems.QUARTZ);
 			addItem(ModItems.BEE);
@@ -148,6 +149,9 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.TRINKET);
 			addItem(ModItems.CHARM);
 			addItem(ModItems.WAND);
+			addItem(ModItems.BOLINE);
+			addItem(ModItems.ATHAME);
+			addItem(ModItems.TAGLOCK);
 		}
 	}
 
