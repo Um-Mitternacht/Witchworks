@@ -101,6 +101,7 @@ item.brew_phial.name=Brew Phial
 item.taglock.name=Taglock Kit
 item.chalk_item.name=Mundane Chalk
 item.wand.name=Wand
+item.needle_bone.name=Bone Needle
 
 //Blocks
 tile.candle_small.white.name=Small White Candle
@@ -177,7 +178,7 @@ tile.crop_wormwood.name=Wormwood Crop
 tile.crop_kenaf.name=Kenaf Crop
 tile.crop_tulsi.name=Tulsi Crop
 
-//Metals and Ores
+//Metals, Stones, and Ores
 tile.silver_ore.name=Silver Ore
 tile.moldavite_ore.name=Moldavite Ore
 tile.bloodstone_ore.name=Bloodstone Ore
@@ -200,6 +201,7 @@ tile.quartz_ore.name=Quartz Ore
 tile.alexandrite_ore.name=Alexandrite Ore
 tile.coquina.name=Coquina
 tile.chalk.name=Raw Chalk
+tile.unrefined_chalk.name=Unrefined Chalk
 
 //Devices
 tile.kettle.name=Kettle
@@ -220,6 +222,7 @@ brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
 
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
+witchworks.subtitle.chalk_scribble=Chalk scribbling
 
 ///ToolTips
 witch.tooltip.seed_aconitum_description.name=Seed from a poisonous plant

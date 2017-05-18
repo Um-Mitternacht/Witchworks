@@ -110,11 +110,11 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.HONEYCOMB),
 				new ItemMod(LibItemName.EMPTY_HONEYCOMB),
 				new ItemMod(LibItemName.MORTAR_AND_PESTLE),
+				new ItemMod(LibItemName.UNREFINED_CHALK),
 				new ItemBrewDrink(),
 				new ItemBrewSplash(),
 				new ItemBrewLinger(),
 				new ItemMod(LibItemName.GLASS_JAR),
-				new ItemMod(LibItemName.LAVENDER_OIL),
 
 				//Tools
 				new ItemSilverPickaxe(ModMaterials.TOOL_SILVER),
@@ -126,6 +126,7 @@ public final class CommonRegistration {
 				new ItemBoline(),
 				new ItemTaglock(),
 				new ItemMod(LibItemName.CHALK_ITEM),
+				new ItemMod(LibItemName.NEEDLE_BONE),
 
 				//Books
 				new ItemShadowBook(),

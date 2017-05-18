@@ -69,7 +69,6 @@ public final class LibItemName {
 	public static final String BEE = "bee";
 	public static final String HONEYCOMB = "honeycomb";
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
-	public static final String LAVENDER_OIL = "lavender_oil";
 
 	//Tools
 	public static final String SILVER_PICKAXE = "silver_pickaxe";
@@ -99,6 +98,8 @@ public final class LibItemName {
 	public static final String BREW_PHIAL_SPLASH = "brew_phial_splash";
 	public static final String BREW_PHIAL_LINGER = "brew_phial_linger";
 	public static final String GLASS_JAR = "glass_jar";
+	public static final String UNREFINED_CHALK = "unrefined_chalk";
+	public static final String NEEDLE_BONE = "needle_bone";
 
 	//Baubles
 	public static final String RING = "ring";

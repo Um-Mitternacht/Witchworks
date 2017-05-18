@@ -132,8 +132,10 @@ public final class ModItems {
 	public static final Item HONEYCOMB = new Item();
 	@ObjectHolder (LibItemName.EMPTY_HONEYCOMB)
 	public static final Item EMPTY_HONEYCOMB = new Item();
-	@ObjectHolder (LibItemName.LAVENDER_OIL)
-	public static final Item LAVENDER_OIL = new Item();
+	@ObjectHolder (LibItemName.UNREFINED_CHALK)
+	public static final Item UNREFINED_CHALK = new Item();
+	@ObjectHolder (LibItemName.NEEDLE_BONE)
+	public static final Item NEEDLE_BONE = new Item();
 
 	//Misc
 	@ObjectHolder (LibItemName.BEE)

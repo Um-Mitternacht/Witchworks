@@ -108,6 +108,11 @@ public final class VanillaCrafting {
 				.outputs(ModBlocks.MOLDAVITE_BLOCK)
 				.build();
 
+		shaped().grid("CCC", "CCC", "CCC")
+				.map('C', ModItems.UNREFINED_CHALK)
+				.outputs(ModBlocks.CHALK)
+				.build();
+
 		shaped().grid("I I", "III", "III")
 				.map('I', Items.IRON_INGOT)
 				.outputs(ModBlocks.KETTLE)
@@ -214,6 +219,18 @@ public final class VanillaCrafting {
 		shapeless()
 				.add(ModBlocks.BLOODSTONE_BLOCK)
 				.outputs(new ItemStack(ModItems.BLOODSTONE, 9))
+				.build();
+
+		shapeless()
+				.add(ModItems.NEEDLE_BONE)
+				.add(Items.GLASS_BOTTLE)
+				.outputs(new ItemStack(ModItems.TAGLOCK, 1))
+				.build();
+
+		shapeless()
+				.add(Items.BONE)
+				.add(Items.FLINT)
+				.outputs(new ItemStack(ModItems.NEEDLE_BONE, 9))
 				.build();
 
 		shapeless()

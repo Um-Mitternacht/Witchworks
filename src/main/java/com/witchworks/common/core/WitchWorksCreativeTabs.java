@@ -152,6 +152,8 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.BOLINE);
 			addItem(ModItems.ATHAME);
 			addItem(ModItems.TAGLOCK);
+			addItem(ModItems.UNREFINED_CHALK);
+			addItem(ModItems.NEEDLE_BONE);
 		}
 	}
 

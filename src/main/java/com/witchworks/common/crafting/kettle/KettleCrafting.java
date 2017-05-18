@@ -54,9 +54,13 @@ public final class KettleCrafting {
 				, getStack(Items.GOLDEN_APPLE, 1, 1)
 				, getStack(Blocks.GOLD_BLOCK, 9), Items.APPLE);
 
-		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(10)
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(5)
 				, getStack(ModItems.GEMSTONE_AMALGAM)
 				, getStack(ModItems.MOLDAVITE), ModItems.ALEXANDRITE, ModItems.GARNET, Items.DIAMOND);
+
+		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(6)
+				, getStack(ModItems.CHALK_ITEM, 6)
+				, getStack(ModItems.UNREFINED_CHALK, 6), ModItems.GEMSTONE_AMALGAM);
 
 		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
 				, getStack(Items.WHEAT_SEEDS)
