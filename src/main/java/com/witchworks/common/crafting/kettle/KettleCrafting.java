@@ -60,7 +60,7 @@ public final class KettleCrafting {
 
 		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(6)
 				, getStack(ModItems.CHALK_ITEM, 6)
-				, getStack(ModItems.UNREFINED_CHALK, 6), ModItems.GEMSTONE_AMALGAM);
+				, getStack(ModItems.UNREFINED_CHALK, 6));
 
 		KettleRegistry.registerKettleItemRecipe(new Ritual.EnergyRitual(2)
 				, getStack(Items.WHEAT_SEEDS)
