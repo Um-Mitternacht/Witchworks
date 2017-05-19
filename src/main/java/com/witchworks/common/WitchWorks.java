@@ -69,21 +69,21 @@ public class WitchWorks {
 
 		ModAchievements.init();
 
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.BLOODSTONE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TOURMALINE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MALACHITE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TIGERS_EYE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SERPENTINE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.JASPER_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SALT_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.QUARTZ_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.AMETHYST_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.ALEXANDRITE_ORE), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 10);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE, 1, 5), 6);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.BLOODSTONE_ORE, 2, 7), 6);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TOURMALINE_ORE, 1, 5), 8);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MALACHITE_ORE, 1, 5), 8);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TIGERS_EYE_ORE, 1, 5), 6);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SERPENTINE_ORE, 1, 5), 8);;
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE, 1, 3), 3);;
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE, 1, 5), 8);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE, 1, 4), 4);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.JASPER_ORE, 1, 5), 6);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SALT_ORE, 4, 12), 12);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.QUARTZ_ORE, 2, 10), 10);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.AMETHYST_ORE, 2, 8), 8);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.ALEXANDRITE_ORE, 1, 6), 6);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.COQUINA), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.CHALK), 0);
 	}
