@@ -76,9 +76,7 @@ public class WitchWorks {
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MALACHITE_ORE, 1, 5), 8);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TIGERS_EYE_ORE, 1, 5), 6);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SERPENTINE_ORE, 1, 5), 8);
-		;
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE, 1, 3), 3);
-		;
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE, 1, 5), 8);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE, 1, 4), 4);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.JASPER_ORE, 1, 5), 6);
