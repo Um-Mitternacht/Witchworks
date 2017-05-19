@@ -19,6 +19,8 @@ import static net.minecraft.util.math.RayTraceResult.Type.ENTITY;
  */
 public class ItemTaglock extends ItemMod {
 
+	//Todo: Change text to indicate the mob or player that has been tagged, as well as change texture upon getting a taglock.
+
 	public ItemTaglock() {
 		super(LibItemName.TAGLOCK);
 	}
