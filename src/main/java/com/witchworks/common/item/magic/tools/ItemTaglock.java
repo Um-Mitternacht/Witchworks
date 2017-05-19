@@ -24,12 +24,13 @@ public class ItemTaglock extends ItemMod {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer entityPlayer, EnumHand hand) {
 		RayTraceResult result = ProjectileHelper.forwardsRaycast(entityPlayer, true, true, entityPlayer);
-		ActionResult<ItemStack> actionResult = ActionResult.newResult(EnumActionResult.PASS, itemStack);
-		if (result.typeOfHit == ENTITY) {
-			NBTHelper.setUniqueID(itemStack, "name", result.entityHit.getUniqueID());
-			actionResult = ActionResult.newResult(EnumActionResult.SUCCESS, itemStack);
+		ActionResult<ItemStack> actionResult = ActionResult.newResult(EnumActionResult.PASS, stack);
+		if (result != null && result.typeOfHit == ENTITY) {
+			NBTHelper.setUniqueID(stack, "name", result.entityHit.getUniqueID());
+			actionResult = ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+			System.out.print("Success, entity has been tagged");
 		}
 		return actionResult;
 	}
