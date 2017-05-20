@@ -6,29 +6,24 @@ import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
-import com.witchworks.common.block.natural.crop.BlockBelladonna;
-import com.witchworks.common.block.natural.crop.BlockCrop;
-import com.witchworks.common.block.natural.crop.BlockKelp;
+import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.block.tile.ModTiles;
 import com.witchworks.common.block.tools.*;
-import com.witchworks.common.item.ItemMalachite;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.item.ModMaterials;
-import com.witchworks.common.item.baubles.*;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemSalt;
 import com.witchworks.common.item.equipment.ItemSilverArmor;
 import com.witchworks.common.item.food.*;
 import com.witchworks.common.item.food.seed.ItemKelpSeed;
 import com.witchworks.common.item.food.seed.ItemSeed;
+import com.witchworks.common.item.magic.ItemTaglock;
 import com.witchworks.common.item.magic.books.ItemDustyGrimoire;
 import com.witchworks.common.item.magic.books.ItemShadowBook;
 import com.witchworks.common.item.magic.brew.ItemBrewDrink;
 import com.witchworks.common.item.magic.brew.ItemBrewLinger;
 import com.witchworks.common.item.magic.brew.ItemBrewSplash;
-import com.witchworks.common.item.magic.tools.ItemTaglock;
-import com.witchworks.common.item.magic.wands.ItemWand;
 import com.witchworks.common.item.tool.*;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibItemName;
@@ -94,7 +89,7 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.BLOODSTONE),
 				new ItemMod(LibItemName.JASPER),
 				new ItemMod(LibItemName.GEMSTONE_AMALGAM),
-				new ItemMalachite(),
+				new ItemMod(LibItemName.MALACHITE),
 				new ItemMod(LibItemName.AMETHYST),
 				new ItemMod(LibItemName.ALEXANDRITE),
 				new ItemMod(LibItemName.QUARTZ),
@@ -110,22 +105,23 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.HONEYCOMB),
 				new ItemMod(LibItemName.EMPTY_HONEYCOMB),
 				new ItemMod(LibItemName.MORTAR_AND_PESTLE),
+				new ItemMod(LibItemName.UNREFINED_CHALK),
 				new ItemBrewDrink(),
 				new ItemBrewSplash(),
 				new ItemBrewLinger(),
 				new ItemMod(LibItemName.GLASS_JAR),
-				new ItemMod(LibItemName.LAVENDER_OIL),
 
 				//Tools
-				new ItemSilverPickaxe(ModMaterials.TOOL_SILVER),
-				new ItemSilverAxe(ModMaterials.TOOL_SILVER),
-				new ItemSilverSpade(ModMaterials.TOOL_SILVER),
-				new ItemSilverHoe(ModMaterials.TOOL_SILVER),
-				new ItemSilverSword(ModMaterials.TOOL_SILVER),
-				new ItemAthame(ModMaterials.TOOL_RITUAL),
+				new ItemSilverPickaxe(),
+				new ItemSilverAxe(),
+				new ItemSilverSpade(),
+				new ItemSilverHoe(),
+				new ItemSilverSword(),
+				new ItemAthame(),
 				new ItemBoline(),
 				new ItemTaglock(),
 				new ItemMod(LibItemName.CHALK_ITEM),
+				new ItemMod(LibItemName.NEEDLE_BONE),
 
 				//Books
 				new ItemShadowBook(),
@@ -135,15 +131,7 @@ public final class CommonRegistration {
 				new ItemSilverArmor(LibItemName.SILVER_HELMET, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.HEAD),
 				new ItemSilverArmor(LibItemName.SILVER_CHESTPLATE, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.CHEST),
 				new ItemSilverArmor(LibItemName.SILVER_LEGGINGS, ModMaterials.ARMOR_SILVER, 2, EntityEquipmentSlot.LEGS),
-				new ItemSilverArmor(LibItemName.SILVER_BOOTS, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.FEET),
-				new ItemRing(LibItemName.RING),
-				new ItemBelt(LibItemName.BELT),
-				new ItemAmulet(LibItemName.AMULET),
-				new ItemCrown(LibItemName.CROWN),
-				new ItemAmulet(LibItemName.TRINKET),
-				new ItemCrown(LibItemName.CHARM),
-				new ItemShirt(LibItemName.SHIRT),
-				new ItemWand(LibItemName.WAND)
+				new ItemSilverArmor(LibItemName.SILVER_BOOTS, ModMaterials.ARMOR_SILVER, 1, EntityEquipmentSlot.FEET)
 		);
 
 		//Item Blocks
@@ -214,18 +202,18 @@ public final class CommonRegistration {
 				new BlockCrop(LibBlockName.CROP_ACONITUM),
 				new BlockCrop(LibBlockName.CROP_ASPHODEL),
 				new BlockCrop(LibBlockName.CROP_GINGER),
-				new BlockCrop(LibBlockName.CROP_MINT),
+				new CropMint(),
 				new BlockCrop(LibBlockName.CROP_WHITE_SAGE),
 				new BlockCrop(LibBlockName.CROP_MANDRAKE),
 				new BlockCrop(LibBlockName.CROP_LAVENDER),
-				new BlockCrop(LibBlockName.CROP_SILPHIUM),
-				new BlockCrop(LibBlockName.CROP_THISTLE),
+				new CropSilphium(),
+				new CropThistle(),
 				new BlockCrop(LibBlockName.CROP_TULSI),
-				new BlockCrop(LibBlockName.CROP_KENAF),
+				new CropKenaf(),
 				new BlockCrop(LibBlockName.CROP_GARLIC),
-				new BlockCrop(LibBlockName.CROP_WORMWOOD),
-				new BlockKelp(),
-				new BlockBelladonna(),
+				new CropWormwood(),
+				new CropKelp(),
+				new CropBelladonna(),
 				new BlockBeehive(),
 
 				//Ore

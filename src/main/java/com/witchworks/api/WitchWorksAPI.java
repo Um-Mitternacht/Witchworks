@@ -13,6 +13,7 @@ public final class WitchWorksAPI {
 	//Sounds
 	public static final ResourceLocation BOIL = getLocation("boil");
 	public static final ResourceLocation BUZZ = getLocation("buzz");
+	public static final ResourceLocation CHALK_SCRIBBLE = getLocation("chalk_scribble");
 
 	private WitchWorksAPI() {
 	}

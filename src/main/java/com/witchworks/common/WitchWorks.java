@@ -7,7 +7,6 @@ import com.witchworks.common.core.capability.potion.CapabilityBrewStorage;
 import com.witchworks.common.core.command.CommandIncantation;
 import com.witchworks.common.core.command.ModCommands;
 import com.witchworks.common.core.event.ModEvents;
-import com.witchworks.common.core.gen.WorldGenOre;
 import com.witchworks.common.core.handler.ModSounds;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
@@ -22,7 +21,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static net.minecraftforge.fml.common.Mod.EventHandler;
 import static net.minecraftforge.fml.common.Mod.Instance;
@@ -69,7 +67,8 @@ public class WitchWorks {
 
 		ModAchievements.init();
 
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
+		//FIXME: Find out why they wont generate
+		/*GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.BLOODSTONE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TOURMALINE_ORE), 0);
@@ -85,7 +84,7 @@ public class WitchWorks {
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.AMETHYST_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.ALEXANDRITE_ORE), 0);
 		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.COQUINA), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.CHALK), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.CHALK), 0);*/
 	}
 
 	@EventHandler

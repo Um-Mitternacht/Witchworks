@@ -4,11 +4,6 @@
 	  {
 		"model": "witchworks:garnet_ore"
 	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:garnet_ore"
-	  }
 	]
   }
 }

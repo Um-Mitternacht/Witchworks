@@ -75,11 +75,10 @@ item.gemstone_amalgam.name=Gemstone Amalgam
 
 //Resources and Tools
 item.wax.name=Wax
-item.honey_item.name=Honey
+item.honey.name=Honey
 item.honeycomb.name=Honeycomb
 item.empty_honeycomb.name=Empty Honeycomb
 item.glass_jar.name=Glass Jar
-item.lavender_oil.name=Lavender Oil
 item.bee.name=Bee
 item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
@@ -101,6 +100,7 @@ item.brew_phial.name=Brew Phial
 item.taglock.name=Taglock Kit
 item.chalk_item.name=Mundane Chalk
 item.wand.name=Wand
+item.needle_bone.name=Bone Needle
 
 //Blocks
 tile.candle_small.white.name=Small White Candle
@@ -177,7 +177,7 @@ tile.crop_wormwood.name=Wormwood Crop
 tile.crop_kenaf.name=Kenaf Crop
 tile.crop_tulsi.name=Tulsi Crop
 
-//Metals and Ores
+//Metals, Stones and Ores
 tile.silver_ore.name=Silver Ore
 tile.moldavite_ore.name=Moldavite Ore
 tile.bloodstone_ore.name=Bloodstone Ore
@@ -200,6 +200,7 @@ tile.quartz_ore.name=Quartz Ore
 tile.alexandrite_ore.name=Alexandrite Ore
 tile.coquina.name=Coquina
 tile.chalk.name=Raw Chalk
+tile.unrefined_chalk.name=Unrefined Chalk
 
 //Devices
 tile.kettle.name=Kettle
@@ -207,6 +208,13 @@ tile.apiary.name=Apiary
 tile.beehive.name=Beehive
 tile.altar.name=Altar
 tile.oilpress.name=Oilpress
+
+//Fluid
+fluid.oil_toxic=Toxic Oil
+fluid.oil_soothing=Soothing Oil
+fluid.oil_mundane=Mundane Oil
+fluid.oil_magical=Magical Oil
+fluid.oil_spicy=Spicy Oil
 
 //Brews
 brew.shell_armor.name=Shell Armor Brew
@@ -220,6 +228,7 @@ brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
 
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
+witchworks.subtitle.chalk_scribble=Chalk scribbling
 
 ///ToolTips
 witch.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
@@ -269,6 +278,8 @@ witch.tooltip.garlic_description.name=The bulb of a type of allium, it is rather
 witch.tooltip.wormwood_description.name=A rather weedy herb which bugs do not seem to like.
 witch.tooltip.kenaf_description.name=A tall plant with useful fibers.
 witch.tooltip.tulsi_description.name=A small herb considered sacred by some.
+
+item.tag_lock.empty=Empty Taglock
 
 //Baubles
 item.shirt.name=Shirt

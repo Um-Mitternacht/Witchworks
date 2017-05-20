@@ -25,7 +25,7 @@ public final class ModAchievements {
 	}
 
 	public static void init() {
-		craftMalachite = new AchievementMod(LibAchievementName.MALACHITE_CRAFT, 0, 0, ModItems.MALACHITE, null);
+		craftMalachite = new AchievementMod(LibAchievementName.CRAFT_MALACHITE, -5, 0, ModItems.MALACHITE, null);
 
 		final AchievementPage page = new AchievementPage(MOD_NAME, achievements.toArray(new Achievement[achievements.size()]));
 		AchievementPage.registerAchievementPage(page);

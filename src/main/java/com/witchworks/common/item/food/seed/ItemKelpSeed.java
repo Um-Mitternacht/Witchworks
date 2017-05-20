@@ -3,10 +3,10 @@ package com.witchworks.common.item.food.seed;
 import com.witchworks.api.item.crop.Crop;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.lib.LibItemName;
-import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
@@ -28,7 +28,7 @@ public class ItemKelpSeed extends ItemSeed {
 	@Override
 	@SuppressWarnings ("ConstantConditions")
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		final RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, true);
+		final RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, false);
 
 		if (raytraceresult == null) {
 			return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
@@ -40,19 +40,26 @@ public class ItemKelpSeed extends ItemSeed {
 					return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
 				}
 
-				final BlockPos blockpos1 = blockpos.up();
+				final BlockPos up = blockpos.up();
 				final IBlockState iblockstate = worldIn.getBlockState(blockpos);
 
-				if (iblockstate.getMaterial() == Material.WATER && iblockstate.getValue(BlockLiquid.LEVEL) == 0 && worldIn.isAirBlock(blockpos1)) {
+				if (iblockstate.getMaterial().isSolid()) {
 					// special case for handling block placement with water lilies
-					final net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
-					worldIn.setBlockState(blockpos1, this.crop.getDefaultState());
+					BlockPos I = up.add(-1, 0, -1);
+					BlockPos F = up.add(1, 1, 1);
+					for (BlockPos blockPos : BlockPos.getAllInBox(I, F)) {
+						Block block = worldIn.getBlockState(blockPos).getBlock();
+						if (block != ModBlocks.CROP_KELP && block != Blocks.WATER) {
+							return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+						}
+					}
+					final net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, up);
 					if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP, hand).isCanceled()) {
 						blocksnapshot.restore(true, false);
 						return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
 					}
 
-					worldIn.setBlockState(blockpos1, this.crop.getDefaultState(), 11);
+					worldIn.setBlockState(up, this.crop.getDefaultState(), 11);
 
 					if (!playerIn.capabilities.isCreativeMode) {
 						--itemStackIn.stackSize;

@@ -4,11 +4,6 @@
 	  {
 		"model": "witchworks:malachite_ore"
 	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:malachite_ore"
-	  }
 	]
   }
 }

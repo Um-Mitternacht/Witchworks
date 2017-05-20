@@ -25,7 +25,7 @@ import java.util.Random;
 
 /**
  * This class was created by Arekkuusu on 03/05/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witch Works under
  * the MIT license.
  */
 public class BlockFluid extends BlockFluidClassic implements IModelRegister {

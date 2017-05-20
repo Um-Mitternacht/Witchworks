@@ -1,0 +1,50 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+	"model": "cross"
+  },
+  "variants": {
+	"age": {
+	  "0": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_0"
+		}
+	  },
+	  "1": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_1"
+		}
+	  },
+	  "2": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_2"
+		}
+	  },
+	  "3": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_3"
+		}
+	  },
+	  "4": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_4"
+		}
+	  },
+	  "5": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_4"
+		}
+	  },
+	  "6": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_4"
+		}
+	  },
+	  "7": {
+		"textures": {
+		  "cross": "witchworks:blocks/crop/crop_wormwood_false"
+		}
+	  }
+	}
+  }
+}

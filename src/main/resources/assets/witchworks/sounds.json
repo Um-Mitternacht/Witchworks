@@ -10,5 +10,11 @@
 	  "witchworks:buzz"
 	],
 	"subtitle": "witchworks.subtitle.buzz"
+  },
+  "chalk_scribble": {
+	"sounds": [
+	  "witchworks:chalk_scribble"
+	],
+	"subtitle": "witchworks.subtitle.chalk_scribble"
   }
 }

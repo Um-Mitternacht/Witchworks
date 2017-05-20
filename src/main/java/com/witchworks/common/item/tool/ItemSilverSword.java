@@ -3,6 +3,7 @@ package com.witchworks.common.item.tool;
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.item.ModMaterials;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -23,8 +24,8 @@ import javax.annotation.Nonnull;
  */
 public class ItemSilverSword extends ItemSword implements IModelRegister {
 
-	public ItemSilverSword(ToolMaterial material) {
-		super(material);
+	public ItemSilverSword() {
+		super(ModMaterials.TOOL_SILVER);
 		setRegistryName(LibItemName.SILVER_SWORD);
 		setUnlocalizedName(LibItemName.SILVER_SWORD);
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
