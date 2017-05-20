@@ -114,14 +114,14 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.JASPER);
 			addItem(ModItems.MALACHITE);
 			addItem(ModItems.AMETHYST);
-			addItem(ModItems.GEMSTONE_AMALGAM);
 			addItem(ModItems.ALEXANDRITE);
 			addItem(ModItems.QUARTZ);
+			addItem(ModItems.GEMSTONE_AMALGAM);
 			addItem(ModItems.BEE);
 			addItem(ModItems.HONEYCOMB);
 			addItem(ModItems.EMPTY_HONEYCOMB);
 			addItem(ModItems.GLASS_JAR);
-			addItem(ModItems.HONEY_ITEM);
+			addItem(ModItems.HONEY);
 			addItem(ModItems.WAX);
 			addItem(ModItems.MORTAR_AND_PESTLE);
 			addItem(ModItems.SALT);
@@ -137,21 +137,15 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.SILVER_CHESTPLATE);
 			addItem(ModItems.SILVER_LEGGINGS);
 			addItem(ModItems.SILVER_BOOTS);
-			addItem(ModItems.RING);
-			addItem(ModItems.BELT);
-			addItem(ModItems.AMULET);
-			addItem(ModItems.SHIRT);
-			addItem(ModItems.CROWN);
 			addItem(ModItems.SHADOW_BOOK);
 			addItem(ModItems.DUSTY_GRIMOIRE);
 			addItem(ModItems.BREW_PHIAL_DRINK);
 			addItem(ModItems.CHALK_ITEM);
-			addItem(ModItems.TRINKET);
-			addItem(ModItems.CHARM);
-			addItem(ModItems.WAND);
 			addItem(ModItems.BOLINE);
 			addItem(ModItems.ATHAME);
 			addItem(ModItems.TAGLOCK);
+			addItem(ModItems.UNREFINED_CHALK);
+			addItem(ModItems.NEEDLE_BONE);
 		}
 	}
 

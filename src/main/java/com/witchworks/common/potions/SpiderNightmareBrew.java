@@ -38,7 +38,7 @@ public class SpiderNightmareBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0x000000;
+		return 0x80DEDEDE;
 	}
 
 	@Override

@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemHoney extends ItemModFood implements IModelRegister {
 
 	public ItemHoney() {
-		super(LibItemName.HONEY_ITEM, 2, 4F, false);
+		super(LibItemName.HONEY, 2, 4F, false);
 	}
 
 	@Override

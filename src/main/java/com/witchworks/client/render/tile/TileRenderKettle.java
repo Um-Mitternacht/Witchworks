@@ -40,9 +40,9 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.disableLighting();
 			GlStateManager.translate(x, y + 0.1 + level, z);
 			if (fluid == FluidRegistry.WATER || te.hasIngredients()) {
-				float r = te.getColorRGB().getRed() / 255F;
-				float g = te.getColorRGB().getGreen() / 255F;
-				float b = te.getColorRGB().getBlue() / 255F;
+				float r = (te.getColorRGB() >>> 16 & 0xFF) / 256.0F;
+				float g = (te.getColorRGB() >>> 8 & 0xFF) / 256.0F;
+				float b = (te.getColorRGB() & 0xFF) / 256.0F;
 				GlStateManager.color(r, g, b);
 				location = ResourceLocations.GRAY_WATER;
 			}

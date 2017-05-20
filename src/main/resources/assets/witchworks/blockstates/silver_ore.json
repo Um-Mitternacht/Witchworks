@@ -4,11 +4,6 @@
 	  {
 		"model": "witchworks:silver_ore"
 	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:silver_ore"
-	  }
 	]
   }
 }

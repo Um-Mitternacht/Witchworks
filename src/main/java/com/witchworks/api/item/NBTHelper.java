@@ -1,6 +1,7 @@
 package com.witchworks.api.item;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.UUID;
@@ -40,6 +41,10 @@ public final class NBTHelper {
 		fixNBT(stack).setUniqueId(tag, i);
 	}
 
+	public static <T extends NBTBase> void setNBT(ItemStack stack, String tag, T base) {
+		fixNBT(stack).setTag(tag, base);
+	}
+
 	public static byte getByte(ItemStack stack, String tag) {
 		return fixNBT(stack).getByte(tag);
 	}
@@ -62,6 +67,11 @@ public final class NBTHelper {
 
 	public static UUID getUniqueID(ItemStack stack, String tag) {
 		return fixNBT(stack).getUniqueId(tag);
+	}
+
+	@SuppressWarnings ("unchecked")
+	public static <T extends NBTBase> T getNBT(ItemStack stack, String tag) {
+		return (T) fixNBT(stack).getTag(tag);
 	}
 
 	public static boolean hasTag(ItemStack stack, String tag) {

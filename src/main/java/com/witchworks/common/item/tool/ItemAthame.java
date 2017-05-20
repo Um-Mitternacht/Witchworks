@@ -3,6 +3,7 @@ package com.witchworks.common.item.tool;
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.item.ModMaterials;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -23,8 +24,8 @@ import javax.annotation.Nonnull;
  */
 public class ItemAthame extends ItemSword implements IModelRegister {
 
-	public ItemAthame(ToolMaterial material) {
-		super(material);
+	public ItemAthame() {
+		super(ModMaterials.TOOL_RITUAL);
 		setRegistryName(LibItemName.ATHAME);
 		setUnlocalizedName(LibItemName.ATHAME);
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);

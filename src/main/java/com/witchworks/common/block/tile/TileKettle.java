@@ -4,7 +4,6 @@ import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.ritual.Ritual;
-import com.witchworks.api.sound.WitchSoundEvents;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.core.net.PacketHandler;
@@ -55,7 +54,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private final String TAG_CONTAINER = "container";
 	private final KettleFluid inv = tank();
 
-	private Color rgb = new Color(0x194919);
+	private int rgb = -14532558;
 	private Ritual ritual;
 	private Mode mode = Mode.NORMAL;
 	private ItemStack[] ingredients = new ItemStack[64];
@@ -72,7 +71,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		if (inv.hasFluid()) {
 			if (!inv.hasFluid(FluidRegistry.LAVA)) {
 				boolean splash = false;
-				if (isHeat()) {
+				if (isBoiling()) {
 					splash = recipeDropLogic(dropped);
 				}
 				if (splash)
@@ -184,16 +183,20 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	@Override
 	public void update() {
 		if (!world.isRemote && ticks % 2 == 0) {
-			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos()));
+			double x = getPos().getX();
+			double y = getPos().getY();
+			double z = getPos().getZ();
+			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.6D, z + 1);
+			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, box);
 			entityItemList.forEach(this :: collideItem);
 		}
 
 		if (inv.hasFluid()) {
 			if (!inv.hasFluid(FluidRegistry.LAVA)) {
-				if (isHeat()) {
+				if (isBoiling()) {
 					handleParticles();
-					if (ticks % 60 == 0) {
-						play(WitchSoundEvents.BOIL, 0.1F, 1F);
+					if (ticks % 5 == 0 && world.rand.nextInt(15) == 0) {
+						play(SoundEvents.BLOCK_LAVA_AMBIENT, 0.1F, 1F);
 					}
 				}
 			} else if (ticks % 5 == 0 && world.rand.nextInt(20) == 0) {
@@ -210,6 +213,35 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 
 		++ticks;
+	}
+
+	private void handleParticles() {
+		if (world.rand.nextInt(10) == 0) {
+			float x = getPos().getX();
+
+			float z = getPos().getZ();
+			for (int i = 0; i < 4; i++) {
+				final float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
+				final float posY = getParticleLevel();
+				final float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
+				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0.0D, 0.01D, 0.0D, rgb);
+			}
+		}
+		if (hasIngredients() && ticks % 2 == 0) {
+			final float x = getPos().getX() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
+			float y = getParticleLevel();
+			final float z = getPos().getZ() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
+			WitchWorks.proxy.spawnParticle(ParticleF.SPARK, x, y, z, 0.0D, 0.1D, 0.0D);
+		}
+	}
+
+	private void handleHeat() {
+		boolean aboveFire = world.getBlockState(getPos().down()).getMaterial() == Material.FIRE;
+		if (aboveFire && inv.getFluidAmount() > 0 && heat < 10) {
+			++heat;
+		} else if ((!aboveFire || !(inv.getFluidAmount() > 0)) && heat > 0) {
+			--heat;
+		}
 	}
 
 	@SuppressWarnings ("unchecked")
@@ -239,40 +271,11 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	private void handleParticles() {
-		if (world.rand.nextInt(10) == 0) {
-			float x = getPos().getX();
-
-			float z = getPos().getZ();
-			for (int i = 0; i < 4; i++) {
-				final float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-				final float posY = getParticleLevel();
-				final float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0.0D, 0.01D, 0.0D, getColorRGB().getRGB());
-			}
-		}
-		if (hasIngredients() && ticks % 2 == 0) {
-			final float x = getPos().getX() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-			float y = getParticleLevel();
-			final float z = getPos().getZ() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-			WitchWorks.proxy.spawnParticle(ParticleF.SPARK, x, y, z, 0.0D, 0.1D, 0.0D);
-		}
-	}
-
-	private void handleHeat() {
-		boolean aboveFire = world.getBlockState(getPos().down()).getMaterial() == Material.FIRE;
-		if (aboveFire && inv.getFluidAmount() > 0 && heat < 10) {
-			++heat;
-		} else if ((!aboveFire || !(inv.getFluidAmount() > 0)) && heat > 0) {
-			--heat;
-		}
-	}
-
 	@Override
 	void writeDataNBT(NBTTagCompound cmp) {
 		saveItems(cmp);
 		cmp.setInteger(TAG_HEAT, heat);
-		cmp.setInteger(TAG_RGB, getColorRGB().getRGB());
+		cmp.setInteger(TAG_RGB, rgb);
 		cmp.setString(TAG_MODE, mode.name());
 		if (ritual != null) {
 			ritual.writeNBT(cmp);
@@ -303,7 +306,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	void readDataNBT(NBTTagCompound cmp) {
 		loadItems(cmp);
 		heat = cmp.getInteger(TAG_HEAT);
-		setColorRGB(new Color(cmp.getInteger(TAG_RGB)));
+		setColorRGB(cmp.getInteger(TAG_RGB));
 		setMode(Mode.valueOf(cmp.getString(TAG_MODE)));
 		String TAG_RITUAL_DATA = "ritual_data";
 		if (cmp.hasKey(TAG_RITUAL_DATA)) {
@@ -339,8 +342,11 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		ingredients = new ItemStack[64];
 		mode = Mode.NORMAL;
 		ritual = null;
-		if (inv.getInnerFluid() == FluidRegistry.WATER) {
-			setColorRGB(new Color(0x194919));
+		Fluid fluid = inv.getInnerFluid();
+		if (fluid == FluidRegistry.WATER) {
+			setColorRGB(-14532558);
+		} else if (fluid != null) {
+			setColorRGB(fluid.getBlock().getMapColor(null).colorValue);
 		}
 		if (!world.isRemote)
 			PacketHandler.updateToNearbyPlayers(world, pos);
@@ -350,9 +356,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		if (ingredients[ingredients.length - 1] == null) {
 			addIngredient(stack);
 			final float hue = world.rand.nextFloat();
-			final float saturation = (world.rand.nextInt(2000) + 1000) / 10000f;
-			final float luminance = 0.5f;
-			setColorRGB(Color.getHSBColor(hue, saturation, luminance));
+			final float saturation = (world.rand.nextInt(2000) + 1000) / 7000f;
+			final float luminance = 0.25f;
+			setColorRGB(Color.getHSBColor(hue, saturation, luminance).getRGB());
 			PacketHandler.updateToNearbyPlayers(world, pos);
 			return true;
 		}
@@ -369,7 +375,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	public boolean isHeat() {
+	public boolean isBoiling() {
 		return heat == 10;
 	}
 
@@ -377,11 +383,11 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		return ingredients[0] != null;
 	}
 
-	public Color getColorRGB() {
+	public int getColorRGB() {
 		return rgb;
 	}
 
-	public void setColorRGB(Color rgbIn) {
+	public void setColorRGB(int rgbIn) {
 		this.rgb = rgbIn;
 	}
 
@@ -415,7 +421,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings ("ConstantConditions")
 	public boolean processingLogic(ItemStack stack) {
-		if (!isHeat() || hasIngredients()) return false;
+		if (!isBoiling() || hasIngredients() || stack.stackSize > 64) return false;
 		Map<Item, ItemValidator<ItemStack>> processing = KettleRegistry.getKettleProcessing(inv.getInnerFluid());
 		if (processing != null && processing.containsKey(stack.getItem())) {
 			ItemValidator<ItemStack> validator = processing.get(stack.getItem());

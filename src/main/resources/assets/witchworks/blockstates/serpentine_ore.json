@@ -4,11 +4,7 @@
 	  {
 		"model": "witchworks:serpentine_ore"
 	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:serpentine_ore"
-	  }
+	]
 	]
   }
 }
