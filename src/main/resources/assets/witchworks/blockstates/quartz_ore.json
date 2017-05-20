@@ -4,11 +4,6 @@
 	  {
 		"model": "witchworks:quartz_ore"
 	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:quartz_ore"
-	  }
 	]
   }
 }

@@ -57,8 +57,8 @@ public final class ModItems {
 	public static final Item SILVER_NUGGET = new Item();
 
 	//Food Items
-	@ObjectHolder (LibItemName.HONEY_ITEM)
-	public static final Item HONEY_ITEM = new Item();
+	@ObjectHolder (LibItemName.HONEY)
+	public static final Item HONEY = new Item();
 	@ObjectHolder (LibItemName.MANDRAKE)
 	public static final Item MANDRAKE = new Item();
 	@ObjectHolder (LibItemName.LAVENDER)
@@ -170,22 +170,8 @@ public final class ModItems {
 	public static final Item SILVER_LEGGINGS = new Item();
 	@ObjectHolder (LibItemName.SILVER_BOOTS)
 	public static final Item SILVER_BOOTS = new Item();
-	@ObjectHolder (LibItemName.RING)
-	public static final Item RING = new Item();
-	@ObjectHolder (LibItemName.BELT)
-	public static final Item BELT = new Item();
 	@ObjectHolder (LibItemName.CHALK_ITEM)
 	public static final Item CHALK_ITEM = new Item();
-	@ObjectHolder (LibItemName.CROWN)
-	public static final Item CROWN = new Item();
-	@ObjectHolder (LibItemName.SHIRT)
-	public static final Item SHIRT = new Item();
-	@ObjectHolder (LibItemName.AMULET)
-	public static final Item AMULET = new Item();
-	@ObjectHolder (LibItemName.TRINKET)
-	public static final Item TRINKET = new Item();
-	@ObjectHolder (LibItemName.CHARM)
-	public static final Item CHARM = new Item();
 	@ObjectHolder (LibItemName.WAND)
 	public static final Item WAND = new Item();
 	@ObjectHolder (LibItemName.ATHAME)
@@ -226,9 +212,9 @@ public final class ModItems {
 		OreDictionary.registerOre("nuggetSilver", new ItemStack(ModItems.SILVER_NUGGET));
 		OreDictionary.registerOre("ingotSilver", new ItemStack(ModItems.SILVER_INGOT));
 		OreDictionary.registerOre("powderSilver", new ItemStack(ModItems.SILVER_POWDER));
-		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY_ITEM));
-		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY_ITEM));
-		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY_ITEM));
+		OreDictionary.registerOre("honeyDrop", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("dropHoney", new ItemStack(ModItems.HONEY));
+		OreDictionary.registerOre("listAllsugar", new ItemStack(ModItems.HONEY));
 		OreDictionary.registerOre("materialWax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("materialBeeswax", new ItemStack(ModItems.WAX));
 		OreDictionary.registerOre("materialPressedWax", new ItemStack(ModItems.WAX));

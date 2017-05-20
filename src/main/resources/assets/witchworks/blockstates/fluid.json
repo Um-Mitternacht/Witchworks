@@ -4,10 +4,10 @@
 	"model": "forge:fluid"
   },
   "variants": {
-	"honey": [
+	"for.honey": [
 	  {
 		"custom": {
-		  "fluid": "honey"
+		  "fluid": "for.honey"
 		}
 	  }
 	],

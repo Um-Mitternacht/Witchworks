@@ -61,7 +61,7 @@ public final class LibItemName {
 	public static final String SILVER_INGOT = "silver_ingot";
 
 	//Food Items
-	public static final String HONEY_ITEM = "honey_item";
+	public static final String HONEY = "honey";
 
 	//Ingredients
 	public static final String WAX = "wax";
@@ -100,15 +100,6 @@ public final class LibItemName {
 	public static final String GLASS_JAR = "glass_jar";
 	public static final String UNREFINED_CHALK = "unrefined_chalk";
 	public static final String NEEDLE_BONE = "needle_bone";
-
-	//Baubles
-	public static final String RING = "ring";
-	public static final String BELT = "belt";
-	public static final String CHARM = "charm";
-	public static final String TRINKET = "trinket";
-	public static final String AMULET = "amulet";
-	public static final String CROWN = "crown";
-	public static final String SHIRT = "shirt";
 
 	//Materials
 	public static final String SILVER = "silver";

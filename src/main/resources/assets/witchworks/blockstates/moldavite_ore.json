@@ -4,11 +4,6 @@
 	  {
 		"model": "witchworks:moldavite_ore"
 	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:moldavite_ore"
-	  }
 	]
   }
 }

@@ -33,7 +33,7 @@ class ParticleSpark extends Particle {
 		setRBGColorF(r, g, b);
 		this.particleScale *= 0.25F;
 		this.oSize = this.particleScale;
-		this.particleMaxAge = (int) (6.0D / (Math.random() * 0.8D + 0.6D));
+		this.particleMaxAge = (int) (6.0D / (Math.random() * 0.8D + 0.05D));
 		this.setParticleTextureIndex(65);
 	}
 

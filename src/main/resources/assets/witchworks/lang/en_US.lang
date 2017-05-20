@@ -75,11 +75,10 @@ item.gemstone_amalgam.name=Gemstone Amalgam
 
 //Resources and Tools
 item.wax.name=Wax
-item.honey_item.name=Honey
+item.honey.name=Honey
 item.honeycomb.name=Honeycomb
 item.empty_honeycomb.name=Empty Honeycomb
 item.glass_jar.name=Glass Jar
-item.lavender_oil.name=Lavender Oil
 item.bee.name=Bee
 item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
@@ -178,7 +177,7 @@ tile.crop_wormwood.name=Wormwood Crop
 tile.crop_kenaf.name=Kenaf Crop
 tile.crop_tulsi.name=Tulsi Crop
 
-//Metals, Stones, and Ores
+//Metals, Stones and Ores
 tile.silver_ore.name=Silver Ore
 tile.moldavite_ore.name=Moldavite Ore
 tile.bloodstone_ore.name=Bloodstone Ore
@@ -209,6 +208,13 @@ tile.apiary.name=Apiary
 tile.beehive.name=Beehive
 tile.altar.name=Altar
 tile.oilpress.name=Oilpress
+
+//Fluid
+fluid.oil_toxic=Toxic Oil
+fluid.oil_soothing=Soothing Oil
+fluid.oil_mundane=Mundane Oil
+fluid.oil_magical=Magical Oil
+fluid.oil_spicy=Spicy Oil
 
 //Brews
 brew.shell_armor.name=Shell Armor Brew
@@ -272,6 +278,8 @@ witch.tooltip.garlic_description.name=The bulb of a type of allium, it is rather
 witch.tooltip.wormwood_description.name=A rather weedy herb which bugs do not seem to like.
 witch.tooltip.kenaf_description.name=A tall plant with useful fibers.
 witch.tooltip.tulsi_description.name=A small herb considered sacred by some.
+
+item.tag_lock.empty=Empty Taglock
 
 //Baubles
 item.shirt.name=Shirt

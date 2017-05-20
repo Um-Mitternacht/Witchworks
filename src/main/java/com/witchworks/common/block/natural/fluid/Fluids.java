@@ -32,7 +32,7 @@ public final class Fluids {
 
 	public static final Set<IFluidBlock> MOD_FLUID_BLOCKS = new HashSet<>();
 
-	public static final Fluid HONEY = createFluid("honey", false
+	public static final Fluid HONEY = createFluid("for.honey", false
 			, fluid -> fluid.setLuminosity(10)
 					.setEmptySound(SoundEvents.ITEM_BUCKET_EMPTY_LAVA)
 					.setFillSound(SoundEvents.ITEM_BUCKET_FILL_LAVA)
@@ -63,7 +63,7 @@ public final class Fluids {
 
 	public static final Fluid MAGIC_OIL = createFluid("oil_magical", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.EMERALD)), true);
+			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.MAGENTA)), true);
 
 	private Fluids() {
 	}

@@ -25,6 +25,7 @@ public final class ResourceLocations {
 
 	//Particles
 	public static final ResourceLocation CAULDRON_BUBBLE = getLocation("particle/cauldron_bubble");
+	public static final ResourceLocation CAULDRON_BUBBLE_POP = getLocation("particle/cauldron_bubble_pop");
 	public static final ResourceLocation STEAM = getLocation("particle/steam");
 	public static final ResourceLocation BEE = getLocation("particle/bee");
 
