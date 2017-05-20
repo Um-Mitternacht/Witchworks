@@ -25,8 +25,8 @@ public class CropThistle extends BlockCrop {
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		super.updateTick(worldIn, pos, state, rand);
-		if(isMaxAge(state) && state.getValue(AGE) != 7) {
-			if(rand.nextBoolean()) {
+		if (isMaxAge(state) && state.getValue(AGE) != 7) {
+			if (rand.nextBoolean()) {
 				worldIn.setBlockState(pos, getDefaultState().withProperty(AGE, 7));
 			} else {
 				trySpread(worldIn, pos, rand);

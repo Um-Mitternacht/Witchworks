@@ -4,44 +4,44 @@
 	"model": "cross"
   },
   "variants": {
-   "age": {
+	"age": {
 	  "0": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_0"
 		}
 	  },
 	  "1": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_1"
 		}
 	  },
 	  "2": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_2"
 		}
 	  },
 	  "3": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_3"
 		}
 	  },
 	  "4": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_4"
 		}
 	  },
 	  "5": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_4"
 		}
 	  },
 	  "6": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_4"
 		}
 	  },
 	  "7": {
-	    "textures": {
+		"textures": {
 		  "cross": "witchworks:blocks/crop/crop_wormwood_false"
 		}
 	  }

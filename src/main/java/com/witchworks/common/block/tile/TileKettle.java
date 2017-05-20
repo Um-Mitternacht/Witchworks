@@ -345,8 +345,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		Fluid fluid = inv.getInnerFluid();
 		if (fluid == FluidRegistry.WATER) {
 			setColorRGB(-14532558);
-		} else
-		if(fluid != null) {
+		} else if (fluid != null) {
 			setColorRGB(fluid.getBlock().getMapColor(null).colorValue);
 		}
 		if (!world.isRemote)

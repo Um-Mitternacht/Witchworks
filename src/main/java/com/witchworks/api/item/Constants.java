@@ -5,7 +5,7 @@ package com.witchworks.api.item;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WweakerAccess")
+@SuppressWarnings ("WweakerAccess")
 public final class Constants {
 
 	public static final String TAGLOCK_ENTITY = "tag_entity";

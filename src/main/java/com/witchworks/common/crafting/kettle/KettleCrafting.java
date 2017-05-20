@@ -1,11 +1,9 @@
 package com.witchworks.common.crafting.kettle;
 
 import com.witchworks.api.KettleRegistry;
-import com.witchworks.api.ritual.Ritual;
 import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

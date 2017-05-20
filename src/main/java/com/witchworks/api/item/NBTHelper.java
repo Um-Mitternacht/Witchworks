@@ -69,7 +69,7 @@ public final class NBTHelper {
 		return fixNBT(stack).getUniqueId(tag);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	public static <T extends NBTBase> T getNBT(ItemStack stack, String tag) {
 		return (T) fixNBT(stack).getTag(tag);
 	}

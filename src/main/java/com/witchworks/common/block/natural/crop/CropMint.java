@@ -2,8 +2,6 @@ package com.witchworks.common.block.natural.crop;
 
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -24,8 +22,8 @@ public class CropMint extends BlockCrop {
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		super.updateTick(worldIn, pos, state, rand);
-		if(isMaxAge(state) && state.getValue(AGE) != 7) {
-			if(rand.nextBoolean()) {
+		if (isMaxAge(state) && state.getValue(AGE) != 7) {
+			if (rand.nextBoolean()) {
 				worldIn.setBlockState(pos, getDefaultState().withProperty(AGE, 7));
 			} else {
 				trySpread(worldIn, pos, rand);

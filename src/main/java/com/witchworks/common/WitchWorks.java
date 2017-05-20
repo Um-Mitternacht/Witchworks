@@ -7,7 +7,6 @@ import com.witchworks.common.core.capability.potion.CapabilityBrewStorage;
 import com.witchworks.common.core.command.CommandIncantation;
 import com.witchworks.common.core.command.ModCommands;
 import com.witchworks.common.core.event.ModEvents;
-import com.witchworks.common.core.gen.WorldGenOre;
 import com.witchworks.common.core.handler.ModSounds;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
@@ -22,7 +21,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static net.minecraftforge.fml.common.Mod.EventHandler;
 import static net.minecraftforge.fml.common.Mod.Instance;
