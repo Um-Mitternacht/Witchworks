@@ -60,10 +60,10 @@ public final class ModGen {
 				.setHeightRange(WORLD_GEN.serpentine_min_height, WORLD_GEN.serpentine_max_height)
 				.setDimension(0)
 				.build(), 0);
-		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.NUUMMITE_ORE, WORLD_GEN.nuumite_gen_chance)
+		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.NUUMMITE_ORE, WORLD_GEN.nuummite_gen_chance)
 				.generateOn(Blocks.STONE)
-				.setVeinSize(WORLD_GEN.nuumite_min_vein, WORLD_GEN.nuumite_max_vein)
-				.setHeightRange(WORLD_GEN.nuumite_min_height, WORLD_GEN.nuumite_max_height)
+				.setVeinSize(WORLD_GEN.nuummite_min_vein, WORLD_GEN.nuummite_max_vein)
+				.setHeightRange(WORLD_GEN.nuummite_min_height, WORLD_GEN.nuummite_max_height)
 				.setDimension(0)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.GARNET_ORE, WORLD_GEN.garnet_gen_chance)

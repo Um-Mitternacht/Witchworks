@@ -317,7 +317,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public void onLiquidChange() {
 		ingredients = new ItemStack[64];

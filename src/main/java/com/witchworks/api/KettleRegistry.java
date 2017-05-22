@@ -4,7 +4,6 @@ import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.recipe.KettlePotionRecipe;
 import com.witchworks.api.ritual.IRitual;
-import com.witchworks.common.block.tile.TileKettle;
 import com.witchworks.common.crafting.kettle.ItemRitual;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

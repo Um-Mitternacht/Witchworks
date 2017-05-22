@@ -12,7 +12,7 @@ import net.minecraft.world.World;
  * the MIT license.
  */
 @SuppressWarnings ("WeakerAccess")
-public class RitualHolder<T extends TileEntity> {
+public class RitualHolder <T extends TileEntity> {
 
 	public int energy_left;
 	public int ticks;
