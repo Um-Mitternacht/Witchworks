@@ -21,6 +21,7 @@ import net.minecraftforge.common.config.Config.Comment;
 @Config (modid = LibMod.MOD_ID)
 public final class ConfigHandler {
 
+	@Comment("Change vein sizes, generation height and generation chance")
 	public static WorldGen WORLD_GEN = new WorldGen();
 	@Comment ("Customise the HUDs positions in the screen")
 	public static HUD HUD = new HUD();
@@ -29,7 +30,124 @@ public final class ConfigHandler {
 	}
 
 	public static class WorldGen {
+		@Comment("Silver Ore gen")
+		public int silver_min_vein = 1;
+		public int silver_max_vein = 8;
+		public int silver_min_height;
+		public int silver_max_height = 20;
+		public int silver_gen_chance = 2;
 
+		@Comment("Moldavite Ore gen")
+		public int moldavite_min_vein = 1;
+		public int moldavite_max_vein = 4;
+		public int moldavite_min_height;
+		public int moldavite_max_height = 80;
+		public int moldavite_gen_chance = 5;
+
+		@Comment("BloodStone Ore gen")
+		public int bloodStone_min_vein = 1;
+		public int bloodStone_max_vein = 3;
+		public int bloodStone_min_height;
+		public int bloodStone_max_height = 20;
+		public int bloodStone_gen_chance = 1;
+
+		@Comment("Tourmaline Ore gen")
+		public int tourmaline_min_vein = 1;
+		public int tourmaline_max_vein = 4;
+		public int tourmaline_min_height;
+		public int tourmaline_max_height = 80;
+		public int tourmaline_gen_chance = 2;
+
+		@Comment("Malachite Ore gen")
+		public int malachite_min_vein = 1;
+		public int malachite_max_vein = 4;
+		public int malachite_min_height;
+		public int malachite_max_height = 80;
+		public int malachite_gen_chance = 2;
+
+		@Comment("Tigers Eye Ore gen")
+		public int tigersEye_min_vein = 1;
+		public int tigersEye_max_vein = 2;
+		public int tigersEye_min_height;
+		public int tigersEye_max_height = 60;
+		public int tigersEye_gen_chance = 2;
+
+		@Comment("Serpentine Ore gen")
+		public int serpentine_min_vein = 1;
+		public int serpentine_max_vein = 4;
+		public int serpentine_min_height;
+		public int serpentine_max_height = 60;
+		public int serpentine_gen_chance = 2;
+
+		@Comment("Nuumite Ore gen")
+		public int nuumite_min_vein = 1;
+		public int nuumite_max_vein = 4;
+		public int nuumite_min_height;
+		public int nuumite_max_height = 60;
+		public int nuumite_gen_chance = 2;
+
+		@Comment("Garnet Ore gen")
+		public int garnet_min_vein = 1;
+		public int garnet_max_vein = 1;
+		public int garnet_min_height;
+		public int garnet_max_height = 30;
+		public int garnet_gen_chance = 2;
+
+		@Comment("Petoskey Ore gen")
+		public int petoskey_min_vein = 1;
+		public int petoskey_max_vein = 4;
+		public int petoskey_min_height;
+		public int petoskey_max_height = 80;
+		public int petoskey_gen_chance = 2;
+
+		@Comment("Jasper Ore gen")
+		public int jasper_min_vein = 1;
+		public int jasper_max_vein = 3;
+		public int jasper_min_height;
+		public int jasper_max_height = 30;
+		public int jasper_gen_chance = 2;
+
+		@Comment("Salt Ore gen")
+		public int salt_min_vein = 1;
+		public int salt_max_vein = 20;
+		public int salt_min_height;
+		public int salt_max_height = 100;
+		public int salt_gen_chance = 2;
+
+		@Comment("Quartz Ore gen")
+		public int quartz_min_vein = 1;
+		public int quartz_max_vein = 5;
+		public int quartz_min_height;
+		public int quartz_max_height = 40;
+		public int quartz_gen_chance = 2;
+
+		@Comment("Amethyst Ore gen")
+		public int amethyst_min_vein = 1;
+		public int amethyst_max_vein = 4;
+		public int amethyst_min_height;
+		public int amethyst_max_height = 40;
+		public int amethyst_gen_chance = 2;
+
+		@Comment("Alexandrite Ore gen")
+		public int alexandrite_min_vein = 1;
+		public int alexandrite_max_vein = 4;
+		public int alexandrite_min_height;
+		public int alexandrite_max_height = 40;
+		public int alexandrite_gen_chance = 2;
+
+		@Comment("Coquina Ore gen")
+		public int coquina_min_vein = 1;
+		public int coquina_max_vein = 4;
+		public int coquina_min_height;
+		public int coquina_max_height = 40;
+		public int coquina_gen_chance = 2;
+
+		@Comment("Chalk Ore gen")
+		public int chalk_min_vein = 1;
+		public int chalk_max_vein = 15;
+		public int chalk_min_height;
+		public int chalk_max_height = 100;
+		public int chalk_gen_chance = 2;
 	}
 
 	public static class HUD {

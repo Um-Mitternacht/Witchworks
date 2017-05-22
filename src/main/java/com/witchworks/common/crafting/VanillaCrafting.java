@@ -45,19 +45,6 @@ public final class VanillaCrafting {
 				.outputs(ModItems.SILVER_LEGGINGS)
 				.build();
 
-		shaped().grid(" N ", "NGN", " S ")
-				.map('N', ModItems.SILVER_INGOT)
-				.map('G', ModItems.ALEXANDRITE)
-				.map('S', Items.STICK)
-				.outputs(ModItems.ATHAME)
-				.build();
-
-		shaped().grid("NN ", "  N", " B ")
-				.map('N', ModItems.SILVER_INGOT)
-				.map('B', ModItems.BLOODSTONE)
-				.outputs(ModItems.BOLINE)
-				.build();
-
 		shaped().grid("   ", "N N", "N N")
 				.map('N', ModItems.SILVER_INGOT)
 				.outputs(ModItems.SILVER_BOOTS)
@@ -114,6 +101,23 @@ public final class VanillaCrafting {
 
 		shapeless().add(ModBlocks.SILVER_BLOCK)
 				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
+				.build();
+
+		shaped().grid(" N ", "NGN", " S ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('G', ModItems.ALEXANDRITE)
+				.map('S', Items.STICK)
+				.outputs(ModItems.ATHAME)
+				.build();
+
+		shaped().grid("NN ", "  N", " B ")
+				.map('N', ModItems.SILVER_INGOT)
+				.map('B', ModItems.BLOODSTONE)
+				.outputs(ModItems.BOLINE)
+				.build();
+
+		shapeless().add(ModItems.TAGLOCK)
+				.outputs(ModItems.TAGLOCK)
 				.build();
 	}
 

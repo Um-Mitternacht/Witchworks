@@ -1,6 +1,6 @@
 package com.witchworks.api.recipe;
 
-import com.witchworks.api.ritual.IKettleRitual;
+import com.witchworks.common.crafting.kettle.ItemRitual;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -10,14 +10,14 @@ import net.minecraft.item.ItemStack;
  */
 public class KettleItemRecipe extends FlawlessRecipe {
 
-	private final IKettleRitual ritual;
+	private final ItemRitual ritual;
 
-	public KettleItemRecipe(IKettleRitual ritual, ItemStack result, Object... inputs) {
-		super(result, inputs);
+	public KettleItemRecipe(ItemRitual ritual, Object... inputs) {
+		super(ritual.getStack(), inputs);
 		this.ritual = ritual;
 	}
 
-	public IKettleRitual getRitual() {
+	public ItemRitual getRitual() {
 		return ritual;
 	}
 }
