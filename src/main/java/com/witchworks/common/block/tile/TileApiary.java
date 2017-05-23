@@ -28,6 +28,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 
 /**
  * This class was created by Arekkuusu on 16/04/2017.
@@ -77,13 +78,13 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	@Nullable
 	@Override
 	public ItemStack decrStackSize(int index, int count) {
-		return ItemStackHelper.getAndSplit(itemStacks, index, count);
+		return ItemStackHelper.getAndSplit(Arrays.asList(itemStacks), index, count);
 	}
 
 	@Nullable
 	@Override
 	public ItemStack removeStackFromSlot(int index) {
-		return ItemStackHelper.getAndRemove(itemStacks, index);
+		return ItemStackHelper.getAndRemove(Arrays.asList(itemStacks), index);
 	}
 
 	@Override
