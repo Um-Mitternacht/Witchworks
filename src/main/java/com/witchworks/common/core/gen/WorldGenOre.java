@@ -17,7 +17,7 @@ import java.util.Random;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 
 	private final int[] dim;

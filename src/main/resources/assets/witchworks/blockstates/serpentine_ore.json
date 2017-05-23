@@ -1,10 +1,10 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:serpentine_ore"
-	  }
-	]
-	]
+    "normal": [
+      {
+        "model": "witchworks:serpentine_ore"
+      }
+    ]
+    ]
   }
 }

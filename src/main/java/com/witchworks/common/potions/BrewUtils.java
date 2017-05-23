@@ -22,7 +22,7 @@ import java.util.Optional;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class BrewUtils {
 
 	public static final String BREW_TAG = "brew";
@@ -83,7 +83,7 @@ public class BrewUtils {
 		return NBTHelper.hasTag(stack, BREW_TAG);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
 		if (NBTHelper.hasTag(stack, DESC_TAG)) {
 			String desc = NBTHelper.getString(stack, DESC_TAG);

@@ -78,7 +78,7 @@ public class ItemBrewDrink extends ItemBrew {
 		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
 		BrewRegistry.getBrews().stream().filter(brew -> brew.getType() == BrewRegistry.Brew.DRINK).forEach(brew -> {

@@ -44,7 +44,7 @@ import static net.minecraftforge.fluids.Fluid.BUCKET_VOLUME;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private final String TAG_HEAT = "heat";
@@ -62,7 +62,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private int heat;
 	private int ticks;
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
 		final ItemStack dropped = entityItem.getEntityItem();
 		if (dropped == null || entityItem.isDead)
@@ -81,8 +81,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				entityItem.setDead();
 				return;
 			}
-			if (dropped.stackSize == 0)
-				entityItem.setDead();
+			dropped.setCount(0);
+			entityItem.setDead();
 		}
 	}
 
@@ -126,7 +126,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				//TODO: Add Potion Logic here
 			} else if (getContainer() == null) {
 				ItemStack copy = heldItem.copy();
-				copy.stackSize = 1;
+				copy.setCount(1);
 				setContainer(copy);
 				giveItem(player, hand, heldItem, null);
 			}
@@ -188,7 +188,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			double z = getPos().getZ();
 			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.7D, z + 1);
 			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, box);
-			entityItemList.forEach(this :: collideItem);
+			entityItemList.forEach(this::collideItem);
 		}
 
 		if (inv.hasFluid()) {
@@ -244,7 +244,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings("unchecked")
 	private void handleRitual() {
 		if (!ritual.isFail()) {
 			ritual.update(this);
@@ -317,7 +317,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public void onLiquidChange() {
 		ingredients = new ItemStack[64];
@@ -350,7 +350,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		for (int i = 0; i < ingredients.length; i++) {
 			if (ingredients[i] == null) {
 				ingredients[i] = stack.copy();
-				stack.stackSize = 0;
+				ItemStack.EMPTY;
 				break;
 			}
 		}
@@ -400,9 +400,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	//------------------------------------Crafting Logic------------------------------------//
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	public boolean processingLogic(ItemStack stack) {
-		if (!isBoiling() || hasIngredients() || stack.stackSize > 64) return false;
+		if (!isBoiling() || hasIngredients() || stack.getCount() > 64) return false;
 		Map<Item, ItemValidator<ItemStack>> processing = KettleRegistry.getKettleProcessing(inv.getInnerFluid());
 		if (processing != null && processing.containsKey(stack.getItem())) {
 			ItemValidator<ItemStack> validator = processing.get(stack.getItem());
@@ -452,7 +452,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		return false;
 	}
 
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings("unchecked")
 	public void itemRitualLogic() {
 		Optional<KettleItemRecipe> optional = KettleRegistry.getKettleItemRituals().stream().filter(
 				i -> i.matches(ingredients)
@@ -476,7 +476,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		onLiquidChange();
 
 		world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(getPos()).expandXyz(2))
-				.forEach(entity -> entity.attackEntityFrom(DamageSource.magic, ingredients.length / 2));
+				.forEach(entity -> entity.attackEntityFrom(DamageSource.MAGIC, ingredients.length / 2));
 	}
 
 	//------------------------------------Crafting Logic------------------------------------//

@@ -26,7 +26,7 @@ import java.util.Optional;
  */
 public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
 		Optional<FluidStack> optional = te.getFluid();

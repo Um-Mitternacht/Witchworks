@@ -65,7 +65,7 @@ public class ItemRitual implements IRitual<TileKettle> {
 		}
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public void onFinish(TileKettle tile, World world, BlockPos pos) {
 		for (int i = 0; i < 20; i++) {

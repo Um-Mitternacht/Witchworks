@@ -44,7 +44,7 @@ public class ItemSilverPickaxe extends ItemPickaxe implements IModelRegister {
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

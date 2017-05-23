@@ -56,7 +56,7 @@ public class SpiderNightmareBrew implements IBrew {
 		return BrewRegistry.Brew.DRINK;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
 		render(x, y, mc, 2);

@@ -19,9 +19,9 @@ public interface IBrewStorage {
 
 	void setBrews(Map<IBrew, BrewEffect> effect);
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	Set<IBrew> getClient();
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	void setClient(Set<IBrew> client);
 }

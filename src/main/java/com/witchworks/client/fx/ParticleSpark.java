@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleSpark extends Particle {
 
 	private float oSize;
@@ -68,7 +68,7 @@ class ParticleSpark extends Particle {
 		}
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			return new ParticleSpark(worldIn, xCoordIn, yCoordIn, zCoordIn);

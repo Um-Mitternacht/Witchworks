@@ -43,7 +43,7 @@ public class ItemSilverHoe extends ItemHoe implements IModelRegister {
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

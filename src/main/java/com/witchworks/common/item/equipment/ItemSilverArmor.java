@@ -23,7 +23,7 @@ public class ItemSilverArmor extends ItemArmor implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerItem(this);
 	}

@@ -20,7 +20,7 @@ import net.minecraft.util.math.Vec3d;
  */
 class IncantationBurn implements IIncantation {
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public void cast(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		final EntityLivingBase entity = (EntityLivingBase) sender.getCommandSenderEntity();

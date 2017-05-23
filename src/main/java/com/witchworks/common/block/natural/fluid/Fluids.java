@@ -27,7 +27,7 @@ import java.util.function.Function;
  * It's distributed as part of Witch Works under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public final class Fluids {
 
 	public static final Set<IFluidBlock> MOD_FLUID_BLOCKS = new HashSet<>();

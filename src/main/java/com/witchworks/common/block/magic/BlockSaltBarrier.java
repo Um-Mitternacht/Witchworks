@@ -34,14 +34,14 @@ import java.util.Set;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public class BlockSaltBarrier extends BlockMod {
 
 	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> NORTH = PropertyEnum.create("north", BlockSaltBarrier.EnumAttachPosition.class);
 	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> EAST = PropertyEnum.create("east", BlockSaltBarrier.EnumAttachPosition.class);
 	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> SOUTH = PropertyEnum.create("south", BlockSaltBarrier.EnumAttachPosition.class);
 	public static final PropertyEnum<BlockSaltBarrier.EnumAttachPosition> WEST = PropertyEnum.create("west", BlockSaltBarrier.EnumAttachPosition.class);
-	private static final AxisAlignedBB[] SALT_BARRIER_AABB = new AxisAlignedBB[] {new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D)};
+	private static final AxisAlignedBB[] SALT_BARRIER_AABB = new AxisAlignedBB[]{new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.8125D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.8125D, 0.0625D, 1.0D), new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.1875D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.1875D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 0.8125D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D)};
 	private final Set<BlockPos> blocksNeedingUpdate = Sets.newHashSet();
 
 	public BlockSaltBarrier() {
@@ -85,13 +85,13 @@ public class BlockSaltBarrier extends BlockMod {
 		return block == ModBlocks.SALT_BARRIER;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SALT_BARRIER_AABB[getAABBIndex(state.getActualState(source, pos))];
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		state = state.withProperty(WEST, this.getAttachPosition(worldIn, pos, EnumFacing.WEST));
@@ -126,26 +126,26 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
 		return NULL_AABB;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		return worldIn.getBlockState(pos.down()).isFullyOpaque() || worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE;
@@ -224,7 +224,7 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
 		if (!worldIn.isRemote) {
@@ -244,7 +244,7 @@ public class BlockSaltBarrier extends BlockMod {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		final double d0 = (double) pos.getX() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
 		final double d1 = (double) ((float) pos.getY() + 0.0625F);
@@ -256,20 +256,20 @@ public class BlockSaltBarrier extends BlockMod {
 		worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, d0, d1, d2, (double) f1, (double) f2, (double) f3);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		return new ItemStack(ModItems.SALT);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState();
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
@@ -279,7 +279,7 @@ public class BlockSaltBarrier extends BlockMod {
 		return 0;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		switch (rot) {
@@ -294,7 +294,7 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
 		switch (mirrorIn) {

@@ -41,7 +41,7 @@ public class ItemTaglock extends ItemMod {
 		super(LibItemName.TAGLOCK);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 		if (NBTHelper.hasTag(stack, TAGLOCK_ENTITY_NAME)) {
@@ -51,7 +51,7 @@ public class ItemTaglock extends ItemMod {
 		}
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer entityPlayer, EnumHand hand) {
 		if (!world.isRemote) {
@@ -63,7 +63,7 @@ public class ItemTaglock extends ItemMod {
 		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 		IBlockState state = world.getBlockState(pos);

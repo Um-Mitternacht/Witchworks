@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("deprecation")
+@SuppressWarnings("deprecation")
 public class TileCandle extends TileMod implements ITickable {
 
 	private EnumDyeColor color;

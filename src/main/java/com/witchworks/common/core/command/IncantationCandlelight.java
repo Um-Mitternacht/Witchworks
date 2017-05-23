@@ -9,7 +9,7 @@ import net.minecraft.server.MinecraftServer;
  */
 class IncantationCandlelight implements IIncantation {
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public void cast(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 

@@ -51,7 +51,7 @@ public class ContainerApiary extends Container {
 		return !playerIn.isSpectator();
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Nullable
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {

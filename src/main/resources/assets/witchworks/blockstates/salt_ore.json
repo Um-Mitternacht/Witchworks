@@ -1,9 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:salt_ore"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:salt_ore"
+      }
+    ]
   }
 }

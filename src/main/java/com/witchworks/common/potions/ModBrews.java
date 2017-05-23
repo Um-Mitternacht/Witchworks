@@ -12,7 +12,7 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@ObjectHolder (LibMod.MOD_ID)
+@ObjectHolder(LibMod.MOD_ID)
 public final class ModBrews {
 
 	public static IBrew SHELL_ARMOR;
