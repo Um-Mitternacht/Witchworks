@@ -170,13 +170,14 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
+	//FIXME To work on later. Fucking screwed up sleep. There is probably an error here I bet.
 	private void giveItem(EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, @Nullable ItemStack toGive) {
 		if (heldItem == null) heldItem.shrink(0);
 		{
 			player.setHeldItem(hand, toGive);
-		} else if (!player.inventory.addItemStackToInventory(toGive)) {
+		} (!player.inventory.addItemStackToInventory(toGive)) {
 			player.dropItem(toGive, false);
-		} else if (player instanceof EntityPlayerMP) {
+		} (player instanceof EntityPlayerMP) {
 			((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
 		}
 	}
