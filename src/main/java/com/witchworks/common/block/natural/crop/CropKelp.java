@@ -45,7 +45,7 @@ public class CropKelp extends BlockCrop {
 		return worldIn.getBlockState(pos.up()).getBlock() == Blocks.WATER;
 	}
 
-	@Override
+
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
 		BlockPos I = pos.add(-1, 0, -1);
 		BlockPos F = pos.add(1, 1, 1);

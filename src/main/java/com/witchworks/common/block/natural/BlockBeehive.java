@@ -72,7 +72,6 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		return facing.getHorizontalIndex();
 	}
 
-	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
 		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw).getOpposite();
 		return this.getDefaultState().withProperty(FACING, enumfacing);

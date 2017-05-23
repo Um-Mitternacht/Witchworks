@@ -69,6 +69,11 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		return itemStacks.length;
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return false;
+	}
+
 	@Nullable
 	@Override
 	public ItemStack getStackInSlot(int index) {
@@ -92,8 +97,8 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		final boolean flag = stack != null && stack.isItemEqual(this.itemStacks[index]) && ItemStack.areItemStackTagsEqual(stack, this.itemStacks[index]);
 		this.itemStacks[index] = stack;
 
-		if (stack != null && stack.stackSize > this.getInventoryStackLimit()) {
-			stack.stackSize = this.getInventoryStackLimit();
+		if (stack != null && stack.getMaxStackSize() > this.getInventoryStackLimit()) {
+			stack.getMaxStackSize() = this.getInventoryStackLimit();
 		}
 
 		if (index == 0 && !flag) {

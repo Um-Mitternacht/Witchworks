@@ -55,7 +55,7 @@ public class CropKenaf extends BlockCrop {
 		return canSustainBush(state);
 	}
 
-	@Override
+
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
 		this.checkForDrop(worldIn, pos, state);
 	}
