@@ -171,7 +171,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	private void giveItem(EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, @Nullable ItemStack toGive) {
-		if (heldItem == null || --heldItem.stackSize == 0) {
+		if (heldItem == null) heldItem.shrink(0); {
 			player.setHeldItem(hand, toGive);
 		} else if (!player.inventory.addItemStackToInventory(toGive)) {
 			player.dropItem(toGive, false);
@@ -411,7 +411,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				ItemStack out = optional.get().copy();
 				if (stack.isItemDamaged() && out.isItemStackDamageable())
 					out.setItemDamage(stack.getItemDamage());
-				out.stackSize = 0;
+				out.shrink(0);
 				int fluid = inv.getFluidAmount();
 				int taken = 0;
 
