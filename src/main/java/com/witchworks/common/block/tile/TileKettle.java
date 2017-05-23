@@ -3,7 +3,7 @@ package com.witchworks.common.block.tile;
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleItemRecipe;
-import com.witchworks.api.ritual.Ritual;
+import com.witchworks.api.ritual.RitualHolder;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.core.net.PacketHandler;
@@ -55,7 +55,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private final KettleFluid inv = tank();
 
 	private int rgb = -14532558;
-	private Ritual ritual;
+	private RitualHolder ritual;
 	private Mode mode = Mode.NORMAL;
 	private ItemStack[] ingredients = new ItemStack[64];
 	private ItemStack container;
@@ -186,7 +186,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			double x = getPos().getX();
 			double y = getPos().getY();
 			double z = getPos().getZ();
-			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.6D, z + 1);
+			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.7D, z + 1);
 			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, box);
 			entityItemList.forEach(this :: collideItem);
 		}
@@ -246,26 +246,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings ("unchecked")
 	private void handleRitual() {
-		if (ritual.update(this) && !ritual.isFail()) {
-			if (ritual.hasEnded()) {
-				for (int i = 0; i < 20; i++) {
-					final float x = getPos().getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
-					final float y = getPos().getY() + 0.2F + world.rand.nextFloat();
-					final float z = getPos().getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
-
-					PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 10, 0, 0, 0);
-				}
-				play(SoundEvents.BLOCK_LAVA_EXTINGUISH, 1F, 1F);
-				setContainer(ritual.getStack());
-				tank.setFluid(null);
-				onLiquidChange();
-			}
-			if (ticks % 5 == 0) {
-				double x = world.rand.nextFloat();
-				double y = 0.2F + world.rand.nextFloat();
-				double z = world.rand.nextFloat();
-				particleServerSide(EnumParticleTypes.SPELL_WITCH, 0.5, 0.5, 0.5, x, y, z, 4);
-			}
+		if (!ritual.isFail()) {
+			ritual.update(this);
 		} else {
 			failHorribly();
 		}
@@ -308,9 +290,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		heat = cmp.getInteger(TAG_HEAT);
 		setColorRGB(cmp.getInteger(TAG_RGB));
 		setMode(Mode.valueOf(cmp.getString(TAG_MODE)));
-		String TAG_RITUAL_DATA = "ritual_data";
-		if (cmp.hasKey(TAG_RITUAL_DATA)) {
-			ritual = Ritual.newInstance();
+		if (cmp.hasKey("ritual_data")) {
+			ritual = RitualHolder.newInstance();
 			ritual.readNBT(cmp);
 		}
 	}
@@ -338,7 +319,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings ("ConstantConditions")
 	@Override
-	void onLiquidChange() {
+	public void onLiquidChange() {
 		ingredients = new ItemStack[64];
 		mode = Mode.NORMAL;
 		ritual = null;
@@ -412,7 +393,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		markDirty();
 	}
 
-	public void setRitual(Ritual ritual) {
+	public void setRitual(RitualHolder ritual) {
 		this.ritual = ritual;
 		markDirty();
 	}
@@ -473,15 +454,15 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings ("unchecked")
 	public void itemRitualLogic() {
-		Optional<KettleItemRecipe> optional = KettleRegistry.getKettleItemRecipes().stream().filter(
+		Optional<KettleItemRecipe> optional = KettleRegistry.getKettleItemRituals().stream().filter(
 				i -> i.matches(ingredients)
 		).findAny();
 		if (optional.isPresent()) {
 			KettleItemRecipe recipe = optional.get();
-			setRitual(new Ritual<>(recipe.getRitual(), recipe.getResult()));
-			if (ritual.canPerform(world, getPos())) {
-				play(SoundEvents.ENTITY_WITCH_AMBIENT, 1F, 1F);
+			setRitual(new RitualHolder<>(recipe.getRitual()));
+			if (ritual.canPerform(this, world, getPos())) {
 				setMode(Mode.RITUAL);
+				markDirty();
 			} else {
 				failHorribly();
 			}

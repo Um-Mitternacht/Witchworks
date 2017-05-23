@@ -7,6 +7,7 @@ import com.witchworks.common.core.capability.potion.CapabilityBrewStorage;
 import com.witchworks.common.core.command.CommandIncantation;
 import com.witchworks.common.core.command.ModCommands;
 import com.witchworks.common.core.event.ModEvents;
+import com.witchworks.common.core.gen.ModGen;
 import com.witchworks.common.core.handler.ModSounds;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
@@ -65,26 +66,9 @@ public class WitchWorks {
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
 
-		ModAchievements.init();
+		ModGen.init();
 
-		//FIXME: Find out why they wont generate
-		/*GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SILVER_ORE, 4, 7), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MOLDAVITE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.BLOODSTONE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TOURMALINE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.MALACHITE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.TIGERS_EYE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SERPENTINE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.NUUMMITE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.GARNET_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.PETOSKEY_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.JASPER_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.SALT_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.QUARTZ_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.AMETHYST_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.ALEXANDRITE_ORE), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.COQUINA), 0);
-		GameRegistry.registerWorldGenerator(new WorldGenOre(ModBlocks.CHALK), 0);*/
+		ModAchievements.init();
 	}
 
 	@EventHandler

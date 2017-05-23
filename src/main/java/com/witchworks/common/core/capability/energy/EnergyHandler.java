@@ -2,10 +2,16 @@ package com.witchworks.common.core.capability.energy;
 
 import com.witchworks.common.core.net.EnergyMessage;
 import com.witchworks.common.core.net.PacketHandler;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * This class was created by Arekkuusu on 20/04/2017.
@@ -15,6 +21,12 @@ import java.util.Optional;
 public final class EnergyHandler {
 
 	private EnergyHandler() {
+	}
+
+	@SuppressWarnings ("ConstantConditions")
+	public static <T extends Entity> List<T> getEnergySources(Class<T> type, World world, BlockPos pos, int range) {
+		return world.getEntitiesWithinAABB(type, new AxisAlignedBB(pos).expandXyz(range)).stream()
+				.filter(entity -> entity.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)).collect(Collectors.toList());
 	}
 
 	/**

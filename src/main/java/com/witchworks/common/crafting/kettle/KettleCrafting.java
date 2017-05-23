@@ -40,7 +40,8 @@ public final class KettleCrafting {
 		KettleRegistry.addKettleProcessing(FluidRegistry.WATER, ModItems.HONEYCOMB, getStack(ModItems.HONEY), true);
 
 		//------------------------------------Item Rituals------------------------------------//
-
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_MANDRAKE), 5)
+				, getStack(Items.WHEAT_SEEDS, 5));
 	}
 
 	/**
