@@ -81,7 +81,7 @@ public final class ConfigHandler {
 		public int serpentine_max_height = 128;
 		public int serpentine_gen_chance = 4;
 
-		@Comment ("nuummite Ore gen")
+		@Comment ("Nuummite Ore gen")
 		public int nuummite_min_vein = 1;
 		public int nuummite_max_vein = 6;
 		public int nuummite_min_height;
