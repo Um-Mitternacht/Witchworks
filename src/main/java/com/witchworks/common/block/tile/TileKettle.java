@@ -350,7 +350,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		for (int i = 0; i < ingredients.length; i++) {
 			if (ingredients[i] == null) {
 				ingredients[i] = stack.copy();
-				ItemStack.EMPTY;
+				stack.shrink(0);
 				break;
 			}
 		}
