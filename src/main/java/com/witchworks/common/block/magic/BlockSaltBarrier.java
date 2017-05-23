@@ -162,12 +162,12 @@ public class BlockSaltBarrier extends BlockMod {
 		return state;
 	}
 
-	private void notifyBarrierNeighborsOfStateChange(World worldIn, BlockPos pos) {
+	private void notifyBarrierNeighborsOfStateChange(World worldIn, BlockPos pos, boolean updateObservers) {
 		if (worldIn.getBlockState(pos).getBlock() == this) {
-			worldIn.notifyNeighborsOfStateChange(pos, this);
+			worldIn.notifyNeighborsOfStateChange(pos, this, updateObservers);
 
 			for (EnumFacing enumfacing : EnumFacing.values()) {
-				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this);
+				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this, updateObservers);
 			}
 		}
 	}
