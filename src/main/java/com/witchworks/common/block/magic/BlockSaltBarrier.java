@@ -127,7 +127,6 @@ public class BlockSaltBarrier extends BlockMod {
 	}
 
 	@SuppressWarnings("deprecation")
-	@Override
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
 		return NULL_AABB;
@@ -151,12 +150,12 @@ public class BlockSaltBarrier extends BlockMod {
 		return worldIn.getBlockState(pos.down()).isFullyOpaque() || worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE;
 	}
 
-	private IBlockState updateSurroundingSalt(World worldIn, IBlockState state) {
+	private IBlockState updateSurroundingSalt(World worldIn, IBlockState state, boolean updateObservers) {
 		final List<BlockPos> list = Lists.newArrayList(this.blocksNeedingUpdate);
 		this.blocksNeedingUpdate.clear();
 
 		for (BlockPos blockpos : list) {
-			worldIn.notifyNeighborsOfStateChange(blockpos, this);
+			worldIn.notifyNeighborsOfStateChange(blockpos, this, updateObservers);
 		}
 
 		return state;
@@ -172,64 +171,61 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-	@Override
-	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state, boolean updateObservers) {
 		if (!worldIn.isRemote) {
-			this.updateSurroundingSalt(worldIn, state);
+			this.updateSurroundingSalt(worldIn, state, updateObservers);
 
 			for (EnumFacing enumfacing : EnumFacing.Plane.VERTICAL) {
-				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this);
+				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this, updateObservers);
 			}
 
 			for (EnumFacing enumfacing1 : EnumFacing.Plane.HORIZONTAL) {
-				this.notifyBarrierNeighborsOfStateChange(worldIn, pos.offset(enumfacing1));
+				this.notifyBarrierNeighborsOfStateChange(worldIn, pos.offset(enumfacing1), updateObservers);
 			}
 
 			for (EnumFacing enumfacing2 : EnumFacing.Plane.HORIZONTAL) {
 				final BlockPos blockpos = pos.offset(enumfacing2);
 
 				if (worldIn.getBlockState(blockpos).isNormalCube()) {
-					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.up());
+					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.up(), updateObservers);
 				} else {
-					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.down());
+					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.down(), updateObservers);
 				}
 			}
 		}
 	}
 
-	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state, boolean updateObservers) {
 		super.breakBlock(worldIn, pos, state);
 
 		if (!worldIn.isRemote) {
 			for (EnumFacing enumfacing : EnumFacing.values()) {
-				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this);
+				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this, updateObservers);
 			}
 
-			this.updateSurroundingSalt(worldIn, state);
+			this.updateSurroundingSalt(worldIn, state, updateObservers);
 
 			for (EnumFacing enumfacing1 : EnumFacing.Plane.HORIZONTAL) {
-				this.notifyBarrierNeighborsOfStateChange(worldIn, pos.offset(enumfacing1));
+				this.notifyBarrierNeighborsOfStateChange(worldIn, pos.offset(enumfacing1), updateObservers);
 			}
 
 			for (EnumFacing enumfacing2 : EnumFacing.Plane.HORIZONTAL) {
 				final BlockPos blockpos = pos.offset(enumfacing2);
 
 				if (worldIn.getBlockState(blockpos).isNormalCube()) {
-					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.up());
+					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.up(), updateObservers);
 				} else {
-					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.down());
+					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.down(), updateObservers);
 				}
 			}
 		}
 	}
 
 	@SuppressWarnings("deprecation")
-	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, boolean updateObservers) {
 		if (!worldIn.isRemote) {
 			if (this.canPlaceBlockAt(worldIn, pos)) {
-				this.updateSurroundingSalt(worldIn, state);
+				this.updateSurroundingSalt(worldIn, state, updateObservers);
 			} else {
 				this.dropBlockAsItem(worldIn, pos, state, 0);
 				worldIn.setBlockToAir(pos);
