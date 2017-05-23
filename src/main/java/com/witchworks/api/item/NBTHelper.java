@@ -79,6 +79,13 @@ public final class NBTHelper {
 		return tagCompound != null && tagCompound.hasKey(tag);
 	}
 
+	public static void removeTag(ItemStack stack, String tag) {
+		NBTTagCompound tagCompound = stack.getTagCompound();
+		if (tagCompound != null && tagCompound.hasKey(tag)) {
+			tagCompound.removeTag(tag);
+		}
+	}
+
 	private static NBTTagCompound fixNBT(ItemStack stack) {
 		NBTTagCompound tagCompound = stack.getTagCompound();
 		if (tagCompound == null) {

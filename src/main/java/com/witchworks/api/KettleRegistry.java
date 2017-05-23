@@ -3,7 +3,8 @@ package com.witchworks.api;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.recipe.KettlePotionRecipe;
-import com.witchworks.api.ritual.IKettleRitual;
+import com.witchworks.api.ritual.IRitual;
+import com.witchworks.common.crafting.kettle.ItemRitual;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
@@ -21,19 +22,19 @@ import java.util.Map;
 @SuppressWarnings ({"WeakerAccess", "unused"})
 public final class KettleRegistry {
 
-	private static final List<IKettleRitual> KETTLE_RITUALS = new ArrayList<>();
-	private static final List<KettleItemRecipe> KETTLE_ITEM_RECIPES = new ArrayList<>();
+	private static final List<IRitual> RITUALS = new ArrayList<>();
+	private static final List<KettleItemRecipe> KETTLE_ITEM_RITUALS = new ArrayList<>();
 	private static final List<KettlePotionRecipe> KETTLE_POTION_RECIPES = new ArrayList<>();
 	private static final Map<Fluid, Map<Item, ItemValidator<ItemStack>>> KETTLE_PROCESSING = new HashMap<>();
 
 	private KettleRegistry() {
 	}
 
-	public static KettleItemRecipe registerKettleItemRecipe(IKettleRitual ritual, ItemStack stack, Object... objects) {
-		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, stack, objects);
-		KETTLE_ITEM_RECIPES.add(recipe);
-		if (!KETTLE_RITUALS.contains(ritual))
-			KETTLE_RITUALS.add(ritual);
+	public static KettleItemRecipe registerKettleItemRitual(ItemRitual ritual, Object... objects) {
+		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, objects);
+		KETTLE_ITEM_RITUALS.add(recipe);
+		if (!RITUALS.contains(ritual))
+			RITUALS.add(ritual);
 		return recipe;
 	}
 
@@ -63,12 +64,12 @@ public final class KettleRegistry {
 		}
 	}
 
-	public static List<IKettleRitual> getKettleRituals() {
-		return KETTLE_RITUALS;
+	public static List<IRitual> getRituals() {
+		return RITUALS;
 	}
 
-	public static List<KettleItemRecipe> getKettleItemRecipes() {
-		return KETTLE_ITEM_RECIPES;
+	public static List<KettleItemRecipe> getKettleItemRituals() {
+		return KETTLE_ITEM_RITUALS;
 	}
 
 	public static List<KettlePotionRecipe> getKettlePotionRecipes() {
