@@ -25,7 +25,6 @@ public class ItemKelpSeed extends ItemSeed {
 		super(LibItemName.SEED_KELP, ModBlocks.CROP_KELP, Crop.KELP.getSoil());
 	}
 
-	@Override
 	@SuppressWarnings("ConstantConditions")
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		final RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, false);
@@ -74,7 +73,6 @@ public class ItemKelpSeed extends ItemSeed {
 		}
 	}
 
-	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		return EnumActionResult.FAIL;
 	}
