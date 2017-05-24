@@ -66,22 +66,22 @@ public class ContainerApiary extends Container {
 				if (!mergeItemStack(original, 19, 55, true)) return null;
 				slot.onSlotChange(original, copy);
 			} else if (slotIndex > 19) {
-				if (original.stackSize == 1 && !mergeItemStack(original, 0, 1, false)) return null;
+				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return null;
 				slot.onSlotChange(original, copy);
 			} else {
 				if (!mergeItemStack(original, 19, 55, true)) return null;
 				slot.onSlotChange(original, copy);
 			}
 
-			if (original.stackSize == 0) {
+			if (original.getCount() == 0) {
 				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}
 
-			if (original.stackSize == copy.stackSize) return null;
+			if (original.getCount() == copy.getCount()) return null;
 
-			slot.onPickupFromSlot(player, original);
+			slot.canTakeStack(player);
 		}
 
 		return copy;
