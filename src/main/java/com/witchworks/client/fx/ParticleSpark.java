@@ -62,7 +62,7 @@ class ParticleSpark extends Particle {
 		this.motionZ *= 0.699999988079071D;
 		this.motionY -= 0.019999999552965164D;
 
-		if (this.isCollided) {
+		if (this.canCollide) {
 			this.motionX *= 0.699999988079071D;
 			this.motionZ *= 0.699999988079071D;
 		}

@@ -98,7 +98,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		this.itemStacks[index] = stack;
 
 		if (stack != null && stack.getMaxStackSize() > this.getInventoryStackLimit()) {
-			stack.getMaxStackSize() = this.getInventoryStackLimit();
+			stack.getMaxStackSize();
 		}
 
 		if (index == 0 && !flag) {
