@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -44,13 +45,13 @@ public final class WitchWorksCreativeTabs {
 
 		@SideOnly(Side.CLIENT)
 		void addItem(Item item) {
-			item.getSubItems(item, this, list);
+			item.getSubItems(item, this, (NonNullList<ItemStack>) list);
 		}
 
 		@SideOnly(Side.CLIENT)
 		void addBlock(Block block) {
 			final ItemStack stack = new ItemStack(block);
-			block.getSubBlocks(stack.getItem(), this, list);
+			block.getSubBlocks(stack.getItem(), this, (NonNullList<ItemStack>) list);
 		}
 	}
 
@@ -72,7 +73,6 @@ public final class WitchWorksCreativeTabs {
 			return true;
 		}
 
-		@Override
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(List<ItemStack> list) {
 			this.list = list;
@@ -99,7 +99,6 @@ public final class WitchWorksCreativeTabs {
 			return true;
 		}
 
-		@Override
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(List<ItemStack> list) {
 			this.list = list;
@@ -167,7 +166,6 @@ public final class WitchWorksCreativeTabs {
 			return true;
 		}
 
-		@Override
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(List<ItemStack> list) {
 			this.list = list;

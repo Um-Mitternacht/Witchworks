@@ -18,7 +18,7 @@ public class ItemBrewSplash extends ItemBrew {
 	public ItemBrewSplash() {
 		super(LibItemName.BREW_PHIAL_SPLASH);
 	}
-	
+
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 
 		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
