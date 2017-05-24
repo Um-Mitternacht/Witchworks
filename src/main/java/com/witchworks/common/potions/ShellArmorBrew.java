@@ -70,7 +70,7 @@ public class ShellArmorBrew implements IBrew {
 			Entity attacker = event.getSource().getSourceOfDamage();
 			if (attacker != null) {
 				float damage = event.getAmount();
-				attacker.attackEntityFrom(DamageSource.magic, damage);
+				attacker.attackEntityFrom(DamageSource.MAGIC, damage);
 			}
 		}
 	}
