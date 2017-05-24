@@ -37,9 +37,10 @@ public final class WitchWorksCreativeTabs {
 			setNoTitle();
 		}
 
+		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return getTabIconItem();
+			return null;
 		}
 
 		@SideOnly(Side.CLIENT)
