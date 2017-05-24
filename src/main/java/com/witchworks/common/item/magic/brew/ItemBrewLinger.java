@@ -19,7 +19,6 @@ public class ItemBrewLinger extends ItemBrew {
 		super(LibItemName.BREW_PHIAL_LINGER);
 	}
 
-	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 
 		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);

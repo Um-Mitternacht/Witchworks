@@ -72,14 +72,12 @@ public class ItemBrewDrink extends ItemBrew {
 		return EnumAction.DRINK;
 	}
 
-	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
 		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
 	}
 
 	@SideOnly(Side.CLIENT)
-	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
 		BrewRegistry.getBrews().stream().filter(brew -> brew.getType() == BrewRegistry.Brew.DRINK).forEach(brew -> {
 			BrewEffect effect = BrewRegistry.getDefaults().get(brew);
