@@ -34,7 +34,6 @@ public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 		return LARGE_BOX;
 	}
 
-	@Override
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < 16; i++) {
 			list.add(new ItemStack(itemIn, 1, i));

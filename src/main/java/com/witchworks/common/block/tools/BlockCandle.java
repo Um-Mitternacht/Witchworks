@@ -36,7 +36,6 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		setSound(SoundType.CLOTH);
 	}
 
-	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		final TileCandle candle = (TileCandle) worldIn.getTileEntity(pos);
 		if (candle != null) {
@@ -84,7 +83,6 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return state.getValue(COLOR).getMetadata();
 	}
 
-	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}

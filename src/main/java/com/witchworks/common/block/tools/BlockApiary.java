@@ -47,7 +47,6 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		setHardness(2F);
 	}
 
-	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
 			final TileEntity tile = worldIn.getTileEntity(pos);
@@ -98,7 +97,6 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		return facing.getHorizontalIndex();
 	}
 
-	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
 		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw).getOpposite();
 		return this.getDefaultState().withProperty(FACING, enumfacing);

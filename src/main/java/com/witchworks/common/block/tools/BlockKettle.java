@@ -60,7 +60,6 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	}
 
 	@SuppressWarnings("deprecation")
-	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn) {
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_LEGS);
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_WEST);
@@ -93,16 +92,14 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		return new BlockStateContainer(this, FACING, HALF);
 	}
 
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
-		IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, stack);
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack, EnumHand hand) {
+		IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
 		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
 		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
 	}
 
-	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		final TileKettle tile = (TileKettle) worldIn.getTileEntity(pos);
 		return tile != null && tile.useKettle(playerIn, hand, heldItem);

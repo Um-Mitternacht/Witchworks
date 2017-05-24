@@ -23,7 +23,6 @@ public class ItemSalt extends ItemMod {
 		super(LibItemName.SALT);
 	}
 
-	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		final boolean flag = worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos);
 		final BlockPos blockpos = flag ? pos : pos.offset(facing);
