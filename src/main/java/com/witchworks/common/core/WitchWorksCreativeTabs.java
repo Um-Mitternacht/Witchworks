@@ -38,8 +38,8 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem() {
-			return getIconItemStack().getItem();
+		public ItemStack getTabIconItem() {
+			return getTabIconItem();
 		}
 
 		@SideOnly(Side.CLIENT)
