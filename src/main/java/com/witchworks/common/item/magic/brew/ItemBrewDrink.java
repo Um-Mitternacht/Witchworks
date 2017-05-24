@@ -50,15 +50,14 @@ public class ItemBrewDrink extends ItemBrew {
 		}
 
 		if (entityplayer == null || !entityplayer.capabilities.isCreativeMode) {
-			--stack.stackSize;
-			if (stack.stackSize <= 0) {
+			stack.getCount();
+			if (stack.getCount() <= 0)
 				return new ItemStack(Items.GLASS_BOTTLE);
 			}
 
 			if (entityplayer != null) {
 				entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
 			}
-		}
 		return stack;
 	}
 
