@@ -40,7 +40,7 @@ public final class WitchWorksCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return null;
+			return getIconItemStack();
 		}
 
 		@SideOnly(Side.CLIENT)
