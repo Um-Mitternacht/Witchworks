@@ -61,7 +61,7 @@ public class ItemKelpSeed extends ItemSeed {
 					worldIn.setBlockState(up, this.crop.getDefaultState(), 11);
 
 					if (!playerIn.capabilities.isCreativeMode) {
-						itemStackIn.getItem();
+						itemStackIn.getCount();
 					}
 
 					worldIn.playSound(playerIn, blockpos, SoundEvents.BLOCK_WATERLILY_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
