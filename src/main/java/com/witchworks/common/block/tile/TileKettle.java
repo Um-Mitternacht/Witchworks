@@ -421,14 +421,14 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 					stack.stackSize = 0;
 				} else {
 					while (stack.stackSize > 0 && taken <= fluid) {
-						--stack.stackSize;
-						++out.stackSize;
+						stack.shrink(1);
+						stack.grow(1);
 						if (out.stackSize % 16 == 0)
 							taken += 250;
 					}
 				}
 
-				if (out.stackSize > 0) {
+				stack.shrink(0); {
 					final double x = getPos().getX();
 					final double y = getPos().getY() + 1D;
 					final double z = getPos().getZ();
