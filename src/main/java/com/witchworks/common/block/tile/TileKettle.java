@@ -171,7 +171,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	private void giveItem(EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, @Nullable ItemStack toGive) {
-		if (heldItem == null || heldItem.isEmpty()) {
+		if (heldItem == null || heldItem.getCount() == 0) {
 			player.setHeldItem(hand, toGive);
 		} else if (!player.inventory.addItemStackToInventory(toGive)) {
 			player.dropItem(toGive, false);
