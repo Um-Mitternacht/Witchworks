@@ -3,10 +3,8 @@ package com.witchworks.common.item.block;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -35,9 +33,7 @@ public class ItemSalt extends ItemMod {
 				itemstack.shrink(1);
 				worldIn.setBlockState(blockpos, ModBlocks.SALT_BARRIER.getDefaultState());
 				return EnumActionResult.SUCCESS;
-			}
-			else
-			{
+			} else {
 				return EnumActionResult.FAIL;
 			}
 		}
