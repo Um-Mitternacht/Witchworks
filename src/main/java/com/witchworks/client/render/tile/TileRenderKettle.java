@@ -44,7 +44,7 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 				float g = (te.getColorRGB() >>> 8 & 0xFF) / 256.0F;
 				float b = (te.getColorRGB() & 0xFF) / 256.0F;
 				GlStateManager.color(r, g, b);
-				location = ResourceLocations.GRAY_WATER;
+				location = ResourceLocations.gray_water;
 			}
 
 			Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);

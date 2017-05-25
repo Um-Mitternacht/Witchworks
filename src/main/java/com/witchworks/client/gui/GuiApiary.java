@@ -33,7 +33,7 @@ public class GuiApiary extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(ResourceLocations.APIARY_GUI);
+		this.mc.getTextureManager().bindTexture(ResourceLocations.apiary_gui);
 		final int i = (this.width - this.xSize) / 2;
 		final int j = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);

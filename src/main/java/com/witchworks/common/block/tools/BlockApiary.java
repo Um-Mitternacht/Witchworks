@@ -74,7 +74,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(5) == 0) {
-			WitchWorks.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
+			WitchWorks.proxy.spawnParticle(ParticleF.bee, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
 		}
 	}
 

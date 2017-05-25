@@ -73,7 +73,7 @@ public class ItemRitual implements IRitual<TileKettle> {
 			final float y = pos.getY() + 0.2F + world.rand.nextFloat();
 			final float z = pos.getZ() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 
-			PacketHandler.spawnParticle(ParticleF.STEAM, world, x, y, z, 10, 0, 0, 0);
+			PacketHandler.spawnParticle(ParticleF.steam, world, x, y, z, 10, 0, 0, 0);
 		}
 		if (tile.getContainer() == null) {
 			tile.setContainer(stack);

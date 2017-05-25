@@ -11,10 +11,10 @@ public class TextureStitch {
 
 	@SubscribeEvent
 	public void stitchEventPre(TextureStitchEvent.Pre event) {
-		event.getMap().registerSprite(ResourceLocations.CAULDRON_BUBBLE);
-		event.getMap().registerSprite(ResourceLocations.CAULDRON_BUBBLE_POP);
-		event.getMap().registerSprite(ResourceLocations.STEAM);
-		event.getMap().registerSprite(ResourceLocations.BEE);
-		event.getMap().registerSprite(ResourceLocations.GRAY_WATER);
+		event.getMap().registerSprite(ResourceLocations.cauldron_bubble);
+		event.getMap().registerSprite(ResourceLocations.cauldron_bubble_pop);
+		event.getMap().registerSprite(ResourceLocations.steam);
+		event.getMap().registerSprite(ResourceLocations.bee);
+		event.getMap().registerSprite(ResourceLocations.gray_water);
 	}
 }

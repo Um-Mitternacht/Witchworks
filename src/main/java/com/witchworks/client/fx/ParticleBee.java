@@ -28,7 +28,7 @@ class ParticleBee extends Particle {
 		this.y = posYIn;
 		this.z = posZIn;
 
-		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.BEE.toString());
+		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.bee.toString());
 		setParticleTexture(atlasSprite);
 	}
 

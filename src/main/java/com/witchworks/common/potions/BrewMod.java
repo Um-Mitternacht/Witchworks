@@ -47,7 +47,7 @@ public class BrewMod extends Potion {
 
 	@SideOnly(Side.CLIENT)
 	private void render(int x, int y, float alpha) {
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceLocations.POTION_TEXTURES);
+		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceLocations.potion_textures);
 		final Tessellator tessellator = Tessellator.getInstance();
 		final VertexBuffer buf = tessellator.getBuffer();
 		buf.begin(7, DefaultVertexFormats.POSITION_TEX);

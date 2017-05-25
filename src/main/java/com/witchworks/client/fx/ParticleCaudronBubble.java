@@ -33,8 +33,8 @@ class ParticleCaudronBubble extends Particle {
 		float b = (rgb & 0xFF) / 256.0F;
 		setRBGColorF(r, g, b);
 
-		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.CAULDRON_BUBBLE.toString());
-		pop = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.CAULDRON_BUBBLE_POP.toString());
+		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.cauldron_bubble.toString());
+		pop = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.cauldron_bubble_pop.toString());
 		setParticleTexture(atlasSprite);
 	}
 

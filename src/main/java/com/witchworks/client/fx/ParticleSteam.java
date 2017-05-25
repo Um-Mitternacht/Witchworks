@@ -29,7 +29,7 @@ class ParticleSteam extends Particle {
 		this.particleScale *= 0.5F + rand.nextFloat();
 		this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D));
 
-		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.STEAM.toString());
+		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.steam.toString());
 		setParticleTexture(atlasSprite);
 	}
 

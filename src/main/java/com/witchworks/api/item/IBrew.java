@@ -41,7 +41,7 @@ public interface IBrew {
 
 	@SideOnly(Side.CLIENT)
 	default void render(int x, int y, net.minecraft.client.Minecraft mc, int index) {
-		mc.renderEngine.bindTexture(ResourceLocations.BREW_TEXTURES);
+		mc.renderEngine.bindTexture(ResourceLocations.brew_textures);
 		final Tessellator tessellator = Tessellator.getInstance();
 		final VertexBuffer buf = tessellator.getBuffer();
 		GlStateManager.color(1F, 1F, 1F, 1F);

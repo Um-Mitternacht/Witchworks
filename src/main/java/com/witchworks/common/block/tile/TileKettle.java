@@ -224,7 +224,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				final float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
 				final float posY = getParticleLevel();
 				final float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0.0D, 0.01D, 0.0D, rgb);
+				WitchWorks.proxy.spawnParticle(ParticleF.cauldron_bubble, posX, posY, posZ, 0.0D, 0.01D, 0.0D, rgb);
 			}
 		}
 		if (hasIngredients() && ticks % 2 == 0) {
@@ -442,7 +442,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 					play(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1F, 1F);
 					for (int i = 0; i < 4; i++) {
-						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), getParticleLevel(), z + world.rand.nextFloat(), 5, 0, 0, 0);
+						PacketHandler.spawnParticle(ParticleF.steam, world, x + world.rand.nextFloat(), getParticleLevel(), z + world.rand.nextFloat(), 5, 0, 0, 0);
 					}
 
 					inv.drain(taken, true);
