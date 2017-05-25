@@ -66,7 +66,6 @@ class ParticleCaudronBubble extends Particle {
 		return 1;
 	}
 
-	@Override
 	public boolean isTransparent() {
 		return true;
 	}

@@ -122,7 +122,6 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		return false;
 	}
 
-	@Override
 	public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
 		return true;
 	}
