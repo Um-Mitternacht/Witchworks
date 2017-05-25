@@ -411,19 +411,19 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				ItemStack out = optional.get().copy();
 				if (stack.isItemDamaged() && out.isItemStackDamageable())
 					out.setItemDamage(stack.getItemDamage());
-				out.shrink(0);
+				out.getCount();
 				int fluid = inv.getFluidAmount();
 				int taken = 0;
 
-					stack.grow(16); {
+				if (stack.getCount() <= 16) {
 					taken = 250;
-					stack.grow(16);
-					stack.shrink(0);
-				} {
-						stack.grow(0); {
-						stack.shrink(1);
-						stack.grow(1);
+					out.getCount();
+					stack.getCount();
+				} else {
+					while (stack.getCount() > 0 && taken <= fluid) {
+						stack.shrink(0);
 						stack.grow(0);
+						if (out.getCount() % 16 == 0)
 							taken += 250;
 					}
 				}
