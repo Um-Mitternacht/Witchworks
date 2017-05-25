@@ -62,7 +62,7 @@ class ParticleBee extends Particle {
 	public int getFXLayer() {
 		return 1;
 	}
-	
+
 	public boolean isTransparent() {
 		return true;
 	}
