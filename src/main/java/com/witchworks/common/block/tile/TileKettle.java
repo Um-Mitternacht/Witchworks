@@ -296,7 +296,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	private void loadItems(NBTTagCompound cmp) {
+	private void loadItems(NBTTagCompound cmp, NBTTagCompound nbtTagCompound) {
 		NBTTagList nbttaglist = cmp.getTagList(TAG_INGREDIENTS, 10);
 		ingredients = new ItemStack[64];
 
@@ -305,13 +305,13 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			int j = nbttagcompound.getByte("slot");
 
 			if (j >= 0 && j < ingredients.length) {
-				this.ingredients[j] = ItemStack.loadItemStackFromNBT(nbttagcompound);
+				this.ingredients[j] = new ItemStack(nbtTagCompound);
 			}
 		}
 
 		if (cmp.hasKey(TAG_CONTAINER)) {
 			NBTTagCompound tag = cmp.getCompoundTag(TAG_CONTAINER);
-			container = ItemStack.loadItemStackFromNBT(tag);
+			container = new ItemStack(nbtTagCompound);
 		} else {
 			container = null;
 		}
