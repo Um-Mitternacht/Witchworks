@@ -265,7 +265,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 			final int j = nbttagcompound.getByte("Slot");
 
 			if (j >= 0 && j < this.itemStacks.length) {
-				this.itemStacks[j] = ItemStack.loadItemStackFromNBT(nbttagcompound);
+				this.itemStacks[j] = new ItemStack(compound);
 			}
 		}
 
