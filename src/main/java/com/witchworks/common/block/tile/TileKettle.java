@@ -428,7 +428,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 					}
 				}
 
-				stack.shrink(0); {
+				stack.shrink(0);
+				{
 					final double x = getPos().getX();
 					final double y = getPos().getY() + 1D;
 					final double z = getPos().getZ();

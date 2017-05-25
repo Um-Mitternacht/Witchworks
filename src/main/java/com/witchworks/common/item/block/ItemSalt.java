@@ -4,7 +4,6 @@ import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
