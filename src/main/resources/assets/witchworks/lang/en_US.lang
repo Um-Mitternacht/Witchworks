@@ -102,6 +102,12 @@ item.chalk_item.name=Mundane Chalk
 item.wand.name=Wand
 item.needle_bone.name=Bone Needle
 
+//Technical
+item.brew_phial.name=Void Brew
+item.brew_phial_splash.name=Void Brew Splash
+item.brew_phial_linger.name=Void Brew Lingering
+
+
 //Blocks
 tile.candle_small.white.name=Small White Candle
 tile.candle_small.orange.name=Small Orange Candle
