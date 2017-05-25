@@ -45,7 +45,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	private int flowerCount;
 	private int tick;
 
-	public static void registerFixesFurnace(DataFixer fixer, TileApiary tileApiary) {
+	public static void registerFixesFurnace(DataFixer fixer) {
 		fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileApiary.class, new String[] {"Apiary", "Items"}));
 	}
 
