@@ -57,7 +57,7 @@ public class FlawlessRecipe implements IOreMatchRecipe {
 
 	@Override
 	public boolean itemMatches(ItemStack target, ItemStack input) {
-		return input != null && target != null && target.getItem() == input.getItem() && target.stackSize == input.stackSize && (target.getItemDamage() == input.getItemDamage()
+		return input != null && target != null && target.getItem() == input.getItem() && target.getCount() == input.getCount() && (target.getItemDamage() == input.getItemDamage()
 				|| input.getItemDamage() == WILDCARD_VALUE);
 	}
 
