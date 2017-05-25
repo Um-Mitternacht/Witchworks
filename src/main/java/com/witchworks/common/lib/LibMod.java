@@ -8,22 +8,22 @@ package com.witchworks.common.lib;
 public final class LibMod {
 
 	//ID for MOD
-	public static final String MOD_ID = "witchworks";
+	public static final String mod_id = "witchworks";
 
 	//Name of MOD
-	public static final String MOD_NAME = "WitchWorks";
+	public static final String mod_name = "WitchWorks";
 
 	//Version of MOD
-	public static final String MOD_VER = "@VERSION@";
+	public static final String mod_ver = "@VERSION@";
 
 	//Dependency
-	public static final String DEPENDENCIES = "required-after:Forge@[12.18.3.2234,];required-after:JEI@[3.14.7.415,];required-after:Waila@[1.8.10-B24_1.10.2,];required-after:llibrary@[1.7.4,];required-after:Baubles@[1.3.9,]";
+	public static final String dependencies = "required-after:Forge@[12.18.3.2234,];required-after:JEI@[3.14.7.415,];required-after:Waila@[1.8.10-B24_1.10.2,];required-after:llibrary@[1.7.4,];required-after:Baubles@[1.3.9,]";
 
 	//Client proxy location
-	public static final String PROXY_CLIENT = "com.witchworks.client.core.ClientProxy";
+	public static final String proxy_client = "com.witchworks.client.core.ClientProxy";
 
 	//Server proxy location
-	public static final String PROXY_COMMON = "com.witchworks.common.core.proxy.ServerProxy";
+	public static final String proxy_common = "com.witchworks.common.core.proxy.ServerProxy";
 
 	private LibMod() {
 	}

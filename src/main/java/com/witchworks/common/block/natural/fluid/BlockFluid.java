@@ -40,7 +40,7 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	public BlockFluid(Fluid fluid, int flammability, boolean flammable, MaterialLiquid liquid) {
 		super(fluid, liquid);
 		setUnlocalizedName(fluid.getName());
-		setRegistryName(LibMod.MOD_ID, fluid.getName());
+		setRegistryName(LibMod.mod_id, fluid.getName());
 		setDensity(fluid.getDensity());
 
 		this.flammability = flammability;
@@ -93,7 +93,7 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 
 		ModelBakery.registerItemVariants(item);
 
-		final ModelResourceLocation modelResourceLocation = new ModelResourceLocation(LibMod.MOD_ID + ":fluid", getFluid().getName());
+		final ModelResourceLocation modelResourceLocation = new ModelResourceLocation(LibMod.mod_id + ":fluid", getFluid().getName());
 
 		ModelLoader.setCustomMeshDefinition(item, stack -> modelResourceLocation);
 

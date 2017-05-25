@@ -69,8 +69,8 @@ public final class Fluids {
 	}
 
 	private static <T extends Block & IFluidBlock> Fluid createFluid(String name, boolean hasFlowIcon, Consumer<Fluid> fluidPropertyApplier, Function<Fluid, T> blockFactory, boolean hasBucket) {
-		final ResourceLocation still = new ResourceLocation(LibMod.MOD_ID + ":blocks/fluid/" + name + "_still");
-		final ResourceLocation flowing = hasFlowIcon ? new ResourceLocation(LibMod.MOD_ID + ":blocks/fluid/" + name + "_flow") : still;
+		final ResourceLocation still = new ResourceLocation(LibMod.mod_id + ":blocks/fluid/" + name + "_still");
+		final ResourceLocation flowing = hasFlowIcon ? new ResourceLocation(LibMod.mod_id + ":blocks/fluid/" + name + "_flow") : still;
 
 		Fluid fluid = new Fluid(name, still, flowing);
 		final boolean useOwnFluid = FluidRegistry.registerFluid(fluid);

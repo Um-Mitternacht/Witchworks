@@ -55,7 +55,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 			if (heldItem != null && heldItem.getItem() == Items.NAME_TAG) {
 				((TileApiary) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
-				playerIn.openGui(WitchWorks.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(WitchWorks.instance, LibGui.apiary, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 		}
 		return true;

@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.Side;
  */
 public final class PacketHandler {
 
-	private static final SimpleNetworkWrapper HANDLER = new SimpleNetworkWrapper(LibMod.MOD_ID);
+	private static final SimpleNetworkWrapper HANDLER = new SimpleNetworkWrapper(LibMod.mod_id);
 
 	private PacketHandler() {
 	}

@@ -18,7 +18,7 @@ import net.minecraftforge.common.config.Config.Comment;
  * the MIT license.
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-@Config(modid = LibMod.MOD_ID)
+@Config(modid = LibMod.mod_id)
 public final class ConfigHandler {
 
 	@Comment("Change vein sizes, generation height and generation chance")

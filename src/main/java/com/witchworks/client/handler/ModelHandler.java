@@ -87,7 +87,7 @@ public final class ModelHandler {
 	public static void registerMetas(Item item, int maxMeta, String itemName) {
 		for (int i = 0; i < maxMeta; i++) {
 			ModelLoader.setCustomModelResourceLocation(item, i,
-					new ModelResourceLocation(LibMod.MOD_ID + ":" + itemName + "_" + i, "inventory")
+					new ModelResourceLocation(LibMod.mod_id + ":" + itemName + "_" + i, "inventory")
 			);
 		}
 	}
@@ -103,7 +103,7 @@ public final class ModelHandler {
 		for (int i = 0; i < values.length; i++) {
 			final IStringSerializable e = values[i];
 			ModelLoader.setCustomModelResourceLocation(item, i,
-					new ModelResourceLocation(LibMod.MOD_ID + ":" + itemName + "_" + e.getName(), "inventory")
+					new ModelResourceLocation(LibMod.mod_id + ":" + itemName + "_" + e.getName(), "inventory")
 			);
 		}
 	}

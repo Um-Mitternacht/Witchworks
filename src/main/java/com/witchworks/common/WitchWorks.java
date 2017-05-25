@@ -32,12 +32,12 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * the MIT license.
  */
 @SuppressWarnings("WeakerAccess")
-@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
+@Mod(modid = LibMod.mod_id, name = LibMod.mod_name, version = LibMod.mod_ver, dependencies = LibMod.dependencies)
 public class WitchWorks {
 
-	@Instance(LibMod.MOD_ID)
+	@Instance(LibMod.mod_id)
 	public static WitchWorks instance;
-	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
+	@SidedProxy(serverSide = LibMod.proxy_common, clientSide = LibMod.proxy_client)
 	public static ISidedProxy proxy;
 
 	static {

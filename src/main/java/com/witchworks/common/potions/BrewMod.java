@@ -28,7 +28,7 @@ public class BrewMod extends Potion {
 
 	public BrewMod(String name, boolean badEffect, int color, int iconIndex) {
 		super(badEffect, color);
-		setPotionName("effect." + LibMod.MOD_ID + "." + name);
+		setPotionName("effect." + LibMod.mod_id + "." + name);
 		setRegistryName(name);
 		this.iconIndex = iconIndex;
 	}

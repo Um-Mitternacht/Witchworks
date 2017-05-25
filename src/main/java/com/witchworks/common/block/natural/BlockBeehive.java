@@ -49,7 +49,7 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 			WitchWorks.proxy.spawnParticle(ParticleF.bee, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
 		}
 		if (rand.nextInt(25) == 0) {
-			worldIn.playSound(null, pos, WitchSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.2F, 1F);
+			worldIn.playSound(null, pos, WitchSoundEvents.buzz, SoundCategory.BLOCKS, 0.2F, 1F);
 		}
 	}
 

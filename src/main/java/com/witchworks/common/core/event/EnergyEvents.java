@@ -27,7 +27,7 @@ public class EnergyEvents {
 	@SubscribeEvent
 	public void attachPlayer(AttachCapabilitiesEvent<Entity> event) {
 		if (event.getObject() instanceof EntityPlayer) {
-			event.addCapability(new ResourceLocation(LibMod.MOD_ID, "EnergyData"), new EnergyProvider());
+			event.addCapability(new ResourceLocation(LibMod.mod_id, "EnergyData"), new EnergyProvider());
 		}
 	}
 

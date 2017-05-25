@@ -24,10 +24,10 @@ import java.util.Set;
  */
 public final class CapabilityBrewStorage {
 
-	private static final String TAG_LIST = "tag_list";
-	private static final String BREW_TAG = "brew";
-	private static final String INSTANT_TAG = "instant";
-	private static final String DURATION_TAG = "duration";
+	private static final String tag_list = "tag_list";
+	private static final String brew_tag = "brew";
+	private static final String instant_tag = "instant";
+	private static final String duration_tag = "duration";
 
 	private CapabilityBrewStorage() {
 	}
@@ -40,24 +40,24 @@ public final class CapabilityBrewStorage {
 				NBTTagList tagList = new NBTTagList();
 				for (Map.Entry<IBrew, BrewEffect> entry : instance.getBrews().entrySet()) {
 					NBTTagCompound tag = new NBTTagCompound();
-					tag.setInteger(BREW_TAG, BrewRegistry.getBrewId(entry.getKey()));
-					tag.setInteger(DURATION_TAG, entry.getValue().getDuration());
-					tag.setBoolean(INSTANT_TAG, entry.getValue().isInstant());
+					tag.setInteger(brew_tag, BrewRegistry.getBrewId(entry.getKey()));
+					tag.setInteger(duration_tag, entry.getValue().getDuration());
+					tag.setBoolean(instant_tag, entry.getValue().isInstant());
 					tagList.appendTag(tag);
 				}
 				NBTTagCompound compound = new NBTTagCompound();
-				compound.setTag(TAG_LIST, tagList);
+				compound.setTag(tag_list, tagList);
 				return compound;
 			}
 
 			@Override
 			public void readNBT(Capability<IBrewStorage> capability, IBrewStorage instance, EnumFacing side, NBTBase nbt) {
 				Map<IBrew, BrewEffect> effects = new HashMap<>();
-				NBTTagList tagList = ((NBTTagCompound) nbt).getTagList(TAG_LIST, 9);
+				NBTTagList tagList = ((NBTTagCompound) nbt).getTagList(tag_list, 9);
 				for (int i = 0; i < tagList.tagCount(); i++) {
 					NBTTagCompound tag = (NBTTagCompound) tagList.get(i);
-					IBrew brew = BrewRegistry.getBrewById(tag.getInteger(BREW_TAG));
-					effects.put(brew, new BrewEffect(brew, tag.getInteger(DURATION_TAG), tag.getBoolean(INSTANT_TAG)));
+					IBrew brew = BrewRegistry.getBrewById(tag.getInteger(brew_tag));
+					effects.put(brew, new BrewEffect(brew, tag.getInteger(duration_tag), tag.getBoolean(instant_tag)));
 				}
 				instance.setBrews(effects);
 			}

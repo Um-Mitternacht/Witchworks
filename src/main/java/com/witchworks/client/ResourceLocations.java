@@ -33,6 +33,6 @@ public final class ResourceLocations {
 	}
 
 	private static ResourceLocation getLocation(String name) {
-		return new ResourceLocation(LibMod.MOD_ID, name);
+		return new ResourceLocation(LibMod.mod_id, name);
 	}
 }

@@ -7,7 +7,7 @@ package com.witchworks.common.lib;
  */
 public final class LibGui {
 
-	public static final int APIARY = 0;
+	public static final int apiary = 0;
 
 	private LibGui() {
 	}

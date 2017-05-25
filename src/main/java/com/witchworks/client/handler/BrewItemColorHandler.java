@@ -14,8 +14,8 @@ public class BrewItemColorHandler implements IItemColor {
 
 	@Override
 	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-		if (tintIndex == 1 && NBTHelper.hasTag(stack, BrewUtils.COLOR_TAG)) {
-			return NBTHelper.getInteger(stack, BrewUtils.COLOR_TAG);
+		if (tintIndex == 1 && NBTHelper.hasTag(stack, BrewUtils.color_tag)) {
+			return NBTHelper.getInteger(stack, BrewUtils.color_tag);
 		}
 		return 0xFFFFFF;
 	}

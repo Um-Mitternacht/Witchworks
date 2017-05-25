@@ -33,7 +33,7 @@ public final class WitchWorksCreativeTabs {
 		List<ItemStack> list;
 
 		CreativeTab(String name) {
-			super(LibMod.MOD_ID + name);
+			super(LibMod.mod_id + name);
 			setNoTitle();
 		}
 

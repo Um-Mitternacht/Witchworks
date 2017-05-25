@@ -43,7 +43,7 @@ public class ItemBrew extends ItemMod {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		if (BrewUtils.isBrew(stack)) {
-			return new TextComponentTranslation(NBTHelper.getString(stack, BrewUtils.NAME_TAG)).getFormattedText();
+			return new TextComponentTranslation(NBTHelper.getString(stack, BrewUtils.name_tag)).getFormattedText();
 		}
 		return super.getItemStackDisplayName(stack);
 	}

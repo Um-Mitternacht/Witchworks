@@ -30,7 +30,7 @@ public class BlockMod extends Block implements IModelRegister {
 		super(material);
 		setUnlocalizedName(id);
 		setDefaultState(defaultState());
-		setRegistryName(LibMod.MOD_ID, id);
+		setRegistryName(LibMod.mod_id, id);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 

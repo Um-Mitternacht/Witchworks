@@ -26,8 +26,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.witchworks.api.WitchWorksAPI.TAGLOCK_ENTITY;
-import static com.witchworks.api.WitchWorksAPI.TAGLOCK_ENTITY_NAME;
+import static com.witchworks.api.WitchWorksAPI.taglock_entity;
+import static com.witchworks.api.WitchWorksAPI.taglock_entity_name;
 import static net.minecraft.util.math.RayTraceResult.Type.ENTITY;
 
 /**
@@ -44,8 +44,8 @@ public class ItemTaglock extends ItemMod {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		if (NBTHelper.hasTag(stack, TAGLOCK_ENTITY_NAME)) {
-			tooltip.add(TextFormatting.DARK_GRAY + NBTHelper.getString(stack, TAGLOCK_ENTITY_NAME));
+		if (NBTHelper.hasTag(stack, taglock_entity_name)) {
+			tooltip.add(TextFormatting.DARK_GRAY + NBTHelper.getString(stack, taglock_entity_name));
 		} else {
 			tooltip.add(TextFormatting.DARK_GRAY + I18n.format("item.tag_lock.empty"));
 		}
@@ -76,17 +76,17 @@ public class ItemTaglock extends ItemMod {
 	}
 
 	public void removeVictim(ItemStack stack) {
-		NBTHelper.removeTag(stack, TAGLOCK_ENTITY);
-		NBTHelper.removeTag(stack, TAGLOCK_ENTITY_NAME);
+		NBTHelper.removeTag(stack, taglock_entity);
+		NBTHelper.removeTag(stack, taglock_entity_name);
 	}
 
 	public void setVictim(ItemStack stack, EntityLivingBase victim) {
-		NBTHelper.setUniqueID(stack, TAGLOCK_ENTITY, victim.getUniqueID());
-		NBTHelper.setString(stack, TAGLOCK_ENTITY_NAME, victim.getName());
+		NBTHelper.setUniqueID(stack, taglock_entity, victim.getUniqueID());
+		NBTHelper.setString(stack, taglock_entity_name, victim.getName());
 	}
 
 	public Optional<EntityLivingBase> getVictim(ItemStack stack, World world) {
-		UUID uuid = NBTHelper.getUniqueID(stack, TAGLOCK_ENTITY);
+		UUID uuid = NBTHelper.getUniqueID(stack, taglock_entity);
 		for (Entity entity : world.loadedEntityList) {
 			if (entity instanceof EntityLivingBase && entity.getUniqueID().equals(uuid)) {
 				return Optional.of((EntityLivingBase) entity);

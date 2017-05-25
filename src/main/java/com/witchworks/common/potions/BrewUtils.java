@@ -25,13 +25,13 @@ import java.util.Optional;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class BrewUtils {
 
-	public static final String BREW_TAG = "brew";
-	public static final String COLOR_TAG = "color";
-	public static final String NAME_TAG = "name";
-	public static final String DESC_TAG = "desc";
+	public static final String brew_tag = "brew";
+	public static final String color_tag = "color";
+	public static final String name_tag = "name";
+	public static final String desc_tag = "desc";
 
-	public static final String INSTANT_TAG = "instant";
-	public static final String DURATION_TAG = "duration";
+	public static final String instant_tag = "instant";
+	public static final String duration_tag = "duration";
 
 	public static ItemStack createPotion(Item item, Collection<PotionEffect> effects) {
 		return createPotion(new ItemStack(item), effects);
@@ -60,33 +60,33 @@ public class BrewUtils {
 	}
 
 	public static ItemStack createBrew(ItemStack stack, IBrew brew, int duration, boolean instant) {
-		NBTHelper.setInteger(stack, BREW_TAG, BrewRegistry.getBrewId(brew));
-		NBTHelper.setInteger(stack, COLOR_TAG, brew.getColor());
-		NBTHelper.setString(stack, NAME_TAG, brew.getName());
-		NBTHelper.setString(stack, DESC_TAG, brew.getDescription());
-		NBTHelper.setInteger(stack, DURATION_TAG, duration);
-		NBTHelper.setBoolean(stack, INSTANT_TAG, instant);
+		NBTHelper.setInteger(stack, brew_tag, BrewRegistry.getBrewId(brew));
+		NBTHelper.setInteger(stack, color_tag, brew.getColor());
+		NBTHelper.setString(stack, name_tag, brew.getName());
+		NBTHelper.setString(stack, desc_tag, brew.getDescription());
+		NBTHelper.setInteger(stack, duration_tag, duration);
+		NBTHelper.setBoolean(stack, instant_tag, instant);
 		return stack;
 	}
 
 	public static Optional<BrewEffect> getBrewFromStack(ItemStack stack) {
 		if (isBrew(stack)) {
-			IBrew brew = BrewRegistry.getBrewById(NBTHelper.getInteger(stack, BREW_TAG));
-			int duration = NBTHelper.getInteger(stack, DURATION_TAG);
-			boolean instant = NBTHelper.getBoolean(stack, INSTANT_TAG);
+			IBrew brew = BrewRegistry.getBrewById(NBTHelper.getInteger(stack, brew_tag));
+			int duration = NBTHelper.getInteger(stack, duration_tag);
+			boolean instant = NBTHelper.getBoolean(stack, instant_tag);
 			return Optional.of(new BrewEffect(brew, duration, instant));
 		}
 		return Optional.empty();
 	}
 
 	public static boolean isBrew(ItemStack stack) {
-		return NBTHelper.hasTag(stack, BREW_TAG);
+		return NBTHelper.hasTag(stack, brew_tag);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
-		if (NBTHelper.hasTag(stack, DESC_TAG)) {
-			String desc = NBTHelper.getString(stack, DESC_TAG);
+		if (NBTHelper.hasTag(stack, desc_tag)) {
+			String desc = NBTHelper.getString(stack, desc_tag);
 			if (!desc.isEmpty())
 				tooltip.add(I18n.format(desc));
 		}
