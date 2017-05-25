@@ -46,9 +46,9 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 				candle.unLitCandle();
 			}
 		}
-		worldIn.theProfiler.startSection("checkLight");
+		worldIn.profiler.startSection("checkLight");
 		worldIn.checkLight(pos);
-		worldIn.theProfiler.endSection();
+		worldIn.profiler.endSection();
 		return true;
 	}
 

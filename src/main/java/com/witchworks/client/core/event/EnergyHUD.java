@@ -125,7 +125,7 @@ public class EnergyHUD {
 					textColor = alpha << 24 | 0x990066;
 				}
 
-				mc.fontRendererObj.drawStringWithShadow("E: " + energy.get(), startPosX, posY - 15, textColor);
+				mc.fontRenderer.drawStringWithShadow("E: " + energy.get(), startPosX, posY - 15, textColor);
 				GlStateManager.disableBlend();
 				GlStateManager.popMatrix();
 			}
