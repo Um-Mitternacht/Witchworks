@@ -65,19 +65,20 @@ public class ItemTaglock extends ItemMod {
 	}
 
 	@SuppressWarnings("ConstantConditions")
-	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	@Override
+	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		IBlockState state = world.getBlockState(pos);
+		IBlockState state = worldIn.getBlockState(pos);
 		ItemStack stack = player.getHeldItem(hand);
 
-		if (state.getBlock().isBed(state, world, pos, player)) {
-			Optional<EntityPlayer> victim = getPlayerFromBed(world, pos, state.getValue(BlockBed.OCCUPIED));
+		if (state.getBlock().isBed(state, worldIn, pos, player)) {
+			Optional<EntityPlayer> victim = getPlayerFromBed(worldIn, pos, state.getValue(BlockBed.OCCUPIED));
 			if (victim.isPresent()) {
 				setVictim(stack, victim.get());
 			}
 		}
 
-		return super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);
+		return super.onItemUseFirst(player, worldIn, pos, facing, hitX, hitY, hitZ, hand);
 	}
 
 	public void removeVictim(ItemStack stack) {
