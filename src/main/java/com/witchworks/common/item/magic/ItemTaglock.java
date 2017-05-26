@@ -52,7 +52,9 @@ public class ItemTaglock extends ItemMod {
 	}
 
 	@SuppressWarnings("ConstantConditions")
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer entityPlayer, EnumHand hand) {
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entityPlayer, EnumHand hand) {
+		ItemStack stack = entityPlayer.getHeldItem(hand);
 		if (!world.isRemote) {
 			RayTraceResult result = RayTraceHelper.rayTraceResult(entityPlayer, RayTraceHelper.fromLookVec(entityPlayer, 2), true, true);
 			if (result != null && result.typeOfHit == ENTITY && result.entityHit instanceof EntityLivingBase) {
@@ -63,8 +65,11 @@ public class ItemTaglock extends ItemMod {
 	}
 
 	@SuppressWarnings("ConstantConditions")
-	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+
 		IBlockState state = world.getBlockState(pos);
+		ItemStack stack = player.getHeldItem(hand);
+
 		if (state.getBlock().isBed(state, world, pos, player)) {
 			Optional<EntityPlayer> victim = getPlayerFromBed(world, pos, state.getValue(BlockBed.OCCUPIED));
 			if (victim.isPresent()) {
