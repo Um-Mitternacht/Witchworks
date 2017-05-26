@@ -52,7 +52,6 @@ public class ContainerApiary extends Container {
 	}
 
 	@SuppressWarnings("ConstantConditions")
-	@Nullable
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 		final Slot slot = inventorySlots.get(slotIndex);

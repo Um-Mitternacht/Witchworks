@@ -100,8 +100,10 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
 	}
 
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		final TileKettle tile = (TileKettle) worldIn.getTileEntity(pos);
+		final ItemStack heldItem = playerIn.getHeldItem(hand);
 		return tile != null && tile.useKettle(playerIn, hand, heldItem);
 	}
 
