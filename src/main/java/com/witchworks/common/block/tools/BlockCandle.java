@@ -85,6 +85,7 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return state.getValue(COLOR).getMetadata();
 	}
 
+	@SuppressWarnings("deprecation")
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}
