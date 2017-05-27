@@ -73,8 +73,9 @@ public final class WitchWorksCreativeTabs {
 			return true;
 		}
 
+		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(List<ItemStack> list) {
+		public void displayAllRelevantItems(NonNullList<ItemStack> p_78018_1_) {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
@@ -99,8 +100,9 @@ public final class WitchWorksCreativeTabs {
 			return true;
 		}
 
+		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(List<ItemStack> list) {
+		public void displayAllRelevantItems(NonNullList<ItemStack> p_78018_1_) {
 			this.list = list;
 			addItem(ModItems.GARNET);
 			addItem(ModItems.NUUMMITE);
@@ -166,8 +168,9 @@ public final class WitchWorksCreativeTabs {
 			return true;
 		}
 
+		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(List<ItemStack> list) {
+		public void displayAllRelevantItems(NonNullList<ItemStack> p_78018_1_) {
 			this.list = list;
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.BEEHIVE);
