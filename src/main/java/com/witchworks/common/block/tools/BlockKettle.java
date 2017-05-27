@@ -92,8 +92,9 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		return new BlockStateContainer(this, FACING, HALF);
 	}
 
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack, EnumHand hand) {
-		IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
+	@Override
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		IBlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
 		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
 		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
 				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
