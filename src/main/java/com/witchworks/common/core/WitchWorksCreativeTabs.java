@@ -12,6 +12,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public final class WitchWorksCreativeTabs {
 
 	private static class CreativeTab extends CreativeTabs {
 
-		List<ItemStack> list;
+		NonNullList<ItemStack> list;
 
 		CreativeTab(String name) {
 			super(LibMod.mod_id + name);
@@ -45,13 +46,13 @@ public final class WitchWorksCreativeTabs {
 
 		@SideOnly(Side.CLIENT)
 		void addItem(Item item) {
-			item.getSubItems(item, this, (NonNullList<ItemStack>) list);
+			item.getSubItems(item, this, list);;
 		}
 
 		@SideOnly(Side.CLIENT)
 		void addBlock(Block block) {
-			final ItemStack stack = new ItemStack(block);
-			block.getSubBlocks(stack.getItem(), this, (NonNullList<ItemStack>) list);
+			ItemStack stack = new ItemStack(block);
+			block.getSubBlocks(stack.getItem(), this, list);
 		}
 	}
 
@@ -75,7 +76,7 @@ public final class WitchWorksCreativeTabs {
 
 		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(NonNullList<ItemStack> p_78018_1_) {
+		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
@@ -102,7 +103,7 @@ public final class WitchWorksCreativeTabs {
 
 		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(NonNullList<ItemStack> p_78018_1_) {
+		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
 			addItem(ModItems.GARNET);
 			addItem(ModItems.NUUMMITE);
@@ -170,7 +171,7 @@ public final class WitchWorksCreativeTabs {
 
 		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(NonNullList<ItemStack> p_78018_1_) {
+		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.BEEHIVE);
