@@ -36,8 +36,10 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		setSound(SoundType.CLOTH);
 	}
 
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		final TileCandle candle = (TileCandle) worldIn.getTileEntity(pos);
+		final ItemStack heldItem = playerIn.getHeldItem(hand);
 		if (candle != null) {
 			if (heldItem != null && heldItem.getItem() == Items.FLINT_AND_STEEL) {
 				heldItem.damageItem(1, playerIn);
