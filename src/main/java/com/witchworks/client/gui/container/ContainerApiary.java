@@ -41,6 +41,7 @@ public class ContainerApiary extends Container {
 		}
 	}
 
+	@Override
 	public void addListener(IContainerListener listener) {
 		super.addListener(listener);
 		listener.sendAllWindowProperties(this, this.apiary);
@@ -55,7 +56,7 @@ public class ContainerApiary extends Container {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 		final Slot slot = inventorySlots.get(slotIndex);
-		ItemStack copy = null;
+		ItemStack copy = ItemStack.EMPTY;
 
 		if (slot != null && slot.getHasStack()) {
 			final ItemStack original = slot.getStack();
@@ -73,7 +74,7 @@ public class ContainerApiary extends Container {
 			}
 
 			if (original.getCount() == 0) {
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -108,7 +109,7 @@ public class ContainerApiary extends Container {
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null && (stack.getItem() == ModItems.HONEYCOMB
+			return stack != ItemStack.EMPTY && (stack.getItem() == ModItems.HONEYCOMB
 					|| stack.getItem() == ModItems.EMPTY_HONEYCOMB
 					|| stack.getItem() == ModItems.BEE);
 		}

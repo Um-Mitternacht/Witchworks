@@ -47,12 +47,14 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		setHardness(2F);
 	}
 
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
 			final TileEntity tile = worldIn.getTileEntity(pos);
+			final ItemStack heldItem = playerIn.getHeldItem(hand);
+
 			if (tile == null || !(tile instanceof TileApiary)) return false;
 
-			if (heldItem != null && heldItem.getItem() == Items.NAME_TAG) {
+			if (heldItem.getItem() == Items.NAME_TAG) {
 				((TileApiary) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
 				playerIn.openGui(WitchWorks.instance, LibGui.apiary, worldIn, pos.getX(), pos.getY(), pos.getZ());
@@ -97,7 +99,8 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		return facing.getHorizontalIndex();
 	}
 
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+	@Override
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw).getOpposite();
 		return this.getDefaultState().withProperty(FACING, enumfacing);
 	}
