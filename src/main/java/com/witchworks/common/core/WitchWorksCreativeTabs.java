@@ -13,7 +13,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
-import java.util.List;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
@@ -46,7 +45,7 @@ public final class WitchWorksCreativeTabs {
 
 		@SideOnly(Side.CLIENT)
 		void addItem(Item item) {
-			item.getSubItems(item, this, list);;
+			item.getSubItems(item, this, list);
 		}
 
 		@SideOnly(Side.CLIENT)

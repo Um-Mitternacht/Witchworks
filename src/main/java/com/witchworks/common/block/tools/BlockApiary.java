@@ -25,7 +25,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
 import static net.minecraft.block.BlockHorizontal.FACING;
@@ -47,6 +46,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		setHardness(2F);
 	}
 
+	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
 			final TileEntity tile = worldIn.getTileEntity(pos);
