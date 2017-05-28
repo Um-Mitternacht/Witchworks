@@ -38,7 +38,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	private static final int[] SLOT_TOP = new int[]{0};
 	private static final int[] SLOT_BOTTOM = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
 	private static final int GEN = 1000;
-	private List<ItemStack> itemStacks = ItemNullHelper.asList(16);
+	private List<ItemStack> itemStacks = ItemNullHelper.asList(19);
 	private String customName;
 	private int flowerCount;
 	private int tick;
@@ -60,7 +60,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	@Override
 	public int getSizeInventory() {
-		return 16;
+		return 19;
 	}
 
 	@Override
@@ -249,13 +249,13 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		final NBTTagList nbttaglist = compound.getTagList("Items", 10);
-		this.itemStacks = ItemNullHelper.asList(16);
+		this.itemStacks = ItemNullHelper.asList(19);
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
 			final NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
 			final int j = nbttagcompound.getByte("Slot");
 
-			if (j >= 0 && j < 16) {
+			if (j >= 0 && j < 19) {
 				this.itemStacks.set(j, new ItemStack(nbttagcompound));
 			}
 		}
@@ -270,7 +270,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		super.writeToNBT(compound);
 		final NBTTagList nbttaglist = new NBTTagList();
 
-		for (int i = 0; i < 16; ++i) {
+		for (int i = 0; i < 19; ++i) {
 			if (!itemStacks.get(i).isEmpty()) {
 				final NBTTagCompound nbttagcompound = new NBTTagCompound();
 				nbttagcompound.setByte("Slot", (byte) i);
