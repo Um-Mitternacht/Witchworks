@@ -25,7 +25,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
