@@ -20,7 +20,7 @@ public final class ItemNullHelper {
 	public static List<ItemStack> asList(int size) {
 		ArrayList<ItemStack> list = new ArrayList<>(size);
 		for (int i = 0; i < size; i++) {
-			list.set(i, ItemStack.EMPTY);
+			list.add(ItemStack.EMPTY);
 		}
 		return list;
 	}

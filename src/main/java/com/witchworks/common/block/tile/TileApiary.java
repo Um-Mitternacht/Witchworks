@@ -249,7 +249,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		final NBTTagList nbttaglist = compound.getTagList("Items", 10);
-		this.itemStacks = new ArrayList<>(16);
+		this.itemStacks = ItemNullHelper.asList(16);
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
 			final NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
