@@ -26,7 +26,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,8 +35,8 @@ import java.util.List;
  */
 public class TileApiary extends TileEntityLockable implements ITickable, ISidedInventory {
 
-	private static final int[] SLOT_TOP = new int[] {0};
-	private static final int[] SLOT_BOTTOM = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+	private static final int[] SLOT_TOP = new int[]{0};
+	private static final int[] SLOT_BOTTOM = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
 	private static final int GEN = 1000;
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(16);
 	private String customName;

@@ -2,9 +2,7 @@ package com.witchworks.common.block.natural.fluid;
 
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,7 +26,7 @@ import java.util.function.Function;
  * It's distributed as part of Witch Works under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public final class Fluids {
 
 	public static final Set<IFluidBlock> MOD_FLUID_BLOCKS = new HashSet<>();

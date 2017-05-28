@@ -1,8 +1,8 @@
 package com.witchworks.api;
 
 import com.witchworks.api.recipe.ItemValidator;
-import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.recipe.KettleBrewRecipe;
+import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.ritual.IRitual;
 import com.witchworks.common.crafting.kettle.ItemRitual;
 import net.minecraft.item.Item;
@@ -19,7 +19,7 @@ import java.util.Map;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public final class KettleRegistry {
 
 	private static final List<IRitual> RITUALS = new ArrayList<>();
@@ -57,9 +57,9 @@ public final class KettleRegistry {
 	/**
 	 * Register an Item to the Processing factory.
 	 *
-	 * @param fluid The fluid this Item needs
-	 * @param in The Item you throw in
-	 * @param out The Item that comes out
+	 * @param fluid  The fluid this Item needs
+	 * @param in     The Item you throw in
+	 * @param out    The Item that comes out
 	 * @param strict If the Item must be identical
 	 */
 	public static void addKettleProcessing(Fluid fluid, ItemStack in, ItemStack out, boolean strict) {

@@ -30,7 +30,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import java.awt.*;
@@ -45,7 +44,7 @@ import static net.minecraftforge.fluids.Fluid.BUCKET_VOLUME;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private final String TAG_HEAT = "heat";
@@ -63,7 +62,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private int heat;
 	private int ticks;
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
 		final ItemStack dropped = entityItem.getEntityItem();
 		if (dropped.isEmpty() || entityItem.isDead)
@@ -88,7 +87,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public boolean recipeDropLogic(ItemStack dropped) {
-		if(changeMode(dropped.getItem())) {
+		if (changeMode(dropped.getItem())) {
 			play(SoundEvents.ENTITY_FIREWORK_TWINKLE, 0.2F, 1F);
 			particleServerSide(EnumParticleTypes.CRIT, 0.5D, getParticleLevel(), 0.5D, 0, 0, 0, 5);
 			dropped.setCount(0);
@@ -142,7 +141,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 					inv.fill(fluidStack, true);
 				}
 			} else if (heldItem.getItem() == Items.GLASS_BOTTLE) {
-				if(mode == Mode.POTION) {
+				if (mode == Mode.POTION) {
 					potionRecipeLogic(player, hand, heldItem);
 				} else if (mode == Mode.CUSTOM) { //TODO: Finish this
 					potionCustomLogic(player, hand, heldItem);
@@ -212,7 +211,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			double z = getPos().getZ();
 			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.7D, z + 1);
 			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, box);
-			entityItemList.forEach(this :: collideItem);
+			entityItemList.forEach(this::collideItem);
 		}
 
 		if (inv.hasFluid()) {
@@ -268,7 +267,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings("unchecked")
 	private void handleRitual() {
 		if (!ritual.isFail()) {
 			ritual.update(this);
@@ -404,7 +403,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		return container;
 	}
 
-	public void setContainer( ItemStack container) {
+	public void setContainer(ItemStack container) {
 		this.container = container;
 		world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
 		PacketHandler.updateToNearbyPlayers(world, pos);
@@ -422,7 +421,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	//------------------------------------Crafting Logic------------------------------------//
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	public boolean processingLogic(ItemStack stack) {
 		if (!isBoiling() || hasIngredients() || stack.getCount() > 64) return false;
 		Map<Item, ItemValidator<ItemStack>> processing = KettleRegistry.getKettleProcessing(inv.getInnerFluid());
@@ -474,7 +473,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		return false;
 	}
 
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings("unchecked")
 	public void itemRitualLogic() {
 		Optional<KettleItemRecipe> optional = KettleRegistry.getKettleItemRituals().stream().filter(
 				i -> i.matches(ingredients)

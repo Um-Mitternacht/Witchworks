@@ -17,7 +17,7 @@ import net.minecraftforge.fluids.FluidRegistry;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public final class KettleCrafting {
 
 	private KettleCrafting() {
@@ -62,6 +62,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The item to make an ItemStack out of
 	 * @return An ItemStack
 	 */
@@ -71,6 +72,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param size Size of ItemStack
 	 * @return An ItemStack
@@ -81,6 +83,7 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param item The block to make an ItemStack out of
 	 * @param size Size of ItemStack
 	 * @param meta Meta of ItemStack
@@ -92,33 +95,36 @@ public final class KettleCrafting {
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
 	 * @return An ItemStack
 	 */
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	private static ItemStack getStack(Block block) {
 		return getStack(Item.getItemFromBlock(block), 1, 0);
 	}
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
-	 * @param size Size of ItemStack
+	 * @param size  Size of ItemStack
 	 * @return An ItemStack
 	 */
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	private static ItemStack getStack(Block block, int size) {
 		return getStack(Item.getItemFromBlock(block), size, 0);
 	}
 
 	/**
 	 * Who needs to write the whole thing?
+	 *
 	 * @param block The block to make an ItemStack out of
-	 * @param size Size of ItemStack
-	 * @param meta Meta of ItemStack
+	 * @param size  Size of ItemStack
+	 * @param meta  Meta of ItemStack
 	 * @return An ItemStack
 	 */
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	private static ItemStack getStack(Block block, int size, int meta) {
 		return getStack(Item.getItemFromBlock(block), size, meta);
 	}

@@ -45,7 +45,7 @@ public class ItemSilverSword extends ItemSword implements IModelRegister {
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

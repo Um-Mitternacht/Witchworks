@@ -7,7 +7,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +29,7 @@ public class BlockAltar extends BlockMod {
 		setHardness(3F);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		final EnumFacing facing = EnumFacing.getHorizontal(meta);
@@ -54,13 +53,13 @@ public class BlockAltar extends BlockMod {
 		return new BlockStateContainer(this, FACING);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;

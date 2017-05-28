@@ -18,7 +18,7 @@ public final class ResourceLocations {
 	public static final ResourceLocation BREW_TEXTURES = getLocation("textures/gui/brews.png");
 	public static final ResourceLocation APIARY_GUI = getLocation("textures/gui/apiary.png");
 	public static final ResourceLocation ENERGY = getLocation("textures/gui/energy.png");
-	public static final ResourceLocation[] ENERGY_BACKGROUND = new ResourceLocation[] {
+	public static final ResourceLocation[] ENERGY_BACKGROUND = new ResourceLocation[]{
 			getLocation("textures/gui/energy_dark.png"),
 			getLocation("textures/gui/energy_white.png"),
 	};

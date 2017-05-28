@@ -14,14 +14,17 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class BrewUtils {
 
 	public static final String BREW_COLOR = "brew_color";
@@ -121,7 +124,7 @@ public class BrewUtils {
 		return NBTHelper.hasTag(stack, BREW_DATA);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
 		if (NBTHelper.hasTag(stack, BREW_DESC)) {
 			String desc = NBTHelper.getString(stack, BREW_DESC);

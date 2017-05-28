@@ -13,10 +13,10 @@ import javax.annotation.Nullable;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("ConstantConditions")
+@SuppressWarnings("ConstantConditions")
 public class BrewStorageProvider implements ICapabilitySerializable<NBTTagCompound> {
 
-	@CapabilityInject (IBrewStorage.class)
+	@CapabilityInject(IBrewStorage.class)
 	public static final Capability<IBrewStorage> BREW_STORAGE_CAPABILITY = null;
 	private final IBrewStorage defaultPotionStorage = new CapabilityBrewStorage.DefaultBrewStorage();
 

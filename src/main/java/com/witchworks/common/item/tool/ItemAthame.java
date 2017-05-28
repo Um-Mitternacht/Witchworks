@@ -30,17 +30,17 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-		if(!target.world.isRemote)
-		if (target instanceof EntityEnderman && attacker instanceof EntityPlayer) {
-			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 20);
-			stack.damageItem(100, attacker);
-		} else {
-			stack.damageItem(1, attacker);
-		}
+		if (!target.world.isRemote)
+			if (target instanceof EntityEnderman && attacker instanceof EntityPlayer) {
+				target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 20);
+				stack.damageItem(100, attacker);
+			} else {
+				stack.damageItem(1, attacker);
+			}
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * the MIT license.
  */
 
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleSteam extends Particle {
 
 	private ParticleSteam(World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
@@ -59,7 +59,7 @@ class ParticleSteam extends Particle {
 		return 1;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			return new ParticleSteam(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);

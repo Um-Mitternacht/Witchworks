@@ -15,7 +15,7 @@ import static com.witchworks.common.lib.LibMod.MOD_NAME;
  * Original code by Vazkii from Botania.
  */
 
-@SuppressWarnings ("WeakerAccess")
+@SuppressWarnings("WeakerAccess")
 public final class ModAchievements {
 
 	public static final List<Achievement> achievements = new ArrayList<>();

@@ -13,7 +13,7 @@ public interface IRitual<T extends TileEntity> {
 
 	boolean canPerform(T tile, World world, BlockPos pos);
 
-	void onUpdate(RitualHolder<T> ritual,T tile, World world, BlockPos pos);
+	void onUpdate(RitualHolder<T> ritual, T tile, World world, BlockPos pos);
 
 	void onFinish(T tile, World world, BlockPos pos);
 

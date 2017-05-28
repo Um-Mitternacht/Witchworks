@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.awt.*;
 
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleCaudronBubble extends Particle {
 
 	private int pop_timer;
@@ -66,7 +66,7 @@ class ParticleCaudronBubble extends Particle {
 		return 1;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			Color color = new Color(args[0]).darker();

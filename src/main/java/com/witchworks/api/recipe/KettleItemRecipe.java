@@ -1,7 +1,6 @@
 package com.witchworks.api.recipe;
 
 import com.witchworks.common.crafting.kettle.ItemRitual;
-import net.minecraft.item.ItemStack;
 
 /**
  * This class was created by Arekkuusu on 04/04/2017.

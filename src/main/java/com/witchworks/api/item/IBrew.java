@@ -38,10 +38,10 @@ public interface IBrew {
 
 	BrewRegistry.Brew getType();
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	void renderHUD(int x, int y, net.minecraft.client.Minecraft mc);
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	default void render(int x, int y, net.minecraft.client.Minecraft mc, int index) {
 		mc.renderEngine.bindTexture(ResourceLocations.BREW_TEXTURES);
 		final Tessellator tessellator = Tessellator.getInstance();

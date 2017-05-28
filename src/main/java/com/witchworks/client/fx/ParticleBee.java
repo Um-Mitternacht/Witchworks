@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleBee extends Particle {
 
 	private final double x;
@@ -63,7 +63,7 @@ class ParticleBee extends Particle {
 		return 1;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			return new ParticleBee(worldIn, xCoordIn, yCoordIn, zCoordIn);

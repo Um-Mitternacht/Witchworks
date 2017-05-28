@@ -31,7 +31,7 @@ public class EnergyEvents {
 		}
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@SubscribeEvent
 	public void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
 		final EntityPlayer oldPlayer = event.getOriginal();

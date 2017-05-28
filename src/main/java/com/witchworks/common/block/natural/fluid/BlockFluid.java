@@ -68,7 +68,7 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		double d0 = pos.getX();
 		double d1 = pos.getY();
@@ -86,7 +86,7 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		final Item item = Item.getItemFromBlock(this);
 		assert item != null;

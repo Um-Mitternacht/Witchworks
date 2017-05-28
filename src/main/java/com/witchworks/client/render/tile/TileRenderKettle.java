@@ -26,7 +26,7 @@ import java.util.Optional;
  */
 public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
 		Optional<FluidStack> optional = te.getFluid();
@@ -44,7 +44,7 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 				float g = (te.getColorRGB() >>> 8 & 0xFF) / 256.0F;
 				float b = (te.getColorRGB() & 0xFF) / 256.0F;
 				GlStateManager.color(r, g, b);
-				if(fluid == FluidRegistry.WATER)
+				if (fluid == FluidRegistry.WATER)
 					location = ResourceLocations.GRAY_WATER;
 			}
 

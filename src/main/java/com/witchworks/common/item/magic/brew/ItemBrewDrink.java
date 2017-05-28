@@ -75,7 +75,7 @@ public class ItemBrewDrink extends ItemBrew {
 		return ActionResult.newResult(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
 		BrewRegistry.getBrews().stream().filter(brew -> brew.getType() == BrewRegistry.Brew.DRINK).forEach(brew -> {

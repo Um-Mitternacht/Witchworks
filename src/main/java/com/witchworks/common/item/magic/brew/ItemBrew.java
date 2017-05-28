@@ -36,7 +36,7 @@ public class ItemBrew extends ItemMod {
 		return EnumRarity.RARE;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 		if (NBTHelper.hasTag(stack, BrewUtils.BREW_DESC)) {

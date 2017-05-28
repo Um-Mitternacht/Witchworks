@@ -32,7 +32,7 @@ public class ItemBoline extends ItemShears implements IModelRegister {
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, @Nonnull EntityLivingBase attacker) {
-		if(!target.world.isRemote) {
+		if (!target.world.isRemote) {
 			if (attacker instanceof EntityPlayer)
 				target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 5);
 			stack.damageItem(1, attacker);
@@ -40,7 +40,7 @@ public class ItemBoline extends ItemShears implements IModelRegister {
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

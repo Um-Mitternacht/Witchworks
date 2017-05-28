@@ -14,7 +14,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -59,7 +58,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 				.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_LEGS);
@@ -69,7 +68,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_SOUTH);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState iblockstate = getDefaultState().withProperty(HALF, (meta & 4) > 0 ? BlockStairs.EnumHalf.TOP : BlockStairs.EnumHalf.BOTTOM);
@@ -113,32 +112,31 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 		return new TileKettle();
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean blocksMovement(IBlockAccess worldIn, BlockPos pos)
-	{
+	public boolean blocksMovement(IBlockAccess worldIn, BlockPos pos) {
 		return true;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return BOUNDING_BOX;
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerBlock(this);
 	}

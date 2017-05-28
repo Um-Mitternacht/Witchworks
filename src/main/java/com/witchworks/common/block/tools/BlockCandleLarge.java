@@ -27,7 +27,7 @@ public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 		super(LibBlockName.CANDLE_LARGE);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return LARGE_BOX;
@@ -46,7 +46,7 @@ public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		for (int i = 0; i < 16; i++) {
 			ModelHandler.registerBlock(this, i);

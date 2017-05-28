@@ -64,12 +64,12 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return new BlockStateContainer(this, COLOR);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	public MapColor getMapColor(IBlockState state) {
 		return state.getValue(COLOR).getMapColor();
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
@@ -106,13 +106,13 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return new TileCandle(getType(), EnumDyeColor.byMetadata(meta));
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;

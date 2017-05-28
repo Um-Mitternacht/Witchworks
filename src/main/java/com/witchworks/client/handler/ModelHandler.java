@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ({"unused", "WeakerAccess", "ConstantConditions"})
-@SideOnly (Side.CLIENT)
+@SuppressWarnings({"unused", "WeakerAccess", "ConstantConditions"})
+@SideOnly(Side.CLIENT)
 public final class ModelHandler {
 
 	private ModelHandler() {
@@ -62,26 +62,30 @@ public final class ModelHandler {
 
 	public static void registerBlock(Block block, int meta) {
 		final Item iBlock = Item.getItemFromBlock(block);
-		if (iBlock == Items.AIR) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+		if (iBlock == Items.AIR)
+			throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
 		ModelLoader.setCustomModelResourceLocation(iBlock, meta, new ModelResourceLocation(block.getRegistryName(), "inventory"));
 	}
 
 	public static void registerBlockAllType(Block block, IStringSerializable[] values) {
 		final Item iBlock = Item.getItemFromBlock(block);
-		if (iBlock == Items.AIR) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+		if (iBlock == Items.AIR)
+			throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
 		registerEnums(iBlock, values, iBlock.getRegistryName().getResourcePath());
 	}
 
 	public static void registerBlockAllMeta(Block block, int metas) {
 		final Item iBlock = Item.getItemFromBlock(block);
-		if (iBlock == Items.AIR) throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+		if (iBlock == Items.AIR)
+			throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
 		registerMetas(iBlock, metas, block.getRegistryName().getResourcePath());
 	}
 
 	/**
 	 * Set a new model resource location to an Item for as many meta the item has.
-	 * @param item The Item
-	 * @param maxMeta The max meta
+	 *
+	 * @param item     The Item
+	 * @param maxMeta  The max meta
 	 * @param itemName The name of the Item
 	 */
 	public static void registerMetas(Item item, int maxMeta, String itemName) {
@@ -94,8 +98,9 @@ public final class ModelHandler {
 
 	/**
 	 * Set a new model resource location to an Item for as many enums there are.
-	 * @param item The Item
-	 * @param values The enum which holds the different Item Types
+	 *
+	 * @param item     The Item
+	 * @param values   The enum which holds the different Item Types
 	 * @param itemName The name of the Item
 	 */
 	public static void registerEnums(Item item, IStringSerializable[] values, String itemName) {
