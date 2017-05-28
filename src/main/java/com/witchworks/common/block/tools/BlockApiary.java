@@ -50,14 +50,13 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
 			final TileEntity tile = worldIn.getTileEntity(pos);
-			final ItemStack heldItem = playerIn.getHeldItem(hand);
-
 			if (tile == null || !(tile instanceof TileApiary)) return false;
 
-			if (heldItem.getItem() == Items.NAME_TAG) {
+			ItemStack heldItem = playerIn.getHeldItem(hand);
+			if (!heldItem.isEmpty() && heldItem.getItem() == Items.NAME_TAG) {
 				((TileApiary) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
-				playerIn.openGui(WitchWorks.instance, LibGui.apiary, worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(WitchWorks.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 		}
 		return true;
@@ -72,21 +71,21 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		worldIn.removeTileEntity(pos);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(5) == 0) {
-			WitchWorks.proxy.spawnParticle(ParticleF.bee, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
+			WitchWorks.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
 		}
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return BOX;
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		final EnumFacing facing = EnumFacing.getHorizontal(meta);
@@ -100,7 +99,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw).getOpposite();
 		return this.getDefaultState().withProperty(FACING, enumfacing);
 	}
@@ -110,13 +109,13 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		return new BlockStateContainer(this, FACING);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings ("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;

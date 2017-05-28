@@ -1,9 +1,9 @@
 {
   "variants": {
-    "normal": [
-      {
-        "model": "witchworks:bloodstone_ore"
-      }
-    ]
+	"normal": [
+	  {
+		"model": "witchworks:bloodstone_ore"
+	  }
+	]
   }
 }

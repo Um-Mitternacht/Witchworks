@@ -1,9 +1,9 @@
 {
   "variants": {
-    "normal": [
-      {
-        "model": "witchworks:moldavite_block"
-      }
-    ]
+	"normal": [
+	  {
+		"model": "witchworks:moldavite_block"
+	  }
+	]
   }
 }

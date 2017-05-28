@@ -265,8 +265,7 @@ public final class CommonRegistration {
 
 	/**
 	 * Register a Crop to the {@link CropRegistry}, this method creates a new {@link ItemSeed} for you.
-	 *
-	 * @param crop     The Crop enum
+	 * @param crop The Crop enum
 	 * @param cropItem The item this Crop will drop when harvested
 	 * @param seedName The name id the new ItemSeed
 	 */
@@ -280,8 +279,7 @@ public final class CommonRegistration {
 	 * The Item Seed needs to be different, for ex the Kelp seed,
 	 * that needs to be placed on water so it uses a different placement recipeDropLogic.
 	 * </p>
-	 *
-	 * @param crop     The Crop enum
+	 * @param crop The Crop enum
 	 * @param cropItem The item this Crop will drop when harvested
 	 * @param seedItem The seed that will place the Crop
 	 */

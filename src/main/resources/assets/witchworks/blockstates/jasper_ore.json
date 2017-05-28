@@ -1,9 +1,9 @@
 {
   "variants": {
-    "normal": [
-      {
-        "model": "witchworks:jasper_ore"
-      }
-    ]
+	"normal": [
+	  {
+		"model": "witchworks:jasper_ore"
+	  }
+	]
   }
 }

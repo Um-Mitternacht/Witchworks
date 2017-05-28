@@ -41,7 +41,6 @@ public class ContainerApiary extends Container {
 		}
 	}
 
-	@Override
 	public void addListener(IContainerListener listener) {
 		super.addListener(listener);
 		listener.sendAllWindowProperties(this, this.apiary);
@@ -52,7 +51,6 @@ public class ContainerApiary extends Container {
 		return !playerIn.isSpectator();
 	}
 
-	@SuppressWarnings("ConstantConditions")
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 		final Slot slot = inventorySlots.get(slotIndex);
@@ -63,13 +61,13 @@ public class ContainerApiary extends Container {
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 19, 55, true)) return null;
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else if (slotIndex > 19) {
-				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return null;
+				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 19, 55, true)) return null;
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 
@@ -79,9 +77,9 @@ public class ContainerApiary extends Container {
 				slot.onSlotChanged();
 			}
 
-			if (original.getCount() == copy.getCount()) return null;
+			if (original.getCount() == copy.getCount()) return ItemStack.EMPTY;
 
-			slot.canTakeStack(player);
+			slot.onTake(player, original);
 		}
 
 		return copy;
@@ -109,7 +107,7 @@ public class ContainerApiary extends Container {
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != ItemStack.EMPTY && (stack.getItem() == ModItems.HONEYCOMB
+			return stack != null && (stack.getItem() == ModItems.HONEYCOMB
 					|| stack.getItem() == ModItems.EMPTY_HONEYCOMB
 					|| stack.getItem() == ModItems.BEE);
 		}

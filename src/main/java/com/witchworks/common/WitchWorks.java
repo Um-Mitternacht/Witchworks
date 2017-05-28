@@ -31,13 +31,13 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
-@Mod(modid = LibMod.mod_id, name = LibMod.mod_name, version = LibMod.mod_ver, dependencies = LibMod.dependencies)
+@SuppressWarnings ("WeakerAccess")
+@Mod (modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WitchWorks {
 
-	@Instance(LibMod.mod_id)
+	@Instance (LibMod.MOD_ID)
 	public static WitchWorks instance;
-	@SidedProxy(serverSide = LibMod.proxy_common, clientSide = LibMod.proxy_client)
+	@SidedProxy (serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
 
 	static {

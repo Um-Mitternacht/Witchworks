@@ -28,26 +28,26 @@ public class BrewMod extends Potion {
 
 	public BrewMod(String name, boolean badEffect, int color, int iconIndex) {
 		super(badEffect, color);
-		setPotionName("effect." + LibMod.mod_id + "." + name);
+		setPotionName("effect." + LibMod.MOD_ID + "." + name);
 		setRegistryName(name);
 		this.iconIndex = iconIndex;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
 		render(x + 6, y + 7, 1);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void renderHUDEffect(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
 		render(x + 3, y + 3, alpha);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	private void render(int x, int y, float alpha) {
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceLocations.potion_textures);
+		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceLocations.POTION_TEXTURES);
 		final Tessellator tessellator = Tessellator.getInstance();
 		final VertexBuffer buf = tessellator.getBuffer();
 		buf.begin(7, DefaultVertexFormats.POSITION_TEX);

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public abstract class TileItemInventory extends TileEntity {
 
 	public ItemStackHandlerTile itemHandler = createItemHandler();
@@ -47,7 +47,7 @@ public abstract class TileItemInventory extends TileEntity {
 		return new SPacketUpdateTileEntity(pos, 0, tag);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
 		super.onDataPacket(net, packet);
@@ -79,12 +79,12 @@ public abstract class TileItemInventory extends TileEntity {
 	}
 
 	@Override
-	public boolean hasCapability(Capability<?> cap, EnumFacing side) {
+	public boolean hasCapability(Capability<?> cap, @Nullable EnumFacing side) {
 		return cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(cap, side);
 	}
 
 	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing side) {
+	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing side) {
 		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(itemHandler);
 		return super.getCapability(capability, side);
@@ -111,18 +111,16 @@ public abstract class TileItemInventory extends TileEntity {
 		}
 
 		@Override
-		@Nullable
 		public ItemStack extractItem(int slot, int amount, boolean simulate) {
 			if (allow) {
 				return super.extractItem(slot, 1, simulate);
-			} else return null;
+			} else return ItemStack.EMPTY;
 		}
 
-		@Nullable
 		public ItemStack getItemSimulate(int slot) {
 			if (allow) {
 				return super.extractItem(slot, 1, true);
-			} else return null;
+			} else return ItemStack.EMPTY;
 		}
 
 		@Override

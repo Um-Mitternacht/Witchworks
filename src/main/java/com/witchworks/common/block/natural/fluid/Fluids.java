@@ -3,6 +3,7 @@ package com.witchworks.common.block.natural.fluid;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -27,7 +28,7 @@ import java.util.function.Function;
  * It's distributed as part of Witch Works under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public final class Fluids {
 
 	public static final Set<IFluidBlock> MOD_FLUID_BLOCKS = new HashSet<>();
@@ -37,7 +38,7 @@ public final class Fluids {
 					.setEmptySound(SoundEvents.ITEM_BUCKET_EMPTY_LAVA)
 					.setFillSound(SoundEvents.ITEM_BUCKET_FILL_LAVA)
 					.setDensity(1500).setViscosity(8000)
-			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.YELLOW)) {
+			, fluid -> new BlockFluid(fluid, Material.WATER) {
 				@Override
 				public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 					if (entityIn instanceof EntityLivingBase)
@@ -47,30 +48,30 @@ public final class Fluids {
 
 	public static final Fluid MUNDANE_OIL = createFluid("oil_mundane", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.GREEN)), true);
+			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
 	public static final Fluid SOOTHING_OIL = createFluid("oil_soothing", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.BROWN)), true);
+			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
 	public static final Fluid SPICY_OIL = createFluid("oil_spicy", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.ADOBE)), true);
+			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
 	public static final Fluid TOXIC_OIL = createFluid("oil_toxic", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.GREEN)), true);
+			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
 	public static final Fluid MAGIC_OIL = createFluid("oil_magical", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, new MaterialLiquid(MapColor.MAGENTA)), true);
+			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
 	private Fluids() {
 	}
 
 	private static <T extends Block & IFluidBlock> Fluid createFluid(String name, boolean hasFlowIcon, Consumer<Fluid> fluidPropertyApplier, Function<Fluid, T> blockFactory, boolean hasBucket) {
-		final ResourceLocation still = new ResourceLocation(LibMod.mod_id + ":blocks/fluid/" + name + "_still");
-		final ResourceLocation flowing = hasFlowIcon ? new ResourceLocation(LibMod.mod_id + ":blocks/fluid/" + name + "_flow") : still;
+		final ResourceLocation still = new ResourceLocation(LibMod.MOD_ID + ":blocks/fluid/" + name + "_still");
+		final ResourceLocation flowing = hasFlowIcon ? new ResourceLocation(LibMod.MOD_ID + ":blocks/fluid/" + name + "_flow") : still;
 
 		Fluid fluid = new Fluid(name, still, flowing);
 		final boolean useOwnFluid = FluidRegistry.registerFluid(fluid);

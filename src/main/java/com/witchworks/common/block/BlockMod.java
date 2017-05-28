@@ -30,7 +30,7 @@ public class BlockMod extends Block implements IModelRegister {
 		super(material);
 		setUnlocalizedName(id);
 		setDefaultState(defaultState());
-		setRegistryName(LibMod.mod_id, id);
+		setRegistryName(LibMod.MOD_ID, id);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
@@ -43,7 +43,7 @@ public class BlockMod extends Block implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerBlock(this);
 	}

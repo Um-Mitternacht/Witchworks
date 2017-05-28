@@ -11,28 +11,28 @@ import net.minecraft.util.ResourceLocation;
 public final class ResourceLocations {
 
 	//Misc
-	public static final ResourceLocation gray_water = getLocation("blocks/fluid/gray_scale_fluid");
+	public static final ResourceLocation GRAY_WATER = getLocation("blocks/fluid/gray_scale_fluid");
 
 	//GUI
-	public static final ResourceLocation potion_textures = getLocation("textures/gui/potions.png");
-	public static final ResourceLocation brew_textures = getLocation("textures/gui/brews.png");
-	public static final ResourceLocation apiary_gui = getLocation("textures/gui/apiary.png");
-	public static final ResourceLocation energy = getLocation("textures/gui/energy.png");
-	public static final ResourceLocation[] energy_background = new ResourceLocation[]{
+	public static final ResourceLocation POTION_TEXTURES = getLocation("textures/gui/potions.png");
+	public static final ResourceLocation BREW_TEXTURES = getLocation("textures/gui/brews.png");
+	public static final ResourceLocation APIARY_GUI = getLocation("textures/gui/apiary.png");
+	public static final ResourceLocation ENERGY = getLocation("textures/gui/energy.png");
+	public static final ResourceLocation[] ENERGY_BACKGROUND = new ResourceLocation[] {
 			getLocation("textures/gui/energy_dark.png"),
 			getLocation("textures/gui/energy_white.png"),
 	};
 
 	//Particles
-	public static final ResourceLocation cauldron_bubble = getLocation("particle/cauldron_bubble");
-	public static final ResourceLocation cauldron_bubble_pop = getLocation("particle/cauldron_bubble_pop");
-	public static final ResourceLocation steam = getLocation("particle/steam");
-	public static final ResourceLocation bee = getLocation("particle/bee");
+	public static final ResourceLocation CAULDRON_BUBBLE = getLocation("particle/cauldron_bubble");
+	public static final ResourceLocation CAULDRON_BUBBLE_POP = getLocation("particle/cauldron_bubble_pop");
+	public static final ResourceLocation STEAM = getLocation("particle/steam");
+	public static final ResourceLocation BEE = getLocation("particle/bee");
 
 	private ResourceLocations() {
 	}
 
 	private static ResourceLocation getLocation(String name) {
-		return new ResourceLocation(LibMod.mod_id, name);
+		return new ResourceLocation(LibMod.MOD_ID, name);
 	}
 }

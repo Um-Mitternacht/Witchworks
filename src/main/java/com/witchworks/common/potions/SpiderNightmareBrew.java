@@ -20,12 +20,12 @@ import javax.annotation.Nullable;
 public class SpiderNightmareBrew implements IBrew {
 
 	@Override
-	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int tick) {
+	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
 		//NO-OP
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity) {
+	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
 		BlockPos posI = pos.add(-2, -2, -2);
 		BlockPos posF = pos.add(2, 2, 2);
 		BlockPos.getAllInBox(posI, posF).forEach(
@@ -37,8 +37,13 @@ public class SpiderNightmareBrew implements IBrew {
 	}
 
 	@Override
+	public boolean isInstant() {
+		return false;
+	}
+
+	@Override
 	public int getColor() {
-		return 0x80DEDEDE;
+		return 0xDEDEDE;
 	}
 
 	@Override
@@ -56,7 +61,7 @@ public class SpiderNightmareBrew implements IBrew {
 		return BrewRegistry.Brew.DRINK;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
 		render(x, y, mc, 2);

@@ -7,31 +7,31 @@ import com.witchworks.api.item.NBTHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings({"WeakerAccess", "unused"})
+@SuppressWarnings ({"WeakerAccess", "unused"})
 public class BrewUtils {
 
-	public static final String brew_tag = "brew";
-	public static final String color_tag = "color";
-	public static final String name_tag = "name";
-	public static final String desc_tag = "desc";
+	public static final String BREW_COLOR = "brew_color";
+	public static final String BREW_NAME = "brew_name";
+	public static final String BREW_DESC = "brew_desc";
 
-	public static final String instant_tag = "instant";
-	public static final String duration_tag = "duration";
+	public static final String BREW_DATA = "brew_data";
+	public static final String BREW_ID = "brew_id";
+	public static final String BREW_AMPLIFIER = "brew_amplifier";
+	public static final String BREW_DURATION = "brew_duration";
 
 	public static ItemStack createPotion(Item item, Collection<PotionEffect> effects) {
 		return createPotion(new ItemStack(item), effects);
@@ -51,42 +51,80 @@ public class BrewUtils {
 		return stack;
 	}
 
-	public static ItemStack createBrew(Item item, BrewEffect effect) {
-		return createBrew(new ItemStack(item), effect.getBrew(), effect.getDuration(), effect.isInstant());
-	}
-
-	public static ItemStack createBrew(Item item, IBrew brew, int duration, boolean instant) {
-		return createBrew(new ItemStack(item), brew, duration, instant);
-	}
-
-	public static ItemStack createBrew(ItemStack stack, IBrew brew, int duration, boolean instant) {
-		NBTHelper.setInteger(stack, brew_tag, BrewRegistry.getBrewId(brew));
-		NBTHelper.setInteger(stack, color_tag, brew.getColor());
-		NBTHelper.setString(stack, name_tag, brew.getName());
-		NBTHelper.setString(stack, desc_tag, brew.getDescription());
-		NBTHelper.setInteger(stack, duration_tag, duration);
-		NBTHelper.setBoolean(stack, instant_tag, instant);
+	public static ItemStack createBrew(Item item, IBrew brew) {
+		ItemStack stack = new ItemStack(item);
+		addBrewEffect(stack, BrewRegistry.getDefault(brew));
+		NBTHelper.setString(stack, BREW_NAME, brew.getName());
+		NBTHelper.setString(stack, BREW_DESC, brew.getDescription());
+		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
 		return stack;
 	}
 
-	public static Optional<BrewEffect> getBrewFromStack(ItemStack stack) {
-		if (isBrew(stack)) {
-			IBrew brew = BrewRegistry.getBrewById(NBTHelper.getInteger(stack, brew_tag));
-			int duration = NBTHelper.getInteger(stack, duration_tag);
-			boolean instant = NBTHelper.getBoolean(stack, instant_tag);
-			return Optional.of(new BrewEffect(brew, duration, instant));
+	public static ItemStack createBrew(Item item, BrewEffect... effects) {
+		ItemStack stack = new ItemStack(item);
+		NBTTagList list = addBrewData(stack);
+		for (BrewEffect effect : effects) {
+			NBTTagCompound tag = new NBTTagCompound();
+			IBrew brew = effect.getBrew();
+			tag.setInteger(BREW_ID, BrewRegistry.getBrewId(brew));
+			tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
+			tag.setInteger(BREW_DURATION, effect.getDuration());
+			list.appendTag(tag);
 		}
-		return Optional.empty();
+		return stack;
 	}
 
-	public static boolean isBrew(ItemStack stack) {
-		return NBTHelper.hasTag(stack, brew_tag);
+	public static ItemStack addBrewEffect(ItemStack stack, BrewEffect effect) {
+		NBTTagList list = addBrewData(stack);
+		NBTTagCompound tag = new NBTTagCompound();
+		IBrew brew = effect.getBrew();
+		tag.setInteger(BREW_ID, BrewRegistry.getBrewId(brew));
+		tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
+		tag.setInteger(BREW_DURATION, effect.getDuration());
+		list.appendTag(tag);
+		return stack;
 	}
 
-	@SideOnly(Side.CLIENT)
+	public static NBTTagList addBrewData(ItemStack stack) {
+		if (!NBTHelper.hasTag(stack, BREW_DATA)) {
+			NBTTagList list = new NBTTagList();
+			NBTHelper.setNBT(stack, BREW_DATA, list);
+			return list;
+		}
+		return NBTHelper.getNBT(stack, BREW_DATA);
+	}
+
+	public static ItemStack addBrewInfo(ItemStack stack, IBrew brew) {
+		NBTHelper.setString(stack, BREW_NAME, brew.getName());
+		NBTHelper.setString(stack, BREW_DESC, brew.getDescription());
+		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
+
+		return stack;
+	}
+
+	public static List<BrewEffect> getBrewsFromStack(ItemStack stack) {
+		List<BrewEffect> effects = new ArrayList<>();
+
+		NBTTagList list = NBTHelper.getNBT(stack, BREW_DATA);
+		for (int i = 0, size = list.tagCount(); i < size; i++) {
+			NBTTagCompound tag = list.getCompoundTagAt(i);
+			IBrew brew = BrewRegistry.getBrewById(tag.getInteger(BREW_ID));
+			int duration = tag.getInteger(BREW_DURATION);
+			int amplifier = tag.getInteger(BREW_AMPLIFIER);
+			effects.add(new BrewEffect(brew, duration, amplifier));
+		}
+
+		return effects;
+	}
+
+	public static boolean get(ItemStack stack) {
+		return NBTHelper.hasTag(stack, BREW_DATA);
+	}
+
+	@SideOnly (Side.CLIENT)
 	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
-		if (NBTHelper.hasTag(stack, desc_tag)) {
-			String desc = NBTHelper.getString(stack, desc_tag);
+		if (NBTHelper.hasTag(stack, BREW_DESC)) {
+			String desc = NBTHelper.getString(stack, BREW_DESC);
 			if (!desc.isEmpty())
 				tooltip.add(I18n.format(desc));
 		}

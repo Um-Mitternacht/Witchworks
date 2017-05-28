@@ -18,7 +18,6 @@ public final class CapabilityEnergy {
 	private static final String MAX = "energy_max";
 	private static final String REGEN = "energy_regen";
 	private static final String USES = "energy_uses";
-	private static final String OVERCHANNEL = "energy_overchannel";
 
 	private CapabilityEnergy() {
 	}
@@ -33,7 +32,6 @@ public final class CapabilityEnergy {
 				tag.setInteger(MAX, instance.getMax());
 				tag.setInteger(REGEN, instance.getRegen());
 				tag.setInteger(USES, instance.getUses());
-				tag.setInteger(OVERCHANNEL, instance.getOverchannel());
 				return tag;
 			}
 
@@ -44,7 +42,6 @@ public final class CapabilityEnergy {
 				instance.setMax(tag.getInteger(MAX));
 				instance.setRegen(tag.getInteger(REGEN));
 				instance.setUses(tag.getInteger(USES));
-				instance.setOverchannel(tag.getInteger(OVERCHANNEL));
 			}
 		}, DefaultEnergy::new);
 	}
@@ -55,7 +52,6 @@ public final class CapabilityEnergy {
 		private int max = 8;
 		private int regen = 60;
 		private int uses;
-		private int overchannel;
 		private int tick;
 
 		@Override
@@ -63,10 +59,8 @@ public final class CapabilityEnergy {
 			this.amount = i;
 			if (this.amount > getMax())
 				this.amount = getMax();
-			if (this.amount < 0) {
-				setOverchannel(this.amount * -1);
+			if (this.amount < 0)
 				this.amount = 0;
-			}
 
 			return i >= 0 && i <= getMax();
 		}
@@ -104,16 +98,6 @@ public final class CapabilityEnergy {
 		@Override
 		public void setUses(int uses) {
 			this.uses = uses >= 0 ? uses : 0;
-		}
-
-		@Override
-		public int getOverchannel() {
-			return overchannel;
-		}
-
-		@Override
-		public void setOverchannel(int overchannel) {
-			this.overchannel = overchannel;
 		}
 
 		@Override

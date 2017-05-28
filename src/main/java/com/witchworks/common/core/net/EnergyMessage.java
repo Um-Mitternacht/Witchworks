@@ -38,7 +38,6 @@ public class EnergyMessage implements IMessage {
 		energy.setMax(buf.readInt());
 		energy.setRegen(buf.readInt());
 		energy.setUses(buf.readInt());
-		energy.setOverchannel(buf.readInt());
 
 		target = new UUID(buf.readLong(), buf.readLong());
 	}
@@ -49,7 +48,6 @@ public class EnergyMessage implements IMessage {
 		buf.writeInt(energy.getMax());
 		buf.writeInt(energy.getRegen());
 		buf.writeInt(energy.getUses());
-		buf.writeInt(energy.getOverchannel());
 
 		buf.writeLong(target.getMostSignificantBits());
 		buf.writeLong(target.getLeastSignificantBits());
@@ -70,7 +68,6 @@ public class EnergyMessage implements IMessage {
 						data.setMax(message.energy.getMax());
 						data.setRegen(message.energy.getRegen());
 						data.setUses(message.energy.getUses());
-						data.setOverchannel(message.energy.getOverchannel());
 					}
 				}
 			});

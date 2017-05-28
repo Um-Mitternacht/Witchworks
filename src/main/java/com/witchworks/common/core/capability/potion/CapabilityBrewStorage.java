@@ -3,6 +3,7 @@ package com.witchworks.common.core.capability.potion;
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.item.BrewEffect;
 import com.witchworks.api.item.IBrew;
+import com.witchworks.common.potions.BrewUtils;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -24,11 +25,6 @@ import java.util.Set;
  */
 public final class CapabilityBrewStorage {
 
-	private static final String tag_list = "tag_list";
-	private static final String brew_tag = "brew";
-	private static final String instant_tag = "instant";
-	private static final String duration_tag = "duration";
-
 	private CapabilityBrewStorage() {
 	}
 
@@ -40,24 +36,26 @@ public final class CapabilityBrewStorage {
 				NBTTagList tagList = new NBTTagList();
 				for (Map.Entry<IBrew, BrewEffect> entry : instance.getBrews().entrySet()) {
 					NBTTagCompound tag = new NBTTagCompound();
-					tag.setInteger(brew_tag, BrewRegistry.getBrewId(entry.getKey()));
-					tag.setInteger(duration_tag, entry.getValue().getDuration());
-					tag.setBoolean(instant_tag, entry.getValue().isInstant());
+					tag.setInteger(BrewUtils.BREW_ID, BrewRegistry.getBrewId(entry.getKey()));
+					tag.setInteger(BrewUtils.BREW_DURATION, entry.getValue().getDuration());
+					tag.setInteger(BrewUtils.BREW_AMPLIFIER, entry.getValue().getAmplifier());
 					tagList.appendTag(tag);
 				}
 				NBTTagCompound compound = new NBTTagCompound();
-				compound.setTag(tag_list, tagList);
+				compound.setTag(BrewUtils.BREW_DATA, tagList);
 				return compound;
 			}
 
 			@Override
 			public void readNBT(Capability<IBrewStorage> capability, IBrewStorage instance, EnumFacing side, NBTBase nbt) {
 				Map<IBrew, BrewEffect> effects = new HashMap<>();
-				NBTTagList tagList = ((NBTTagCompound) nbt).getTagList(tag_list, 9);
+				NBTTagList tagList = (NBTTagList) ((NBTTagCompound) nbt).getTag(BrewUtils.BREW_DATA);
 				for (int i = 0; i < tagList.tagCount(); i++) {
 					NBTTagCompound tag = (NBTTagCompound) tagList.get(i);
-					IBrew brew = BrewRegistry.getBrewById(tag.getInteger(brew_tag));
-					effects.put(brew, new BrewEffect(brew, tag.getInteger(duration_tag), tag.getBoolean(instant_tag)));
+					IBrew brew = BrewRegistry.getBrewById(tag.getInteger(BrewUtils.BREW_ID));
+					int duration = tag.getInteger(BrewUtils.BREW_DURATION);
+					int amplifier = tag.getInteger(BrewUtils.BREW_AMPLIFIER);
+					effects.put(brew, new BrewEffect(brew, duration, amplifier));
 				}
 				instance.setBrews(effects);
 			}
@@ -80,12 +78,12 @@ public final class CapabilityBrewStorage {
 			this.effects = effects;
 		}
 
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public Set<IBrew> getClient() {
 			return client;
 		}
 
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public void setClient(Set<IBrew> client) {
 			this.client = client;
 		}

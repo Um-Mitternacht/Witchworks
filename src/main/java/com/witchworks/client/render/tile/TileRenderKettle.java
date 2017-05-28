@@ -26,7 +26,7 @@ import java.util.Optional;
  */
 public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
 		Optional<FluidStack> optional = te.getFluid();
@@ -44,7 +44,8 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 				float g = (te.getColorRGB() >>> 8 & 0xFF) / 256.0F;
 				float b = (te.getColorRGB() & 0xFF) / 256.0F;
 				GlStateManager.color(r, g, b);
-				location = ResourceLocations.gray_water;
+				if(fluid == FluidRegistry.WATER)
+					location = ResourceLocations.GRAY_WATER;
 			}
 
 			Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
@@ -68,10 +69,11 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.popMatrix();
 		}
 		GlStateManager.pushMatrix();
-		ItemStack stack = te.getContainer();
 		GlStateManager.translate(x + 0.5, y + 0.2D, z + 0.35);
 		GlStateManager.rotate(90F, 1F, 0, 0);
-		if (stack != null) {
+
+		ItemStack stack = te.getContainer();
+		if (!stack.isEmpty()) {
 			Minecraft mc = Minecraft.getMinecraft();
 			mc.getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.GROUND);
 		}

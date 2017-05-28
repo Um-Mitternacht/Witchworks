@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.world.World;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
@@ -18,8 +19,9 @@ public class ItemBrewSplash extends ItemBrew {
 		super(LibItemName.BREW_PHIAL_SPLASH);
 	}
 
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, EntityPlayer playerIn, EnumHand hand) {
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 
-		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+		return ActionResult.newResult(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
 	}
 }

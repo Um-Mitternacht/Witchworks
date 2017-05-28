@@ -11,7 +11,7 @@ import net.minecraft.world.World;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public class RitualHolder<T extends TileEntity> {
 
 	public int energy_left;
@@ -59,7 +59,7 @@ public class RitualHolder<T extends TileEntity> {
 		return ticks >= 100;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	public void readNBT(NBTTagCompound cmp) {
 		NBTTagCompound tag = cmp.getCompoundTag("ritual_data");
 		ritual = KettleRegistry.getRituals().get(tag.getInteger("ritual"));

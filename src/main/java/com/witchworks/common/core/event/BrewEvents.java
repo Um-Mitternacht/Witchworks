@@ -32,11 +32,11 @@ public class BrewEvents {
 	@SubscribeEvent
 	public void attachPlayer(AttachCapabilitiesEvent<Entity> event) {
 		if (event.getObject() instanceof EntityLivingBase) {
-			event.addCapability(new ResourceLocation(LibMod.mod_id, "BrewData"), new BrewStorageProvider());
+			event.addCapability(new ResourceLocation(LibMod.MOD_ID, "BrewData"), new BrewStorageProvider());
 		}
 	}
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	@SubscribeEvent
 	public void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
 		final EntityPlayer oldPlayer = event.getOriginal();

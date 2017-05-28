@@ -39,8 +39,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly(Side.CLIENT)
-@Mod.EventBusSubscriber(Side.CLIENT)
+@SideOnly (Side.CLIENT)
+@Mod.EventBusSubscriber (Side.CLIENT)
 public class ClientProxy implements ISidedProxy {
 
 	/**
@@ -91,7 +91,6 @@ public class ClientProxy implements ISidedProxy {
 	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
 	 * or
 	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
-	 *
 	 * @see RenderingRegistry
 	 */
 	private void registerRenders() {
@@ -100,7 +99,6 @@ public class ClientProxy implements ISidedProxy {
 
 	/**
 	 * Display a Record text with a format and localization.
-	 *
 	 * @param text An {@link ITextComponent}
 	 */
 	@Override

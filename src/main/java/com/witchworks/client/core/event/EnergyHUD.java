@@ -23,7 +23,7 @@ import static com.witchworks.common.core.handler.ConfigHandler.HUD.ENERGY_HUD;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 public class EnergyHUD {
 
 	private int renderTime;
@@ -102,21 +102,21 @@ public class EnergyHUD {
 				if (ENERGY_HUD.hide)
 					GlStateManager.color(1F, 1F, 1F, visible);
 
-				mc.getTextureManager().bindTexture(ResourceLocations.energy_background[0]);
+				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY_BACKGROUND[0]);
 				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY + 14, 0F, heightUsed - 28, width, heightFilled, width, heightUsed - 28);
 
 				GlStateManager.pushMatrix();
 
 				GlStateManager.color(1F, 1F, 1F, visible == 1F ? barAlpha : visible);
 
-				mc.getTextureManager().bindTexture(ResourceLocations.energy_background[1]);
+				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY_BACKGROUND[1]);
 				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY + 14, 0F, heightUsed - 28, width, heightFilled, width, heightUsed - 28);
 				GlStateManager.popMatrix();
 
 				if (ENERGY_HUD.hide)
 					GlStateManager.color(1F, 1F, 1F, visible);
 
-				mc.getTextureManager().bindTexture(ResourceLocations.energy);
+				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY);
 				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY, 0F, 0F, width, heightUsed, width, heightUsed);
 
 				int textColor = 0x990066;

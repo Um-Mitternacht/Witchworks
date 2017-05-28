@@ -17,12 +17,10 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
-import java.util.Optional;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
@@ -39,24 +37,24 @@ public class ItemBrewDrink extends ItemBrew {
 	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
 		EntityPlayer entityplayer = entity instanceof EntityPlayer ? (EntityPlayer) entity : null;
 		if (!world.isRemote) {
-			Optional<BrewEffect> optional = BrewUtils.getBrewFromStack(stack);
-			if (optional.isPresent()) {
-				BrewStorageHandler.addEntityBrewEffect(entity, optional.get());
-			} else {
-				for (PotionEffect potioneffect : PotionUtils.getEffectsFromStack(stack)) {
-					entity.addPotionEffect(new PotionEffect(potioneffect));
-				}
+			for (BrewEffect effect : BrewUtils.getBrewsFromStack(stack)) {
+				BrewStorageHandler.addEntityBrewEffect(entity, effect);
+			}
+
+			for (PotionEffect potioneffect : PotionUtils.getEffectsFromStack(stack)) {
+				entity.addPotionEffect(new PotionEffect(potioneffect));
 			}
 		}
 
 		if (entityplayer == null || !entityplayer.capabilities.isCreativeMode) {
-			stack.getCount();
-			if (stack.getCount() <= 0)
+			stack.shrink(1);
+			if (stack.getCount() <= 0) {
 				return new ItemStack(Items.GLASS_BOTTLE);
-		}
+			}
 
-		if (entityplayer != null) {
-			entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
+			if (entityplayer != null) {
+				entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
+			}
 		}
 		return stack;
 	}
@@ -71,16 +69,17 @@ public class ItemBrewDrink extends ItemBrew {
 		return EnumAction.DRINK;
 	}
 
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, EntityPlayer playerIn, EnumHand hand) {
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
-		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+		return ActionResult.newResult(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
 	}
 
-	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
+	@SideOnly (Side.CLIENT)
+	@Override
+	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
 		BrewRegistry.getBrews().stream().filter(brew -> brew.getType() == BrewRegistry.Brew.DRINK).forEach(brew -> {
-			BrewEffect effect = BrewRegistry.getDefaults().get(brew);
-			subItems.add(BrewUtils.createBrew(itemIn, effect.getBrew(), effect.getDuration(), effect.isInstant()));
+			subItems.add(BrewUtils.createBrew(itemIn, brew));
 		});
 	}
 }

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * the MIT license.
  */
 
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 class ParticleSteam extends Particle {
 
 	private ParticleSteam(World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
@@ -29,7 +29,7 @@ class ParticleSteam extends Particle {
 		this.particleScale *= 0.5F + rand.nextFloat();
 		this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D));
 
-		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.steam.toString());
+		final TextureAtlasSprite atlasSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(ResourceLocations.STEAM.toString());
 		setParticleTexture(atlasSprite);
 	}
 
@@ -43,7 +43,8 @@ class ParticleSteam extends Particle {
 		this.motionX *= 0.9599999785423279D;
 		this.motionY *= 0.9599999785423279D;
 		this.motionZ *= 0.9599999785423279D;
-		if (this.canCollide) {
+
+		if (this.onGround) {
 			this.motionX *= 0.699999988079071D;
 			this.motionZ *= 0.699999988079071D;
 		}
@@ -58,11 +59,7 @@ class ParticleSteam extends Particle {
 		return 1;
 	}
 
-	public boolean isTransparent() {
-		return true;
-	}
-
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			return new ParticleSteam(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);

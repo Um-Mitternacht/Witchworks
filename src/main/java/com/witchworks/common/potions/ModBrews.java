@@ -12,7 +12,7 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@ObjectHolder(LibMod.mod_id)
+@ObjectHolder (LibMod.MOD_ID)
 public final class ModBrews {
 
 	public static IBrew SHELL_ARMOR;
@@ -24,12 +24,12 @@ public final class ModBrews {
 
 	public static void init() {
 		SHELL_ARMOR = BrewRegistry.registerBrew(new ShellArmorBrew());
-		BrewRegistry.addDefault(new BrewEffect(SHELL_ARMOR, 2500, false));
+		BrewRegistry.addDefault(new BrewEffect(SHELL_ARMOR, 2500, 0));
 
 		INNER_FIRE = BrewRegistry.registerBrew(new InnerFireBrew());
-		BrewRegistry.addDefault(new BrewEffect(INNER_FIRE, 1500, false));
+		BrewRegistry.addDefault(new BrewEffect(INNER_FIRE, 1500, 0));
 
 		SPIDER_NIGHTMARE = BrewRegistry.registerBrew(new SpiderNightmareBrew());
-		BrewRegistry.addDefault(new BrewEffect(SPIDER_NIGHTMARE, 500, false));
+		BrewRegistry.addDefault(new BrewEffect(SPIDER_NIGHTMARE, 500, 0));
 	}
 }

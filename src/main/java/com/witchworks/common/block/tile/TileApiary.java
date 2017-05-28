@@ -1,5 +1,6 @@
 package com.witchworks.common.block.tile;
 
+import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.api.sound.WitchSoundEvents;
 import com.witchworks.client.gui.container.ContainerApiary;
 import com.witchworks.common.item.ModItems;
@@ -21,14 +22,12 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.datafix.DataFixer;
-import net.minecraft.util.datafix.FixTypes;
-import net.minecraft.util.datafix.walkers.ItemStackDataLists;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 
-import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * This class was created by Arekkuusu on 16/04/2017.
@@ -37,17 +36,13 @@ import java.util.Arrays;
  */
 public class TileApiary extends TileEntityLockable implements ITickable, ISidedInventory {
 
-	private static final int[] SLOT_TOP = new int[]{0};
-	private static final int[] SLOT_BOTTOM = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+	private static final int[] SLOT_TOP = new int[] {0};
+	private static final int[] SLOT_BOTTOM = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
 	private static final int GEN = 1000;
-	private ItemStack[] itemStacks = new ItemStack[19];
+	private List<ItemStack> itemStacks = ItemNullHelper.asList(16);
 	private String customName;
 	private int flowerCount;
 	private int tick;
-
-	public static void registerFixesFurnace(DataFixer fixer) {
-		fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileApiary.class, new String[]{"Apiary", "Items"}));
-	}
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
@@ -66,39 +61,36 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	@Override
 	public int getSizeInventory() {
-		return itemStacks.length;
+		return 16;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return false;
+		return ItemNullHelper.isEmpty(itemStacks);
 	}
 
-	@Nullable
 	@Override
 	public ItemStack getStackInSlot(int index) {
-		return itemStacks[index];
+		return itemStacks.get(index);
 	}
 
-	@Nullable
 	@Override
 	public ItemStack decrStackSize(int index, int count) {
-		return ItemStackHelper.getAndSplit(Arrays.asList(itemStacks), index, count);
+		return ItemStackHelper.getAndSplit(itemStacks, index, count);
 	}
 
-	@Nullable
 	@Override
 	public ItemStack removeStackFromSlot(int index) {
-		return ItemStackHelper.getAndRemove(Arrays.asList(itemStacks), index);
+		return ItemStackHelper.getAndRemove(itemStacks, index);
 	}
 
 	@Override
-	public void setInventorySlotContents(int index, @Nullable ItemStack stack) {
-		final boolean flag = stack != null && stack.isItemEqual(this.itemStacks[index]) && ItemStack.areItemStackTagsEqual(stack, this.itemStacks[index]);
-		this.itemStacks[index] = stack;
+	public void setInventorySlotContents(int index, ItemStack stack) {
+		final boolean flag = !stack.isEmpty() && stack.isItemEqual(itemStacks.get(index)) && ItemStack.areItemStackTagsEqual(stack, itemStacks.get(index));
+		itemStacks.set(index, stack);
 
-		if (stack != null && stack.getMaxStackSize() > this.getInventoryStackLimit()) {
-			stack.getMaxStackSize();
+		if (!stack.isEmpty() && stack.getCount() > this.getInventoryStackLimit()) {
+			stack.setCount(getInventoryStackLimit());
 		}
 
 		if (index == 0 && !flag) {
@@ -107,13 +99,13 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	}
 
 	public void dropItems() {
-		for (int i = 0; i < this.itemStacks.length; ++i) {
-			final ItemStack stack = itemStacks[i];
-			if (!world.isRemote && stack != null) {
+		for (int i = 0; i < 16; ++i) {
+			final ItemStack stack = itemStacks.get(i);
+			if (!world.isRemote && !stack.isEmpty()) {
 				final EntityItem item = new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, stack);
 				world.spawnEntity(item);
 			}
-			itemStacks[i] = null;
+			itemStacks.set(i, ItemStack.EMPTY);
 		}
 	}
 
@@ -161,8 +153,8 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	@Override
 	public void clear() {
-		for (int i = 0; i < this.itemStacks.length; ++i) {
-			this.itemStacks[i] = null;
+		for (int i = 0; i < 16; ++i) {
+			this.itemStacks.set(i, ItemStack.EMPTY);
 		}
 	}
 
@@ -171,19 +163,19 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		if (!world.isRemote) {
 			++tick;
 			final ItemStack bee = getStackInSlot(0);
-			if (bee != null && bee.getItemDamage() < 35) {
+			if (!bee.isEmpty() && bee.getItemDamage() < 35) {
 				lookForFlowers();
 				if (tick % 60 == 0 && world.rand.nextBoolean()) {
-					world.playSound(null, pos, WitchSoundEvents.buzz, SoundCategory.BLOCKS, 0.1F, 1F);
+					world.playSound(null, pos, WitchSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.1F, 1F);
 				}
 				if (flowerCount > 0) {
 					if (world.rand.nextInt(3) == 0 && tick % (GEN - flowerCount * 3) == 0) {
-						for (int i = 1; i < itemStacks.length; i++) {
-							if (getStackInSlot(i) == null) {
+						for (int i = 1; i < 16; i++) {
+							if (!getStackInSlot(i).isEmpty()) {
 								bee.attemptDamageItem(1, world.rand);
 								bonemealArea();
 
-								itemStacks[i] = randomItem();
+								itemStacks.set(i, randomItem());
 								break;
 							}
 						}
@@ -258,14 +250,14 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		final NBTTagList nbttaglist = compound.getTagList("Items", 10);
-		this.itemStacks = new ItemStack[this.getSizeInventory()];
+		this.itemStacks = new ArrayList<>(16);
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
 			final NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
 			final int j = nbttagcompound.getByte("Slot");
 
-			if (j >= 0 && j < this.itemStacks.length) {
-				this.itemStacks[j] = new ItemStack(compound);
+			if (j >= 0 && j < 16) {
+				this.itemStacks.set(j, new ItemStack(nbttagcompound));
 			}
 		}
 
@@ -279,11 +271,11 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		super.writeToNBT(compound);
 		final NBTTagList nbttaglist = new NBTTagList();
 
-		for (int i = 0; i < this.itemStacks.length; ++i) {
-			if (this.itemStacks[i] != null) {
+		for (int i = 0; i < 16; ++i) {
+			if (!itemStacks.get(i).isEmpty()) {
 				final NBTTagCompound nbttagcompound = new NBTTagCompound();
 				nbttagcompound.setByte("Slot", (byte) i);
-				this.itemStacks[i].writeToNBT(nbttagcompound);
+				itemStacks.get(i).writeToNBT(nbttagcompound);
 				nbttaglist.appendTag(nbttagcompound);
 			}
 		}

@@ -89,13 +89,13 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 		return (KettleFluid) tank;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 		readFromNBT(pkt.getNbtCompound());
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings ("WeakerAccess")
 	public class KettleFluid extends FluidTank {
 
 		private final TileFluidInventory tile;

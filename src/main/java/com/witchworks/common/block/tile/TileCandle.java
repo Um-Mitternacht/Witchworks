@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings ("deprecation")
 public class TileCandle extends TileMod implements ITickable {
 
 	private EnumDyeColor color;
@@ -32,12 +32,18 @@ public class TileCandle extends TileMod implements ITickable {
 	public void litCandle() {
 		world.playSound(null, getPos(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1F, 1F);
 		setLit(true);
+		world.profiler.startSection("checkLight");
+		world.checkLight(pos);
+		world.profiler.endSection();
 	}
 
 	public void unLitCandle() {
 		if (isLit()) {
 			world.playSound(null, getPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
 			setLit(false);
+			world.profiler.startSection("checkLight");
+			world.checkLight(pos);
+			world.profiler.endSection();
 		}
 	}
 

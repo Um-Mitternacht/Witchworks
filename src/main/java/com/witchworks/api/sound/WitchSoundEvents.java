@@ -11,9 +11,9 @@ import net.minecraft.util.SoundEvent;
  */
 public final class WitchSoundEvents {
 
-	public static final SoundEvent boil = getRegisteredSound(WitchWorksAPI.boil);
-	public static final SoundEvent buzz = getRegisteredSound(WitchWorksAPI.buzz);
-	public static final SoundEvent chalk_scribble = getRegisteredSound(WitchWorksAPI.chalk_scribble);
+	public static final SoundEvent BOIL = getRegisteredSound(WitchWorksAPI.BOIL);
+	public static final SoundEvent BUZZ = getRegisteredSound(WitchWorksAPI.BUZZ);
+	public static final SoundEvent CHALK_SCRIBBLE = getRegisteredSound(WitchWorksAPI.CHALK_SCRIBBLE);
 
 	private WitchSoundEvents() {
 	}

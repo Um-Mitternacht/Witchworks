@@ -12,8 +12,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
-
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
  * It's distributed as part of Witchworks under
@@ -33,24 +31,24 @@ public final class WitchWorksCreativeTabs {
 		NonNullList<ItemStack> list;
 
 		CreativeTab(String name) {
-			super(LibMod.mod_id + name);
+			super(LibMod.MOD_ID + name);
 			setNoTitle();
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return getIconItemStack();
 		}
 
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		void addItem(Item item) {
 			item.getSubItems(item, this, list);
 		}
 
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		void addBlock(Block block) {
-			ItemStack stack = new ItemStack(block);
+			final ItemStack stack = new ItemStack(block);
 			block.getSubBlocks(stack.getItem(), this, list);
 		}
 	}
@@ -63,7 +61,7 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
 			return new ItemStack(ModItems.MANDRAKE);
 		}
@@ -74,8 +72,8 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
+		@SideOnly (Side.CLIENT)
+		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
@@ -90,7 +88,7 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
 			return new ItemStack(ModItems.TOURMALINE);
 		}
@@ -101,8 +99,8 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
+		@SideOnly (Side.CLIENT)
+		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
 			addItem(ModItems.GARNET);
 			addItem(ModItems.NUUMMITE);
@@ -158,7 +156,7 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
+		@SideOnly (Side.CLIENT)
 		public ItemStack getIconItemStack() {
 			return new ItemStack(ModBlocks.KETTLE);
 		}
@@ -169,8 +167,8 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
+		@SideOnly (Side.CLIENT)
+		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.BEEHIVE);

@@ -22,7 +22,7 @@ import java.util.List;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings ("WeakerAccess")
 public class ItemCrop extends ItemModFood implements IModelRegister {
 
 	private static final String DRY = "dry";
@@ -38,7 +38,7 @@ public class ItemCrop extends ItemModFood implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 		tooltip.add(TextFormatting.ITALIC + I18n.format("witch.tooltip." + getNameInefficiently(stack) + "_description.name"));
 	}
@@ -66,7 +66,7 @@ public class ItemCrop extends ItemModFood implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerItem(this);
 	}

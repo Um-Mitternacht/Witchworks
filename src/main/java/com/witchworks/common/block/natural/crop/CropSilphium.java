@@ -41,7 +41,8 @@ public class CropSilphium extends BlockCrop {
 		return canSustainBush(state);
 	}
 
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		this.checkForDrop(worldIn, pos, state);
 	}
 

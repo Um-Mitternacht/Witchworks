@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Zombie by Unknown
  */
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 public class ModelHerbPouch extends ModelBase {
 
 	private ModelRenderer Cuboid;

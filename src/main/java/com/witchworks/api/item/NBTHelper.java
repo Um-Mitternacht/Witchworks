@@ -11,7 +11,7 @@ import java.util.UUID;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings ("unused")
 public final class NBTHelper {
 
 	private NBTHelper() {
@@ -69,9 +69,14 @@ public final class NBTHelper {
 		return fixNBT(stack).getUniqueId(tag);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	public static <T extends NBTBase> T getNBT(ItemStack stack, String tag) {
 		return (T) fixNBT(stack).getTag(tag);
+	}
+
+	public static boolean hasTag(ItemStack stack, String tag, int type) {
+		NBTTagCompound tagCompound = stack.getTagCompound();
+		return tagCompound != null && tagCompound.hasKey(tag, type);
 	}
 
 	public static boolean hasTag(ItemStack stack, String tag) {
@@ -86,7 +91,7 @@ public final class NBTHelper {
 		}
 	}
 
-	private static NBTTagCompound fixNBT(ItemStack stack) {
+	public static NBTTagCompound fixNBT(ItemStack stack) {
 		NBTTagCompound tagCompound = stack.getTagCompound();
 		if (tagCompound == null) {
 			tagCompound = new NBTTagCompound();

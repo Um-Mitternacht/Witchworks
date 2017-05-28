@@ -28,7 +28,7 @@ public class ItemHoney extends ItemModFood implements IModelRegister {
 		player.addPotionEffect(new PotionEffect(MobEffects.LUCK, 450, 0));
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

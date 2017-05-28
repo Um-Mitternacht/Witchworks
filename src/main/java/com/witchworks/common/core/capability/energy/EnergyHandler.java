@@ -23,7 +23,7 @@ public final class EnergyHandler {
 	private EnergyHandler() {
 	}
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	public static <T extends Entity> List<T> getEnergySources(Class<T> type, World world, BlockPos pos, int range) {
 		return world.getEntitiesWithinAABB(type, new AxisAlignedBB(pos).expandXyz(range)).stream()
 				.filter(entity -> entity.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)).collect(Collectors.toList());
@@ -35,7 +35,6 @@ public final class EnergyHandler {
 	 * If the amount drained is greater than the available amount,
 	 * it automatically gets stored as overchannel
 	 * </p>
-	 *
 	 * @param player The player
 	 * @param amount The amount
 	 * @return If the amount was greater or equal than 0 and less or equal than the max amount
@@ -47,7 +46,6 @@ public final class EnergyHandler {
 		if (optional.isPresent()) {
 			IEnergy energy = optional.get();
 			mod = energy.set(energy.get() + amount);
-			energy.setUses(energy.getUses() + 1);
 			energy.tickReset();
 			if (player instanceof EntityPlayerMP)
 				PacketHandler.sendTo((EntityPlayerMP) player, new EnergyMessage(energy, player.getUniqueID()));
@@ -57,8 +55,7 @@ public final class EnergyHandler {
 
 	/**
 	 * Sets the max energy a player can hold.
-	 *
-	 * @param player    The player
+	 * @param player The player
 	 * @param maxAmount The new max amount
 	 */
 	public static void setMaxEnergy(EntityPlayer player, int maxAmount) {
@@ -74,8 +71,7 @@ public final class EnergyHandler {
 	 * Any number smaller than 0 will set the regen to -1,
 	 * thus deactivating regeneration
 	 * </p>
-	 *
-	 * @param player      The player
+	 * @param player The player
 	 * @param timeInTicks Ticks
 	 */
 	public static void setRegen(EntityPlayer player, int timeInTicks) {
@@ -87,11 +83,10 @@ public final class EnergyHandler {
 
 	/**
 	 * Returns the {@link IEnergy} interface of the player.
-	 *
 	 * @param player The player
 	 * @return An {@link Optional<IEnergy>} for correctness
 	 */
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	public static Optional<IEnergy> getEnergy(EntityPlayer player) {
 		if (player.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)) {
 			return Optional.of(player.getCapability(EnergyProvider.ENERGY_CAPABILITY, null));

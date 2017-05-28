@@ -26,8 +26,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.witchworks.api.WitchWorksAPI.taglock_entity;
-import static com.witchworks.api.WitchWorksAPI.taglock_entity_name;
+import static com.witchworks.api.WitchWorksAPI.TAGLOCK_ENTITY;
+import static com.witchworks.api.WitchWorksAPI.TAGLOCK_ENTITY_NAME;
 import static net.minecraft.util.math.RayTraceResult.Type.ENTITY;
 
 /**
@@ -41,58 +41,54 @@ public class ItemTaglock extends ItemMod {
 		super(LibItemName.TAGLOCK);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		if (NBTHelper.hasTag(stack, taglock_entity_name)) {
-			tooltip.add(TextFormatting.DARK_GRAY + NBTHelper.getString(stack, taglock_entity_name));
+		if (NBTHelper.hasTag(stack, TAGLOCK_ENTITY_NAME)) {
+			tooltip.add(TextFormatting.DARK_GRAY + NBTHelper.getString(stack, TAGLOCK_ENTITY_NAME));
 		} else {
 			tooltip.add(TextFormatting.DARK_GRAY + I18n.format("item.tag_lock.empty"));
 		}
 	}
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entityPlayer, EnumHand hand) {
-		ItemStack stack = entityPlayer.getHeldItem(hand);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		if (!world.isRemote) {
-			RayTraceResult result = RayTraceHelper.rayTraceResult(entityPlayer, RayTraceHelper.fromLookVec(entityPlayer, 2), true, true);
+			RayTraceResult result = RayTraceHelper.rayTraceResult(player, RayTraceHelper.fromLookVec(player, 2), true, true);
 			if (result != null && result.typeOfHit == ENTITY && result.entityHit instanceof EntityLivingBase) {
-				setVictim(stack, (EntityLivingBase) result.entityHit);
+				setVictim(player.getHeldItem(hand), (EntityLivingBase) result.entityHit);
 			}
 		}
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+		return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 	}
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-
-		IBlockState state = worldIn.getBlockState(pos);
-		ItemStack stack = player.getHeldItem(hand);
-
-		if (state.getBlock().isBed(state, worldIn, pos, player)) {
-			Optional<EntityPlayer> victim = getPlayerFromBed(worldIn, pos, state.getValue(BlockBed.OCCUPIED));
+	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+		IBlockState state = world.getBlockState(pos);
+		if (state.getBlock().isBed(state, world, pos, player)) {
+			Optional<EntityPlayer> victim = getPlayerFromBed(world, pos, state.getValue(BlockBed.OCCUPIED));
 			if (victim.isPresent()) {
-				setVictim(stack, victim.get());
+				setVictim(player.getHeldItem(hand), victim.get());
 			}
 		}
 
-		return super.onItemUseFirst(player, worldIn, pos, facing, hitX, hitY, hitZ, hand);
+		return super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);
 	}
 
 	public void removeVictim(ItemStack stack) {
-		NBTHelper.removeTag(stack, taglock_entity);
-		NBTHelper.removeTag(stack, taglock_entity_name);
+		NBTHelper.removeTag(stack, TAGLOCK_ENTITY);
+		NBTHelper.removeTag(stack, TAGLOCK_ENTITY_NAME);
 	}
 
 	public void setVictim(ItemStack stack, EntityLivingBase victim) {
-		NBTHelper.setUniqueID(stack, taglock_entity, victim.getUniqueID());
-		NBTHelper.setString(stack, taglock_entity_name, victim.getName());
+		NBTHelper.setUniqueID(stack, TAGLOCK_ENTITY, victim.getUniqueID());
+		NBTHelper.setString(stack, TAGLOCK_ENTITY_NAME, victim.getName());
 	}
 
 	public Optional<EntityLivingBase> getVictim(ItemStack stack, World world) {
-		UUID uuid = NBTHelper.getUniqueID(stack, taglock_entity);
+		UUID uuid = NBTHelper.getUniqueID(stack, TAGLOCK_ENTITY);
 		for (Entity entity : world.loadedEntityList) {
 			if (entity instanceof EntityLivingBase && entity.getUniqueID().equals(uuid)) {
 				return Optional.of((EntityLivingBase) entity);

@@ -24,9 +24,11 @@ public interface IBrew {
 	/**
 	 * Apply the effects
 	 */
-	void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int tick);
+	void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick);
 
-	void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity);
+	void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier);
+
+	boolean isInstant();
 
 	int getColor();
 
@@ -36,12 +38,12 @@ public interface IBrew {
 
 	BrewRegistry.Brew getType();
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	void renderHUD(int x, int y, net.minecraft.client.Minecraft mc);
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	default void render(int x, int y, net.minecraft.client.Minecraft mc, int index) {
-		mc.renderEngine.bindTexture(ResourceLocations.brew_textures);
+		mc.renderEngine.bindTexture(ResourceLocations.BREW_TEXTURES);
 		final Tessellator tessellator = Tessellator.getInstance();
 		final VertexBuffer buf = tessellator.getBuffer();
 		GlStateManager.color(1F, 1F, 1F, 1F);

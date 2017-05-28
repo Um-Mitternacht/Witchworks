@@ -10,17 +10,14 @@ import java.util.Optional;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
-public class ItemValidator<T> {
+@SuppressWarnings ("WeakerAccess")
+public class ItemValidator <T> {
 
 	private final ArrayList<Holder<ItemStack, T>> list = new ArrayList<>();
 
-	@SuppressWarnings("ConstantConditions")
+	@SuppressWarnings ("ConstantConditions")
 	public static boolean itemMatches(ItemStack target, ItemStack input, boolean strict) {
-		if (input == null && target != null || input != null && target == null) {
-			return false;
-		}
-		return target.getItem() == input.getItem() && (!strict || target.getItemDamage() == input.getItemDamage());
+		return !(input.isEmpty() && !target.isEmpty() || !input.isEmpty() && target.isEmpty()) && target.getItem() == input.getItem() && (!strict || target.getItemDamage() == input.getItemDamage());
 	}
 
 	public ItemValidator<T> add(ItemStack stack, T t, boolean strict) {
@@ -37,7 +34,7 @@ public class ItemValidator<T> {
 		return list.stream().filter(tuple -> itemMatches(tuple.getInput(), input, tuple.isStrict())).findAny();
 	}
 
-	private class Holder<J, K> {
+	private class Holder <J, K> {
 
 		private final J input;
 		private final K output;
