@@ -105,8 +105,6 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.GARNET);
 			addItem(ModItems.NUUMMITE);
 			addItem(ModItems.MOLDAVITE);
-			addItem(ModItems.PETOSKEY_STONE);
-			addItem(ModItems.SERPENTINE);
 			addItem(ModItems.TOURMALINE);
 			addItem(ModItems.TIGERS_EYE);
 			addItem(ModItems.BLOODSTONE);
@@ -114,7 +112,6 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.MALACHITE);
 			addItem(ModItems.AMETHYST);
 			addItem(ModItems.ALEXANDRITE);
-			addItem(ModItems.QUARTZ);
 			addItem(ModItems.GEMSTONE_AMALGAM);
 			addItem(ModItems.BEE);
 			addItem(ModItems.HONEYCOMB);
@@ -184,11 +181,8 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.MALACHITE_ORE);
 			addBlock(ModBlocks.JASPER_ORE);
 			addBlock(ModBlocks.TIGERS_EYE_ORE);
-			addBlock(ModBlocks.SERPENTINE_ORE);
 			addBlock(ModBlocks.NUUMMITE_ORE);
 			addBlock(ModBlocks.GARNET_ORE);
-			addBlock(ModBlocks.QUARTZ_ORE);
-			addBlock(ModBlocks.PETOSKEY_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
 			addBlock(ModBlocks.TOURMALINE_BLOCK);
