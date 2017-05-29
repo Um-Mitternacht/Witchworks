@@ -16,6 +16,7 @@ public final class ModGen {
 	private ModGen() {
 	}
 
+	//Todo: Add Biome-Centric gen
 	public static void init() {
 		//World generation
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.SILVER_ORE, WORLD_GEN.silver_gen_chance)
