@@ -199,7 +199,6 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.CANDLE_MEDIUM);
 			addBlock(ModBlocks.CANDLE_SMALL);
 			addBlock(ModBlocks.CHALK);
-			addBlock(ModBlocks.OILPRESS);
 		}
 	}
 }

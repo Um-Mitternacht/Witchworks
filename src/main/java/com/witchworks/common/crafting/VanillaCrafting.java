@@ -203,14 +203,6 @@ public final class VanillaCrafting {
 				.map('H', ModItems.EMPTY_HONEYCOMB)
 				.outputs(ModBlocks.APIARY)
 				.build();
-
-		shaped().grid("III", "IWI", "PIP")
-				.map('W', Blocks.PISTON)
-				.map('I', Items.IRON_INGOT)
-				.map('P', "plankWood")
-				.outputs(ModBlocks.OILPRESS)
-				.build();
-
 		shaped().grid("LML", "SSS", "WWW")
 				.map('W', "plankWood")
 				.map('S', Blocks.STONE)

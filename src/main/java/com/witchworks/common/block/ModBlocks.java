@@ -110,8 +110,6 @@ public final class ModBlocks {
 	public static final Block ALEXANDRITE_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.CHALK)
 	public static final Block CHALK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.OILPRESS)
-	public static final Block OILPRESS = new Block(Material.ROCK);
 
 	private ModBlocks() {
 	}

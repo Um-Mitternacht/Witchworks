@@ -39,7 +39,6 @@ public final class LibBlockName {
 	public static final String CANDLE_MEDIUM = "candle_medium";
 	public static final String CANDLE_SMALL = "candle_small";
 	public static final String APIARY = "apiary";
-	public static final String OILPRESS = "oilpress";
 	public static final String KETTLE = "kettle";
 	public static final String COQUINA = "coquina";
 	public static final String BEEHIVE = "beehive";

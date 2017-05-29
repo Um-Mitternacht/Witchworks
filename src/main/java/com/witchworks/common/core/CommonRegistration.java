@@ -158,7 +158,6 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock(ModBlocks.KETTLE),
 				itemBlock(ModBlocks.ALTAR),
-				itemBlock(ModBlocks.OILPRESS),
 				itemBlock(ModBlocks.APIARY),
 				itemBlock(ModBlocks.BEEHIVE),
 				itemBlock(ModBlocks.SILVER_ORE),
@@ -249,7 +248,6 @@ public final class CommonRegistration {
 				new BlockCandleSmall(),
 				new BlockSaltBarrier(),
 				new BlockApiary(),
-				new BlockOilPress(),
 				new BlockAltar()
 		);
 		for (final IFluidBlock fluidBlock : Fluids.MOD_FLUID_BLOCKS) {
