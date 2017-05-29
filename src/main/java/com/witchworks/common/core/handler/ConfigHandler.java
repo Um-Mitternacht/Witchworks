@@ -76,7 +76,7 @@ public final class ConfigHandler {
 		public int nuumite_min_vein = 1;
 		public int nuumite_max_vein = 2;
 		public int nuumite_min_height = 10;
-		public int nuumite_max_height = 60;
+		public int nuumite_max_height = 80;
 		public int nuumite_gen_chance = 2;
 
 		@Comment("Garnet Ore gen")
@@ -90,7 +90,7 @@ public final class ConfigHandler {
 		public int jasper_min_vein = 1;
 		public int jasper_max_vein = 2;
 		public int jasper_min_height = 10;
-		public int jasper_max_height = 65;
+		public int jasper_max_height = 80;
 		public int jasper_gen_chance = 2;
 
 		@Comment("Salt Ore gen")
