@@ -11,6 +11,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 /**
  * This class was created by Arekkuusu on 21/03/2017.
@@ -42,21 +43,21 @@ public final class KettleCrafting {
 		KettleRegistry.addKettleProcessing(FluidRegistry.WATER, ModItems.EMPTY_HONEYCOMB, ModItems.WAX, true);
 		KettleRegistry.addKettleProcessing(FluidRegistry.WATER, ModItems.HONEYCOMB, ModItems.HONEY, true);
 
+		//------------------------------------Fluid Creation------------------------------------//
+		KettleRegistry.addKettleFluid(ModItems.HONEY, new FluidStack(Fluids.HONEY, 1000));
+
 		//------------------------------------Item Rituals------------------------------------//
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_MANDRAKE), 5)
 				, getStack(Items.WHEAT_SEEDS, 5), Blocks.SOUL_SAND);
 
 		//------------------------------------Potion Recipes------------------------------------//
-		KettleRegistry.registerKettleBrewRecipe(Fluids.HONEY
-				, BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
 				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModItems.HONEYCOMB, 3));
 
-		KettleRegistry.registerKettleBrewRecipe(FluidRegistry.WATER
-				, BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.INNER_FIRE)
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.INNER_FIRE)
 				, getStack(Items.BLAZE_ROD, 2), Items.GOLD_NUGGET);
 
-		KettleRegistry.registerKettleBrewRecipe(Fluids.TOXIC_OIL
-				, BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
 				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR);
 	}
 

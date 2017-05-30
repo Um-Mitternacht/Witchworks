@@ -8,6 +8,7 @@ import com.witchworks.common.crafting.kettle.ItemRitual;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,34 +23,23 @@ import java.util.Map;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public final class KettleRegistry {
 
-	private static final List<IRitual> RITUALS = new ArrayList<>();
-	private static final List<KettleItemRecipe> KETTLE_ITEM_RITUALS = new ArrayList<>();
-	private static final Map<Fluid, List<KettleBrewRecipe>> KETTLE_BREW_RECIPES = new HashMap<>();
 	private static final Map<Fluid, Map<Item, ItemValidator<ItemStack>>> KETTLE_PROCESSING = new HashMap<>();
+	private static final Map<Item, FluidStack> FLUID_ITEMS = new HashMap<>();
+	private static final List<KettleItemRecipe> KETTLE_ITEM_RITUALS = new ArrayList<>();
+	private static final List<KettleBrewRecipe> KETTLE_BREW_RECIPES = new ArrayList<>();
+	private static final List<IRitual> RITUALS = new ArrayList<>();
 
 	private KettleRegistry() {
 	}
 
-	public static KettleItemRecipe registerKettleItemRitual(ItemRitual ritual, Object... objects) {
-		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, objects);
-		KETTLE_ITEM_RITUALS.add(recipe);
-		if (!RITUALS.contains(ritual))
-			RITUALS.add(ritual);
-		return recipe;
-	}
-
-	public static KettleBrewRecipe registerKettleBrewRecipe(Fluid fluid, ItemStack stack, Object... objects) {
-		final KettleBrewRecipe recipe = new KettleBrewRecipe(stack, objects);
-		if (KETTLE_BREW_RECIPES.containsKey(fluid)) {
-			KETTLE_BREW_RECIPES.get(fluid).add(recipe);
-		} else {
-			List<KettleBrewRecipe> list = new ArrayList<>();
-			list.add(recipe);
-			KETTLE_BREW_RECIPES.put(fluid, list);
-		}
-		return recipe;
-	}
-
+	/**
+	 * Register an Item to the Processing factory.
+	 *
+	 * @param fluid  The fluid this Item needs
+	 * @param in     The Item you throw in
+	 * @param out    The Item that comes out
+	 * @param strict If the Item must be identical
+	 */
 	public static void addKettleProcessing(Fluid fluid, Item in, Item out, boolean strict) {
 		addKettleProcessing(fluid, new ItemStack(in), new ItemStack(out), strict);
 	}
@@ -78,19 +68,41 @@ public final class KettleRegistry {
 		}
 	}
 
-	public static List<IRitual> getRituals() {
-		return RITUALS;
+	public static void addKettleFluid(Item item, FluidStack fluid) {
+		FLUID_ITEMS.put(item, fluid);
+	}
+
+	public static KettleItemRecipe registerKettleItemRitual(ItemRitual ritual, Object... objects) {
+		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, objects);
+		KETTLE_ITEM_RITUALS.add(recipe);
+		if (!RITUALS.contains(ritual))
+			RITUALS.add(ritual);
+		return recipe;
+	}
+
+	public static KettleBrewRecipe registerKettleBrewRecipe(ItemStack stack, Object... objects) {
+		final KettleBrewRecipe recipe = new KettleBrewRecipe(stack, objects);
+		KETTLE_BREW_RECIPES.add(recipe);
+		return recipe;
+	}
+
+	public static Map<Item, ItemValidator<ItemStack>> getKettleProcessing(Fluid fluid) {
+		return KETTLE_PROCESSING.get(fluid);
+	}
+
+	public static Map<Item, FluidStack> getFluidItems() {
+		return FLUID_ITEMS;
 	}
 
 	public static List<KettleItemRecipe> getKettleItemRituals() {
 		return KETTLE_ITEM_RITUALS;
 	}
 
-	public static Map<Fluid, List<KettleBrewRecipe>> getKettleBrewRecipes() {
+	public static List<KettleBrewRecipe> getKettleBrewRecipes() {
 		return KETTLE_BREW_RECIPES;
 	}
 
-	public static Map<Item, ItemValidator<ItemStack>> getKettleProcessing(Fluid fluid) {
-		return KETTLE_PROCESSING.get(fluid);
+	public static List<IRitual> getRituals() {
+		return RITUALS;
 	}
 }

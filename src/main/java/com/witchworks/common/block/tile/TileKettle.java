@@ -87,9 +87,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public boolean recipeDropLogic(ItemStack dropped) {
-		if (changeMode(dropped.getItem())) {
+		if (mode == Mode.NORMAL && changeMode(dropped.getItem())) {
 			play(SoundEvents.ENTITY_FIREWORK_TWINKLE, 0.2F, 1F);
-			particleServerSide(EnumParticleTypes.CRIT, 0.5D, getParticleLevel(), 0.5D, 0, 0, 0, 5);
+			particleServerSide(EnumParticleTypes.CRIT_MAGIC, 0.5D, getParticleLevel(), 0.5D, 0, 0, 0, 5);
 			dropped.setCount(0);
 			return true;
 		}
@@ -107,10 +107,10 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private boolean changeMode(Item item) {
 		boolean bol = false;
-		if (mode != Mode.POTION && item == ModItems.SEED_MANDRAKE) {
+		if (item == ModItems.SEED_MANDRAKE) {
 			setMode(Mode.POTION);
 			bol = true;
-		} else if (mode != Mode.CUSTOM && item == ModItems.MANDRAKE) {
+		} else if (item == ModItems.MANDRAKE) {
 			setMode(Mode.CUSTOM);
 			bol = true;
 		}
@@ -121,7 +121,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	public boolean useKettle(EntityPlayer player, EnumHand hand, ItemStack heldItem) {
 		if (!world.isRemote) {
 			if (heldItem.isEmpty()) {
-				if (!getContainer().isEmpty() && mode != Mode.RITUAL) {
+				if (!getContainer().isEmpty()) {
 					giveItem(player, hand, ItemStack.EMPTY, getContainer());
 					setContainer(ItemStack.EMPTY);
 				} else if (inv.isFull() && hasIngredients() && mode != Mode.RITUAL) {
@@ -229,6 +229,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 		if (ticks % 20 == 0) {
 			handleHeat();
+			tryTurnLiquid();
 		}
 
 		if (!world.isRemote && mode == Mode.RITUAL && ritual != null) {
@@ -264,6 +265,35 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			++heat;
 		} else if ((!aboveFire || !(inv.getFluidAmount() > 0)) && heat > 0) {
 			--heat;
+		}
+	}
+
+	private void tryTurnLiquid() {
+		if(!isBoiling() && hasIngredients() && inv.isFull()) {
+			Map<Item, FluidStack> fluids = KettleRegistry.getFluidItems();
+			Item item = ingredients[0].getItem();
+
+			if (fluids.containsKey(item)) {
+				int count = 8;
+
+				for (ItemStack ingredient : ingredients) {
+					if (item == ingredient.getItem()) {
+						if(ingredient.getCount() > 1) {
+							while (ingredient.getCount() > 0 && count > 0) {
+								ingredient.shrink(1);
+								--count;
+							}
+						} else if (--count <= 0) break;
+					} else return;
+				}
+
+				if(count <= 0) {
+					FluidStack fluid = fluids.get(item).copy();
+					play(fluid.getFluid().getFillSound(), 1F, 1F);
+					inv.setFluid(fluid);
+					onLiquidChange();
+				}
+			}
 		}
 	}
 
@@ -432,20 +462,24 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				ItemStack out = optional.get().copy();
 				if (stack.isItemDamaged() && out.isItemStackDamageable())
 					out.setItemDamage(stack.getItemDamage());
+				int fluidAmount = inv.getFluidAmount();
+				int fluidTaken = 250;
 				out.setCount(0);
-				int fluid = inv.getFluidAmount();
-				int taken = 0;
 
 				if (stack.getCount() <= 16) {
-					taken = 250;
 					out.setCount(stack.getCount());
 					stack.setCount(0);
 				} else {
-					while (stack.getCount() > 0 && taken <= fluid) {
+					while (stack.getCount() > 0 && fluidTaken <= fluidAmount) {
 						stack.shrink(1);
 						out.grow(1);
-						if (out.getCount() % 16 == 0)
-							taken += 250;
+						if (out.getCount() % 16 == 0) {
+							if(fluidTaken >= fluidAmount) {
+								fluidTaken = fluidAmount;
+								break;
+							}
+							fluidTaken += 250;
+						}
 					}
 				}
 
@@ -465,7 +499,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), getParticleLevel(), z + world.rand.nextFloat(), 5, 0, 0, 0);
 					}
 
-					inv.drain(taken, true);
+					inv.drain(fluidTaken, true);
 					return true;
 				}
 			}
@@ -491,15 +525,13 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public void potionRecipeLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		List<KettleBrewRecipe> potions = KettleRegistry.getKettleBrewRecipes().get(inv.getInnerFluid());
-		if (potions != null) {
-			Optional<KettleBrewRecipe> potion = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
-			if (potion.isPresent()) {
-				giveItem(player, hand, stack, potion.get().getResult());
-			}
+		List<KettleBrewRecipe> potions = KettleRegistry.getKettleBrewRecipes();
+		Optional<KettleBrewRecipe> potion = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
+		if (potion.isPresent()) {
+			giveItem(player, hand, stack, potion.get().getResult());
+			inv.setFluid(null);
+			onLiquidChange();
 		}
-		inv.setFluid(null);
-		onLiquidChange();
 	}
 
 	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
