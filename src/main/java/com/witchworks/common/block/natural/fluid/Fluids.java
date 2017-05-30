@@ -48,7 +48,8 @@ public final class Fluids {
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
 			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
-	public static final Fluid SOOTHING_OIL = createFluid("oil_soothing", true
+	//TODO: Only one oil is enough imo
+	/*public static final Fluid SOOTHING_OIL = createFluid("oil_soothing", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
 			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
@@ -62,7 +63,7 @@ public final class Fluids {
 
 	public static final Fluid MAGIC_OIL = createFluid("oil_magical", true
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, Material.WATER), true);
+			, fluid -> new BlockFluid(fluid, Material.WATER), true);*/
 
 	private Fluids() {
 	}
