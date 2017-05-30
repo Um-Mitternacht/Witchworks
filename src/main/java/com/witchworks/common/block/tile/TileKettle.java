@@ -269,7 +269,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	private void tryTurnLiquid() {
-		if(!isBoiling() && hasIngredients() && inv.isFull()) {
+		if (!isBoiling() && hasIngredients() && inv.isFull()) {
 			Map<Item, FluidStack> fluids = KettleRegistry.getFluidItems();
 			Item item = ingredients[0].getItem();
 
@@ -278,7 +278,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 				for (ItemStack ingredient : ingredients) {
 					if (item == ingredient.getItem()) {
-						if(ingredient.getCount() > 1) {
+						if (ingredient.getCount() > 1) {
 							while (ingredient.getCount() > 0 && count > 0) {
 								ingredient.shrink(1);
 								--count;
@@ -287,7 +287,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 					} else return;
 				}
 
-				if(count <= 0) {
+				if (count <= 0) {
 					FluidStack fluid = fluids.get(item).copy();
 					play(fluid.getFluid().getFillSound(), 1F, 1F);
 					inv.setFluid(fluid);
@@ -474,7 +474,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 						stack.shrink(1);
 						out.grow(1);
 						if (out.getCount() % 16 == 0) {
-							if(fluidTaken >= fluidAmount) {
+							if (fluidTaken >= fluidAmount) {
 								fluidTaken = fluidAmount;
 								break;
 							}
