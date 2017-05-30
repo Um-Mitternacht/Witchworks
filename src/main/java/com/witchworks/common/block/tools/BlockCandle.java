@@ -20,8 +20,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
 import static com.witchworks.api.state.WitchWorksState.COLOR;
 
 /**
@@ -37,19 +35,17 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		final TileCandle candle = (TileCandle) worldIn.getTileEntity(pos);
 		if (candle != null) {
-			if (heldItem != null && heldItem.getItem() == Items.FLINT_AND_STEEL) {
+			ItemStack heldItem = playerIn.getHeldItem(hand);
+			if (!heldItem.isEmpty() && heldItem.getItem() == Items.FLINT_AND_STEEL) {
 				heldItem.damageItem(1, playerIn);
 				candle.litCandle();
 			} else {
 				candle.unLitCandle();
 			}
 		}
-		worldIn.theProfiler.startSection("checkLight");
-		worldIn.checkLight(pos);
-		worldIn.theProfiler.endSection();
 		return true;
 	}
 
@@ -68,12 +64,12 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return new BlockStateContainer(this, COLOR);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	public MapColor getMapColor(IBlockState state) {
 		return state.getValue(COLOR).getMapColor();
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
@@ -85,7 +81,7 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}
 
@@ -110,13 +106,13 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return new TileCandle(getType(), EnumDyeColor.byMetadata(meta));
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;

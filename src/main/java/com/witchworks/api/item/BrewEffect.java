@@ -14,21 +14,21 @@ import javax.annotation.Nullable;
 public class BrewEffect {
 
 	private IBrew brew;
-	private boolean instant;
 	private int duration;
+	private int amplifier;
 
-	public BrewEffect(IBrew brew, int duration, boolean instant) {
+	public BrewEffect(IBrew brew, int duration, int amplifier) {
 		this.brew = brew;
 		this.duration = duration;
-		this.instant = instant;
+		this.amplifier = amplifier;
 	}
 
 	public void update(World world, BlockPos pos, @Nullable EntityLivingBase entity) {
-		brew.apply(world, pos, entity, duration--);
+		brew.apply(world, pos, entity, amplifier, duration--);
 	}
 
 	public void end(World world, BlockPos pos, @Nullable EntityLivingBase entity) {
-		brew.onFinish(world, pos, entity);
+		brew.onFinish(world, pos, entity, amplifier);
 	}
 
 	public IBrew getBrew() {
@@ -39,11 +39,15 @@ public class BrewEffect {
 		return duration;
 	}
 
+	public int getAmplifier() {
+		return amplifier;
+	}
+
 	public boolean isInstant() {
-		return instant;
+		return brew.isInstant();
 	}
 
 	public BrewEffect copy() {
-		return new BrewEffect(brew, duration, instant);
+		return new BrewEffect(brew, duration, amplifier);
 	}
 }

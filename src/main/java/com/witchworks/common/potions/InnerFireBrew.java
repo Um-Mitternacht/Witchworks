@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 public class InnerFireBrew implements IBrew {
 
 	@Override
-	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int tick) {
+	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
 		if (tick % 20 == 0) {
 			pos = pos.add(world.rand.nextInt(5), world.rand.nextInt(5), world.rand.nextInt(5));
 
@@ -31,13 +31,18 @@ public class InnerFireBrew implements IBrew {
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity) {
+	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
 		//NO-OP
 	}
 
 	@Override
+	public boolean isInstant() {
+		return false;
+	}
+
+	@Override
 	public int getColor() {
-		return 0x80CC0000;
+		return 0xCC0000;
 	}
 
 	@Override
@@ -55,7 +60,7 @@ public class InnerFireBrew implements IBrew {
 		return BrewRegistry.Brew.DRINK;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
 		render(x, y, mc, 1);

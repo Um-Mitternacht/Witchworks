@@ -41,7 +41,7 @@ public class ItemTaglock extends ItemMod {
 		super(LibItemName.TAGLOCK);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 		if (NBTHelper.hasTag(stack, TAGLOCK_ENTITY_NAME)) {
@@ -51,30 +51,30 @@ public class ItemTaglock extends ItemMod {
 		}
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer entityPlayer, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		if (!world.isRemote) {
-			RayTraceResult result = RayTraceHelper.rayTraceResult(entityPlayer, RayTraceHelper.fromLookVec(entityPlayer, 2), true, true);
+			RayTraceResult result = RayTraceHelper.rayTraceResult(player, RayTraceHelper.fromLookVec(player, 2), true, true);
 			if (result != null && result.typeOfHit == ENTITY && result.entityHit instanceof EntityLivingBase) {
-				setVictim(stack, (EntityLivingBase) result.entityHit);
+				setVictim(player.getHeldItem(hand), (EntityLivingBase) result.entityHit);
 			}
 		}
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+		return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
-	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 		IBlockState state = world.getBlockState(pos);
 		if (state.getBlock().isBed(state, world, pos, player)) {
 			Optional<EntityPlayer> victim = getPlayerFromBed(world, pos, state.getValue(BlockBed.OCCUPIED));
 			if (victim.isPresent()) {
-				setVictim(stack, victim.get());
+				setVictim(player.getHeldItem(hand), victim.get());
 			}
 		}
 
-		return super.onItemUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
+		return super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);
 	}
 
 	public void removeVictim(ItemStack stack) {

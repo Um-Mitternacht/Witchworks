@@ -43,8 +43,6 @@ public final class LibItemName {
 	public static final String GARNET = "garnet";
 	public static final String MOLDAVITE = "moldavite";
 	public static final String NUUMMITE = "nuummite";
-	public static final String PETOSKEY_STONE = "petoskey_stone";
-	public static final String SERPENTINE = "serpentine";
 	public static final String TIGERS_EYE = "tigers_eye";
 	public static final String TOURMALINE = "tourmaline";
 	public static final String BLOODSTONE = "bloodstone";
@@ -52,7 +50,6 @@ public final class LibItemName {
 	public static final String MALACHITE = "malachite";
 	public static final String AMETHYST = "amethyst";
 	public static final String ALEXANDRITE = "alexandrite";
-	public static final String QUARTZ = "quartz";
 	public static final String GEMSTONE_AMALGAM = "gemstone_amalgam";
 
 	//Metals

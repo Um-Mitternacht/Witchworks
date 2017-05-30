@@ -27,7 +27,7 @@ final class AchievementTriggers {
 
 	@SubscribeEvent
 	public static void onItemCrafted(ItemCraftedEvent event) {
-		if (event.crafting != null && event.crafting.getItem() instanceof ICraftAchievement) {
+		if (!event.crafting.isEmpty() && event.crafting.getItem() instanceof ICraftAchievement) {
 			final Achievement achievement = ((ICraftAchievement) event.crafting.getItem()).getAchievementOnCraft(event.crafting, event.player, event.craftMatrix);
 			if (achievement != null)
 				event.player.addStat(achievement, 1);

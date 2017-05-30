@@ -13,6 +13,7 @@ import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
 import com.witchworks.common.entity.ModEntities;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.item.food.seed.SeedDropRegistry;
 import com.witchworks.common.lib.LibMod;
 import com.witchworks.common.potions.ModBrews;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -31,13 +32,13 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("WeakerAccess")
-@Mod (modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
+@SuppressWarnings("WeakerAccess")
+@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
 public class WitchWorks {
 
-	@Instance (LibMod.MOD_ID)
+	@Instance(LibMod.MOD_ID)
 	public static WitchWorks instance;
-	@SidedProxy (serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
+	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
 
 	static {
@@ -62,6 +63,8 @@ public class WitchWorks {
 
 		ModItems.initOreDictionary();
 		ModItems.init();
+
+		SeedDropRegistry.init();
 
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();

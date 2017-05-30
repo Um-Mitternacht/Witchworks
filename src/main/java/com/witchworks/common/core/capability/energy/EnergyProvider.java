@@ -13,9 +13,10 @@ import javax.annotation.Nullable;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
+@SuppressWarnings("ConstantConditions")
 public class EnergyProvider implements ICapabilitySerializable<NBTTagCompound> {
 
-	@CapabilityInject (IEnergy.class)
+	@CapabilityInject(IEnergy.class)
 	public static final Capability<IEnergy> ENERGY_CAPABILITY = null;
 	private final IEnergy defaultEnergy = new CapabilityEnergy.DefaultEnergy();
 
@@ -24,19 +25,16 @@ public class EnergyProvider implements ICapabilitySerializable<NBTTagCompound> {
 		return ENERGY_CAPABILITY == capability;
 	}
 
-	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
 		return ENERGY_CAPABILITY == capability ? ENERGY_CAPABILITY.cast(defaultEnergy) : null;
 	}
 
-	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public NBTTagCompound serializeNBT() {
 		return (NBTTagCompound) ENERGY_CAPABILITY.writeNBT(defaultEnergy, null);
 	}
 
-	@SuppressWarnings ("ConstantConditions")
 	@Override
 	public void deserializeNBT(NBTTagCompound nbt) {
 		ENERGY_CAPABILITY.readNBT(defaultEnergy, null, nbt);

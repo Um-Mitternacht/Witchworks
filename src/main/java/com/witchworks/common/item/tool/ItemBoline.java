@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
  * This class was created by BerciTheBeast on 27.3.2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
- * Parts of the code were created by Vazkii, for Botania.
  */
 public class ItemBoline extends ItemShears implements IModelRegister {
 
@@ -33,12 +32,15 @@ public class ItemBoline extends ItemShears implements IModelRegister {
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, @Nonnull EntityLivingBase attacker) {
-		target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 5);
-		stack.damageItem(1, attacker);
+		if (!target.world.isRemote) {
+			if (attacker instanceof EntityPlayer)
+				target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 5);
+			stack.damageItem(1, attacker);
+		}
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

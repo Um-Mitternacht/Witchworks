@@ -2,7 +2,7 @@ package com.witchworks.common.block.natural.fluid;
 
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.common.lib.LibMod;
-import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -33,11 +33,11 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	private final boolean flammable;
 	private final int flammability;
 
-	public BlockFluid(Fluid fluid, MaterialLiquid liquid) {
+	public BlockFluid(Fluid fluid, Material liquid) {
 		this(fluid, 0, false, liquid);
 	}
 
-	public BlockFluid(Fluid fluid, int flammability, boolean flammable, MaterialLiquid liquid) {
+	public BlockFluid(Fluid fluid, int flammability, boolean flammable, Material liquid) {
 		super(fluid, liquid);
 		setUnlocalizedName(fluid.getName());
 		setRegistryName(LibMod.MOD_ID, fluid.getName());
@@ -68,7 +68,7 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		double d0 = pos.getX();
 		double d1 = pos.getY();
@@ -86,7 +86,7 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		final Item item = Item.getItemFromBlock(this);
 		assert item != null;

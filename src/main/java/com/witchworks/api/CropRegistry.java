@@ -12,7 +12,7 @@ import java.util.Map;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public final class CropRegistry {
 
 	private static final Map<Crop, Item> seeds = new LinkedHashMap<>();

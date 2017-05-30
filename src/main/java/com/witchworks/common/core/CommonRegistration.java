@@ -82,8 +82,6 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.GARNET),
 				new ItemMod(LibItemName.MOLDAVITE),
 				new ItemMod(LibItemName.NUUMMITE),
-				new ItemMod(LibItemName.PETOSKEY_STONE),
-				new ItemMod(LibItemName.SERPENTINE),
 				new ItemMod(LibItemName.TIGERS_EYE),
 				new ItemMod(LibItemName.TOURMALINE),
 				new ItemMod(LibItemName.BLOODSTONE),
@@ -92,7 +90,6 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.MALACHITE),
 				new ItemMod(LibItemName.AMETHYST),
 				new ItemMod(LibItemName.ALEXANDRITE),
-				new ItemMod(LibItemName.QUARTZ),
 				new ItemMod(LibItemName.SILVER_POWDER),
 				new ItemMod(LibItemName.SILVER_INGOT),
 				new ItemMod(LibItemName.SILVER_NUGGET),
@@ -158,7 +155,6 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock(ModBlocks.KETTLE),
 				itemBlock(ModBlocks.ALTAR),
-				itemBlock(ModBlocks.OILPRESS),
 				itemBlock(ModBlocks.APIARY),
 				itemBlock(ModBlocks.BEEHIVE),
 				itemBlock(ModBlocks.SILVER_ORE),
@@ -169,12 +165,9 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.NUUMMITE_ORE),
 				itemBlock(ModBlocks.JASPER_ORE),
 				itemBlock(ModBlocks.GARNET_ORE),
-				itemBlock(ModBlocks.PETOSKEY_ORE),
 				itemBlock(ModBlocks.TOURMALINE_ORE),
-				itemBlock(ModBlocks.SERPENTINE_ORE),
 				itemBlock(ModBlocks.TOURMALINE_BLOCK),
 				itemBlock(ModBlocks.SALT_ORE),
-				itemBlock(ModBlocks.QUARTZ_ORE),
 				itemBlock(ModBlocks.AMETHYST_ORE),
 				itemBlock(ModBlocks.ALEXANDRITE_ORE),
 				itemBlock(ModBlocks.NETHERSTEEL),
@@ -224,18 +217,15 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
-				new BlockMod(LibBlockName.SERPENTINE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.JASPER_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.TIGERS_EYE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.NUUMMITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.GARNET_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.SALT_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
-				new BlockMod(LibBlockName.PETOSKEY_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.ALEXANDRITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.CHALK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
-				new BlockMod(LibBlockName.QUARTZ_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 				new BlockMod(LibBlockName.AMETHYST_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 
 				//Normal Blocks
@@ -249,7 +239,6 @@ public final class CommonRegistration {
 				new BlockCandleSmall(),
 				new BlockSaltBarrier(),
 				new BlockApiary(),
-				new BlockOilPress(),
 				new BlockAltar()
 		);
 		for (final IFluidBlock fluidBlock : Fluids.MOD_FLUID_BLOCKS) {
@@ -265,7 +254,8 @@ public final class CommonRegistration {
 
 	/**
 	 * Register a Crop to the {@link CropRegistry}, this method creates a new {@link ItemSeed} for you.
-	 * @param crop The Crop enum
+	 *
+	 * @param crop     The Crop enum
 	 * @param cropItem The item this Crop will drop when harvested
 	 * @param seedName The name id the new ItemSeed
 	 */
@@ -279,7 +269,8 @@ public final class CommonRegistration {
 	 * The Item Seed needs to be different, for ex the Kelp seed,
 	 * that needs to be placed on water so it uses a different placement recipeDropLogic.
 	 * </p>
-	 * @param crop The Crop enum
+	 *
+	 * @param crop     The Crop enum
 	 * @param cropItem The item this Crop will drop when harvested
 	 * @param seedItem The seed that will place the Crop
 	 */

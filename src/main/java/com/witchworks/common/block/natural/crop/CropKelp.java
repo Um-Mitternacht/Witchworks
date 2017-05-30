@@ -46,7 +46,7 @@ public class CropKelp extends BlockCrop {
 	}
 
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		BlockPos I = pos.add(-1, 0, -1);
 		BlockPos F = pos.add(1, 1, 1);
 		for (BlockPos blockPos : BlockPos.getAllInBox(I, F)) {
@@ -94,7 +94,7 @@ public class CropKelp extends BlockCrop {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public Material getMaterial(IBlockState state) {
 		return Material.WATER;

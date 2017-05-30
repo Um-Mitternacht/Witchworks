@@ -33,17 +33,19 @@ public class ItemSilverHoe extends ItemHoe implements IModelRegister {
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, @Nonnull EntityLivingBase attacker) {
-		if (!target.world.isRemote
-				&& target.getCreatureAttribute() == EnumCreatureAttribute.UNDEAD
-				&& attacker instanceof EntityPlayer) {
-			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 12);
+		if (!target.world.isRemote) {
+			if (target.getCreatureAttribute() == EnumCreatureAttribute.UNDEAD && attacker instanceof EntityPlayer) {
+				target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 12);
+				stack.damageItem(25, attacker);
+			} else {
+				stack.damageItem(1, attacker);
+			}
 		}
 
-		stack.damageItem(1, attacker);
 		return true;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
 		ModelHandler.registerItem(this);

@@ -29,18 +29,23 @@ public class ShellArmorBrew implements IBrew {
 	}
 
 	@Override
-	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int tick) {
+	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
 		//NO - OP
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity) {
+	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
 		//NO-OP
 	}
 
 	@Override
+	public boolean isInstant() {
+		return false;
+	}
+
+	@Override
 	public int getColor() {
-		return 0x80CCFF00;
+		return 0xCCFF00;
 	}
 
 	@Override
@@ -58,7 +63,7 @@ public class ShellArmorBrew implements IBrew {
 		return BrewRegistry.Brew.DRINK;
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
 		render(x, y, mc, 0);
@@ -70,7 +75,7 @@ public class ShellArmorBrew implements IBrew {
 			Entity attacker = event.getSource().getSourceOfDamage();
 			if (attacker != null) {
 				float damage = event.getAmount();
-				attacker.attackEntityFrom(DamageSource.magic, damage);
+				attacker.attackEntityFrom(DamageSource.MAGIC, damage);
 			}
 		}
 	}

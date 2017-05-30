@@ -26,18 +26,18 @@ public class ItemKelpSeed extends ItemSeed {
 	}
 
 	@Override
-	@SuppressWarnings ("ConstantConditions")
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+	@SuppressWarnings("ConstantConditions")
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		final RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, false);
-
+		ItemStack stack = playerIn.getHeldItem(hand);
 		if (raytraceresult == null) {
-			return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
+			return ActionResult.newResult(EnumActionResult.PASS, stack);
 		} else {
 			if (raytraceresult.typeOfHit == RayTraceResult.Type.BLOCK) {
 				final BlockPos blockpos = raytraceresult.getBlockPos();
 
-				if (!worldIn.isBlockModifiable(playerIn, blockpos) || !playerIn.canPlayerEdit(blockpos.offset(raytraceresult.sideHit), raytraceresult.sideHit, itemStackIn)) {
-					return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+				if (!worldIn.isBlockModifiable(playerIn, blockpos) || !playerIn.canPlayerEdit(blockpos.offset(raytraceresult.sideHit), raytraceresult.sideHit, stack)) {
+					return ActionResult.newResult(EnumActionResult.FAIL, stack);
 				}
 
 				final BlockPos up = blockpos.up();
@@ -50,32 +50,32 @@ public class ItemKelpSeed extends ItemSeed {
 					for (BlockPos blockPos : BlockPos.getAllInBox(I, F)) {
 						Block block = worldIn.getBlockState(blockPos).getBlock();
 						if (block != ModBlocks.CROP_KELP && block != Blocks.WATER) {
-							return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+							return ActionResult.newResult(EnumActionResult.FAIL, stack);
 						}
 					}
 					final net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, up);
 					if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP, hand).isCanceled()) {
 						blocksnapshot.restore(true, false);
-						return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+						return ActionResult.newResult(EnumActionResult.FAIL, stack);
 					}
 
 					worldIn.setBlockState(up, this.crop.getDefaultState(), 11);
 
 					if (!playerIn.capabilities.isCreativeMode) {
-						--itemStackIn.stackSize;
+						stack.shrink(1);
 					}
 
 					worldIn.playSound(playerIn, blockpos, SoundEvents.BLOCK_WATERLILY_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-					return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+					return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 				}
 			}
 
-			return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+			return ActionResult.newResult(EnumActionResult.FAIL, stack);
 		}
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		return EnumActionResult.FAIL;
 	}
 }

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
  * It's distributed as part of Wiccan Arts under
  * the MIT license.
  */
-public interface IRitual <T extends TileEntity> {
+public interface IRitual<T extends TileEntity> {
 
 	boolean canPerform(T tile, World world, BlockPos pos);
 

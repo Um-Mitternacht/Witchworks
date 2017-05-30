@@ -16,6 +16,7 @@ public final class ModGen {
 	private ModGen() {
 	}
 
+	//Todo: Add Biome-Centric gen
 	public static void init() {
 		//World generation
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.SILVER_ORE, WORLD_GEN.silver_gen_chance)
@@ -54,28 +55,16 @@ public final class ModGen {
 				.setHeightRange(WORLD_GEN.tigersEye_min_height, WORLD_GEN.tigersEye_max_height)
 				.setDimension(0)
 				.build(), 0);
-		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.SERPENTINE_ORE, WORLD_GEN.serpentine_gen_chance)
+		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.NUUMMITE_ORE, WORLD_GEN.nuumite_gen_chance)
 				.generateOn(Blocks.STONE)
-				.setVeinSize(WORLD_GEN.serpentine_min_vein, WORLD_GEN.serpentine_max_vein)
-				.setHeightRange(WORLD_GEN.serpentine_min_height, WORLD_GEN.serpentine_max_height)
-				.setDimension(0)
-				.build(), 0);
-		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.NUUMMITE_ORE, WORLD_GEN.nuummite_gen_chance)
-				.generateOn(Blocks.STONE)
-				.setVeinSize(WORLD_GEN.nuummite_min_vein, WORLD_GEN.nuummite_max_vein)
-				.setHeightRange(WORLD_GEN.nuummite_min_height, WORLD_GEN.nuummite_max_height)
+				.setVeinSize(WORLD_GEN.nuumite_min_vein, WORLD_GEN.nuumite_max_vein)
+				.setHeightRange(WORLD_GEN.nuumite_min_height, WORLD_GEN.nuumite_max_height)
 				.setDimension(0)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.GARNET_ORE, WORLD_GEN.garnet_gen_chance)
 				.generateOn(Blocks.STONE)
 				.setVeinSize(WORLD_GEN.garnet_min_vein, WORLD_GEN.garnet_max_vein)
 				.setHeightRange(WORLD_GEN.garnet_min_height, WORLD_GEN.garnet_max_height)
-				.setDimension(0)
-				.build(), 0);
-		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.PETOSKEY_ORE, WORLD_GEN.petoskey_gen_chance)
-				.generateOn(Blocks.STONE)
-				.setVeinSize(WORLD_GEN.petoskey_min_vein, WORLD_GEN.petoskey_max_vein)
-				.setHeightRange(WORLD_GEN.petoskey_min_height, WORLD_GEN.petoskey_max_height)
 				.setDimension(0)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.JASPER_ORE, WORLD_GEN.jasper_gen_chance)
@@ -88,12 +77,6 @@ public final class ModGen {
 				.generateOn(Blocks.STONE)
 				.setVeinSize(WORLD_GEN.salt_min_vein, WORLD_GEN.salt_max_vein)
 				.setHeightRange(WORLD_GEN.salt_min_height, WORLD_GEN.salt_max_height)
-				.setDimension(0)
-				.build(), 0);
-		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.QUARTZ_ORE, WORLD_GEN.quartz_gen_chance)
-				.generateOn(Blocks.STONE)
-				.setVeinSize(WORLD_GEN.quartz_min_vein, WORLD_GEN.quartz_max_vein)
-				.setHeightRange(WORLD_GEN.quartz_min_height, WORLD_GEN.quartz_max_height)
 				.setDimension(0)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.AMETHYST_ORE, WORLD_GEN.amethyst_gen_chance)

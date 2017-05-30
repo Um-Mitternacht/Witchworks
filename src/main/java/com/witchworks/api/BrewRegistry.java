@@ -13,7 +13,7 @@ import java.util.Map;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ({"WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public final class BrewRegistry {
 
 	private static final List<IBrew> brews = new ArrayList<>();

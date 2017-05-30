@@ -1,9 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:coquina"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:coquina"
+      }
+    ]
   }
 }

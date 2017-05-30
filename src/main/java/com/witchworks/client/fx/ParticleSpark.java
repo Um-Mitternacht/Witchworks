@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleSpark extends Particle {
 
 	private float oSize;
@@ -62,13 +62,13 @@ class ParticleSpark extends Particle {
 		this.motionZ *= 0.699999988079071D;
 		this.motionY -= 0.019999999552965164D;
 
-		if (this.isCollided) {
+		if (this.onGround) {
 			this.motionX *= 0.699999988079071D;
 			this.motionZ *= 0.699999988079071D;
 		}
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			return new ParticleSpark(worldIn, xCoordIn, yCoordIn, zCoordIn);
