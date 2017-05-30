@@ -9,7 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
  */
 public class SeedDropRegistry {
 
-	public static void init () {
+	public static void init() {
 
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MANDRAKE), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_BELLADONNA), 5);
