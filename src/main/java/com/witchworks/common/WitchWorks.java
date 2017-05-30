@@ -13,6 +13,7 @@ import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
 import com.witchworks.common.entity.ModEntities;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.item.food.seed.SeedDropRegistry;
 import com.witchworks.common.lib.LibMod;
 import com.witchworks.common.potions.ModBrews;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -62,6 +63,8 @@ public class WitchWorks {
 
 		ModItems.initOreDictionary();
 		ModItems.init();
+
+		SeedDropRegistry.init();
 
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
