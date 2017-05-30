@@ -52,6 +52,23 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_MANDRAKE), 5)
 				, getStack(Items.WHEAT_SEEDS, 5), Blocks.SOUL_SAND);
 
+		//Todo: Add support for our own saplings once we get there.
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 1), 2)
+				, getStack(Blocks.SAPLING, 1));
+
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 2), 2)
+				, getStack(Blocks.SAPLING, 1, 1));
+
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 3), 2)
+				, getStack(Blocks.SAPLING, 1, 2));
+
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 4), 2)
+				, getStack(Blocks.SAPLING, 1, 3));
+
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 5), 2)
+				, getStack(Blocks.SAPLING, 1, 4));
+
+
 		//------------------------------------Potion Recipes------------------------------------//
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
 				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModBlocks.COQUINA, 3));
