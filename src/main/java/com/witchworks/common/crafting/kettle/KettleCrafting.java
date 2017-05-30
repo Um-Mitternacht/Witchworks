@@ -1,6 +1,7 @@
 package com.witchworks.common.crafting.kettle;
 
 import com.witchworks.api.KettleRegistry;
+import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.potions.BrewUtils;
@@ -53,13 +54,13 @@ public final class KettleCrafting {
 
 		//------------------------------------Potion Recipes------------------------------------//
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
-				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModItems.HONEYCOMB, 3));
+				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModBlocks.COQUINA, 3));
 
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.INNER_FIRE)
-				, getStack(Items.BLAZE_ROD, 2), Items.GOLD_NUGGET);
+				, getStack(Items.BLAZE_ROD, 2), Items.GOLD_NUGGET, Items.BLAZE_POWDER);
 
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
-				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR);
+				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR, Items.FERMENTED_SPIDER_EYE);
 	}
 
 	/**
