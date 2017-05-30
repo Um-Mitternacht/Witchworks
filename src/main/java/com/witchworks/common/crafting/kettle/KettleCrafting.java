@@ -45,6 +45,7 @@ public final class KettleCrafting {
 
 		//------------------------------------Fluid Creation------------------------------------//
 		KettleRegistry.addKettleFluid(ModItems.HONEY, new FluidStack(Fluids.HONEY, 1000));
+		KettleRegistry.addKettleFluid(Items.POTATO, new FluidStack(Fluids.MUNDANE_OIL, 1000));
 
 		//------------------------------------Item Rituals------------------------------------//
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_MANDRAKE), 5)
