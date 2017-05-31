@@ -54,6 +54,14 @@ public class BrewUtils {
 		return stack;
 	}
 
+	public static void appendPotions(NBTTagCompound tag, Collection<PotionEffect> effects) {
+		NBTTagList tagList = tag.getTagList("CustomPotionEffects", 9);
+		for (PotionEffect potioneffect : effects) {
+			tagList.appendTag(potioneffect.writeCustomPotionEffectToNBT(new NBTTagCompound()));
+		}
+		tag.setTag("CustomPotionEffects", tagList);
+	}
+
 	public static ItemStack createBrew(Item item, IBrew brew) {
 		ItemStack stack = new ItemStack(item);
 		addBrewEffect(stack, BrewRegistry.getDefault(brew));
@@ -75,6 +83,19 @@ public class BrewUtils {
 			list.appendTag(tag);
 		}
 		return stack;
+	}
+
+	public static void appendBrews(NBTTagCompound tag, Collection<BrewEffect> effects) {
+		NBTTagList list = new NBTTagList();
+		tag.setTag(BREW_DATA, list);
+		for (BrewEffect effect : effects) {
+			NBTTagCompound compound = new NBTTagCompound();
+			IBrew brew = effect.getBrew();
+			compound.setInteger(BREW_ID, BrewRegistry.getBrewId(brew));
+			compound.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
+			compound.setInteger(BREW_DURATION, effect.getDuration());
+			list.appendTag(compound);
+		}
 	}
 
 	public static ItemStack addBrewEffect(ItemStack stack, BrewEffect effect) {
@@ -120,7 +141,25 @@ public class BrewUtils {
 		return effects;
 	}
 
-	public static boolean get(ItemStack stack) {
+	public static NBTTagCompound serialize(Collection<Object> collection) {
+		List<BrewEffect> brewEffects = new ArrayList<>();
+		List<PotionEffect> potionEffects = new ArrayList<>();
+		for (Object brew : collection) {
+			if(brew instanceof BrewEffect) {
+				brewEffects.add((BrewEffect) brew);
+			} else if(brew instanceof PotionEffect){
+				potionEffects.add((PotionEffect) brew);
+			}
+		}
+		NBTTagCompound compound = new NBTTagCompound();
+
+		appendPotions(compound, potionEffects);
+		appendBrews(compound, brewEffects);
+
+		return compound;
+	}
+
+	public static boolean hasBrewData(ItemStack stack) {
 		return NBTHelper.hasTag(stack, BREW_DATA);
 	}
 

@@ -3,6 +3,7 @@ package com.witchworks.common.block.tile;
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.api.item.NBTHelper;
+import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
 import com.witchworks.api.recipe.KettleItemRecipe;
@@ -11,6 +12,7 @@ import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.potions.BrewUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -32,7 +34,9 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
+import javax.annotation.Nullable;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -89,7 +93,6 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	public boolean recipeDropLogic(ItemStack dropped) {
 		if (mode == Mode.NORMAL && changeMode(dropped.getItem())) {
 			play(SoundEvents.ENTITY_FIREWORK_TWINKLE, 0.2F, 1F);
-			particleServerSide(EnumParticleTypes.CRIT_MAGIC, 0.5D, getParticleLevel(), 0.5D, 0, 0, 0, 5);
 			dropped.setCount(0);
 			return true;
 		}
@@ -143,7 +146,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			} else if (heldItem.getItem() == Items.GLASS_BOTTLE) {
 				if (mode == Mode.POTION) {
 					potionRecipeLogic(player, hand, heldItem);
-				} else if (mode == Mode.CUSTOM) { //TODO: Finish this
+				} else if (mode == Mode.CUSTOM) {
 					potionCustomLogic(player, hand, heldItem);
 				}
 			} else if (getContainer().isEmpty()) {
@@ -277,6 +280,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				int count = 8;
 
 				for (ItemStack ingredient : ingredients) {
+					if(ingredient.isEmpty()) break;
 					if (item == ingredient.getItem()) {
 						if (ingredient.getCount() > 1) {
 							while (ingredient.getCount() > 0 && count > 0) {
@@ -526,28 +530,88 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	public void potionRecipeLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		List<KettleBrewRecipe> potions = KettleRegistry.getKettleBrewRecipes();
-		Optional<KettleBrewRecipe> potion = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
-		if (potion.isPresent()) {
-			giveItem(player, hand, stack, potion.get().getResult());
+		Optional<KettleBrewRecipe> optional = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
+		if (optional.isPresent()) {
+			ItemStack potion = optional.get().getResult();
+			potion.setCount(1 + getBrewMultiplier(player));
+			giveItem(player, hand, stack, potion);
 			inv.setFluid(null);
 			onLiquidChange();
 		}
 	}
 
-	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		ItemStack brew = new ItemStack(ModItems.BREW_PHIAL_DRINK);
-		NBTHelper.setNBT(brew, "brew_data", getBrewData());
-		giveItem(player, hand, stack, brew);
-		inv.setFluid(null);
-		onLiquidChange();
+	private int getBrewMultiplier(EntityPlayer player) {
+		return 0; //TODO:Add here the extra brews.
 	}
 
-	public NBTTagCompound getBrewData() {
-		NBTTagCompound nbt = new NBTTagCompound();
-		for (ItemStack ingredient : ingredients) {
+	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
+		ItemStack brew = new ItemStack(ModItems.BREW_PHIAL_DRINK);
+		NBTTagCompound tag = getBrewData();
 
+		if(tag != null) {
+			brew.setTagCompound(tag);
+			brew.setCount(1 + getBrewMultiplier(player));
+			giveItem(player, hand, stack, brew);
+			inv.setFluid(null);
+			onLiquidChange();
 		}
-		return nbt;
+	}
+
+	@Nullable
+	public NBTTagCompound getBrewData() {
+		final Map<Item, ItemValidator<Object>> brewEffect = KettleRegistry.getBrewEffect();
+		final Map<Item, ItemValidator<BrewModifier>> brewModifier = KettleRegistry.getBrewModifier();
+		List<Object> effects = new ArrayList<>();
+
+		for (int i = 0; i < ingredients.length; i++) {
+			ItemStack ingredient = ingredients[i];
+			if(ingredient.isEmpty()) break;
+			Item effect = ingredient.getItem();
+			boolean add = true;
+
+			ItemValidator<Object> validator = brewEffect.get(effect);
+			if (validator == null) {
+				failHorribly();
+				return null;
+			}
+			Optional<Object> optional = validator.getMatchFor(ingredient);
+			if (!optional.isPresent()) {
+				failHorribly();
+				return null;
+			}
+			Object brew = optional.get();
+
+			if (i + 1 < ingredients.length) {
+				while (i + 1 < ingredients.length) {
+					ItemStack modifier = ingredients[i + 1];
+
+					if (!brewModifier.containsKey(modifier.getItem())) {
+						if (brewEffect.containsKey(modifier.getItem()) || modifier.isEmpty()) break;
+						failHorribly();
+						return null;
+					}
+					ItemValidator<BrewModifier> val = brewModifier.get(modifier.getItem());
+					if (val == null) {
+						failHorribly();
+						return null;
+					}
+					Optional<BrewModifier> opt = val.getMatchFor(modifier);
+					if (opt.isPresent()) {
+						add = opt.get().apply(effects, brew);
+					} else {
+						failHorribly();
+						return null;
+					}
+
+					++i;
+				}
+			}
+
+			if (add)
+				effects.add(brew);
+		}
+
+		return BrewUtils.serialize(effects);
 	}
 
 	public void failHorribly() {

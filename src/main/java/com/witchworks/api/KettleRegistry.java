@@ -1,5 +1,6 @@
 package com.witchworks.api;
 
+import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
 import com.witchworks.api.recipe.KettleItemRecipe;
@@ -27,6 +28,9 @@ public final class KettleRegistry {
 	private static final Map<Item, FluidStack> FLUID_ITEMS = new HashMap<>();
 	private static final List<KettleItemRecipe> KETTLE_ITEM_RITUALS = new ArrayList<>();
 	private static final List<KettleBrewRecipe> KETTLE_BREW_RECIPES = new ArrayList<>();
+	private static final Map<Item, ItemValidator<Object>> BREW_EFFECT =  new HashMap<>();
+	private static final Map<Item, ItemValidator<BrewModifier>> BREW_MODIFIER =  new HashMap<>();
+
 	private static final List<IRitual> RITUALS = new ArrayList<>();
 
 	private KettleRegistry() {
@@ -86,6 +90,24 @@ public final class KettleRegistry {
 		return recipe;
 	}
 
+	public static <T> void addItemEffect(ItemStack stack, T effect, boolean strict) {
+		Item item = stack.getItem();
+		if (BREW_EFFECT.containsKey(item)) {
+			BREW_EFFECT.get(item).add(stack, effect, strict);
+		} else {
+			BREW_EFFECT.put(item, new ItemValidator<>().add(stack, effect, strict));
+		}
+	}
+
+	public static void addItemModifier(ItemStack stack, BrewModifier modifier, boolean strict) {
+		Item item = stack.getItem();
+		if(BREW_MODIFIER.containsKey(item)) {
+			BREW_MODIFIER.get(item).add(stack, modifier, strict);
+		} else {
+			BREW_MODIFIER.put(item, new ItemValidator<BrewModifier>().add(stack, modifier, strict));
+		}
+	}
+
 	public static Map<Item, ItemValidator<ItemStack>> getKettleProcessing(Fluid fluid) {
 		return KETTLE_PROCESSING.get(fluid);
 	}
@@ -100,6 +122,14 @@ public final class KettleRegistry {
 
 	public static List<KettleBrewRecipe> getKettleBrewRecipes() {
 		return KETTLE_BREW_RECIPES;
+	}
+
+	public static Map<Item, ItemValidator<Object>> getBrewEffect() {
+		return BREW_EFFECT;
+	}
+
+	public static Map<Item, ItemValidator<BrewModifier>> getBrewModifier() {
+		return BREW_MODIFIER;
 	}
 
 	public static List<IRitual> getRituals() {

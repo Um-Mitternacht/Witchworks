@@ -1,6 +1,8 @@
 package com.witchworks.common.crafting.kettle;
 
+import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.KettleRegistry;
+import com.witchworks.api.recipe.BrewSimpleModifier;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.item.ModItems;
@@ -9,8 +11,10 @@ import com.witchworks.common.potions.ModBrews;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -52,24 +56,7 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_MANDRAKE), 5)
 				, getStack(Items.WHEAT_SEEDS, 5), Blocks.SOUL_SAND);
 
-		//Todo: Add support for our own saplings once we get there.
-		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 1), 2)
-				, getStack(Blocks.SAPLING, 1));
-
-		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 2), 2)
-				, getStack(Blocks.SAPLING, 1, 1));
-
-		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 3), 2)
-				, getStack(Blocks.SAPLING, 1, 2));
-
-		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 4), 2)
-				, getStack(Blocks.SAPLING, 1, 3));
-
-		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Blocks.SAPLING, 1, 5), 2)
-				, getStack(Blocks.SAPLING, 1, 4));
-
-
-		//------------------------------------Potion Recipes------------------------------------//
+		//------------------------------------Brew Recipes------------------------------------//
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
 				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModBlocks.COQUINA, 3));
 
@@ -78,6 +65,22 @@ public final class KettleCrafting {
 
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
 				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR, Items.FERMENTED_SPIDER_EYE);
+
+		//------------------------------------Custom Brew Creation------------------------------------//
+
+		//TEST! NOT EVEN PLANNED
+		KettleRegistry.addItemEffect(getStack(Items.EMERALD), new PotionEffect(MobEffects.LUCK, 500), false); //THIS IS A TEST!
+		KettleRegistry.addItemEffect(getStack(ModItems.TOURMALINE), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false); //THIS IS A TEST!
+		KettleRegistry.addItemEffect(getStack(Items.BLAZE_ROD), BrewRegistry.getDefault(ModBrews.INNER_FIRE), false); //THIS IS A TEST!
+		//TEST! NOT EVEN PLANNED
+
+		KettleRegistry.addItemModifier(getStack(Items.QUARTZ), new BrewSimpleModifier(2400, 0), true);
+		KettleRegistry.addItemModifier(getStack(Items.REDSTONE), new BrewSimpleModifier(600, 0), true);
+		KettleRegistry.addItemModifier(getStack(Blocks.REDSTONE_BLOCK), new BrewSimpleModifier(1200, 0), true);
+
+		KettleRegistry.addItemModifier(getStack(ModItems.NUUMMITE), new BrewSimpleModifier(0, 3), true);
+		KettleRegistry.addItemModifier(getStack(Items.GLOWSTONE_DUST), new BrewSimpleModifier(0, 1), true);
+		KettleRegistry.addItemModifier(getStack(Blocks.GLOWSTONE), new BrewSimpleModifier(0, 2), true);
 	}
 
 	/**

@@ -43,6 +43,14 @@ public class BrewEffect {
 		return amplifier;
 	}
 
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public void setAmplifier(int amplifier) {
+		this.amplifier = amplifier;
+	}
+
 	public boolean isInstant() {
 		return brew.isInstant();
 	}
