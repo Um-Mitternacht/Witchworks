@@ -39,12 +39,12 @@ public class BrewEffect {
 		return duration;
 	}
 
-	public int getAmplifier() {
-		return amplifier;
-	}
-
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+
+	public int getAmplifier() {
+		return amplifier;
 	}
 
 	public void setAmplifier(int amplifier) {

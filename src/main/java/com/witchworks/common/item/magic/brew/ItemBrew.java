@@ -46,7 +46,7 @@ public class ItemBrew extends ItemMod {
 		if (GuiScreen.isShiftKeyDown()) {
 			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + I18n.format("tooltip.brew.data"));
 			for (BrewEffect effect : BrewUtils.getBrewsFromStack(stack)) {
-				if(effect == null) break;
+				if (effect == null) break;
 				IBrew brew = effect.getBrew();
 				String info = " - " + TextFormatting.ITALIC + I18n.format(brew.getName()).replace(" Brew", "") + " ";
 				info += RomanNumber.getRoman(effect.getAmplifier() + 1) + " ";

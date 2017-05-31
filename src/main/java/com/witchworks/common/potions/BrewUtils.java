@@ -145,9 +145,9 @@ public class BrewUtils {
 		List<BrewEffect> brewEffects = new ArrayList<>();
 		List<PotionEffect> potionEffects = new ArrayList<>();
 		for (Object brew : collection) {
-			if(brew instanceof BrewEffect) {
+			if (brew instanceof BrewEffect) {
 				brewEffects.add((BrewEffect) brew);
-			} else if(brew instanceof PotionEffect){
+			} else if (brew instanceof PotionEffect) {
 				potionEffects.add((PotionEffect) brew);
 			}
 		}

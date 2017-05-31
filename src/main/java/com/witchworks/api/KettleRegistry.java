@@ -28,8 +28,8 @@ public final class KettleRegistry {
 	private static final Map<Item, FluidStack> FLUID_ITEMS = new HashMap<>();
 	private static final List<KettleItemRecipe> KETTLE_ITEM_RITUALS = new ArrayList<>();
 	private static final List<KettleBrewRecipe> KETTLE_BREW_RECIPES = new ArrayList<>();
-	private static final Map<Item, ItemValidator<Object>> BREW_EFFECT =  new HashMap<>();
-	private static final Map<Item, ItemValidator<BrewModifier>> BREW_MODIFIER =  new HashMap<>();
+	private static final Map<Item, ItemValidator<Object>> BREW_EFFECT = new HashMap<>();
+	private static final Map<Item, ItemValidator<BrewModifier>> BREW_MODIFIER = new HashMap<>();
 
 	private static final List<IRitual> RITUALS = new ArrayList<>();
 
@@ -101,7 +101,7 @@ public final class KettleRegistry {
 
 	public static void addItemModifier(ItemStack stack, BrewModifier modifier, boolean strict) {
 		Item item = stack.getItem();
-		if(BREW_MODIFIER.containsKey(item)) {
+		if (BREW_MODIFIER.containsKey(item)) {
 			BREW_MODIFIER.get(item).add(stack, modifier, strict);
 		} else {
 			BREW_MODIFIER.put(item, new ItemValidator<BrewModifier>().add(stack, modifier, strict));

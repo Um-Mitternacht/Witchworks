@@ -2,7 +2,6 @@ package com.witchworks.common.block.tile;
 
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.helper.ItemNullHelper;
-import com.witchworks.api.item.NBTHelper;
 import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
@@ -280,7 +279,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				int count = 8;
 
 				for (ItemStack ingredient : ingredients) {
-					if(ingredient.isEmpty()) break;
+					if (ingredient.isEmpty()) break;
 					if (item == ingredient.getItem()) {
 						if (ingredient.getCount() > 1) {
 							while (ingredient.getCount() > 0 && count > 0) {
@@ -548,7 +547,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		ItemStack brew = new ItemStack(ModItems.BREW_PHIAL_DRINK);
 		NBTTagCompound tag = getBrewData();
 
-		if(tag != null) {
+		if (tag != null) {
 			brew.setTagCompound(tag);
 			brew.setCount(1 + getBrewMultiplier(player));
 			giveItem(player, hand, stack, brew);
@@ -565,7 +564,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 		for (int i = 0; i < ingredients.length; i++) {
 			ItemStack ingredient = ingredients[i];
-			if(ingredient.isEmpty()) break;
+			if (ingredient.isEmpty()) break;
 			Item effect = ingredient.getItem();
 			boolean add = true;
 
