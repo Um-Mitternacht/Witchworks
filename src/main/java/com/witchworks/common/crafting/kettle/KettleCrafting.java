@@ -68,11 +68,27 @@ public final class KettleCrafting {
 
 		//------------------------------------Custom Brew Creation------------------------------------//
 
-		//TEST! NOT EVEN PLANNED
-		KettleRegistry.addItemEffect(getStack(Items.EMERALD), new PotionEffect(MobEffects.LUCK, 500), false); //THIS IS A TEST!
-		KettleRegistry.addItemEffect(getStack(ModItems.TOURMALINE), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false); //THIS IS A TEST!
-		KettleRegistry.addItemEffect(getStack(Items.BLAZE_ROD), BrewRegistry.getDefault(ModBrews.INNER_FIRE), false); //THIS IS A TEST!
-		//TEST! NOT EVEN PLANNED
+		//Todo: Continue once more effects are added, such as new brews, and what not. Also when I get around to making the ingredients and what not.
+		KettleRegistry.addItemEffect(getStack(ModItems.SALT), new PotionEffect(MobEffects.BLINDNESS, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.ROTTEN_FLESH), new PotionEffect(MobEffects.HUNGER, 500), false);
+		KettleRegistry.addItemEffect(getStack(Blocks.END_STONE), new PotionEffect(MobEffects.LEVITATION, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.SPIDER_EYE), new PotionEffect(MobEffects.POISON, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.GHAST_TEAR), new PotionEffect(MobEffects.REGENERATION, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.GOLDEN_CARROT), new PotionEffect(MobEffects.NIGHT_VISION, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.SUGAR), new PotionEffect(MobEffects.SPEED, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.MAGMA_CREAM), new PotionEffect(MobEffects.FIRE_RESISTANCE, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.BLAZE_POWDER), new PotionEffect(MobEffects.STRENGTH, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.RABBIT_FOOT), new PotionEffect(MobEffects.JUMP_BOOST, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.SPECKLED_MELON), new PotionEffect(MobEffects.INSTANT_HEALTH, 1), false);
+		KettleRegistry.addItemEffect(getStack(Items.FISH, 1, 3), new PotionEffect(MobEffects.WATER_BREATHING, 500), false);
+		KettleRegistry.addItemEffect(getStack(Blocks.RED_FLOWER, 1, 1), new PotionEffect(MobEffects.LUCK, 500), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.WAX), new PotionEffect(MobEffects.SLOWNESS, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.POISONOUS_POTATO), new PotionEffect(MobEffects.NAUSEA, 500), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.BELLADONNA), new PotionEffect(MobEffects.WITHER, 500), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.ASPHODEL), new PotionEffect(MobEffects.UNLUCK, 500), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.LAVENDER), new PotionEffect(MobEffects.HASTE, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.PRISMARINE_CRYSTALS), new PotionEffect(MobEffects.GLOWING, 500), false);
+		KettleRegistry.addItemEffect(getStack(ModBlocks.COQUINA), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 
 		KettleRegistry.addItemModifier(getStack(Items.QUARTZ), new BrewSimpleModifier(2400, 0), true);
 		KettleRegistry.addItemModifier(getStack(Items.REDSTONE), new BrewSimpleModifier(600, 0), true);
