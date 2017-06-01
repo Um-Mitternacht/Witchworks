@@ -11,7 +11,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.StringUtils;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
@@ -45,7 +44,8 @@ public class ItemBrew extends ItemMod {
 		}
 		if (GuiScreen.isShiftKeyDown()) {
 			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + I18n.format("tooltip.brew.data"));
-			for (BrewEffect effect : BrewUtils.getBrewsFromStack(stack)) {
+			List<BrewEffect> brewsFromStack = BrewUtils.getBrewsFromStack(stack);
+			for (BrewEffect effect : brewsFromStack) {
 				if (effect == null) break;
 				IBrew brew = effect.getBrew();
 				String info = " - " + TextFormatting.ITALIC + I18n.format(brew.getName()).replace(" Brew", "") + " ";
@@ -53,7 +53,11 @@ public class ItemBrew extends ItemMod {
 				info += "(" + StringUtils.ticksToElapsedTime(effect.getDuration()) + ")";
 				tooltip.add(TextFormatting.DARK_AQUA + info);
 			}
-			PotionUtils.addPotionTooltip(stack, tooltip, 1.0F);
+			if(brewsFromStack.isEmpty()) {
+				tooltip.add("---");
+			} else tooltip.add("");
+
+			BrewUtils.addPotionTooltip(stack, tooltip, 1.0F);
 		} else {
 			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + I18n.format("tooltip.shift_for_info"));
 		}

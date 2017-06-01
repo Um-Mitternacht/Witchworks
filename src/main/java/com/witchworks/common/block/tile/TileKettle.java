@@ -2,6 +2,7 @@ package com.witchworks.common.block.tile;
 
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.helper.ItemNullHelper;
+import com.witchworks.api.item.BrewEffect;
 import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
@@ -23,6 +24,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -568,17 +570,17 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			Item effect = ingredient.getItem();
 			boolean add = true;
 
-			ItemValidator<Object> validator = brewEffect.get(effect);
-			if (validator == null) {
+			if (!brewEffect.containsKey(effect)) {
 				failHorribly();
 				return null;
 			}
+			ItemValidator<Object> validator = brewEffect.get(effect);
 			Optional<Object> optional = validator.getMatchFor(ingredient);
 			if (!optional.isPresent()) {
 				failHorribly();
 				return null;
 			}
-			Object brew = optional.get();
+			Object brew = copyBrew(optional.get());
 
 			if (i + 1 < ingredients.length) {
 				while (i + 1 < ingredients.length) {
@@ -590,13 +592,11 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 						return null;
 					}
 					ItemValidator<BrewModifier> val = brewModifier.get(modifier.getItem());
-					if (val == null) {
-						failHorribly();
-						return null;
-					}
 					Optional<BrewModifier> opt = val.getMatchFor(modifier);
 					if (opt.isPresent()) {
-						add = opt.get().apply(effects, brew);
+						for (int j = 0, size = modifier.getCount(); j < size; j++) {
+							add = opt.get().apply(effects, brew);
+						}
 					} else {
 						failHorribly();
 						return null;
@@ -611,6 +611,14 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 
 		return BrewUtils.serialize(effects);
+	}
+
+	private Object copyBrew(Object brew) {
+		if (brew instanceof PotionEffect) {
+			PotionEffect potion = (PotionEffect) brew;
+			return new PotionEffect(potion.getPotion(), potion.getDuration(), potion.getAmplifier());
+		}
+		return ((BrewEffect) brew).copy();
 	}
 
 	public void failHorribly() {

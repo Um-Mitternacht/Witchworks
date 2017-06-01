@@ -1,23 +1,27 @@
 package com.witchworks.common.potions;
 
+import com.google.common.collect.Lists;
 import com.witchworks.api.BrewRegistry;
+import com.witchworks.api.helper.RomanNumber;
 import com.witchworks.api.item.BrewEffect;
 import com.witchworks.api.item.IBrew;
 import com.witchworks.api.item.NBTHelper;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.Tuple;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
@@ -62,6 +66,19 @@ public class BrewUtils {
 		tag.setTag("CustomPotionEffects", tagList);
 	}
 
+	public static Collection<PotionEffect> mixPotions(Collection<PotionEffect> effects) {
+		List<PotionEffect> list = new ArrayList<>();
+		for (PotionEffect effect : effects) {
+			effects.stream().filter(added -> added != effect && !list.contains(added) && !list.contains(effect)
+					&& added.getPotion() == effect.getPotion()).forEach(added -> {
+				effect.combine(added);
+				list.add(added);
+			});
+		}
+		effects.removeAll(list);
+		return effects;
+	}
+
 	public static ItemStack createBrew(Item item, IBrew brew) {
 		ItemStack stack = new ItemStack(item);
 		addBrewEffect(stack, BrewRegistry.getDefault(brew));
@@ -96,6 +113,18 @@ public class BrewUtils {
 			compound.setInteger(BREW_DURATION, effect.getDuration());
 			list.appendTag(compound);
 		}
+	}
+
+	public static Collection<BrewEffect> mixBrews(Collection<BrewEffect> effects) {
+		List<BrewEffect> list = new ArrayList<>();
+		for (BrewEffect effect : effects) {
+			effects.stream().filter(added -> effect != added && effect.getBrew() == added.getBrew()).forEach(added -> {
+				effect.combine(added);
+				list.add(added);
+			});
+		}
+		effects.removeAll(list);
+		return effects;
 	}
 
 	public static ItemStack addBrewEffect(ItemStack stack, BrewEffect effect) {
@@ -153,8 +182,8 @@ public class BrewUtils {
 		}
 		NBTTagCompound compound = new NBTTagCompound();
 
-		appendPotions(compound, potionEffects);
-		appendBrews(compound, brewEffects);
+		appendPotions(compound, mixPotions(potionEffects));
+		appendBrews(compound, mixBrews(brewEffects));
 
 		return compound;
 	}
@@ -164,11 +193,66 @@ public class BrewUtils {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void addBrewDescription(List<String> tooltip, ItemStack stack) {
-		if (NBTHelper.hasTag(stack, BREW_DESC)) {
-			String desc = NBTHelper.getString(stack, BREW_DESC);
-			if (!desc.isEmpty())
-				tooltip.add(I18n.format(desc));
+	public static void addPotionTooltip(ItemStack itemIn, List<String> tooltip, float durationFactor) {
+		List<PotionEffect> list = PotionUtils.getEffectsFromStack(itemIn);
+		List<Tuple<String, AttributeModifier>> attributes = Lists.newArrayList();
+
+		if (list.isEmpty()) {
+			String empty = I18n.format("effect.none").trim();
+			tooltip.add(TextFormatting.GRAY + empty);
+		} else {
+			for (PotionEffect effect : list) {
+				StringBuilder string = new StringBuilder();
+				string.append(I18n.format(effect.getEffectName()).trim());
+				Potion potion = effect.getPotion();
+				Map<IAttribute, AttributeModifier> map = potion.getAttributeModifierMap();
+
+				if (!map.isEmpty()) {
+					for (Map.Entry<IAttribute, AttributeModifier> entry : map.entrySet()) {
+						AttributeModifier attribute = entry.getValue();
+						attribute = new AttributeModifier(attribute.getName(), potion.getAttributeModifierAmount(effect.getAmplifier(), attribute), attribute.getOperation());
+						attributes.add(new Tuple<>(entry.getKey().getName(), attribute));
+					}
+				}
+
+				if (effect.getAmplifier() > 0) {
+					string.append(" ").append(RomanNumber.getRoman(effect.getAmplifier()));
+				}
+
+				if (effect.getDuration() > 20) {
+					string.append(" (").append(Potion.getPotionDurationString(effect, durationFactor)).append(")");
+				}
+
+				if (potion.isBadEffect()) {
+					tooltip.add(TextFormatting.DARK_RED + string.toString());
+				} else {
+					tooltip.add(TextFormatting.DARK_BLUE + string.toString());
+				}
+			}
+		}
+
+		if (!attributes.isEmpty()) {
+			tooltip.add("");
+			tooltip.add(TextFormatting.DARK_PURPLE + I18n.format("potion.whenDrank"));
+
+			for (Tuple<String, AttributeModifier> tuple : attributes) {
+				AttributeModifier modifier = tuple.getSecond();
+				double amount = modifier.getAmount();
+				double newAmount;
+
+				if (modifier.getOperation() != 1 && modifier.getOperation() != 2) {
+					newAmount = modifier.getAmount();
+				} else {
+					newAmount = modifier.getAmount() * 100.0D;
+				}
+
+				if (amount > 0.0D) {
+					tooltip.add(TextFormatting.BLUE + I18n.format("attribute.modifier.plus." + modifier.getOperation(), ItemStack.DECIMALFORMAT.format(newAmount), I18n.format("attribute.name." + (String) tuple.getFirst())));
+				} else if (amount < 0.0D) {
+					newAmount = newAmount * -1.0D;
+					tooltip.add(TextFormatting.RED + I18n.format("attribute.modifier.take." + modifier.getOperation(), ItemStack.DECIMALFORMAT.format(newAmount), I18n.format("attribute.name." + (String) tuple.getFirst())));
+				}
+			}
 		}
 	}
 }

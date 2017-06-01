@@ -55,6 +55,15 @@ public class BrewEffect {
 		return brew.isInstant();
 	}
 
+	public void combine(BrewEffect other) {
+		if (other.amplifier > this.amplifier) {
+			this.amplifier = other.amplifier;
+		}
+		if (this.duration < other.duration) {
+			this.duration = other.duration;
+		}
+	}
+
 	public BrewEffect copy() {
 		return new BrewEffect(brew, duration, amplifier);
 	}

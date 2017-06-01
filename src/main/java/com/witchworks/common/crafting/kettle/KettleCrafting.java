@@ -67,7 +67,6 @@ public final class KettleCrafting {
 				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR, Items.FERMENTED_SPIDER_EYE);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
-
 		//Todo: Continue once more effects are added, such as new brews, and what not. Also when I get around to making the ingredients and what not.
 		KettleRegistry.addItemEffect(getStack(ModItems.SALT), new PotionEffect(MobEffects.BLINDNESS, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.ROTTEN_FLESH), new PotionEffect(MobEffects.HUNGER, 500), false);
