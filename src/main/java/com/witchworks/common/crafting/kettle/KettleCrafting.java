@@ -56,6 +56,11 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_MANDRAKE), 5)
 				, getStack(Items.WHEAT_SEEDS, 5), Blocks.SOUL_SAND);
 
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Items.GOLDEN_APPLE, 1, 1), 8)
+				, getStack(Blocks.GOLD_BLOCK, 8), Items.APPLE);
+		//Todo: Sapling recipes once we add our own (to make it easier to get them without exploring, in the event a player cannot find them),
+		//Todo: Also gemstone amalgam for usage as a crafting ingredient. Also, the easter egg recipe and its achievement.
+
 		//------------------------------------Brew Recipes------------------------------------//
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
 				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModBlocks.COQUINA, 3));
@@ -65,6 +70,8 @@ public final class KettleCrafting {
 
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
 				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR, Items.FERMENTED_SPIDER_EYE);
+
+		//Todo: More brews, obviously. Just need ideas, really.
 
 		//------------------------------------Custom Brew Creation------------------------------------//
 		//Todo: Continue once more effects are added, such as new brews, and what not. Also when I get around to making the ingredients and what not.

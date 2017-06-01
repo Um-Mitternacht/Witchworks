@@ -212,11 +212,9 @@ tile.altar.name=Altar
 tile.oilpress.name=Oilpress
 
 //Fluid
-fluid.oil_toxic=Toxic Oil
-fluid.oil_soothing=Soothing Oil
-fluid.oil_mundane=Mundane Oil
-fluid.oil_magical=Magical Oil
-fluid.oil_spicy=Spicy Oil
+fluid.oil_mundane=Oil
+fluid.for.honey=Honey
+
 
 //Brews
 brew.shell_armor.name=Shell Armor Brew
