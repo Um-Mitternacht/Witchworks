@@ -87,6 +87,9 @@ public final class KettleCrafting {
 		KettleRegistry.addItemEffect(getStack(ModItems.ASPHODEL), new PotionEffect(MobEffects.UNLUCK, 500), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.LAVENDER), new PotionEffect(MobEffects.HASTE, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.PRISMARINE_CRYSTALS), new PotionEffect(MobEffects.GLOWING, 500), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.KELP), new PotionEffect(MobEffects.WATER_BREATHING, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.PRISMARINE_SHARD), new PotionEffect(MobEffects.MINING_FATIGUE, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.SHULKER_SHELL), new PotionEffect(MobEffects.SLOWNESS, 500), false);
 		KettleRegistry.addItemEffect(getStack(ModBlocks.COQUINA), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 
 		KettleRegistry.addItemModifier(getStack(Items.QUARTZ), new BrewSimpleModifier(2400, 0), true);

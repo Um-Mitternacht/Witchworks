@@ -53,7 +53,7 @@ public class ItemBrew extends ItemMod {
 				info += "(" + StringUtils.ticksToElapsedTime(effect.getDuration()) + ")";
 				tooltip.add(TextFormatting.DARK_AQUA + info);
 			}
-			if(brewsFromStack.isEmpty()) {
+			if (brewsFromStack.isEmpty()) {
 				tooltip.add("---");
 			} else tooltip.add("");
 
