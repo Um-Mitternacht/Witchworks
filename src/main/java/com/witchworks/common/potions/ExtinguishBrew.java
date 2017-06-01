@@ -1,0 +1,72 @@
+package com.witchworks.common.potions;
+
+import com.witchworks.api.BrewRegistry;
+import com.witchworks.api.item.IBrew;
+import com.witchworks.common.core.capability.potion.BrewStorageHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+
+/**
+ * This class was created by Arekkuusu on 23/04/2017.
+ * It's distributed as part of Witchworks under
+ * the MIT license.
+ */
+public class ExtinguishBrew implements IBrew {
+
+	public ExtinguishBrew() {
+		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	@Override
+	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
+		//NO - OP
+	}
+
+	@Override
+	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
+		//NO-OP
+	}
+
+	@Override
+	public boolean isInstant() {
+		return false;
+	}
+
+	@Override
+	public int getColor() {
+		return 0xCCFF00;
+	}
+
+	@Override
+	public String getName() {
+		return "brew.extinguish.name";
+	}
+
+	@Override
+	public String getDescription() {
+		return "brew.extinguish.desc";
+	}
+
+	@Override
+	public BrewRegistry.Brew getType() {
+		return BrewRegistry.Brew.DRINK;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void renderHUD(int x, int y, Minecraft mc) {
+		render(x, y, mc, 0);
+	}
+
+	}

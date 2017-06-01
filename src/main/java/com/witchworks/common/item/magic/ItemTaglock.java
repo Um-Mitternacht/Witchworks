@@ -41,6 +41,8 @@ public class ItemTaglock extends ItemMod {
 		super(LibItemName.TAGLOCK);
 	}
 
+	//Todo: Make appearance change based on whether it has a taglock or not in it.
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
