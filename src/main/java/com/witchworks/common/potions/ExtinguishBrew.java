@@ -40,7 +40,7 @@ public class ExtinguishBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0xCCFF00;
+		return 0x3EB489;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class ExtinguishBrew implements IBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 0);
+		render(x, y, mc, 3);
 	}
 
 }
