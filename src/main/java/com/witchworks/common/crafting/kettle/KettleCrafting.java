@@ -71,6 +71,10 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
 				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR, Items.FERMENTED_SPIDER_EYE);
 
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.EXTINGUISH)
+				, getStack(Items.SNOWBALL, 2), Blocks.PACKED_ICE, ModItems.MINT);
+
+
 		//Todo: More brews, obviously. Just need ideas, really.
 
 		//------------------------------------Custom Brew Creation------------------------------------//
@@ -98,6 +102,7 @@ public final class KettleCrafting {
 		KettleRegistry.addItemEffect(getStack(Items.PRISMARINE_SHARD), new PotionEffect(MobEffects.MINING_FATIGUE, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.SHULKER_SHELL), new PotionEffect(MobEffects.SLOWNESS, 500), false);
 		KettleRegistry.addItemEffect(getStack(ModBlocks.COQUINA), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.MINT), BrewRegistry.getDefault(ModBrews.EXTINGUISH), false);
 
 		KettleRegistry.addItemModifier(getStack(Items.QUARTZ), new BrewSimpleModifier(2400, 0), true);
 		KettleRegistry.addItemModifier(getStack(Items.REDSTONE), new BrewSimpleModifier(600, 0), true);

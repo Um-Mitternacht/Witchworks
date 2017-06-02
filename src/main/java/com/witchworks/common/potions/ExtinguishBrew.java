@@ -28,8 +28,9 @@ public class ExtinguishBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
-		//NO - OP
-	}
+			if (entity.isBurning())
+				entity.extinguish();
+		}
 
 	@Override
 	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
