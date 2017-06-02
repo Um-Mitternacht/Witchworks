@@ -2,11 +2,14 @@ package com.witchworks.common.potions;
 
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.item.IBrew;
+import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -64,4 +67,11 @@ public class ExtinguishBrew implements IBrew {
 		render(x, y, mc, 3);
 	}
 
+	public void onScorch(LivingHurtEvent event, EntityLivingBase entity) {
+		EntityPlayer player = (EntityPlayer) entity;
+		if (BrewStorageHandler.isBrewActive(event.getEntityLiving(), ModBrews.EXTINGUISH)) {
+			if (player.isBurning())
+				player.extinguish();
+		}
+	}
 }
