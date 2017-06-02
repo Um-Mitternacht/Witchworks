@@ -66,12 +66,4 @@ public class ExtinguishBrew implements IBrew {
 	public void renderHUD(int x, int y, Minecraft mc) {
 		render(x, y, mc, 3);
 	}
-
-	public void onScorch(LivingHurtEvent event, EntityLivingBase entity) {
-		EntityPlayer player = (EntityPlayer) entity;
-		if (BrewStorageHandler.isBrewActive(event.getEntityLiving(), ModBrews.EXTINGUISH)) {
-			if (player.isBurning())
-				player.extinguish();
-		}
-	}
 }
