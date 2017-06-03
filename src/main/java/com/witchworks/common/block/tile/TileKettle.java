@@ -59,7 +59,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private final String TAG_CONTAINER = "container";
 	private final KettleFluid inv = tank();
 
-	private int rgb = -14532558;
+	private int rgb = 0x12193b;
 	private RitualHolder ritual;
 	private Mode mode = Mode.NORMAL;
 	private ItemStack[] ingredients = ItemNullHelper.asArray(64);
@@ -79,8 +79,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				if (getContainer().isEmpty() && isBoiling()) {
 					splash = recipeDropLogic(dropped);
 				}
-				if (splash)
+				if (splash) {
 					play(SoundEvents.ENTITY_GENERIC_SPLASH, 0.5F, 0.5F);
+				}
 			} else {
 				play(SoundEvents.BLOCK_LAVA_EXTINGUISH, 1F, 1F);
 				entityItem.setDead();
@@ -197,9 +198,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	private void giveItem(EntityPlayer player, EnumHand hand, ItemStack heldItem, ItemStack toGive) {
-		if (!heldItem.isEmpty() || heldItem.getCount() - 1 == 0) {
+		if (heldItem.isEmpty() || heldItem.getCount() - 1 == 0) {
 			player.setHeldItem(hand, toGive);
-			heldItem.setCount(0);
+			heldItem.shrink(1);
 		} else if (!player.inventory.addItemStackToInventory(toGive)) {
 			player.dropItem(toGive, false);
 		} else if (player instanceof EntityPlayerMP) {
@@ -213,7 +214,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			double x = getPos().getX();
 			double y = getPos().getY();
 			double z = getPos().getZ();
-			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.7D, z + 1);
+			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.65D, z + 1);
 			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, box);
 			entityItemList.forEach(this::collideItem);
 		}
@@ -246,13 +247,12 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private void handleParticles() {
 		if (world.rand.nextInt(10) == 0) {
 			float x = getPos().getX();
-
+			float posY = getParticleLevel();
 			float z = getPos().getZ();
 			for (int i = 0; i < 4; i++) {
-				final float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-				final float posY = getParticleLevel();
-				final float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0.0D, 0.01D, 0.0D, rgb);
+				float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
+				float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
+				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
 			}
 		}
 		if (hasIngredients() && ticks % 2 == 0) {
@@ -383,7 +383,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		ritual = null;
 		Fluid fluid = inv.getInnerFluid();
 		if (fluid != null) {
-			int color = (fluid == FluidRegistry.WATER || fluid.getColor() == 0xFFFFFFFF) ? -14532558 : fluid.getColor();
+			int color = (fluid == FluidRegistry.WATER || fluid.getColor() == 0xFFFFFFFF) ? 0x12193b : fluid.getColor();
 			setColorRGB(color);
 		}
 		if (!world.isRemote)

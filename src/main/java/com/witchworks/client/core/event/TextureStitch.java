@@ -11,8 +11,6 @@ public class TextureStitch {
 
 	@SubscribeEvent
 	public void stitchEventPre(TextureStitchEvent.Pre event) {
-		event.getMap().registerSprite(ResourceLocations.CAULDRON_BUBBLE);
-		event.getMap().registerSprite(ResourceLocations.CAULDRON_BUBBLE_POP);
 		event.getMap().registerSprite(ResourceLocations.STEAM);
 		event.getMap().registerSprite(ResourceLocations.BEE);
 		event.getMap().registerSprite(ResourceLocations.GRAY_WATER);
