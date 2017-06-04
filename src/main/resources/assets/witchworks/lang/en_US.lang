@@ -226,6 +226,15 @@ brew.fire_brew.desc=Spew forth your inner fire
 brew.spider_nightmare_brew.name=Spider Nightmare Brew
 brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
 
+brew.frostbite_brew.name=Frostbite Brew
+brew.frostbite_brew.desc=Encase your target in ice
+
+brew.extinguish_brew.name=Extinguish Brew
+brew.extinguish_brew.desc=Puts out any fires on you
+
+brew.warwater_brew.name=Water of Mars
+brew.warwater_brew.desc=Inflicts nasty debuffs on the target
+
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
 witchworks.subtitle.chalk_scribble=Chalk scribbling

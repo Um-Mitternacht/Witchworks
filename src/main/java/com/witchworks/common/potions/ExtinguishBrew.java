@@ -47,12 +47,12 @@ public class ExtinguishBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.extinguish.name";
+		return "brew.extinguish_brew.name";
 	}
 
 	@Override
 	public String getDescription() {
-		return "brew.extinguish.desc";
+		return "brew.extinguish_brew.desc";
 	}
 
 	@Override
