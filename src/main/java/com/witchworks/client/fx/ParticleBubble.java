@@ -4,7 +4,6 @@ import com.witchworks.client.ResourceLocations;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.texture.TextureManager;
@@ -43,14 +42,14 @@ class ParticleBubble extends Particle {
 
 	@Override
 	public void renderParticle(VertexBuffer buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-		int i = (int)(((float)this.life + partialTicks) / (float)this.particleMaxAge);
+		int i = (int) (((float) this.life + partialTicks) / (float) this.particleMaxAge);
 
 		if (i <= 7) {
 			this.textureManager.bindTexture(ResourceLocations.BUBBLE);
 			float minX = 0;
 			float maxX = minX + 1;
 
-			float minY = (float)i / 8F;
+			float minY = (float) i / 8F;
 			float maxY = minY + 0.125F;
 
 			float scale = 1.0F * this.particleScale;
