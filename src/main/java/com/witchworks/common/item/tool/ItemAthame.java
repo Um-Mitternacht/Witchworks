@@ -28,6 +28,8 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
+
+	//Todo: Make athame pull from a set of specialized loot tables, for mob harvests.
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		if (!target.world.isRemote)

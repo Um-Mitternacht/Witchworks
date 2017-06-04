@@ -53,8 +53,10 @@ public final class KettleCrafting {
 		KettleRegistry.addKettleFluid(Items.POTATO, new FluidStack(Fluids.MUNDANE_OIL, 1000));
 
 		//------------------------------------Item Rituals------------------------------------//
-		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_MANDRAKE), 5)
-				, getStack(Items.WHEAT_SEEDS, 5), Blocks.SOUL_SAND);
+
+		//Todo: Better recipe for kelp seeds.
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_KELP), 5)
+				, getStack(Items.WHEAT_SEEDS, 1), Blocks.WATERLILY);
 
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Items.GOLDEN_APPLE, 1, 1), 8)
 				, getStack(Blocks.GOLD_BLOCK, 8), Items.APPLE);
