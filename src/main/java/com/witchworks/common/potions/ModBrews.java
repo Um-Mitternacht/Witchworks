@@ -19,6 +19,7 @@ public final class ModBrews {
 	public static IBrew INNER_FIRE;
 	public static IBrew SPIDER_NIGHTMARE;
 	public static IBrew EXTINGUISH;
+	public static IBrew WARWATER;
 
 	private ModBrews() {
 	}
@@ -35,5 +36,8 @@ public final class ModBrews {
 
 		EXTINGUISH = BrewRegistry.registerBrew(new ExtinguishBrew());
 		BrewRegistry.addDefault(new BrewEffect(EXTINGUISH, 500, 0));
+
+		WARWATER = BrewRegistry.registerBrew(new WarWaterBrew());
+		BrewRegistry.addDefault(new BrewEffect(WARWATER, 1500, 0));
 	}
 }
