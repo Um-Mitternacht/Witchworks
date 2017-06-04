@@ -46,12 +46,12 @@ public class WarWaterBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.warwater.name";
+		return "brew.warwater_brew.name";
 	}
 
 	@Override
 	public String getDescription() {
-		return "brew.warwater.desc";
+		return "brew.warwater_brew.desc";
 	}
 
 	@Override
