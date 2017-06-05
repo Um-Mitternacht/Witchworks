@@ -83,7 +83,7 @@ public final class KettleCrafting {
 		//Todo: Continue once more effects are added, such as new brews, and what not. Also when I get around to making the ingredients and what not.
 		KettleRegistry.addItemEffect(getStack(ModItems.SALT), new PotionEffect(MobEffects.BLINDNESS, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.ROTTEN_FLESH), new PotionEffect(MobEffects.HUNGER, 500), false);
-		KettleRegistry.addItemEffect(getStack(Blocks.END_STONE), new PotionEffect(MobEffects.LEVITATION, 500), false);
+		KettleRegistry.addItemEffect(getStack(Blocks.END_STONE), new PotionEffect(MobEffects.SLOWNESS, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.SPIDER_EYE), new PotionEffect(MobEffects.POISON, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.GHAST_TEAR), new PotionEffect(MobEffects.REGENERATION, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.GOLDEN_CARROT), new PotionEffect(MobEffects.NIGHT_VISION, 500), false);
@@ -102,7 +102,7 @@ public final class KettleCrafting {
 		KettleRegistry.addItemEffect(getStack(Items.PRISMARINE_CRYSTALS), new PotionEffect(MobEffects.GLOWING, 500), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.KELP), new PotionEffect(MobEffects.WATER_BREATHING, 500), false);
 		KettleRegistry.addItemEffect(getStack(Items.PRISMARINE_SHARD), new PotionEffect(MobEffects.MINING_FATIGUE, 500), false);
-		KettleRegistry.addItemEffect(getStack(Items.SHULKER_SHELL), new PotionEffect(MobEffects.SLOWNESS, 500), false);
+		KettleRegistry.addItemEffect(getStack(Items.SHULKER_SHELL), new PotionEffect(MobEffects.LEVITATION, 500), false);
 		KettleRegistry.addItemEffect(getStack(ModBlocks.COQUINA), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.MINT), BrewRegistry.getDefault(ModBrews.EXTINGUISH), false);
 
