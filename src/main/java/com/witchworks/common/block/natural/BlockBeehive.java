@@ -6,12 +6,14 @@ import com.witchworks.client.fx.ParticleF;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
+import com.witchworks.common.item.ModItems;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -51,6 +53,10 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		if (rand.nextInt(25) == 0) {
 			worldIn.playSound(null, pos, WitchSoundEvents.BUZZ, SoundCategory.BLOCKS, 0.2F, 1F);
 		}
+	}
+
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return ModItems.BEE;
 	}
 
 	@SuppressWarnings("deprecation")
