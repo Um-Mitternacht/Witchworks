@@ -2,7 +2,8 @@ package com.witchworks.common.block.tile;
 
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.helper.ItemNullHelper;
-import com.witchworks.api.item.NBTHelper;
+import com.witchworks.api.item.BrewEffect;
+import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
 import com.witchworks.api.recipe.KettleItemRecipe;
@@ -11,6 +12,7 @@ import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.potions.BrewUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -22,6 +24,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -32,7 +35,9 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
+import javax.annotation.Nullable;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -54,7 +59,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private final String TAG_CONTAINER = "container";
 	private final KettleFluid inv = tank();
 
-	private int rgb = -14532558;
+	private int rgb = 0x12193b;
 	private RitualHolder ritual;
 	private Mode mode = Mode.NORMAL;
 	private ItemStack[] ingredients = ItemNullHelper.asArray(64);
@@ -74,8 +79,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				if (getContainer().isEmpty() && isBoiling()) {
 					splash = recipeDropLogic(dropped);
 				}
-				if (splash)
+				if (splash) {
 					play(SoundEvents.ENTITY_GENERIC_SPLASH, 0.5F, 0.5F);
+				}
 			} else {
 				play(SoundEvents.BLOCK_LAVA_EXTINGUISH, 1F, 1F);
 				entityItem.setDead();
@@ -87,9 +93,8 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public boolean recipeDropLogic(ItemStack dropped) {
-		if (changeMode(dropped.getItem())) {
+		if (mode == Mode.NORMAL && changeMode(dropped.getItem())) {
 			play(SoundEvents.ENTITY_FIREWORK_TWINKLE, 0.2F, 1F);
-			particleServerSide(EnumParticleTypes.CRIT, 0.5D, getParticleLevel(), 0.5D, 0, 0, 0, 5);
 			dropped.setCount(0);
 			return true;
 		}
@@ -107,10 +112,10 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 	private boolean changeMode(Item item) {
 		boolean bol = false;
-		if (mode != Mode.POTION && item == ModItems.SEED_MANDRAKE) {
+		if (item == ModItems.SEED_MANDRAKE) {
 			setMode(Mode.POTION);
 			bol = true;
-		} else if (mode != Mode.CUSTOM && item == ModItems.MANDRAKE) {
+		} else if (item == ModItems.MANDRAKE) {
 			setMode(Mode.CUSTOM);
 			bol = true;
 		}
@@ -121,7 +126,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	public boolean useKettle(EntityPlayer player, EnumHand hand, ItemStack heldItem) {
 		if (!world.isRemote) {
 			if (heldItem.isEmpty()) {
-				if (!getContainer().isEmpty() && mode != Mode.RITUAL) {
+				if (!getContainer().isEmpty()) {
 					giveItem(player, hand, ItemStack.EMPTY, getContainer());
 					setContainer(ItemStack.EMPTY);
 				} else if (inv.isFull() && hasIngredients() && mode != Mode.RITUAL) {
@@ -143,7 +148,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			} else if (heldItem.getItem() == Items.GLASS_BOTTLE) {
 				if (mode == Mode.POTION) {
 					potionRecipeLogic(player, hand, heldItem);
-				} else if (mode == Mode.CUSTOM) { //TODO: Finish this
+				} else if (mode == Mode.CUSTOM) {
 					potionCustomLogic(player, hand, heldItem);
 				}
 			} else if (getContainer().isEmpty()) {
@@ -193,9 +198,9 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	private void giveItem(EntityPlayer player, EnumHand hand, ItemStack heldItem, ItemStack toGive) {
-		if (!heldItem.isEmpty() || heldItem.getCount() - 1 == 0) {
+		if (heldItem.isEmpty() || heldItem.getCount() - 1 == 0) {
 			player.setHeldItem(hand, toGive);
-			heldItem.setCount(0);
+			heldItem.shrink(1);
 		} else if (!player.inventory.addItemStackToInventory(toGive)) {
 			player.dropItem(toGive, false);
 		} else if (player instanceof EntityPlayerMP) {
@@ -209,7 +214,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			double x = getPos().getX();
 			double y = getPos().getY();
 			double z = getPos().getZ();
-			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.7D, z + 1);
+			AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 0.65D, z + 1);
 			final List<EntityItem> entityItemList = world.getEntitiesWithinAABB(EntityItem.class, box);
 			entityItemList.forEach(this::collideItem);
 		}
@@ -229,6 +234,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 
 		if (ticks % 20 == 0) {
 			handleHeat();
+			tryTurnLiquid();
 		}
 
 		if (!world.isRemote && mode == Mode.RITUAL && ritual != null) {
@@ -241,13 +247,12 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	private void handleParticles() {
 		if (world.rand.nextInt(10) == 0) {
 			float x = getPos().getX();
-
+			float posY = getParticleLevel();
 			float z = getPos().getZ();
 			for (int i = 0; i < 4; i++) {
-				final float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-				final float posY = getParticleLevel();
-				final float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0.0D, 0.01D, 0.0D, rgb);
+				float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
+				float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
+				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
 			}
 		}
 		if (hasIngredients() && ticks % 2 == 0) {
@@ -264,6 +269,36 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 			++heat;
 		} else if ((!aboveFire || !(inv.getFluidAmount() > 0)) && heat > 0) {
 			--heat;
+		}
+	}
+
+	private void tryTurnLiquid() {
+		if (!isBoiling() && hasIngredients() && inv.isFull()) {
+			Map<Item, FluidStack> fluids = KettleRegistry.getFluidItems();
+			Item item = ingredients[0].getItem();
+
+			if (fluids.containsKey(item)) {
+				int count = 8;
+
+				for (ItemStack ingredient : ingredients) {
+					if (ingredient.isEmpty()) break;
+					if (item == ingredient.getItem()) {
+						if (ingredient.getCount() > 1) {
+							while (ingredient.getCount() > 0 && count > 0) {
+								ingredient.shrink(1);
+								--count;
+							}
+						} else if (--count <= 0) break;
+					} else return;
+				}
+
+				if (count <= 0) {
+					FluidStack fluid = fluids.get(item).copy();
+					play(fluid.getFluid().getFillSound(), 1F, 1F);
+					inv.setFluid(fluid);
+					onLiquidChange();
+				}
+			}
 		}
 	}
 
@@ -348,7 +383,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		ritual = null;
 		Fluid fluid = inv.getInnerFluid();
 		if (fluid != null) {
-			int color = (fluid == FluidRegistry.WATER || fluid.getColor() == 0xFFFFFFFF) ? -14532558 : fluid.getColor();
+			int color = (fluid == FluidRegistry.WATER || fluid.getColor() == 0xFFFFFFFF) ? 0x12193b : fluid.getColor();
 			setColorRGB(color);
 		}
 		if (!world.isRemote)
@@ -432,20 +467,24 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 				ItemStack out = optional.get().copy();
 				if (stack.isItemDamaged() && out.isItemStackDamageable())
 					out.setItemDamage(stack.getItemDamage());
+				int fluidAmount = inv.getFluidAmount();
+				int fluidTaken = 250;
 				out.setCount(0);
-				int fluid = inv.getFluidAmount();
-				int taken = 0;
 
 				if (stack.getCount() <= 16) {
-					taken = 250;
 					out.setCount(stack.getCount());
 					stack.setCount(0);
 				} else {
-					while (stack.getCount() > 0 && taken <= fluid) {
+					while (stack.getCount() > 0 && fluidTaken <= fluidAmount) {
 						stack.shrink(1);
 						out.grow(1);
-						if (out.getCount() % 16 == 0)
-							taken += 250;
+						if (out.getCount() % 16 == 0) {
+							if (fluidTaken >= fluidAmount) {
+								fluidTaken = fluidAmount;
+								break;
+							}
+							fluidTaken += 250;
+						}
 					}
 				}
 
@@ -465,7 +504,7 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), getParticleLevel(), z + world.rand.nextFloat(), 5, 0, 0, 0);
 					}
 
-					inv.drain(taken, true);
+					inv.drain(fluidTaken, true);
 					return true;
 				}
 			}
@@ -491,31 +530,95 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 	}
 
 	public void potionRecipeLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		List<KettleBrewRecipe> potions = KettleRegistry.getKettleBrewRecipes().get(inv.getInnerFluid());
-		if (potions != null) {
-			Optional<KettleBrewRecipe> potion = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
-			if (potion.isPresent()) {
-				giveItem(player, hand, stack, potion.get().getResult());
-			}
+		List<KettleBrewRecipe> potions = KettleRegistry.getKettleBrewRecipes();
+		Optional<KettleBrewRecipe> optional = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
+		if (optional.isPresent()) {
+			ItemStack potion = optional.get().getResult();
+			potion.setCount(1 + getBrewMultiplier(player));
+			giveItem(player, hand, stack, potion);
+			inv.setFluid(null);
+			onLiquidChange();
 		}
-		inv.setFluid(null);
-		onLiquidChange();
+	}
+
+	private int getBrewMultiplier(EntityPlayer player) {
+		return 0; //TODO:Add here the extra brews.
 	}
 
 	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		ItemStack brew = new ItemStack(ModItems.BREW_PHIAL_DRINK);
-		NBTHelper.setNBT(brew, "brew_data", getBrewData());
-		giveItem(player, hand, stack, brew);
-		inv.setFluid(null);
-		onLiquidChange();
+		NBTTagCompound tag = getBrewData();
+
+		if (tag != null) {
+			brew.setTagCompound(tag);
+			brew.setCount(1 + getBrewMultiplier(player));
+			giveItem(player, hand, stack, brew);
+			inv.setFluid(null);
+			onLiquidChange();
+		}
 	}
 
+	@Nullable
 	public NBTTagCompound getBrewData() {
-		NBTTagCompound nbt = new NBTTagCompound();
-		for (ItemStack ingredient : ingredients) {
+		final Map<Item, ItemValidator<Object>> brewEffect = KettleRegistry.getBrewEffect();
+		final Map<Item, ItemValidator<BrewModifier>> brewModifier = KettleRegistry.getBrewModifier();
+		List<Object> effects = new ArrayList<>();
 
+		for (int i = 0; i < ingredients.length; i++) {
+			ItemStack ingredient = ingredients[i];
+			if (ingredient.isEmpty()) break;
+			Item effect = ingredient.getItem();
+			boolean add = true;
+
+			if (!brewEffect.containsKey(effect)) {
+				failHorribly();
+				return null;
+			}
+			ItemValidator<Object> validator = brewEffect.get(effect);
+			Optional<Object> optional = validator.getMatchFor(ingredient);
+			if (!optional.isPresent()) {
+				failHorribly();
+				return null;
+			}
+			Object brew = copyBrew(optional.get());
+
+			if (i + 1 < ingredients.length) {
+				while (i + 1 < ingredients.length) {
+					ItemStack modifier = ingredients[i + 1];
+
+					if (!brewModifier.containsKey(modifier.getItem())) {
+						if (brewEffect.containsKey(modifier.getItem()) || modifier.isEmpty()) break;
+						failHorribly();
+						return null;
+					}
+					ItemValidator<BrewModifier> val = brewModifier.get(modifier.getItem());
+					Optional<BrewModifier> opt = val.getMatchFor(modifier);
+					if (opt.isPresent()) {
+						for (int j = 0, size = modifier.getCount(); j < size; j++) {
+							add = opt.get().apply(effects, brew);
+						}
+					} else {
+						failHorribly();
+						return null;
+					}
+
+					++i;
+				}
+			}
+
+			if (add)
+				effects.add(brew);
 		}
-		return nbt;
+
+		return BrewUtils.serialize(effects);
+	}
+
+	private Object copyBrew(Object brew) {
+		if (brew instanceof PotionEffect) {
+			PotionEffect potion = (PotionEffect) brew;
+			return new PotionEffect(potion.getPotion(), potion.getDuration(), potion.getAmplifier());
+		}
+		return ((BrewEffect) brew).copy();
 	}
 
 	public void failHorribly() {

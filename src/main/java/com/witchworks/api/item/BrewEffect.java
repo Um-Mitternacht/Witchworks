@@ -39,12 +39,29 @@ public class BrewEffect {
 		return duration;
 	}
 
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
 	public int getAmplifier() {
 		return amplifier;
 	}
 
+	public void setAmplifier(int amplifier) {
+		this.amplifier = amplifier;
+	}
+
 	public boolean isInstant() {
 		return brew.isInstant();
+	}
+
+	public void combine(BrewEffect other) {
+		if (other.amplifier > this.amplifier) {
+			this.amplifier = other.amplifier;
+		}
+		if (this.duration < other.duration) {
+			this.duration = other.duration;
+		}
 	}
 
 	public BrewEffect copy() {

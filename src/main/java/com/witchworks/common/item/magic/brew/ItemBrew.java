@@ -44,13 +44,20 @@ public class ItemBrew extends ItemMod {
 		}
 		if (GuiScreen.isShiftKeyDown()) {
 			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + I18n.format("tooltip.brew.data"));
-			for (BrewEffect effect : BrewUtils.getBrewsFromStack(stack)) {
+			List<BrewEffect> brewsFromStack = BrewUtils.getBrewsFromStack(stack);
+			for (BrewEffect effect : brewsFromStack) {
+				if (effect == null) break;
 				IBrew brew = effect.getBrew();
 				String info = " - " + TextFormatting.ITALIC + I18n.format(brew.getName()).replace(" Brew", "") + " ";
 				info += RomanNumber.getRoman(effect.getAmplifier() + 1) + " ";
 				info += "(" + StringUtils.ticksToElapsedTime(effect.getDuration()) + ")";
 				tooltip.add(TextFormatting.DARK_AQUA + info);
 			}
+			if (brewsFromStack.isEmpty()) {
+				tooltip.add("---");
+			} else tooltip.add("");
+
+			BrewUtils.addPotionTooltip(stack, tooltip, 1.0F);
 		} else {
 			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + I18n.format("tooltip.shift_for_info"));
 		}

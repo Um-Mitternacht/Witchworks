@@ -9,11 +9,14 @@ import net.minecraftforge.common.MinecraftForge;
  */
 public class SeedDropRegistry {
 
-	public static void init () {
+	public static void init() {
 
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MANDRAKE), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_BELLADONNA), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_ACONITUM), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_THISTLE), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MINT), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_GINGER), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_WORMWOOD), 5);
 	}
 }

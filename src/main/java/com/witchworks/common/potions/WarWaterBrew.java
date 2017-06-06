@@ -4,36 +4,34 @@ import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.item.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
 /**
- * This class was created by Arekkuusu on 24/04/2017.
+ * This class was created by Arekkuusu on 23/04/2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class SpiderNightmareBrew implements IBrew {
+public class WarWaterBrew implements IBrew {
 
-	@Override
-	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
-		//NO-OP
+	public WarWaterBrew() {
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override
+	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
+		//To be added
+	}
+
+
+	@Override
 	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
-		BlockPos posI = pos.add(-2, -2, -2);
-		BlockPos posF = pos.add(2, 2, 2);
-		BlockPos.getAllInBox(posI, posF).forEach(
-				pos1 -> {
-					if (world.getBlockState(pos1).getBlock() == Blocks.AIR)
-						world.setBlockState(pos1, Blocks.WEB.getDefaultState());
-				}
-		);
+		//NO-OP
 	}
 
 	@Override
@@ -43,17 +41,17 @@ public class SpiderNightmareBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0x353839;
+		return 0x7C0A02;
 	}
 
 	@Override
 	public String getName() {
-		return "brew.spider_nightmare_brew.name";
+		return "brew.warwater_brew.name";
 	}
 
 	@Override
 	public String getDescription() {
-		return "brew.spider_nightmare_brew.desc";
+		return "brew.warwater_brew.desc";
 	}
 
 	@Override
@@ -64,6 +62,7 @@ public class SpiderNightmareBrew implements IBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 2);
+		render(x, y, mc, 4);
 	}
+
 }

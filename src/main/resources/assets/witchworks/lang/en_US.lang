@@ -101,6 +101,8 @@ item.taglock.name=Taglock Kit
 item.chalk_item.name=Mundane Chalk
 item.wand.name=Wand
 item.needle_bone.name=Bone Needle
+item.unrefined_chalk.name=Unrefined Chalk
+item.brew_phial_drink.name=Brew Phial
 
 //Blocks
 tile.candle_small.white.name=Small White Candle
@@ -210,11 +212,9 @@ tile.altar.name=Altar
 tile.oilpress.name=Oilpress
 
 //Fluid
-fluid.oil_toxic=Toxic Oil
-fluid.oil_soothing=Soothing Oil
-fluid.oil_mundane=Mundane Oil
-fluid.oil_magical=Magical Oil
-fluid.oil_spicy=Spicy Oil
+fluid.oil_mundane=Oil
+fluid.for.honey=Honey
+
 
 //Brews
 brew.shell_armor.name=Shell Armor Brew
@@ -225,6 +225,15 @@ brew.fire_brew.desc=Spew forth your inner fire
 
 brew.spider_nightmare_brew.name=Spider Nightmare Brew
 brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
+
+brew.frostbite_brew.name=Frostbite Brew
+brew.frostbite_brew.desc=Encase your target in ice
+
+brew.extinguish_brew.name=Extinguish Brew
+brew.extinguish_brew.desc=Puts out any fires on you
+
+brew.warwater_brew.name=Water of Mars
+brew.warwater_brew.desc=Inflicts nasty debuffs on the target
 
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing

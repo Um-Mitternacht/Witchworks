@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class SpiderNightmareBrew implements IBrew {
+public class FrostbiteBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
@@ -31,7 +31,7 @@ public class SpiderNightmareBrew implements IBrew {
 		BlockPos.getAllInBox(posI, posF).forEach(
 				pos1 -> {
 					if (world.getBlockState(pos1).getBlock() == Blocks.AIR)
-						world.setBlockState(pos1, Blocks.WEB.getDefaultState());
+						world.setBlockState(pos1, Blocks.FROSTED_ICE.getDefaultState());
 				}
 		);
 	}
@@ -43,17 +43,17 @@ public class SpiderNightmareBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0x353839;
+		return 0xB0E0E6;
 	}
 
 	@Override
 	public String getName() {
-		return "brew.spider_nightmare_brew.name";
+		return "brew.frostbite_brew.name";
 	}
 
 	@Override
 	public String getDescription() {
-		return "brew.spider_nightmare_brew.desc";
+		return "brew.frostbite_brew.desc";
 	}
 
 	@Override
@@ -64,6 +64,6 @@ public class SpiderNightmareBrew implements IBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 2);
+		render(x, y, mc, 5);
 	}
 }

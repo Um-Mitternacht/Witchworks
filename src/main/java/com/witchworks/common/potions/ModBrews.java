@@ -18,6 +18,9 @@ public final class ModBrews {
 	public static IBrew SHELL_ARMOR;
 	public static IBrew INNER_FIRE;
 	public static IBrew SPIDER_NIGHTMARE;
+	public static IBrew EXTINGUISH;
+	public static IBrew WARWATER;
+	public static IBrew FROSTBITE;
 
 	private ModBrews() {
 	}
@@ -31,5 +34,14 @@ public final class ModBrews {
 
 		SPIDER_NIGHTMARE = BrewRegistry.registerBrew(new SpiderNightmareBrew());
 		BrewRegistry.addDefault(new BrewEffect(SPIDER_NIGHTMARE, 500, 0));
+
+		EXTINGUISH = BrewRegistry.registerBrew(new ExtinguishBrew());
+		BrewRegistry.addDefault(new BrewEffect(EXTINGUISH, 500, 0));
+
+		WARWATER = BrewRegistry.registerBrew(new WarWaterBrew());
+		BrewRegistry.addDefault(new BrewEffect(WARWATER, 1500, 0));
+
+		FROSTBITE = BrewRegistry.registerBrew(new FrostbiteBrew());
+		BrewRegistry.addDefault(new BrewEffect(FROSTBITE, 500, 0));
 	}
 }

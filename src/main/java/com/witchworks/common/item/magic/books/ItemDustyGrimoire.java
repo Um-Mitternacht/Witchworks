@@ -13,5 +13,7 @@ public class ItemDustyGrimoire extends ItemMod {
 	public ItemDustyGrimoire() {
 		super(LibItemName.DUSTY_GRIMOIRE);
 	}
+
+	//Todo: Functionality, such as documentation.
 }
 

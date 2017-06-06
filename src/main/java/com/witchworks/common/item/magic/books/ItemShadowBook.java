@@ -13,5 +13,7 @@ public class ItemShadowBook extends ItemMod {
 	public ItemShadowBook() {
 		super(LibItemName.SHADOW_BOOK);
 	}
+
+	//Todo: Functionality, allow it to store books from this mod.
 }
 
