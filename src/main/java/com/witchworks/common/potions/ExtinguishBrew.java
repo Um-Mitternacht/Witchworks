@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class ExtinguishBrew implements IBrew,IBrewEntityImpact {
+public class ExtinguishBrew implements IBrew, IBrewEntityImpact {
 
 	public ExtinguishBrew() {
 		MinecraftForge.EVENT_BUS.register(this);

@@ -45,9 +45,9 @@ public class EntityBrew extends EntityThrowable {
 
 	@Override
 	protected void onImpact(RayTraceResult result) {
-		if(world.isRemote) return;
+		if (world.isRemote) return;
 
-		if(stack.hasTagCompound()) {
+		if (stack.hasTagCompound()) {
 			impact(result);
 
 			switch (dispersion) {
@@ -68,7 +68,7 @@ public class EntityBrew extends EntityThrowable {
 		List<BrewEffect> brewEffects = BrewUtils.getBrewsFromStack(stack);
 
 		brewEffects.stream().filter(brewEffect -> brewEffect instanceof IBrewEntityImpact).forEach(brewEffect ->
-			((IBrewEntityImpact) brewEffect).impact(result, world, brewEffect.getAmplifier())
+				((IBrewEntityImpact) brewEffect).impact(result, world, brewEffect.getAmplifier())
 		);
 	}
 

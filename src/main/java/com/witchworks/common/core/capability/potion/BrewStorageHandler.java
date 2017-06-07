@@ -32,7 +32,7 @@ public final class BrewStorageHandler {
 
 	public static Collection<BrewEffect> getBrewEffects(EntityLivingBase entity) {
 		Optional<IBrewStorage> optional = getBrewStorage(entity);
-		if(optional.isPresent()) {
+		if (optional.isPresent()) {
 			return optional.get().getBrews().values();
 		} else {
 			return Collections.emptyList();

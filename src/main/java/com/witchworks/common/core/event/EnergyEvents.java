@@ -1,8 +1,6 @@
 package com.witchworks.common.core.event;
 
-import com.witchworks.common.core.capability.energy.EnergyHandler;
-import com.witchworks.common.core.capability.energy.EnergyProvider;
-import com.witchworks.common.core.capability.energy.IEnergy;
+import com.witchworks.common.core.capability.energy.*;
 import com.witchworks.common.core.net.EnergyMessage;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.lib.LibMod;

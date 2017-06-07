@@ -3,10 +3,7 @@ package com.witchworks.api;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class was created by Arekkuusu on 22/04/2017.

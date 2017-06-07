@@ -2,9 +2,7 @@ package com.witchworks.common.core.proxy;
 
 import com.witchworks.client.fx.ParticleF;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

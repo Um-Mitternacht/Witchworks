@@ -1,9 +1,7 @@
 package com.witchworks.common.core.event;
 
 import com.witchworks.api.brew.*;
-import com.witchworks.common.core.capability.potion.BrewStorageHandler;
-import com.witchworks.common.core.capability.potion.BrewStorageProvider;
-import com.witchworks.common.core.capability.potion.IBrewStorage;
+import com.witchworks.common.core.capability.potion.*;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.net.PotionMessage;
 import com.witchworks.common.lib.LibMod;
@@ -17,10 +15,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This class was created by Arekkuusu on 23/04/2017.
