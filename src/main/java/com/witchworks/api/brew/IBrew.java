@@ -1,4 +1,4 @@
-package com.witchworks.api.item;
+package com.witchworks.api.brew;
 
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.client.ResourceLocations;
@@ -24,9 +24,9 @@ public interface IBrew {
 	/**
 	 * Apply the effects
 	 */
-	void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick);
+	void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick);
 
-	void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier);
+	void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier);
 
 	boolean isInstant();
 

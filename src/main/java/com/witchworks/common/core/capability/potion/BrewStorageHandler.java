@@ -1,11 +1,10 @@
 package com.witchworks.common.core.capability.potion;
 
-import com.witchworks.api.item.BrewEffect;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.IBrew;
 import net.minecraft.entity.EntityLivingBase;
 
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This class was created by Arekkuusu on 23/04/2017.
@@ -29,6 +28,15 @@ public final class BrewStorageHandler {
 			return Optional.of(entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null));
 		}
 		return Optional.empty();
+	}
+
+	public static Collection<BrewEffect> getBrewEffects(EntityLivingBase entity) {
+		Optional<IBrewStorage> optional = getBrewStorage(entity);
+		if(optional.isPresent()) {
+			return optional.get().getBrews().values();
+		} else {
+			return Collections.emptyList();
+		}
 	}
 
 	/**

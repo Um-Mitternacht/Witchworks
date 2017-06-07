@@ -18,7 +18,7 @@ public final class ModTiles {
 
 	public static void registerAll() {
 
-		GameRegistry.registerTileEntity(TileKettle.class, KETTLE);
+		GameRegistry.registerTileEntity(TileCauldron.class, KETTLE);
 		GameRegistry.registerTileEntity(TileCandle.class, CANDLE);
 		GameRegistry.registerTileEntity(TileApiary.class, APIARY);
 	}

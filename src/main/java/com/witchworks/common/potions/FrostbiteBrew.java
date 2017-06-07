@@ -1,7 +1,7 @@
 package com.witchworks.common.potions;
 
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
@@ -9,8 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
 
 /**
  * This class was created by Arekkuusu on 24/04/2017.
@@ -20,12 +18,12 @@ import javax.annotation.Nullable;
 public class FrostbiteBrew implements IBrew {
 
 	@Override
-	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
+	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		//NO-OP
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
+	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
 		BlockPos posI = pos.add(-2, -2, -2);
 		BlockPos posF = pos.add(2, 2, 2);
 		BlockPos.getAllInBox(posI, posF).forEach(

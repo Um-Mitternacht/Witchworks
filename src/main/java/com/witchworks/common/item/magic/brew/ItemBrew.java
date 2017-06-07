@@ -1,8 +1,8 @@
 package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.helper.RomanNumber;
-import com.witchworks.api.item.BrewEffect;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.IBrew;
 import com.witchworks.api.item.NBTHelper;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.potions.BrewUtils;
@@ -28,7 +28,6 @@ public class ItemBrew extends ItemMod {
 
 	public ItemBrew(String id) {
 		super(id);
-		setMaxStackSize(1);
 	}
 
 	@Override

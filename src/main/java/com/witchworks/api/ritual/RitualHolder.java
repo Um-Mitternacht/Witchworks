@@ -1,6 +1,5 @@
 package com.witchworks.api.ritual;
 
-import com.witchworks.api.KettleRegistry;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -62,7 +61,7 @@ public class RitualHolder<T extends TileEntity> {
 	@SuppressWarnings("unchecked")
 	public void readNBT(NBTTagCompound cmp) {
 		NBTTagCompound tag = cmp.getCompoundTag("ritual_data");
-		ritual = KettleRegistry.getRituals().get(tag.getInteger("ritual"));
+		ritual = RitualRegistry.getRituals().get(tag.getInteger("ritual"));
 		energy_left = tag.getInteger("energy_left");
 		ticks = tag.getInteger("ticks");
 		fail = tag.getBoolean("fail");
@@ -70,7 +69,7 @@ public class RitualHolder<T extends TileEntity> {
 
 	public void writeNBT(NBTTagCompound cmp) {
 		NBTTagCompound tag = new NBTTagCompound();
-		tag.setInteger("ritual", KettleRegistry.getRituals().indexOf(ritual));
+		tag.setInteger("ritual", RitualRegistry.getRituals().indexOf(ritual));
 		tag.setInteger("energy_left", energy_left);
 		tag.setInteger("ticks", ticks);
 		tag.setBoolean("fail", fail);

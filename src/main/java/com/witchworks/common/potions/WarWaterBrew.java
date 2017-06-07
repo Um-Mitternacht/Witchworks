@@ -1,7 +1,7 @@
 package com.witchworks.common.potions;
 
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;

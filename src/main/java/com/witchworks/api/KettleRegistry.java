@@ -4,7 +4,7 @@ import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
 import com.witchworks.api.recipe.KettleItemRecipe;
-import com.witchworks.api.ritual.IRitual;
+import com.witchworks.api.ritual.RitualRegistry;
 import com.witchworks.common.crafting.kettle.ItemRitual;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -30,8 +30,6 @@ public final class KettleRegistry {
 	private static final List<KettleBrewRecipe> KETTLE_BREW_RECIPES = new ArrayList<>();
 	private static final Map<Item, ItemValidator<Object>> BREW_EFFECT = new HashMap<>();
 	private static final Map<Item, ItemValidator<BrewModifier>> BREW_MODIFIER = new HashMap<>();
-
-	private static final List<IRitual> RITUALS = new ArrayList<>();
 
 	private KettleRegistry() {
 	}
@@ -79,8 +77,8 @@ public final class KettleRegistry {
 	public static KettleItemRecipe registerKettleItemRitual(ItemRitual ritual, Object... objects) {
 		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, objects);
 		KETTLE_ITEM_RITUALS.add(recipe);
-		if (!RITUALS.contains(ritual))
-			RITUALS.add(ritual);
+		if (!RitualRegistry.isRegistered(ritual))
+			RitualRegistry.register(ritual);
 		return recipe;
 	}
 
@@ -130,9 +128,5 @@ public final class KettleRegistry {
 
 	public static Map<Item, ItemValidator<BrewModifier>> getBrewModifier() {
 		return BREW_MODIFIER;
-	}
-
-	public static List<IRitual> getRituals() {
-		return RITUALS;
 	}
 }

@@ -8,12 +8,14 @@ import com.witchworks.client.handler.BlockCandleColorHandler;
 import com.witchworks.client.handler.BrewItemColorHandler;
 import com.witchworks.client.handler.ItemCandleColorHandler;
 import com.witchworks.client.handler.ModelHandler;
+import com.witchworks.client.render.entity.BrewRenderer;
 import com.witchworks.client.render.tile.TileRenderKettle;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.ModBlocks;
-import com.witchworks.common.block.tile.TileKettle;
+import com.witchworks.common.block.tile.TileCauldron;
 import com.witchworks.common.core.net.GuiHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
+import com.witchworks.common.entity.EntityBrew;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -95,7 +97,9 @@ public class ClientProxy implements ISidedProxy {
 	 * @see RenderingRegistry
 	 */
 	private void registerRenders() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileKettle.class, new TileRenderKettle());
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
+
+		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderKettle());
 	}
 
 	/**

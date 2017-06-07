@@ -1,7 +1,7 @@
 package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.item.BrewEffect;
+import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.lib.LibItemName;
 import com.witchworks.common.potions.BrewUtils;
@@ -38,6 +38,7 @@ public class ItemBrewDrink extends ItemBrew {
 		EntityPlayer entityplayer = entity instanceof EntityPlayer ? (EntityPlayer) entity : null;
 		if (!world.isRemote) {
 			for (BrewEffect effect : BrewUtils.getBrewsFromStack(stack)) {
+				if (effect == null) continue;
 				BrewStorageHandler.addEntityBrewEffect(entity, effect);
 			}
 
@@ -78,8 +79,8 @@ public class ItemBrewDrink extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getBrews().stream().filter(brew -> brew.getType() == BrewRegistry.Brew.DRINK).forEach(brew -> {
-			subItems.add(BrewUtils.createBrew(itemIn, brew));
-		});
+		BrewRegistry.getBrews().stream().filter(brew -> BrewRegistry.hasDefault(brew) && brew.getType() == BrewRegistry.Brew.DRINK).forEach(
+				brew -> subItems.add(BrewUtils.createBrew(itemIn, brew))
+		);
 	}
 }

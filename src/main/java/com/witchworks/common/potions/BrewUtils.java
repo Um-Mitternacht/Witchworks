@@ -2,9 +2,9 @@ package com.witchworks.common.potions;
 
 import com.google.common.collect.Lists;
 import com.witchworks.api.BrewRegistry;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.IBrew;
 import com.witchworks.api.helper.RomanNumber;
-import com.witchworks.api.item.BrewEffect;
-import com.witchworks.api.item.IBrew;
 import com.witchworks.api.item.NBTHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -186,6 +186,23 @@ public class BrewUtils {
 		appendBrews(compound, mixBrews(brewEffects));
 
 		return compound;
+	}
+
+	public static Tuple<List<BrewEffect>, List<PotionEffect>> deSerialize(NBTTagCompound compound) {
+		List<PotionEffect> potionEffects = PotionUtils.getEffectsFromTag(compound);
+		List<BrewEffect> brewEffects = new ArrayList<>();
+		Tuple<List<BrewEffect>, List<PotionEffect>> tuple = new Tuple<>(brewEffects, potionEffects);
+
+		NBTTagList list = (NBTTagList) compound.getTag(BREW_DATA);
+		for (int i = 0, size = list.tagCount(); i < size; i++) {
+			NBTTagCompound tag = list.getCompoundTagAt(i);
+			IBrew brew = BrewRegistry.getBrewById(tag.getInteger(BREW_ID));
+			int duration = tag.getInteger(BREW_DURATION);
+			int amplifier = tag.getInteger(BREW_AMPLIFIER);
+			brewEffects.add(new BrewEffect(brew, duration, amplifier));
+		}
+
+		return tuple;
 	}
 
 	public static boolean hasBrewData(ItemStack stack) {

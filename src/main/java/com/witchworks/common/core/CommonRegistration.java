@@ -1,7 +1,7 @@
 package com.witchworks.common.core;
 
 import com.witchworks.api.CropRegistry;
-import com.witchworks.api.item.crop.Crop;
+import com.witchworks.api.state.Crop;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
@@ -40,7 +40,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.IForgeRegistry;
 
-import static com.witchworks.api.item.crop.Crop.*;
+import static com.witchworks.api.state.Crop.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
@@ -233,7 +233,7 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
 
 				//Tool Blocks
-				new BlockKettle(),
+				new BlockCauldron(),
 				new BlockCandleLarge(),
 				new BlockCandleMedium(),
 				new BlockCandleSmall(),

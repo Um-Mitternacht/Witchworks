@@ -3,7 +3,7 @@ package com.witchworks.common.block.tools;
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.tile.TileKettle;
+import com.witchworks.common.block.tile.TileCauldron;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.ITileEntityProvider;
@@ -35,7 +35,7 @@ import static net.minecraft.block.BlockHorizontal.FACING;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class BlockKettle extends BlockMod implements IModelRegister, ITileEntityProvider {
+public class BlockCauldron extends BlockMod implements IModelRegister, ITileEntityProvider {
 
 	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0625, 0, 0.0625, 15 * 0.0625, 11 * 0.0625, 15 * 0.0625);
 	private static final AxisAlignedBB AABB_LEGS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.3125D, 1.0D);
@@ -44,7 +44,7 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 	private static final AxisAlignedBB AABB_WALL_EAST = new AxisAlignedBB(0.875D, 0.0D, 0.0D, 1.0D, 11 * 0.0625, 1.0D);
 	private static final AxisAlignedBB AABB_WALL_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.125D, 11 * 0.0625, 1.0D);
 
-	public BlockKettle() {
+	public BlockCauldron() {
 		super(LibBlockName.KETTLE, Material.IRON);
 		setSound(SoundType.METAL);
 		setResistance(5F);
@@ -103,13 +103,13 @@ public class BlockKettle extends BlockMod implements IModelRegister, ITileEntity
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		final TileKettle tile = (TileKettle) worldIn.getTileEntity(pos);
+		final TileCauldron tile = (TileCauldron) worldIn.getTileEntity(pos);
 		return tile != null && tile.useKettle(playerIn, hand, playerIn.getHeldItem(hand));
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileKettle();
+		return new TileCauldron();
 	}
 
 	@SuppressWarnings("deprecation")

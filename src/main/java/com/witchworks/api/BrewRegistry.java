@@ -1,7 +1,7 @@
 package com.witchworks.api;
 
-import com.witchworks.api.item.BrewEffect;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.IBrew;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -29,6 +29,10 @@ public final class BrewRegistry {
 
 	public static void addDefault(BrewEffect effect) {
 		defaults.put(effect.getBrew(), effect);
+	}
+
+	public static boolean hasDefault(IBrew brew) {
+		return defaults.containsKey(brew);
 	}
 
 	public static BrewEffect getDefault(IBrew brew) {

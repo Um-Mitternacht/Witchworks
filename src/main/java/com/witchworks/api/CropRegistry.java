@@ -1,6 +1,6 @@
 package com.witchworks.api;
 
-import com.witchworks.api.item.crop.Crop;
+import com.witchworks.api.state.Crop;
 import com.witchworks.common.block.natural.crop.BlockCrop;
 import net.minecraft.item.Item;
 

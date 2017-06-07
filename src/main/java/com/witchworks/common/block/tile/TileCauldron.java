@@ -2,7 +2,7 @@ package com.witchworks.common.block.tile;
 
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.helper.ItemNullHelper;
-import com.witchworks.api.item.BrewEffect;
+import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
@@ -50,7 +50,7 @@ import static net.minecraftforge.fluids.Fluid.BUCKET_VOLUME;
  * the MIT license.
  */
 @SuppressWarnings("WeakerAccess")
-public class TileKettle extends TileFluidInventory implements ITickable {
+public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	private final String TAG_HEAT = "heat";
 	private final String TAG_RGB = "rgb";
@@ -541,8 +541,14 @@ public class TileKettle extends TileFluidInventory implements ITickable {
 		}
 	}
 
+	/**
+	 * Gives extra brews if the player wears...
+	 *
+	 * @param player The player getting the brews
+	 * @return Extra brews
+	 */
 	private int getBrewMultiplier(EntityPlayer player) {
-		return 0; //TODO:Add here the extra brews.
+		return 0;
 	}
 
 	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {

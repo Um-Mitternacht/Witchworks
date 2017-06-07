@@ -1,4 +1,4 @@
-package com.witchworks.api.item;
+package com.witchworks.api.brew;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;

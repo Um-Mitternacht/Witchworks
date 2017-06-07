@@ -1,8 +1,8 @@
 package com.witchworks.common.core.capability.potion;
 
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.item.BrewEffect;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.IBrew;
 import com.witchworks.common.potions.BrewUtils;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
