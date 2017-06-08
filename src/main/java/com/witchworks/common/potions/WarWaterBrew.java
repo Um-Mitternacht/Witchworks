@@ -56,7 +56,7 @@ public class WarWaterBrew implements IBrew {
 
 	@Override
 	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.DRINK;
+		return BrewRegistry.Brew.SPLASH;
 	}
 
 	@SideOnly(Side.CLIENT)

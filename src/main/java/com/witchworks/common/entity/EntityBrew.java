@@ -9,7 +9,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -25,29 +27,29 @@ import java.util.List;
  */
 public class EntityBrew extends EntityThrowable {
 
+	private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBrew.class, DataSerializers.OPTIONAL_ITEM_STACK);
 	private BrewDispersion dispersion;
-	private ItemStack stack;
 
 	public EntityBrew(World worldIn) {
 		super(worldIn);
 	}
 
-	public EntityBrew(World worldIn, ItemStack stack, BrewDispersion dispersion) {
-		super(worldIn);
+	public EntityBrew(World worldIn, EntityLivingBase living, ItemStack stack, BrewDispersion dispersion) {
+		super(worldIn, living);
 		this.dispersion = dispersion;
-		this.stack = stack;
+		setBrew(stack);
 	}
 
 	@Override
 	protected void entityInit() {
-
+		getDataManager().register(ITEM, ItemStack.EMPTY);
 	}
 
 	@Override
 	protected void onImpact(RayTraceResult result) {
-		if (world.isRemote) return;
+		if(world.isRemote) return;
 
-		if (stack.hasTagCompound()) {
+		if(getBrew().hasTagCompound()) {
 			impact(result);
 
 			switch (dispersion) {
@@ -65,20 +67,20 @@ public class EntityBrew extends EntityThrowable {
 	}
 
 	private void impact(RayTraceResult result) {
-		List<BrewEffect> brewEffects = BrewUtils.getBrewsFromStack(stack);
+		List<BrewEffect> brewEffects = BrewUtils.getBrewsFromStack(getBrew());
 
-		brewEffects.stream().filter(brewEffect -> brewEffect instanceof IBrewEntityImpact).forEach(brewEffect ->
-				((IBrewEntityImpact) brewEffect).impact(result, world, brewEffect.getAmplifier())
+		brewEffects.stream().filter(brewEffect -> brewEffect.getBrew() instanceof IBrewEntityImpact).forEach(brewEffect ->
+			((IBrewEntityImpact) brewEffect.getBrew()).impact(result, world, brewEffect.getAmplifier())
 		);
 	}
 
 	private void doSplash() {
 		playSound(SoundEvents.ENTITY_SPLASH_POTION_BREAK, 1F, 1F);
 		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().expand(4.0D, 2.0D, 4.0D);
-		List<EntityLivingBase> list = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
+		List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
 
 		if (!list.isEmpty()) {
-			Tuple<List<BrewEffect>, List<PotionEffect>> tuple = BrewUtils.deSerialize(NBTHelper.fixNBT(stack));
+			Tuple<List<BrewEffect>, List<PotionEffect>> tuple = BrewUtils.deSerialize(NBTHelper.fixNBT(getBrew()));
 
 			for (EntityLivingBase entity : list) {
 				double distance = this.getDistanceSqToEntity(entity);
@@ -97,20 +99,14 @@ public class EntityBrew extends EntityThrowable {
 		}
 	}
 
-	@Override
-	public void readEntityFromNBT(NBTTagCompound compound) {
-		dispersion = BrewDispersion.valueOf(compound.getString("dispersion"));
-		stack = new ItemStack(compound);
-	}
-
-	@Override
-	public void writeEntityToNBT(NBTTagCompound compound) {
-		compound.setString("dispersion", dispersion.name());
-		stack.writeToNBT(compound);
+	public void setBrew(ItemStack stack)
+	{
+		getDataManager().set(ITEM, stack);
+		getDataManager().setDirty(ITEM);
 	}
 
 	public ItemStack getBrew() {
-		return stack;
+		return getDataManager().get(ITEM);
 	}
 
 	public enum BrewDispersion {

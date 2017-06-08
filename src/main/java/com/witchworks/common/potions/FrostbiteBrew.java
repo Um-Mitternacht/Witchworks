@@ -24,8 +24,10 @@ public class FrostbiteBrew implements IBrew {
 
 	@Override
 	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		BlockPos posI = pos.add(-2, -2, -2);
-		BlockPos posF = pos.add(2, 2, 2);
+		int box = 1 + amplifier;
+
+		BlockPos posI = pos.add(box, box, box);
+		BlockPos posF = pos.add(-box, -box, -box);
 		BlockPos.getAllInBox(posI, posF).forEach(
 				pos1 -> {
 					if (world.getBlockState(pos1).getBlock() == Blocks.AIR)
@@ -56,7 +58,7 @@ public class FrostbiteBrew implements IBrew {
 
 	@Override
 	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.DRINK;
+		return BrewRegistry.Brew.SPLASH;
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -35,7 +35,7 @@ public class ItemBrewSplash extends ItemBrew {
 		playerIn.playSound(SoundEvents.ENTITY_SPLASH_POTION_THROW, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
 		if (!worldIn.isRemote) {
-			EntityBrew brew = new EntityBrew(worldIn, copy, EntityBrew.BrewDispersion.SPLASH);
+			EntityBrew brew = new EntityBrew(worldIn, playerIn, copy, EntityBrew.BrewDispersion.SPLASH);
 
 			brew.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, -20.0F, 0.5F, 1.0F);
 			worldIn.spawnEntity(brew);

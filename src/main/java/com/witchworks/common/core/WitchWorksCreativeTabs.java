@@ -136,6 +136,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.SHADOW_BOOK);
 			addItem(ModItems.DUSTY_GRIMOIRE);
 			addItem(ModItems.BREW_PHIAL_DRINK);
+			addItem(ModItems.BREW_PHIAL_SPLASH);
 			addItem(ModItems.CHALK_ITEM);
 			addItem(ModItems.BOLINE);
 			addItem(ModItems.ATHAME);
