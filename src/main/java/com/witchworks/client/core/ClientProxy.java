@@ -1,8 +1,13 @@
 package com.witchworks.client.core;
 
-import com.witchworks.client.core.event.*;
+import com.witchworks.client.core.event.BrewHUD;
+import com.witchworks.client.core.event.EnergyHUD;
+import com.witchworks.client.core.event.TextureStitch;
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.client.handler.*;
+import com.witchworks.client.handler.BlockCandleColorHandler;
+import com.witchworks.client.handler.BrewItemColorHandler;
+import com.witchworks.client.handler.ItemCandleColorHandler;
+import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.client.render.entity.BrewRenderer;
 import com.witchworks.client.render.tile.TileRenderKettle;
 import com.witchworks.common.WitchWorks;
@@ -23,7 +28,9 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;

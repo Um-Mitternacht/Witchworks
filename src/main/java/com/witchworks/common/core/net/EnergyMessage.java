@@ -1,10 +1,14 @@
 package com.witchworks.common.core.net;
 
-import com.witchworks.common.core.capability.energy.*;
+import com.witchworks.common.core.capability.energy.CapabilityEnergy;
+import com.witchworks.common.core.capability.energy.EnergyHandler;
+import com.witchworks.common.core.capability.energy.IEnergy;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fml.common.network.simpleimpl.*;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import java.util.Optional;
 import java.util.UUID;

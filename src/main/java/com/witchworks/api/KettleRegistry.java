@@ -1,6 +1,9 @@
 package com.witchworks.api;
 
-import com.witchworks.api.recipe.*;
+import com.witchworks.api.recipe.BrewModifier;
+import com.witchworks.api.recipe.ItemValidator;
+import com.witchworks.api.recipe.KettleBrewRecipe;
+import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.ritual.RitualRegistry;
 import com.witchworks.common.crafting.kettle.ItemRitual;
 import net.minecraft.item.Item;
@@ -8,7 +11,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 14/04/2017.

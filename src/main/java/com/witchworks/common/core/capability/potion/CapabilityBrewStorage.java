@@ -4,14 +4,19 @@ import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
 import com.witchworks.common.potions.BrewUtils;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * This class was created by Arekkuusu on 23/04/2017.

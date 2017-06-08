@@ -1,7 +1,9 @@
 package com.witchworks.common.item.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.

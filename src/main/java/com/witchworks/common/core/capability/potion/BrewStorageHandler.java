@@ -4,7 +4,10 @@ import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.entity.EntityLivingBase;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Optional;
 
 /**
  * This class was created by Arekkuusu on 23/04/2017.

@@ -3,7 +3,10 @@ package com.witchworks.common.block.tile;
 import com.witchworks.api.KettleRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.helper.ItemNullHelper;
-import com.witchworks.api.recipe.*;
+import com.witchworks.api.recipe.BrewModifier;
+import com.witchworks.api.recipe.ItemValidator;
+import com.witchworks.api.recipe.KettleBrewRecipe;
+import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.ritual.RitualHolder;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
@@ -26,14 +29,18 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.fluids.*;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import static net.minecraftforge.fluids.Fluid.BUCKET_VOLUME;
 
