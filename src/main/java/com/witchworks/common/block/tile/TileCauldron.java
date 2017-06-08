@@ -1,8 +1,8 @@
 package com.witchworks.common.block.tile;
 
 import com.witchworks.api.KettleRegistry;
-import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;

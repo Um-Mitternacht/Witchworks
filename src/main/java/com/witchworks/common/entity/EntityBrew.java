@@ -47,9 +47,9 @@ public class EntityBrew extends EntityThrowable {
 
 	@Override
 	protected void onImpact(RayTraceResult result) {
-		if(world.isRemote) return;
+		if (world.isRemote) return;
 
-		if(getBrew().hasTagCompound()) {
+		if (getBrew().hasTagCompound()) {
 			impact(result);
 
 			switch (dispersion) {
@@ -70,7 +70,7 @@ public class EntityBrew extends EntityThrowable {
 		List<BrewEffect> brewEffects = BrewUtils.getBrewsFromStack(getBrew());
 
 		brewEffects.stream().filter(brewEffect -> brewEffect.getBrew() instanceof IBrewEntityImpact).forEach(brewEffect ->
-			((IBrewEntityImpact) brewEffect.getBrew()).impact(result, world, brewEffect.getAmplifier())
+				((IBrewEntityImpact) brewEffect.getBrew()).impact(result, world, brewEffect.getAmplifier())
 		);
 	}
 
@@ -99,14 +99,13 @@ public class EntityBrew extends EntityThrowable {
 		}
 	}
 
-	public void setBrew(ItemStack stack)
-	{
-		getDataManager().set(ITEM, stack);
-		getDataManager().setDirty(ITEM);
-	}
-
 	public ItemStack getBrew() {
 		return getDataManager().get(ITEM);
+	}
+
+	public void setBrew(ItemStack stack) {
+		getDataManager().set(ITEM, stack);
+		getDataManager().setDirty(ITEM);
 	}
 
 	public enum BrewDispersion {
