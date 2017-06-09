@@ -58,6 +58,9 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_KELP), 5)
 				, getStack(Items.WHEAT_SEEDS, 1), Blocks.WATERLILY);
 
+		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Items.STRING, 4), 2)
+				, getStack(ModItems.KENAF, 1));
+
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Items.GOLDEN_APPLE, 1, 1), 8)
 				, getStack(Blocks.GOLD_BLOCK, 8), Items.APPLE);
 		//Todo: Sapling recipes once we add our own (to make it easier to get them without exploring, in the event a player cannot find them),
