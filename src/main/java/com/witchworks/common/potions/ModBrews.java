@@ -39,7 +39,7 @@ public final class ModBrews {
 		BrewRegistry.addDefault(new BrewEffect(EXTINGUISH, 500, 0));
 
 		WARWATER = BrewRegistry.registerBrew(new WarWaterBrew());
-		BrewRegistry.addDefault(new BrewEffect(WARWATER, 700, 0));
+		BrewRegistry.addDefault(new BrewEffect(WARWATER, 1500, 0));
 
 		FROSTBITE = BrewRegistry.registerBrew(new FrostbiteBrew());
 		BrewRegistry.addDefault(new BrewEffect(FROSTBITE, 500, 0));

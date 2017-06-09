@@ -28,10 +28,11 @@ public class WarWaterBrew implements IBrew {
 	@Override
 	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
 		if (entity.isEntityAlive()) {
-			entity.addPotionEffect(new PotionEffect(MobEffects.POISON, 500, 0));
-			entity.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 500, 0));
-			entity.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 500, 0));
-			entity.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 1500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 1500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 1500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 1500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 1500, 0));
 		}
 	}
 
