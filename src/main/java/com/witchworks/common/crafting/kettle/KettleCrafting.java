@@ -76,6 +76,9 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.EXTINGUISH)
 				, getStack(Items.SNOWBALL, 2), Blocks.PACKED_ICE, ModItems.MINT);
 
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.WARWATER)
+				, getStack(Items.field_191525_da, 2), Items.POISONOUS_POTATO, ModItems.JASPER);
+
 
 		//Todo: More brews, obviously. Just need ideas, really.
 

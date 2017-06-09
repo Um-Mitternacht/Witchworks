@@ -4,6 +4,8 @@ import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,7 +27,12 @@ public class WarWaterBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier, int tick) {
-		//To be added
+		if (entity.isEntityAlive()) {
+			entity.addPotionEffect(new PotionEffect(MobEffects.POISON, 1500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 1500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 1500, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 1500, 0));
+		}
 	}
 
 
