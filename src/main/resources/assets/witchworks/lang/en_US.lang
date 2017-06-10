@@ -235,6 +235,12 @@ brew.extinguish_brew.desc=Puts out any fires on you
 brew.warwater_brew.name=Water of Mars
 brew.warwater_brew.desc=Inflicts nasty debuffs on the target
 
+brew.holy_water_brew.name=Holy Water
+brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the living
+
+brew.volatility_brew.name=Brew of Volatility
+brew.volatility_brew.desc=Makes you explode upon being hit
+
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
 witchworks.subtitle.chalk_scribble=Chalk scribbling
