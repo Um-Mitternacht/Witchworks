@@ -3,36 +3,31 @@ package com.witchworks.common.potions;
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 /**
  * This class was created by Arekkuusu on 24/04/2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class HolyWaterBrew implements IBrew {
+public class VolatileBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		//Todo: Some better effects to attack undead
-		if (entity.isEntityUndead()) {
-			entity.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 1));
-			entity.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 0));
-		}
+		//Todo: Add explosions. Come, now, and walk the path of explosions with me!
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		if (entity.isEntityUndead()) {
-			entity.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 1));
-			entity.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 0));
-		}
+	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
+		//NO-OP
 	}
 
 	@Override
@@ -42,27 +37,27 @@ public class HolyWaterBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0x8DA399;
+		return 0xEE7F2D;
 	}
 
 	@Override
 	public String getName() {
-		return "brew.holy_water_brew.name";
+		return "brew.volatility_brew.name";
 	}
 
 	@Override
 	public String getDescription() {
-		return "brew.holy_water_brew.desc";
+		return "brew.volatility_brew.desc";
 	}
 
 	@Override
 	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.SPLASH;
+		return BrewRegistry.Brew.DRINK;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 6);
+		render(x, y, mc, 7);
 	}
 }

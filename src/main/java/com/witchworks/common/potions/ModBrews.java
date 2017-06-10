@@ -22,6 +22,7 @@ public final class ModBrews {
 	public static IBrew WARWATER;
 	public static IBrew FROSTBITE;
 	public static IBrew HOLY_WATER;
+	public static IBrew VOLATILE;
 
 	private ModBrews() {
 	}
@@ -47,5 +48,8 @@ public final class ModBrews {
 
 		HOLY_WATER = BrewRegistry.registerBrew(new HolyWaterBrew());
 		BrewRegistry.addDefault(new BrewEffect(HOLY_WATER, 4, 0));
+
+		VOLATILE = BrewRegistry.registerBrew(new VolatileBrew());
+		BrewRegistry.addDefault(new BrewEffect(VOLATILE, 500, 0));
 	}
 }

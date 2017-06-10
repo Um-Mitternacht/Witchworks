@@ -82,6 +82,9 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.WARWATER)
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
 
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.HOLY_WATER)
+				, getStack(ModItems.SALT, 2), ModItems.WHITE_SAGE, ModItems.SILVER_POWDER, ModItems.GARLIC);
+
 
 		//Todo: More brews, obviously. Just need ideas, really.
 
