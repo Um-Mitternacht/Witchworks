@@ -4,7 +4,6 @@ import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
