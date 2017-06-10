@@ -63,6 +63,7 @@ public final class KettleCrafting {
 
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Items.GOLDEN_APPLE, 1, 1), 8)
 				, getStack(Blocks.GOLD_BLOCK, 8), Items.APPLE);
+
 		//Todo: Sapling recipes once we add our own (to make it easier to get them without exploring, in the event a player cannot find them),
 		//Todo: Also gemstone amalgam for usage as a crafting ingredient. Also, the easter egg recipe and its achievement.
 
