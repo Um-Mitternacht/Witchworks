@@ -21,6 +21,7 @@ public final class ModBrews {
 	public static IBrew EXTINGUISH;
 	public static IBrew WARWATER;
 	public static IBrew FROSTBITE;
+	public static IBrew HOLY_WATER;
 
 	private ModBrews() {
 	}
@@ -43,5 +44,8 @@ public final class ModBrews {
 
 		FROSTBITE = BrewRegistry.registerBrew(new FrostbiteBrew());
 		BrewRegistry.addDefault(new BrewEffect(FROSTBITE, 500, 0));
+
+		HOLY_WATER = BrewRegistry.registerBrew(new HolyWaterBrew());
+		BrewRegistry.addDefault(new BrewEffect(HOLY_WATER, 4, 0));
 	}
 }
