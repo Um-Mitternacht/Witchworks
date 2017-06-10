@@ -67,23 +67,8 @@ public final class KettleCrafting {
 		//Todo: Also gemstone amalgam for usage as a crafting ingredient. Also, the easter egg recipe and its achievement.
 
 		//------------------------------------Brew Recipes------------------------------------//
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
-				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModBlocks.COQUINA, 3));
-
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.INNER_FIRE)
-				, getStack(Items.BLAZE_ROD, 2), Items.GOLD_NUGGET, Items.BLAZE_POWDER);
-
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
-				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR, Items.FERMENTED_SPIDER_EYE);
-
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.EXTINGUISH)
-				, getStack(Items.SNOWBALL, 2), Blocks.PACKED_ICE, ModItems.MINT);
-
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.WARWATER)
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
-
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.HOLY_WATER)
-				, getStack(ModItems.SALT, 2), ModItems.WHITE_SAGE, ModItems.SILVER_POWDER, ModItems.GARLIC);
 
 
 		//Todo: More brews, obviously. Just need ideas, really.
