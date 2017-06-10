@@ -20,7 +20,6 @@ public class HolyWaterBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		//Todo: Better effects for damaging undead
 		if (entity.isEntityUndead()) {
 			entity.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 1));
 		}
@@ -28,7 +27,9 @@ public class HolyWaterBrew implements IBrew {
 
 	@Override
 	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		//NO-OP
+		if (entity.isEntityUndead()) {
+			entity.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 1));
+		}
 	}
 
 	@Override
