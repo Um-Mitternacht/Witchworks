@@ -45,11 +45,11 @@ public final class ConfigHandler {
 		public int moldavite_gen_chance = 4;
 
 		@Comment("Bloodstone Ore gen")
-		public int bloodStone_min_vein = 1;
-		public int bloodStone_max_vein = 4;
-		public int bloodStone_min_height = 10;
-		public int bloodStone_max_height = 128;
-		public int bloodStone_gen_chance = 4;
+		public int bloodstone_min_vein = 1;
+		public int bloodstone_max_vein = 4;
+		public int bloodstone_min_height = 10;
+		public int bloodstone_max_height = 128;
+		public int bloodstone_gen_chance = 4;
 
 		@Comment("Tourmaline Ore gen")
 		public int tourmaline_min_vein = 1;
@@ -73,11 +73,11 @@ public final class ConfigHandler {
 		public int tigersEye_gen_chance = 4;
 
 		@Comment("Nummite Ore gen")
-		public int nuumite_min_vein = 1;
-		public int nuumite_max_vein = 4;
-		public int nuumite_min_height = 10;
-		public int nuumite_max_height = 128;
-		public int nuumite_gen_chance = 4;
+		public int nuummite_min_vein = 1;
+		public int nuummite_max_vein = 4;
+		public int nuummite_min_height = 10;
+		public int nuummite_max_height = 128;
+		public int nuummite_gen_chance = 4;
 
 		@Comment("Garnet Ore gen")
 		public int garnet_min_vein = 1;

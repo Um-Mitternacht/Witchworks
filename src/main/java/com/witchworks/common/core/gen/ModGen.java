@@ -31,10 +31,10 @@ public final class ModGen {
 				.setHeightRange(WORLD_GEN.moldavite_min_height, WORLD_GEN.moldavite_max_height)
 				.setBiomes(BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS)
 				.build(), 0);
-		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.BLOODSTONE_ORE, WORLD_GEN.bloodStone_gen_chance)
+		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.BLOODSTONE_ORE, WORLD_GEN.bloodstone_gen_chance)
 				.generateOn(Blocks.STONE)
-				.setVeinSize(WORLD_GEN.bloodStone_min_vein, WORLD_GEN.bloodStone_max_vein)
-				.setHeightRange(WORLD_GEN.bloodStone_min_height, WORLD_GEN.bloodStone_max_height)
+				.setVeinSize(WORLD_GEN.bloodstone_min_vein, WORLD_GEN.bloodstone_max_vein)
+				.setHeightRange(WORLD_GEN.bloodstone_min_height, WORLD_GEN.bloodstone_max_height)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.TOURMALINE_ORE, WORLD_GEN.tourmaline_gen_chance)
 				.generateOn(Blocks.STONE)
@@ -54,10 +54,10 @@ public final class ModGen {
 				.setHeightRange(WORLD_GEN.tigersEye_min_height, WORLD_GEN.tigersEye_max_height)
 				.setBiomes(BiomeDictionary.Type.MESA, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY)
 				.build(), 0);
-		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.NUUMMITE_ORE, WORLD_GEN.nuumite_gen_chance)
+		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.NUUMMITE_ORE, WORLD_GEN.nuummite_gen_chance)
 				.generateOn(Blocks.STONE)
-				.setVeinSize(WORLD_GEN.nuumite_min_vein, WORLD_GEN.nuumite_max_vein)
-				.setHeightRange(WORLD_GEN.nuumite_min_height, WORLD_GEN.nuumite_max_height)
+				.setVeinSize(WORLD_GEN.nuummite_min_vein, WORLD_GEN.nuummite_max_vein)
+				.setHeightRange(WORLD_GEN.nuummite_min_height, WORLD_GEN.nuummite_max_height)
 				.setBiomes(BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.GARNET_ORE, WORLD_GEN.garnet_gen_chance)
