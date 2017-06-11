@@ -1,6 +1,6 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package com.witchworks.common.potions;
+package com.witchworks.common.tile;
 
 import mcp.MethodsReturnNonnullByDefault;
 

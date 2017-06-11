@@ -3,7 +3,7 @@ package com.witchworks.common.item.magic.brew;
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.common.entity.EntityBrew;
 import com.witchworks.common.lib.LibItemName;
-import com.witchworks.common.potions.BrewUtils;
+import com.witchworks.api.brew.BrewUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -16,6 +16,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import static com.witchworks.api.BrewRegistry.Brew.SPLASH;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
@@ -47,8 +49,8 @@ public class ItemBrewSplash extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getBrews().stream().filter(brew -> BrewRegistry.hasDefault(brew) && brew.getType() == BrewRegistry.Brew.SPLASH).forEach(
-				brew -> subItems.add(BrewUtils.createBrew(itemIn, brew))
+		BrewRegistry.getDefaults().get(SPLASH).forEach( (brew, brewEffect) ->
+				subItems.add(BrewUtils.createBrew(SPLASH, brew))
 		);
 	}
 }

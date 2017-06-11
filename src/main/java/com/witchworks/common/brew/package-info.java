@@ -1,6 +1,6 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package com.witchworks.common.block.tile;
+package com.witchworks.common.brew;
 
 import mcp.MethodsReturnNonnullByDefault;
 

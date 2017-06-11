@@ -10,5 +10,5 @@ import net.minecraftforge.event.entity.living.LivingHealEvent;
  */
 public interface IBrewHeal {
 
-	void onHeal(LivingHealEvent event, EntityLivingBase healed);
+	void onHeal(LivingHealEvent event, EntityLivingBase healed, int amplifier);
 }

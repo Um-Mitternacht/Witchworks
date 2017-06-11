@@ -82,7 +82,7 @@ public class BrewEvents {
 			}
 
 			storage.setBrews(updated);
-			if (entity instanceof EntityPlayer) {
+			if (entity instanceof EntityPlayerMP) {
 				PacketHandler.sendTo((EntityPlayerMP) entity, new PotionMessage(updated.keySet(), entity.getUniqueID()));
 			}
 		}
@@ -93,7 +93,7 @@ public class BrewEvents {
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewHurt).forEach(effect -> {
 			if (event.isCanceled()) return;
-			((IBrewHurt) effect.getBrew()).onHurt(event, event.getSource(), event.getEntityLiving());
+			((IBrewHurt) effect.getBrew()).onHurt(event, event.getSource(), event.getEntityLiving(), effect.getAmplifier());
 		});
 	}
 
@@ -102,7 +102,7 @@ public class BrewEvents {
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewHeal).forEach(effect -> {
 			if (event.isCanceled()) return;
-			((IBrewHeal) effect.getBrew()).onHeal(event, event.getEntityLiving());
+			((IBrewHeal) effect.getBrew()).onHeal(event, event.getEntityLiving(), effect.getAmplifier());
 		});
 	}
 
@@ -111,7 +111,7 @@ public class BrewEvents {
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewAttack).forEach(effect -> {
 			if (event.isCanceled()) return;
-			((IBrewAttack) effect.getBrew()).onAttack(event, event.getSource(), event.getEntityLiving());
+			((IBrewAttack) effect.getBrew()).onAttack(event, event.getSource(), event.getEntityLiving(), effect.getAmplifier());
 		});
 	}
 
@@ -120,7 +120,7 @@ public class BrewEvents {
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewBlockDestroy).forEach(effect -> {
 			if (event.isCanceled()) return;
-			((IBrewBlockDestroy) effect.getBrew()).onBlockDestroy(event, event.getEntityLiving());
+			((IBrewBlockDestroy) effect.getBrew()).onBlockDestroy(event, event.getEntityLiving(), effect.getAmplifier());
 		});
 	}
 
@@ -129,7 +129,7 @@ public class BrewEvents {
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewDeath).forEach(effect -> {
 			if (event.isCanceled()) return;
-			((IBrewDeath) effect.getBrew()).onDeath(event, event.getSource(), event.getEntityLiving());
+			((IBrewDeath) effect.getBrew()).onDeath(event, event.getSource(), event.getEntityLiving(), effect.getAmplifier());
 		});
 	}
 }

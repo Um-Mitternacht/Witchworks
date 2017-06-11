@@ -18,7 +18,8 @@ public final class ModEntities {
 	public static void preInit() {
 		int id = 0;
 
-		EntityRegistry.registerModEntity(getResource("brew_throwable"), EntityBrew.class, "brew", id, WitchWorks.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(getResource("brew_throwable"), EntityBrew.class, "brew_throwable", id++, WitchWorks.instance, 64, 1, true);
+		EntityRegistry.registerModEntity(getResource("brew_linger"), EntityBrewLinger.class, "brew_linger", id, WitchWorks.instance, 64, 1, false);
 	}
 
 	private static ResourceLocation getResource(String name) {

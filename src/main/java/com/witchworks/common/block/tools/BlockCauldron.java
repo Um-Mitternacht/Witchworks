@@ -3,7 +3,7 @@ package com.witchworks.common.block.tools;
 import com.witchworks.api.item.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.tile.TileCauldron;
+import com.witchworks.common.tile.TileCauldron;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.ITileEntityProvider;

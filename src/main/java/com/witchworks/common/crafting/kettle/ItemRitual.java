@@ -3,7 +3,7 @@ package com.witchworks.common.crafting.kettle;
 import com.witchworks.api.ritual.IRitual;
 import com.witchworks.api.ritual.RitualHolder;
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.block.tile.TileCauldron;
+import com.witchworks.common.tile.TileCauldron;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
 import com.witchworks.common.core.net.PacketHandler;
 import net.minecraft.entity.item.EntityItem;

@@ -2,12 +2,13 @@ package com.witchworks.common.crafting.kettle;
 
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.KettleRegistry;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.api.recipe.BrewSimpleModifier;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.natural.fluid.Fluids;
+import com.witchworks.common.brew.ModBrews;
 import com.witchworks.common.item.ModItems;
-import com.witchworks.common.potions.BrewUtils;
-import com.witchworks.common.potions.ModBrews;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -58,19 +59,14 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(ModItems.SEED_KELP), 5)
 				, getStack(Items.WHEAT_SEEDS, 1), Blocks.WATERLILY);
 
-		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Items.STRING, 4), 2)
-				, getStack(ModItems.KENAF, 1));
-
 		KettleRegistry.registerKettleItemRitual(new ItemRitual(getStack(Items.GOLDEN_APPLE, 1, 1), 8)
 				, getStack(Blocks.GOLD_BLOCK, 8), Items.APPLE);
-
 		//Todo: Sapling recipes once we add our own (to make it easier to get them without exploring, in the event a player cannot find them),
 		//Todo: Also gemstone amalgam for usage as a crafting ingredient. Also, the easter egg recipe and its achievement.
 
 		//------------------------------------Brew Recipes------------------------------------//
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.WARWATER)
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0))
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
-
 
 		//Todo: More brews, obviously. Just need ideas, really.
 
@@ -101,7 +97,6 @@ public final class KettleCrafting {
 		KettleRegistry.addItemEffect(getStack(ModBlocks.COQUINA), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.MINT), BrewRegistry.getDefault(ModBrews.EXTINGUISH), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.WHITE_SAGE), BrewRegistry.getDefault(ModBrews.HOLY_WATER), false);
-		KettleRegistry.addItemEffect(getStack(Items.BLAZE_ROD), BrewRegistry.getDefault(ModBrews.INNER_FIRE), false);
 		KettleRegistry.addItemEffect(getStack(Blocks.WEB), BrewRegistry.getDefault(ModBrews.SPIDER_NIGHTMARE), false);
 		KettleRegistry.addItemEffect(getStack(Items.SNOWBALL), BrewRegistry.getDefault(ModBrews.FROSTBITE), false);
 

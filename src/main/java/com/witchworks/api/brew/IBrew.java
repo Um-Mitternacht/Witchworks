@@ -34,8 +34,6 @@ public interface IBrew {
 
 	String getDescription();
 
-	BrewRegistry.Brew getType();
-
 	@SideOnly(Side.CLIENT)
 	void renderHUD(int x, int y, net.minecraft.client.Minecraft mc);
 

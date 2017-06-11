@@ -33,13 +33,22 @@ public final class BrewStorageHandler {
 		return Optional.empty();
 	}
 
-	public static Collection<BrewEffect> getBrewEffects(EntityLivingBase entity) {
-		Optional<IBrewStorage> optional = getBrewStorage(entity);
-		if (optional.isPresent()) {
-			return optional.get().getBrews().values();
-		} else {
-			return Collections.emptyList();
+	@SuppressWarnings("ConstantConditions")
+	public static Map<IBrew, BrewEffect> getBrewMap(EntityLivingBase entity) {
+		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
+			IBrewStorage storage = entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
+			return storage.getBrews();
 		}
+		return Collections.emptyMap();
+	}
+
+	@SuppressWarnings("ConstantConditions")
+	public static Collection<BrewEffect> getBrewEffects(EntityLivingBase entity) {
+		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
+			IBrewStorage storage = entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
+			return storage.getBrews().values();
+		}
+		return Collections.emptyList();
 	}
 
 	/**
@@ -64,9 +73,11 @@ public final class BrewStorageHandler {
 		Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entity);
 		if (optional.isPresent()) {
 			Map<IBrew, BrewEffect> effectMap = optional.get().getBrews();
-			BrewEffect out = effectMap.get(effect.getBrew());
+			IBrew brew = effect.getBrew();
+			BrewEffect out = effectMap.get(brew);
 			if (out == null || effect.getDuration() > out.getDuration()) {
-				effectMap.put(effect.getBrew(), effect);
+				effectMap.put(brew, effect);
+				effect.start(entity);
 			}
 			optional.get().setBrews(effectMap);
 		}

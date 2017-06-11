@@ -11,5 +11,5 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
  */
 public interface IBrewHurt {
 
-	void onHurt(LivingHurtEvent event, DamageSource source, EntityLivingBase affected);
+	void onHurt(LivingHurtEvent event, DamageSource source, EntityLivingBase affected, int amplifier);
 }

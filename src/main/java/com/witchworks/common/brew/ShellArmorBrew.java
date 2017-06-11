@@ -1,6 +1,5 @@
-package com.witchworks.common.potions;
+package com.witchworks.common.brew;
 
-import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.IBrew;
 import com.witchworks.api.brew.IBrewHurt;
 import net.minecraft.client.Minecraft;
@@ -50,11 +49,6 @@ public class ShellArmorBrew implements IBrew, IBrewHurt {
 		return "brew.shell_armor.desc";
 	}
 
-	@Override
-	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.DRINK;
-	}
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
@@ -62,11 +56,12 @@ public class ShellArmorBrew implements IBrew, IBrewHurt {
 	}
 
 	@Override
-	public void onHurt(LivingHurtEvent event, DamageSource source, EntityLivingBase affected) {
+	public void onHurt(LivingHurtEvent event, DamageSource source, EntityLivingBase affected, int amplifier) {
 		Entity attacker = source.getSourceOfDamage();
-		if (attacker != null) {
+		int redo = 5 - amplifier;
+		if (attacker != null && (redo < 0 || attacker.world.rand.nextInt(redo) == 0)) {
 			float damage = event.getAmount();
-			attacker.attackEntityFrom(DamageSource.MAGIC, damage);
+			attacker.attackEntityFrom(DamageSource.causeThornsDamage(affected), damage);
 		}
 	}
 }

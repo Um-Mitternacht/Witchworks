@@ -11,5 +11,5 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
  */
 public interface IBrewDeath {
 
-	void onDeath(LivingDeathEvent event, DamageSource source, EntityLivingBase dying);
+	void onDeath(LivingDeathEvent event, DamageSource source, EntityLivingBase dying, int amplifier);
 }

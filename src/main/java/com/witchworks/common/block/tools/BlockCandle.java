@@ -1,7 +1,7 @@
 package com.witchworks.common.block.tools;
 
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.tile.TileCandle;
+import com.witchworks.common.tile.TileCandle;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;

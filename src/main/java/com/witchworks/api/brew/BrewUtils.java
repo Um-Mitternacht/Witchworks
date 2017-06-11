@@ -1,9 +1,7 @@
-package com.witchworks.common.potions;
+package com.witchworks.api.brew;
 
 import com.google.common.collect.Lists;
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.brew.BrewEffect;
-import com.witchworks.api.brew.IBrew;
 import com.witchworks.api.helper.RomanNumber;
 import com.witchworks.api.item.NBTHelper;
 import net.minecraft.client.resources.I18n;
@@ -79,17 +77,17 @@ public class BrewUtils {
 		return effects;
 	}
 
-	public static ItemStack createBrew(Item item, IBrew brew) {
-		ItemStack stack = new ItemStack(item);
-		addBrewEffect(stack, BrewRegistry.getDefault(brew));
+	public static ItemStack createBrew(BrewRegistry.Brew enu, IBrew brew) {
+		ItemStack stack = new ItemStack(enu.getItem());
+		addBrewEffect(stack, BrewRegistry.getDefault(enu, brew));
 		NBTHelper.setString(stack, BREW_NAME, brew.getName());
 		NBTHelper.setString(stack, BREW_DESC, brew.getDescription());
 		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
 		return stack;
 	}
 
-	public static ItemStack createBrew(Item item, BrewEffect... effects) {
-		ItemStack stack = new ItemStack(item);
+	public static ItemStack createBrew(BrewRegistry.Brew enu, BrewEffect... effects) {
+		ItemStack stack = new ItemStack(enu.getItem());
 		NBTTagList list = addBrewData(stack);
 		for (BrewEffect effect : effects) {
 			NBTTagCompound tag = new NBTTagCompound();
@@ -215,8 +213,7 @@ public class BrewUtils {
 		List<Tuple<String, AttributeModifier>> attributes = Lists.newArrayList();
 
 		if (list.isEmpty()) {
-			String empty = I18n.format("effect.none").trim();
-			tooltip.add(TextFormatting.GRAY + empty);
+			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "---");
 		} else {
 			for (PotionEffect effect : list) {
 				StringBuilder string = new StringBuilder();
@@ -264,10 +261,10 @@ public class BrewUtils {
 				}
 
 				if (amount > 0.0D) {
-					tooltip.add(TextFormatting.BLUE + I18n.format("attribute.modifier.plus." + modifier.getOperation(), ItemStack.DECIMALFORMAT.format(newAmount), I18n.format("attribute.name." + (String) tuple.getFirst())));
+					tooltip.add(TextFormatting.BLUE + I18n.format("attribute.modifier.plus." + modifier.getOperation(), ItemStack.DECIMALFORMAT.format(newAmount), I18n.format("attribute.name." + tuple.getFirst())));
 				} else if (amount < 0.0D) {
 					newAmount = newAmount * -1.0D;
-					tooltip.add(TextFormatting.RED + I18n.format("attribute.modifier.take." + modifier.getOperation(), ItemStack.DECIMALFORMAT.format(newAmount), I18n.format("attribute.name." + (String) tuple.getFirst())));
+					tooltip.add(TextFormatting.RED + I18n.format("attribute.modifier.take." + modifier.getOperation(), ItemStack.DECIMALFORMAT.format(newAmount), I18n.format("attribute.name." + tuple.getFirst())));
 				}
 			}
 		}

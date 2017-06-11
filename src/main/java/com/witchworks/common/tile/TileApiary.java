@@ -1,4 +1,4 @@
-package com.witchworks.common.block.tile;
+package com.witchworks.common.tile;
 
 import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.api.sound.WitchSoundEvents;

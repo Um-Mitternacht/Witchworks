@@ -10,5 +10,5 @@ import net.minecraftforge.event.entity.living.LivingDestroyBlockEvent;
  */
 public interface IBrewBlockDestroy {
 
-	void onBlockDestroy(LivingDestroyBlockEvent event, EntityLivingBase breaker);
+	void onBlockDestroy(LivingDestroyBlockEvent event, EntityLivingBase breaker, int amplifier);
 }

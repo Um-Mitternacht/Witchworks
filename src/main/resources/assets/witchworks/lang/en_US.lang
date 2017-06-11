@@ -215,13 +215,9 @@ tile.oilpress.name=Oilpress
 fluid.oil_mundane=Oil
 fluid.for.honey=Honey
 
-
-//Brews
+//Brew
 brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
-
-brew.fire_brew.name=Inner Fire Brew
-brew.fire_brew.desc=Spew forth your inner fire
 
 brew.spider_nightmare_brew.name=Spider Nightmare Brew
 brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
@@ -232,8 +228,8 @@ brew.frostbite_brew.desc=Encase your target in ice
 brew.extinguish_brew.name=Extinguish Brew
 brew.extinguish_brew.desc=Puts out any fires on you
 
-brew.warwater_brew.name=Water of Mars
-brew.warwater_brew.desc=Inflicts nasty debuffs on the target
+brew.mars_water_brew.name=Water of Mars
+brew.mars_water_brew.desc=Inflicts nasty debuffs on the target
 
 brew.holy_water_brew.name=Holy Water
 brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the living
@@ -241,6 +237,7 @@ brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the li
 brew.volatility_brew.name=Brew of Volatility
 brew.volatility_brew.desc=Makes you explode upon being hit
 
+//Sound
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
 witchworks.subtitle.chalk_scribble=Chalk scribbling
@@ -297,6 +294,7 @@ witch.tooltip.tulsi_description.name=A small herb considered sacred by some.
 item.tag_lock.empty=Empty Taglock
 
 tooltip.brew.data=Brew Data:
+tooltip.potion.data=Potion Data:
 
 tooltip.shift_for_info=<hold shift for details>
 

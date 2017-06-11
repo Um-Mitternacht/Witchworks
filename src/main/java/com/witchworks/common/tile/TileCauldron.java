@@ -1,8 +1,8 @@
-package com.witchworks.common.block.tile;
+package com.witchworks.common.tile;
 
 import com.witchworks.api.KettleRegistry;
-import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.helper.ItemNullHelper;
+import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
@@ -12,7 +12,7 @@ import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.item.ModItems;
-import com.witchworks.common.potions.BrewUtils;
+import com.witchworks.api.brew.BrewUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;

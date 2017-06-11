@@ -1,7 +1,7 @@
 package com.witchworks.client.render.tile;
 
 import com.witchworks.client.ResourceLocations;
-import com.witchworks.common.block.tile.TileCauldron;
+import com.witchworks.common.tile.TileCauldron;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;

@@ -1,6 +1,5 @@
-package com.witchworks.common.potions;
+package com.witchworks.common.brew;
 
-import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.IBrew;
 import com.witchworks.api.brew.IBrewEntityImpact;
 import net.minecraft.block.material.Material;
@@ -20,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class ExtinguishBrew implements IBrew, IBrewEntityImpact {
+public class ExtinguishBrew implements IBrew,IBrewEntityImpact {
 
 	public ExtinguishBrew() {
 		MinecraftForge.EVENT_BUS.register(this);
@@ -28,18 +27,18 @@ public class ExtinguishBrew implements IBrew, IBrewEntityImpact {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		//NO-OP
+	}
+
+	@Override
+	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
 		if (entity.isBurning())
 			entity.extinguish();
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		//NO-OP
-	}
-
-	@Override
 	public boolean isInstant() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -55,11 +54,6 @@ public class ExtinguishBrew implements IBrew, IBrewEntityImpact {
 	@Override
 	public String getDescription() {
 		return "brew.extinguish_brew.desc";
-	}
-
-	@Override
-	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.SPLASH;
 	}
 
 	@SideOnly(Side.CLIENT)

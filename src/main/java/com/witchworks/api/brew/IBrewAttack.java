@@ -11,5 +11,5 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
  */
 public interface IBrewAttack {
 
-	void onAttack(LivingAttackEvent event, DamageSource source, EntityLivingBase affected);
+	void onAttack(LivingAttackEvent event, DamageSource source, EntityLivingBase affected, int amplifier);
 }

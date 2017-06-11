@@ -1,10 +1,13 @@
-package com.witchworks.common.potions;
+package com.witchworks.common.brew;
 
-import com.witchworks.api.BrewRegistry;
+import com.witchworks.api.brew.BrewAtributeModifier;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,16 +18,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class InnerFireBrew implements IBrew {
+public class HolyWaterBrew extends BrewAtributeModifier {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (tick % 20 == 0) {
-			pos = pos.add(world.rand.nextInt(5), world.rand.nextInt(5), world.rand.nextInt(5));
-
-			if (world.getBlockState(pos).getBlock() == Blocks.AIR && world.getBlockState(pos.down()).getMaterial().getCanBurn()) {
-				world.setBlockState(pos, Blocks.FIRE.getDefaultState());
-			}
+		if (entity.isEntityUndead()) {
+			int damage = (int) (entity.getHealth() * (double) (6 << amplifier) + 0.5D);
+			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
 		}
 	}
 
@@ -40,27 +40,27 @@ public class InnerFireBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0xCC0000;
+		return 0x8DA399;
 	}
 
 	@Override
 	public String getName() {
-		return "brew.fire_brew.name";
+		return "brew.holy_water_brew.name";
 	}
 
 	@Override
 	public String getDescription() {
-		return "brew.fire_brew.desc";
-	}
-
-	@Override
-	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.DRINK;
+		return "brew.holy_water_brew.desc";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 1);
+		render(x, y, mc, 6);
+	}
+
+	@Override
+	protected void initAtributes() {
+		register(SharedMonsterAttributes.MOVEMENT_SPEED, "70c48882-4e42-11e7-b114-b2f933d5fe66", -0.15000000596046448D, 2);
 	}
 }

@@ -1,6 +1,5 @@
-package com.witchworks.common.potions;
+package com.witchworks.common.brew;
 
-import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
@@ -54,11 +53,6 @@ public class FrostbiteBrew implements IBrew {
 	@Override
 	public String getDescription() {
 		return "brew.frostbite_brew.desc";
-	}
-
-	@Override
-	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.SPLASH;
 	}
 
 	@SideOnly(Side.CLIENT)

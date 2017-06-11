@@ -1,4 +1,4 @@
-package com.witchworks.common.block.tile;
+package com.witchworks.common.tile;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;

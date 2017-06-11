@@ -3,7 +3,7 @@ package com.witchworks.common.block.tools;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.tile.TileApiary;
+import com.witchworks.common.tile.TileApiary;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibGui;
 import net.minecraft.block.ITileEntityProvider;

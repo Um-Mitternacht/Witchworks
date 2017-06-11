@@ -4,8 +4,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
 /**
  * This class was created by Arekkuusu on 23/04/2017.
  * It's distributed as part of Witchworks under
@@ -23,12 +21,19 @@ public class BrewEffect {
 		this.amplifier = amplifier;
 	}
 
-	public void update(World world, BlockPos pos, @Nullable EntityLivingBase entity) {
+	public void start(EntityLivingBase entity) {
+		if(brew instanceof BrewAtributeModifier)
+			((BrewAtributeModifier) brew).applyAttributeModifiers(entity.getAttributeMap(), amplifier);
+	}
+
+	public void update(World world, BlockPos pos, EntityLivingBase entity) {
 		brew.apply(world, pos, entity, amplifier, duration--);
 	}
 
-	public void end(World world, BlockPos pos, @Nullable EntityLivingBase entity) {
+	public void end(World world, BlockPos pos, EntityLivingBase entity) {
 		brew.onFinish(world, pos, entity, amplifier);
+		if(brew instanceof BrewAtributeModifier)
+			((BrewAtributeModifier) brew).removeAttributeModifiers(entity.getAttributeMap(), amplifier);
 	}
 
 	public IBrew getBrew() {

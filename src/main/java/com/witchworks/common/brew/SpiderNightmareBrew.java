@@ -1,9 +1,9 @@
-package com.witchworks.common.potions;
+package com.witchworks.common.brew;
 
-import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -24,6 +24,11 @@ public class SpiderNightmareBrew implements IBrew {
 
 	@Override
 	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
+		if(amplifier >= 3) {
+			EntityCaveSpider spider = new EntityCaveSpider(world);
+			spider.setPosition(pos.getX(), pos.getY(), pos.getZ());
+			world.spawnEntity(spider);
+		}
 		int box = 1 + amplifier;
 
 		BlockPos posI = pos.add(box, box, box);
@@ -54,11 +59,6 @@ public class SpiderNightmareBrew implements IBrew {
 	@Override
 	public String getDescription() {
 		return "brew.spider_nightmare_brew.desc";
-	}
-
-	@Override
-	public BrewRegistry.Brew getType() {
-		return BrewRegistry.Brew.SPLASH;
 	}
 
 	@SideOnly(Side.CLIENT)

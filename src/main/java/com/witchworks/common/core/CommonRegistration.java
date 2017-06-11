@@ -8,7 +8,7 @@ import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
-import com.witchworks.common.block.tile.ModTiles;
+import com.witchworks.common.tile.ModTiles;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.item.ModMaterials;

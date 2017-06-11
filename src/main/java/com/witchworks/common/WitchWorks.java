@@ -15,7 +15,7 @@ import com.witchworks.common.entity.ModEntities;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.item.food.seed.SeedDropRegistry;
 import com.witchworks.common.lib.LibMod;
-import com.witchworks.common.potions.ModBrews;
+import com.witchworks.common.brew.ModBrews;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
