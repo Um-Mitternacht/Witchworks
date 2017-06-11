@@ -43,12 +43,7 @@ public class VolatileBrew implements IBrew, IBrewAttack {
 
 	@Override
 	public String getName() {
-		return "brew.volatility_brew.name";
-	}
-
-	@Override
-	public String getDescription() {
-		return "brew.volatility_brew.desc";
+		return "brew.volatility_brew";
 	}
 
 	@SideOnly(Side.CLIENT)

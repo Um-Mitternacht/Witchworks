@@ -31,8 +31,6 @@ public interface IBrew {
 
 	String getName();
 
-	String getDescription();
-
 	@SideOnly(Side.CLIENT)
 	void renderHUD(int x, int y, net.minecraft.client.Minecraft mc);
 

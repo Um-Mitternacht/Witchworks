@@ -42,12 +42,7 @@ public class HolyWaterBrew extends BrewAtributeModifier {
 
 	@Override
 	public String getName() {
-		return "brew.holy_water_brew.name";
-	}
-
-	@Override
-	public String getDescription() {
-		return "brew.holy_water_brew.desc";
+		return "brew.holy_water_brew";
 	}
 
 	@SideOnly(Side.CLIENT)

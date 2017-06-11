@@ -80,8 +80,8 @@ public class BrewUtils {
 	public static ItemStack createBrew(BrewRegistry.Brew enu, IBrew brew) {
 		ItemStack stack = new ItemStack(enu.getItem());
 		addBrewEffect(stack, BrewRegistry.getDefault(enu, brew));
-		NBTHelper.setString(stack, BREW_NAME, brew.getName());
-		NBTHelper.setString(stack, BREW_DESC, brew.getDescription());
+		NBTHelper.setString(stack, BREW_NAME, brew.getName() + ".name");
+		NBTHelper.setString(stack, BREW_DESC, brew.getName() + ".desc");
 		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
 		return stack;
 	}
@@ -146,8 +146,8 @@ public class BrewUtils {
 	}
 
 	public static ItemStack addBrewInfo(ItemStack stack, IBrew brew) {
-		NBTHelper.setString(stack, BREW_NAME, brew.getName());
-		NBTHelper.setString(stack, BREW_DESC, brew.getDescription());
+		NBTHelper.setString(stack, BREW_NAME, brew.getName() + ".name");
+		NBTHelper.setString(stack, BREW_DESC, brew.getName() + ".desc");
 		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
 
 		return stack;
@@ -217,7 +217,7 @@ public class BrewUtils {
 		} else {
 			for (PotionEffect effect : list) {
 				StringBuilder string = new StringBuilder();
-				string.append(I18n.format(effect.getEffectName()).trim());
+				string.append(" - ").append(I18n.format(effect.getEffectName()).trim());
 				Potion potion = effect.getPotion();
 				Map<IAttribute, AttributeModifier> map = potion.getAttributeModifierMap();
 

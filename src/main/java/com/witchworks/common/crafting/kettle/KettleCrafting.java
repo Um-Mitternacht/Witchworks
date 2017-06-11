@@ -68,8 +68,6 @@ public final class KettleCrafting {
 		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0))
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
 
-		//Todo: More brews, obviously. Just need ideas, really.
-
 		//------------------------------------Custom Brew Creation------------------------------------//
 		//Todo: Continue once more effects are added, such as new brews, and what not. Also when I get around to making the ingredients and what not.
 		KettleRegistry.addItemEffect(getStack(ModItems.SALT), new PotionEffect(MobEffects.BLINDNESS, 500), false);

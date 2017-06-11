@@ -46,10 +46,13 @@ public class ItemBrew extends ItemMod {
 			List<BrewEffect> brewsFromStack = BrewUtils.getBrewsFromStack(stack);
 			for (BrewEffect effect : brewsFromStack) {
 				IBrew brew = effect.getBrew();
-				String info = " - " + TextFormatting.ITALIC + I18n.format(brew.getName()).replace(" Brew", "") + " ";
-				info += RomanNumber.getRoman(effect.getAmplifier() + 1) + " ";
-				info += "(" + StringUtils.ticksToElapsedTime(effect.getDuration()) + ")";
-				tooltip.add(TextFormatting.DARK_AQUA + info);
+				int amplifier = effect.getAmplifier();
+
+				String string = TextFormatting.ITALIC + " - " + I18n.format(brew.getName() + ".tooltip") + " " +
+						((amplifier <= 0) ? "" : (RomanNumber.getRoman(effect.getAmplifier()))) + " " +
+						"(" + StringUtils.ticksToElapsedTime(effect.getDuration()) + ")";
+
+				tooltip.add(TextFormatting.DARK_AQUA + string);
 			}
 			if (brewsFromStack.isEmpty()) {
 				tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "---");
@@ -65,7 +68,8 @@ public class ItemBrew extends ItemMod {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		if (NBTHelper.hasTag(stack, BrewUtils.BREW_NAME)) {
-			return new TextComponentTranslation(NBTHelper.getString(stack, BrewUtils.BREW_NAME)).getFormattedText();
+			TextComponentTranslation text = new TextComponentTranslation(NBTHelper.getString(stack, BrewUtils.BREW_NAME));
+			return text.getFormattedText();
 		}
 		return super.getItemStackDisplayName(stack);
 	}

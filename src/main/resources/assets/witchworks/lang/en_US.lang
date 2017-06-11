@@ -218,24 +218,31 @@ fluid.for.honey=Honey
 //Brew
 brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
+brew.shell_armor.tooltip=Shell Armor
 
 brew.spider_nightmare_brew.name=Spider Nightmare Brew
 brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
+brew.spider_nightmare_brew.tooltip=Spider Nightmare
 
 brew.frostbite_brew.name=Frostbite Brew
 brew.frostbite_brew.desc=Encase your target in ice
+brew.frostbite_brew.tooltip=Frostbite
 
 brew.extinguish_brew.name=Extinguish Brew
 brew.extinguish_brew.desc=Puts out any fires on you
+brew.extinguish_brew.tooltip=Extinguish
 
-brew.mars_water_brew.name=Water of Mars
+brew.mars_water_brew.name=Water of Mars Brew
 brew.mars_water_brew.desc=Inflicts nasty debuffs on the target
+brew.mars_water_brew.tooltip=Mars water
 
 brew.holy_water_brew.name=Holy Water
 brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the living
+brew.holy_water_brew.tooltip=Holy Water
 
 brew.volatility_brew.name=Brew of Volatility
 brew.volatility_brew.desc=Makes you explode upon being hit
+brew.volatility_brew.tooltip=Volatility
 
 //Sound
 witchworks.subtitle.boil=Kettle boiling

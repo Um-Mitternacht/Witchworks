@@ -53,12 +53,7 @@ public class SpiderNightmareBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.spider_nightmare_brew.name";
-	}
-
-	@Override
-	public String getDescription() {
-		return "brew.spider_nightmare_brew.desc";
+		return "brew.spider_nightmare_brew";
 	}
 
 	@SideOnly(Side.CLIENT)

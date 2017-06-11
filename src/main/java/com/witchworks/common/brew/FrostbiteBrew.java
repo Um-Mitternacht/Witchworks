@@ -47,12 +47,7 @@ public class FrostbiteBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.frostbite_brew.name";
-	}
-
-	@Override
-	public String getDescription() {
-		return "brew.frostbite_brew.desc";
+		return "brew.frostbite_brew";
 	}
 
 	@SideOnly(Side.CLIENT)

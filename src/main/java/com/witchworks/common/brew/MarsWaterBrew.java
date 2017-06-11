@@ -48,12 +48,7 @@ public class MarsWaterBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.mars_water_brew.name";
-	}
-
-	@Override
-	public String getDescription() {
-		return "brew.mars_water_brew.desc";
+		return "brew.mars_water_brew";
 	}
 
 	@SideOnly(Side.CLIENT)

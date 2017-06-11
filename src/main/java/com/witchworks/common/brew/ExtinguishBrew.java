@@ -48,12 +48,7 @@ public class ExtinguishBrew implements IBrew, IBrewEntityImpact {
 
 	@Override
 	public String getName() {
-		return "brew.extinguish_brew.name";
-	}
-
-	@Override
-	public String getDescription() {
-		return "brew.extinguish_brew.desc";
+		return "brew.extinguish_brew";
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -41,12 +41,7 @@ public class ShellArmorBrew implements IBrew, IBrewHurt {
 
 	@Override
 	public String getName() {
-		return "brew.shell_armor.name";
-	}
-
-	@Override
-	public String getDescription() {
-		return "brew.shell_armor.desc";
+		return "brew.shell_armor";
 	}
 
 	@SideOnly(Side.CLIENT)
