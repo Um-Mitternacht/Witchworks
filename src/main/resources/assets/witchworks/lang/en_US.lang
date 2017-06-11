@@ -234,7 +234,7 @@ brew.extinguish_brew.tooltip=Extinguish
 
 brew.mars_water_brew.name=Water of Mars Brew
 brew.mars_water_brew.desc=Inflicts nasty debuffs on the target
-brew.mars_water_brew.tooltip=Mars water
+brew.mars_water_brew.tooltip=Water of Mars
 
 brew.holy_water_brew.name=Holy Water
 brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the living
