@@ -200,7 +200,7 @@ public final class VanillaCrafting {
 
 		shaped().grid("WWW", "WHW", "WWW")
 				.map('W', "plankWood")
-				.map('H', ModItems.EMPTY_HONEYCOMB)
+				.map('H', Items.ITEM_FRAME)
 				.outputs(ModBlocks.APIARY)
 				.build();
 		shaped().grid("LML", "SSS", "WWW")
