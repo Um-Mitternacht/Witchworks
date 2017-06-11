@@ -1,7 +1,6 @@
 package com.witchworks.common.core.gen;
 
 import com.witchworks.common.block.ModBlocks;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.registry.GameRegistry;
