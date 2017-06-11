@@ -24,7 +24,7 @@ public class SpiderNightmareBrew implements IBrew {
 
 	@Override
 	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		if(amplifier >= 3) {
+		if (amplifier >= 3) {
 			EntityCaveSpider spider = new EntityCaveSpider(world);
 			spider.setPosition(pos.getX(), pos.getY(), pos.getZ());
 			world.spawnEntity(spider);

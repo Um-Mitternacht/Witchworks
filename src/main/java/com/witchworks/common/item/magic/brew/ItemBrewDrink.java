@@ -2,9 +2,9 @@ package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.lib.LibItemName;
-import com.witchworks.api.brew.BrewUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -80,8 +80,8 @@ public class ItemBrewDrink extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getDefaults().get(DRINK).forEach( (brew, brewEffect) ->
-			subItems.add(BrewUtils.createBrew(DRINK, brew))
+		BrewRegistry.getDefaults().get(DRINK).forEach((brew, brewEffect) ->
+				subItems.add(BrewUtils.createBrew(DRINK, brew))
 		);
 	}
 }

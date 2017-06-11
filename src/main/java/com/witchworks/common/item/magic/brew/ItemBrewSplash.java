@@ -1,9 +1,9 @@
 package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.BrewRegistry;
+import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.common.entity.EntityBrew;
 import com.witchworks.common.lib.LibItemName;
-import com.witchworks.api.brew.BrewUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -49,7 +49,7 @@ public class ItemBrewSplash extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getDefaults().get(SPLASH).forEach( (brew, brewEffect) ->
+		BrewRegistry.getDefaults().get(SPLASH).forEach((brew, brewEffect) ->
 				subItems.add(BrewUtils.createBrew(SPLASH, brew))
 		);
 	}

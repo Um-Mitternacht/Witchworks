@@ -1,6 +1,5 @@
 package com.witchworks.api.brew;
 
-import com.witchworks.api.BrewRegistry;
 import com.witchworks.client.ResourceLocations;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;

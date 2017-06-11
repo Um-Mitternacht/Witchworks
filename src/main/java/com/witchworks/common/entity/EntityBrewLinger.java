@@ -75,7 +75,7 @@ public class EntityBrewLinger extends Entity {
 	public void onUpdate() {
 		super.onUpdate();
 
-		if(!isDead) {
+		if (!isDead) {
 			float radius = getRadius();
 
 			if (world.isRemote) {
@@ -275,6 +275,10 @@ public class EntityBrewLinger extends Entity {
 		getDataManager().set(IGNORE_RADIUS, ignoreRadius);
 	}
 
+	public float getRadius() {
+		return getDataManager().get(RADIUS);
+	}
+
 	public void setRadius(float radiusIn) {
 		double d0 = posX;
 		double d1 = posY;
@@ -285,10 +289,6 @@ public class EntityBrewLinger extends Entity {
 		if (!world.isRemote) {
 			getDataManager().set(RADIUS, radiusIn);
 		}
-	}
-
-	public float getRadius() {
-		return getDataManager().get(RADIUS);
 	}
 
 	public boolean shouldIgnoreRadius() {
@@ -303,6 +303,10 @@ public class EntityBrewLinger extends Entity {
 		getDataManager().set(COLOR, colorIn);
 	}
 
+	public ItemStack getBrew() {
+		return stack;
+	}
+
 	public void setBrew(ItemStack stack) {
 		if (!stack.isEmpty() && BrewUtils.hasBrewData(stack)) {
 			tuple = BrewUtils.deSerialize(stack.getTagCompound());
@@ -311,15 +315,6 @@ public class EntityBrewLinger extends Entity {
 		}
 
 		this.stack = stack;
-	}
-
-	public ItemStack getBrew() {
-		return stack;
-	}
-
-	public void setOwner(@Nullable EntityLivingBase ownerIn) {
-		owner = ownerIn;
-		ownerUniqueId = ownerIn == null ? null : ownerIn.getUniqueID();
 	}
 
 	@Nullable
@@ -333,5 +328,10 @@ public class EntityBrewLinger extends Entity {
 		}
 
 		return owner;
+	}
+
+	public void setOwner(@Nullable EntityLivingBase ownerIn) {
+		owner = ownerIn;
+		ownerUniqueId = ownerIn == null ? null : ownerIn.getUniqueID();
 	}
 }

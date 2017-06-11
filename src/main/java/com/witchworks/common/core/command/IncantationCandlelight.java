@@ -1,8 +1,8 @@
 package com.witchworks.common.core.command;
 
-import com.witchworks.common.tile.TileCandle;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
 import com.witchworks.common.core.net.PacketHandler;
+import com.witchworks.common.tile.TileCandle;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;

@@ -39,7 +39,7 @@ public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 		this.minHeight = minHeight;
 		this.genChance = generationChance;
 		this.predicate = BlockMatcher.forBlock(surrounding);
-		if(biomes != null)
+		if (biomes != null)
 			Collections.addAll(this.biomes, biomes);
 	}
 

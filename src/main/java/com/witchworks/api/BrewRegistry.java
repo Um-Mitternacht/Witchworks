@@ -82,9 +82,9 @@ public final class BrewRegistry {
 	}
 
 	public enum Brew {
-		DRINK (ModItems.BREW_PHIAL_DRINK),
-		SPLASH (ModItems.BREW_PHIAL_SPLASH),
-		LINGER (ModItems.BREW_PHIAL_LINGER);
+		DRINK(ModItems.BREW_PHIAL_DRINK),
+		SPLASH(ModItems.BREW_PHIAL_SPLASH),
+		LINGER(ModItems.BREW_PHIAL_LINGER);
 
 		private final Item item;
 
@@ -92,12 +92,12 @@ public final class BrewRegistry {
 			this.item = item;
 		}
 
-		public Item getItem() {
-			return item;
-		}
-
 		public static Brew byOrdinal(int ordinal) {
 			return values()[ordinal];
+		}
+
+		public Item getItem() {
+			return item;
 		}
 	}
 }
