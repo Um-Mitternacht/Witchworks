@@ -11,6 +11,7 @@ public class SeedDropRegistry {
 
 	public static void init() {
 
+		//Todo: Add unique ways of getting some of the seeds (silphium from dungeons and strongholds, white sage from dead bushes)
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MANDRAKE), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_BELLADONNA), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_ACONITUM), 5);
@@ -22,5 +23,6 @@ public class SeedDropRegistry {
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_ASPHODEL), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_TULSI), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_KENAF), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_GARLIC), 5);
 	}
 }
