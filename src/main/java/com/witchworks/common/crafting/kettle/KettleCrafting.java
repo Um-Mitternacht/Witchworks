@@ -98,6 +98,7 @@ public final class KettleCrafting {
 		KettleRegistry.addItemEffect(getStack(Blocks.WEB), BrewRegistry.getDefault(ModBrews.SPIDER_NIGHTMARE), false);
 		KettleRegistry.addItemEffect(getStack(Items.SNOWBALL), BrewRegistry.getDefault(ModBrews.FROSTBITE), false);
 		KettleRegistry.addItemEffect(getStack(Blocks.TNT), BrewRegistry.getDefault(ModBrews.VOLATILE), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.ACONITUM), BrewRegistry.getDefault(ModBrews.WOLFSBANE), false);
 
 		KettleRegistry.addItemModifier(getStack(Items.QUARTZ), new BrewSimpleModifier(2400, 0), true);
 		KettleRegistry.addItemModifier(getStack(Items.REDSTONE), new BrewSimpleModifier(600, 0), true);

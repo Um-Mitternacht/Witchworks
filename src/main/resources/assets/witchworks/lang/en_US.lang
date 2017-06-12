@@ -244,6 +244,10 @@ brew.volatility_brew.name=Brew of Volatility
 brew.volatility_brew.desc=Makes you explode upon being hit
 brew.volatility_brew.tooltip=Volatility
 
+brew.wolfsbane_brew.name=Wolfsbane Brew
+brew.wolfsbane_brew.desc=Deals damage to wolves and therians
+brew.wolfsbane_brew.tooltip=Wolfsbane
+
 //Sound
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
