@@ -24,6 +24,7 @@ public final class ModBrews {
 	public static IBrew HOLY_WATER;
 	public static IBrew VOLATILE;
 	public static IBrew WOLFSBANE;
+	public static IBrew SINKING;
 
 	private ModBrews() {
 	}
@@ -55,5 +56,10 @@ public final class ModBrews {
 		WOLFSBANE = BrewRegistry.registerBrew(new WolfsbaneBrew());
 		BrewRegistry.addDefault(SPLASH, new BrewEffect(WOLFSBANE, 200, 0));
 		BrewRegistry.addDefault(LINGER, new BrewEffect(WOLFSBANE, 50, 0));
+
+		SINKING = BrewRegistry.registerBrew(new SinkingBrew());
+		BrewRegistry.addDefault(DRINK, new BrewEffect(SINKING, 1200, 0));
+		BrewRegistry.addDefault(SPLASH, new BrewEffect(SINKING, 500, 0));
+		BrewRegistry.addDefault(LINGER, new BrewEffect(SINKING, 1000, 0));
 	}
 }
