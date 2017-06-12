@@ -22,7 +22,7 @@ public class CursedLeapingBrew implements IBrew {
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		if (entity.motionY >= 0.0D)
 			entity.motionY -= -1.0D;
-		entity.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 1500, 2));
+		entity.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 1500, 0));
 	}
 
 
