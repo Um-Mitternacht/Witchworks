@@ -103,6 +103,7 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.EMPTY_HONEYCOMB),
 				new ItemMod(LibItemName.MORTAR_AND_PESTLE),
 				new ItemMod(LibItemName.UNREFINED_CHALK),
+				new ItemMod(LibItemName.POWDER_MOLDAVITE),
 				new ItemBrewDrink(),
 				new ItemBrewSplash(),
 				new ItemBrewLinger(),

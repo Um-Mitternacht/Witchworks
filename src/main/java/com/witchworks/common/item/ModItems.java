@@ -117,7 +117,7 @@ public final class ModItems {
 	public static final Item SEED_LAVENDER = new Item();
 
 
-	//Materials
+	//Materials and Ingredients
 	@ObjectHolder(LibItemName.WAX)
 	public static final Item WAX = new Item();
 	@ObjectHolder(LibItemName.SALT)
@@ -130,6 +130,8 @@ public final class ModItems {
 	public static final Item UNREFINED_CHALK = new Item();
 	@ObjectHolder(LibItemName.NEEDLE_BONE)
 	public static final Item NEEDLE_BONE = new Item();
+	@ObjectHolder(LibItemName.POWDER_MOLDAVITE)
+	public static final Item POWDER_MOLDAVITE = new Item();
 
 	//Misc
 	@ObjectHolder(LibItemName.BEE)
