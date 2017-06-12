@@ -20,8 +20,8 @@ public class SinkingBrew implements IBrew {
 	@Override
 	//Fixme: Why can't I sink? This is what I get for looking at Lycanites Mobs' source code on GitHub.
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (entity.motionY > -0.2)
-			entity.motionY -= -0.2;
+		if (entity.motionY > -0.5)
+			entity.motionY -= -0.5;
 	}
 
 
