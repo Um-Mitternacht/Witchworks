@@ -25,6 +25,7 @@ public final class ModBrews {
 	public static IBrew VOLATILE;
 	public static IBrew WOLFSBANE;
 	public static IBrew SINKING;
+	public static IBrew CURSED_LEAPING;
 
 	private ModBrews() {
 	}
@@ -61,5 +62,10 @@ public final class ModBrews {
 		BrewRegistry.addDefault(DRINK, new BrewEffect(SINKING, 1200, 0));
 		BrewRegistry.addDefault(SPLASH, new BrewEffect(SINKING, 500, 0));
 		BrewRegistry.addDefault(LINGER, new BrewEffect(SINKING, 1000, 0));
+
+		CURSED_LEAPING = BrewRegistry.registerBrew(new CursedLeapingBrew());
+		BrewRegistry.addDefault(DRINK, new BrewEffect(CURSED_LEAPING, 1200, 0));
+		BrewRegistry.addDefault(SPLASH, new BrewEffect(CURSED_LEAPING, 500, 0));
+		BrewRegistry.addDefault(LINGER, new BrewEffect(CURSED_LEAPING, 1000, 0));
 	}
 }

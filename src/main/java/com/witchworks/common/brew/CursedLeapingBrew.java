@@ -3,8 +3,8 @@ package com.witchworks.common.brew;
 import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.util.DamageSource;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,13 +15,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class SinkingBrew implements IBrew {
+public class CursedLeapingBrew implements IBrew {
 
 	@Override
-	//Fixme: Why can't I sink? This is what I get for looking at Lycanites Mobs' source code on GitHub.
+	//Note: Ascended glitch. This came as the result of trying to toy with operators for the brew of sinking.
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (entity.motionY > 0.0D)
+		if (entity.motionY >= 0.0D)
 			entity.motionY -= -1.0D;
+		entity.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 1500, 2));
 	}
 
 
@@ -37,18 +38,18 @@ public class SinkingBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0x333399;
+		return 0x4F7942;
 	}
 
 	@Override
 	public String getName() {
-		return "brew.sinking_brew";
+		return "brew.cursed_leaping_brew";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 9);
+		render(x, y, mc, 10);
 	}
 
 }
