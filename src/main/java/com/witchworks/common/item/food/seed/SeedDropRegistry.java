@@ -18,5 +18,10 @@ public class SeedDropRegistry {
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MINT), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_GINGER), 5);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_WORMWOOD), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_LAVENDER), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_ASPHODEL), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MINT), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_TULSI), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_KENAF), 5);
 	}
 }
