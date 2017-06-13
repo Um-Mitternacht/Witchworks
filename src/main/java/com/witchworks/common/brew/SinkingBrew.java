@@ -18,10 +18,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class SinkingBrew implements IBrew {
 
 	@Override
-	//Fixme: Why can't I sink? This is what I get for looking at Lycanites Mobs' source code on GitHub.
+	//Todo: Test.
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (entity.motionY > 0.0D)
-			entity.motionY -= -1.0D;
+		if (entity.motionY >= 0)
+			entity.motionY *= -1;
 	}
 
 
