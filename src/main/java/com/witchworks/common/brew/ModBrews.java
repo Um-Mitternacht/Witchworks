@@ -42,6 +42,7 @@ public final class ModBrews {
 		BrewRegistry.addDefault(SPLASH, new BrewEffect(EXTINGUISH, 0, 0));
 
 		MARS_WATER = BrewRegistry.registerBrew(new MarsWaterBrew());
+		BrewRegistry.addDefault(SPLASH, new BrewEffect(MARS_WATER, 1500, 0));
 
 		FROSTBITE = BrewRegistry.registerBrew(new FrostbiteBrew());
 		BrewRegistry.addDefault(SPLASH, new BrewEffect(FROSTBITE, 500, 0));
