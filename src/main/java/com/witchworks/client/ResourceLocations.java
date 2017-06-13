@@ -18,13 +18,13 @@ public final class ResourceLocations {
 	public static final ResourceLocation BREW_TEXTURES = getLocation("textures/gui/brews.png");
 	public static final ResourceLocation APIARY_GUI = getLocation("textures/gui/apiary.png");
 	public static final ResourceLocation ENERGY = getLocation("textures/gui/energy.png");
-	public static final ResourceLocation[] ENERGY_BACKGROUND = new ResourceLocation[] {
+	public static final ResourceLocation[] ENERGY_BACKGROUND = new ResourceLocation[]{
 			getLocation("textures/gui/energy_dark.png"),
 			getLocation("textures/gui/energy_white.png"),
 	};
 
 	//Particles
-	public static final ResourceLocation CAULDRON_BUBBLE = getLocation("particle/cauldron_bubble");
+	public static final ResourceLocation BUBBLE = getLocation("textures/particle/bubble.png");
 	public static final ResourceLocation STEAM = getLocation("particle/steam");
 	public static final ResourceLocation BEE = getLocation("particle/bee");
 

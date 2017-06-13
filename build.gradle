@@ -9,10 +9,14 @@ buildscript {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
+        maven {
+            name = "gradle"
+            url "https://plugins.gradle.org/m2/"
+        }		
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-        classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.7'
     }
 }
 
@@ -82,7 +86,7 @@ repositories {
 
 dependencies {
     deobfCompile "mcp.mobius.waila:Hwyla:${hwyla_version}"
-    compile 'com.github.azanor:baubles:1.10.2-SNAPSHOT'
+    compile "com.github.azanor:baubles:-SNAPSHOT"
     compile "net.ilexiconn:llibrary:${llibrary_version}:dev"
     deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"

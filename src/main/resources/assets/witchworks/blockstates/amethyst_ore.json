@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:amethyst_ore"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:amethyst_ore"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:amethyst_ore"
+      }
+    ]
   }
 }

@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:malachite_ore"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:malachite_ore"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:malachite_ore"
+      }
+    ]
   }
 }

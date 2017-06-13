@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:alexandrite_ore"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:alexandrite_ore"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:alexandrite_ore"
+      }
+    ]
   }
 }

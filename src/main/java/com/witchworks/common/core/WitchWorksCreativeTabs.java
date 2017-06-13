@@ -8,10 +8,9 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
@@ -29,7 +28,7 @@ public final class WitchWorksCreativeTabs {
 
 	private static class CreativeTab extends CreativeTabs {
 
-		List<ItemStack> list;
+		NonNullList<ItemStack> list;
 
 		CreativeTab(String name) {
 			super(LibMod.MOD_ID + name);
@@ -37,17 +36,17 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly (Side.CLIENT)
-		public Item getTabIconItem() {
-			return getIconItemStack().getItem();
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return getIconItemStack();
 		}
 
-		@SideOnly (Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		void addItem(Item item) {
 			item.getSubItems(item, this, list);
 		}
 
-		@SideOnly (Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		void addBlock(Block block) {
 			final ItemStack stack = new ItemStack(block);
 			block.getSubBlocks(stack.getItem(), this, list);
@@ -62,9 +61,9 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly (Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModItems.MANDRAKE_ROOT);
+			return new ItemStack(ModItems.MANDRAKE);
 		}
 
 		@Override
@@ -73,8 +72,8 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly (Side.CLIENT)
-		public void displayAllRelevantItems(List<ItemStack> list) {
+		@SideOnly(Side.CLIENT)
+		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
@@ -89,7 +88,7 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly (Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
 			return new ItemStack(ModItems.TOURMALINE);
 		}
@@ -100,28 +99,25 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly (Side.CLIENT)
-		public void displayAllRelevantItems(List<ItemStack> list) {
+		@SideOnly(Side.CLIENT)
+		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
 			addItem(ModItems.GARNET);
 			addItem(ModItems.NUUMMITE);
 			addItem(ModItems.MOLDAVITE);
-			addItem(ModItems.PETOSKEY_STONE);
-			addItem(ModItems.SERPENTINE);
 			addItem(ModItems.TOURMALINE);
 			addItem(ModItems.TIGERS_EYE);
 			addItem(ModItems.BLOODSTONE);
 			addItem(ModItems.JASPER);
 			addItem(ModItems.MALACHITE);
 			addItem(ModItems.AMETHYST);
-			addItem(ModItems.GEMSTONE_AMALGAM);
 			addItem(ModItems.ALEXANDRITE);
-			addItem(ModItems.QUARTZ);
+			addItem(ModItems.GEMSTONE_AMALGAM);
 			addItem(ModItems.BEE);
 			addItem(ModItems.HONEYCOMB);
 			addItem(ModItems.EMPTY_HONEYCOMB);
 			addItem(ModItems.GLASS_JAR);
-			addItem(ModItems.HONEY_ITEM);
+			addItem(ModItems.HONEY);
 			addItem(ModItems.WAX);
 			addItem(ModItems.MORTAR_AND_PESTLE);
 			addItem(ModItems.SALT);
@@ -137,18 +133,18 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.SILVER_CHESTPLATE);
 			addItem(ModItems.SILVER_LEGGINGS);
 			addItem(ModItems.SILVER_BOOTS);
-			addItem(ModItems.RING);
-			addItem(ModItems.BELT);
-			addItem(ModItems.AMULET);
-			addItem(ModItems.SHIRT);
-			addItem(ModItems.CROWN);
 			addItem(ModItems.SHADOW_BOOK);
 			addItem(ModItems.DUSTY_GRIMOIRE);
 			addItem(ModItems.BREW_PHIAL_DRINK);
+			addItem(ModItems.BREW_PHIAL_SPLASH);
+			addItem(ModItems.BREW_PHIAL_LINGER);
 			addItem(ModItems.CHALK_ITEM);
-			addItem(ModItems.TRINKET);
-			addItem(ModItems.CHARM);
-			addItem(ModItems.WAND);
+			addItem(ModItems.BOLINE);
+			addItem(ModItems.ATHAME);
+			addItem(ModItems.TAGLOCK);
+			addItem(ModItems.UNREFINED_CHALK);
+			addItem(ModItems.NEEDLE_BONE);
+			addItem(ModItems.POWDER_MOLDAVITE);
 		}
 	}
 
@@ -160,7 +156,7 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly (Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
 			return new ItemStack(ModBlocks.KETTLE);
 		}
@@ -171,8 +167,8 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@Override
-		@SideOnly (Side.CLIENT)
-		public void displayAllRelevantItems(List<ItemStack> list) {
+		@SideOnly(Side.CLIENT)
+		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
 			addBlock(ModBlocks.KETTLE);
 			addBlock(ModBlocks.BEEHIVE);
@@ -188,11 +184,8 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.MALACHITE_ORE);
 			addBlock(ModBlocks.JASPER_ORE);
 			addBlock(ModBlocks.TIGERS_EYE_ORE);
-			addBlock(ModBlocks.SERPENTINE_ORE);
 			addBlock(ModBlocks.NUUMMITE_ORE);
 			addBlock(ModBlocks.GARNET_ORE);
-			addBlock(ModBlocks.QUARTZ_ORE);
-			addBlock(ModBlocks.PETOSKEY_ORE);
 			addBlock(ModBlocks.MOLDAVITE_BLOCK);
 			addBlock(ModBlocks.BLOODSTONE_BLOCK);
 			addBlock(ModBlocks.TOURMALINE_BLOCK);
@@ -203,7 +196,6 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.CANDLE_MEDIUM);
 			addBlock(ModBlocks.CANDLE_SMALL);
 			addBlock(ModBlocks.CHALK);
-			addBlock(ModBlocks.OILPRESS);
 		}
 	}
 }

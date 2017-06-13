@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:moldavite_ore"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:moldavite_ore"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:moldavite_ore"
+      }
+    ]
   }
 }

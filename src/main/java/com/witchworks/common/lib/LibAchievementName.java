@@ -7,5 +7,5 @@ package com.witchworks.common.lib;
  */
 public final class LibAchievementName {
 
-	public static final String MALACHITE_CRAFT = "craftMalachite";
+	public static final String CRAFT_MALACHITE = "craftMalachite";
 }

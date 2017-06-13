@@ -6,12 +6,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class TextureStitch {
 
 	@SubscribeEvent
 	public void stitchEventPre(TextureStitchEvent.Pre event) {
-		event.getMap().registerSprite(ResourceLocations.CAULDRON_BUBBLE);
 		event.getMap().registerSprite(ResourceLocations.STEAM);
 		event.getMap().registerSprite(ResourceLocations.BEE);
 		event.getMap().registerSprite(ResourceLocations.GRAY_WATER);

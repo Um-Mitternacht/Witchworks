@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:nethersteel"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:nethersteel"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:nethersteel"
+      }
+    ]
   }
 }

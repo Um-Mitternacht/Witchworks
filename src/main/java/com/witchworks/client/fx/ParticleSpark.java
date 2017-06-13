@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 class ParticleSpark extends Particle {
 
 	private float oSize;
@@ -24,16 +24,16 @@ class ParticleSpark extends Particle {
 		this.motionX *= 0.10000000149011612D;
 		this.motionY *= 0.10000000149011612D;
 		this.motionZ *= 0.10000000149011612D;
-		this.motionX += rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
-		this.motionY += rand.nextFloat() * 0.25D;
-		this.motionZ += rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
+		this.motionX += (rand.nextBoolean() ? 0.1D : -0.1D) + rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
+		this.motionY += rand.nextFloat() * 0.4D;
+		this.motionZ += (rand.nextBoolean() ? 0.1D : -0.1D) + rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
 		float r = world.rand.nextFloat() / 2f + 0.5F;
 		float g = world.rand.nextFloat() / 2f + 0.5F;
 		float b = world.rand.nextFloat() / 2f + 0.5F;
 		setRBGColorF(r, g, b);
 		this.particleScale *= 0.25F;
 		this.oSize = this.particleScale;
-		this.particleMaxAge = (int) (6.0D / (Math.random() * 0.8D + 0.6D));
+		this.particleMaxAge = (int) (6.0D / (Math.random() * 0.8D + 0.05D));
 		this.setParticleTextureIndex(65);
 	}
 
@@ -58,17 +58,17 @@ class ParticleSpark extends Particle {
 		this.particleGreen = (float) ((double) this.particleGreen * 0.96D);
 		this.particleBlue = (float) ((double) this.particleBlue * 0.9D);
 		this.motionX *= 0.699999988079071D;
-		this.motionY *= 0.699999988079071D;
+		this.motionY *= 0.599999988079071D;
 		this.motionZ *= 0.699999988079071D;
 		this.motionY -= 0.019999999552965164D;
 
-		if (this.isCollided) {
+		if (this.onGround) {
 			this.motionX *= 0.699999988079071D;
 			this.motionZ *= 0.699999988079071D;
 		}
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	static class Factory implements IParticleF {
 		public Particle createParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... args) {
 			return new ParticleSpark(worldIn, xCoordIn, yCoordIn, zCoordIn);

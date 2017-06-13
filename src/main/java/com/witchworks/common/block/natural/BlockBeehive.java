@@ -6,14 +6,16 @@ import com.witchworks.client.fx.ParticleF;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
+import com.witchworks.common.item.ModItems;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -42,7 +44,7 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		setHardness(1F);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(10) == 0) {
@@ -53,13 +55,18 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		}
 	}
 
-	@SuppressWarnings ("deprecation")
+	//Todo: Tweak this more.
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return ModItems.BEE;
+	}
+
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return BOX;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		final EnumFacing facing = EnumFacing.getHorizontal(meta);
@@ -73,7 +80,7 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw).getOpposite();
 		return this.getDefaultState().withProperty(FACING, enumfacing);
 	}
@@ -83,20 +90,20 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		return new BlockStateContainer(this, FACING);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		ModelHandler.registerBlock(this);
 	}

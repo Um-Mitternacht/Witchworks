@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:quartz_ore"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:quartz_ore"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:quartz_ore"
+      }
+    ]
   }
 }

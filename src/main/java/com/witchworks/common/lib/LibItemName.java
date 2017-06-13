@@ -22,8 +22,8 @@ public final class LibItemName {
 	public static final String SEED_MINT = "seed_mint";
 	public static final String WHITE_SAGE = "white_sage";
 	public static final String SEED_WHITE_SAGE = "seed_white_sage";
-	public static final String MANDRAKE_ROOT = "mandrake_root";
-	public static final String SEED_MANDRAKE_ROOT = "seed_mandrake_root";
+	public static final String MANDRAKE = "mandrake_root";
+	public static final String SEED_MANDRAKE = "seed_mandrake";
 	public static final String LAVENDER = "lavender";
 	public static final String SEED_LAVENDER = "seed_lavender";
 	public static final String SILPHIUM = "silphium";
@@ -43,8 +43,6 @@ public final class LibItemName {
 	public static final String GARNET = "garnet";
 	public static final String MOLDAVITE = "moldavite";
 	public static final String NUUMMITE = "nuummite";
-	public static final String PETOSKEY_STONE = "petoskey_stone";
-	public static final String SERPENTINE = "serpentine";
 	public static final String TIGERS_EYE = "tigers_eye";
 	public static final String TOURMALINE = "tourmaline";
 	public static final String BLOODSTONE = "bloodstone";
@@ -52,7 +50,6 @@ public final class LibItemName {
 	public static final String MALACHITE = "malachite";
 	public static final String AMETHYST = "amethyst";
 	public static final String ALEXANDRITE = "alexandrite";
-	public static final String QUARTZ = "quartz";
 	public static final String GEMSTONE_AMALGAM = "gemstone_amalgam";
 
 	//Metals
@@ -61,15 +58,15 @@ public final class LibItemName {
 	public static final String SILVER_INGOT = "silver_ingot";
 
 	//Food Items
-	public static final String HONEY_ITEM = "honey_item";
+	public static final String HONEY = "honey";
 
-	//Ingredients
+	//Ingredients and Materials
 	public static final String WAX = "wax";
 	public static final String SALT = "salt";
 	public static final String BEE = "bee";
 	public static final String HONEYCOMB = "honeycomb";
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
-	public static final String LAVENDER_OIL = "lavender_oil";
+	public static final String POWDER_MOLDAVITE = "powder_moldavite";
 
 	//Tools
 	public static final String SILVER_PICKAXE = "silver_pickaxe";
@@ -80,6 +77,9 @@ public final class LibItemName {
 	public static final String MORTAR_AND_PESTLE = "mortar_and_pestle";
 	public static final String CHALK_ITEM = "chalk_item";
 	public static final String WAND = "wand";
+	public static final String ATHAME = "athame";
+	public static final String BOLINE = "boline";
+	public static final String TAGLOCK = "taglock";
 
 	//Equipment
 	public static final String SILVER_HELMET = "silver_helmet";
@@ -96,18 +96,12 @@ public final class LibItemName {
 	public static final String BREW_PHIAL_SPLASH = "brew_phial_splash";
 	public static final String BREW_PHIAL_LINGER = "brew_phial_linger";
 	public static final String GLASS_JAR = "glass_jar";
-
-	//Baubles
-	public static final String RING = "ring";
-	public static final String BELT = "belt";
-	public static final String CHARM = "charm";
-	public static final String TRINKET = "trinket";
-	public static final String AMULET = "amulet";
-	public static final String CROWN = "crown";
-	public static final String SHIRT = "shirt";
+	public static final String UNREFINED_CHALK = "unrefined_chalk";
+	public static final String NEEDLE_BONE = "needle_bone";
 
 	//Materials
 	public static final String SILVER = "silver";
+	public static final String RITUAL = "ritual";
 
 	private LibItemName() {
 	}

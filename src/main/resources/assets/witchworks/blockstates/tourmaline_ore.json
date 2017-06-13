@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:tourmaline_ore"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:tourmaline_ore"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:tourmaline_ore"
+      }
+    ]
   }
 }

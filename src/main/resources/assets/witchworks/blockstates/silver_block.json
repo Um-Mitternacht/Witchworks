@@ -1,14 +1,9 @@
 {
   "variants": {
-	"normal": [
-	  {
-		"model": "witchworks:silver_block"
-	  }
-	],
-	"inventory": [
-	  {
-		"model": "witchworks:silver_block"
-	  }
-	]
+    "normal": [
+      {
+        "model": "witchworks:silver_block"
+      }
+    ]
   }
 }

@@ -3,9 +3,9 @@ package com.witchworks.common.block.tools;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.tile.TileApiary;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibGui;
+import com.witchworks.common.tile.TileApiary;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -25,7 +25,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
 import static net.minecraft.block.BlockHorizontal.FACING;
@@ -48,12 +47,13 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
 			final TileEntity tile = worldIn.getTileEntity(pos);
 			if (tile == null || !(tile instanceof TileApiary)) return false;
 
-			if (heldItem != null && heldItem.getItem() == Items.NAME_TAG) {
+			ItemStack heldItem = playerIn.getHeldItem(hand);
+			if (!heldItem.isEmpty() && heldItem.getItem() == Items.NAME_TAG) {
 				((TileApiary) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
 				playerIn.openGui(WitchWorks.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());
@@ -71,7 +71,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		worldIn.removeTileEntity(pos);
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(5) == 0) {
@@ -79,13 +79,13 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		}
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return BOX;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		final EnumFacing facing = EnumFacing.getHorizontal(meta);
@@ -99,7 +99,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, ItemStack stack) {
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw).getOpposite();
 		return this.getDefaultState().withProperty(FACING, enumfacing);
 	}
@@ -109,13 +109,13 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 		return new BlockStateContainer(this, FACING);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;

@@ -1,6 +1,6 @@
 package com.witchworks.client.core.event;
 
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.IBrew;
 import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.core.capability.potion.IBrewStorage;
 import net.minecraft.client.Minecraft;
@@ -22,7 +22,7 @@ import static com.witchworks.common.core.handler.ConfigHandler.HUD.BREW_HUD;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class BrewHUD {
 
 	@SubscribeEvent

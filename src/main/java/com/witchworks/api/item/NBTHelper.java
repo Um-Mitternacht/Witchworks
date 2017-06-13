@@ -1,6 +1,7 @@
 package com.witchworks.api.item;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.UUID;
@@ -10,7 +11,7 @@ import java.util.UUID;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings ("unused")
+@SuppressWarnings("unused")
 public final class NBTHelper {
 
 	private NBTHelper() {
@@ -40,6 +41,10 @@ public final class NBTHelper {
 		fixNBT(stack).setUniqueId(tag, i);
 	}
 
+	public static <T extends NBTBase> void setNBT(ItemStack stack, String tag, T base) {
+		fixNBT(stack).setTag(tag, base);
+	}
+
 	public static byte getByte(ItemStack stack, String tag) {
 		return fixNBT(stack).getByte(tag);
 	}
@@ -64,12 +69,29 @@ public final class NBTHelper {
 		return fixNBT(stack).getUniqueId(tag);
 	}
 
+	@SuppressWarnings("unchecked")
+	public static <T extends NBTBase> T getNBT(ItemStack stack, String tag) {
+		return (T) fixNBT(stack).getTag(tag);
+	}
+
+	public static boolean hasTag(ItemStack stack, String tag, int type) {
+		NBTTagCompound tagCompound = stack.getTagCompound();
+		return tagCompound != null && tagCompound.hasKey(tag, type);
+	}
+
 	public static boolean hasTag(ItemStack stack, String tag) {
 		NBTTagCompound tagCompound = stack.getTagCompound();
 		return tagCompound != null && tagCompound.hasKey(tag);
 	}
 
-	private static NBTTagCompound fixNBT(ItemStack stack) {
+	public static void removeTag(ItemStack stack, String tag) {
+		NBTTagCompound tagCompound = stack.getTagCompound();
+		if (tagCompound != null && tagCompound.hasKey(tag)) {
+			tagCompound.removeTag(tag);
+		}
+	}
+
+	public static NBTTagCompound fixNBT(ItemStack stack) {
 		NBTTagCompound tagCompound = stack.getTagCompound();
 		if (tagCompound == null) {
 			tagCompound = new NBTTagCompound();

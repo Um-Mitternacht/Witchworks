@@ -24,7 +24,7 @@ public interface IOreMatchRecipe {
 	default List<ItemStack> getUsedItems(ItemStack[] stacks) {
 		final List<ItemStack> used = new ArrayList<>();
 		for (final ItemStack stack : stacks) {
-			if (stack == null) {
+			if (stack.isEmpty()) {
 				break;
 			}
 			used.add(stack);

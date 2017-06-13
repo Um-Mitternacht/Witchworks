@@ -24,23 +24,23 @@ public abstract class ItemBauble extends ItemMod implements IBauble {
 		setMaxStackSize(1);
 	}
 
-	@SuppressWarnings ("deprecation")
+	@SuppressWarnings("deprecation")
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
-		ItemStack toEquip = stack.copy();
-		toEquip.stackSize = 1;
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack toEquip = player.getHeldItem(hand).copy();
+		toEquip.setCount(1);
 		if (canEquip(toEquip, player)) {
 			IInventory baubles = BaublesApi.getBaubles(player);
 			for (int i = 0; i < baubles.getSizeInventory(); i++) {
 				if (baubles.isItemValidForSlot(i, toEquip)) {
 					ItemStack stackInSlot = baubles.getStackInSlot(i);
-					if (stackInSlot == null || ((IBauble) stackInSlot.getItem()).canUnequip(stackInSlot, player)) {
+					if (stackInSlot.isEmpty() || ((IBauble) stackInSlot.getItem()).canUnequip(stackInSlot, player)) {
 						if (!world.isRemote) {
 							baubles.setInventorySlotContents(i, toEquip);
-							stack.stackSize--;
+							stackInSlot.shrink(1);
 						}
 
-						if (stackInSlot != null) {
+						if (!stackInSlot.isEmpty()) {
 							((IBauble) stackInSlot.getItem()).onUnequipped(stackInSlot, player);
 							return ActionResult.newResult(EnumActionResult.SUCCESS, stackInSlot.copy());
 						}
@@ -49,7 +49,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble {
 				}
 			}
 		}
-		return ActionResult.newResult(EnumActionResult.PASS, stack);
+		return ActionResult.newResult(EnumActionResult.PASS, player.getHeldItem(hand));
 	}
 
 	@Override

@@ -8,26 +8,31 @@ container.apiary=Apiary
 
 ////Names
 //Items
-item.seed_aconitum.name=Aconitum Seed
-item.seed_asphodel.name=Asphodel Seed
-item.seed_belladonna.name=Belladonna Seed
-item.seed_ginger.name=Ginger Root
-item.seed_kelp.name=Kelp Spore
-item.seed_mint.name=Mint Seed
-item.seed_white_sage.name=White Sage Seed
-item.seed_dandelion_root.name=Dandelion root
-item.seed_rose.name=Rose Seed
-item.seed_poppy.name=Poppy Seed
-item.seed_allium.name=Allium Seed
-item.seed_mandrake_root.name=Mandrake Seed
-item.seed_oxeye_daisy.name=Oxeye Daisy Seed
-item.seed_sunflower.name=Sunflower Seed
-item.seed_lilac.name=Lilac Seed
-item.seed_peony.name=Peony Seed
-item.seed_lavender.name=Lavender Seed
-item.seed_thistle.name=Thistle Seed
-item.seed_silphium.name=Silphium Seed
+item.seed_aconitum.name=Aconitum Seeds
+item.seed_asphodel.name=Asphodel Seeds
+item.seed_belladonna.name=Belladonna Seeds
+item.seed_ginger.name=Ginger Seeds
+item.seed_kelp.name=Kelp Spores
+item.seed_mint.name=Mint Seeds
+item.seed_white_sage.name=White Sage Seeds
+item.seed_dandelion_root.name=Dandelion roots
+item.seed_rose.name=Rose Seeds
+item.seed_poppy.name=Poppy Seeds
+item.seed_allium.name=Allium Seeds
+item.seed_mandrake.name=Mandrake Seeds
+item.seed_oxeye_daisy.name=Oxeye Daisy Seeds
+item.seed_sunflower.name=Sunflower Seeds
+item.seed_lilac.name=Lilac Seeds
+item.seed_peony.name=Peony Seeds
+item.seed_lavender.name=Lavender Seeds
+item.seed_thistle.name=Thistle Seeds
+item.seed_silphium.name=Silphium Seeds
+item.seed_tulsi.name=Tulsi Seeds
+item.seed_garlic.name=Garlic Seeds
+item.seed_kenaf.name=Kenaf Seeds
+item.seed_wormwood.name=Wormwood Seeds
 
+//Crops
 item.aconitum.name=Aconitum
 item.asphodel.name=Asphodel
 item.belladonna.name=Belladonna
@@ -39,7 +44,7 @@ item.dandelion_root.name=Dandelion
 item.rose.name=Rose
 item.poppy.name=Poppy
 item.allium.name=Allium
-item.mandrake_root.name=Mandrake root
+item.mandrake_root.name=Mandrake Root
 item.oxeye_daisy.name=Oxeye Daisy
 item.sunflower.name=Sunflower
 item.lilac.name=Lilac
@@ -47,7 +52,12 @@ item.lavender.name=Lavender
 item.peony.name=Peony
 item.thistle.name=Thistle
 item.silphium.name=Silphium
+item.wormwood.name=Wormwood
+item.kenaf.name=Kenaf
+item.garlic.name=Garlic
+item.tulsi.name=Tulsi
 
+//Gemstones
 item.garnet.name=Garnet
 item.moldavite.name=Moldavite
 item.nuummite.name=Nuummite
@@ -61,13 +71,14 @@ item.malachite.name=Malachite
 item.amethyst.name=Amethyst
 item.alexandrite.name=Alexandrite
 item.quartz.name=Quartz
+item.gemstone_amalgam.name=Gemstone Amalgam
 
+//Resources and Tools
 item.wax.name=Wax
-item.honey_item.name=Honey
+item.honey.name=Honey
 item.honeycomb.name=Honeycomb
 item.empty_honeycomb.name=Empty Honeycomb
 item.glass_jar.name=Glass Jar
-item.lavender_oil.name=Lavender Oil
 item.bee.name=Bee
 item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
@@ -82,8 +93,17 @@ item.silver_helmet.name=Silver Helmet
 item.silver_chestplate.name=Silver Chestplate
 item.silver_leggings.name=Silver Leggings
 item.silver_boots.name=Silver Boots
+item.athame.name=Athame
+item.boline.name=Boline
 item.mortar_and_pestle.name=Mortar and Pestle
 item.brew_phial.name=Brew Phial
+item.taglock.name=Taglock Kit
+item.chalk_item.name=Mundane Chalk
+item.wand.name=Wand
+item.needle_bone.name=Bone Needle
+item.unrefined_chalk.name=Unrefined Chalk
+item.brew_phial_drink.name=Brew Phial
+item.powder_moldavite.name=Powdered Moldavite
 
 //Blocks
 tile.candle_small.white.name=Small White Candle
@@ -94,7 +114,7 @@ tile.candle_small.yellow.name=Small Yellow Candle
 tile.candle_small.lime.name=Small Lime Candle
 tile.candle_small.pink.name=Small Pink Candle
 tile.candle_small.gray.name=Small Gray Candle
-tile.candle_small.silver.name=Small Silver Candle
+tile.candle_small.silver.name=Small Light Grey Candle
 tile.candle_small.cyan.name=Small Cyan Candle
 tile.candle_small.purple.name=Small Purple Candle
 tile.candle_small.blue.name=Small Blue Candle
@@ -111,7 +131,7 @@ tile.candle_medium.yellow.name=Medium Yellow Candle
 tile.candle_medium.lime.name=Medium Lime Candle
 tile.candle_medium.pink.name=Medium Pink Candle
 tile.candle_medium.gray.name=Medium Gray Candle
-tile.candle_medium.silver.name=Medium Silver Candle
+tile.candle_medium.silver.name=Medium Light Grey Candle
 tile.candle_medium.cyan.name=Medium Cyan Candle
 tile.candle_medium.purple.name=Medium Purple Candle
 tile.candle_medium.blue.name=Medium Blue Candle
@@ -128,7 +148,7 @@ tile.candle_large.yellow.name=Large Yellow Candle
 tile.candle_large.lime.name=Large Lime Candle
 tile.candle_large.pink.name=Large Pink Candle
 tile.candle_large.gray.name=Large Gray Candle
-tile.candle_large.silver.name=Large Silver Candle
+tile.candle_large.silver.name=Large Light Grey Candle
 tile.candle_large.cyan.name=Large Cyan Candle
 tile.candle_large.purple.name=Large Purple Candle
 tile.candle_large.blue.name=Large Blue Candle
@@ -144,19 +164,23 @@ tile.crop_ginger.name=Ginger Crop
 tile.crop_kelp.name=Kelp Crop
 tile.crop_mint.name=Mint Crop
 tile.crop_white_sage.name=White Sage Crop
-tile.crop_dandelion_root.name=Dandelion root
 tile.crop_rose.name=Rose Crop
 tile.crop_poppy.name=Poppy Crop
 tile.crop_allium.name=Allium Crop
-tile.crop_mandrake_root.name=Mandrake root
+tile.crop_mandrake.name=Mandrake Crop
 tile.crop_oxeye_daisy.name=Oxeye Daisy Crop
 tile.crop_sunflower.name=Sunflower Crop
 tile.crop_lilac.name=Lilac Crop
 tile.crop_peony.name=Peony Crop
 tile.crop_lavender.name=Lavender Crop
 tile.crop_thistle.name=Thistle Crop
-tile.crop_thistle.name=Silphium Crop
+tile.crop_silphium.name=Silphium Crop
+tile.crop_garlic.name=Garlic Crop
+tile.crop_wormwood.name=Wormwood Crop
+tile.crop_kenaf.name=Kenaf Crop
+tile.crop_tulsi.name=Tulsi Crop
 
+//Metals, Stones and Ores
 tile.silver_ore.name=Silver Ore
 tile.moldavite_ore.name=Moldavite Ore
 tile.bloodstone_ore.name=Bloodstone Ore
@@ -177,25 +201,66 @@ tile.salt_ore.name=Salt Ore
 tile.amethyst_ore.name=Amethyst Ore
 tile.quartz_ore.name=Quartz Ore
 tile.alexandrite_ore.name=Alexandrite Ore
-
-tile.kettle.name=Kettle
 tile.coquina.name=Coquina
+tile.chalk.name=Raw Chalk
+tile.unrefined_chalk.name=Unrefined Chalk
+
+//Devices
+tile.kettle.name=Kettle
 tile.apiary.name=Apiary
 tile.beehive.name=Beehive
 tile.altar.name=Altar
+tile.oilpress.name=Oilpress
 
-//Brews
+//Fluid
+fluid.oil_mundane=Oil
+fluid.for.honey=Honey
+
+//Brew
 brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
+brew.shell_armor.tooltip=Shell Armor
 
-brew.fire_brew.name=Inner Fire Brew
-brew.fire_brew.desc=Spew forth your inner fire
-
-brew.spider_nightmare_brew.name=Spider Nightmare
+brew.spider_nightmare_brew.name=Spider Nightmare Brew
 brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
+brew.spider_nightmare_brew.tooltip=Spider Nightmare
 
+brew.frostbite_brew.name=Frostbite Brew
+brew.frostbite_brew.desc=Encase your target in ice
+brew.frostbite_brew.tooltip=Frostbite
+
+brew.extinguish_brew.name=Extinguish Brew
+brew.extinguish_brew.desc=Puts out any fires on you
+brew.extinguish_brew.tooltip=Extinguish
+
+brew.mars_water_brew.name=Water of Mars Brew
+brew.mars_water_brew.desc=Inflicts nasty debuffs on the target
+brew.mars_water_brew.tooltip=Water of Mars
+
+brew.holy_water_brew.name=Holy Water
+brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the living
+brew.holy_water_brew.tooltip=Holy Water
+
+brew.volatility_brew.name=Brew of Volatility
+brew.volatility_brew.desc=Makes you explode upon being hit
+brew.volatility_brew.tooltip=Volatility
+
+brew.wolfsbane_brew.name=Wolfsbane Brew
+brew.wolfsbane_brew.desc=Deals damage to wolves and therians
+brew.wolfsbane_brew.tooltip=Wolfsbane
+
+brew.sinking_brew.name=Brew of Sinking
+brew.sinking_brew.desc=Causes you to sink and be unable to jump
+brew.sinking_brew.tooltip=Sinking
+
+brew.cursed_leaping_brew.name=Brew of Cursed Leaping
+brew.cursed_leaping_brew.desc=Don't jump.
+brew.cursed_leaping_brew.tooltip=Cursed Leaping.
+
+//Sound
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
+witchworks.subtitle.chalk_scribble=Chalk scribbling
 
 ///ToolTips
 witch.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
@@ -209,14 +274,18 @@ witch.tooltip.seed_dandelion_root_description.name=The root of a plant
 witch.tooltip.seed_rose_description.name=Seed from a flowering plant
 witch.tooltip.seed_poppy_description.name=Seed from a flowering plant
 witch.tooltip.seed_allium_description.name=Seed from a flowering plant
-witch.tooltip.seed_mandrake_root_description.name=Seed from a plant with a strange root
+witch.tooltip.seed_mandrake_description.name=Seed from a plant with a strange root
 witch.tooltip.seed_oxeye_daisy_description.name=Seed from a widespread flowering plant
 witch.tooltip.seed_sunflower_description.name=Seed from a flowering plant
 witch.tooltip.seed_lilac_description.name=Seed from a flowering woody plant
 witch.tooltip.seed_peony_description.name=Seed from a flowering plant
 witch.tooltip.seed_lavender_description.name=Seed from a flowering plant
 witch.tooltip.seed_thistle_description.name=Seed from a thorny flower
-witch.tooltip.seed_silphium_description.name=Seedpod from a strange fennel
+witch.tooltip.seed_silphium_description.name=Seed from a strange fennel
+witch.tooltip.seed_garlic_description.name=Seed from a smelly allium
+witch.tooltip.seed_wormwood_description.name=Seed from a weedy herb
+witch.tooltip.seed_kenaf_description.name=Seed from a bamboo-like hibiscus
+witch.tooltip.seed_tulsi_description.name=Seed from a small herb
 
 witch.tooltip.aconitum_description.name=Poisonous, can prevent or revert shapeshifting, and wolves and therians have an aversion to it
 witch.tooltip.asphodel_description.name=Related to death and the afterlife, but not poisonous
@@ -237,8 +306,36 @@ witch.tooltip.lavender_description.name=Associated with purity and grace
 witch.tooltip.peony_description.name=Seed from a flowering plant
 witch.tooltip.thistle_description.name=A flower associated with strength and durability, and is the national flower of Scotland
 witch.tooltip.silphium_description.name=A rather large and unusual fennel prized by the romans for its many uses
+witch.tooltip.garlic_description.name=The bulb of a type of allium, it is rather smelly, and seems to keep undead at bay.
+witch.tooltip.wormwood_description.name=A rather weedy herb which bugs do not seem to like.
+witch.tooltip.kenaf_description.name=A tall plant with useful fibers.
+witch.tooltip.tulsi_description.name=A small herb considered sacred by some.
+
+item.tag_lock.empty=Empty Taglock
+
+tooltip.brew.data=Brew Data:
+tooltip.potion.data=Potion Data:
+
+tooltip.shift_for_info=<hold shift for details>
+
+//Baubles
+item.shirt.name=Shirt
+item.ring.name=Ring
+item.belt.name=Belt
+item.amulet.name=Amulet
+item.trinket.name=Trinket
+item.crown.name=Crown
+item.charm.name=Charm
+
+//Books
+item.book_of_shadows.name=Book of Shadows
+item.dusty_grimoire.name=Dusty Grimoire
 
 //Incantation
 commands.incantation.notFound=The powers you cast forth fizzle to nothingness
+
+//Achievements
+achievement.witchworks:craftMalachite=Let's Be Malachite Again!
+achievement.witchworks:craftMalachite.desc=This Is Between Us!
 
 ////JEI

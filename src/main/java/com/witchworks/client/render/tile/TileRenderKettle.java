@@ -1,7 +1,7 @@
 package com.witchworks.client.render.tile;
 
 import com.witchworks.client.ResourceLocations;
-import com.witchworks.common.block.tile.TileKettle;
+import com.witchworks.common.tile.TileCauldron;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -24,11 +24,11 @@ import java.util.Optional;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
+public class TileRenderKettle extends TileEntitySpecialRenderer<TileCauldron> {
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@Override
-	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
+	public void renderTileEntityAt(TileCauldron te, double x, double y, double z, float partialTicks, int destroyStage) {
 		Optional<FluidStack> optional = te.getFluid();
 		if (optional.isPresent() && optional.get().amount > 0) {
 			FluidStack fluidStack = optional.get();
@@ -40,11 +40,12 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.disableLighting();
 			GlStateManager.translate(x, y + 0.1 + level, z);
 			if (fluid == FluidRegistry.WATER || te.hasIngredients()) {
-				float r = te.getColorRGB().getRed() / 255F;
-				float g = te.getColorRGB().getGreen() / 255F;
-				float b = te.getColorRGB().getBlue() / 255F;
+				float r = (te.getColorRGB() >>> 16 & 0xFF) / 256.0F;
+				float g = (te.getColorRGB() >>> 8 & 0xFF) / 256.0F;
+				float b = (te.getColorRGB() & 0xFF) / 256.0F;
 				GlStateManager.color(r, g, b);
-				location = ResourceLocations.GRAY_WATER;
+				if (fluid == FluidRegistry.WATER)
+					location = ResourceLocations.GRAY_WATER;
 			}
 
 			Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
@@ -68,10 +69,11 @@ public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
 			GlStateManager.popMatrix();
 		}
 		GlStateManager.pushMatrix();
-		ItemStack stack = te.getContainer();
 		GlStateManager.translate(x + 0.5, y + 0.2D, z + 0.35);
 		GlStateManager.rotate(90F, 1F, 0, 0);
-		if (stack != null) {
+
+		ItemStack stack = te.getContainer();
+		if (!stack.isEmpty()) {
 			Minecraft mc = Minecraft.getMinecraft();
 			mc.getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.GROUND);
 		}

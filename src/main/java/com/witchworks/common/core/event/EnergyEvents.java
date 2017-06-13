@@ -31,7 +31,7 @@ public class EnergyEvents {
 		}
 	}
 
-	@SuppressWarnings ("ConstantConditions")
+	@SuppressWarnings("ConstantConditions")
 	@SubscribeEvent
 	public void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
 		final EntityPlayer oldPlayer = event.getOriginal();
@@ -44,7 +44,6 @@ public class EnergyEvents {
 			newCap.setMax(oldCap.getMax());
 			newCap.setRegen(oldCap.getRegen());
 			newCap.setUses(oldCap.getUses());
-			newCap.setOverchannel(oldCap.getOverchannel());
 		}
 	}
 
@@ -67,34 +66,17 @@ public class EnergyEvents {
 			if (optional.isPresent()) {
 				final IEnergy energy = optional.get();
 				energyRegen(player, energy);
-				overcast(player, energy);
 			}
 		}
 	}
 
 	private void energyRegen(EntityPlayer player, IEnergy energy) {
 		if (energy.getRegen() == -1) return;
-		if (energy.get() < energy.getMax() && energy.tick() % (energy.getRegen() + getTimeModifier(player)) == 0) {
-			energy.set(energy.get() + 1 + getAmountModifier(player));
+		if (energy.get() < energy.getMax() && energy.tick() % energy.getRegen() == 0) {
+			energy.set(energy.get() + 1);
 			energy.tickReset();
 			if (player instanceof EntityPlayerMP)
 				PacketHandler.sendTo((EntityPlayerMP) player, new EnergyMessage(energy, player.getUniqueID()));
 		}
-	}
-
-	private int getTimeModifier(EntityPlayer player) {
-		//TODO: Add boosts
-		return 0;
-	}
-
-	private int getAmountModifier(EntityPlayer player) {
-		//TODO: Add boosts
-		return 0;
-	}
-
-	private void overcast(EntityPlayer player, IEnergy energy) {
-		if (energy.getOverchannel() <= 0) return;
-
-		energy.setOverchannel(0);
 	}
 }

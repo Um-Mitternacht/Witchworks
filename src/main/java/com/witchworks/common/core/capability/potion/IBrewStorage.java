@@ -1,7 +1,7 @@
 package com.witchworks.common.core.capability.potion;
 
-import com.witchworks.api.item.BrewEffect;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.IBrew;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -19,9 +19,9 @@ public interface IBrewStorage {
 
 	void setBrews(Map<IBrew, BrewEffect> effect);
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	Set<IBrew> getClient();
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	void setClient(Set<IBrew> client);
 }

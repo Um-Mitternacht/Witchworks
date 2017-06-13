@@ -8,13 +8,17 @@ import com.witchworks.client.handler.BlockCandleColorHandler;
 import com.witchworks.client.handler.BrewItemColorHandler;
 import com.witchworks.client.handler.ItemCandleColorHandler;
 import com.witchworks.client.handler.ModelHandler;
+import com.witchworks.client.render.entity.BrewRenderer;
+import com.witchworks.client.render.entity.EmptyRenderer;
 import com.witchworks.client.render.tile.TileRenderKettle;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.ModBlocks;
-import com.witchworks.common.block.tile.TileKettle;
 import com.witchworks.common.core.net.GuiHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
+import com.witchworks.common.entity.EntityBrew;
+import com.witchworks.common.entity.EntityBrewLinger;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.tile.TileCauldron;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
@@ -39,8 +43,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly (Side.CLIENT)
-@Mod.EventBusSubscriber (Side.CLIENT)
+@SideOnly(Side.CLIENT)
+@Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy implements ISidedProxy {
 
 	/**
@@ -91,14 +95,19 @@ public class ClientProxy implements ISidedProxy {
 	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
 	 * or
 	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
+	 *
 	 * @see RenderingRegistry
 	 */
 	private void registerRenders() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileKettle.class, new TileRenderKettle());
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrewLinger.class, EmptyRenderer::new);
+
+		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderKettle());
 	}
 
 	/**
 	 * Display a Record text with a format and localization.
+	 *
 	 * @param text An {@link ITextComponent}
 	 */
 	@Override

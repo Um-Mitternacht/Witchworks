@@ -51,37 +51,35 @@ public class ContainerApiary extends Container {
 		return !playerIn.isSpectator();
 	}
 
-	@SuppressWarnings ("ConstantConditions")
-	@Nullable
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 		final Slot slot = inventorySlots.get(slotIndex);
-		ItemStack copy = null;
+		ItemStack copy = ItemStack.EMPTY;
 
 		if (slot != null && slot.getHasStack()) {
 			final ItemStack original = slot.getStack();
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 19, 55, true)) return null;
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else if (slotIndex > 19) {
-				if (original.stackSize == 1 && !mergeItemStack(original, 0, 1, false)) return null;
+				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 19, 55, true)) return null;
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 
-			if (original.stackSize == 0) {
-				slot.putStack(null);
+			if (original.getCount() == 0) {
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
 
-			if (original.stackSize == copy.stackSize) return null;
+			if (original.getCount() == copy.getCount()) return ItemStack.EMPTY;
 
-			slot.onPickupFromSlot(player, original);
+			slot.onTake(player, original);
 		}
 
 		return copy;

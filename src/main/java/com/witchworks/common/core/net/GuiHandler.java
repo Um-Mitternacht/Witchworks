@@ -2,7 +2,7 @@ package com.witchworks.common.core.net;
 
 import com.witchworks.client.gui.GuiApiary;
 import com.witchworks.client.gui.container.ContainerApiary;
-import com.witchworks.common.block.tile.TileApiary;
+import com.witchworks.common.tile.TileApiary;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -29,7 +29,7 @@ public class GuiHandler implements IGuiHandler {
 		}
 	}
 
-	@SideOnly (Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch (ID) {
