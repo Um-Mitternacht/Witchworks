@@ -2,7 +2,7 @@ package com.witchworks.common.core.net;
 
 import com.witchworks.client.gui.GuiApiary;
 import com.witchworks.client.gui.container.ContainerApiary;
-import com.witchworks.common.block.tile.TileApiary;
+import com.witchworks.common.tile.TileApiary;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;

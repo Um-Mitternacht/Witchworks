@@ -1,7 +1,7 @@
 package com.witchworks.common.core.net;
 
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.IBrew;
 import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.core.capability.potion.IBrewStorage;
 import io.netty.buffer.ByteBuf;

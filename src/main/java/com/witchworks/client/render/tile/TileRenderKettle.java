@@ -1,7 +1,7 @@
 package com.witchworks.client.render.tile;
 
 import com.witchworks.client.ResourceLocations;
-import com.witchworks.common.block.tile.TileKettle;
+import com.witchworks.common.tile.TileCauldron;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -24,11 +24,11 @@ import java.util.Optional;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class TileRenderKettle extends TileEntitySpecialRenderer<TileKettle> {
+public class TileRenderKettle extends TileEntitySpecialRenderer<TileCauldron> {
 
 	@SuppressWarnings("ConstantConditions")
 	@Override
-	public void renderTileEntityAt(TileKettle te, double x, double y, double z, float partialTicks, int destroyStage) {
+	public void renderTileEntityAt(TileCauldron te, double x, double y, double z, float partialTicks, int destroyStage) {
 		Optional<FluidStack> optional = te.getFluid();
 		if (optional.isPresent() && optional.get().amount > 0) {
 			FluidStack fluidStack = optional.get();

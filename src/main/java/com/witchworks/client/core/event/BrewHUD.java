@@ -1,6 +1,6 @@
 package com.witchworks.client.core.event;
 
-import com.witchworks.api.item.IBrew;
+import com.witchworks.api.brew.IBrew;
 import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.core.capability.potion.IBrewStorage;
 import net.minecraft.client.Minecraft;

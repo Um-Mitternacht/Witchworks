@@ -2,12 +2,13 @@ package com.witchworks.common.crafting.kettle;
 
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.KettleRegistry;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.api.recipe.BrewSimpleModifier;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.natural.fluid.Fluids;
+import com.witchworks.common.brew.ModBrews;
 import com.witchworks.common.item.ModItems;
-import com.witchworks.common.potions.BrewUtils;
-import com.witchworks.common.potions.ModBrews;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -64,20 +65,8 @@ public final class KettleCrafting {
 		//Todo: Also gemstone amalgam for usage as a crafting ingredient. Also, the easter egg recipe and its achievement.
 
 		//------------------------------------Brew Recipes------------------------------------//
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SHELL_ARMOR)
-				, Items.BONE, ModItems.NEEDLE_BONE, getStack(ModBlocks.COQUINA, 3));
-
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.INNER_FIRE)
-				, getStack(Items.BLAZE_ROD, 2), Items.GOLD_NUGGET, Items.BLAZE_POWDER);
-
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.SPIDER_NIGHTMARE)
-				, getStack(Blocks.WEB, 10), getStack(Items.SPIDER_EYE, 5), Items.GHAST_TEAR, Items.FERMENTED_SPIDER_EYE);
-
-		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(ModItems.BREW_PHIAL_DRINK, ModBrews.EXTINGUISH)
-				, getStack(Items.SNOWBALL, 2), Blocks.PACKED_ICE, ModItems.MINT);
-
-
-		//Todo: More brews, obviously. Just need ideas, really.
+		KettleRegistry.registerKettleBrewRecipe(BrewUtils.createBrew(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0))
+				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
 		//Todo: Continue once more effects are added, such as new brews, and what not. Also when I get around to making the ingredients and what not.
@@ -105,6 +94,12 @@ public final class KettleCrafting {
 		KettleRegistry.addItemEffect(getStack(Items.SHULKER_SHELL), new PotionEffect(MobEffects.LEVITATION, 500), false);
 		KettleRegistry.addItemEffect(getStack(ModBlocks.COQUINA), BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.MINT), BrewRegistry.getDefault(ModBrews.EXTINGUISH), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.WHITE_SAGE), BrewRegistry.getDefault(ModBrews.HOLY_WATER), false);
+		KettleRegistry.addItemEffect(getStack(Blocks.WEB), BrewRegistry.getDefault(ModBrews.SPIDER_NIGHTMARE), false);
+		KettleRegistry.addItemEffect(getStack(Items.SNOWBALL), BrewRegistry.getDefault(ModBrews.FROSTBITE), false);
+		KettleRegistry.addItemEffect(getStack(Blocks.TNT), BrewRegistry.getDefault(ModBrews.VOLATILE), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.ACONITUM), BrewRegistry.getDefault(ModBrews.WOLFSBANE), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.POWDER_MOLDAVITE), BrewRegistry.getDefault(ModBrews.CURSED_LEAPING), false);
 
 		KettleRegistry.addItemModifier(getStack(Items.QUARTZ), new BrewSimpleModifier(2400, 0), true);
 		KettleRegistry.addItemModifier(getStack(Items.REDSTONE), new BrewSimpleModifier(600, 0), true);

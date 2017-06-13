@@ -1,10 +1,10 @@
 package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.item.BrewEffect;
+import com.witchworks.api.brew.BrewEffect;
+import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.common.core.capability.potion.BrewStorageHandler;
 import com.witchworks.common.lib.LibItemName;
-import com.witchworks.common.potions.BrewUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,6 +21,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import static com.witchworks.api.BrewRegistry.Brew.DRINK;
 
 /**
  * This class was created by BerciTheBeast on 27.3.2017.
@@ -61,7 +63,7 @@ public class ItemBrewDrink extends ItemBrew {
 
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
-		return 32;
+		return 16;
 	}
 
 	@Override
@@ -78,8 +80,8 @@ public class ItemBrewDrink extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getBrews().stream().filter(brew -> brew.getType() == BrewRegistry.Brew.DRINK).forEach(brew -> {
-			subItems.add(BrewUtils.createBrew(itemIn, brew));
-		});
+		BrewRegistry.getDefaults().get(DRINK).forEach((brew, brewEffect) ->
+				subItems.add(BrewUtils.createBrew(DRINK, brew))
+		);
 	}
 }

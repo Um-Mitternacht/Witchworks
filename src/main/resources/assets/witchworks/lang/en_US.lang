@@ -103,6 +103,7 @@ item.wand.name=Wand
 item.needle_bone.name=Bone Needle
 item.unrefined_chalk.name=Unrefined Chalk
 item.brew_phial_drink.name=Brew Phial
+item.powder_moldavite.name=Powdered Moldavite
 
 //Blocks
 tile.candle_small.white.name=Small White Candle
@@ -113,7 +114,7 @@ tile.candle_small.yellow.name=Small Yellow Candle
 tile.candle_small.lime.name=Small Lime Candle
 tile.candle_small.pink.name=Small Pink Candle
 tile.candle_small.gray.name=Small Gray Candle
-tile.candle_small.silver.name=Small Silver Candle
+tile.candle_small.silver.name=Small Light Grey Candle
 tile.candle_small.cyan.name=Small Cyan Candle
 tile.candle_small.purple.name=Small Purple Candle
 tile.candle_small.blue.name=Small Blue Candle
@@ -130,7 +131,7 @@ tile.candle_medium.yellow.name=Medium Yellow Candle
 tile.candle_medium.lime.name=Medium Lime Candle
 tile.candle_medium.pink.name=Medium Pink Candle
 tile.candle_medium.gray.name=Medium Gray Candle
-tile.candle_medium.silver.name=Medium Silver Candle
+tile.candle_medium.silver.name=Medium Light Grey Candle
 tile.candle_medium.cyan.name=Medium Cyan Candle
 tile.candle_medium.purple.name=Medium Purple Candle
 tile.candle_medium.blue.name=Medium Blue Candle
@@ -147,7 +148,7 @@ tile.candle_large.yellow.name=Large Yellow Candle
 tile.candle_large.lime.name=Large Lime Candle
 tile.candle_large.pink.name=Large Pink Candle
 tile.candle_large.gray.name=Large Gray Candle
-tile.candle_large.silver.name=Large Silver Candle
+tile.candle_large.silver.name=Large Light Grey Candle
 tile.candle_large.cyan.name=Large Cyan Candle
 tile.candle_large.purple.name=Large Purple Candle
 tile.candle_large.blue.name=Large Blue Candle
@@ -215,26 +216,48 @@ tile.oilpress.name=Oilpress
 fluid.oil_mundane=Oil
 fluid.for.honey=Honey
 
-
-//Brews
+//Brew
 brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
-
-brew.fire_brew.name=Inner Fire Brew
-brew.fire_brew.desc=Spew forth your inner fire
+brew.shell_armor.tooltip=Shell Armor
 
 brew.spider_nightmare_brew.name=Spider Nightmare Brew
 brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
+brew.spider_nightmare_brew.tooltip=Spider Nightmare
 
 brew.frostbite_brew.name=Frostbite Brew
 brew.frostbite_brew.desc=Encase your target in ice
+brew.frostbite_brew.tooltip=Frostbite
 
 brew.extinguish_brew.name=Extinguish Brew
 brew.extinguish_brew.desc=Puts out any fires on you
+brew.extinguish_brew.tooltip=Extinguish
 
-brew.warwater_brew.name=Water of Mars
-brew.warwater_brew.desc=Inflicts nasty debuffs on the target
+brew.mars_water_brew.name=Water of Mars Brew
+brew.mars_water_brew.desc=Inflicts nasty debuffs on the target
+brew.mars_water_brew.tooltip=Water of Mars
 
+brew.holy_water_brew.name=Holy Water
+brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the living
+brew.holy_water_brew.tooltip=Holy Water
+
+brew.volatility_brew.name=Brew of Volatility
+brew.volatility_brew.desc=Makes you explode upon being hit
+brew.volatility_brew.tooltip=Volatility
+
+brew.wolfsbane_brew.name=Wolfsbane Brew
+brew.wolfsbane_brew.desc=Deals damage to wolves and therians
+brew.wolfsbane_brew.tooltip=Wolfsbane
+
+brew.sinking_brew.name=Brew of Sinking
+brew.sinking_brew.desc=Causes you to sink and be unable to jump
+brew.sinking_brew.tooltip=Sinking
+
+brew.cursed_leaping_brew.name=Brew of Cursed Leaping
+brew.cursed_leaping_brew.desc=Don't jump.
+brew.cursed_leaping_brew.tooltip=Cursed Leaping.
+
+//Sound
 witchworks.subtitle.boil=Kettle boiling
 witchworks.subtitle.buzz=Bees buzzing
 witchworks.subtitle.chalk_scribble=Chalk scribbling
@@ -291,6 +314,7 @@ witch.tooltip.tulsi_description.name=A small herb considered sacred by some.
 item.tag_lock.empty=Empty Taglock
 
 tooltip.brew.data=Brew Data:
+tooltip.potion.data=Potion Data:
 
 tooltip.shift_for_info=<hold shift for details>
 

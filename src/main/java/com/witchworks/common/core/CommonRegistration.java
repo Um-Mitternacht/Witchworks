@@ -1,14 +1,13 @@
 package com.witchworks.common.core;
 
 import com.witchworks.api.CropRegistry;
-import com.witchworks.api.item.crop.Crop;
+import com.witchworks.api.state.Crop;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
-import com.witchworks.common.block.tile.ModTiles;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.item.ModMaterials;
@@ -27,6 +26,7 @@ import com.witchworks.common.item.magic.brew.ItemBrewSplash;
 import com.witchworks.common.item.tool.*;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibItemName;
+import com.witchworks.common.tile.ModTiles;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -40,7 +40,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.IForgeRegistry;
 
-import static com.witchworks.api.item.crop.Crop.*;
+import static com.witchworks.api.state.Crop.*;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
@@ -103,6 +103,7 @@ public final class CommonRegistration {
 				new ItemMod(LibItemName.EMPTY_HONEYCOMB),
 				new ItemMod(LibItemName.MORTAR_AND_PESTLE),
 				new ItemMod(LibItemName.UNREFINED_CHALK),
+				new ItemMod(LibItemName.POWDER_MOLDAVITE),
 				new ItemBrewDrink(),
 				new ItemBrewSplash(),
 				new ItemBrewLinger(),
@@ -233,7 +234,7 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
 
 				//Tool Blocks
-				new BlockKettle(),
+				new BlockCauldron(),
 				new BlockCandleLarge(),
 				new BlockCandleMedium(),
 				new BlockCandleSmall(),

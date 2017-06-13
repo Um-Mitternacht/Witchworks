@@ -3,9 +3,9 @@ package com.witchworks.common.crafting.kettle;
 import com.witchworks.api.ritual.IRitual;
 import com.witchworks.api.ritual.RitualHolder;
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.block.tile.TileKettle;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
 import com.witchworks.common.core.net.PacketHandler;
+import com.witchworks.common.tile.TileCauldron;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -26,7 +26,7 @@ import java.util.List;
  * It's distributed as split of Wiccan Arts under
  * the MIT license.
  */
-public class ItemRitual implements IRitual<TileKettle> {
+public class ItemRitual implements IRitual<TileCauldron> {
 
 	private final ItemStack stack;
 	private final int cost;
@@ -45,12 +45,12 @@ public class ItemRitual implements IRitual<TileKettle> {
 	}
 
 	@Override
-	public boolean canPerform(TileKettle tile, World world, BlockPos pos) {
+	public boolean canPerform(TileCauldron tile, World world, BlockPos pos) {
 		return true;
 	}
 
 	@Override
-	public void onUpdate(RitualHolder<TileKettle> ritual, TileKettle tile, World world, BlockPos pos) {
+	public void onUpdate(RitualHolder<TileCauldron> ritual, TileCauldron tile, World world, BlockPos pos) {
 		if (getCost() > 0 && ritual.energy_left > 0 && ritual.ticks % 10 == 0) {
 			List<EntityPlayer> list = EnergyHandler.getEnergySources(EntityPlayer.class, world, pos, 5);
 			int taken = (split / list.size()) + 1;
@@ -73,7 +73,7 @@ public class ItemRitual implements IRitual<TileKettle> {
 
 	@SuppressWarnings("ConstantConditions")
 	@Override
-	public void onFinish(TileKettle tile, World world, BlockPos pos) {
+	public void onFinish(TileCauldron tile, World world, BlockPos pos) {
 		for (int i = 0; i < 20; i++) {
 			final float x = pos.getX() + 0.2F + MathHelper.clamp(world.rand.nextFloat(), 0F, 0.5F);
 			final float y = pos.getY() + 0.2F + world.rand.nextFloat();

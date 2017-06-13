@@ -1,6 +1,6 @@
 package com.witchworks.api.recipe;
 
-import com.witchworks.api.item.BrewEffect;
+import com.witchworks.api.brew.BrewEffect;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.MathHelper;
 

@@ -1,6 +1,6 @@
 package com.witchworks.common.item.food.seed;
 
-import com.witchworks.api.item.crop.Crop;
+import com.witchworks.api.state.Crop;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.block.Block;

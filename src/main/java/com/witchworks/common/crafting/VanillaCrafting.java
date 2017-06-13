@@ -25,6 +25,7 @@ public final class VanillaCrafting {
 
 	public static void items() {
 
+		//Todo: Furnace recipes for silver and what not. Also, recipes to repair silver tools and what not.
 		shaped().grid("NNN", "NNN", "NNN")
 				.map('N', ModItems.SILVER_NUGGET)
 				.outputs(ModItems.SILVER_INGOT)
@@ -93,6 +94,13 @@ public final class VanillaCrafting {
 				.add(ModBlocks.SILVER_ORE)
 				.outputs(new ItemStack(ModItems.SILVER_POWDER, 1))
 				.build();
+
+		shapeless()
+				.add(ModItems.MORTAR_AND_PESTLE)
+				.add(ModItems.MOLDAVITE)
+				.outputs(new ItemStack(ModItems.POWDER_MOLDAVITE, 2))
+				.build();
+
 
 		shapeless()
 				.add(ModItems.SILVER_INGOT)
@@ -200,7 +208,7 @@ public final class VanillaCrafting {
 
 		shaped().grid("WWW", "WHW", "WWW")
 				.map('W', "plankWood")
-				.map('H', ModItems.EMPTY_HONEYCOMB)
+				.map('H', Items.ITEM_FRAME)
 				.outputs(ModBlocks.APIARY)
 				.build();
 		shaped().grid("LML", "SSS", "WWW")
