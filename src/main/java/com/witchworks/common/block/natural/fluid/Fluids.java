@@ -48,23 +48,6 @@ public final class Fluids {
 			, fluid -> fluid.setDensity(800).setViscosity(4000)
 			, fluid -> new BlockFluid(fluid, Material.WATER), true);
 
-	//TODO: Only one oil is enough imo
-	/*public static final Fluid SOOTHING_OIL = createFluid("oil_soothing", true
-			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, Material.WATER), true);
-
-	public static final Fluid SPICY_OIL = createFluid("oil_spicy", true
-			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, Material.WATER), true);
-
-	public static final Fluid TOXIC_OIL = createFluid("oil_toxic", true
-			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, Material.WATER), true);
-
-	public static final Fluid MAGIC_OIL = createFluid("oil_magical", true
-			, fluid -> fluid.setDensity(800).setViscosity(4000)
-			, fluid -> new BlockFluid(fluid, Material.WATER), true);*/
-
 	private Fluids() {
 	}
 
