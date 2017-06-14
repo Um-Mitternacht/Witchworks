@@ -72,7 +72,7 @@ public final class ConfigHandler {
 		public int tigersEye_max_height = 128;
 		public int tigersEye_gen_chance = 4;
 
-		@Comment("Nummite Ore gen")
+		@Comment("Nuummite Ore gen")
 		public int nuummite_min_vein = 1;
 		public int nuummite_max_vein = 4;
 		public int nuummite_min_height = 10;
