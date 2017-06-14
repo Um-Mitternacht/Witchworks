@@ -20,17 +20,17 @@ import java.util.Random;
  * the MIT license.
  */
 
-public class BlockJasperOre extends BlockMod {
+public class BlockBloodstoneOre extends BlockMod {
 
-	public BlockJasperOre() {
-		super(LibBlockName.JASPER_ORE, Material.ROCK);
+	public BlockBloodstoneOre() {
+		super(LibBlockName.BLOODSTONE_ORE, Material.ROCK);
 		setSound(SoundType.STONE);
 		setResistance(5F);
 		setHardness(5F);
 	}
 
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return ModItems.JASPER;
+		return ModItems.BLOODSTONE;
 	}
 
 	public int quantityDroppedWithBonus(int fortune, Random random) {
@@ -54,10 +54,10 @@ public class BlockJasperOre extends BlockMod {
 	}
 
 	protected ItemStack getSilkTouchDrop(IBlockState state) {
-		return new ItemStack(ModBlocks.JASPER_ORE);
+		return new ItemStack(ModBlocks.BLOODSTONE_ORE);
 	}
 
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(Item.getItemFromBlock(ModBlocks.JASPER_ORE), 1, this.damageDropped(state));
+		return new ItemStack(Item.getItemFromBlock(ModBlocks.BLOODSTONE_ORE), 1, this.damageDropped(state));
 	}
 }

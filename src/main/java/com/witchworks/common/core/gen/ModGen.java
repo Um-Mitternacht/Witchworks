@@ -9,7 +9,7 @@ import static com.witchworks.common.core.handler.ConfigHandler.WORLD_GEN;
 
 /**
  * This class was created by Arekkuusu on 21/05/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witch Works under
  * the MIT license.
  */
 public final class ModGen {

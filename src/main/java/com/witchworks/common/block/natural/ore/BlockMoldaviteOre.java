@@ -25,8 +25,8 @@ public class BlockMoldaviteOre extends BlockMod {
 	public BlockMoldaviteOre() {
 		super(LibBlockName.MOLDAVITE_ORE, Material.ROCK);
 		setSound(SoundType.STONE);
-		setResistance(3F);
-		setHardness(3F);
+		setResistance(2F);
+		setHardness(2F);
 	}
 
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
