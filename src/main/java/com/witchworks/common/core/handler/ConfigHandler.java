@@ -128,7 +128,7 @@ public final class ConfigHandler {
 		public int tourmaline_min_height = 10;
 		public int tourmaline_max_height = 128;
 		public int tourmaline_gen_chance = 4;
-		
+
 	}
 
 	public static class HUD {
