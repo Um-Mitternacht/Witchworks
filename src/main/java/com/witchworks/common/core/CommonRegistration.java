@@ -217,7 +217,7 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.ROCK).setSound(SoundType.GLASS).setHardness(5.0F),
 				new BlockMoldaviteOre(),
 				new BlockTourmalineOre(),
-				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMalachiteOre(),
 				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockJasperOre(),
 				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
