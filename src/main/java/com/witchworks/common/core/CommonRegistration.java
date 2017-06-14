@@ -222,13 +222,13 @@ public final class CommonRegistration {
 				new BlockJasperOre(),
 				new BlockMod(LibBlockName.BLOODSTONE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockTigersEyeOre(),
-				new BlockMod(LibBlockName.NUUMMITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockNuummiteOre(),
 				new BlockGarnetOre(),
 				new BlockSaltOre(),
 				new BlockMod(LibBlockName.ALEXANDRITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMod(LibBlockName.AMETHYST_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.CHALK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
-				new BlockMod(LibBlockName.AMETHYST_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(7.0F),
 
 				//Normal Blocks
 				new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
