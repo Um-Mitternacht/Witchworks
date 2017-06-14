@@ -30,19 +30,20 @@ public final class ConfigHandler {
 	}
 
 	public static class WorldGen {
-		@Comment("Silver Ore gen")
-		public int silver_min_vein = 1;
-		public int silver_max_vein = 8;
-		public int silver_min_height = 10;
-		public int silver_max_height = 128;
-		public int silver_gen_chance = 8;
 
-		@Comment("Moldavite Ore gen")
-		public int moldavite_min_vein = 1;
-		public int moldavite_max_vein = 4;
-		public int moldavite_min_height = 10;
-		public int moldavite_max_height = 128;
-		public int moldavite_gen_chance = 4;
+		@Comment("Alexandrite Ore gen")
+		public int alexandrite_min_vein = 1;
+		public int alexandrite_max_vein = 2;
+		public int alexandrite_min_height = 10;
+		public int alexandrite_max_height = 128;
+		public int alexandrite_gen_chance = 4;
+
+		@Comment("Amethyst Ore gen")
+		public int amethyst_min_vein = 1;
+		public int amethyst_max_vein = 4;
+		public int amethyst_min_height = 10;
+		public int amethyst_max_height = 128;
+		public int amethyst_gen_chance = 4;
 
 		@Comment("Bloodstone Ore gen")
 		public int bloodstone_min_vein = 1;
@@ -51,33 +52,19 @@ public final class ConfigHandler {
 		public int bloodstone_max_height = 128;
 		public int bloodstone_gen_chance = 4;
 
-		@Comment("Tourmaline Ore gen")
-		public int tourmaline_min_vein = 1;
-		public int tourmaline_max_vein = 4;
-		public int tourmaline_min_height = 10;
-		public int tourmaline_max_height = 128;
-		public int tourmaline_gen_chance = 4;
+		@Comment("Chalk gen")
+		public int chalk_min_vein = 1;
+		public int chalk_max_vein = 25;
+		public int chalk_min_height = 10;
+		public int chalk_max_height = 255;
+		public int chalk_gen_chance = 8;
 
-		@Comment("Malachite Ore gen")
-		public int malachite_min_vein = 1;
-		public int malachite_max_vein = 2;
-		public int malachite_min_height = 10;
-		public int malachite_max_height = 80;
-		public int malachite_gen_chance = 4;
-
-		@Comment("Tigers Eye Ore gen")
-		public int tigersEye_min_vein = 1;
-		public int tigersEye_max_vein = 4;
-		public int tigersEye_min_height = 10;
-		public int tigersEye_max_height = 128;
-		public int tigersEye_gen_chance = 4;
-
-		@Comment("Nuummite Ore gen")
-		public int nuummite_min_vein = 1;
-		public int nuummite_max_vein = 4;
-		public int nuummite_min_height = 10;
-		public int nuummite_max_height = 128;
-		public int nuummite_gen_chance = 4;
+		@Comment("Coquina gen")
+		public int coquina_min_vein = 1;
+		public int coquina_max_vein = 25;
+		public int coquina_min_height = 10;
+		public int coquina_max_height = 255;
+		public int coquina_gen_chance = 8;
 
 		@Comment("Garnet Ore gen")
 		public int garnet_min_vein = 1;
@@ -93,6 +80,27 @@ public final class ConfigHandler {
 		public int jasper_max_height = 128;
 		public int jasper_gen_chance = 4;
 
+		@Comment("Malachite Ore gen")
+		public int malachite_min_vein = 1;
+		public int malachite_max_vein = 2;
+		public int malachite_min_height = 10;
+		public int malachite_max_height = 128;
+		public int malachite_gen_chance = 4;
+
+		@Comment("Moldavite Ore gen")
+		public int moldavite_min_vein = 1;
+		public int moldavite_max_vein = 4;
+		public int moldavite_min_height = 10;
+		public int moldavite_max_height = 128;
+		public int moldavite_gen_chance = 4;
+
+		@Comment("Nuummite Ore gen")
+		public int nuummite_min_vein = 1;
+		public int nuummite_max_vein = 4;
+		public int nuummite_min_height = 10;
+		public int nuummite_max_height = 128;
+		public int nuummite_gen_chance = 4;
+
 		@Comment("Salt Ore gen")
 		public int salt_min_vein = 1;
 		public int salt_max_vein = 4;
@@ -100,33 +108,27 @@ public final class ConfigHandler {
 		public int salt_max_height = 128;
 		public int salt_gen_chance = 4;
 
-		@Comment("Amethyst Ore gen")
-		public int amethyst_min_vein = 1;
-		public int amethyst_max_vein = 4;
-		public int amethyst_min_height = 10;
-		public int amethyst_max_height = 128;
-		public int amethyst_gen_chance = 4;
+		@Comment("Silver Ore gen")
+		public int silver_min_vein = 1;
+		public int silver_max_vein = 8;
+		public int silver_min_height = 10;
+		public int silver_max_height = 128;
+		public int silver_gen_chance = 8;
 
-		@Comment("Alexandrite Ore gen")
-		public int alexandrite_min_vein = 1;
-		public int alexandrite_max_vein = 2;
-		public int alexandrite_min_height = 10;
-		public int alexandrite_max_height = 128;
-		public int alexandrite_gen_chance = 4;
+		@Comment("Tigers Eye Ore gen")
+		public int tigersEye_min_vein = 1;
+		public int tigersEye_max_vein = 4;
+		public int tigersEye_min_height = 10;
+		public int tigersEye_max_height = 128;
+		public int tigersEye_gen_chance = 4;
 
-		@Comment("Coquina gen")
-		public int coquina_min_vein = 1;
-		public int coquina_max_vein = 25;
-		public int coquina_min_height = 10;
-		public int coquina_max_height = 255;
-		public int coquina_gen_chance = 8;
-
-		@Comment("Chalk gen")
-		public int chalk_min_vein = 1;
-		public int chalk_max_vein = 25;
-		public int chalk_min_height = 10;
-		public int chalk_max_height = 255;
-		public int chalk_gen_chance = 8;
+		@Comment("Tourmaline Ore gen")
+		public int tourmaline_min_vein = 1;
+		public int tourmaline_max_vein = 4;
+		public int tourmaline_min_height = 10;
+		public int tourmaline_max_height = 128;
+		public int tourmaline_gen_chance = 4;
+		
 	}
 
 	public static class HUD {
