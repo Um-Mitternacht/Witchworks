@@ -8,7 +8,9 @@ import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
+import com.witchworks.common.block.natural.ore.BlockMoldaviteOre;
 import com.witchworks.common.block.natural.ore.BlockSaltOre;
+import com.witchworks.common.block.natural.ore.BlockTourmalineOre;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.item.ModMaterials;
@@ -215,8 +217,8 @@ public final class CommonRegistration {
 				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
 				new BlockMod(LibBlockName.SILVER_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(2.0F),
 				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.ROCK).setSound(SoundType.GLASS).setHardness(5.0F),
-				new BlockMod(LibBlockName.MOLDAVITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
-				new BlockMod(LibBlockName.TOURMALINE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
+				new BlockMoldaviteOre(),
+				new BlockTourmalineOre(),
 				new BlockMod(LibBlockName.MALACHITE_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
 				new BlockMod(LibBlockName.JASPER_ORE, Material.ROCK).setSound(SoundType.STONE).setHardness(5.0F),
