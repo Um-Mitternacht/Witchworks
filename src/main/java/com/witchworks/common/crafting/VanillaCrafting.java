@@ -201,8 +201,10 @@ public final class VanillaCrafting {
 				.outputs(ModBlocks.MOLDAVITE_BLOCK)
 				.build();
 
-		shaped().grid("I I", "III", "III")
+		shaped().grid("N N", "ISI", "III")
 				.map('I', Items.IRON_INGOT)
+				.map('N', Items.field_191525_da)
+				.map('S', ModItems.SILVER_INGOT)
 				.outputs(ModBlocks.KETTLE)
 				.build();
 

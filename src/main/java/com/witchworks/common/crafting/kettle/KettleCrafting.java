@@ -100,6 +100,7 @@ public final class KettleCrafting {
 		KettleRegistry.addItemEffect(getStack(Blocks.TNT), BrewRegistry.getDefault(ModBrews.VOLATILE), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.ACONITUM), BrewRegistry.getDefault(ModBrews.WOLFSBANE), false);
 		KettleRegistry.addItemEffect(getStack(ModItems.POWDER_MOLDAVITE), BrewRegistry.getDefault(ModBrews.CURSED_LEAPING), false);
+		KettleRegistry.addItemEffect(getStack(ModItems.WORMWOOD), BrewRegistry.getDefault(ModBrews.BANE_ARTHROPODS), false);
 
 		KettleRegistry.addItemModifier(getStack(Items.QUARTZ), new BrewSimpleModifier(2400, 0), true);
 		KettleRegistry.addItemModifier(getStack(Items.REDSTONE), new BrewSimpleModifier(600, 0), true);

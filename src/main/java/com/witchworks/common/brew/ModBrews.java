@@ -26,6 +26,7 @@ public final class ModBrews {
 	public static IBrew WOLFSBANE;
 	public static IBrew SINKING;
 	public static IBrew CURSED_LEAPING;
+	public static IBrew BANE_ARTHROPODS;
 
 	private ModBrews() {
 	}
@@ -58,6 +59,10 @@ public final class ModBrews {
 		WOLFSBANE = BrewRegistry.registerBrew(new WolfsbaneBrew());
 		BrewRegistry.addDefault(SPLASH, new BrewEffect(WOLFSBANE, 200, 0));
 		BrewRegistry.addDefault(LINGER, new BrewEffect(WOLFSBANE, 50, 0));
+
+		BANE_ARTHROPODS = BrewRegistry.registerBrew(new BaneArthropodsBrew());
+		BrewRegistry.addDefault(SPLASH, new BrewEffect(BANE_ARTHROPODS, 200, 0));
+		BrewRegistry.addDefault(LINGER, new BrewEffect(BANE_ARTHROPODS, 50, 0));
 
 		SINKING = BrewRegistry.registerBrew(new SinkingBrew());
 		BrewRegistry.addDefault(DRINK, new BrewEffect(SINKING, 1200, 0));
