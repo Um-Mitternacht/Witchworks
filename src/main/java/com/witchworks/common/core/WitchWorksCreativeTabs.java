@@ -144,7 +144,6 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.TAGLOCK);
 			addItem(ModItems.UNREFINED_CHALK);
 			addItem(ModItems.NEEDLE_BONE);
-			addItem(ModItems.POWDER_MOLDAVITE);
 		}
 	}
 

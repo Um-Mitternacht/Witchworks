@@ -21,9 +21,17 @@ public interface IBrew {
 	/**
 	 * Apply the effects
 	 */
+	default void onStart(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
+		//NO-OP
+	}
+
 	void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick);
 
-	void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier);
+	default void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
+		//NO-OP
+	}
+
+	boolean isBad();
 
 	boolean isInstant();
 
@@ -31,8 +39,12 @@ public interface IBrew {
 
 	String getName();
 
+	default boolean shouldRender() {
+		return true;
+	}
+
 	@SideOnly(Side.CLIENT)
-	void renderHUD(int x, int y, net.minecraft.client.Minecraft mc);
+	void renderHUD(int x, int y, net.minecraft.client.Minecraft mc, int amplifier);
 
 	@SideOnly(Side.CLIENT)
 	default void render(int x, int y, net.minecraft.client.Minecraft mc, int index) {
@@ -49,8 +61,8 @@ public interface IBrew {
 		buf.pos(x, y, 0).tex(236 * f, 236 * f).endVertex();
 		tessellator.draw();
 
-		int textureX = index % 8 * 18;
-		int textureY = index / 8 * 18;
+		int textureX = index % 14 * 18;
+		int textureY = index / 14 * 18;
 		x += 1;
 		y += 1;
 

@@ -32,17 +32,17 @@
       },
       "5": {
         "textures": {
-          "cross": "witchworks:blocks/crop/crop_wormwood_4"
+          "cross": "witchworks:blocks/crop/crop_wormwood_5"
         }
       },
       "6": {
         "textures": {
-          "cross": "witchworks:blocks/crop/crop_wormwood_4"
+          "cross": "witchworks:blocks/crop/crop_wormwood_6"
         }
       },
       "7": {
         "textures": {
-          "cross": "witchworks:blocks/crop/crop_wormwood_false"
+          "cross": "witchworks:blocks/crop/crop_wormwood_6"
         }
       }
     }

@@ -1,7 +1,7 @@
 package com.witchworks.common.item.magic;
 
 import com.witchworks.api.helper.RayTraceHelper;
-import com.witchworks.api.item.NBTHelper;
+import com.witchworks.api.helper.NBTHelper;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.block.BlockBed;

@@ -1,7 +1,7 @@
 package com.witchworks.common.item;
 
 import com.witchworks.common.crafting.VanillaCrafting;
-import com.witchworks.common.crafting.kettle.KettleCrafting;
+import com.witchworks.common.crafting.kettle.CauldronCrafting;
 import com.witchworks.common.lib.LibItemName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.item.Item;
@@ -116,8 +116,7 @@ public final class ModItems {
 	@ObjectHolder(LibItemName.SEED_LAVENDER)
 	public static final Item SEED_LAVENDER = new Item();
 
-
-	//Materials and Ingredients
+	//Materials
 	@ObjectHolder(LibItemName.WAX)
 	public static final Item WAX = new Item();
 	@ObjectHolder(LibItemName.SALT)
@@ -130,8 +129,6 @@ public final class ModItems {
 	public static final Item UNREFINED_CHALK = new Item();
 	@ObjectHolder(LibItemName.NEEDLE_BONE)
 	public static final Item NEEDLE_BONE = new Item();
-	@ObjectHolder(LibItemName.POWDER_MOLDAVITE)
-	public static final Item POWDER_MOLDAVITE = new Item();
 
 	//Misc
 	@ObjectHolder(LibItemName.BEE)
@@ -177,7 +174,6 @@ public final class ModItems {
 	@ObjectHolder(LibItemName.TAGLOCK)
 	public static final Item TAGLOCK = new Item();
 
-
 	//Books
 	@ObjectHolder(LibItemName.SHADOW_BOOK)
 	public static final Item SHADOW_BOOK = new Item();
@@ -189,7 +185,7 @@ public final class ModItems {
 
 	public static void init() {
 		VanillaCrafting.items();
-		KettleCrafting.init();
+		CauldronCrafting.init();
 	}
 
 	public static void initOreDictionary() {

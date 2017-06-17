@@ -3,6 +3,11 @@ itemGroup.witchworks_plants=Witchworks - Plants and Herbs
 itemGroup.witchworks_items=Witchworks - Sticks and Stones
 itemGroup.witchworks_blocks=Witchworks - Blocks
 
+//Config
+witchworks.config.world_gen=World Gen
+witchworks.config.energy_hud=Energy HUD
+witchworks.config.brew_hud=Brews HUD
+
 //Gui
 container.apiary=Apiary
 
@@ -103,7 +108,6 @@ item.wand.name=Wand
 item.needle_bone.name=Bone Needle
 item.unrefined_chalk.name=Unrefined Chalk
 item.brew_phial_drink.name=Brew Phial
-item.powder_moldavite.name=Powdered Moldavite
 
 //Blocks
 tile.candle_small.white.name=Small White Candle
@@ -217,49 +221,99 @@ fluid.oil_mundane=Oil
 fluid.for.honey=Honey
 
 //Brew
+brew.instant=Instant
+
 brew.shell_armor.name=Shell Armor Brew
 brew.shell_armor.desc=The edges of your shell may hurt those who attack you
 brew.shell_armor.tooltip=Shell Armor
 
-brew.spider_nightmare_brew.name=Spider Nightmare Brew
-brew.spider_nightmare_brew.desc=Surround your enemy with webs and spiders
-brew.spider_nightmare_brew.tooltip=Spider Nightmare
+brew.spider_nightmare.name=Spider Nightmare Brew
+brew.spider_nightmare.desc=Surround your enemy with webs and spiders
+brew.spider_nightmare.tooltip=Spider Nightmare
 
-brew.frostbite_brew.name=Frostbite Brew
-brew.frostbite_brew.desc=Encase your target in ice
-brew.frostbite_brew.tooltip=Frostbite
+brew.frostbite.name=Frostbite Brew
+brew.frostbite.desc=Encase your target in ice
+brew.frostbite.tooltip=Frostbite
 
-brew.extinguish_brew.name=Extinguish Brew
-brew.extinguish_brew.desc=Puts out any fires on you
-brew.extinguish_brew.tooltip=Extinguish
+brew.extinguish_fires.name=Extinguish Fires Brew
+brew.extinguish_fires.desc=Puts out any fires on you
+brew.extinguish_fires.tooltip=Extinguish Fires
 
-brew.mars_water_brew.name=Water of Mars Brew
-brew.mars_water_brew.desc=Inflicts nasty debuffs on the target
-brew.mars_water_brew.tooltip=Water of Mars
+brew.mars_water.name=Water of Mars Brew
+brew.mars_water.desc=Inflicts nasty debuffs on the target
+brew.mars_water.tooltip=Mars water
 
-brew.holy_water_brew.name=Holy Water
-brew.holy_water_brew.desc=Damages undead and demons, but has no effect on the living
-brew.holy_water_brew.tooltip=Holy Water
+brew.holy_water.name=Holy Water
+brew.holy_water.desc=Damages undead and demons, but has no effect on the living
+brew.holy_water.tooltip=Holy Water
 
-brew.volatility_brew.name=Brew of Volatility
-brew.volatility_brew.desc=Makes you explode upon being hit
-brew.volatility_brew.tooltip=Volatility
+brew.volatility.name=Brew of Volatility
+brew.volatility.desc=Makes you explode upon being hit
+brew.volatility.tooltip=Volatility
 
-brew.wolfsbane_brew.name=Wolfsbane Brew
-brew.wolfsbane_brew.desc=Deals damage to wolves and therians
-brew.wolfsbane_brew.tooltip=Wolfsbane
+brew.till_land.name=Tilled Land Brew
+brew.till_land.desc=Turns dirt into farmland
+brew.till_land.tooltip=Tilled Land
 
-brew.sinking_brew.name=Brew of Sinking
-brew.sinking_brew.desc=Causes you to sink and be unable to jump
-brew.sinking_brew.tooltip=Sinking
+brew.fertilize.name=Fertilize Brew
+brew.fertilize.desc=Makes stuff grow
+brew.fertilize.tooltip=Fertilize
 
-brew.cursed_leaping_brew.name=Brew of Cursed Leaping
-brew.cursed_leaping_brew.desc=Don't jump.
-brew.cursed_leaping_brew.tooltip=Cursed Leaping.
+brew.harvest.name=Harvest Festival Brew
+brew.harvest.desc=Harvests crops
+brew.harvest.tooltip=Harvest Festival
 
-brew.bane_arthropods_brew.name=Bane of Arthropods Brew
-brew.bane_arthropods_brew.desc=Damages arthropods, useful for dealing with swarms of spiders.
-brew.bane_arthropods_brew.tooltip=Bane of Arthropods
+brew.grow_flowers.name=Flower Apparition Brew
+brew.grow_flowers.desc=Makes flowers appear
+brew.grow_flowers.tooltip=Flower Apparition
+
+brew.ender_inhibition.name=Ender Inhibition Brew
+brew.ender_inhibition.desc=Ender beings can't teleport
+brew.ender_inhibition.tooltip=Ender Inhibition
+
+brew.path_of_the_deep.name=Path of the Deep Brew
+brew.path_of_the_deep.desc=Swim faster
+brew.path_of_the_deep.tooltip=Path of the Deep
+
+brew.rock_pulverize.name=Rock Pulverize Brew
+brew.rock_pulverize.desc=Turns rock into gravel, gravel into sand
+brew.rock_pulverize.tooltip=Rock Pulverize
+
+brew.prune_leaves.name=Prune Leaves Brew
+brew.prune_leaves.desc=Removes leaves
+brew.prune_leaves.tooltip=Prune Leaves
+
+brew.auto_plant.name=Auto Plant Brew
+brew.auto_plant.desc=Plants any seed that is on the ground
+brew.auto_plant.tooltip=Auto Plant
+
+brew.snow_trail.name=Snow Trail Brew
+brew.snow_trail.desc=Snow Layer everywhere and affected creatures leave trail of snow
+brew.snow_trail.tooltip=Snow Trail
+
+brew.skin_tint.name=Skin Tint Brew
+brew.skin_tint.desc=Tint the skin with a color
+brew.skin_tint.tooltip=Skin Tint
+
+brew.wolfsbane.name=Wolfsbane Brew
+brew.wolfsbane.desc=Deals damage to wolves and therians
+brew.wolfsbane.tooltip=Wolfsbane
+
+brew.sinking.name=Brew of Sinking
+brew.sinking.desc=Causes you to sink and be unable to jump
+brew.sinking.tooltip=Sinking
+
+brew.cursed_leaping.name=Brew of Cursed Leaping
+brew.cursed_leaping.desc=Don't jump
+brew.cursed_leaping.tooltip=Cursed Leaping
+
+brew.bane_arthropods.name=Bane of Arthropods Brew
+brew.bane_arthropods.desc=Damages arthropods, useful for dealing with swarms of spiders.
+brew.bane_arthropods.tooltip=Bane of Arthropods
+
+brew..name=
+brew..desc=
+brew..tooltip=
 
 //Sound
 witchworks.subtitle.boil=Kettle boiling
@@ -275,7 +329,14 @@ witch.tooltip.seed_kelp_description.name=Spore from a large algae
 witch.tooltip.seed_mint_description.name=Seed from a herbaceous plant
 witch.tooltip.seed_white_sage_description.name=Seed from an evergreen perennial shrub
 witch.tooltip.seed_dandelion_root_description.name=The root of a plant
+witch.tooltip.seed_rose_description.name=Seed from a flowering plant
+witch.tooltip.seed_poppy_description.name=Seed from a flowering plant
+witch.tooltip.seed_allium_description.name=Seed from a flowering plant
 witch.tooltip.seed_mandrake_description.name=Seed from a plant with a strange root
+witch.tooltip.seed_oxeye_daisy_description.name=Seed from a widespread flowering plant
+witch.tooltip.seed_sunflower_description.name=Seed from a flowering plant
+witch.tooltip.seed_lilac_description.name=Seed from a flowering woody plant
+witch.tooltip.seed_peony_description.name=Seed from a flowering plant
 witch.tooltip.seed_lavender_description.name=Seed from a flowering plant
 witch.tooltip.seed_thistle_description.name=Seed from a thorny flower
 witch.tooltip.seed_silphium_description.name=Seed from a strange fennel
@@ -290,10 +351,17 @@ witch.tooltip.belladonna_description.name=Highly toxic, can be used as a halluci
 witch.tooltip.ginger_description.name=Meant to give energy and increased speed
 witch.tooltip.kelp_description.name=Related to water and protection overseas
 witch.tooltip.mint_description.name=Used for protection against magic
-witch.tooltip.white_sage_description.name=Used as an aid in exorcisms or cleaning an area and to increase wisdom
+witch.tooltip.white_sage_description.name=Is used as an aid in exorcisms or cleaning an area and to increase wisdom
+witch.tooltip.dandelion_root_description.name=Used for divination and spirit calling
+witch.tooltip.rose_description.name=Could be used to create splash breeding potions
+witch.tooltip.poppy_description.name=Associated with sleep and death
+witch.tooltip.allium_description.name=Can be used for medicines
 witch.tooltip.mandrake_root_description.name=Used to amplify magical effects
+witch.tooltip.oxeye_daisy_description.name=Used for 'silver-tongue' potions, meant to attract wealth or affection
+witch.tooltip.sunflower_description.name=Could be used in potions that create light, effectively creating little suns
 witch.tooltip.lilac_description.name=Associated with protection
 witch.tooltip.lavender_description.name=Associated with purity and grace
+witch.tooltip.peony_description.name=Seed from a flowering plant
 witch.tooltip.thistle_description.name=A flower associated with strength and durability, and is the national flower of Scotland
 witch.tooltip.silphium_description.name=A rather large and unusual fennel prized by the romans for its many uses
 witch.tooltip.garlic_description.name=The bulb of a type of allium, it is rather smelly, and seems to keep undead at bay.

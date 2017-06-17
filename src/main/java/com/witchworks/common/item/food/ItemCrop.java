@@ -1,7 +1,7 @@
 package com.witchworks.common.item.food;
 
-import com.witchworks.api.item.IModelRegister;
-import com.witchworks.api.item.NBTHelper;
+import com.witchworks.api.helper.IModelRegister;
+import com.witchworks.api.helper.NBTHelper;
 import com.witchworks.client.handler.ModelHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;

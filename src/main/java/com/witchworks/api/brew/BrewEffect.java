@@ -21,7 +21,8 @@ public class BrewEffect {
 		this.amplifier = amplifier;
 	}
 
-	public void start(EntityLivingBase entity) {
+	public void start(World world, BlockPos pos, EntityLivingBase entity) {
+		brew.onStart(world, pos, entity, amplifier);
 		if (brew instanceof BrewAtributeModifier)
 			((BrewAtributeModifier) brew).applyAttributeModifiers(entity.getAttributeMap(), amplifier);
 	}

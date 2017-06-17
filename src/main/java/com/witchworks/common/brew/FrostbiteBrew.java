@@ -36,6 +36,11 @@ public class FrostbiteBrew implements IBrew {
 	}
 
 	@Override
+	public boolean isBad() {
+		return true;
+	}
+
+	@Override
 	public boolean isInstant() {
 		return false;
 	}
@@ -47,12 +52,12 @@ public class FrostbiteBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.frostbite_brew";
+		return "frostbite";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 5);
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 3);
 	}
 }

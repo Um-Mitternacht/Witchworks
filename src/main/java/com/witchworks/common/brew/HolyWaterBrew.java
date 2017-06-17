@@ -26,8 +26,8 @@ public class HolyWaterBrew extends BrewAtributeModifier {
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		//NO-OP
+	public boolean isBad() {
+		return false;
 	}
 
 	@Override
@@ -42,13 +42,13 @@ public class HolyWaterBrew extends BrewAtributeModifier {
 
 	@Override
 	public String getName() {
-		return "brew.holy_water_brew";
+		return "holy_water";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 6);
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 4);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package com.witchworks.client.handler;
 
-import com.witchworks.api.item.IModelRegister;
+import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

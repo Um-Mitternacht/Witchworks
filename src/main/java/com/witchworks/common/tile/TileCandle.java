@@ -31,7 +31,7 @@ public class TileCandle extends TileMod implements ITickable {
 
 	public void litCandle() {
 		world.playSound(null, getPos(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1F, 1F);
-		setLit(true);
+		this.lit = true;
 		world.profiler.startSection("checkLight");
 		world.checkLight(pos);
 		world.profiler.endSection();
@@ -40,7 +40,7 @@ public class TileCandle extends TileMod implements ITickable {
 	public void unLitCandle() {
 		if (isLit()) {
 			world.playSound(null, getPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
-			setLit(false);
+			this.lit = false;
 			world.profiler.startSection("checkLight");
 			world.checkLight(pos);
 			world.profiler.endSection();
@@ -66,11 +66,6 @@ public class TileCandle extends TileMod implements ITickable {
 
 	public boolean isLit() {
 		return lit;
-	}
-
-	@Deprecated
-	public void setLit(boolean lit) {
-		this.lit = lit;
 	}
 
 	@Override

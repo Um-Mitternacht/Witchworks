@@ -8,7 +8,7 @@
  */
 package com.witchworks.common.item;
 
-import com.witchworks.api.item.IModelRegister;
+import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.item.Item;

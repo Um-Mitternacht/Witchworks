@@ -1,12 +1,13 @@
 package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.BrewRegistry;
-import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.common.entity.EntityBrew;
 import com.witchworks.common.lib.LibItemName;
+import com.witchworks.api.brew.BrewUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -31,6 +32,11 @@ public class ItemBrewLinger extends ItemBrew {
 	}
 
 	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+		return EnumRarity.RARE;
+	}
+
+	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		ItemStack itemstack = playerIn.getHeldItem(hand);
 		ItemStack copy = playerIn.capabilities.isCreativeMode ? itemstack.copy() : itemstack.splitStack(1);
@@ -49,7 +55,7 @@ public class ItemBrewLinger extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getDefaults().get(LINGER).forEach((brew, brewEffect) ->
+		BrewRegistry.getDefaults().get(LINGER).forEach( (brew, brewEffect) ->
 				subItems.add(BrewUtils.createBrew(LINGER, brew))
 		);
 	}

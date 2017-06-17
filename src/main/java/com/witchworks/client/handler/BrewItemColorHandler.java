@@ -1,7 +1,7 @@
 package com.witchworks.client.handler;
 
 import com.witchworks.api.brew.BrewUtils;
-import com.witchworks.api.item.NBTHelper;
+import com.witchworks.api.helper.NBTHelper;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
 

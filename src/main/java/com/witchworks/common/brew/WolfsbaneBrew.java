@@ -26,8 +26,8 @@ public class WolfsbaneBrew implements IBrew {
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		//NO-OP
+	public boolean isBad() {
+		return true;
 	}
 
 	@Override
@@ -42,13 +42,13 @@ public class WolfsbaneBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.wolfsbane_brew";
+		return "wolfsbane";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 8);
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 13);
 	}
 
 }

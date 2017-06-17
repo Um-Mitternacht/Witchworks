@@ -5,7 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
 /**
- * Created by Joseph on 5/29/2017.
+ * This class was created by Joseph on 5/29/2017.
+ * It's distributed as part of Witchworks under
+ * the MIT license.
  */
 public class SeedDropRegistry {
 
