@@ -68,6 +68,9 @@ public final class CauldronCrafting {
 		registerItemRitual("golden_apple", getStack(Items.GOLDEN_APPLE, 1, 1), 8
 				, getStack(Blocks.GOLD_BLOCK, 8), Items.APPLE);
 
+		registerItemRitual("cobweb", getStack(Blocks.WEB), 2
+				, getStack(Items.STRING, 4), Items.SPIDER_EYE);
+
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
