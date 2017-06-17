@@ -111,8 +111,6 @@ public final class CauldronCrafting {
 				, new PotionEffect(MobEffects.HASTE, 500), false);
 		registerEffect(getStack(Items.PRISMARINE_CRYSTALS)
 				, new PotionEffect(MobEffects.GLOWING, 500), false);
-		registerEffect(getStack(ModItems.KELP)
-				, new PotionEffect(MobEffects.WATER_BREATHING, 500), false);
 		registerEffect(getStack(Items.PRISMARINE_SHARD)
 				, new PotionEffect(MobEffects.MINING_FATIGUE, 500), false);
 		registerEffect(getStack(Items.SHULKER_SHELL)
@@ -133,6 +131,22 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.WOLFSBANE), false);
 		registerEffect(getStack(ModItems.WORMWOOD)
 				, BrewRegistry.getDefault(ModBrews.BANE_ARTHROPODS), false);
+		registerEffect(getStack(ModItems.KELP)
+				, BrewRegistry.getDefault(ModBrews.PATH_OF_THE_DEEP), false);
+		registerEffect(getStack(ModItems.SILPHIUM)
+				, BrewRegistry.getDefault(ModBrews.GROW_FLOWER), false);
+		registerEffect(getStack(ModItems.SEED_SILPHIUM)
+				, BrewRegistry.getDefault(ModBrews.HARVEST), false);
+		registerEffect(getStack(Items.ENDER_PEARL)
+				, BrewRegistry.getDefault(ModBrews.ENDER_INHIBITION), false);
+		registerEffect(getStack(ModItems.AMETHYST)
+				, BrewRegistry.getDefault(ModBrews.TILL_LAND), false);
+		registerEffect(getStack(ModItems.JASPER)
+				, BrewRegistry.getDefault(ModBrews.ROCK_PULVERIZE), false);
+		registerEffect(getStack(Blocks.DOUBLE_PLANT, 1, 4)
+				, BrewRegistry.getDefault(ModBrews.FERTILIZE), false);
+		registerEffect(getStack(Blocks.PACKED_ICE)
+				, BrewRegistry.getDefault(ModBrews.SNOW_TRAIL), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
