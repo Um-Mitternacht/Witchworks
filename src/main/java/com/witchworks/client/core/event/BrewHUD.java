@@ -43,7 +43,7 @@ public class BrewHUD {
 						GlStateManager.pushMatrix();
 
 						brew.renderHUD(xOffset, yOffset, mc, effect.getAmplifier());
-						if(ConfigHandler.BREW_HUD.orientation) {
+						if (ConfigHandler.BREW_HUD.orientation) {
 							yOffset += 22;
 						} else {
 							xOffset += 22;

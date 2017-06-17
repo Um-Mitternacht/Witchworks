@@ -86,7 +86,7 @@ public class ItemBrewDrink extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getDefaults().get(DRINK).forEach( (brew, brewEffect) ->
+		BrewRegistry.getDefaults().get(DRINK).forEach((brew, brewEffect) ->
 				subItems.add(BrewUtils.createBrew(DRINK, brew))
 		);
 	}

@@ -1,8 +1,8 @@
 package com.witchworks.common.core.net;
 
+import com.witchworks.api.capability.IEnergy;
 import com.witchworks.common.core.capability.energy.CapabilityEnergy;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
-import com.witchworks.api.capability.IEnergy;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;

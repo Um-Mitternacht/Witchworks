@@ -218,7 +218,7 @@ public class BrewUtils {
 			String amplifier = (effect.getAmplifier() <= 0) ? "" : (RomanNumber.getRoman(effect.getAmplifier())) + " ";
 			String duration = effect.isInstant() ? I18n.format("brew.instant") : StringUtils.ticksToElapsedTime(effect.getDuration());
 
-			tooltip.add(TextFormatting.DARK_AQUA + "" + TextFormatting.ITALIC +  name + amplifier + "(" + duration + ")");
+			tooltip.add(TextFormatting.DARK_AQUA + "" + TextFormatting.ITALIC + name + amplifier + "(" + duration + ")");
 		}
 		if (brewsFromStack.isEmpty()) {
 			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "---");

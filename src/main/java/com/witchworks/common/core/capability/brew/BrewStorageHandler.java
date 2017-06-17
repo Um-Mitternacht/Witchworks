@@ -71,7 +71,7 @@ public final class BrewStorageHandler {
 
 	public static void removeActiveBrew(EntityLivingBase entity, IBrew brew) {
 		if (isBrewActive(entity, brew)) {
-			if(BREW_REMOVAL.containsKey(entity)) {
+			if (BREW_REMOVAL.containsKey(entity)) {
 				BREW_REMOVAL.get(entity).add(brew);
 			} else {
 				BREW_REMOVAL.put(entity, Sets.newHashSet(brew));

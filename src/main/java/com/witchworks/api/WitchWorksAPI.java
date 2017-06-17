@@ -15,7 +15,13 @@ public final class WitchWorksAPI {
 	public static final Item BREW_PHIAL_DRINK = Item.REGISTRY.getObject(getLocation("brew_phial_drink"));
 	public static final Item BREW_PHIAL_SPLASH = Item.REGISTRY.getObject(getLocation("brew_phial_splash"));
 	public static final Item BREW_PHIAL_LINGER = Item.REGISTRY.getObject(getLocation("brew_phial_linger"));
-
+	//Sounds
+	public static final ResourceLocation BOIL = getLocation("boil");
+	public static final ResourceLocation BUZZ = getLocation("buzz");
+	public static final ResourceLocation CHALK_SCRIBBLE = getLocation("chalk_scribble");
+	//Constants
+	public static final String TAGLOCK_ENTITY = "tag_entity";
+	public static final String TAGLOCK_ENTITY_NAME = "tag_entity_name";
 	public static ResourceLocation SHELL_ARMOR = getLocation("shell_armor");
 	public static ResourceLocation SPIDER_NIGHTMARE = getLocation("spider_nightmare");
 	public static ResourceLocation EXTINGUISH_FIRES = getLocation("extinguish_fires");
@@ -32,15 +38,6 @@ public final class WitchWorksAPI {
 	public static ResourceLocation ROCK_PULVERIZE = getLocation("rock_pulverize");
 	public static ResourceLocation PRUNE_LEAVES = getLocation("prune_leaves");
 	public static ResourceLocation AUTO_PLANT = getLocation("auto_plant");
-
-	//Sounds
-	public static final ResourceLocation BOIL = getLocation("boil");
-	public static final ResourceLocation BUZZ = getLocation("buzz");
-	public static final ResourceLocation CHALK_SCRIBBLE = getLocation("chalk_scribble");
-
-	//Constants
-	public static final String TAGLOCK_ENTITY = "tag_entity";
-	public static final String TAGLOCK_ENTITY_NAME = "tag_entity_name";
 
 	private WitchWorksAPI() {
 	}

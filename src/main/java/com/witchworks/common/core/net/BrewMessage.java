@@ -3,9 +3,9 @@ package com.witchworks.common.core.net;
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
+import com.witchworks.api.capability.IBrewStorage;
 import com.witchworks.api.helper.NBTHelper;
 import com.witchworks.common.core.capability.brew.BrewStorageHandler;
-import com.witchworks.api.capability.IBrewStorage;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
@@ -70,13 +70,13 @@ public class BrewMessage implements IMessage {
 				World world = Minecraft.getMinecraft().player.world;
 
 				EntityLivingBase entity = world.getPlayerEntityByUUID(message.target);
-				if(entity == null) {
+				if (entity == null) {
 					entity = NBTHelper.getEntityByUUID(EntityLivingBase.class, message.target, world).orElse(null);
 				}
 
-				if(entity != null) {
+				if (entity != null) {
 					Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entity);
-					if(optional.isPresent()) {
+					if (optional.isPresent()) {
 						IBrewStorage storage = optional.get();
 						storage.setBrewMap(message.effects);
 					}

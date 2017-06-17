@@ -21,7 +21,7 @@ public class ExtinguishFiresBrew extends BlockHitBrew {
 
 	@Override
 	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
-		if(side != null) pos = pos.offset(side);
+		if (side != null) pos = pos.offset(side);
 		if (canExtinguish(world, pos, amplifier)) {
 			int box = 1 + (int) ((float) amplifier / 2F);
 

@@ -20,7 +20,8 @@ public class RitualRegistry {
 	private static final IntIdentityHashBiMap<IRitual> RITUALS = new IntIdentityHashBiMap<>(256);
 
 	public static <T extends TileEntity, R extends IRitual<T>> IRitual<T> register(ResourceLocation location, R ritual) {
-		if (LOCATION_RITUALS.containsKey(location)) throw new IllegalArgumentException("This Ritual has been registered twice!: " + location);
+		if (LOCATION_RITUALS.containsKey(location))
+			throw new IllegalArgumentException("This Ritual has been registered twice!: " + location);
 		LOCATION_RITUALS.put(location, ritual);
 		RITUALS.add(ritual);
 		return ritual;

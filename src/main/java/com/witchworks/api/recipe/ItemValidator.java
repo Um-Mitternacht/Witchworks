@@ -27,7 +27,7 @@ public class ItemValidator<T> {
 
 	public Optional<T> getMatchFor(ItemStack input) {
 		Optional<Holder<ItemStack, T>> optional = getHolder(input);
-		return optional.map(Holder:: getOutput);
+		return optional.map(Holder::getOutput);
 	}
 
 	public Optional<Holder<ItemStack, T>> getHolder(ItemStack input) {

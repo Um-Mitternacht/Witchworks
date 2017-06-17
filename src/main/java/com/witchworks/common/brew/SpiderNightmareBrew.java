@@ -29,7 +29,7 @@ public class SpiderNightmareBrew implements IBrew {
 			spider.setPosition(pos.getX(), pos.getY(), pos.getZ());
 			world.spawnEntity(spider);
 		}
-		int box = 1 + (int)((float) amplifier / 2F);
+		int box = 1 + (int) ((float) amplifier / 2F);
 
 		BlockPos posI = pos.add(box, box, box);
 		BlockPos posF = pos.add(-box, -box, -box);

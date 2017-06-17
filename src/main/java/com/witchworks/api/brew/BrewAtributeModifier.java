@@ -28,7 +28,7 @@ public abstract class BrewAtributeModifier implements IBrew {
 	public void applyAttributeModifiers(AbstractAttributeMap attributeMap, int amplifier) {
 		for (Map.Entry<IAttribute, AttributeModifier> entry : modifierMap.entrySet()) {
 			IAttributeInstance attribute = attributeMap.getAttributeInstance(entry.getKey());
-			if(attribute == null) continue;
+			if (attribute == null) continue;
 
 			AttributeModifier modifier = entry.getValue();
 			attribute.removeModifier(modifier);
@@ -39,7 +39,7 @@ public abstract class BrewAtributeModifier implements IBrew {
 	public void removeAttributeModifiers(AbstractAttributeMap attributeMapIn, int amplifier) {
 		for (Map.Entry<IAttribute, AttributeModifier> entry : modifierMap.entrySet()) {
 			IAttributeInstance attribute = attributeMapIn.getAttributeInstance(entry.getKey());
-			if(attribute == null) continue;
+			if (attribute == null) continue;
 
 			attribute.removeModifier(entry.getValue());
 		}

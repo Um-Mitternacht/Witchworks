@@ -1,8 +1,8 @@
 package com.witchworks.common.core.event;
 
+import com.witchworks.api.capability.IEnergy;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
 import com.witchworks.common.core.capability.energy.EnergyProvider;
-import com.witchworks.api.capability.IEnergy;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

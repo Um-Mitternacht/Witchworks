@@ -36,7 +36,7 @@ public class BrewEvents {
 
 	public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
 		BrewStorageHandler.getBrewStorage(event.player).ifPresent(data -> {
-			if(event.player instanceof EntityPlayerMP) {
+			if (event.player instanceof EntityPlayerMP) {
 				data.syncToNear(event.player);
 			}
 		});
@@ -45,7 +45,7 @@ public class BrewEvents {
 	@SubscribeEvent
 	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
 		BrewStorageHandler.getBrewStorage(event.player).ifPresent(data -> {
-			if(event.player instanceof EntityPlayerMP) {
+			if (event.player instanceof EntityPlayerMP) {
 				data.syncToNear(event.player);
 			}
 		});
@@ -96,14 +96,14 @@ public class BrewEvents {
 				}
 			}
 			storage.setBrewMap(updated);
-			if(entity.ticksExisted % 60 == 0 || needsUpdate)
+			if (entity.ticksExisted % 60 == 0 || needsUpdate)
 				storage.syncToNear(entity);
 		}
 	}
 
 	@SubscribeEvent
 	public void onHurt(LivingHurtEvent event) {
-		if(event.getEntityLiving().world.isRemote) return;
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewHurt).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -113,7 +113,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onHeal(LivingHealEvent event) {
-		if(event.getEntityLiving().world.isRemote) return;
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewHeal).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -123,7 +123,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onAttack(LivingAttackEvent event) {
-		if(event.getEntityLiving().world.isRemote) return;
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewAttack).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -133,7 +133,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onBlockDestroy(LivingDestroyBlockEvent event) {
-		if(event.getEntityLiving().world.isRemote) return;
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewBlockDestroy).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -143,7 +143,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onTeleport(EnderTeleportEvent event) {
-		if(event.getEntityLiving().world.isRemote) return;
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewEnderTeleport).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -154,7 +154,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onDeath(LivingDeathEvent event) {
-		if(event.getEntityLiving().world.isRemote) return;
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewDeath).forEach(effect -> {
 			if (event.isCanceled()) return;

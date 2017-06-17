@@ -38,7 +38,7 @@ public class FertilizeBrew extends BlockHitBrew {
 			boolean place = amplifier > 2 || world.rand.nextInt(3) == 0;
 			if (place && state.getBlock() instanceof IGrowable) {
 				IGrowable crop = (IGrowable) state.getBlock();
-				if(crop.canGrow(world, spot, state, false))
+				if (crop.canGrow(world, spot, state, false))
 					crop.grow(world, world.rand, spot, state);
 			}
 		}

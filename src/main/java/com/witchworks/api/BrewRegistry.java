@@ -34,7 +34,8 @@ public final class BrewRegistry {
 	}
 
 	public static IBrew register(ResourceLocation location, IBrew brew) {
-		if(LOCATION_BREWS.containsKey(location)) throw new IllegalArgumentException("This Brew has been registered twice!: " + location);
+		if (LOCATION_BREWS.containsKey(location))
+			throw new IllegalArgumentException("This Brew has been registered twice!: " + location);
 		LOCATION_BREWS.put(location, brew);
 		BREWS.add(brew);
 		return brew;

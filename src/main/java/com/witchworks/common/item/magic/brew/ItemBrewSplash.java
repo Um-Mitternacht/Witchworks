@@ -55,7 +55,7 @@ public class ItemBrewSplash extends ItemBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		BrewRegistry.getDefaults().get(SPLASH).forEach( (brew, brewEffect) ->
+		BrewRegistry.getDefaults().get(SPLASH).forEach((brew, brewEffect) ->
 				subItems.add(BrewUtils.createBrew(SPLASH, brew))
 		);
 	}

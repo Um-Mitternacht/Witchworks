@@ -1,8 +1,8 @@
 package com.witchworks.client.core.event;
 
+import com.witchworks.api.capability.IEnergy;
 import com.witchworks.client.ResourceLocations;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
-import com.witchworks.api.capability.IEnergy;
 import com.witchworks.common.core.handler.ConfigHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;

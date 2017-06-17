@@ -28,7 +28,7 @@ public interface IBrewStorage {
 
 	default void removeBrew(EntityLivingBase entity, IBrew brew) {
 		BrewEffect effect = getBrew(brew);
-		if(effect != null) {
+		if (effect != null) {
 			effect.end(entity.world, entity.getPosition(), entity);
 			getBrewMap().remove(brew);
 			syncToNear(entity);
