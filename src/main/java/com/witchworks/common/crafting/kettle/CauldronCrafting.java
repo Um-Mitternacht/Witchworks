@@ -69,7 +69,7 @@ public final class CauldronCrafting {
 				, getStack(Blocks.GOLD_BLOCK, 8), Items.APPLE);
 
 		registerItemRitual("cobweb", getStack(Blocks.WEB), 2
-				, getStack(Items.STRING, 4), Items.SPIDER_EYE);
+				, getStack(Items.STRING, 4), Items.SLIME_BALL);
 
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
