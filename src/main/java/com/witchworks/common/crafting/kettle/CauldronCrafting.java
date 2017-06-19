@@ -51,6 +51,7 @@ public final class CauldronCrafting {
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.BEEF, Items.COOKED_BEEF, true);
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.FISH, Items.COOKED_FISH, true);
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.POTATO, Items.BAKED_POTATO, true);
+		registerItemProcessStack(Fluids.MUNDANE_OIL, getStack(Items.FISH, 1, 1), getStack(Items.COOKED_FISH, 1, 1), true);
 		//Coking with Water
 		registerItemProcess(FluidRegistry.WATER, ModItems.EMPTY_HONEYCOMB, ModItems.WAX, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.HONEYCOMB, ModItems.HONEY, true);
@@ -175,6 +176,10 @@ public final class CauldronCrafting {
 	}
 
 	private static void registerItemProcess(Fluid fluid, Item in, Item out, boolean perfectMatch) {
+		CauldronRegistry.registerItemProcessing(fluid, in, out, perfectMatch);
+	}
+
+	private static void registerItemProcessStack(Fluid fluid, ItemStack in, ItemStack out, boolean perfectMatch) {
 		CauldronRegistry.registerItemProcessing(fluid, in, out, perfectMatch);
 	}
 
