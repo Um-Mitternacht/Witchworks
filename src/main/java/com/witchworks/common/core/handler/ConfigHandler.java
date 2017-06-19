@@ -76,7 +76,7 @@ public final class ConfigHandler {
 			public int moldavite_max_vein = 4;
 			public int moldavite_min_height = 10;
 			public int moldavite_max_height = 80;
-			public int moldavite_gen_chance = 1;
+			public int moldavite_gen_chance = 6;
 		}
 
 		public static class BloodstoneOre {
@@ -84,7 +84,7 @@ public final class ConfigHandler {
 			public int bloodStone_max_vein = 2;
 			public int bloodStone_min_height = 10;
 			public int bloodStone_max_height = 100;
-			public int bloodStone_gen_chance = 1;
+			public int bloodStone_gen_chance = 6;
 		}
 
 		public static class Tourmaline {
@@ -92,7 +92,7 @@ public final class ConfigHandler {
 			public int tourmaline_max_vein = 2;
 			public int tourmaline_min_height = 10;
 			public int tourmaline_max_height = 80;
-			public int tourmaline_gen_chance = 2;
+			public int tourmaline_gen_chance = 6;
 		}
 
 		public static class Malachite {
@@ -100,7 +100,7 @@ public final class ConfigHandler {
 			public int malachite_max_vein = 2;
 			public int malachite_min_height = 10;
 			public int malachite_max_height = 80;
-			public int malachite_gen_chance = 2;
+			public int malachite_gen_chance = 6;
 		}
 
 		public static class TigersEye {
@@ -108,7 +108,7 @@ public final class ConfigHandler {
 			public int tigersEye_max_vein = 2;
 			public int tigersEye_min_height = 10;
 			public int tigersEye_max_height = 60;
-			public int tigersEye_gen_chance = 1;
+			public int tigersEye_gen_chance = 6;
 		}
 
 		public static class Nuummite {
@@ -116,7 +116,7 @@ public final class ConfigHandler {
 			public int nuummite_max_vein = 2;
 			public int nuummite_min_height = 10;
 			public int nuummite_max_height = 80;
-			public int nuummite_gen_chance = 2;
+			public int nuummite_gen_chance = 6;
 		}
 
 		public static class Garnet {
@@ -124,7 +124,7 @@ public final class ConfigHandler {
 			public int garnet_max_vein = 2;
 			public int garnet_min_height = 10;
 			public int garnet_max_height = 65;
-			public int garnet_gen_chance = 1;
+			public int garnet_gen_chance = 6;
 		}
 
 		public static class Jasper {
@@ -132,7 +132,7 @@ public final class ConfigHandler {
 			public int jasper_max_vein = 2;
 			public int jasper_min_height = 10;
 			public int jasper_max_height = 80;
-			public int jasper_gen_chance = 2;
+			public int jasper_gen_chance = 6;
 		}
 
 		public static class Salt {
@@ -140,15 +140,15 @@ public final class ConfigHandler {
 			public int salt_max_vein = 4;
 			public int salt_min_height = 10;
 			public int salt_max_height = 128;
-			public int salt_gen_chance = 2;
+			public int salt_gen_chance = 6;
 		}
 
 		public static class Amethyst {
 			public int amethyst_min_vein = 1;
 			public int amethyst_max_vein = 4;
 			public int amethyst_min_height = 10;
-			public int amethyst_max_height = 40;
-			public int amethyst_gen_chance = 2;
+			public int amethyst_max_height = 65;
+			public int amethyst_gen_chance = 6;
 		}
 
 		public static class Alexandrite {
@@ -156,7 +156,7 @@ public final class ConfigHandler {
 			public int alexandrite_max_vein = 2;
 			public int alexandrite_min_height = 10;
 			public int alexandrite_max_height = 40;
-			public int alexandrite_gen_chance = 1;
+			public int alexandrite_gen_chance = 6;
 		}
 
 		public static class Coquina {
@@ -164,7 +164,7 @@ public final class ConfigHandler {
 			public int coquina_max_vein = 4;
 			public int coquina_min_height = 55;
 			public int coquina_max_height = 65;
-			public int coquina_gen_chance = 2;
+			public int coquina_gen_chance = 4;
 		}
 
 		public static class Chalk {
