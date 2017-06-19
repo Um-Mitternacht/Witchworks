@@ -57,23 +57,9 @@ public final class CauldronCrafting {
 		registerItemProcess(FluidRegistry.WATER, ModItems.EMPTY_HONEYCOMB, ModItems.WAX, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.HONEYCOMB, ModItems.HONEY, true);
 		//Banner pattern removal
-		//Todo: There's probably a better way of handling this, this is just for testing purposes
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 0), getStack(Items.BANNER, 1, 0), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 1), getStack(Items.BANNER, 1, 1), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 2), getStack(Items.BANNER, 1, 2), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 3), getStack(Items.BANNER, 1, 3), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 4), getStack(Items.BANNER, 1, 4), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 5), getStack(Items.BANNER, 1, 5), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 6), getStack(Items.BANNER, 1, 6), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 7), getStack(Items.BANNER, 1, 7), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 8), getStack(Items.BANNER, 1, 8), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 9), getStack(Items.BANNER, 1, 9), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 10), getStack(Items.BANNER, 1, 10), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 11), getStack(Items.BANNER, 1, 11), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 12), getStack(Items.BANNER, 1, 12), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 13), getStack(Items.BANNER, 1, 13), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 14), getStack(Items.BANNER, 1, 14), true);
-		registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, 15), getStack(Items.BANNER, 1, 15), true);
+		for (int i = 0; i < 16; i++) {
+			registerItemProcessStack(FluidRegistry.WATER, getStack(Items.BANNER, 1, i), getStack(Items.BANNER, 1, i), true);
+		}
 
 		//------------------------------------Fluid Creation------------------------------------//
 		CauldronRegistry.registerFluidIngredient(ModItems.HONEY, new FluidStack(Fluids.HONEY, 1000));
