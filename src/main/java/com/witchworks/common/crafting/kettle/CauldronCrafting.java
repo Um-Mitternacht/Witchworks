@@ -71,9 +71,18 @@ public final class CauldronCrafting {
 		registerItemRitual("cobweb", getStack(Blocks.WEB), 2
 				, getStack(Items.STRING, 4), Items.SLIME_BALL);
 
+		registerItemRitual("string", getStack(Items.STRING, 6), 2
+				, getStack(ModItems.KENAF, 2));
+
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
+
+		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
+				, getStack(Items.DYE, 1, 0), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.SKIN_TINT, 500, 15)
+				, getStack(Items.DYE, 1, 15), Items.NETHER_WART);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
 		registerEffect(getStack(ModItems.SALT)
