@@ -35,7 +35,7 @@ public class FertilizeBrew extends BlockHitBrew {
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
 			IBlockState state = world.getBlockState(spot);
-			boolean place = amplifier > 2 || world.rand.nextInt(3) == 0;
+			boolean place = amplifier > 2 || world.rand.nextBoolean();
 			if (place && state.getBlock() instanceof IGrowable) {
 				IGrowable crop = (IGrowable) state.getBlock();
 				if (crop.canGrow(world, spot, state, false))

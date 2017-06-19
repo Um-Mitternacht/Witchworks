@@ -157,7 +157,7 @@ public final class WitchWorksCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModBlocks.KETTLE);
+			return new ItemStack(ModBlocks.CAULDRON);
 		}
 
 		@Override
@@ -169,7 +169,7 @@ public final class WitchWorksCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
-			addBlock(ModBlocks.KETTLE);
+			addBlock(ModBlocks.CAULDRON);
 			addBlock(ModBlocks.BEEHIVE);
 			addBlock(ModBlocks.ALTAR);
 			addBlock(ModBlocks.APIARY);

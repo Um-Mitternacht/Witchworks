@@ -1,4 +1,4 @@
-package com.witchworks.common.crafting.kettle;
+package com.witchworks.common.crafting.cauldron;
 
 import com.witchworks.api.ritual.IRitual;
 import com.witchworks.api.ritual.RitualHolder;

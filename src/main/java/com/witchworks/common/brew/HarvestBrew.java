@@ -38,7 +38,7 @@ public class HarvestBrew extends BlockHitBrew {
 		int fortune = MathHelper.clamp(amplifier, 0, 5);
 		for (BlockPos spot : spots) {
 			IBlockState state = world.getBlockState(spot);
-			boolean place = amplifier > 1 || world.rand.nextInt(3) == 0;
+			boolean place = amplifier > 1 || world.rand.nextBoolean();
 			if (place && state.getBlock() instanceof BlockCrops) {
 				BlockCrops crop = (BlockCrops) state.getBlock();
 				if (crop.isMaxAge(state)) {

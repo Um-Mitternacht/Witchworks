@@ -45,7 +45,7 @@ public class BlockCauldron extends BlockMod implements IModelRegister, ITileEnti
 	private static final AxisAlignedBB AABB_WALL_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.125D, 11 * 0.0625, 1.0D);
 
 	public BlockCauldron() {
-		super(LibBlockName.KETTLE, Material.IRON);
+		super(LibBlockName.CAULDRON, Material.IRON);
 		setSound(SoundType.METAL);
 		setResistance(5F);
 		setHardness(5F);

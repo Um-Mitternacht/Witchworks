@@ -60,8 +60,8 @@ public final class ModBlocks {
 	public static final Block BLOODSTONE_BLOCK = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.TOURMALINE_BLOCK)
 	public static final Block TOURMALINE_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.KETTLE)
-	public static final Block KETTLE = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.CAULDRON)
+	public static final Block CAULDRON = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.SILVER_ORE)
 	public static final Block SILVER_ORE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.MOLDAVITE_ORE)

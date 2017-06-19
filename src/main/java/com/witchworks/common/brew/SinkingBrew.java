@@ -46,7 +46,7 @@ public class SinkingBrew implements IBrew, IBrewClientSide {
 
 	@Override
 	public String getName() {
-		return "sinking_brew";
+		return "sinking";
 	}
 
 	@SideOnly(Side.CLIENT)

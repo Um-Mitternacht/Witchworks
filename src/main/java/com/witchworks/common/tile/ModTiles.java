@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public final class ModTiles {
 
-	private static final String KETTLE = "kettle";
+	private static final String KETTLE = "cauldron";
 	private static final String CANDLE = "candle";
 	private static final String APIARY = "apiary";
 

@@ -4,7 +4,7 @@ import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.recipe.KettleBrewRecipe;
 import com.witchworks.api.recipe.KettleItemRecipe;
-import com.witchworks.common.crafting.kettle.ItemRitual;
+import com.witchworks.common.crafting.cauldron.ItemRitual;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
@@ -31,18 +31,6 @@ public final class CauldronRegistry {
 	private static final Map<Item, ItemValidator<BrewModifier>> BREW_MODIFIERS = new HashMap<>();
 
 	private CauldronRegistry() {
-	}
-
-	/**
-	 * Register an Item to the Processing factory.
-	 *
-	 * @param fluid  The fluid this Item needs
-	 * @param in     The Item you throw in
-	 * @param out    The Item that comes out
-	 * @param strict If the Item must be identical
-	 */
-	public static void registerItemProcessing(Fluid fluid, Item in, Item out, boolean strict) {
-		registerItemProcessing(fluid, new ItemStack(in), new ItemStack(out), strict);
 	}
 
 	/**

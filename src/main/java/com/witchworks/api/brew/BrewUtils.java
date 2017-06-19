@@ -107,7 +107,7 @@ public class BrewUtils {
 		for (BrewEffect effect : effects) {
 			NBTTagCompound compound = new NBTTagCompound();
 			IBrew brew = effect.getBrew();
-			tag.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
+			compound.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
 			compound.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
 			compound.setInteger(BREW_DURATION, effect.getDuration());
 			list.appendTag(compound);

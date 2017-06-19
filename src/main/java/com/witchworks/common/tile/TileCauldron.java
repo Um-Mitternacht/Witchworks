@@ -245,15 +245,12 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	}
 
 	private void handleParticles() {
-		if (world.rand.nextInt(10) == 0) {
-			float x = getPos().getX();
+		for (int i = 0; i < 2; i++) {
+			double posX = getPos().getX() + 0.2D + world.rand.nextDouble() * 0.6D;
 			float posY = getParticleLevel();
-			float z = getPos().getZ();
-			for (int i = 0; i < 4; i++) {
-				float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
-				float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
-				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
-			}
+			double posZ = getPos().getZ() +0.2D + world.rand.nextDouble() * 0.6D;
+
+			WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
 		}
 		if (hasIngredients() && ticks % 2 == 0) {
 			final float x = getPos().getX() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);

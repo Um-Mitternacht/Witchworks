@@ -1,7 +1,7 @@
 package com.witchworks.common.item;
 
 import com.witchworks.common.crafting.VanillaCrafting;
-import com.witchworks.common.crafting.kettle.CauldronCrafting;
+import com.witchworks.common.crafting.cauldron.CauldronCrafting;
 import com.witchworks.common.lib.LibItemName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.item.Item;

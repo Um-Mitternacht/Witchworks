@@ -210,7 +210,7 @@ tile.chalk.name=Raw Chalk
 tile.unrefined_chalk.name=Unrefined Chalk
 
 //Devices
-tile.kettle.name=Kettle
+tile.cauldron.name=Cauldron
 tile.apiary.name=Apiary
 tile.beehive.name=Beehive
 tile.altar.name=Altar

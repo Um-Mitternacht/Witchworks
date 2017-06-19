@@ -32,7 +32,7 @@ public class BaneArthropodsBrew implements IBrew {
 
 	@Override
 	public boolean isInstant() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -48,6 +48,6 @@ public class BaneArthropodsBrew implements IBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		render(x, y, mc, 12);
+		//NO-OP
 	}
 }

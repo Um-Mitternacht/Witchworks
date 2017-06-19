@@ -32,7 +32,7 @@ public class WolfsbaneBrew implements IBrew {
 
 	@Override
 	public boolean isInstant() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -48,7 +48,6 @@ public class WolfsbaneBrew implements IBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		render(x, y, mc, 13);
+		//NO-OP
 	}
-
 }

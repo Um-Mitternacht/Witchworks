@@ -1,6 +1,6 @@
 package com.witchworks.api.recipe;
 
-import com.witchworks.common.crafting.kettle.ItemRitual;
+import com.witchworks.common.crafting.cauldron.ItemRitual;
 
 /**
  * This class was created by Arekkuusu on 04/04/2017.

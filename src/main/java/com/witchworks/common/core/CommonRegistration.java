@@ -154,7 +154,7 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.MOLDAVITE_BLOCK),
 				itemBlock(ModBlocks.COQUINA),
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
-				itemBlock(ModBlocks.KETTLE),
+				itemBlock(ModBlocks.CAULDRON),
 				itemBlock(ModBlocks.ALTAR),
 				itemBlock(ModBlocks.APIARY),
 				itemBlock(ModBlocks.BEEHIVE),

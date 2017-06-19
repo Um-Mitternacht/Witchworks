@@ -35,7 +35,7 @@ public class TillLandBrew extends BlockHitBrew {
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
 			IBlockState state = world.getBlockState(spot);
-			boolean place = amplifier > 2 || world.rand.nextInt(3) == 0;
+			boolean place = amplifier > 2 || world.rand.nextBoolean();
 			if (place && state.getBlock() == Blocks.GRASS && world.isAirBlock(spot.up())) {
 				world.setBlockState(spot, Blocks.FARMLAND.getDefaultState(), 3);
 			}

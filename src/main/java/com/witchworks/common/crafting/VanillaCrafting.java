@@ -197,7 +197,7 @@ public final class VanillaCrafting {
 				.map('I', Items.IRON_INGOT)
 				.map('N', Items.field_191525_da)
 				.map('S', ModItems.SILVER_INGOT)
-				.outputs(ModBlocks.KETTLE)
+				.outputs(ModBlocks.CAULDRON)
 				.build();
 
 		shaped().grid("WWW", "WHW", "WWW")
