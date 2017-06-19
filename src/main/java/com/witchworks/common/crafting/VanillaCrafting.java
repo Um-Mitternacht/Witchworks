@@ -205,6 +205,7 @@ public final class VanillaCrafting {
 				.map('H', Items.ITEM_FRAME)
 				.outputs(ModBlocks.APIARY)
 				.build();
+
 		shaped().grid("LML", "SSS", "WWW")
 				.map('W', "plankWood")
 				.map('S', Blocks.STONE)
