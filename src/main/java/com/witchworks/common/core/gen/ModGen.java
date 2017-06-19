@@ -27,7 +27,7 @@ public final class ModGen {
 				.generateOn(Blocks.STONE)
 				.setVeinSize(ConfigHandler.WORLD_GEN.MOLDAVITE.moldavite_min_vein, ConfigHandler.WORLD_GEN.MOLDAVITE.moldavite_max_vein)
 				.setHeightRange(ConfigHandler.WORLD_GEN.MOLDAVITE.moldavite_min_height, ConfigHandler.WORLD_GEN.MOLDAVITE.moldavite_max_height)
-				.setBiomes(BiomeDictionary.Type.FOREST)
+				.setBiomes(BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.MAGICAL)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.BLOODSTONE_ORE, ConfigHandler.WORLD_GEN.BLOOD_STONE.bloodStone_gen_chance)
 				.generateOn(Blocks.STONE)
@@ -38,7 +38,7 @@ public final class ModGen {
 				.generateOn(Blocks.STONE)
 				.setVeinSize(ConfigHandler.WORLD_GEN.TOURMALINE.tourmaline_min_vein, ConfigHandler.WORLD_GEN.TOURMALINE.tourmaline_max_vein)
 				.setHeightRange(ConfigHandler.WORLD_GEN.TOURMALINE.tourmaline_min_height, ConfigHandler.WORLD_GEN.TOURMALINE.tourmaline_max_height)
-				.setBiomes(BiomeDictionary.Type.JUNGLE)
+				.setBiomes(BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.WET)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.MALACHITE_ORE, ConfigHandler.WORLD_GEN.MALACHITE.malachite_gen_chance)
 				.generateOn(Blocks.STONE)
