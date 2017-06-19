@@ -43,6 +43,7 @@ public final class CauldronCrafting {
 		registerItemProcess(FluidRegistry.WATER, Items.LEATHER_CHESTPLATE, Items.LEATHER_CHESTPLATE, false);
 		registerItemProcess(FluidRegistry.WATER, Items.LEATHER_LEGGINGS, Items.LEATHER_LEGGINGS, false);
 		registerItemProcess(FluidRegistry.WATER, Items.LEATHER_BOOTS, Items.LEATHER_BOOTS, false);
+		registerItemProcess(FluidRegistry.WATER, Items.SHIELD, Items.SHIELD, false);
 		//Cooking with Oil
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.PORKCHOP, Items.COOKED_PORKCHOP, true);
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.MUTTON, Items.COOKED_MUTTON, true);
@@ -52,7 +53,7 @@ public final class CauldronCrafting {
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.FISH, Items.COOKED_FISH, true);
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.POTATO, Items.BAKED_POTATO, true);
 		registerItemProcessStack(Fluids.MUNDANE_OIL, getStack(Items.FISH, 1, 1), getStack(Items.COOKED_FISH, 1, 1), true);
-		//Coking with Water
+		//Cooking with Water
 		registerItemProcess(FluidRegistry.WATER, ModItems.EMPTY_HONEYCOMB, ModItems.WAX, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.HONEYCOMB, ModItems.HONEY, true);
 
