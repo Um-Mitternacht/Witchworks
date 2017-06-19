@@ -50,25 +50,25 @@ public final class ModGen {
 				.generateOn(Blocks.STONE)
 				.setVeinSize(ConfigHandler.WORLD_GEN.TIGERS_EYE.tigersEye_min_vein, ConfigHandler.WORLD_GEN.TIGERS_EYE.tigersEye_max_vein)
 				.setHeightRange(ConfigHandler.WORLD_GEN.TIGERS_EYE.tigersEye_min_height, ConfigHandler.WORLD_GEN.TIGERS_EYE.tigersEye_max_height)
-				.setBiomes(BiomeDictionary.Type.MESA)
+				.setBiomes(BiomeDictionary.Type.MESA, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.NUUMMITE_ORE, ConfigHandler.WORLD_GEN.NUUMMITE.nuummite_gen_chance)
 				.generateOn(Blocks.STONE)
 				.setVeinSize(ConfigHandler.WORLD_GEN.NUUMMITE.nuummite_min_vein, ConfigHandler.WORLD_GEN.NUUMMITE.nuummite_max_vein)
 				.setHeightRange(ConfigHandler.WORLD_GEN.NUUMMITE.nuummite_min_height, ConfigHandler.WORLD_GEN.NUUMMITE.nuummite_max_height)
-				.setBiomes(BiomeDictionary.Type.COLD)
+				.setBiomes(BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.GARNET_ORE, ConfigHandler.WORLD_GEN.GARNET.garnet_gen_chance)
 				.generateOn(Blocks.STONE)
 				.setVeinSize(ConfigHandler.WORLD_GEN.GARNET.garnet_min_vein, ConfigHandler.WORLD_GEN.GARNET.garnet_max_vein)
 				.setHeightRange(ConfigHandler.WORLD_GEN.GARNET.garnet_min_height, ConfigHandler.WORLD_GEN.GARNET.garnet_max_height)
-				.setBiomes(BiomeDictionary.Type.MESA, BiomeDictionary.Type.DRY)
+				.setBiomes(BiomeDictionary.Type.MESA, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY)
 				.build(), 0);
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.JASPER_ORE, ConfigHandler.WORLD_GEN.JASPER.jasper_gen_chance)
 				.generateOn(Blocks.STONE)
 				.setVeinSize(ConfigHandler.WORLD_GEN.JASPER.jasper_min_vein, ConfigHandler.WORLD_GEN.JASPER.jasper_max_vein)
 				.setHeightRange(ConfigHandler.WORLD_GEN.JASPER.jasper_min_height, ConfigHandler.WORLD_GEN.JASPER.jasper_max_height)
-				.setBiomes(BiomeDictionary.Type.JUNGLE)
+				.setBiomes(BiomeDictionary.Type.SANDY, BiomeDictionary.Type.MESA, BiomeDictionary.Type.DRY)
 				.build(), 0);
 		//SALT
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.SALT_ORE, ConfigHandler.WORLD_GEN.SALT.salt_gen_chance)
