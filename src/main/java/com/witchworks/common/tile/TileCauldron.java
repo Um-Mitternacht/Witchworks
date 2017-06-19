@@ -248,7 +248,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		for (int i = 0; i < 2; i++) {
 			double posX = getPos().getX() + 0.2D + world.rand.nextDouble() * 0.6D;
 			float posY = getParticleLevel();
-			double posZ = getPos().getZ() +0.2D + world.rand.nextDouble() * 0.6D;
+			double posZ = getPos().getZ() + 0.2D + world.rand.nextDouble() * 0.6D;
 
 			WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
 		}
