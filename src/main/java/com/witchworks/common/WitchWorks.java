@@ -3,8 +3,8 @@ package com.witchworks.common;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.brew.ModBrews;
 import com.witchworks.common.core.achievement.ModAchievements;
+import com.witchworks.common.core.capability.brew.CapabilityBrewStorage;
 import com.witchworks.common.core.capability.energy.CapabilityEnergy;
-import com.witchworks.common.core.capability.potion.CapabilityBrewStorage;
 import com.witchworks.common.core.command.CommandIncantation;
 import com.witchworks.common.core.command.ModCommands;
 import com.witchworks.common.core.event.ModEvents;
@@ -50,7 +50,7 @@ public class WitchWorks {
 		CapabilityEnergy.init();
 		CapabilityBrewStorage.init();
 		PacketHandler.init();
-		ModEvents.preInit();
+		ModEvents.init();
 		ModSounds.preInit();
 		ModEntities.preInit();
 		ModBrews.init();
@@ -64,14 +64,12 @@ public class WitchWorks {
 		ModItems.initOreDictionary();
 		ModItems.init();
 
-		SeedDropRegistry.init();
-
 		ModBlocks.initOreDictionary();
 		ModBlocks.init();
 
-		ModGen.init();
-
+		SeedDropRegistry.init();
 		ModAchievements.init();
+		ModGen.init();
 	}
 
 	@EventHandler

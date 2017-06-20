@@ -1,7 +1,6 @@
 package com.witchworks.common.core.capability.energy;
 
-import com.witchworks.common.core.net.EnergyMessage;
-import com.witchworks.common.core.net.PacketHandler;
+import com.witchworks.api.capability.IEnergy;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -49,7 +48,7 @@ public final class EnergyHandler {
 			mod = energy.set(energy.get() + amount);
 			energy.tickReset();
 			if (player instanceof EntityPlayerMP)
-				PacketHandler.sendTo((EntityPlayerMP) player, new EnergyMessage(energy, player.getUniqueID()));
+				energy.syncTo((EntityPlayerMP) player);
 		}
 		return mod;
 	}
@@ -79,9 +78,7 @@ public final class EnergyHandler {
 	 */
 	public static void setRegen(EntityPlayer player, int timeInTicks) {
 		Optional<IEnergy> optional = getEnergy(player);
-		if (optional.isPresent()) {
-			optional.get().setRegen(timeInTicks);
-		}
+		optional.ifPresent(iEnergy -> iEnergy.setRegen(timeInTicks));
 	}
 
 	/**

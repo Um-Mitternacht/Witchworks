@@ -1,10 +1,11 @@
 package com.witchworks.common.core.net;
 
+import com.witchworks.api.capability.IEnergy;
 import com.witchworks.common.core.capability.energy.CapabilityEnergy;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
-import com.witchworks.common.core.capability.energy.IEnergy;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -27,9 +28,9 @@ public class EnergyMessage implements IMessage {
 		energy = new CapabilityEnergy.DefaultEnergy();
 	}
 
-	public EnergyMessage(IEnergy energy, UUID target) {
+	public EnergyMessage(IEnergy energy, EntityLivingBase target) {
 		this.energy = energy;
-		this.target = target;
+		this.target = target.getUniqueID();
 	}
 
 	@Override

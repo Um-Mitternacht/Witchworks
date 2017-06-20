@@ -1,5 +1,6 @@
 package com.witchworks.common.core.capability.energy;
 
+import com.witchworks.api.capability.IEnergy;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

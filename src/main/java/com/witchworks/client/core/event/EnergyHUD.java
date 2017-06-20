@@ -1,8 +1,9 @@
 package com.witchworks.client.core.event;
 
+import com.witchworks.api.capability.IEnergy;
 import com.witchworks.client.ResourceLocations;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
-import com.witchworks.common.core.capability.energy.IEnergy;
+import com.witchworks.common.core.handler.ConfigHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -15,8 +16,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Optional;
-
-import static com.witchworks.common.core.handler.ConfigHandler.HUD.ENERGY_HUD;
 
 /**
  * This class was created by Arekkuusu on 21/04/2017.
@@ -47,7 +46,7 @@ public class EnergyHUD {
 				}
 
 				if (renderTime > 0 && energy.get() == energy.getMax()) {
-					if (ENERGY_HUD.hide && renderTime < 20) {
+					if (ConfigHandler.ENERGY_HUD.hide && renderTime < 20) {
 						visible -= 0.05F;
 						visible = MathHelper.clamp(visible, 0F, 1F);
 					}
@@ -86,20 +85,20 @@ public class EnergyHUD {
 				GlStateManager.enableBlend();
 
 				float filled = (float) energy.get() / (float) energy.getMax();
-				int heightEnd = ENERGY_HUD.heightEnd;
-				int heightStart = ENERGY_HUD.heightStart;
+				int heightEnd = ConfigHandler.ENERGY_HUD.heightEnd;
+				int heightStart = ConfigHandler.ENERGY_HUD.heightStart;
 
-				int width = ENERGY_HUD.width;
+				int width = ConfigHandler.ENERGY_HUD.width;
 
 				int heightUsed = heightEnd - heightStart;
 				int heightFilled = (int) ((heightUsed - 28) * filled);
 
-				int posX = ENERGY_HUD.x;
-				int posY = res.getScaledHeight() - ENERGY_HUD.y;
+				int posX = ConfigHandler.ENERGY_HUD.x;
+				int posY = res.getScaledHeight() - ConfigHandler.ENERGY_HUD.y;
 
 				int startPosX = posX - heightEnd;
 
-				if (ENERGY_HUD.hide)
+				if (ConfigHandler.ENERGY_HUD.hide)
 					GlStateManager.color(1F, 1F, 1F, visible);
 
 				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY_BACKGROUND[0]);
@@ -113,14 +112,14 @@ public class EnergyHUD {
 				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY + 14, 0F, heightUsed - 28, width, heightFilled, width, heightUsed - 28);
 				GlStateManager.popMatrix();
 
-				if (ENERGY_HUD.hide)
+				if (ConfigHandler.ENERGY_HUD.hide)
 					GlStateManager.color(1F, 1F, 1F, visible);
 
 				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY);
 				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY, 0F, 0F, width, heightUsed, width, heightUsed);
 
 				int textColor = 0x990066;
-				if (ENERGY_HUD.hide) {
+				if (ConfigHandler.ENERGY_HUD.hide) {
 					int alpha = (int) (visible * 255);
 					textColor = alpha << 24 | 0x990066;
 				}

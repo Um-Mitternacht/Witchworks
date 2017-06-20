@@ -1,12 +1,12 @@
 package com.witchworks.common.brew;
 
 import com.witchworks.api.brew.IBrew;
+import com.witchworks.api.brew.IBrewClientSide;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -15,19 +15,23 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class SinkingBrew implements IBrew {
+public class SinkingBrew implements IBrew, IBrewClientSide {
 
 	@Override
-	//Todo: Test.
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (entity.motionY >= 0)
-			entity.motionY *= -1;
+		if (entity.isInWater() && entity.motionY > 0)
+			entity.motionY *= -10;
 	}
 
+	@Override
+	public void onUpdateClientSide(LivingEvent.LivingUpdateEvent event, EntityLivingBase entity, int amplifier) {
+		if (entity.isInWater() && entity.motionY > 0)
+			entity.motionY *= -10;
+	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		//NO-OP
+	public boolean isBad() {
+		return true;
 	}
 
 	@Override
@@ -42,13 +46,12 @@ public class SinkingBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.sinking_brew";
+		return "sinking";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 9);
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 11);
 	}
-
 }

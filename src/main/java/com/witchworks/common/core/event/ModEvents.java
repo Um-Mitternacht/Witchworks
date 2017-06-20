@@ -3,7 +3,7 @@ package com.witchworks.common.core.event;
 import net.minecraftforge.common.MinecraftForge;
 
 /**
- * This class was created by <Arekkuusu> on 26/02/2017.
+ * This class was created by Arekkuusu on 14/06/2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
@@ -12,7 +12,7 @@ public final class ModEvents {
 	private ModEvents() {
 	}
 
-	public static void preInit() {
+	public static void init() {
 		MinecraftForge.EVENT_BUS.register(new EnergyEvents());
 		MinecraftForge.EVENT_BUS.register(new BrewEvents());
 	}

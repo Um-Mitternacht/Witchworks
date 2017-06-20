@@ -22,141 +22,182 @@ import net.minecraftforge.common.config.Config.Comment;
 public final class ConfigHandler {
 
 	@Comment("Change vein sizes, generation height and generation chance")
+	@Config.RequiresMcRestart
+	@Config.LangKey("witchworks.config.world_gen")
 	public static WorldGen WORLD_GEN = new WorldGen();
-	@Comment("Customize the HUDs positions in the screen")
-	public static HUD HUD = new HUD();
-
-	private ConfigHandler() {
-	}
+	@Comment("Customize the Energy HUD positions in the screen")
+	@Config.LangKey("witchworks.config.energy_hud")
+	public static EnergyHUD ENERGY_HUD = new EnergyHUD();
+	@Comment("Customize the Brew HUD positions in the screen")
+	@Config.LangKey("witchworks.config.brew_hud")
+	public static BrewHUD BREW_HUD = new BrewHUD();
 
 	public static class WorldGen {
+
 		@Comment("Silver Ore gen")
-		public int silver_min_vein = 1;
-		public int silver_max_vein = 8;
-		public int silver_min_height = 10;
-		public int silver_max_height = 128;
-		public int silver_gen_chance = 8;
-
+		public SilverOre SILVER = new SilverOre();
 		@Comment("Moldavite Ore gen")
-		public int moldavite_min_vein = 1;
-		public int moldavite_max_vein = 4;
-		public int moldavite_min_height = 10;
-		public int moldavite_max_height = 128;
-		public int moldavite_gen_chance = 4;
-
+		public MoldaviteOre MOLDAVITE = new MoldaviteOre();
 		@Comment("Bloodstone Ore gen")
-		public int bloodstone_min_vein = 1;
-		public int bloodstone_max_vein = 4;
-		public int bloodstone_min_height = 10;
-		public int bloodstone_max_height = 128;
-		public int bloodstone_gen_chance = 4;
-
+		public BloodstoneOre BLOOD_STONE = new BloodstoneOre();
 		@Comment("Tourmaline Ore gen")
-		public int tourmaline_min_vein = 1;
-		public int tourmaline_max_vein = 4;
-		public int tourmaline_min_height = 10;
-		public int tourmaline_max_height = 128;
-		public int tourmaline_gen_chance = 4;
-
+		public Tourmaline TOURMALINE = new Tourmaline();
 		@Comment("Malachite Ore gen")
-		public int malachite_min_vein = 1;
-		public int malachite_max_vein = 2;
-		public int malachite_min_height = 10;
-		public int malachite_max_height = 80;
-		public int malachite_gen_chance = 4;
-
+		public Malachite MALACHITE = new Malachite();
 		@Comment("Tigers Eye Ore gen")
-		public int tigersEye_min_vein = 1;
-		public int tigersEye_max_vein = 4;
-		public int tigersEye_min_height = 10;
-		public int tigersEye_max_height = 128;
-		public int tigersEye_gen_chance = 4;
-
-		@Comment("Nummite Ore gen")
-		public int nuummite_min_vein = 1;
-		public int nuummite_max_vein = 4;
-		public int nuummite_min_height = 10;
-		public int nuummite_max_height = 128;
-		public int nuummite_gen_chance = 4;
-
+		public TigersEye TIGERS_EYE = new TigersEye();
+		@Comment("Nuummite Ore gen")
+		public Nuummite NUUMMITE = new Nuummite();
 		@Comment("Garnet Ore gen")
-		public int garnet_min_vein = 1;
-		public int garnet_max_vein = 4;
-		public int garnet_min_height = 10;
-		public int garnet_max_height = 128;
-		public int garnet_gen_chance = 4;
-
+		public Garnet GARNET = new Garnet();
 		@Comment("Jasper Ore gen")
-		public int jasper_min_vein = 1;
-		public int jasper_max_vein = 4;
-		public int jasper_min_height = 10;
-		public int jasper_max_height = 128;
-		public int jasper_gen_chance = 4;
-
+		public Jasper JASPER = new Jasper();
 		@Comment("Salt Ore gen")
-		public int salt_min_vein = 1;
-		public int salt_max_vein = 4;
-		public int salt_min_height = 10;
-		public int salt_max_height = 128;
-		public int salt_gen_chance = 4;
-
+		public Salt SALT = new Salt();
 		@Comment("Amethyst Ore gen")
-		public int amethyst_min_vein = 1;
-		public int amethyst_max_vein = 4;
-		public int amethyst_min_height = 10;
-		public int amethyst_max_height = 128;
-		public int amethyst_gen_chance = 4;
-
+		public Amethyst AMETHYST = new Amethyst();
 		@Comment("Alexandrite Ore gen")
-		public int alexandrite_min_vein = 1;
-		public int alexandrite_max_vein = 2;
-		public int alexandrite_min_height = 10;
-		public int alexandrite_max_height = 128;
-		public int alexandrite_gen_chance = 4;
-
+		public Alexandrite ALEXANDRITE = new Alexandrite();
 		@Comment("Coquina gen")
-		public int coquina_min_vein = 1;
-		public int coquina_max_vein = 25;
-		public int coquina_min_height = 10;
-		public int coquina_max_height = 255;
-		public int coquina_gen_chance = 8;
-
+		public Coquina COQUINA = new Coquina();
 		@Comment("Chalk gen")
-		public int chalk_min_vein = 1;
-		public int chalk_max_vein = 25;
-		public int chalk_min_height = 10;
-		public int chalk_max_height = 255;
-		public int chalk_gen_chance = 8;
+		public Chalk CHALK = new Chalk();
+
+		public static class SilverOre {
+			public int silver_min_vein = 1;
+			public int silver_max_vein = 8;
+			public int silver_min_height = 10;
+			public int silver_max_height = 128;
+			public int silver_gen_chance = 8;
+		}
+
+		public static class MoldaviteOre {
+			public int moldavite_min_vein = 1;
+			public int moldavite_max_vein = 4;
+			public int moldavite_min_height = 10;
+			public int moldavite_max_height = 80;
+			public int moldavite_gen_chance = 6;
+		}
+
+		public static class BloodstoneOre {
+			public int bloodStone_min_vein = 1;
+			public int bloodStone_max_vein = 2;
+			public int bloodStone_min_height = 10;
+			public int bloodStone_max_height = 100;
+			public int bloodStone_gen_chance = 6;
+		}
+
+		public static class Tourmaline {
+			public int tourmaline_min_vein = 1;
+			public int tourmaline_max_vein = 2;
+			public int tourmaline_min_height = 10;
+			public int tourmaline_max_height = 80;
+			public int tourmaline_gen_chance = 6;
+		}
+
+		public static class Malachite {
+			public int malachite_min_vein = 1;
+			public int malachite_max_vein = 2;
+			public int malachite_min_height = 10;
+			public int malachite_max_height = 80;
+			public int malachite_gen_chance = 6;
+		}
+
+		public static class TigersEye {
+			public int tigersEye_min_vein = 1;
+			public int tigersEye_max_vein = 2;
+			public int tigersEye_min_height = 10;
+			public int tigersEye_max_height = 60;
+			public int tigersEye_gen_chance = 6;
+		}
+
+		public static class Nuummite {
+			public int nuummite_min_vein = 1;
+			public int nuummite_max_vein = 2;
+			public int nuummite_min_height = 10;
+			public int nuummite_max_height = 80;
+			public int nuummite_gen_chance = 6;
+		}
+
+		public static class Garnet {
+			public int garnet_min_vein = 1;
+			public int garnet_max_vein = 2;
+			public int garnet_min_height = 10;
+			public int garnet_max_height = 65;
+			public int garnet_gen_chance = 6;
+		}
+
+		public static class Jasper {
+			public int jasper_min_vein = 1;
+			public int jasper_max_vein = 2;
+			public int jasper_min_height = 10;
+			public int jasper_max_height = 80;
+			public int jasper_gen_chance = 6;
+		}
+
+		public static class Salt {
+			public int salt_min_vein = 1;
+			public int salt_max_vein = 4;
+			public int salt_min_height = 10;
+			public int salt_max_height = 128;
+			public int salt_gen_chance = 6;
+		}
+
+		public static class Amethyst {
+			public int amethyst_min_vein = 1;
+			public int amethyst_max_vein = 4;
+			public int amethyst_min_height = 10;
+			public int amethyst_max_height = 65;
+			public int amethyst_gen_chance = 6;
+		}
+
+		public static class Alexandrite {
+			public int alexandrite_min_vein = 1;
+			public int alexandrite_max_vein = 2;
+			public int alexandrite_min_height = 10;
+			public int alexandrite_max_height = 40;
+			public int alexandrite_gen_chance = 6;
+		}
+
+		public static class Coquina {
+			public int coquina_min_vein = 1;
+			public int coquina_max_vein = 4;
+			public int coquina_min_height = 55;
+			public int coquina_max_height = 65;
+			public int coquina_gen_chance = 4;
+		}
+
+		public static class Chalk {
+			public int chalk_min_vein = 1;
+			public int chalk_max_vein = 25;
+			public int chalk_min_height = 10;
+			public int chalk_max_height = 255;
+			public int chalk_gen_chance = 8;
+		}
 	}
 
-	public static class HUD {
+	public static class EnergyHUD {
+		@Comment("Should the energy HUD be hidden?")
+		public boolean hide = true;
+		@Comment({"Pixels before HUD starts", "Size is calculated with heightEnd - heightStart"})
+		public int heightStart = 32;
+		@Comment({"Pixels after HUD ends", "Size is calculated with heightEnd - heightStart"})
+		public int heightEnd = 134;
+		@Comment("Width of the HUD")
+		public int width = 25;
 
-		@Comment("Energy HUD")
-		public static EnergyHUD ENERGY_HUD = new EnergyHUD();
-		@Comment("Brews HUD")
-		public static BrewHUD BREW_HUD = new BrewHUD();
+		@Comment({"Position of the HUD in the screen", "\"x\" value is from left to right", "\"y\" value is from bottom to top"})
+		public int x = 150;
+		public int y = 129;
+	}
 
-		public static class EnergyHUD {
-			@Comment("Should the energy HUD be hidden?")
-			public boolean hide = true;
-			@Comment({"Pixels before HUD starts", "Size is calculated with heightEnd - heightStart"})
-			public int heightStart = 32;
-			@Comment({"Pixels after HUD ends", "Size is calculated with heightEnd - heightStart"})
-			public int heightEnd = 134;
-			@Comment("Width of the HUD")
-			public int width = 25;
-
-			@Comment({"Position of the HUD in the screen", "\"x\" value is from left to right", "\"y\" value is from bottom to top"})
-			public int x = 150;
-			public int y = 129;
-		}
-
-		public static class BrewHUD {
-			@Comment("Should the brew HUD be hidden?")
-			public boolean hide;
-			@Comment({"Position of the HUD in the screen", "\"x\" value is from right to left", "\"y\" value is from top to bottom"})
-			public int x = 21;
-			public int y = 100;
-		}
+	public static class BrewHUD {
+		@Comment("Should the brew HUD be hidden?")
+		public boolean hide;
+		@Comment({"Orientation of the brews", "true : vertical", "false : horizontal"})
+		public boolean orientation = true;
+		@Comment({"Position of the HUD in the screen", "\"x\" value is from right to left", "\"y\" value is from top to bottom"})
+		public int x = 21;
+		public int y = 100;
 	}
 }

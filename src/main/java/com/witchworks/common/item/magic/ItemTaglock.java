@@ -1,7 +1,7 @@
 package com.witchworks.common.item.magic;
 
+import com.witchworks.api.helper.NBTHelper;
 import com.witchworks.api.helper.RayTraceHelper;
-import com.witchworks.api.item.NBTHelper;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.block.BlockBed;
@@ -32,7 +32,7 @@ import static net.minecraft.util.math.RayTraceResult.Type.ENTITY;
 
 /**
  * This class was created by Arekkuusu on 5/15/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witch Works under
  * the MIT license.
  */
 public class ItemTaglock extends ItemMod {

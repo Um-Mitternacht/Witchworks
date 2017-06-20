@@ -1,4 +1,4 @@
-package com.witchworks.common.crafting.kettle;
+package com.witchworks.common.crafting.cauldron;
 
 import com.witchworks.api.ritual.IRitual;
 import com.witchworks.api.ritual.RitualHolder;
@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * This class was created by Arekkuusu on 21/05/2017.
- * It's distributed as split of Wiccan Arts under
+ * It's distributed as split of Witch Works under
  * the MIT license.
  */
 public class ItemRitual implements IRitual<TileCauldron> {

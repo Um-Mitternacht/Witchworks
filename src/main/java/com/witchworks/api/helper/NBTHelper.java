@@ -1,9 +1,12 @@
-package com.witchworks.api.item;
+package com.witchworks.api.helper;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -72,6 +75,14 @@ public final class NBTHelper {
 	@SuppressWarnings("unchecked")
 	public static <T extends NBTBase> T getNBT(ItemStack stack, String tag) {
 		return (T) fixNBT(stack).getTag(tag);
+	}
+
+	public static <T extends Entity> Optional<T> getEntityByUUID(Class<T> clazz, UUID uuid, World world) {
+		for (Entity entity : world.loadedEntityList) {
+			if (clazz.isInstance(entity) && entity.getUniqueID().equals(uuid)) return Optional.of(clazz.cast(entity));
+		}
+
+		return Optional.empty();
 	}
 
 	public static boolean hasTag(ItemStack stack, String tag, int type) {

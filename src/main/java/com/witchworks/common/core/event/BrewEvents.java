@@ -1,11 +1,9 @@
 package com.witchworks.common.core.event;
 
 import com.witchworks.api.brew.*;
-import com.witchworks.common.core.capability.potion.BrewStorageHandler;
-import com.witchworks.common.core.capability.potion.BrewStorageProvider;
-import com.witchworks.common.core.capability.potion.IBrewStorage;
-import com.witchworks.common.core.net.PacketHandler;
-import com.witchworks.common.core.net.PotionMessage;
+import com.witchworks.api.capability.IBrewStorage;
+import com.witchworks.common.core.capability.brew.BrewStorageHandler;
+import com.witchworks.common.core.capability.brew.BrewStorageProvider;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,9 +11,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -36,60 +34,76 @@ public class BrewEvents {
 		}
 	}
 
-	@SuppressWarnings("ConstantConditions")
-	@SubscribeEvent
-	public void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
-		final EntityPlayer oldPlayer = event.getOriginal();
-		final EntityPlayer newPlayer = event.getEntityPlayer();
-
-		if (event.isWasDeath() && oldPlayer.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null) && newPlayer.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
-			final IBrewStorage oldCap = oldPlayer.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
-			final IBrewStorage newCap = oldPlayer.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
-			newCap.setBrews(oldCap.getBrews());
-		}
+	public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+		BrewStorageHandler.getBrewStorage(event.player).ifPresent(data -> {
+			if (event.player instanceof EntityPlayerMP) {
+				data.syncToNear(event.player);
+			}
+		});
 	}
 
 	@SubscribeEvent
-	public void onWorldJoin(EntityJoinWorldEvent event) {
-		if (event.getEntity() instanceof EntityPlayerMP) {
-			EntityPlayerMP entity = (EntityPlayerMP) event.getEntity();
-			Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entity);
-			if (optional.isPresent()) {
-				PacketHandler.sendTo(entity, new PotionMessage(optional.get().getBrews().keySet(), entity.getUniqueID()));
+	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+		BrewStorageHandler.getBrewStorage(event.player).ifPresent(data -> {
+			if (event.player instanceof EntityPlayerMP) {
+				data.syncToNear(event.player);
 			}
+		});
+	}
+
+	@SubscribeEvent
+	public void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
+		if (event.isWasDeath()) {
+			final EntityPlayer oldPlayer = event.getOriginal();
+			final EntityPlayer newPlayer = event.getEntityPlayer();
+
+			Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(oldPlayer);
+			optional.ifPresent(oldStorage -> BrewStorageHandler.getBrewStorage(newPlayer).ifPresent(newStorage -> {
+				newStorage.setBrewMap(oldStorage.getBrewMap());
+				newStorage.syncToNear(newPlayer);
+			}));
 		}
 	}
 
 	@SubscribeEvent
 	public void onUpdate(LivingEvent.LivingUpdateEvent event) {
 		final EntityLivingBase entity = event.getEntityLiving();
-		if (entity == null) return;
+		if (entity.world.isRemote) return;
 		Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entity);
 		if (optional.isPresent()) {
 			IBrewStorage storage = optional.get();
-			Map<IBrew, BrewEffect> brews = storage.getBrews();
+			Map<IBrew, BrewEffect> brews = storage.getBrewMap();
 			if (brews.isEmpty()) return;
+			boolean needsUpdate = false;
+
+			if (BrewStorageHandler.BREW_REMOVAL.containsKey(entity)) {
+				for (IBrew brew : BrewStorageHandler.BREW_REMOVAL.get(entity)) {
+					brews.get(brew).end(entity.world, entity.getPosition(), entity);
+					brews.remove(brew);
+				}
+				BrewStorageHandler.BREW_REMOVAL.remove(entity);
+				needsUpdate = true;
+			}
 
 			Map<IBrew, BrewEffect> updated = new HashMap<>();
-			for (IBrew brew : brews.keySet()) {
-				BrewEffect effect = brews.get(brew);
-				if (effect.isInstant() || effect.getDuration() <= 0) {
+			for (BrewEffect effect : brews.values()) {
+				if (effect.getDuration() <= 0) {
 					effect.end(entity.world, entity.getPosition(), entity);
+					needsUpdate = true;
 				} else {
 					effect.update(entity.world, entity.getPosition(), entity);
 					updated.put(effect.getBrew(), effect);
 				}
 			}
-
-			storage.setBrews(updated);
-			if (entity instanceof EntityPlayerMP) {
-				PacketHandler.sendTo((EntityPlayerMP) entity, new PotionMessage(updated.keySet(), entity.getUniqueID()));
-			}
+			storage.setBrewMap(updated);
+			if (entity.ticksExisted % 60 == 0 || needsUpdate)
+				storage.syncToNear(entity);
 		}
 	}
 
 	@SubscribeEvent
 	public void onHurt(LivingHurtEvent event) {
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewHurt).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -99,6 +113,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onHeal(LivingHealEvent event) {
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewHeal).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -108,6 +123,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onAttack(LivingAttackEvent event) {
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewAttack).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -117,6 +133,7 @@ public class BrewEvents {
 
 	@SubscribeEvent
 	public void onBlockDestroy(LivingDestroyBlockEvent event) {
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewBlockDestroy).forEach(effect -> {
 			if (event.isCanceled()) return;
@@ -125,7 +142,19 @@ public class BrewEvents {
 	}
 
 	@SubscribeEvent
+	public void onTeleport(EnderTeleportEvent event) {
+		if (event.getEntityLiving().world.isRemote) return;
+		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
+		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewEnderTeleport).forEach(effect -> {
+			if (event.isCanceled()) return;
+			((IBrewEnderTeleport) effect.getBrew()).onTeleport(event, event.getEntityLiving()
+					, event.getTargetX(), event.getTargetY(), event.getTargetZ(), effect.getAmplifier());
+		});
+	}
+
+	@SubscribeEvent
 	public void onDeath(LivingDeathEvent event) {
+		if (event.getEntityLiving().world.isRemote) return;
 		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
 		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewDeath).forEach(effect -> {
 			if (event.isCanceled()) return;

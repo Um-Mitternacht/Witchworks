@@ -3,7 +3,7 @@ package com.witchworks.common.entity;
 import com.google.common.collect.Maps;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
-import com.witchworks.common.core.capability.potion.BrewStorageHandler;
+import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

@@ -1,6 +1,6 @@
 package com.witchworks.common.block.natural.fluid;
 
-import com.witchworks.api.item.IModelRegister;
+import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

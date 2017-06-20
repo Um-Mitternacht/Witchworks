@@ -29,7 +29,7 @@ public class SpiderNightmareBrew implements IBrew {
 			spider.setPosition(pos.getX(), pos.getY(), pos.getZ());
 			world.spawnEntity(spider);
 		}
-		int box = 1 + amplifier;
+		int box = 1 + (int) ((float) amplifier / 2F);
 
 		BlockPos posI = pos.add(box, box, box);
 		BlockPos posF = pos.add(-box, -box, -box);
@@ -39,6 +39,11 @@ public class SpiderNightmareBrew implements IBrew {
 						world.setBlockState(pos1, Blocks.WEB.getDefaultState());
 				}
 		);
+	}
+
+	@Override
+	public boolean isBad() {
+		return true;
 	}
 
 	@Override
@@ -53,12 +58,12 @@ public class SpiderNightmareBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.spider_nightmare_brew";
+		return "spider_nightmare";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 2);
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 1);
 	}
 }

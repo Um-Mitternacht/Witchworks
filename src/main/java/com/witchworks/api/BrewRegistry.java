@@ -1,14 +1,16 @@
 package com.witchworks.api;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Maps;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
-import com.witchworks.common.item.ModItems;
 import net.minecraft.item.Item;
+import net.minecraft.util.IntIdentityHashBiMap;
+import net.minecraft.util.ResourceLocation;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * This class was created by Arekkuusu on 22/04/2017.
@@ -18,8 +20,9 @@ import java.util.Map;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public final class BrewRegistry {
 
-	private static final List<IBrew> BREWS = new ArrayList<>();
-	private static final Map<Brew, Map<IBrew, BrewEffect>> DEFAULTS = Maps.newLinkedHashMap();
+	private static final BiMap<ResourceLocation, IBrew> LOCATION_BREWS = HashBiMap.create(256);
+	private static final IntIdentityHashBiMap<IBrew> BREWS = new IntIdentityHashBiMap<>(256);
+	private static final Map<Brew, Map<IBrew, BrewEffect>> DEFAULTS = Maps.newHashMap();
 
 	static {
 		DEFAULTS.put(Brew.DRINK, Maps.newLinkedHashMap());
@@ -30,12 +33,15 @@ public final class BrewRegistry {
 	private BrewRegistry() {
 	}
 
-	public static IBrew registerBrew(IBrew brew) {
+	public static IBrew register(ResourceLocation location, IBrew brew) {
+		if (LOCATION_BREWS.containsKey(location))
+			throw new IllegalArgumentException("This Brew has been registered twice!: " + location);
+		LOCATION_BREWS.put(location, brew);
 		BREWS.add(brew);
 		return brew;
 	}
 
-	public static void addDefault(Brew brew, BrewEffect effect) {
+	public static void setDefault(Brew brew, BrewEffect effect) {
 		DEFAULTS.get(brew).put(effect.getBrew(), effect);
 	}
 
@@ -66,15 +72,27 @@ public final class BrewRegistry {
 	}
 
 	public static int getBrewId(IBrew brew) {
-		return BREWS.indexOf(brew);
+		return BREWS.getId(brew);
 	}
 
-	public static IBrew getBrewById(int id) {
+	public static IBrew getBrew(int id) {
 		return BREWS.get(id);
 	}
 
-	public static List<IBrew> getBrews() {
-		return BREWS;
+	public static ResourceLocation getBrewResource(IBrew brew) {
+		return LOCATION_BREWS.inverse().get(brew);
+	}
+
+	public static IBrew getRegisteredBrew(String location) {
+		return getRegisteredBrew(new ResourceLocation(location));
+	}
+
+	public static IBrew getRegisteredBrew(ResourceLocation location) {
+		return LOCATION_BREWS.get(location);
+	}
+
+	public static Set<IBrew> getBrews() {
+		return LOCATION_BREWS.values();
 	}
 
 	public static Map<Brew, Map<IBrew, BrewEffect>> getDefaults() {
@@ -82,9 +100,9 @@ public final class BrewRegistry {
 	}
 
 	public enum Brew {
-		DRINK(ModItems.BREW_PHIAL_DRINK),
-		SPLASH(ModItems.BREW_PHIAL_SPLASH),
-		LINGER(ModItems.BREW_PHIAL_LINGER);
+		DRINK(WitchWorksAPI.BREW_PHIAL_DRINK),
+		SPLASH(WitchWorksAPI.BREW_PHIAL_SPLASH),
+		LINGER(WitchWorksAPI.BREW_PHIAL_LINGER);
 
 		private final Item item;
 

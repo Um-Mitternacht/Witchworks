@@ -1,6 +1,6 @@
 package com.witchworks.common.tile;
 
-import com.witchworks.api.KettleRegistry;
+import com.witchworks.api.CauldronRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.api.helper.ItemNullHelper;
@@ -245,15 +245,12 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	}
 
 	private void handleParticles() {
-		if (world.rand.nextInt(10) == 0) {
-			float x = getPos().getX();
+		for (int i = 0; i < 2; i++) {
+			double posX = getPos().getX() + 0.2D + world.rand.nextDouble() * 0.6D;
 			float posY = getParticleLevel();
-			float z = getPos().getZ();
-			for (int i = 0; i < 4; i++) {
-				float posX = x + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
-				float posZ = z + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.8F);
-				WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
-			}
+			double posZ = getPos().getZ() + 0.2D + world.rand.nextDouble() * 0.6D;
+
+			WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
 		}
 		if (hasIngredients() && ticks % 2 == 0) {
 			final float x = getPos().getX() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
@@ -274,7 +271,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	private void tryTurnLiquid() {
 		if (!isBoiling() && hasIngredients() && inv.isFull()) {
-			Map<Item, FluidStack> fluids = KettleRegistry.getFluidItems();
+			Map<Item, FluidStack> fluids = CauldronRegistry.getFluidIngredients();
 			Item item = ingredients[0].getItem();
 
 			if (fluids.containsKey(item)) {
@@ -459,7 +456,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	@SuppressWarnings("ConstantConditions")
 	public boolean processingLogic(ItemStack stack) {
 		if (!isBoiling() || hasIngredients() || stack.getCount() > 64) return false;
-		Map<Item, ItemValidator<ItemStack>> processing = KettleRegistry.getKettleProcessing(inv.getInnerFluid());
+		Map<Item, ItemValidator<ItemStack>> processing = CauldronRegistry.getItemProcessing(inv.getInnerFluid());
 		if (processing != null && processing.containsKey(stack.getItem())) {
 			ItemValidator<ItemStack> validator = processing.get(stack.getItem());
 			Optional<ItemStack> optional = validator.getMatchFor(stack);
@@ -514,7 +511,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings("unchecked")
 	public void itemRitualLogic() {
-		Optional<KettleItemRecipe> optional = KettleRegistry.getKettleItemRituals().stream().filter(
+		Optional<KettleItemRecipe> optional = CauldronRegistry.getItemRituals().stream().filter(
 				i -> i.matches(ingredients)
 		).findAny();
 		if (optional.isPresent()) {
@@ -530,7 +527,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	}
 
 	public void potionRecipeLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		List<KettleBrewRecipe> potions = KettleRegistry.getKettleBrewRecipes();
+		List<KettleBrewRecipe> potions = CauldronRegistry.getBrewRecipes();
 		Optional<KettleBrewRecipe> optional = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
 		if (optional.isPresent()) {
 			ItemStack potion = optional.get().getResult();
@@ -566,8 +563,8 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	@Nullable
 	public NBTTagCompound getBrewData() {
-		final Map<Item, ItemValidator<Object>> brewEffect = KettleRegistry.getBrewEffect();
-		final Map<Item, ItemValidator<BrewModifier>> brewModifier = KettleRegistry.getBrewModifier();
+		final Map<Item, ItemValidator<Object>> brewEffect = CauldronRegistry.getBrewEffects();
+		final Map<Item, ItemValidator<BrewModifier>> brewModifier = CauldronRegistry.getBrewModifiers();
 		List<Object> effects = new ArrayList<>();
 
 		for (int i = 0; i < ingredients.length; i++) {

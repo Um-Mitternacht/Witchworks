@@ -3,8 +3,8 @@ package com.witchworks.common.entity;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.api.brew.IBrewEntityImpact;
-import com.witchworks.api.item.NBTHelper;
-import com.witchworks.common.core.capability.potion.BrewStorageHandler;
+import com.witchworks.api.helper.NBTHelper;
+import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.SoundEvents;
@@ -14,6 +14,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -33,6 +34,12 @@ public class EntityBrew extends EntityThrowable {
 
 	public EntityBrew(World worldIn) {
 		super(worldIn);
+	}
+
+	public EntityBrew(World worldIn, double x, double y, double z, ItemStack stack, BrewDispersion dispersion) {
+		super(worldIn, x, y, z);
+		this.dispersion = dispersion;
+		setBrew(stack);
 	}
 
 	public EntityBrew(World worldIn, EntityLivingBase living, ItemStack stack, BrewDispersion dispersion) {
@@ -63,7 +70,8 @@ public class EntityBrew extends EntityThrowable {
 				}
 			}
 
-			this.world.playEvent(2007, getPosition(), getColor());
+			world.playSound(null, getPosition(), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.NEUTRAL, 0.2F, 1F);
+			world.playEvent(2007, getPosition(), getColor());
 			setDead();
 		}
 	}

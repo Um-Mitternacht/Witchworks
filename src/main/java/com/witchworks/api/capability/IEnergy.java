@@ -1,4 +1,6 @@
-package com.witchworks.common.core.capability.energy;
+package com.witchworks.api.capability;
+
+import net.minecraft.entity.player.EntityPlayerMP;
 
 /**
  * This class was created by Arekkuusu on 20/04/2017.
@@ -67,4 +69,6 @@ public interface IEnergy {
 	int tick();
 
 	void tickReset();
+
+	void syncTo(EntityPlayerMP target);
 }

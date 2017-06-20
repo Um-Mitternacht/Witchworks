@@ -1,13 +1,13 @@
-package com.witchworks.common.core.capability.potion;
+package com.witchworks.common.core.capability.brew;
 
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
+import com.witchworks.api.capability.IBrewStorage;
 import net.minecraft.entity.EntityLivingBase;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This class was created by Arekkuusu on 23/04/2017.
@@ -15,6 +15,8 @@ import java.util.Optional;
  * the MIT license.
  */
 public final class BrewStorageHandler {
+
+	public static final Map<EntityLivingBase, Set<IBrew>> BREW_REMOVAL = Maps.newHashMap();
 
 	private BrewStorageHandler() {
 	}
@@ -37,7 +39,7 @@ public final class BrewStorageHandler {
 	public static Map<IBrew, BrewEffect> getBrewMap(EntityLivingBase entity) {
 		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
 			IBrewStorage storage = entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
-			return storage.getBrews();
+			return storage.getBrewMap();
 		}
 		return Collections.emptyMap();
 	}
@@ -46,7 +48,7 @@ public final class BrewStorageHandler {
 	public static Collection<BrewEffect> getBrewEffects(EntityLivingBase entity) {
 		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
 			IBrewStorage storage = entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
-			return storage.getBrews().values();
+			return storage.getBrewEffects();
 		}
 		return Collections.emptyList();
 	}
@@ -58,9 +60,23 @@ public final class BrewStorageHandler {
 	 * @param brew   The brew
 	 * @return If it is active
 	 */
+	@SuppressWarnings("ConstantConditions")
 	public static boolean isBrewActive(EntityLivingBase entity, IBrew brew) {
-		Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entity);
-		return optional.isPresent() && optional.get().getBrews().containsKey(brew);
+		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
+			IBrewStorage storage = entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null);
+			return storage.getBrews().contains(brew);
+		}
+		return false;
+	}
+
+	public static void removeActiveBrew(EntityLivingBase entity, IBrew brew) {
+		if (isBrewActive(entity, brew)) {
+			if (BREW_REMOVAL.containsKey(entity)) {
+				BREW_REMOVAL.get(entity).add(brew);
+			} else {
+				BREW_REMOVAL.put(entity, Sets.newHashSet(brew));
+			}
+		}
 	}
 
 	/**
@@ -72,14 +88,12 @@ public final class BrewStorageHandler {
 	public static void addEntityBrewEffect(EntityLivingBase entity, BrewEffect effect) {
 		Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage(entity);
 		if (optional.isPresent()) {
-			Map<IBrew, BrewEffect> effectMap = optional.get().getBrews();
-			IBrew brew = effect.getBrew();
-			BrewEffect out = effectMap.get(brew);
-			if (out == null || effect.getDuration() > out.getDuration()) {
-				effectMap.put(brew, effect);
-				effect.start(entity);
+			IBrewStorage storage = optional.get();
+
+			BrewEffect active = storage.getBrew(effect.getBrew());
+			if (active == null || effect.getDuration() > active.getDuration()) {
+				storage.addBrew(entity, effect);
 			}
-			optional.get().setBrews(effectMap);
 		}
 	}
 }

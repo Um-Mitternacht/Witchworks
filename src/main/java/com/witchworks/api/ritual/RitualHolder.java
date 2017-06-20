@@ -1,5 +1,6 @@
 package com.witchworks.api.ritual;
 
+import com.witchworks.api.RitualRegistry;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -7,7 +8,7 @@ import net.minecraft.world.World;
 
 /**
  * This class was created by Arekkuusu on 06/05/2017.
- * It's distributed as part of Wiccan Arts under
+ * It's distributed as part of Witch Works under
  * the MIT license.
  */
 @SuppressWarnings("WeakerAccess")
@@ -61,7 +62,7 @@ public class RitualHolder<T extends TileEntity> {
 	@SuppressWarnings("unchecked")
 	public void readNBT(NBTTagCompound cmp) {
 		NBTTagCompound tag = cmp.getCompoundTag("ritual_data");
-		ritual = RitualRegistry.getRituals().get(tag.getInteger("ritual"));
+		ritual = RitualRegistry.getRegisteredRitual(tag.getString("ritual"));
 		energy_left = tag.getInteger("energy_left");
 		ticks = tag.getInteger("ticks");
 		fail = tag.getBoolean("fail");
@@ -69,7 +70,7 @@ public class RitualHolder<T extends TileEntity> {
 
 	public void writeNBT(NBTTagCompound cmp) {
 		NBTTagCompound tag = new NBTTagCompound();
-		tag.setInteger("ritual", RitualRegistry.getRituals().indexOf(ritual));
+		tag.setString("ritual", RitualRegistry.getRitualResource(ritual).toString());
 		tag.setInteger("energy_left", energy_left);
 		tag.setInteger("ticks", ticks);
 		tag.setBoolean("fail", fail);

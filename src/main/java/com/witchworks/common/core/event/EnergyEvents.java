@@ -1,10 +1,8 @@
 package com.witchworks.common.core.event;
 
+import com.witchworks.api.capability.IEnergy;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
 import com.witchworks.common.core.capability.energy.EnergyProvider;
-import com.witchworks.common.core.capability.energy.IEnergy;
-import com.witchworks.common.core.net.EnergyMessage;
-import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -52,16 +50,14 @@ public class EnergyEvents {
 		if (event.getEntity() instanceof EntityPlayerMP) {
 			EntityPlayerMP entity = (EntityPlayerMP) event.getEntity();
 			Optional<IEnergy> optional = EnergyHandler.getEnergy(entity);
-			if (optional.isPresent()) {
-				PacketHandler.sendTo(entity, new EnergyMessage(optional.get(), entity.getUniqueID()));
-			}
+			optional.ifPresent(iEnergy -> iEnergy.syncTo(entity));
 		}
 	}
 
 	@SubscribeEvent
 	public void playerUpdate(LivingEvent.LivingUpdateEvent event) {
-		if (!event.getEntity().world.isRemote && event.getEntity() instanceof EntityPlayer) {
-			final EntityPlayer player = (EntityPlayer) event.getEntity();
+		if (!event.getEntity().world.isRemote && event.getEntity() instanceof EntityPlayerMP) {
+			final EntityPlayerMP player = (EntityPlayerMP) event.getEntity();
 			final Optional<IEnergy> optional = EnergyHandler.getEnergy(player);
 			if (optional.isPresent()) {
 				final IEnergy energy = optional.get();
@@ -70,13 +66,13 @@ public class EnergyEvents {
 		}
 	}
 
-	private void energyRegen(EntityPlayer player, IEnergy energy) {
+	private void energyRegen(EntityPlayerMP player, IEnergy energy) {
 		if (energy.getRegen() == -1) return;
 		if (energy.get() < energy.getMax() && energy.tick() % energy.getRegen() == 0) {
 			energy.set(energy.get() + 1);
 			energy.tickReset();
-			if (player instanceof EntityPlayerMP)
-				PacketHandler.sendTo((EntityPlayerMP) player, new EnergyMessage(energy, player.getUniqueID()));
+
+			energy.syncTo(player);
 		}
 	}
 }

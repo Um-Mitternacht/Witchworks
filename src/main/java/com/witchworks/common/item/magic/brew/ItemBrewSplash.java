@@ -7,6 +7,7 @@ import com.witchworks.common.lib.LibItemName;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -28,6 +29,11 @@ public class ItemBrewSplash extends ItemBrew {
 
 	public ItemBrewSplash() {
 		super(LibItemName.BREW_PHIAL_SPLASH);
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+		return EnumRarity.EPIC;
 	}
 
 	@Override

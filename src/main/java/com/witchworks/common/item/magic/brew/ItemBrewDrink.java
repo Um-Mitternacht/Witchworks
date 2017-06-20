@@ -3,13 +3,14 @@ package com.witchworks.common.item.magic.brew;
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
-import com.witchworks.common.core.capability.potion.BrewStorageHandler;
+import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -33,6 +34,11 @@ public class ItemBrewDrink extends ItemBrew {
 
 	public ItemBrewDrink() {
 		super(LibItemName.BREW_PHIAL_DRINK);
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+		return EnumRarity.UNCOMMON;
 	}
 
 	@Override

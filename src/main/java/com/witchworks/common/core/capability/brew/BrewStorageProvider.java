@@ -1,5 +1,6 @@
-package com.witchworks.common.core.capability.potion;
+package com.witchworks.common.core.capability.brew;
 
+import com.witchworks.api.capability.IBrewStorage;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

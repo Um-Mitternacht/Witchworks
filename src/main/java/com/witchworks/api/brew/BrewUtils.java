@@ -2,8 +2,8 @@ package com.witchworks.api.brew;
 
 import com.google.common.collect.Lists;
 import com.witchworks.api.BrewRegistry;
+import com.witchworks.api.helper.NBTHelper;
 import com.witchworks.api.helper.RomanNumber;
-import com.witchworks.api.item.NBTHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -14,6 +14,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.StringUtils;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
@@ -80,8 +81,8 @@ public class BrewUtils {
 	public static ItemStack createBrew(BrewRegistry.Brew enu, IBrew brew) {
 		ItemStack stack = new ItemStack(enu.getItem());
 		addBrewEffect(stack, BrewRegistry.getDefault(enu, brew));
-		NBTHelper.setString(stack, BREW_NAME, brew.getName() + ".name");
-		NBTHelper.setString(stack, BREW_DESC, brew.getName() + ".desc");
+		NBTHelper.setString(stack, BREW_NAME, "brew." + brew.getName() + ".name");
+		NBTHelper.setString(stack, BREW_DESC, "brew." + brew.getName() + ".desc");
 		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
 		return stack;
 	}
@@ -92,7 +93,7 @@ public class BrewUtils {
 		for (BrewEffect effect : effects) {
 			NBTTagCompound tag = new NBTTagCompound();
 			IBrew brew = effect.getBrew();
-			tag.setInteger(BREW_ID, BrewRegistry.getBrewId(brew));
+			tag.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
 			tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
 			tag.setInteger(BREW_DURATION, effect.getDuration());
 			list.appendTag(tag);
@@ -106,7 +107,7 @@ public class BrewUtils {
 		for (BrewEffect effect : effects) {
 			NBTTagCompound compound = new NBTTagCompound();
 			IBrew brew = effect.getBrew();
-			compound.setInteger(BREW_ID, BrewRegistry.getBrewId(brew));
+			compound.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
 			compound.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
 			compound.setInteger(BREW_DURATION, effect.getDuration());
 			list.appendTag(compound);
@@ -129,7 +130,7 @@ public class BrewUtils {
 		NBTTagList list = addBrewData(stack);
 		NBTTagCompound tag = new NBTTagCompound();
 		IBrew brew = effect.getBrew();
-		tag.setInteger(BREW_ID, BrewRegistry.getBrewId(brew));
+		tag.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
 		tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
 		tag.setInteger(BREW_DURATION, effect.getDuration());
 		list.appendTag(tag);
@@ -146,8 +147,8 @@ public class BrewUtils {
 	}
 
 	public static ItemStack addBrewInfo(ItemStack stack, IBrew brew) {
-		NBTHelper.setString(stack, BREW_NAME, brew.getName() + ".name");
-		NBTHelper.setString(stack, BREW_DESC, brew.getName() + ".desc");
+		NBTHelper.setString(stack, BREW_NAME, "brew." + brew.getName() + ".name");
+		NBTHelper.setString(stack, BREW_DESC, "brew." + brew.getName() + ".desc");
 		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
 
 		return stack;
@@ -159,7 +160,7 @@ public class BrewUtils {
 		NBTTagList list = NBTHelper.getNBT(stack, BREW_DATA);
 		for (int i = 0, size = list.tagCount(); i < size; i++) {
 			NBTTagCompound tag = list.getCompoundTagAt(i);
-			IBrew brew = BrewRegistry.getBrewById(tag.getInteger(BREW_ID));
+			IBrew brew = BrewRegistry.getRegisteredBrew(tag.getString(BREW_ID));
 			int duration = tag.getInteger(BREW_DURATION);
 			int amplifier = tag.getInteger(BREW_AMPLIFIER);
 			effects.add(new BrewEffect(brew, duration, amplifier));
@@ -194,7 +195,7 @@ public class BrewUtils {
 		NBTTagList list = (NBTTagList) compound.getTag(BREW_DATA);
 		for (int i = 0, size = list.tagCount(); i < size; i++) {
 			NBTTagCompound tag = list.getCompoundTagAt(i);
-			IBrew brew = BrewRegistry.getBrewById(tag.getInteger(BREW_ID));
+			IBrew brew = BrewRegistry.getRegisteredBrew(tag.getString(BREW_ID));
 			int duration = tag.getInteger(BREW_DURATION);
 			int amplifier = tag.getInteger(BREW_AMPLIFIER);
 			brewEffects.add(new BrewEffect(brew, duration, amplifier));
@@ -208,7 +209,24 @@ public class BrewUtils {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void addPotionTooltip(ItemStack itemIn, List<String> tooltip, float durationFactor) {
+	public static void addBrewTooltip(ItemStack stack, List<String> tooltip) {
+		List<BrewEffect> brewsFromStack = BrewUtils.getBrewsFromStack(stack);
+		for (BrewEffect effect : brewsFromStack) {
+			IBrew brew = effect.getBrew();
+
+			String name = " - " + I18n.format("brew." + brew.getName() + ".tooltip") + " ";
+			String amplifier = (effect.getAmplifier() <= 0) ? "" : (RomanNumber.getRoman(effect.getAmplifier())) + " ";
+			String duration = effect.isInstant() ? I18n.format("brew.instant") : StringUtils.ticksToElapsedTime(effect.getDuration());
+
+			tooltip.add(TextFormatting.DARK_AQUA + "" + TextFormatting.ITALIC + name + amplifier + "(" + duration + ")");
+		}
+		if (brewsFromStack.isEmpty()) {
+			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "---");
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static void addPotionTooltip(ItemStack itemIn, List<String> tooltip) {
 		List<PotionEffect> list = PotionUtils.getEffectsFromStack(itemIn);
 		List<Tuple<String, AttributeModifier>> attributes = Lists.newArrayList();
 
@@ -234,7 +252,7 @@ public class BrewUtils {
 				}
 
 				if (effect.getDuration() > 20) {
-					string.append(" (").append(Potion.getPotionDurationString(effect, durationFactor)).append(")");
+					string.append(" (").append(Potion.getPotionDurationString(effect, 1.0F)).append(")");
 				}
 
 				if (potion.isBadEffect()) {

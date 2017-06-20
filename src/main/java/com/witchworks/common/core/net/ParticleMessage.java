@@ -3,6 +3,7 @@ package com.witchworks.common.core.net;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -41,21 +42,17 @@ public class ParticleMessage implements IMessage {
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buf) {
-		particleF = ParticleF.values()[buf.readInt()];
-
+	public void fromBytes(ByteBuf byteBuf) {
+		PacketBuffer buf = new PacketBuffer(byteBuf);
+		particleF = buf.readEnumValue(ParticleF.class);
 		x = buf.readDouble();
 		y = buf.readDouble();
 		z = buf.readDouble();
-
 		amount = buf.readInt();
-
 		xSpeed = buf.readDouble();
 		ySpeed = buf.readDouble();
 		zSpeed = buf.readDouble();
-
 		int argCount = buf.readInt();
-
 		args = new int[argCount];
 		for (int i = 0; i < argCount; i++) {
 			args[i] = buf.readInt();
@@ -63,21 +60,17 @@ public class ParticleMessage implements IMessage {
 	}
 
 	@Override
-	public void toBytes(ByteBuf buf) {
-		buf.writeInt(particleF.ordinal());
-
+	public void toBytes(ByteBuf byteBuf) {
+		PacketBuffer buf = new PacketBuffer(byteBuf);
+		buf.writeEnumValue(particleF);
 		buf.writeDouble(x);
 		buf.writeDouble(y);
 		buf.writeDouble(z);
-
 		buf.writeInt(amount);
-
 		buf.writeDouble(xSpeed);
 		buf.writeDouble(ySpeed);
 		buf.writeDouble(zSpeed);
-
 		buf.writeInt(args.length);
-
 		for (int arg : args) {
 			buf.writeInt(arg);
 		}

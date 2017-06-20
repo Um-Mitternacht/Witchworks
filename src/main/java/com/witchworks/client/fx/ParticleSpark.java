@@ -58,7 +58,6 @@ class ParticleSpark extends Particle {
 		this.particleGreen = (float) ((double) this.particleGreen * 0.96D);
 		this.particleBlue = (float) ((double) this.particleBlue * 0.9D);
 		this.motionX *= 0.699999988079071D;
-		this.motionY *= 0.599999988079071D;
 		this.motionZ *= 0.699999988079071D;
 		this.motionY -= 0.019999999552965164D;
 

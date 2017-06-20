@@ -14,7 +14,7 @@ import java.util.UUID;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "ConstantConditions"})
 public abstract class BrewAtributeModifier implements IBrew {
 
 	private final Map<IAttribute, AttributeModifier> modifierMap = Maps.newHashMap();
@@ -28,6 +28,7 @@ public abstract class BrewAtributeModifier implements IBrew {
 	public void applyAttributeModifiers(AbstractAttributeMap attributeMap, int amplifier) {
 		for (Map.Entry<IAttribute, AttributeModifier> entry : modifierMap.entrySet()) {
 			IAttributeInstance attribute = attributeMap.getAttributeInstance(entry.getKey());
+			if (attribute == null) continue;
 
 			AttributeModifier modifier = entry.getValue();
 			attribute.removeModifier(modifier);
@@ -37,9 +38,10 @@ public abstract class BrewAtributeModifier implements IBrew {
 
 	public void removeAttributeModifiers(AbstractAttributeMap attributeMapIn, int amplifier) {
 		for (Map.Entry<IAttribute, AttributeModifier> entry : modifierMap.entrySet()) {
-			IAttributeInstance iattributeinstance = attributeMapIn.getAttributeInstance(entry.getKey());
+			IAttributeInstance attribute = attributeMapIn.getAttributeInstance(entry.getKey());
+			if (attribute == null) continue;
 
-			iattributeinstance.removeModifier(entry.getValue());
+			attribute.removeModifier(entry.getValue());
 		}
 	}
 

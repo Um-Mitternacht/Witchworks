@@ -1,5 +1,9 @@
 package com.witchworks.common.core.capability.energy;
 
+import com.witchworks.api.capability.IEnergy;
+import com.witchworks.common.core.net.EnergyMessage;
+import com.witchworks.common.core.net.PacketHandler;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -108,6 +112,11 @@ public final class CapabilityEnergy {
 		@Override
 		public void tickReset() {
 			this.tick = 0;
+		}
+
+		@Override
+		public void syncTo(EntityPlayerMP target) {
+			PacketHandler.HANDLER.sendTo(new EnergyMessage(this, target), target);
 		}
 	}
 }

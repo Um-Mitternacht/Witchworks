@@ -2,6 +2,7 @@ package com.witchworks.common.brew;
 
 import com.witchworks.api.brew.IBrew;
 import com.witchworks.api.brew.IBrewAttack;
+import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
@@ -10,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
 
 /**
  * This class was created by Arekkuusu on 24/04/2017.
@@ -27,8 +26,8 @@ public class VolatileBrew implements IBrew, IBrewAttack {
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, @Nullable EntityLivingBase entity, int amplifier) {
-		//NO-OP
+	public boolean isBad() {
+		return true;
 	}
 
 	@Override
@@ -38,22 +37,25 @@ public class VolatileBrew implements IBrew, IBrewAttack {
 
 	@Override
 	public int getColor() {
-		return 0xEE7F2D;
+		return 0xf20018;
 	}
 
 	@Override
 	public String getName() {
-		return "brew.volatility_brew";
+		return "volatility";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 7);
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 5);
 	}
 
 	@Override
 	public void onAttack(LivingAttackEvent event, DamageSource source, EntityLivingBase affected, int amplifier) {
-		affected.world.createExplosion(source.getSourceOfDamage(), affected.posX, affected.posY + 0.5D, affected.posZ, amplifier * 1.5F, true);
+		if (!source.isExplosion()) {
+			BrewStorageHandler.removeActiveBrew(affected, this);
+			affected.world.createExplosion(source.getSourceOfDamage(), affected.posX, affected.posY + 0.5D, affected.posZ, amplifier + 1, true);
+		}
 	}
 }

@@ -60,13 +60,12 @@ public final class LibItemName {
 	//Food Items
 	public static final String HONEY = "honey";
 
-	//Ingredients and Materials
+	//Ingredients
 	public static final String WAX = "wax";
 	public static final String SALT = "salt";
 	public static final String BEE = "bee";
 	public static final String HONEYCOMB = "honeycomb";
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
-	public static final String POWDER_MOLDAVITE = "powder_moldavite";
 
 	//Tools
 	public static final String SILVER_PICKAXE = "silver_pickaxe";

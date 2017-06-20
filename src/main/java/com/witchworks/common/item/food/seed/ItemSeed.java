@@ -1,6 +1,6 @@
 package com.witchworks.common.item.food.seed;
 
-import com.witchworks.api.item.IModelRegister;
+import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.Block;

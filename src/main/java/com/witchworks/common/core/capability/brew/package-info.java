@@ -1,6 +1,6 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package com.witchworks.common.core.capability.potion;
+package com.witchworks.common.core.capability.brew;
 
 import mcp.MethodsReturnNonnullByDefault;
 

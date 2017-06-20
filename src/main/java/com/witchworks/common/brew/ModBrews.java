@@ -4,6 +4,7 @@ import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
 import com.witchworks.common.lib.LibMod;
+import net.minecraft.util.ResourceLocation;
 
 import static com.witchworks.api.BrewRegistry.Brew.*;
 import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
@@ -18,54 +19,110 @@ public final class ModBrews {
 
 	public static IBrew SHELL_ARMOR;
 	public static IBrew SPIDER_NIGHTMARE;
-	public static IBrew EXTINGUISH;
+	public static IBrew EXTINGUISH_FIRES;
 	public static IBrew MARS_WATER;
 	public static IBrew FROSTBITE;
 	public static IBrew HOLY_WATER;
 	public static IBrew VOLATILE;
-	public static IBrew WOLFSBANE;
-	public static IBrew SINKING;
+	public static IBrew HARVEST;
+	public static IBrew FERTILIZE;
+	public static IBrew GROW_FLOWER;
+	public static IBrew TILL_LAND;
+	public static IBrew ENDER_INHIBITION;
+	public static IBrew PATH_OF_THE_DEEP;
+	public static IBrew ROCK_PULVERIZE;
+	public static IBrew PRUNE_LEAVES;
+	public static IBrew AUTO_PLANT;
+	public static IBrew SNOW_TRAIL;
+	public static IBrew SKIN_TINT;
 	public static IBrew CURSED_LEAPING;
+	public static IBrew SINKING;
+	public static IBrew BANE_ARTHROPODS;
+	public static IBrew WOLFSBANE;
 
 	private ModBrews() {
 	}
 
 	public static void init() {
-		SHELL_ARMOR = BrewRegistry.registerBrew(new ShellArmorBrew());
-		BrewRegistry.addDefault(DRINK, new BrewEffect(SHELL_ARMOR, 2500, 0));
+		SHELL_ARMOR = registerBrew(new ShellArmorBrew());
+		SPIDER_NIGHTMARE = registerBrew(new SpiderNightmareBrew());
+		EXTINGUISH_FIRES = registerBrew(new ExtinguishFiresBrew());
+		MARS_WATER = registerBrew(new MarsWaterBrew());
+		FROSTBITE = registerBrew(new FrostbiteBrew());
+		HOLY_WATER = registerBrew(new HolyWaterBrew());
+		VOLATILE = registerBrew(new VolatileBrew());
+		HARVEST = registerBrew(new HarvestBrew());
+		FERTILIZE = registerBrew(new FertilizeBrew());
+		GROW_FLOWER = registerBrew(new GrowFlowersBrew());
+		TILL_LAND = registerBrew(new TillLandBrew());
+		ENDER_INHIBITION = registerBrew(new EnderInhibitionBrew());
+		PATH_OF_THE_DEEP = registerBrew(new PathOfTheDeep());
+		ROCK_PULVERIZE = registerBrew(new RockPulverizeBrew());
+		PRUNE_LEAVES = registerBrew(new PruneLeavesBrew());
+		AUTO_PLANT = registerBrew(new AutoPlantBrew());
+		SNOW_TRAIL = registerBrew(new SnowTrailBrew());
+		SKIN_TINT = registerBrew(new SkinTintBrew());
+		CURSED_LEAPING = registerBrew(new CursedLeapingBrew());
+		SINKING = registerBrew(new SinkingBrew());
+		BANE_ARTHROPODS = registerBrew(new BaneArthropodsBrew());
+		WOLFSBANE = registerBrew(new WolfsbaneBrew());
 
-		SPIDER_NIGHTMARE = BrewRegistry.registerBrew(new SpiderNightmareBrew());
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(SPIDER_NIGHTMARE, 500, 0));
-		BrewRegistry.addDefault(LINGER, new BrewEffect(SPIDER_NIGHTMARE, 1000, 0));
+		//--------------------------------DRINKS--------------------------------//
+		addDrink(SHELL_ARMOR, 2500, 0);
+		addDrink(ENDER_INHIBITION, 1000, 0);
+		addDrink(PATH_OF_THE_DEEP, 1000, 0);
+		addDrink(SNOW_TRAIL, 1500, 0);
+		addDrink(SKIN_TINT, 1500, 0);
 
-		EXTINGUISH = BrewRegistry.registerBrew(new ExtinguishBrew());
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(EXTINGUISH, 0, 0));
+		//--------------------------------SPLASH--------------------------------//
+		addSplash(SPIDER_NIGHTMARE, 500, 0);
+		addSplash(EXTINGUISH_FIRES, 0, 0);
+		addSplash(MARS_WATER, 500, 0);
+		addSplash(FROSTBITE, 500, 0);
+		addSplash(HOLY_WATER, 200, 0);
+		addSplash(VOLATILE, 500, 0);
+		addSplash(HARVEST, 0, 0);
+		addSplash(FERTILIZE, 0, 0);
+		addSplash(GROW_FLOWER, 0, 0);
+		addSplash(TILL_LAND, 0, 0);
+		addSplash(ENDER_INHIBITION, 500, 0);
+		addSplash(PATH_OF_THE_DEEP, 500, 0);
+		addSplash(ROCK_PULVERIZE, 0, 0);
+		addSplash(PRUNE_LEAVES, 0, 0);
+		addSplash(AUTO_PLANT, 0, 0);
+		addSplash(SNOW_TRAIL, 1000, 0);
+		addSplash(SKIN_TINT, 1000, 0);
+		addSplash(CURSED_LEAPING, 1000, 0);
+		addSplash(SINKING, 1000, 0);
+		addSplash(BANE_ARTHROPODS, 1000, 0);
+		addSplash(WOLFSBANE, 1000, 0);
 
-		MARS_WATER = BrewRegistry.registerBrew(new MarsWaterBrew());
+		//--------------------------------LINGER--------------------------------//
+		addLinger(SPIDER_NIGHTMARE, 1000, 0);
+		addLinger(HOLY_WATER, 50, 0);
+		addLinger(VOLATILE, 100, 0);
+		addLinger(ENDER_INHIBITION, 250, 0);
+		addLinger(SNOW_TRAIL, 500, 0);
+		addLinger(SKIN_TINT, 500, 0);
+		addLinger(CURSED_LEAPING, 500, 0);
+		addLinger(SINKING, 500, 0);
+		addLinger(BANE_ARTHROPODS, 500, 0);
+		addLinger(WOLFSBANE, 500, 0);
+	}
 
-		FROSTBITE = BrewRegistry.registerBrew(new FrostbiteBrew());
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(FROSTBITE, 500, 0));
+	private static IBrew registerBrew(IBrew brew) {
+		return BrewRegistry.register(new ResourceLocation(LibMod.MOD_ID, brew.getName()), brew);
+	}
 
-		HOLY_WATER = BrewRegistry.registerBrew(new HolyWaterBrew());
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(HOLY_WATER, 200, 0));
-		BrewRegistry.addDefault(LINGER, new BrewEffect(HOLY_WATER, 50, 0));
+	private static void addDrink(IBrew brew, int duration, int amplifier) {
+		BrewRegistry.setDefault(DRINK, new BrewEffect(brew, duration, amplifier));
+	}
 
-		VOLATILE = BrewRegistry.registerBrew(new VolatileBrew());
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(VOLATILE, 500, 0));
-		BrewRegistry.addDefault(LINGER, new BrewEffect(VOLATILE, 100, 0));
+	private static void addSplash(IBrew brew, int duration, int amplifier) {
+		BrewRegistry.setDefault(SPLASH, new BrewEffect(brew, duration, amplifier));
+	}
 
-		WOLFSBANE = BrewRegistry.registerBrew(new WolfsbaneBrew());
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(WOLFSBANE, 200, 0));
-		BrewRegistry.addDefault(LINGER, new BrewEffect(WOLFSBANE, 50, 0));
-
-		SINKING = BrewRegistry.registerBrew(new SinkingBrew());
-		BrewRegistry.addDefault(DRINK, new BrewEffect(SINKING, 1200, 0));
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(SINKING, 500, 0));
-		BrewRegistry.addDefault(LINGER, new BrewEffect(SINKING, 1000, 0));
-
-		CURSED_LEAPING = BrewRegistry.registerBrew(new CursedLeapingBrew());
-		BrewRegistry.addDefault(DRINK, new BrewEffect(CURSED_LEAPING, 1200, 0));
-		BrewRegistry.addDefault(SPLASH, new BrewEffect(CURSED_LEAPING, 500, 0));
-		BrewRegistry.addDefault(LINGER, new BrewEffect(CURSED_LEAPING, 1000, 0));
+	private static void addLinger(IBrew brew, int duration, int amplifier) {
+		BrewRegistry.setDefault(LINGER, new BrewEffect(brew, duration, amplifier));
 	}
 }

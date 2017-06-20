@@ -1,8 +1,9 @@
 package com.witchworks.common.brew;
 
-import com.witchworks.api.brew.IBrew;
+import com.witchworks.api.brew.BrewAtributeModifier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
@@ -16,29 +17,38 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class MarsWaterBrew implements IBrew {
+public class MarsWaterBrew extends BrewAtributeModifier {
 
 	public MarsWaterBrew() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override
-	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		entity.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 1500, 0));
-		entity.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 1500, 0));
-		entity.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 1500, 0));
-		entity.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 1500, 0));
-		entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 1500, 0));
+	protected void initAtributes() {
+		register(SharedMonsterAttributes.LUCK, "f7140fc2-4ed6-11e7-b114-b2f933d5fe66", -1.0D, 0);
+		register(SharedMonsterAttributes.ATTACK_SPEED, "f714136e-4ed6-11e7-b114-b2f933d5fe66", -0.10000000149011612D, 2);
+		register(SharedMonsterAttributes.ATTACK_DAMAGE, "f7141562-4ed6-11e7-b114-b2f933d5fe66", 0.0D, 0);
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
+	public void onStart(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
+		entity.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 1500, 0));
+		entity.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 1500, 0));
+	}
+
+	@Override
+	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		//NO-OP
 	}
 
 	@Override
-	public boolean isInstant() {
+	public boolean isBad() {
 		return true;
+	}
+
+	@Override
+	public boolean isInstant() {
+		return false;
 	}
 
 	@Override
@@ -48,13 +58,12 @@ public class MarsWaterBrew implements IBrew {
 
 	@Override
 	public String getName() {
-		return "brew.mars_water_brew";
+		return "mars_water";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
-		render(x, y, mc, 4);
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 2);
 	}
-
 }

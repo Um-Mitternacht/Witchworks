@@ -1,6 +1,7 @@
 package com.witchworks.client.core;
 
 import com.witchworks.client.core.event.BrewHUD;
+import com.witchworks.client.core.event.ClientEvents;
 import com.witchworks.client.core.event.EnergyHUD;
 import com.witchworks.client.core.event.TextureStitch;
 import com.witchworks.client.fx.ParticleF;
@@ -65,6 +66,7 @@ public class ClientProxy implements ISidedProxy {
 		MinecraftForge.EVENT_BUS.register(new TextureStitch());
 		MinecraftForge.EVENT_BUS.register(new EnergyHUD());
 		MinecraftForge.EVENT_BUS.register(new BrewHUD());
+		MinecraftForge.EVENT_BUS.register(new ClientEvents());
 	}
 
 	@Override

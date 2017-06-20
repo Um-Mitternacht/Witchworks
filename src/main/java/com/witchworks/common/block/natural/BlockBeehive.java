@@ -1,6 +1,6 @@
 package com.witchworks.common.block.natural;
 
-import com.witchworks.api.item.IModelRegister;
+import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.api.sound.WitchSoundEvents;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.client.handler.ModelHandler;
@@ -55,7 +55,6 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 		}
 	}
 
-	//Todo: Tweak this more.
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return ModItems.BEE;
 	}

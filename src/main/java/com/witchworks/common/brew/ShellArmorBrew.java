@@ -25,8 +25,8 @@ public class ShellArmorBrew implements IBrew, IBrewHurt {
 	}
 
 	@Override
-	public void onFinish(World world, BlockPos pos, EntityLivingBase entity, int amplifier) {
-		//NO-OP
+	public boolean isBad() {
+		return false;
 	}
 
 	@Override
@@ -41,12 +41,12 @@ public class ShellArmorBrew implements IBrew, IBrewHurt {
 
 	@Override
 	public String getName() {
-		return "brew.shell_armor";
+		return "shell_armor";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc) {
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
 		render(x, y, mc, 0);
 	}
 
