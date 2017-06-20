@@ -86,6 +86,24 @@ public final class CauldronCrafting {
 		registerItemRitual("slime", getStack(Items.SLIME_BALL, 4), 2
 				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.SALT);
 
+		registerItemRitual("extra_bonemeal", getStack(Items.DYE, 6, 15), 3
+				, getStack(Items.BONE));
+
+		registerItemRitual("mycelia", getStack(Blocks.MYCELIUM, 4), 6
+				, getStack(Blocks.DIRT, 4), Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM, Items.SUGAR, Items.FERMENTED_SPIDER_EYE);
+
+		registerItemRitual("prismarine", getStack(Items.PRISMARINE_SHARD, 4), 6
+				, getStack(Items.DYE, 8, 4), Blocks.STONE, ModBlocks.COQUINA);
+
+		registerItemRitual("prismarine_crystals", getStack(Items.PRISMARINE_CRYSTALS, 4), 6
+				, getStack(Items.DYE, 8, 4), ModBlocks.COQUINA, Items.GLOWSTONE_DUST);
+
+		registerItemRitual("vines", getStack(Blocks.VINE, 4), 4
+				, getStack(Items.STRING, 4), ModItems.WORMWOOD);
+
+		registerItemRitual("chorus_fruit", getStack(Items.CHORUS_FRUIT, 1), 8
+				, getStack(Items.ENDER_EYE, 4), ModItems.MOLDAVITE, ModItems.MANDRAKE, Items.ENDER_PEARL);
+
 		registerItemRitual("gemstone_amalgam", getStack(ModItems.GEMSTONE_AMALGAM, 1, 0), 4
 				, getStack(Items.EMERALD, 1, 0), ModItems.ALEXANDRITE, ModItems.MOLDAVITE);
 
