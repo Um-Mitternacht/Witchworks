@@ -107,6 +107,12 @@ public final class CauldronCrafting {
 		registerItemRitual("grass", getStack(Blocks.GRASS, 4), 4
 				, getStack(Blocks.DIRT, 4), Items.WHEAT_SEEDS, ModItems.SEED_GARLIC);
 
+		registerItemRitual("coarse_dirt", getStack(Blocks.DIRT, 4, 1), 2
+				, getStack(Blocks.DIRT, 4), ModItems.SALT);
+
+		registerItemRitual("podzol", getStack(Blocks.DIRT, 4, 2), 2
+				, getStack(Blocks.DIRT, 4), Blocks.LEAVES);
+
 		registerItemRitual("gemstone_amalgam", getStack(ModItems.GEMSTONE_AMALGAM, 1, 0), 4
 				, getStack(Items.EMERALD, 1, 0), ModItems.ALEXANDRITE, ModItems.MOLDAVITE);
 
