@@ -83,8 +83,11 @@ public final class CauldronCrafting {
 		registerItemRitual("leather", getStack(Items.LEATHER, 2), 2
 				, getStack(Items.ROTTEN_FLESH, 2), ModItems.SALT);
 
-		registerItemRitual("slime", getStack(Items.SLIME_BALL, 2), 2
+		registerItemRitual("slime", getStack(Items.SLIME_BALL, 4), 2
 				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.SALT);
+
+		registerItemRitual("gemstone_amalgam", getStack(ModItems.GEMSTONE_AMALGAM, 1, 0), 4
+				, getStack(Items.EMERALD, 1, 0), ModItems.ALEXANDRITE, ModItems.MOLDAVITE);
 
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
