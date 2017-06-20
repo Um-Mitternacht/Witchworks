@@ -84,10 +84,10 @@ public final class CauldronCrafting {
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
 
-		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
 				, getStack(Items.DYE, 1, 0), Items.NETHER_WART);
 
-		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.SKIN_TINT, 500, 15)
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 15)
 				, getStack(Items.DYE, 1, 15), Items.NETHER_WART);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
@@ -161,10 +161,16 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.TILL_LAND), false);
 		registerEffect(getStack(ModItems.JASPER)
 				, BrewRegistry.getDefault(ModBrews.ROCK_PULVERIZE), false);
-		registerEffect(getStack(Blocks.DOUBLE_PLANT, 1, 4)
+		registerEffect(getStack(Items.DYE, 1, 15)
 				, BrewRegistry.getDefault(ModBrews.FERTILIZE), false);
 		registerEffect(getStack(Blocks.PACKED_ICE)
 				, BrewRegistry.getDefault(ModBrews.SNOW_TRAIL), false);
+		registerEffect(getStack(Items.field_191525_da)
+				, BrewRegistry.getDefault(ModBrews.SINKING), false);
+		registerEffect(getStack(Blocks.BROWN_MUSHROOM)
+				, BrewRegistry.getDefault(ModBrews.PRUNE_LEAVES), false);
+		registerEffect(getStack(Blocks.RED_MUSHROOM)
+				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
