@@ -104,6 +104,9 @@ public final class CauldronCrafting {
 		registerItemRitual("chorus_fruit", getStack(Items.CHORUS_FRUIT, 1), 8
 				, getStack(Items.ENDER_EYE, 4), ModItems.MOLDAVITE, ModItems.MANDRAKE, Items.ENDER_PEARL);
 
+		registerItemRitual("grass", getStack(Blocks.GRASS, 4), 4
+				, getStack(Blocks.DIRT, 4), Items.WHEAT_SEEDS, ModItems.SEED_GARLIC);
+
 		registerItemRitual("gemstone_amalgam", getStack(ModItems.GEMSTONE_AMALGAM, 1, 0), 4
 				, getStack(Items.EMERALD, 1, 0), ModItems.ALEXANDRITE, ModItems.MOLDAVITE);
 
