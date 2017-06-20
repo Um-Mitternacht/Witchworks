@@ -68,7 +68,7 @@ public final class CauldronCrafting {
 		//------------------------------------Item Rituals------------------------------------//
 
 		//Todo: Better recipe for kelp seeds.
-		registerItemRitual("seed_kelp", getStack(ModItems.SEED_KELP), 5
+		registerItemRitual("seed_kelp", getStack(ModItems.SEED_KELP, 2), 5
 				, getStack(Items.WHEAT_SEEDS, 1), Blocks.WATERLILY);
 
 		registerItemRitual("golden_apple", getStack(Items.GOLDEN_APPLE, 1, 1), 8
@@ -79,6 +79,12 @@ public final class CauldronCrafting {
 
 		registerItemRitual("string", getStack(Items.STRING, 6), 2
 				, getStack(ModItems.KENAF, 2));
+
+		registerItemRitual("leather", getStack(Items.LEATHER, 2), 2
+				, getStack(Items.ROTTEN_FLESH, 2), ModItems.SALT);
+
+		registerItemRitual("slime", getStack(Items.SLIME_BALL, 2), 2
+				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.SALT);
 
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
