@@ -311,6 +311,10 @@ brew.bane_arthropods.name=Bane of Arthropods Brew
 brew.bane_arthropods.desc=Damages arthropods, useful for dealing with swarms of spiders.
 brew.bane_arthropods.tooltip=Bane of Arthropods
 
+brew.outcasts_shame.name=Outcast's Shame Brew
+brew.outcasts_shame.desc=Damages those outcast from society, such as Illagers.
+brew.outcasts_shame.tooltip=Outcast's Shame
+
 brew..name=
 brew..desc=
 brew..tooltip=

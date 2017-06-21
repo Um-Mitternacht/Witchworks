@@ -39,6 +39,7 @@ public final class ModBrews {
 	public static IBrew SINKING;
 	public static IBrew BANE_ARTHROPODS;
 	public static IBrew WOLFSBANE;
+	public static IBrew OUTCASTS_SHAME;
 
 	private ModBrews() {
 	}
@@ -66,6 +67,7 @@ public final class ModBrews {
 		SINKING = registerBrew(new SinkingBrew());
 		BANE_ARTHROPODS = registerBrew(new BaneArthropodsBrew());
 		WOLFSBANE = registerBrew(new WolfsbaneBrew());
+		OUTCASTS_SHAME = registerBrew(new OutcastsShameBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -96,6 +98,7 @@ public final class ModBrews {
 		addSplash(SINKING, 1000, 0);
 		addSplash(BANE_ARTHROPODS, 1000, 0);
 		addSplash(WOLFSBANE, 1000, 0);
+		addSplash(OUTCASTS_SHAME, 200, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);
