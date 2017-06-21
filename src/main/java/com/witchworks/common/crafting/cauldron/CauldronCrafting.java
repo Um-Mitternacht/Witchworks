@@ -68,7 +68,7 @@ public final class CauldronCrafting {
 		//------------------------------------Item Rituals------------------------------------//
 
 		//Todo: Better recipe for kelp seeds.
-		registerItemRitual("seed_kelp", getStack(ModItems.SEED_KELP), 5
+		registerItemRitual("seed_kelp", getStack(ModItems.SEED_KELP, 2), 5
 				, getStack(Items.WHEAT_SEEDS, 1), Blocks.WATERLILY);
 
 		registerItemRitual("golden_apple", getStack(Items.GOLDEN_APPLE, 1, 1), 8
@@ -80,14 +80,50 @@ public final class CauldronCrafting {
 		registerItemRitual("string", getStack(Items.STRING, 6), 2
 				, getStack(ModItems.KENAF, 2));
 
+		registerItemRitual("leather", getStack(Items.LEATHER, 2), 2
+				, getStack(Items.ROTTEN_FLESH, 2), ModItems.SALT);
+
+		registerItemRitual("slime", getStack(Items.SLIME_BALL, 4), 2
+				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.SALT);
+
+		registerItemRitual("extra_bonemeal", getStack(Items.DYE, 6, 15), 3
+				, getStack(Items.BONE));
+
+		registerItemRitual("mycelia", getStack(Blocks.MYCELIUM, 4), 6
+				, getStack(Blocks.DIRT, 4), Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM, Items.SUGAR, Items.FERMENTED_SPIDER_EYE);
+
+		registerItemRitual("prismarine", getStack(Items.PRISMARINE_SHARD, 4), 6
+				, getStack(Items.DYE, 8, 4), Blocks.STONE, ModBlocks.COQUINA);
+
+		registerItemRitual("prismarine_crystals", getStack(Items.PRISMARINE_CRYSTALS, 4), 6
+				, getStack(Items.DYE, 8, 4), ModBlocks.COQUINA, Items.GLOWSTONE_DUST);
+
+		registerItemRitual("vines", getStack(Blocks.VINE, 4), 4
+				, getStack(Items.STRING, 4), ModItems.WORMWOOD);
+
+		registerItemRitual("chorus_fruit", getStack(Items.CHORUS_FRUIT, 1), 8
+				, getStack(Items.ENDER_EYE, 4), ModItems.MOLDAVITE, ModItems.MANDRAKE, Items.ENDER_PEARL);
+
+		registerItemRitual("grass", getStack(Blocks.GRASS, 4), 4
+				, getStack(Blocks.DIRT, 4), Items.WHEAT_SEEDS, ModItems.SEED_GARLIC);
+
+		registerItemRitual("coarse_dirt", getStack(Blocks.DIRT, 4, 1), 2
+				, getStack(Blocks.DIRT, 4), ModItems.SALT);
+
+		registerItemRitual("podzol", getStack(Blocks.DIRT, 4, 2), 2
+				, getStack(Blocks.DIRT, 4), Blocks.LEAVES);
+
+		registerItemRitual("gemstone_amalgam", getStack(ModItems.GEMSTONE_AMALGAM, 1, 0), 4
+				, getStack(Items.EMERALD, 1, 0), ModItems.ALEXANDRITE, ModItems.MOLDAVITE);
+
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
 				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
 
-		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
 				, getStack(Items.DYE, 1, 0), Items.NETHER_WART);
 
-		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.SKIN_TINT, 500, 15)
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 15)
 				, getStack(Items.DYE, 1, 15), Items.NETHER_WART);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
@@ -132,6 +168,8 @@ public final class CauldronCrafting {
 		registerEffect(getStack(Items.PRISMARINE_SHARD)
 				, new PotionEffect(MobEffects.MINING_FATIGUE, 500), false);
 		registerEffect(getStack(Items.SHULKER_SHELL)
+				, new PotionEffect(MobEffects.RESISTANCE, 500), false);
+		registerEffect(getStack(Items.NETHER_STAR)
 				, new PotionEffect(MobEffects.LEVITATION, 500), false);
 		registerEffect(getStack(ModBlocks.COQUINA)
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
@@ -161,10 +199,16 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.TILL_LAND), false);
 		registerEffect(getStack(ModItems.JASPER)
 				, BrewRegistry.getDefault(ModBrews.ROCK_PULVERIZE), false);
-		registerEffect(getStack(Blocks.DOUBLE_PLANT, 1, 4)
+		registerEffect(getStack(Items.DYE, 1, 15)
 				, BrewRegistry.getDefault(ModBrews.FERTILIZE), false);
 		registerEffect(getStack(Blocks.PACKED_ICE)
 				, BrewRegistry.getDefault(ModBrews.SNOW_TRAIL), false);
+		registerEffect(getStack(Items.field_191525_da)
+				, BrewRegistry.getDefault(ModBrews.SINKING), false);
+		registerEffect(getStack(Blocks.BROWN_MUSHROOM)
+				, BrewRegistry.getDefault(ModBrews.PRUNE_LEAVES), false);
+		registerEffect(getStack(Blocks.RED_MUSHROOM)
+				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
