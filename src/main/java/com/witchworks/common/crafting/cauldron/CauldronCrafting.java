@@ -168,6 +168,8 @@ public final class CauldronCrafting {
 		registerEffect(getStack(Items.PRISMARINE_SHARD)
 				, new PotionEffect(MobEffects.MINING_FATIGUE, 500), false);
 		registerEffect(getStack(Items.SHULKER_SHELL)
+				, new PotionEffect(MobEffects.RESISTANCE, 500), false);
+		registerEffect(getStack(Items.NETHER_STAR)
 				, new PotionEffect(MobEffects.LEVITATION, 500), false);
 		registerEffect(getStack(ModBlocks.COQUINA)
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
