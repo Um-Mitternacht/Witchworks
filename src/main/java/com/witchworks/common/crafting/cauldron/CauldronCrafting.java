@@ -113,6 +113,9 @@ public final class CauldronCrafting {
 		registerItemRitual("podzol", getStack(Blocks.DIRT, 4, 2), 2
 				, getStack(Blocks.DIRT, 4), Blocks.LEAVES);
 
+		registerItemRitual("red_sand", getStack(Blocks.SAND, 4, 1), 2
+				, getStack(Blocks.SAND, 4));
+
 		registerItemRitual("gemstone_amalgam", getStack(ModItems.GEMSTONE_AMALGAM, 1, 0), 4
 				, getStack(Items.EMERALD, 1, 0), ModItems.ALEXANDRITE, ModItems.MOLDAVITE);
 
