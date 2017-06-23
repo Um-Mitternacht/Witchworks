@@ -89,6 +89,18 @@ public final class VanillaCrafting {
 				.build();
 
 		shapeless()
+				.add(ModItems.GLASS_JAR)
+				.add(ModItems.NEEDLE_BONE)
+				.outputs(new ItemStack(ModItems.TAGLOCK, 1))
+				.build();
+
+		shapeless()
+				.add(Items.FLINT)
+				.add(Items.BONE)
+				.outputs(new ItemStack(ModItems.NEEDLE_BONE, 8))
+				.build();
+
+		shapeless()
 				.add(ModItems.MORTAR_AND_PESTLE)
 				.add(ModBlocks.SILVER_ORE)
 				.outputs(new ItemStack(ModItems.SILVER_POWDER, 1))
@@ -114,6 +126,12 @@ public final class VanillaCrafting {
 				.map('N', ModItems.SILVER_INGOT)
 				.map('B', ModItems.BLOODSTONE)
 				.outputs(ModItems.BOLINE)
+				.build();
+
+		shaped().grid(" S ", "G G", " G ")
+				.map('G', Blocks.GLASS_PANE)
+				.map('S', Blocks.WOODEN_SLAB)
+				.outputs(ModItems.GLASS_JAR)
 				.build();
 
 		shapeless().add(ModItems.TAGLOCK)
