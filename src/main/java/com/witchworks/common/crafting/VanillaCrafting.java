@@ -134,6 +134,12 @@ public final class VanillaCrafting {
 				.outputs(ModItems.GLASS_JAR)
 				.build();
 
+		shaped().grid(" T ", "S S", " S ")
+				.map('T', Items.STICK)
+				.map('S', Blocks.WOODEN_SLAB)
+				.outputs(ModItems.MORTAR_AND_PESTLE)
+				.build();
+
 		shapeless().add(ModItems.TAGLOCK)
 				.outputs(ModItems.TAGLOCK)
 				.build();
