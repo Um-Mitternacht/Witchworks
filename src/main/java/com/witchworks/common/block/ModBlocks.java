@@ -92,6 +92,8 @@ public final class ModBlocks {
 	public static final Block BEEHIVE = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.ALTAR)
 	public static final Block ALTAR = new Block(Material.ROCK);
+	@ObjectHolder(LibBlockName.OVEN)
+	public static final Block OVEN = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.APIARY)
 	public static final Block APIARY = new Block(Material.ROCK);
 	@ObjectHolder(LibBlockName.SALT_ORE)

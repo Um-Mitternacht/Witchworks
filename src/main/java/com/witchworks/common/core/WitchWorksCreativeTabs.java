@@ -172,6 +172,7 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.CAULDRON);
 			addBlock(ModBlocks.BEEHIVE);
 			addBlock(ModBlocks.ALTAR);
+			addBlock(ModBlocks.OVEN);
 			addBlock(ModBlocks.APIARY);
 			addBlock(ModBlocks.SILVER_BLOCK);
 			addBlock(ModBlocks.SALT_ORE);

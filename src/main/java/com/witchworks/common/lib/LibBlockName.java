@@ -40,6 +40,7 @@ public final class LibBlockName {
 	public static final String CANDLE_SMALL = "candle_small";
 	public static final String APIARY = "apiary";
 	public static final String CAULDRON = "cauldron";
+	public static final String OVEN = "oven";
 	public static final String COQUINA = "coquina";
 	public static final String BEEHIVE = "beehive";
 	public static final String SILVER_ORE = "silver_ore";

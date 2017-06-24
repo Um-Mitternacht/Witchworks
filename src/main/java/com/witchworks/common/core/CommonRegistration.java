@@ -156,6 +156,7 @@ public final class CommonRegistration {
 				itemBlock(ModBlocks.BLOODSTONE_BLOCK),
 				itemBlock(ModBlocks.CAULDRON),
 				itemBlock(ModBlocks.ALTAR),
+				itemBlock(ModBlocks.OVEN),
 				itemBlock(ModBlocks.APIARY),
 				itemBlock(ModBlocks.BEEHIVE),
 				itemBlock(ModBlocks.SILVER_ORE),
@@ -235,6 +236,7 @@ public final class CommonRegistration {
 
 				//Tool Blocks
 				new BlockCauldron(),
+				new BlockOven(),
 				new BlockCandleLarge(),
 				new BlockCandleMedium(),
 				new BlockCandleSmall(),
