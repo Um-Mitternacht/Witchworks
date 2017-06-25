@@ -130,7 +130,7 @@ public final class VanillaCrafting {
 
 		shaped().grid(" S ", "G G", " G ")
 				.map('G', Blocks.GLASS_PANE)
-				.map('S', "plankWood")
+				.map('S', "slabWood")
 				.outputs(ModItems.GLASS_JAR)
 				.build();
 
