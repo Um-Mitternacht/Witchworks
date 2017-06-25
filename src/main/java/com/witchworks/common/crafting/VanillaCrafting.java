@@ -130,7 +130,7 @@ public final class VanillaCrafting {
 
 		shaped().grid(" S ", "G G", " G ")
 				.map('G', Blocks.GLASS_PANE)
-				.map('S', Blocks.WOODEN_SLAB)
+				.map('S', "plankWood")
 				.outputs(ModItems.GLASS_JAR)
 				.build();
 
@@ -236,6 +236,12 @@ public final class VanillaCrafting {
 				.map('L', Blocks.CARPET)
 				.map('M', ModItems.MOLDAVITE)
 				.outputs(ModBlocks.ALTAR)
+				.build();
+
+		shaped().grid(" I ", "NNN", "NIN")
+				.map('I', Blocks.IRON_BARS)
+				.map('N', Items.IRON_INGOT)
+				.outputs(ModBlocks.OVEN)
 				.build();
 
 		shapeless()
