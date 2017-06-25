@@ -60,24 +60,28 @@ public final class ModelHandler {
 		registerBlock(block, 0);
 	}
 
-	public static void registerBlock(Block block, int meta) {
+	public static void registerBlock(Block block, int meta, String variant) {
 		final Item iBlock = Item.getItemFromBlock(block);
 		if (iBlock == Items.AIR)
-			throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
-		ModelLoader.setCustomModelResourceLocation(iBlock, meta, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+			throw new IllegalArgumentException("Tried to register a block that doesn't have an item!");
+		ModelLoader.setCustomModelResourceLocation(iBlock, meta, new ModelResourceLocation(block.getRegistryName(), variant));
+	}
+
+	public static void registerBlock(Block block, int meta) {
+		registerBlock(block, meta, "inventory");
 	}
 
 	public static void registerBlockAllType(Block block, IStringSerializable[] values) {
 		final Item iBlock = Item.getItemFromBlock(block);
 		if (iBlock == Items.AIR)
-			throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+			throw new IllegalArgumentException("Tried to register a block that doesn't have an item!");
 		registerEnums(iBlock, values, iBlock.getRegistryName().getResourcePath());
 	}
 
 	public static void registerBlockAllMeta(Block block, int metas) {
 		final Item iBlock = Item.getItemFromBlock(block);
 		if (iBlock == Items.AIR)
-			throw new IllegalArgumentException("Tried to register a block that doesn't have an item");
+			throw new IllegalArgumentException("Tried to register a block that doesn't have an item!");
 		registerMetas(iBlock, metas, block.getRegistryName().getResourcePath());
 	}
 
