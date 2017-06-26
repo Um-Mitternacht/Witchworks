@@ -103,7 +103,7 @@ public final class VanillaCrafting {
 		shapeless()
 				.add(ModItems.MORTAR_AND_PESTLE)
 				.add(ModBlocks.SILVER_ORE)
-				.outputs(new ItemStack(ModItems.SILVER_POWDER, 1))
+				.outputs(new ItemStack(ModItems.SILVER_POWDER, 2))
 				.build();
 
 		shapeless()
@@ -131,7 +131,7 @@ public final class VanillaCrafting {
 		shaped().grid(" S ", "G G", " G ")
 				.map('G', Blocks.GLASS_PANE)
 				.map('S', "slabWood")
-				.outputs(ModItems.GLASS_JAR)
+				.outputs(new ItemStack(ModItems.GLASS_JAR, 3))
 				.build();
 
 		shaped().grid(" T ", "S S", " S ")
