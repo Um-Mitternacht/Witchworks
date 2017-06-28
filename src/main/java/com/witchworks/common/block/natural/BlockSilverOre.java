@@ -1,15 +1,12 @@
 package com.witchworks.common.block.natural;
 
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.item.ModItems;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
-
-import java.util.Random;
 
 /**
  * This class was created by Joseph on 3/4/2017.

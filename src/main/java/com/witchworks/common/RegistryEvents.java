@@ -18,8 +18,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static com.witchworks.api.crop.Crop.*;
-import static com.witchworks.api.crop.Crop.GINGER;
-import static com.witchworks.api.crop.Crop.KELP;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.

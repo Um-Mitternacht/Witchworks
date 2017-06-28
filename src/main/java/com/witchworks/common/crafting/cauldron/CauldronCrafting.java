@@ -219,7 +219,7 @@ public final class CauldronCrafting {
 				, new BrewSimpleModifier(600, 0), true);
 		registerModifier(getStack(Blocks.REDSTONE_BLOCK)
 				, new BrewSimpleModifier(1200, 0), true);
-		registerModifier(getStack(ModItems.gem, 1,2)
+		registerModifier(getStack(ModItems.gem, 1, 2)
 				, new BrewSimpleModifier(0, 3), true);
 		registerModifier(getStack(Items.GLOWSTONE_DUST)
 				, new BrewSimpleModifier(0, 1), true);

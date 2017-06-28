@@ -29,7 +29,6 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBlocks {
 
-	private static final Block PLACE_HOLDER = new Block(Material.AIR);
 	//--------------------------------Blocks--------------------------------//
 	public static final BlockCrop crop_aconitum = null;
 	public static final BlockCrop crop_asphodel = null;
@@ -46,7 +45,7 @@ public final class ModBlocks {
 	public static final BlockCrop crop_silphium = null;
 	public static final BlockCrop crop_garlic = null;
 	public static final BlockCrop crop_wormwood = null;
-
+	private static final Block PLACE_HOLDER = new Block(Material.AIR);
 	public static final Block silver_block = PLACE_HOLDER;
 	public static final Block silver_ore = PLACE_HOLDER;
 	public static final Block moldavite_block = PLACE_HOLDER;
@@ -137,8 +136,8 @@ public final class ModBlocks {
 		OreDictionary.registerOre("oreAmethyst", new ItemStack(ModBlocks.gem_ore, 1, 8));
 		OreDictionary.registerOre("oreAlexandrite", new ItemStack(ModBlocks.gem_ore, 1, 9));
 		OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.silver_ore));
-		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.gem_ore,1 , 1));
-		OreDictionary.registerOre("oreBloodstone", new ItemStack(ModBlocks.gem_ore,1 , 5));
+		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.gem_ore, 1, 1));
+		OreDictionary.registerOre("oreBloodstone", new ItemStack(ModBlocks.gem_ore, 1, 5));
 		OreDictionary.registerOre("oreTourmaline", new ItemStack(ModBlocks.gem_ore, 1, 4));
 		OreDictionary.registerOre("oreMalachite", new ItemStack(ModBlocks.gem_ore, 1, 7));
 		OreDictionary.registerOre("oreTigersEye", new ItemStack(ModBlocks.gem_ore, 1, 3));

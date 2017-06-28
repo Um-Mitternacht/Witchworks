@@ -43,6 +43,6 @@ public class ItemBoline extends ItemShears implements IModelRegister {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModel() {
-		ModelHandler.registerModel(this,0);
+		ModelHandler.registerModel(this, 0);
 	}
 }

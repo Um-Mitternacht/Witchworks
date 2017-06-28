@@ -24,6 +24,6 @@ public class ItemModFood extends ItemFood implements IModelRegister {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerModel() {
-		ModelHandler.registerModel(this,0);
+		ModelHandler.registerModel(this, 0);
 	}
 }

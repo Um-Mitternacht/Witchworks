@@ -40,7 +40,7 @@ public final class ModelHandler {
 
 	public static void registerForgeModel(Block block, int meta, String variant) {
 		Item item = Item.getItemFromBlock(block);
-		if(item == Items.AIR) throw new UnsupportedOperationException("This block has no Item!");
+		if (item == Items.AIR) throw new UnsupportedOperationException("This block has no Item!");
 		ModelResourceLocation modelResourceLocation = new ModelResourceLocation(item.getRegistryName(), variant);
 		ModelLoader.setCustomModelResourceLocation(item, meta, modelResourceLocation);
 	}
@@ -52,7 +52,7 @@ public final class ModelHandler {
 
 	public static void registerModel(Block block, int meta) {
 		Item item = Item.getItemFromBlock(block);
-		if(item == Items.AIR) throw new UnsupportedOperationException("This block has no Item!");
+		if (item == Items.AIR) throw new UnsupportedOperationException("This block has no Item!");
 		registerModel(item, meta);
 	}
 

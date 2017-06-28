@@ -62,6 +62,6 @@ public class BlockCrop extends BlockCrops implements ICrop, IModelRegister {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerModel() {
-		ModelHandler.registerModel(this,0);
+		ModelHandler.registerModel(this, 0);
 	}
 }
