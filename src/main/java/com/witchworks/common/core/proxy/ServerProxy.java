@@ -24,11 +24,6 @@ public class ServerProxy implements ISidedProxy {
 	}
 
 	@Override
-	public void postInit(FMLPostInitializationEvent event) {
-		//NO-OP
-	}
-
-	@Override
 	public void displayRecordText(ITextComponent text) {
 		//NO-OP
 	}

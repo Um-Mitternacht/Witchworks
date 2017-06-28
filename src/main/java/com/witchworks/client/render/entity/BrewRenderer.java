@@ -15,7 +15,7 @@ import net.minecraft.item.ItemStack;
 public class BrewRenderer extends RenderSnowball<EntityBrew> {
 
 	public BrewRenderer(RenderManager renderManagerIn) {
-		super(renderManagerIn, ModItems.BREW_PHIAL_SPLASH, Minecraft.getMinecraft().getRenderItem());
+		super(renderManagerIn, ModItems.brew_phial_splash, Minecraft.getMinecraft().getRenderItem());
 	}
 
 	@Override

@@ -2,11 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "model": "witchworks:oven",
-    "transform": "forge:default-block",
-    "textures": {
-      "side": "witchworks:blocks/oven/oven_side",
-      "door": "witchworks:blocks/oven/oven_door"
-    }
+    "transform": "forge:default-block"
   },
   "variants": {
     "facing": {

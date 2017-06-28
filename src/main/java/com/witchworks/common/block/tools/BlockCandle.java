@@ -1,5 +1,6 @@
 package com.witchworks.common.block.tools;
 
+import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.tile.TileCandle;
 import net.minecraft.block.ITileEntityProvider;
@@ -19,8 +20,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.witchworks.api.state.WitchWorksState.COLOR;
+import static com.witchworks.api.WitchWorksAPI.COLOR;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.
@@ -120,5 +123,13 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 
 	public int getType() {
 		return 0;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerModel() {
+		for (int i = 0; i < 16; i++) {
+			ModelHandler.registerModel(this, i);
+		}
 	}
 }

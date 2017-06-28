@@ -1,0 +1,70 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+	"textures": {
+	  "all": "blocks/stone",
+	  "overlay": "witchworks:blocks/garnet_ore",
+	  "particle": "blocks/stone"
+	},
+	"model": "witchworks:block_overlay",
+	"uvlock": true
+  },
+  "variants": {
+	"normal": [{
+	}],
+    "inventory": [{
+	}],
+	"gem": {
+	  "garnet": {
+		"textures": {
+		  "overlay": "witchworks:blocks/garnet_ore"
+		}
+	  },
+	  "moldavite": {
+		"textures": {
+		  "overlay": "witchworks:blocks/moldavite_ore"
+		}
+	  },
+	  "nuummite": {
+		"textures": {
+		  "overlay": "witchworks:blocks/nuummite_ore"
+		}
+	  },
+	  "tigers_eye": {
+		"textures": {
+		  "overlay": "witchworks:blocks/tigers_eye_ore"
+		}
+	  },
+	  "tourmaline": {
+		"textures": {
+		  "overlay": "witchworks:blocks/tourmaline_ore"
+		}
+	  },
+	  "bloodstone": {
+		"textures": {
+		  "overlay": "witchworks:blocks/bloodstone_ore"
+		}
+	  },
+	  "jasper": {
+		"textures": {
+		  "overlay": "witchworks:blocks/jasper_ore"
+		}
+	  },
+	  "malachite": {
+		"textures": {
+		  "overlay": "witchworks:blocks/malachite_ore"
+		}
+	  },
+	  "amethyst": {
+		"textures": {
+		  "overlay": "witchworks:blocks/amethyst_ore"
+		}
+	  },
+	  "alexandrite": {
+		"textures": {
+		  "overlay": "witchworks:blocks/alexandrite_ore"
+		}
+	  }
+	}
+  }
+}

@@ -82,7 +82,7 @@ public class BlockSaltBarrier extends BlockMod {
 
 	private static boolean canConnectTo(IBlockState blockState) {
 		final Block block = blockState.getBlock();
-		return block == ModBlocks.SALT_BARRIER;
+		return block == ModBlocks.salt_barrier;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -239,7 +239,7 @@ public class BlockSaltBarrier extends BlockMod {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return ModItems.SALT;
+		return ModItems.salt;
 	}
 
 	@Override
@@ -258,7 +258,7 @@ public class BlockSaltBarrier extends BlockMod {
 	@SuppressWarnings("deprecation")
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(ModItems.SALT);
+		return new ItemStack(ModItems.salt);
 	}
 
 	@SuppressWarnings("deprecation")

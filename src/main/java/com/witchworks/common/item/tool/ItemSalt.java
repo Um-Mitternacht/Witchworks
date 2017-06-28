@@ -1,4 +1,4 @@
-package com.witchworks.common.item.block;
+package com.witchworks.common.item.tool;
 
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.item.ItemMod;
@@ -28,9 +28,9 @@ public class ItemSalt extends ItemMod {
 		final BlockPos blockpos = flag ? pos : pos.offset(facing);
 
 		ItemStack stack = playerIn.getHeldItem(hand);
-		if (playerIn.canPlayerEdit(blockpos, facing, stack) && worldIn.mayPlace(worldIn.getBlockState(blockpos).getBlock(), blockpos, false, facing, playerIn) && ModBlocks.SALT_BARRIER.canPlaceBlockAt(worldIn, blockpos)) {
+		if (playerIn.canPlayerEdit(blockpos, facing, stack) && worldIn.mayPlace(worldIn.getBlockState(blockpos).getBlock(), blockpos, false, facing, playerIn) && ModBlocks.salt_barrier.canPlaceBlockAt(worldIn, blockpos)) {
 			stack.shrink(1);
-			worldIn.setBlockState(blockpos, ModBlocks.SALT_BARRIER.getDefaultState());
+			worldIn.setBlockState(blockpos, ModBlocks.salt_barrier.getDefaultState());
 			return EnumActionResult.SUCCESS;
 		} else {
 			return EnumActionResult.FAIL;

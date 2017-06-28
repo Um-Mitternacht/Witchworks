@@ -129,10 +129,10 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	@Override
 	public boolean isItemValidForSlot(int index, ItemStack stack) {
-		return index == 0 ? stack.getItem() == ModItems.BEE
-				: stack.getItem() == ModItems.HONEYCOMB
-				|| stack.getItem() == ModItems.EMPTY_HONEYCOMB
-				|| stack.getItem() == ModItems.BEE;
+		return index == 0 ? stack.getItem() == ModItems.bee
+				: stack.getItem() == ModItems.honeycomb
+				|| stack.getItem() == ModItems.empty_honeycomb
+				|| stack.getItem() == ModItems.bee;
 	}
 
 	@Override
@@ -216,8 +216,8 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 
 	private ItemStack randomItem() {
 		final Item item = world.rand.nextBoolean()
-				? (world.rand.nextInt(8) == 0 ? ModItems.BEE : ModItems.HONEYCOMB)
-				: ModItems.EMPTY_HONEYCOMB;
+				? (world.rand.nextInt(8) == 0 ? ModItems.bee : ModItems.honeycomb)
+				: ModItems.empty_honeycomb;
 		return new ItemStack(item);
 	}
 

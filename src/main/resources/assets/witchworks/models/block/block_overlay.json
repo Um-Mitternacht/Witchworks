@@ -1,11 +1,6 @@
 {
-  "parent": "block/block",
-  "textures": {
-    "all": "blocks/stone",
-    "overlay": "witchworks:blocks/silver_ore",
-	"particle": "blocks/stone"
-  },
-  "elements": [
+	"parent": "block/block",
+	"elements": [
 		{
 			"from": [ 0, 0, 0 ],
 			"to": [ 16, 16, 16 ],

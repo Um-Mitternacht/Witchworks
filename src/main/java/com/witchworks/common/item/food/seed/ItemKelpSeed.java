@@ -1,6 +1,6 @@
 package com.witchworks.common.item.food.seed;
 
-import com.witchworks.api.state.Crop;
+import com.witchworks.api.crop.Crop;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.block.Block;
@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public class ItemKelpSeed extends ItemSeed {
 
 	public ItemKelpSeed() {
-		super(LibItemName.SEED_KELP, ModBlocks.CROP_KELP, Crop.KELP.getSoil());
+		super(LibItemName.SEED_KELP, ModBlocks.crop_kelp, Crop.KELP.getSoil());
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class ItemKelpSeed extends ItemSeed {
 					BlockPos F = up.add(1, 1, 1);
 					for (BlockPos blockPos : BlockPos.getAllInBox(I, F)) {
 						Block block = worldIn.getBlockState(blockPos).getBlock();
-						if (block != ModBlocks.CROP_KELP && block != Blocks.WATER) {
+						if (block != ModBlocks.crop_kelp && block != Blocks.WATER) {
 							return ActionResult.newResult(EnumActionResult.FAIL, stack);
 						}
 					}

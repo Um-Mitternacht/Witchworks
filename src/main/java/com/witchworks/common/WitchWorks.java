@@ -12,6 +12,7 @@ import com.witchworks.common.core.gen.ModGen;
 import com.witchworks.common.core.handler.ModSounds;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
+import com.witchworks.common.crafting.cauldron.CauldronCrafting;
 import com.witchworks.common.entity.ModEntities;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.item.food.seed.SeedDropRegistry;
@@ -20,7 +21,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
@@ -33,13 +33,13 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * the MIT license.
  */
 @SuppressWarnings("WeakerAccess")
-@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES)
+@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES, acceptedMinecraftVersions = "[1.11]")
 public class WitchWorks {
 
-	@Instance(LibMod.MOD_ID)
-	public static WitchWorks instance;
 	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
+	@Instance(LibMod.MOD_ID)
+	public static WitchWorks instance;
 
 	static {
 		FluidRegistry.enableUniversalBucket();
@@ -51,8 +51,8 @@ public class WitchWorks {
 		CapabilityBrewStorage.init();
 		PacketHandler.init();
 		ModEvents.init();
-		ModSounds.preInit();
-		ModEntities.preInit();
+		ModSounds.init();
+		ModEntities.init();
 		ModBrews.init();
 		proxy.preInit(event);
 	}
@@ -61,20 +61,13 @@ public class WitchWorks {
 	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
 
-		ModItems.initOreDictionary();
 		ModItems.init();
-
-		ModBlocks.initOreDictionary();
 		ModBlocks.init();
+		CauldronCrafting.init();
 
 		SeedDropRegistry.init();
 		ModAchievements.init();
 		ModGen.init();
-	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit(event);
 	}
 
 	@EventHandler

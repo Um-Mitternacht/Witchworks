@@ -16,27 +16,12 @@ import java.util.Random;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class BlockSaltOre extends BlockMod {
+public class BlockSilverOre extends BlockMod {
 
-	public BlockSaltOre() {
-		super(LibBlockName.SALT_ORE, Material.ROCK);
+	public BlockSilverOre() {
+		super(LibBlockName.SILVER_ORE, Material.ROCK);
 		setResistance(3F);
 		setHardness(3F);
-	}
-
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return ModItems.salt;
-	}
-
-	@Override
-	public int quantityDroppedWithBonus(int fortune, Random random) {
-		return this.quantityDropped(random) + random.nextInt(fortune + 1);
-	}
-
-	@Override
-	public int quantityDropped(Random random) {
-		return 4 + random.nextInt(2);
 	}
 
 	@Override

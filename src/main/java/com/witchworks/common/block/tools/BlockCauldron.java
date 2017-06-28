@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static com.witchworks.api.state.WitchWorksState.HALF;
+import static com.witchworks.api.WitchWorksAPI.HALF;
 import static net.minecraft.block.BlockHorizontal.FACING;
 
 /**
@@ -137,7 +137,7 @@ public class BlockCauldron extends BlockMod implements IModelRegister, ITileEnti
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerBlock(this);
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }

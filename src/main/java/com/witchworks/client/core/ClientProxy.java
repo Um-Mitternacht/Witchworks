@@ -32,7 +32,6 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -74,22 +73,18 @@ public class ClientProxy implements ISidedProxy {
 		BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
 		//Block Colors
 		blocks.registerBlockColorHandler(new BlockCandleColorHandler(),
-				ModBlocks.CANDLE_LARGE, ModBlocks.CANDLE_MEDIUM, ModBlocks.CANDLE_SMALL);
+				ModBlocks.candle_large, ModBlocks.candle_medium, ModBlocks.candle_small);
 
 		ItemColors items = Minecraft.getMinecraft().getItemColors();
 		//Item Colors
 		items.registerItemColorHandler(new ItemCandleColorHandler(),
-				Item.getItemFromBlock(ModBlocks.CANDLE_LARGE),
-				Item.getItemFromBlock(ModBlocks.CANDLE_MEDIUM),
-				Item.getItemFromBlock(ModBlocks.CANDLE_SMALL));
+				Item.getItemFromBlock(ModBlocks.candle_large),
+				Item.getItemFromBlock(ModBlocks.candle_medium),
+				Item.getItemFromBlock(ModBlocks.candle_small));
 		items.registerItemColorHandler(new BrewItemColorHandler(),
-				ModItems.BREW_PHIAL_DRINK, ModItems.BREW_PHIAL_SPLASH, ModItems.BREW_PHIAL_LINGER);
+				ModItems.brew_phial_drink, ModItems.brew_phial_splash, ModItems.brew_phial_linger);
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(WitchWorks.instance, new GuiHandler());
-	}
-
-	@Override
-	public void postInit(FMLPostInitializationEvent event) {
 	}
 
 	/**

@@ -112,10 +112,10 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	private boolean changeMode(Item item) {
 		boolean bol = false;
-		if (item == ModItems.SEED_MANDRAKE) {
+		if (item == ModItems.seed_mandrake) {
 			setMode(Mode.POTION);
 			bol = true;
-		} else if (item == ModItems.MANDRAKE) {
+		} else if (item == ModItems.mandrake_root) {
 			setMode(Mode.CUSTOM);
 			bol = true;
 		}
@@ -549,7 +549,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	}
 
 	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		ItemStack brew = new ItemStack(ModItems.BREW_PHIAL_DRINK);
+		ItemStack brew = new ItemStack(ModItems.brew_phial_drink);
 		NBTTagCompound tag = getBrewData();
 
 		if (tag != null) {

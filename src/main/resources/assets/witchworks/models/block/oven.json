@@ -1,11 +1,12 @@
 {
+	"parent": "block/block",
 	"__comment": "Copyright © InsomniaKitten 2017",
 	"textures": {
 		"particle": "witchworks:blocks/oven/oven_up",
 		"down": "witchworks:blocks/oven/oven_down",
 		"up": "witchworks:blocks/oven/oven_up",
-		"side": "#side",
-		"door": "#door"
+		"side": "witchworks:blocks/oven/oven_side",
+		"door": "witchworks:blocks/oven/oven_door"
 	},
 	"elements": [
 		{

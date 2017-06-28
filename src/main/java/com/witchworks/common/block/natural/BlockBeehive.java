@@ -1,9 +1,7 @@
 package com.witchworks.common.block.natural;
 
-import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.api.sound.WitchSoundEvents;
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.item.ModItems;
@@ -33,7 +31,7 @@ import static net.minecraft.block.BlockHorizontal.FACING;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class BlockBeehive extends BlockMod implements IModelRegister {
+public class BlockBeehive extends BlockMod {
 
 	private static final AxisAlignedBB BOX = new AxisAlignedBB(0.18F, 0, 0.18F, 0.82F, 1, 0.82F);
 
@@ -56,7 +54,7 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 	}
 
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return ModItems.BEE;
+		return ModItems.bee;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -99,11 +97,5 @@ public class BlockBeehive extends BlockMod implements IModelRegister {
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerBlock(this);
 	}
 }
