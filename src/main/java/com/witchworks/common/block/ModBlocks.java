@@ -29,29 +29,6 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBlocks {
 
-	private static final Block PLACE_HOLDER = new Block(Material.AIR);
-	//--------------------------------Blocks--------------------------------//
-	public static final Block silver_block = PLACE_HOLDER;
-	public static final Block silver_ore = PLACE_HOLDER;
-	public static final Block moldavite_block = PLACE_HOLDER;
-	public static final Block coquina = PLACE_HOLDER;
-	public static final Block bloodstone_block = PLACE_HOLDER;
-	public static final Block tourmaline_block = PLACE_HOLDER;
-	public static final Block cauldron = PLACE_HOLDER;
-
-	public static final Block candle_large = PLACE_HOLDER;
-	public static final Block candle_medium = PLACE_HOLDER;
-	public static final Block candle_small = PLACE_HOLDER;
-	public static final Block salt_barrier = PLACE_HOLDER;
-	public static final Block beehive = PLACE_HOLDER;
-	public static final Block altar = PLACE_HOLDER;
-	public static final Block oven = PLACE_HOLDER;
-	public static final Block apiary = PLACE_HOLDER;
-	public static final Block salt_ore = PLACE_HOLDER;
-	public static final Block gem_ore = PLACE_HOLDER;
-	public static final Block chalk = PLACE_HOLDER;
-	public static final Block nethersteel = PLACE_HOLDER;
-
 	public static final BlockCrop crop_aconitum = null;
 	public static final BlockCrop crop_asphodel = null;
 	public static final BlockCrop crop_belladonna = null;
@@ -67,6 +44,27 @@ public final class ModBlocks {
 	public static final BlockCrop crop_silphium = null;
 	public static final BlockCrop crop_garlic = null;
 	public static final BlockCrop crop_wormwood = null;
+	private static final Block PLACE_HOLDER = new Block(Material.AIR);
+	//--------------------------------Blocks--------------------------------//
+	public static final Block silver_block = PLACE_HOLDER;
+	public static final Block silver_ore = PLACE_HOLDER;
+	public static final Block moldavite_block = PLACE_HOLDER;
+	public static final Block coquina = PLACE_HOLDER;
+	public static final Block bloodstone_block = PLACE_HOLDER;
+	public static final Block tourmaline_block = PLACE_HOLDER;
+	public static final Block cauldron = PLACE_HOLDER;
+	public static final Block candle_large = PLACE_HOLDER;
+	public static final Block candle_medium = PLACE_HOLDER;
+	public static final Block candle_small = PLACE_HOLDER;
+	public static final Block salt_barrier = PLACE_HOLDER;
+	public static final Block beehive = PLACE_HOLDER;
+	public static final Block altar = PLACE_HOLDER;
+	public static final Block oven = PLACE_HOLDER;
+	public static final Block apiary = PLACE_HOLDER;
+	public static final Block salt_ore = PLACE_HOLDER;
+	public static final Block gem_ore = PLACE_HOLDER;
+	public static final Block chalk = PLACE_HOLDER;
+	public static final Block nethersteel = PLACE_HOLDER;
 
 	private ModBlocks() {
 	}
