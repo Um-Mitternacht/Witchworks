@@ -29,23 +29,8 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBlocks {
 
-	//--------------------------------Blocks--------------------------------//
-	public static final BlockCrop crop_aconitum = null;
-	public static final BlockCrop crop_asphodel = null;
-	public static final BlockCrop crop_belladonna = null;
-	public static final BlockCrop crop_ginger = null;
-	public static final BlockCrop crop_kelp = null;
-	public static final BlockCrop crop_mint = null;
-	public static final BlockCrop crop_white_sage = null;
-	public static final BlockCrop crop_mandrake_root = null;
-	public static final BlockCrop crop_lavender = null;
-	public static final BlockCrop crop_thistle = null;
-	public static final BlockCrop crop_tulsi = null;
-	public static final BlockCrop crop_kenaf = null;
-	public static final BlockCrop crop_silphium = null;
-	public static final BlockCrop crop_garlic = null;
-	public static final BlockCrop crop_wormwood = null;
 	private static final Block PLACE_HOLDER = new Block(Material.AIR);
+	//--------------------------------Blocks--------------------------------//
 	public static final Block silver_block = PLACE_HOLDER;
 	public static final Block silver_ore = PLACE_HOLDER;
 	public static final Block moldavite_block = PLACE_HOLDER;
@@ -66,6 +51,22 @@ public final class ModBlocks {
 	public static final Block gem_ore = PLACE_HOLDER;
 	public static final Block chalk = PLACE_HOLDER;
 	public static final Block nethersteel = PLACE_HOLDER;
+
+	public static final BlockCrop crop_aconitum = null;
+	public static final BlockCrop crop_asphodel = null;
+	public static final BlockCrop crop_belladonna = null;
+	public static final BlockCrop crop_ginger = null;
+	public static final BlockCrop crop_kelp = null;
+	public static final BlockCrop crop_mint = null;
+	public static final BlockCrop crop_white_sage = null;
+	public static final BlockCrop crop_mandrake_root = null;
+	public static final BlockCrop crop_lavender = null;
+	public static final BlockCrop crop_thistle = null;
+	public static final BlockCrop crop_tulsi = null;
+	public static final BlockCrop crop_kenaf = null;
+	public static final BlockCrop crop_silphium = null;
+	public static final BlockCrop crop_garlic = null;
+	public static final BlockCrop crop_wormwood = null;
 
 	private ModBlocks() {
 	}

@@ -25,7 +25,7 @@ class ParticleSpark extends Particle {
 		this.motionY *= 0.10000000149011612D;
 		this.motionZ *= 0.10000000149011612D;
 		this.motionX += (rand.nextBoolean() ? 0.1D : -0.1D) + rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
-		this.motionY += rand.nextFloat() * 0.4D;
+		this.motionY += rand.nextFloat() * 0.2D;
 		this.motionZ += (rand.nextBoolean() ? 0.1D : -0.1D) + rand.nextFloat() * (rand.nextBoolean() ? 0.1D : -0.1D);
 		float r = world.rand.nextFloat() / 2f + 0.5F;
 		float g = world.rand.nextFloat() / 2f + 0.5F;
