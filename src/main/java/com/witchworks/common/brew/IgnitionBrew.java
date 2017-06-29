@@ -24,7 +24,7 @@ public class IgnitionBrew implements IBrew {
 
 	@Override
 	public boolean isBad() {
-		return false;
+		return true;
 	}
 
 	@Override
