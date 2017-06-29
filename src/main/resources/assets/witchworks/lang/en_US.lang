@@ -288,6 +288,10 @@ brew.outcasts_shame.name=Outcast's Shame Brew
 brew.outcasts_shame.desc=Damages those outcast from society, such as Illagers.
 brew.outcasts_shame.tooltip=Outcast's Shame
 
+brew.ignition.name=Brew of Ignition
+brew.ignition.desc=Lights you or a target on fire.
+brew.ignition.tooltip=Ignition
+
 brew..name=
 brew..desc=
 brew..tooltip=
