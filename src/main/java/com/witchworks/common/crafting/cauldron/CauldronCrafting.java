@@ -212,6 +212,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.PRUNE_LEAVES), false);
 		registerEffect(getStack(Blocks.RED_MUSHROOM)
 				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
+		registerEffect(getStack(ModItems.ginger)
+				, BrewRegistry.getDefault(ModBrews.IGNITION), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
