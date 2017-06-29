@@ -29,6 +29,8 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBlocks {
 
+	//Todo: Add new gemstone blocks, and meta the existing ones.
+
 	public static final BlockCrop crop_aconitum = null;
 	public static final BlockCrop crop_asphodel = null;
 	public static final BlockCrop crop_belladonna = null;

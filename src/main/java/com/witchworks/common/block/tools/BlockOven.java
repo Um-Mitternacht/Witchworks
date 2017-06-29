@@ -21,6 +21,8 @@ import static net.minecraft.block.BlockHorizontal.FACING;
  */
 public class BlockOven extends BlockMod {
 
+	//Todo: Add functionality.
+
 	public BlockOven() {
 		super(LibBlockName.OVEN, Material.IRON);
 		setDefaultState(defaultState().withProperty(FACING, EnumFacing.NORTH));
