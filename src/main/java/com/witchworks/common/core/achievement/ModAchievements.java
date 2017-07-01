@@ -2,6 +2,7 @@ package com.witchworks.common.core.achievement;
 
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.lib.LibAchievementName;
+import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,7 +26,7 @@ public final class ModAchievements {
 	}
 
 	public static void init() {
-		craftMalachite = new AchievementMod(LibAchievementName.CRAFT_MALACHITE, -5, 0, ModItems.MALACHITE, null);
+		craftMalachite = new AchievementMod(LibAchievementName.CRAFT_MALACHITE, -5, 0, new ItemStack(ModItems.gem, 1, 7));
 
 		final AchievementPage page = new AchievementPage(MOD_NAME, achievements.toArray(new Achievement[achievements.size()]));
 		AchievementPage.registerAchievementPage(page);

@@ -1,5 +1,6 @@
 package com.witchworks.common.block.natural.crop;
 
+import com.witchworks.api.crop.ICrop;
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
@@ -13,14 +14,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class BlockCrop extends BlockCrops implements IModelRegister {
+public class BlockCrop extends BlockCrops implements ICrop, IModelRegister {
 
 	private int maxAge;
 	private Item seed;
 	private Item crop;
-
-	public BlockCrop() {
-	}
 
 	public BlockCrop(String id) {
 		super();
@@ -63,7 +61,7 @@ public class BlockCrop extends BlockCrops implements IModelRegister {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerBlock(this);
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }

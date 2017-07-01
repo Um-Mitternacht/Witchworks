@@ -3,7 +3,6 @@ package com.witchworks.common.core.proxy;
 import com.witchworks.client.fx.ParticleF;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
@@ -20,11 +19,6 @@ public class ServerProxy implements ISidedProxy {
 
 	@Override
 	public void init(FMLInitializationEvent event) {
-		//NO-OP
-	}
-
-	@Override
-	public void postInit(FMLPostInitializationEvent event) {
 		//NO-OP
 	}
 

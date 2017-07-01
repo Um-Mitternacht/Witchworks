@@ -44,7 +44,7 @@ public class BlockMod extends Block implements IModelRegister {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerBlock(this);
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }

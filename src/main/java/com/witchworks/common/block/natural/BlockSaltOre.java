@@ -1,16 +1,13 @@
 package com.witchworks.common.block.natural;
 
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.lib.LibBlockName;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -19,20 +16,17 @@ import java.util.Random;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-
-//Todo: Implement the fabled /MCG/ biome.
 public class BlockSaltOre extends BlockMod {
 
 	public BlockSaltOre() {
 		super(LibBlockName.SALT_ORE, Material.ROCK);
-		setSound(SoundType.STONE);
 		setResistance(3F);
 		setHardness(3F);
 	}
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return ModItems.SALT;
+		return ModItems.salt;
 	}
 
 	@Override
@@ -54,18 +48,7 @@ public class BlockSaltOre extends BlockMod {
 	}
 
 	@Override
-	public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {
-		super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
-	}
-
-	@Override
-	protected ItemStack getSilkTouchDrop(IBlockState state) {
-		return new ItemStack(ModBlocks.SALT_ORE);
-	}
-
-	@Override
-	@SuppressWarnings("deprecation")
-	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(Item.getItemFromBlock(ModBlocks.SALT_ORE), 1, this.damageDropped(state));
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.CUTOUT;
 	}
 }

@@ -15,7 +15,7 @@ public final class ModSounds {
 	private ModSounds() {
 	}
 
-	public static void preInit() {
+	public static void init() {
 		registerSound(WitchWorksAPI.BOIL);
 		registerSound(WitchWorksAPI.BUZZ);
 	}

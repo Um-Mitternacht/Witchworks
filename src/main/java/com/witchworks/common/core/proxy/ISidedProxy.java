@@ -3,7 +3,6 @@ package com.witchworks.common.core.proxy;
 import com.witchworks.client.fx.ParticleF;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
@@ -16,8 +15,6 @@ public interface ISidedProxy {
 	void preInit(FMLPreInitializationEvent event);
 
 	void init(FMLInitializationEvent event);
-
-	void postInit(FMLPostInitializationEvent event);
 
 	void displayRecordText(ITextComponent text);
 

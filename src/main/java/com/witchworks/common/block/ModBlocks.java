@@ -1,12 +1,22 @@
 package com.witchworks.common.block;
 
-import com.witchworks.common.block.natural.crop.BlockCrop;
+import com.witchworks.common.block.magic.BlockSaltBarrier;
+import com.witchworks.common.block.natural.BlockBeehive;
+import com.witchworks.common.block.natural.BlockGemOre;
+import com.witchworks.common.block.natural.BlockSaltOre;
+import com.witchworks.common.block.natural.BlockSilverOre;
+import com.witchworks.common.block.natural.crop.*;
+import com.witchworks.common.block.natural.fluid.Fluids;
+import com.witchworks.common.block.tools.*;
 import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.IFluidBlock;
+import net.minecraftforge.fml.common.registry.IForgeRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
@@ -19,117 +29,123 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBlocks {
 
-	@ObjectHolder(LibBlockName.CROP_ACONITUM)
-	public static final BlockCrop CROP_ACONITUM = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_ASPHODEL)
-	public static final BlockCrop CROP_ASPHODEL = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_BELLADONNA)
-	public static final BlockCrop CROP_BELLADONNA = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_GINGER)
-	public static final BlockCrop CROP_GINGER = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_KELP)
-	public static final BlockCrop CROP_KELP = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_MINT)
-	public static final BlockCrop CROP_MINT = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_WHITE_SAGE)
-	public static final BlockCrop CROP_WHITE_SAGE = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_MANDRAKE)
-	public static final BlockCrop CROP_MANDRAKE = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_LAVENDER)
-	public static final BlockCrop CROP_LAVENDER = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_THISTLE)
-	public static final BlockCrop CROP_THISTLE = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_TULSI)
-	public static final BlockCrop CROP_TULSI = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_KENAF)
-	public static final BlockCrop CROP_KENAF = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_SILPHIUM)
-	public static final BlockCrop CROP_SILPHIUM = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_GARLIC)
-	public static final BlockCrop CROP_GARLIC = new BlockCrop();
-	@ObjectHolder(LibBlockName.CROP_WORMWOOD)
-	public static final BlockCrop CROP_WORMWOOD = new BlockCrop();
+	//Todo: Add new gemstone blocks, and meta the existing ones.
 
-	@ObjectHolder(LibBlockName.SILVER_BLOCK)
-	public static final Block SILVER_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.MOLDAVITE_BLOCK)
-	public static final Block MOLDAVITE_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.COQUINA)
-	public static final Block COQUINA = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.BLOODSTONE_BLOCK)
-	public static final Block BLOODSTONE_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.TOURMALINE_BLOCK)
-	public static final Block TOURMALINE_BLOCK = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CAULDRON)
-	public static final Block CAULDRON = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.SILVER_ORE)
-	public static final Block SILVER_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.MOLDAVITE_ORE)
-	public static final Block MOLDAVITE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.BLOODSTONE_ORE)
-	public static final Block BLOODSTONE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.TOURMALINE_ORE)
-	public static final Block TOURMALINE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.MALACHITE_ORE)
-	public static final Block MALACHITE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.TIGERS_EYE_ORE)
-	public static final Block TIGERS_EYE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.GARNET_ORE)
-	public static final Block GARNET_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.NUUMMITE_ORE)
-	public static final Block NUUMMITE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.NETHERSTEEL)
-	public static final Block NETHERSTEEL = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CANDLE_LARGE)
-	public static final Block CANDLE_LARGE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CANDLE_MEDIUM)
-	public static final Block CANDLE_MEDIUM = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CANDLE_SMALL)
-	public static final Block CANDLE_SMALL = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.SALT_BARRIER)
-	public static final Block SALT_BARRIER = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.BEEHIVE)
-	public static final Block BEEHIVE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.ALTAR)
-	public static final Block ALTAR = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.APIARY)
-	public static final Block APIARY = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.SALT_ORE)
-	public static final Block SALT_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.JASPER_ORE)
-	public static final Block JASPER_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.AMETHYST_ORE)
-	public static final Block AMETHYST_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.ALEXANDRITE_ORE)
-	public static final Block ALEXANDRITE_ORE = new Block(Material.ROCK);
-	@ObjectHolder(LibBlockName.CHALK)
-	public static final Block CHALK = new Block(Material.ROCK);
+	public static final BlockCrop crop_aconitum = null;
+	public static final BlockCrop crop_asphodel = null;
+	public static final BlockCrop crop_belladonna = null;
+	public static final BlockCrop crop_ginger = null;
+	public static final BlockCrop crop_kelp = null;
+	public static final BlockCrop crop_mint = null;
+	public static final BlockCrop crop_white_sage = null;
+	public static final BlockCrop crop_mandrake_root = null;
+	public static final BlockCrop crop_lavender = null;
+	public static final BlockCrop crop_thistle = null;
+	public static final BlockCrop crop_tulsi = null;
+	public static final BlockCrop crop_kenaf = null;
+	public static final BlockCrop crop_silphium = null;
+	public static final BlockCrop crop_garlic = null;
+	public static final BlockCrop crop_wormwood = null;
+	private static final Block PLACE_HOLDER = new Block(Material.AIR);
+	//--------------------------------Blocks--------------------------------//
+	public static final Block silver_block = PLACE_HOLDER;
+	public static final Block silver_ore = PLACE_HOLDER;
+	public static final Block moldavite_block = PLACE_HOLDER;
+	public static final Block coquina = PLACE_HOLDER;
+	public static final Block bloodstone_block = PLACE_HOLDER;
+	public static final Block tourmaline_block = PLACE_HOLDER;
+	public static final Block cauldron = PLACE_HOLDER;
+	public static final Block candle_large = PLACE_HOLDER;
+	public static final Block candle_medium = PLACE_HOLDER;
+	public static final Block candle_small = PLACE_HOLDER;
+	public static final Block salt_barrier = PLACE_HOLDER;
+	public static final Block beehive = PLACE_HOLDER;
+	public static final Block altar = PLACE_HOLDER;
+	public static final Block oven = PLACE_HOLDER;
+	public static final Block apiary = PLACE_HOLDER;
+	public static final Block salt_ore = PLACE_HOLDER;
+	public static final Block gem_ore = PLACE_HOLDER;
+	public static final Block chalk = PLACE_HOLDER;
+	public static final Block nethersteel = PLACE_HOLDER;
 
 	private ModBlocks() {
 	}
 
-	public static void init() {
-		VanillaCrafting.blocks();
+	public static void register(final IForgeRegistry<Block> registry) {
+		for (final IFluidBlock fluidBlock : Fluids.MOD_FLUID_BLOCKS) {
+			registry.register((Block) fluidBlock);
+		}
+		//Crops
+		registry.registerAll(
+				new BlockCrop(LibBlockName.CROP_ACONITUM),
+				new BlockCrop(LibBlockName.CROP_ASPHODEL),
+				new BlockCrop(LibBlockName.CROP_GINGER),
+				new BlockCrop(LibBlockName.CROP_WHITE_SAGE),
+				new BlockCrop(LibBlockName.CROP_MANDRAKE),
+				new BlockCrop(LibBlockName.CROP_LAVENDER),
+				new BlockCrop(LibBlockName.CROP_TULSI),
+				new BlockCrop(LibBlockName.CROP_GARLIC),
+				new CropWormwood(),
+				new CropSilphium(),
+				new CropKenaf(),
+				new CropThistle(),
+				new CropKelp(),
+				new CropBelladonna(),
+				new CropMint()
+		);
+		//Ore
+		registry.register(new BlockSilverOre());
+		registry.register(new BlockSaltOre());
+		registry.register(new BlockGemOre());
+		//Tool Blocks
+		registry.registerAll(
+				new BlockCauldron(),
+				new BlockOven(),
+				new BlockCandleLarge(),
+				new BlockCandleMedium(),
+				new BlockCandleSmall(),
+				new BlockSaltBarrier(),
+				new BlockApiary(),
+				new BlockAltar(),
+				new BlockBeehive()
+		);
+		//Normal Blocks
+		registry.registerAll(
+				new BlockMod(LibBlockName.MOLDAVITE_BLOCK, Material.ROCK).setSound(SoundType.GLASS).setHardness(5.0F),
+				new BlockMod(LibBlockName.SILVER_BLOCK, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
+				new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
+				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
+		);
 	}
 
-	public static void initOreDictionary() {
-		OreDictionary.registerOre("coquina", new ItemStack(ModBlocks.COQUINA));
-		OreDictionary.registerOre("limestone", new ItemStack(ModBlocks.COQUINA));
-		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.SILVER_BLOCK));
-		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.MOLDAVITE_BLOCK));
-		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.BLOODSTONE_BLOCK));
-		OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.SILVER_ORE));
-		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.MOLDAVITE_ORE));
-		OreDictionary.registerOre("oreBloodstone", new ItemStack(ModBlocks.BLOODSTONE_ORE));
-		OreDictionary.registerOre("oreTourmaline", new ItemStack(ModBlocks.TOURMALINE_ORE));
-		OreDictionary.registerOre("oreMalachite", new ItemStack(ModBlocks.MALACHITE_ORE));
-		OreDictionary.registerOre("oreTigersEye", new ItemStack(ModBlocks.TIGERS_EYE_ORE));
-		OreDictionary.registerOre("oreJasper", new ItemStack(ModBlocks.JASPER_ORE));
-		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.TOURMALINE_BLOCK));
-		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.NETHERSTEEL));
-		OreDictionary.registerOre("oreSalt", new ItemStack(ModBlocks.SALT_ORE));
-		OreDictionary.registerOre("oreAmethyst", new ItemStack(ModBlocks.AMETHYST_ORE));
-		OreDictionary.registerOre("oreAlexandrite", new ItemStack(ModBlocks.ALEXANDRITE_ORE));
-		OreDictionary.registerOre("chalk", new ItemStack(ModBlocks.CHALK));
+	public static void init() {
+		VanillaCrafting.blocks();
+		initOreDictionary();
+	}
+
+	private static void initOreDictionary() {
+		OreDictionary.registerOre("coquina", new ItemStack(ModBlocks.coquina));
+		OreDictionary.registerOre("limestone", new ItemStack(ModBlocks.coquina));
+		OreDictionary.registerOre("blockSilver", new ItemStack(ModBlocks.silver_block));
+		OreDictionary.registerOre("blockMoldavite", new ItemStack(ModBlocks.moldavite_block));
+		OreDictionary.registerOre("blockBloodstone", new ItemStack(ModBlocks.bloodstone_block));
+		OreDictionary.registerOre("oreGarnet", new ItemStack(ModBlocks.gem_ore, 1, 0));
+		OreDictionary.registerOre("oreNuummite", new ItemStack(ModBlocks.gem_ore, 1, 2));
+		OreDictionary.registerOre("oreAmethyst", new ItemStack(ModBlocks.gem_ore, 1, 8));
+		OreDictionary.registerOre("oreAlexandrite", new ItemStack(ModBlocks.gem_ore, 1, 9));
+		OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.silver_ore));
+		OreDictionary.registerOre("oreMoldavite", new ItemStack(ModBlocks.gem_ore, 1, 1));
+		OreDictionary.registerOre("oreBloodstone", new ItemStack(ModBlocks.gem_ore, 1, 5));
+		OreDictionary.registerOre("oreTourmaline", new ItemStack(ModBlocks.gem_ore, 1, 4));
+		OreDictionary.registerOre("oreMalachite", new ItemStack(ModBlocks.gem_ore, 1, 7));
+		OreDictionary.registerOre("oreTigersEye", new ItemStack(ModBlocks.gem_ore, 1, 3));
+		OreDictionary.registerOre("oreJasper", new ItemStack(ModBlocks.gem_ore, 1, 6));
+		OreDictionary.registerOre("blockNethersteel", new ItemStack(ModBlocks.nethersteel));
+		OreDictionary.registerOre("oreSalt", new ItemStack(ModBlocks.salt_ore));
+		OreDictionary.registerOre("blockTourmaline", new ItemStack(ModBlocks.tourmaline_block));
+		OreDictionary.registerOre("chalk", new ItemStack(ModBlocks.chalk));
 	}
 }

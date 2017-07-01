@@ -31,6 +31,8 @@ public final class LibBlockName {
 	public static final String CROP_KENAF = "crop_kenaf";
 	public static final String CROP_THISTLE = "crop_thistle";
 
+	public static final String GEM_ORE = "gem_ore";
+	public static final String SILVER_ORE = "silver_ore";
 	public static final String SILVER_BLOCK = "silver_block";
 	public static final String MOLDAVITE_BLOCK = "moldavite_block";
 	public static final String BLOODSTONE_BLOCK = "bloodstone_block";
@@ -40,22 +42,12 @@ public final class LibBlockName {
 	public static final String CANDLE_SMALL = "candle_small";
 	public static final String APIARY = "apiary";
 	public static final String CAULDRON = "cauldron";
+	public static final String OVEN = "oven";
 	public static final String COQUINA = "coquina";
 	public static final String BEEHIVE = "beehive";
-	public static final String SILVER_ORE = "silver_ore";
-	public static final String TOURMALINE_ORE = "tourmaline_ore";
-	public static final String MOLDAVITE_ORE = "moldavite_ore";
-	public static final String MALACHITE_ORE = "malachite_ore";
-	public static final String BLOODSTONE_ORE = "bloodstone_ore";
-	public static final String TIGERS_EYE_ORE = "tigers_eye_ore";
-	public static final String JASPER_ORE = "jasper_ore";
-	public static final String GARNET_ORE = "garnet_ore";
 	public static final String SALT_ORE = "salt_ore";
-	public static final String NUUMMITE_ORE = "nuummite_ore";
 	public static final String TOURMALINE_BLOCK = "tourmaline_block";
 	public static final String NETHERSTEEL = "nethersteel";
-	public static final String AMETHYST_ORE = "amethyst_ore";
-	public static final String ALEXANDRITE_ORE = "alexandrite_ore";
 	public static final String CHALK = "chalk";
 	public static final String SALT_BARRIER = "salt_barrier";
 

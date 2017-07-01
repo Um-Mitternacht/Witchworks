@@ -1,8 +1,6 @@
 package com.witchworks.common.item.food;
 
-import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.api.helper.NBTHelper;
-import com.witchworks.client.handler.ModelHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -23,7 +21,7 @@ import java.util.List;
  * the MIT license.
  */
 @SuppressWarnings("WeakerAccess")
-public class ItemCrop extends ItemModFood implements IModelRegister {
+public class ItemCrop extends ItemModFood {
 
 	private static final String DRY = "dry";
 	private List<Potion> potions;
@@ -63,11 +61,5 @@ public class ItemCrop extends ItemModFood implements IModelRegister {
 
 	public String getNameInefficiently(ItemStack stack) {
 		return getUnlocalizedName().substring(5);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerItem(this);
 	}
 }

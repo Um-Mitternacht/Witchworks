@@ -63,7 +63,7 @@ public final class WitchWorksCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModItems.MANDRAKE);
+			return new ItemStack(ModItems.mandrake_root);
 		}
 
 		@Override
@@ -90,7 +90,7 @@ public final class WitchWorksCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModItems.TOURMALINE);
+			return new ItemStack(ModItems.gem, 1, 4);
 		}
 
 		@Override
@@ -102,48 +102,39 @@ public final class WitchWorksCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
-			addItem(ModItems.GARNET);
-			addItem(ModItems.NUUMMITE);
-			addItem(ModItems.MOLDAVITE);
-			addItem(ModItems.TOURMALINE);
-			addItem(ModItems.TIGERS_EYE);
-			addItem(ModItems.BLOODSTONE);
-			addItem(ModItems.JASPER);
-			addItem(ModItems.MALACHITE);
-			addItem(ModItems.AMETHYST);
-			addItem(ModItems.ALEXANDRITE);
-			addItem(ModItems.GEMSTONE_AMALGAM);
-			addItem(ModItems.BEE);
-			addItem(ModItems.HONEYCOMB);
-			addItem(ModItems.EMPTY_HONEYCOMB);
-			addItem(ModItems.GLASS_JAR);
-			addItem(ModItems.HONEY);
-			addItem(ModItems.WAX);
-			addItem(ModItems.MORTAR_AND_PESTLE);
-			addItem(ModItems.SALT);
-			addItem(ModItems.SILVER_POWDER);
-			addItem(ModItems.SILVER_INGOT);
-			addItem(ModItems.SILVER_NUGGET);
-			addItem(ModItems.SILVER_PICKAXE);
-			addItem(ModItems.SILVER_AXE);
-			addItem(ModItems.SILVER_SPADE);
-			addItem(ModItems.SILVER_HOE);
-			addItem(ModItems.SILVER_SWORD);
-			addItem(ModItems.SILVER_HELMET);
-			addItem(ModItems.SILVER_CHESTPLATE);
-			addItem(ModItems.SILVER_LEGGINGS);
-			addItem(ModItems.SILVER_BOOTS);
-			addItem(ModItems.SHADOW_BOOK);
-			addItem(ModItems.DUSTY_GRIMOIRE);
-			addItem(ModItems.BREW_PHIAL_DRINK);
-			addItem(ModItems.BREW_PHIAL_SPLASH);
-			addItem(ModItems.BREW_PHIAL_LINGER);
-			addItem(ModItems.CHALK_ITEM);
-			addItem(ModItems.BOLINE);
-			addItem(ModItems.ATHAME);
-			addItem(ModItems.TAGLOCK);
-			addItem(ModItems.UNREFINED_CHALK);
-			addItem(ModItems.NEEDLE_BONE);
+			addItem(ModItems.gem);
+			addItem(ModItems.gemstone_amalgam);
+			addItem(ModItems.bee);
+			addItem(ModItems.honeycomb);
+			addItem(ModItems.empty_honeycomb);
+			addItem(ModItems.glass_jar);
+			addItem(ModItems.honey);
+			addItem(ModItems.wax);
+			addItem(ModItems.mortar_and_pestle);
+			addItem(ModItems.salt);
+			addItem(ModItems.silver_powder);
+			addItem(ModItems.silver_ingot);
+			addItem(ModItems.silver_nugget);
+			addItem(ModItems.silver_pickaxe);
+			addItem(ModItems.silver_axe);
+			addItem(ModItems.silver_spade);
+			addItem(ModItems.silver_hoe);
+			addItem(ModItems.silver_sword);
+			addItem(ModItems.silver_helmet);
+			addItem(ModItems.silver_chestplate);
+			addItem(ModItems.silver_leggings);
+			addItem(ModItems.silver_boots);
+			addItem(ModItems.book_of_shadows);
+			addItem(ModItems.dusty_grimoire);
+			addItem(ModItems.brew_phial_drink);
+			addItem(ModItems.brew_phial_splash);
+			addItem(ModItems.brew_phial_linger);
+			addItem(ModItems.chalk_item);
+			addItem(ModItems.boline);
+			addItem(ModItems.athame);
+			addItem(ModItems.taglock);
+			addItem(ModItems.unrefined_chalk);
+			addItem(ModItems.needle_bone);
 		}
 	}
 
@@ -157,7 +148,7 @@ public final class WitchWorksCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getIconItemStack() {
-			return new ItemStack(ModBlocks.CAULDRON);
+			return new ItemStack(ModBlocks.cauldron);
 		}
 
 		@Override
@@ -169,32 +160,24 @@ public final class WitchWorksCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 			this.list = list;
-			addBlock(ModBlocks.CAULDRON);
-			addBlock(ModBlocks.BEEHIVE);
-			addBlock(ModBlocks.ALTAR);
-			addBlock(ModBlocks.APIARY);
-			addBlock(ModBlocks.SILVER_BLOCK);
-			addBlock(ModBlocks.SALT_ORE);
-			addBlock(ModBlocks.COQUINA);
-			addBlock(ModBlocks.SILVER_ORE);
-			addBlock(ModBlocks.MOLDAVITE_ORE);
-			addBlock(ModBlocks.TOURMALINE_ORE);
-			addBlock(ModBlocks.BLOODSTONE_ORE);
-			addBlock(ModBlocks.MALACHITE_ORE);
-			addBlock(ModBlocks.JASPER_ORE);
-			addBlock(ModBlocks.TIGERS_EYE_ORE);
-			addBlock(ModBlocks.NUUMMITE_ORE);
-			addBlock(ModBlocks.GARNET_ORE);
-			addBlock(ModBlocks.MOLDAVITE_BLOCK);
-			addBlock(ModBlocks.BLOODSTONE_BLOCK);
-			addBlock(ModBlocks.TOURMALINE_BLOCK);
-			addBlock(ModBlocks.AMETHYST_ORE);
-			addBlock(ModBlocks.ALEXANDRITE_ORE);
-			addBlock(ModBlocks.NETHERSTEEL);
-			addBlock(ModBlocks.CANDLE_LARGE);
-			addBlock(ModBlocks.CANDLE_MEDIUM);
-			addBlock(ModBlocks.CANDLE_SMALL);
-			addBlock(ModBlocks.CHALK);
+			addBlock(ModBlocks.cauldron);
+			addBlock(ModBlocks.beehive);
+			addBlock(ModBlocks.altar);
+			addBlock(ModBlocks.oven);
+			addBlock(ModBlocks.apiary);
+			addBlock(ModBlocks.chalk);
+			addBlock(ModBlocks.coquina);
+			addBlock(ModBlocks.gem_ore);
+			addBlock(ModBlocks.salt_ore);
+			addBlock(ModBlocks.silver_ore);
+			addBlock(ModBlocks.moldavite_block);
+			addBlock(ModBlocks.bloodstone_block);
+			addBlock(ModBlocks.tourmaline_block);
+			addBlock(ModBlocks.silver_block);
+			addBlock(ModBlocks.nethersteel);
+			addBlock(ModBlocks.candle_large);
+			addBlock(ModBlocks.candle_medium);
+			addBlock(ModBlocks.candle_small);
 		}
 	}
 }

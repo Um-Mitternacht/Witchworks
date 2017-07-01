@@ -56,7 +56,7 @@ public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerItem(this);
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }

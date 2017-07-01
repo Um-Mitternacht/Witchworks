@@ -24,60 +24,59 @@ public final class VanillaCrafting {
 	}
 
 	public static void items() {
-
 		shaped().grid("NNN", "NNN", "NNN")
-				.map('N', ModItems.SILVER_NUGGET)
-				.outputs(ModItems.SILVER_INGOT)
+				.map('N', ModItems.silver_nugget)
+				.outputs(ModItems.silver_ingot)
 				.build();
 
 		shaped().grid("N N", "NNN", "NNN")
-				.map('N', ModItems.SILVER_INGOT)
-				.outputs(ModItems.SILVER_CHESTPLATE)
+				.map('N', ModItems.silver_ingot)
+				.outputs(ModItems.silver_chestplate)
 				.build();
 
 		shaped().grid("NNN", "N N", "   ")
-				.map('N', ModItems.SILVER_INGOT)
-				.outputs(ModItems.SILVER_HELMET)
+				.map('N', ModItems.silver_ingot)
+				.outputs(ModItems.silver_helmet)
 				.build();
 
 		shaped().grid("NNN", "N N", "N N")
-				.map('N', ModItems.SILVER_INGOT)
-				.outputs(ModItems.SILVER_LEGGINGS)
+				.map('N', ModItems.silver_ingot)
+				.outputs(ModItems.silver_leggings)
 				.build();
 
 		shaped().grid("   ", "N N", "N N")
-				.map('N', ModItems.SILVER_INGOT)
-				.outputs(ModItems.SILVER_BOOTS)
+				.map('N', ModItems.silver_ingot)
+				.outputs(ModItems.silver_boots)
 				.build();
 
 		shaped().grid(" N ", " N ", " S ")
-				.map('N', ModItems.SILVER_INGOT)
+				.map('N', ModItems.silver_ingot)
 				.map('S', Items.STICK)
-				.outputs(ModItems.SILVER_SWORD)
+				.outputs(ModItems.silver_sword)
 				.build();
 
 		shaped().grid(" N ", " S ", " S ")
-				.map('N', ModItems.SILVER_INGOT)
+				.map('N', ModItems.silver_ingot)
 				.map('S', Items.STICK)
-				.outputs(ModItems.SILVER_SPADE)
+				.outputs(ModItems.silver_spade)
 				.build();
 
 		shaped().grid("NN ", "NS ", " S ")
-				.map('N', ModItems.SILVER_INGOT)
+				.map('N', ModItems.silver_ingot)
 				.map('S', Items.STICK)
-				.outputs(ModItems.SILVER_AXE)
+				.outputs(ModItems.silver_axe)
 				.build();
 
 		shaped().grid("NN ", " S ", " S ")
-				.map('N', ModItems.SILVER_INGOT)
+				.map('N', ModItems.silver_ingot)
 				.map('S', Items.STICK)
-				.outputs(ModItems.SILVER_HOE)
+				.outputs(ModItems.silver_hoe)
 				.build();
 
 		shaped().grid("NNN", " S ", " S ")
-				.map('N', ModItems.SILVER_INGOT)
+				.map('N', ModItems.silver_ingot)
 				.map('S', Items.STICK)
-				.outputs(ModItems.SILVER_PICKAXE)
+				.outputs(ModItems.silver_pickaxe)
 				.build();
 
 		shapeless()
@@ -85,148 +84,179 @@ public final class VanillaCrafting {
 				.add(Items.NETHERBRICK)
 				.add(Items.QUARTZ)
 				.add(Items.IRON_INGOT)
-				.outputs(new ItemStack(ModBlocks.NETHERSTEEL, 4))
+				.outputs(new ItemStack(ModBlocks.nethersteel, 4))
 				.build();
 
 		shapeless()
-				.add(ModItems.MORTAR_AND_PESTLE)
-				.add(ModBlocks.SILVER_ORE)
-				.outputs(new ItemStack(ModItems.SILVER_POWDER, 1))
+				.add(ModItems.glass_jar)
+				.add(ModItems.needle_bone)
+				.outputs(new ItemStack(ModItems.taglock, 1))
 				.build();
 
 		shapeless()
-				.add(ModItems.SILVER_INGOT)
-				.outputs(new ItemStack(ModItems.SILVER_NUGGET, 9))
+				.add(Items.FLINT)
+				.add(Items.BONE)
+				.outputs(new ItemStack(ModItems.needle_bone, 8))
 				.build();
 
-		shapeless().add(ModBlocks.SILVER_BLOCK)
-				.outputs(new ItemStack(ModItems.SILVER_INGOT, 9))
+		shapeless()
+				.add(ModItems.mortar_and_pestle)
+				.add(ModBlocks.silver_ore)
+				.outputs(new ItemStack(ModItems.silver_powder, 2))
+				.build();
+
+		shapeless()
+				.add(ModItems.silver_ingot)
+				.outputs(new ItemStack(ModItems.silver_nugget, 9))
+				.build();
+
+		shapeless().add(ModBlocks.silver_block)
+				.outputs(new ItemStack(ModItems.silver_ingot, 9))
 				.build();
 
 		shaped().grid(" N ", "NGN", " S ")
-				.map('N', ModItems.SILVER_INGOT)
-				.map('G', ModItems.ALEXANDRITE)
+				.map('N', ModItems.silver_ingot)
+				.map('G', new ItemStack(ModItems.gem, 1, 9))
 				.map('S', Items.STICK)
-				.outputs(ModItems.ATHAME)
+				.outputs(ModItems.athame)
 				.build();
 
 		shaped().grid("NN ", "  N", " B ")
-				.map('N', ModItems.SILVER_INGOT)
-				.map('B', ModItems.BLOODSTONE)
-				.outputs(ModItems.BOLINE)
+				.map('N', ModItems.silver_ingot)
+				.map('B', new ItemStack(ModItems.gem, 1, 5))
+				.outputs(ModItems.boline)
 				.build();
 
-		shapeless().add(ModItems.TAGLOCK)
-				.outputs(ModItems.TAGLOCK)
+		shaped().grid(" S ", "G G", " G ")
+				.map('G', Blocks.GLASS_PANE)
+				.map('S', "slabWood")
+				.outputs(new ItemStack(ModItems.glass_jar, 3))
+				.build();
+
+		shaped().grid(" T ", "S S", " S ")
+				.map('T', Items.STICK)
+				.map('S', Blocks.WOODEN_SLAB)
+				.outputs(ModItems.mortar_and_pestle)
+				.build();
+
+		shapeless()
+				.add(ModItems.taglock)
+				.outputs(ModItems.taglock)
 				.build();
 	}
 
 	public static void blocks() {
 		shapeless()
-				.add(ModItems.WAX)
-				.add(ModItems.WAX)
+				.add(ModItems.wax)
+				.add(ModItems.wax)
 				.add(Items.STRING)
-				.outputs(new ItemStack(ModBlocks.CANDLE_SMALL, 1))
+				.outputs(new ItemStack(ModBlocks.candle_small, 1))
 				.build();
 
 		for (int i = 0; i < 16; i++) {
 			shapeless()
-					.add(ModItems.WAX)
-					.add(ModItems.WAX)
+					.add(ModItems.wax)
+					.add(ModItems.wax)
 					.add(Items.STRING)
 					.add(new ItemStack(Items.DYE, 1, 15 - i))
-					.outputs(new ItemStack(ModBlocks.CANDLE_SMALL, 1, i))
+					.outputs(new ItemStack(ModBlocks.candle_small, 1, i))
 					.build();
 		}
 
 		shapeless()
-				.add(ModItems.WAX)
-				.add(ModItems.WAX)
-				.add(ModBlocks.CANDLE_SMALL)
-				.outputs(new ItemStack(ModBlocks.CANDLE_MEDIUM, 1))
+				.add(ModItems.wax)
+				.add(ModItems.wax)
+				.add(ModBlocks.candle_small)
+				.outputs(new ItemStack(ModBlocks.candle_medium, 1))
 				.build();
 
 		for (int i = 0; i < 16; i++) {
 			shapeless()
-					.add(ModItems.WAX)
-					.add(ModItems.WAX)
-					.add(ModBlocks.CANDLE_SMALL)
+					.add(ModItems.wax)
+					.add(ModItems.wax)
+					.add(ModBlocks.candle_small)
 					.add(new ItemStack(Items.DYE, 1, 15 - i))
-					.outputs(new ItemStack(ModBlocks.CANDLE_MEDIUM, 1, i))
+					.outputs(new ItemStack(ModBlocks.candle_medium, 1, i))
 					.build();
 		}
 
 		shapeless()
-				.add(ModItems.WAX)
-				.add(ModItems.WAX)
-				.add(ModBlocks.CANDLE_MEDIUM)
-				.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1))
+				.add(ModItems.wax)
+				.add(ModItems.wax)
+				.add(ModBlocks.candle_medium)
+				.outputs(new ItemStack(ModBlocks.candle_large, 1))
 				.build();
 
 		for (int i = 0; i < 16; i++) {
 			shapeless()
-					.add(ModItems.WAX)
-					.add(ModItems.WAX)
-					.add(ModBlocks.CANDLE_MEDIUM)
+					.add(ModItems.wax)
+					.add(ModItems.wax)
+					.add(ModBlocks.candle_medium)
 					.add(new ItemStack(Items.DYE, 1, 15 - i))
-					.outputs(new ItemStack(ModBlocks.CANDLE_LARGE, 1, i))
+					.outputs(new ItemStack(ModBlocks.candle_large, 1, i))
 					.build();
 		}
 
 		shaped().grid("III", "III", "III")
-				.map('I', ModItems.SILVER_INGOT)
-				.outputs(ModBlocks.SILVER_BLOCK)
+				.map('I', ModItems.silver_ingot)
+				.outputs(ModBlocks.silver_block)
 				.build();
 
 		shaped().grid("BBB", "BBB", "BBB")
-				.map('B', ModItems.BLOODSTONE)
-				.outputs(ModBlocks.BLOODSTONE_BLOCK)
+				.map('B', new ItemStack(ModItems.gem, 1, 5))
+				.outputs(ModBlocks.bloodstone_block)
 				.build();
 
 		shaped().grid("TTT", "TTT", "TTT")
-				.map('T', ModItems.TOURMALINE)
-				.outputs(ModBlocks.TOURMALINE_BLOCK)
+				.map('T', new ItemStack(ModItems.gem, 1, 4))
+				.outputs(ModBlocks.tourmaline_block)
 				.build();
 
 		shaped().grid("MMM", "MMM", "MMM")
-				.map('M', ModItems.MOLDAVITE)
-				.outputs(ModBlocks.MOLDAVITE_BLOCK)
+				.map('M', new ItemStack(ModItems.gem, 1, 1))
+				.outputs(ModBlocks.moldavite_block)
 				.build();
 
 		shaped().grid("N N", "ISI", "III")
 				.map('I', Items.IRON_INGOT)
 				.map('N', Items.field_191525_da)
-				.map('S', ModItems.SILVER_INGOT)
-				.outputs(ModBlocks.CAULDRON)
+				.map('S', ModItems.silver_ingot)
+				.outputs(ModBlocks.cauldron)
 				.build();
 
 		shaped().grid("WWW", "WHW", "WWW")
 				.map('W', "plankWood")
 				.map('H', Items.ITEM_FRAME)
-				.outputs(ModBlocks.APIARY)
+				.outputs(ModBlocks.apiary)
 				.build();
 
 		shaped().grid("LML", "SSS", "WWW")
 				.map('W', "plankWood")
 				.map('S', Blocks.STONE)
 				.map('L', Blocks.CARPET)
-				.map('M', ModItems.MOLDAVITE)
-				.outputs(ModBlocks.ALTAR)
+				.map('M', new ItemStack(ModItems.gem, 1, 1))
+				.outputs(ModBlocks.altar)
+				.build();
+
+		shaped().grid(" I ", "NNN", "NIN")
+				.map('I', Blocks.IRON_BARS)
+				.map('N', Items.IRON_INGOT)
+				.outputs(ModBlocks.oven)
 				.build();
 
 		shapeless()
-				.add(ModBlocks.MOLDAVITE_BLOCK)
-				.outputs(new ItemStack(ModItems.MOLDAVITE, 9))
+				.add(ModBlocks.moldavite_block)
+				.outputs(new ItemStack(ModItems.gem, 9, 1))
 				.build();
 
 		shapeless()
-				.add(ModBlocks.TOURMALINE_BLOCK)
-				.outputs(new ItemStack(ModItems.TOURMALINE, 9))
+				.add(ModBlocks.tourmaline_block)
+				.outputs(new ItemStack(ModItems.gem, 9, 4))
 				.build();
 
 		shapeless()
-				.add(ModBlocks.BLOODSTONE_BLOCK)
-				.outputs(new ItemStack(ModItems.BLOODSTONE, 9))
+				.add(ModBlocks.bloodstone_block)
+				.outputs(new ItemStack(ModItems.gem, 9, 5))
 				.build();
 	}
 
@@ -279,8 +309,8 @@ public final class VanillaCrafting {
 
 		public void build() {
 			if (ingredients.isEmpty())
-				throw new IllegalArgumentException("You have to specify ingredients for the recipe, please report this!");
-			if (output == null) throw new IllegalArgumentException("Output not specified, please report this!");
+				throw new IllegalArgumentException("You have to specify ingredients for the recipe!");
+			if (output == null) throw new IllegalArgumentException("Output not specified!");
 
 			final ShapelessOreRecipe recipe = new ShapelessOreRecipe(output, ingredients.toArray());
 			CraftingManager.getInstance().getRecipeList().add(recipe);

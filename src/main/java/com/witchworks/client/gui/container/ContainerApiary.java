@@ -92,7 +92,7 @@ public class ContainerApiary extends Container {
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null && stack.getItem() == ModItems.BEE;
+			return stack != null && stack.getItem() == ModItems.bee;
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
@@ -107,9 +107,9 @@ public class ContainerApiary extends Container {
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null && (stack.getItem() == ModItems.HONEYCOMB
-					|| stack.getItem() == ModItems.EMPTY_HONEYCOMB
-					|| stack.getItem() == ModItems.BEE);
+			return stack != null && (stack.getItem() == ModItems.honeycomb
+					|| stack.getItem() == ModItems.empty_honeycomb
+					|| stack.getItem() == ModItems.bee);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {

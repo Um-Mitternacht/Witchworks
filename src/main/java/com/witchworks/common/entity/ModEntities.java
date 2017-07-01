@@ -24,11 +24,11 @@ public final class ModEntities {
 	private ModEntities() {
 	}
 
-	public static void preInit() {
+	public static void init() {
 		int id = 0;
 
 		EntityRegistry.registerModEntity(getResource("brew_throwable"), EntityBrew.class, "brew_throwable", id++, WitchWorks.instance, 64, 1, true);
-		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.BREW_PHIAL_SPLASH, new IBehaviorDispenseItem() {
+		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.brew_phial_splash, new IBehaviorDispenseItem() {
 			@Override
 			public ItemStack dispense(IBlockSource source, final ItemStack stack) {
 				return (new BehaviorProjectileDispense() {
@@ -51,7 +51,7 @@ public final class ModEntities {
 			}
 		});
 		EntityRegistry.registerModEntity(getResource("brew_linger"), EntityBrewLinger.class, "brew_linger", id, WitchWorks.instance, 64, 1, false);
-		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.BREW_PHIAL_LINGER, new IBehaviorDispenseItem() {
+		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.brew_phial_linger, new IBehaviorDispenseItem() {
 			@Override
 			public ItemStack dispense(IBlockSource source, final ItemStack stack) {
 				return (new BehaviorProjectileDispense() {

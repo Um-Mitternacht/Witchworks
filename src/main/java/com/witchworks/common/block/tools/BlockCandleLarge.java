@@ -1,7 +1,5 @@
 package com.witchworks.common.block.tools;
 
-import com.witchworks.api.helper.IModelRegister;
-import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -11,15 +9,13 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by Joseph on 3/4/2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class BlockCandleLarge extends BlockCandle implements IModelRegister {
+public class BlockCandleLarge extends BlockCandle {
 
 	private static final AxisAlignedBB LARGE_BOX = new AxisAlignedBB(0.25, 0, 0.25, 0.75, 1, 0.75);
 
@@ -43,13 +39,5 @@ public class BlockCandleLarge extends BlockCandle implements IModelRegister {
 	@Override
 	public int getType() {
 		return 2;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		for (int i = 0; i < 16; i++) {
-			ModelHandler.registerBlock(this, i);
-		}
 	}
 }

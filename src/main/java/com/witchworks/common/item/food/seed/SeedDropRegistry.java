@@ -14,17 +14,17 @@ public class SeedDropRegistry {
 	public static void init() {
 
 		//Todo: Add unique ways of getting some of the seeds (silphium from dungeons and strongholds, white sage from dead bushes)
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MANDRAKE), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_BELLADONNA), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_ACONITUM), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_THISTLE), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_MINT), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_GINGER), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_WORMWOOD), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_LAVENDER), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_ASPHODEL), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_TULSI), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_KENAF), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.SEED_GARLIC), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_mandrake), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_belladonna), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_aconitum), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_thistle), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_mint), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_ginger), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_wormwood), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_lavender), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_asphodel), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_tulsi), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_kenaf), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_garlic), 5);
 	}
 }

@@ -24,4 +24,8 @@ class AchievementMod extends Achievement {
 	AchievementMod(String name, int x, int y, Block icon, Achievement parent) {
 		this(name, x, y, new ItemStack(icon), parent);
 	}
+
+	AchievementMod(String name, int x, int y, ItemStack icon) {
+		this(name, x, y, icon, null);
+	}
 }

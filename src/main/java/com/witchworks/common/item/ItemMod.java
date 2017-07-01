@@ -31,7 +31,7 @@ public class ItemMod extends Item implements IModelRegister {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerItem(this);
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }

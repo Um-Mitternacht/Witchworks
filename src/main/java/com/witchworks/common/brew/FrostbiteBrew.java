@@ -30,7 +30,7 @@ public class FrostbiteBrew implements IBrew {
 		BlockPos.getAllInBox(posI, posF).forEach(
 				pos1 -> {
 					if (world.getBlockState(pos1).getBlock() == Blocks.AIR)
-						world.setBlockState(pos1, Blocks.FROSTED_ICE.getDefaultState());
+						world.setBlockState(pos1, Blocks.PACKED_ICE.getDefaultState());
 				}
 		);
 	}

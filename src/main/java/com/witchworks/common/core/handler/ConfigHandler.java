@@ -35,33 +35,33 @@ public final class ConfigHandler {
 	public static class WorldGen {
 
 		@Comment("Silver Ore gen")
-		public SilverOre SILVER = new SilverOre();
+		public SilverOre silver = new SilverOre();
 		@Comment("Moldavite Ore gen")
-		public MoldaviteOre MOLDAVITE = new MoldaviteOre();
+		public MoldaviteOre moldavite = new MoldaviteOre();
 		@Comment("Bloodstone Ore gen")
-		public BloodstoneOre BLOOD_STONE = new BloodstoneOre();
+		public BloodstoneOre blood_stone = new BloodstoneOre();
 		@Comment("Tourmaline Ore gen")
-		public Tourmaline TOURMALINE = new Tourmaline();
+		public Tourmaline tourmaline = new Tourmaline();
 		@Comment("Malachite Ore gen")
-		public Malachite MALACHITE = new Malachite();
+		public Malachite malachite = new Malachite();
 		@Comment("Tigers Eye Ore gen")
-		public TigersEye TIGERS_EYE = new TigersEye();
+		public TigersEye tigers_eye = new TigersEye();
 		@Comment("Nuummite Ore gen")
-		public Nuummite NUUMMITE = new Nuummite();
+		public Nuummite nuummite = new Nuummite();
 		@Comment("Garnet Ore gen")
-		public Garnet GARNET = new Garnet();
+		public Garnet garnet = new Garnet();
 		@Comment("Jasper Ore gen")
-		public Jasper JASPER = new Jasper();
+		public Jasper jasper = new Jasper();
 		@Comment("Salt Ore gen")
-		public Salt SALT = new Salt();
+		public Salt salt = new Salt();
 		@Comment("Amethyst Ore gen")
-		public Amethyst AMETHYST = new Amethyst();
+		public Amethyst amethyst = new Amethyst();
 		@Comment("Alexandrite Ore gen")
-		public Alexandrite ALEXANDRITE = new Alexandrite();
+		public Alexandrite alexandrite = new Alexandrite();
 		@Comment("Coquina gen")
-		public Coquina COQUINA = new Coquina();
+		public Coquina coquina = new Coquina();
 		@Comment("Chalk gen")
-		public Chalk CHALK = new Chalk();
+		public Chalk chalk = new Chalk();
 
 		public static class SilverOre {
 			public int silver_min_vein = 1;

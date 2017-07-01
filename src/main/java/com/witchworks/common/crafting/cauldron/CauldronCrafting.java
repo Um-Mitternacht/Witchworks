@@ -54,21 +54,21 @@ public final class CauldronCrafting {
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.POTATO, Items.BAKED_POTATO, true);
 		registerItemProcess(Fluids.MUNDANE_OIL, getStack(Items.FISH, 1, 1), getStack(Items.COOKED_FISH, 1, 1), true);
 		//Cooking with Water
-		registerItemProcess(FluidRegistry.WATER, ModItems.EMPTY_HONEYCOMB, ModItems.WAX, true);
-		registerItemProcess(FluidRegistry.WATER, ModItems.HONEYCOMB, ModItems.HONEY, true);
+		registerItemProcess(FluidRegistry.WATER, ModItems.empty_honeycomb, ModItems.wax, true);
+		registerItemProcess(FluidRegistry.WATER, ModItems.honeycomb, ModItems.honey, true);
 		//Banner pattern removal
 		for (int i = 0; i < 16; i++) {
 			registerItemProcess(FluidRegistry.WATER, getStack(Items.BANNER, 1, i), getStack(Items.BANNER, 1, i), true);
 		}
 
 		//------------------------------------Fluid Creation------------------------------------//
-		CauldronRegistry.registerFluidIngredient(ModItems.HONEY, new FluidStack(Fluids.HONEY, 1000));
+		CauldronRegistry.registerFluidIngredient(ModItems.honey, new FluidStack(Fluids.HONEY, 1000));
 		CauldronRegistry.registerFluidIngredient(Items.POTATO, new FluidStack(Fluids.MUNDANE_OIL, 1000));
 
 		//------------------------------------Item Rituals------------------------------------//
 
 		//Todo: Better recipe for kelp seeds.
-		registerItemRitual("seed_kelp", getStack(ModItems.SEED_KELP, 2), 5
+		registerItemRitual("seed_kelp", getStack(ModItems.seed_kelp, 2), 5
 				, getStack(Items.WHEAT_SEEDS, 1), Blocks.WATERLILY);
 
 		registerItemRitual("golden_apple", getStack(Items.GOLDEN_APPLE, 1, 1), 8
@@ -78,13 +78,13 @@ public final class CauldronCrafting {
 				, getStack(Items.STRING, 4), Items.SLIME_BALL);
 
 		registerItemRitual("string", getStack(Items.STRING, 6), 2
-				, getStack(ModItems.KENAF, 2));
+				, getStack(ModItems.kenaf, 2));
 
 		registerItemRitual("leather", getStack(Items.LEATHER, 2), 2
-				, getStack(Items.ROTTEN_FLESH, 2), ModItems.SALT);
+				, getStack(Items.ROTTEN_FLESH, 2), ModItems.salt);
 
 		registerItemRitual("slime", getStack(Items.SLIME_BALL, 4), 2
-				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.SALT);
+				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.salt);
 
 		registerItemRitual("extra_bonemeal", getStack(Items.DYE, 6, 15), 3
 				, getStack(Items.BONE));
@@ -93,32 +93,35 @@ public final class CauldronCrafting {
 				, getStack(Blocks.DIRT, 4), Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM, Items.SUGAR, Items.FERMENTED_SPIDER_EYE);
 
 		registerItemRitual("prismarine", getStack(Items.PRISMARINE_SHARD, 4), 6
-				, getStack(Items.DYE, 8, 4), Blocks.STONE, ModBlocks.COQUINA);
+				, getStack(Items.DYE, 8, 4), Blocks.STONE, ModBlocks.coquina);
 
 		registerItemRitual("prismarine_crystals", getStack(Items.PRISMARINE_CRYSTALS, 4), 6
-				, getStack(Items.DYE, 8, 4), ModBlocks.COQUINA, Items.GLOWSTONE_DUST);
+				, getStack(Items.DYE, 8, 4), ModBlocks.coquina, Items.GLOWSTONE_DUST);
 
 		registerItemRitual("vines", getStack(Blocks.VINE, 4), 4
-				, getStack(Items.STRING, 4), ModItems.WORMWOOD);
+				, getStack(Items.STRING, 4), ModItems.wormwood);
 
 		registerItemRitual("chorus_fruit", getStack(Items.CHORUS_FRUIT, 1), 8
-				, getStack(Items.ENDER_EYE, 4), ModItems.MOLDAVITE, ModItems.MANDRAKE, Items.ENDER_PEARL);
+				, getStack(Items.ENDER_EYE, 4), getStack(ModItems.gem, 1, 1), ModItems.mandrake_root, Items.ENDER_PEARL);
 
 		registerItemRitual("grass", getStack(Blocks.GRASS, 4), 4
-				, getStack(Blocks.DIRT, 4), Items.WHEAT_SEEDS, ModItems.SEED_GARLIC);
+				, getStack(Blocks.DIRT, 4), Items.WHEAT_SEEDS, ModItems.seed_garlic);
 
 		registerItemRitual("coarse_dirt", getStack(Blocks.DIRT, 4, 1), 2
-				, getStack(Blocks.DIRT, 4), ModItems.SALT);
+				, getStack(Blocks.DIRT, 4), ModItems.salt);
 
 		registerItemRitual("podzol", getStack(Blocks.DIRT, 4, 2), 2
 				, getStack(Blocks.DIRT, 4), Blocks.LEAVES);
 
-		registerItemRitual("gemstone_amalgam", getStack(ModItems.GEMSTONE_AMALGAM, 1, 0), 4
-				, getStack(Items.EMERALD, 1, 0), ModItems.ALEXANDRITE, ModItems.MOLDAVITE);
+		registerItemRitual("red_sand", getStack(Blocks.SAND, 4, 1), 2
+				, getStack(Blocks.SAND, 4));
+
+		registerItemRitual("gemstone_amalgam", getStack(ModItems.gemstone_amalgam, 1, 0), 4
+				, getStack(Items.EMERALD, 1, 0), getStack(ModItems.gem, 1, 9), getStack(ModItems.gem, 1, 1));
 
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
-				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.SALT, ModItems.JASPER);
+				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.salt, getStack(ModItems.gem, 1, 6));
 
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
 				, getStack(Items.DYE, 1, 0), Items.NETHER_WART);
@@ -127,7 +130,7 @@ public final class CauldronCrafting {
 				, getStack(Items.DYE, 1, 15), Items.NETHER_WART);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
-		registerEffect(getStack(ModItems.SALT)
+		registerEffect(getStack(ModItems.salt)
 				, new PotionEffect(MobEffects.BLINDNESS, 500), false);
 		registerEffect(getStack(Items.ROTTEN_FLESH)
 				, new PotionEffect(MobEffects.HUNGER, 500), false);
@@ -153,15 +156,15 @@ public final class CauldronCrafting {
 				, new PotionEffect(MobEffects.WATER_BREATHING, 500), false);
 		registerEffect(getStack(Blocks.RED_FLOWER, 1, 1)
 				, new PotionEffect(MobEffects.LUCK, 500), false);
-		registerEffect(getStack(ModItems.WAX)
+		registerEffect(getStack(ModItems.wax)
 				, new PotionEffect(MobEffects.SLOWNESS, 500), false);
 		registerEffect(getStack(Items.POISONOUS_POTATO)
 				, new PotionEffect(MobEffects.NAUSEA, 500), false);
-		registerEffect(getStack(ModItems.BELLADONNA)
+		registerEffect(getStack(ModItems.belladonna)
 				, new PotionEffect(MobEffects.WITHER, 500), false);
-		registerEffect(getStack(ModItems.ASPHODEL)
+		registerEffect(getStack(ModItems.asphodel)
 				, new PotionEffect(MobEffects.UNLUCK, 500), false);
-		registerEffect(getStack(ModItems.LAVENDER)
+		registerEffect(getStack(ModItems.lavender)
 				, new PotionEffect(MobEffects.HASTE, 500), false);
 		registerEffect(getStack(Items.PRISMARINE_CRYSTALS)
 				, new PotionEffect(MobEffects.GLOWING, 500), false);
@@ -171,11 +174,11 @@ public final class CauldronCrafting {
 				, new PotionEffect(MobEffects.RESISTANCE, 500), false);
 		registerEffect(getStack(Items.NETHER_STAR)
 				, new PotionEffect(MobEffects.LEVITATION, 500), false);
-		registerEffect(getStack(ModBlocks.COQUINA)
+		registerEffect(getStack(ModBlocks.coquina)
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
-		registerEffect(getStack(ModItems.MINT)
+		registerEffect(getStack(ModItems.mint)
 				, BrewRegistry.getDefault(ModBrews.EXTINGUISH_FIRES), false);
-		registerEffect(getStack(ModItems.WHITE_SAGE)
+		registerEffect(getStack(ModItems.white_sage)
 				, BrewRegistry.getDefault(ModBrews.HOLY_WATER), false);
 		registerEffect(getStack(Blocks.WEB)
 				, BrewRegistry.getDefault(ModBrews.SPIDER_NIGHTMARE), false);
@@ -183,21 +186,21 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.FROSTBITE), false);
 		registerEffect(getStack(Blocks.TNT)
 				, BrewRegistry.getDefault(ModBrews.VOLATILE), false);
-		registerEffect(getStack(ModItems.ACONITUM)
+		registerEffect(getStack(ModItems.aconitum)
 				, BrewRegistry.getDefault(ModBrews.WOLFSBANE), false);
-		registerEffect(getStack(ModItems.WORMWOOD)
+		registerEffect(getStack(ModItems.wormwood)
 				, BrewRegistry.getDefault(ModBrews.BANE_ARTHROPODS), false);
-		registerEffect(getStack(ModItems.KELP)
+		registerEffect(getStack(ModItems.kelp)
 				, BrewRegistry.getDefault(ModBrews.PATH_OF_THE_DEEP), false);
-		registerEffect(getStack(ModItems.SILPHIUM)
+		registerEffect(getStack(ModItems.silphium)
 				, BrewRegistry.getDefault(ModBrews.GROW_FLOWER), false);
-		registerEffect(getStack(ModItems.SEED_SILPHIUM)
+		registerEffect(getStack(ModItems.seed_silphium)
 				, BrewRegistry.getDefault(ModBrews.HARVEST), false);
 		registerEffect(getStack(Items.ENDER_PEARL)
 				, BrewRegistry.getDefault(ModBrews.ENDER_INHIBITION), false);
-		registerEffect(getStack(ModItems.AMETHYST)
+		registerEffect(getStack(ModItems.gem, 1, 8)
 				, BrewRegistry.getDefault(ModBrews.TILL_LAND), false);
-		registerEffect(getStack(ModItems.JASPER)
+		registerEffect(getStack(ModItems.gem, 1, 6)
 				, BrewRegistry.getDefault(ModBrews.ROCK_PULVERIZE), false);
 		registerEffect(getStack(Items.DYE, 1, 15)
 				, BrewRegistry.getDefault(ModBrews.FERTILIZE), false);
@@ -209,6 +212,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.PRUNE_LEAVES), false);
 		registerEffect(getStack(Blocks.RED_MUSHROOM)
 				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
+		registerEffect(getStack(ModItems.ginger)
+				, BrewRegistry.getDefault(ModBrews.IGNITION), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
@@ -216,7 +221,7 @@ public final class CauldronCrafting {
 				, new BrewSimpleModifier(600, 0), true);
 		registerModifier(getStack(Blocks.REDSTONE_BLOCK)
 				, new BrewSimpleModifier(1200, 0), true);
-		registerModifier(getStack(ModItems.NUUMMITE)
+		registerModifier(getStack(ModItems.gem, 1, 2)
 				, new BrewSimpleModifier(0, 3), true);
 		registerModifier(getStack(Items.GLOWSTONE_DUST)
 				, new BrewSimpleModifier(0, 1), true);

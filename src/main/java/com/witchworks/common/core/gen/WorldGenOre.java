@@ -12,6 +12,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.*;
+import java.util.function.Function;
 
 /**
  * This class was created by BerciTheBeast on 4.3.2017.
@@ -30,9 +31,9 @@ public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 	private final int maxHeight;
 	private final int genChance;
 
-	WorldGenOre(Block block, int minVeinSize, int maxVeinSize, int minHeight, int maxHeight, int generationChance, Block surrounding, BiomeDictionary.Type... biomes) {
+	WorldGenOre(Function<Block, IBlockState> function, Block block, int minVeinSize, int maxVeinSize, int minHeight, int maxHeight, int generationChance, Block surrounding, BiomeDictionary.Type... biomes) {
 		super(block.getDefaultState(), minVeinSize);
-		this.oreToGen = block.getDefaultState();
+		this.oreToGen = function.apply(block);
 		this.minOreVeinSize = minVeinSize;
 		this.maxOreVeinSize = maxVeinSize;
 		this.maxHeight = maxHeight;
@@ -72,6 +73,8 @@ public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 	}
 
 	public static class OreGenBuilder {
+
+		public static final Function<Block, IBlockState> DEFAULT_STATE = Block::getDefaultState;
 
 		private Block ore;
 		private Block container;
@@ -113,8 +116,8 @@ public class WorldGenOre extends WorldGenMinable implements IWorldGenerator {
 			return this;
 		}
 
-		public WorldGenOre build() {
-			return new WorldGenOre(ore, minOreVeinSize, maxOreVeinSize, minHeight, maxHeight, genChance, container, biomes);
+		public WorldGenOre build(Function<Block, IBlockState> function) {
+			return new WorldGenOre(function, ore, minOreVeinSize, maxOreVeinSize, minHeight, maxHeight, genChance, container, biomes);
 		}
 	}
 }
