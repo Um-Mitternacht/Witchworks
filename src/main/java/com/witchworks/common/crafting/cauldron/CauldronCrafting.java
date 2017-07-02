@@ -214,6 +214,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
 		registerEffect(getStack(ModItems.ginger)
 				, BrewRegistry.getDefault(ModBrews.IGNITION), false);
+		registerEffect(getStack(ModItems.gemstone_amalgam)
+				, BrewRegistry.getDefault(ModBrews.OUTCASTS_SHAME), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
