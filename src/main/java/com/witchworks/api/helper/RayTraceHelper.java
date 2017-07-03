@@ -33,13 +33,13 @@ public final class RayTraceHelper {
 			}
 
 			Entity entity = null;
-			List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(source, source.getEntityBoundingBox().addCoord(vec3.x, vec3.y, vec3.z).expandXyz(1.0D));
+			List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(source, source.getEntityBoundingBox().expand(vec3.x, vec3.y, vec3.z).grow(1.0D));
 			double d6 = 0.0D;
 
 			for (Entity ent : list) {
 
 				if (ent.canBeCollidedWith() && (excludeSource || !ent.isEntityEqual(source)) && !ent.noClip) {
-					AxisAlignedBB axisalignedbb = ent.getEntityBoundingBox().expand(0.30000001192092896D);
+					AxisAlignedBB axisalignedbb = ent.getEntityBoundingBox().grow(0.30000001192092896D);
 					RayTraceResult raytraceresult1 = axisalignedbb.calculateIntercept(vec3d, forward);
 
 					if (raytraceresult1 != null) {
