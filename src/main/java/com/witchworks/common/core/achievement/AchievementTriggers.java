@@ -17,7 +17,7 @@ final class AchievementTriggers {
 
 	@SubscribeEvent
 	public static void onItemPickedUp(EntityItemPickupEvent event) {
-		final ItemStack stack = event.getItem().getEntityItem();
+		final ItemStack stack = event.getItem().getItem();
 		if (stack.getItem() instanceof IPickupAchievement) {
 			final Achievement achievement = ((IPickupAchievement) stack.getItem()).getAchievementOnPickup(stack, event.getEntityPlayer(), event.getItem());
 			if (achievement != null)
