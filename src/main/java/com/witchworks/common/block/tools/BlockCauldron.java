@@ -125,7 +125,7 @@ public class BlockCauldron extends BlockMod implements IModelRegister, ITileEnti
 	}
 
 	@Override
-	public boolean blocksMovement(IBlockAccess worldIn, BlockPos pos) {
+	public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
 		return true;
 	}
 
