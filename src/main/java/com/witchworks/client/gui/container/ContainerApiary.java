@@ -87,8 +87,8 @@ public class ContainerApiary extends Container {
 
 	private class SlotBee extends Slot {
 
-		SlotBee(IInventory inventoryIn, int slotIndex, int xPosition, int yPosition) {
-			super(inventoryIn, slotIndex, xPosition, yPosition);
+		SlotBee(IInventory inventoryIn, int slotIndex, int x, int y) {
+			super(inventoryIn, slotIndex, x, y);
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
@@ -102,8 +102,8 @@ public class ContainerApiary extends Container {
 
 	private class SlotItem extends Slot {
 
-		SlotItem(IInventory inventoryIn, int slotIndex, int xPosition, int yPosition) {
-			super(inventoryIn, slotIndex, xPosition, yPosition);
+		SlotItem(IInventory inventoryIn, int slotIndex, int x, int y) {
+			super(inventoryIn, slotIndex, x, y);
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
