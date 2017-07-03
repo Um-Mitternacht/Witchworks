@@ -32,11 +32,6 @@ public class ItemBrewLinger extends ItemBrew {
 	}
 
 	@Override
-	public EnumRarity getRarity(ItemStack stack) {
-		return EnumRarity.RARE;
-	}
-
-	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		ItemStack itemstack = playerIn.getHeldItem(hand);
 		ItemStack copy = playerIn.capabilities.isCreativeMode ? itemstack.copy() : itemstack.splitStack(1);
@@ -50,6 +45,11 @@ public class ItemBrewLinger extends ItemBrew {
 		}
 
 		return ActionResult.newResult(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+		return EnumRarity.RARE;
 	}
 
 	@SideOnly(Side.CLIENT)

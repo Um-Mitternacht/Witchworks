@@ -45,13 +45,13 @@ public class ItemSeed extends ItemSeeds implements IPlantable, IModelRegister {
 		tooltip.add(TextFormatting.ITALIC + I18n.format("witch.tooltip." + getNameInefficiently(stack) + "_description.name"));
 	}
 
+	public String getNameInefficiently(ItemStack stack) {
+		return getUnlocalizedName().substring(5);
+	}
+
 	@Override
 	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
 		return soil == Blocks.FARMLAND ? EnumPlantType.Crop : EnumPlantType.Water;
-	}
-
-	public String getNameInefficiently(ItemStack stack) {
-		return getUnlocalizedName().substring(5);
 	}
 
 	@Override

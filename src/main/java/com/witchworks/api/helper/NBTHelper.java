@@ -24,6 +24,15 @@ public final class NBTHelper {
 		fixNBT(stack).setByte(tag, i);
 	}
 
+	public static NBTTagCompound fixNBT(ItemStack stack) {
+		NBTTagCompound tagCompound = stack.getTagCompound();
+		if (tagCompound == null) {
+			tagCompound = new NBTTagCompound();
+			stack.setTagCompound(tagCompound);
+		}
+		return tagCompound;
+	}
+
 	public static void setInteger(ItemStack stack, String tag, int i) {
 		fixNBT(stack).setInteger(tag, i);
 	}
@@ -100,14 +109,5 @@ public final class NBTHelper {
 		if (tagCompound != null && tagCompound.hasKey(tag)) {
 			tagCompound.removeTag(tag);
 		}
-	}
-
-	public static NBTTagCompound fixNBT(ItemStack stack) {
-		NBTTagCompound tagCompound = stack.getTagCompound();
-		if (tagCompound == null) {
-			tagCompound = new NBTTagCompound();
-			stack.setTagCompound(tagCompound);
-		}
-		return tagCompound;
 	}
 }

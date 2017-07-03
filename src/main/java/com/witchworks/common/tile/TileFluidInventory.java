@@ -31,26 +31,9 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 		tank = createFluidHandler();
 	}
 
-	@Override
-	public void readFromNBT(NBTTagCompound tag) {
-		super.readFromNBT(tag);
-		readDataNBT(tag);
-	}
-
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
-		tag = super.writeToNBT(tag);
-		writeDataNBT(tag);
-		return tag;
-	}
-
 	private KettleFluid createFluidHandler() {
 		return new KettleFluid(this, Fluid.BUCKET_VOLUME);
 	}
-
-	abstract void writeDataNBT(NBTTagCompound cmp);
-
-	abstract void readDataNBT(NBTTagCompound cmp);
 
 	abstract void onLiquidChange();
 
@@ -66,18 +49,41 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 	}
 
 	@Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
-		return oldState.getBlock() != newState.getBlock();
+	public SPacketUpdateTileEntity getUpdatePacket() {
+		return new SPacketUpdateTileEntity(getPos(), 0, getUpdateTag());
 	}
+
+	abstract void writeDataNBT(NBTTagCompound cmp);
 
 	@Override
 	public NBTTagCompound getUpdateTag() {
 		return writeToNBT(new NBTTagCompound());
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		return new SPacketUpdateTileEntity(getPos(), 0, getUpdateTag());
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+		readFromNBT(pkt.getNbtCompound());
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		readDataNBT(tag);
+	}
+
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+		tag = super.writeToNBT(tag);
+		writeDataNBT(tag);
+		return tag;
+	}
+
+	abstract void readDataNBT(NBTTagCompound cmp);
+
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
 	}
 
 	public Optional<FluidStack> getFluid() {
@@ -87,12 +93,6 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 
 	KettleFluid tank() {
 		return (KettleFluid) tank;
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-		readFromNBT(pkt.getNbtCompound());
 	}
 
 	@SuppressWarnings("WeakerAccess")
@@ -135,6 +135,11 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 		}
 
 		@Override
+		protected void onContentsChanged() {
+			tile.onLiquidChange();
+		}
+
+		@Override
 		public String toString() {
 			return String.format("Kettle: %s, %d/%d", fluid != null && fluid.getFluid() != null ? fluid.getFluid().getName() : "Empty", getFluidAmount(), getCapacity());
 		}
@@ -159,11 +164,6 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 
 		public boolean isFull() {
 			return getFluid() != null && getFluid().amount == getCapacity();
-		}
-
-		@Override
-		protected void onContentsChanged() {
-			tile.onLiquidChange();
 		}
 	}
 }

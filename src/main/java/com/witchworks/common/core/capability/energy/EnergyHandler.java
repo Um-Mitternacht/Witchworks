@@ -54,6 +54,20 @@ public final class EnergyHandler {
 	}
 
 	/**
+	 * Returns the {@link IEnergy} interface of the player.
+	 *
+	 * @param player The player
+	 * @return An {@link Optional<IEnergy>} for correctness
+	 */
+	@SuppressWarnings("ConstantConditions")
+	public static Optional<IEnergy> getEnergy(EntityPlayer player) {
+		if (player.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)) {
+			return Optional.of(player.getCapability(EnergyProvider.ENERGY_CAPABILITY, null));
+		}
+		return Optional.empty();
+	}
+
+	/**
 	 * Sets the max energy a player can hold.
 	 *
 	 * @param player    The player
@@ -79,19 +93,5 @@ public final class EnergyHandler {
 	public static void setRegen(EntityPlayer player, int timeInTicks) {
 		Optional<IEnergy> optional = getEnergy(player);
 		optional.ifPresent(iEnergy -> iEnergy.setRegen(timeInTicks));
-	}
-
-	/**
-	 * Returns the {@link IEnergy} interface of the player.
-	 *
-	 * @param player The player
-	 * @return An {@link Optional<IEnergy>} for correctness
-	 */
-	@SuppressWarnings("ConstantConditions")
-	public static Optional<IEnergy> getEnergy(EntityPlayer player) {
-		if (player.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)) {
-			return Optional.of(player.getCapability(EnergyProvider.ENERGY_CAPABILITY, null));
-		}
-		return Optional.empty();
 	}
 }

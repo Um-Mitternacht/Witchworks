@@ -48,6 +48,11 @@ public class EntityBrewLinger extends Entity {
 	private int duration;
 	private int waitTime;
 
+	public EntityBrewLinger(World world, double x, double y, double z) {
+		this(world);
+		setPosition(x, y, z);
+	}
+
 	public EntityBrewLinger(World worldIn) {
 		super(worldIn);
 		duration = 600;
@@ -59,9 +64,8 @@ public class EntityBrewLinger extends Entity {
 		setRadiusOnUse(-0.5F);
 	}
 
-	public EntityBrewLinger(World world, double x, double y, double z) {
-		this(world);
-		setPosition(x, y, z);
+	public void setRadiusOnUse(float radiusOnUseIn) {
+		radiusOnUse = radiusOnUseIn;
 	}
 
 	@Override
@@ -251,28 +255,18 @@ public class EntityBrewLinger extends Entity {
 		return EnumPushReaction.IGNORE;
 	}
 
-	public int getDuration() {
-		return duration;
+	public ItemStack getBrew() {
+		return stack;
 	}
 
-	public void setDuration(int durationIn) {
-		duration = durationIn;
-	}
+	public void setBrew(ItemStack stack) {
+		if (!stack.isEmpty() && BrewUtils.hasBrewData(stack)) {
+			tuple = BrewUtils.deSerialize(stack.getTagCompound());
+		} else {
+			tuple = null;
+		}
 
-	public void setRadiusOnUse(float radiusOnUseIn) {
-		radiusOnUse = radiusOnUseIn;
-	}
-
-	public void setRadiusPerTick(float radiusPerTickIn) {
-		radiusPerTick = radiusPerTickIn;
-	}
-
-	public void setWaitTime(int waitTimeIn) {
-		waitTime = waitTimeIn;
-	}
-
-	protected void setIgnoreRadius(boolean ignoreRadius) {
-		getDataManager().set(IGNORE_RADIUS, ignoreRadius);
+		this.stack = stack;
 	}
 
 	public float getRadius() {
@@ -299,22 +293,28 @@ public class EntityBrewLinger extends Entity {
 		return getDataManager().get(COLOR);
 	}
 
+	protected void setIgnoreRadius(boolean ignoreRadius) {
+		getDataManager().set(IGNORE_RADIUS, ignoreRadius);
+	}
+
 	public void setColor(int colorIn) {
 		getDataManager().set(COLOR, colorIn);
 	}
 
-	public ItemStack getBrew() {
-		return stack;
+	public int getDuration() {
+		return duration;
 	}
 
-	public void setBrew(ItemStack stack) {
-		if (!stack.isEmpty() && BrewUtils.hasBrewData(stack)) {
-			tuple = BrewUtils.deSerialize(stack.getTagCompound());
-		} else {
-			tuple = null;
-		}
+	public void setDuration(int durationIn) {
+		duration = durationIn;
+	}
 
-		this.stack = stack;
+	public void setRadiusPerTick(float radiusPerTickIn) {
+		radiusPerTick = radiusPerTickIn;
+	}
+
+	public void setWaitTime(int waitTimeIn) {
+		waitTime = waitTimeIn;
 	}
 
 	@Nullable

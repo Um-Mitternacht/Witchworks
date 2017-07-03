@@ -24,12 +24,6 @@ public class CursedLeapingBrew implements IBrew, IBrewClientSide {
 	}
 
 	@Override
-	public void onUpdateClientSide(LivingEvent.LivingUpdateEvent event, EntityLivingBase entity, int amplifier) {
-		if (entity.ticksExisted % 20 < 1 && entity.motionY >= 0.0D)
-			entity.motionY += 1.0D;
-	}
-
-	@Override
 	public boolean isBad() {
 		return true;
 	}
@@ -53,5 +47,11 @@ public class CursedLeapingBrew implements IBrew, IBrewClientSide {
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
 		render(x, y, mc, 10);
+	}
+
+	@Override
+	public void onUpdateClientSide(LivingEvent.LivingUpdateEvent event, EntityLivingBase entity, int amplifier) {
+		if (entity.ticksExisted % 20 < 1 && entity.motionY >= 0.0D)
+			entity.motionY += 1.0D;
 	}
 }

@@ -15,11 +15,6 @@ public class ItemValidator<T> {
 
 	private final ArrayList<Holder<ItemStack, T>> list = new ArrayList<>();
 
-	@SuppressWarnings("ConstantConditions")
-	public static boolean itemMatches(ItemStack target, ItemStack input, boolean strict) {
-		return !(input.isEmpty() && !target.isEmpty() || !input.isEmpty() && target.isEmpty()) && target.getItem() == input.getItem() && (!strict || target.getItemDamage() == input.getItemDamage());
-	}
-
 	public ItemValidator<T> add(ItemStack stack, T t, boolean strict) {
 		list.add(new Holder<>(stack, t, strict));
 		return this;
@@ -32,6 +27,11 @@ public class ItemValidator<T> {
 
 	public Optional<Holder<ItemStack, T>> getHolder(ItemStack input) {
 		return list.stream().filter(tuple -> itemMatches(tuple.getInput(), input, tuple.isStrict())).findAny();
+	}
+
+	@SuppressWarnings("ConstantConditions")
+	public static boolean itemMatches(ItemStack target, ItemStack input, boolean strict) {
+		return !(input.isEmpty() && !target.isEmpty() || !input.isEmpty() && target.isEmpty()) && target.getItem() == input.getItem() && (!strict || target.getItemDamage() == input.getItemDamage());
 	}
 
 	private class Holder<J, K> {

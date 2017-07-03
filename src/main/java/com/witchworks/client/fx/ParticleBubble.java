@@ -41,6 +41,28 @@ class ParticleBubble extends Particle {
 	}
 
 	@Override
+	public void onUpdate() {
+		this.prevPosX = this.posX;
+		this.prevPosY = this.posY;
+		this.prevPosZ = this.posZ;
+		this.move(this.motionX, this.motionY, this.motionZ);
+
+		this.motionY += 0.001D;
+		if (this.posY == this.prevPosY) {
+			this.motionX *= 1.1D;
+			this.motionZ *= 1.1D;
+		}
+
+		this.motionX *= 0.6600000262260437D;
+		this.motionY *= 0.4500000238418579D;
+		this.motionZ *= 0.6600000262260437D;
+
+		if (life++ >= 16) {
+			this.setExpired();
+		}
+	}
+
+	@Override
 	public void renderParticle(VertexBuffer buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
 		int i = (int) (((float) this.life + partialTicks) / (float) this.particleMaxAge);
 
@@ -68,28 +90,6 @@ class ParticleBubble extends Particle {
 			buffer.pos((double) x + vec2.x, (double) y + vec2.y, (double) z + vec2.z).tex((double) minX, (double) minY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
 			buffer.pos((double) x + vec3.x, (double) y + vec3.y, (double) z + vec3.z).tex((double) minX, (double) maxY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
 			Tessellator.getInstance().draw();
-		}
-	}
-
-	@Override
-	public void onUpdate() {
-		this.prevPosX = this.posX;
-		this.prevPosY = this.posY;
-		this.prevPosZ = this.posZ;
-		this.move(this.motionX, this.motionY, this.motionZ);
-
-		this.motionY += 0.001D;
-		if (this.posY == this.prevPosY) {
-			this.motionX *= 1.1D;
-			this.motionZ *= 1.1D;
-		}
-
-		this.motionX *= 0.6600000262260437D;
-		this.motionY *= 0.4500000238418579D;
-		this.motionZ *= 0.6600000262260437D;
-
-		if (life++ >= 16) {
-			this.setExpired();
 		}
 	}
 

@@ -21,20 +21,6 @@ public final class BrewStorageHandler {
 	private BrewStorageHandler() {
 	}
 
-	/**
-	 * Returns the {@link IBrewStorage} interface of the brew storage.
-	 *
-	 * @param entity The entity
-	 * @return An {@link Optional <IBrewStorage>} for correctness
-	 */
-	@SuppressWarnings("ConstantConditions")
-	public static Optional<IBrewStorage> getBrewStorage(EntityLivingBase entity) {
-		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
-			return Optional.of(entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null));
-		}
-		return Optional.empty();
-	}
-
 	@SuppressWarnings("ConstantConditions")
 	public static Map<IBrew, BrewEffect> getBrewMap(EntityLivingBase entity) {
 		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
@@ -53,6 +39,16 @@ public final class BrewStorageHandler {
 		return Collections.emptyList();
 	}
 
+	public static void removeActiveBrew(EntityLivingBase entity, IBrew brew) {
+		if (isBrewActive(entity, brew)) {
+			if (BREW_REMOVAL.containsKey(entity)) {
+				BREW_REMOVAL.get(entity).add(brew);
+			} else {
+				BREW_REMOVAL.put(entity, Sets.newHashSet(brew));
+			}
+		}
+	}
+
 	/**
 	 * Checks if a Brew is active.
 	 *
@@ -67,16 +63,6 @@ public final class BrewStorageHandler {
 			return storage.getBrews().contains(brew);
 		}
 		return false;
-	}
-
-	public static void removeActiveBrew(EntityLivingBase entity, IBrew brew) {
-		if (isBrewActive(entity, brew)) {
-			if (BREW_REMOVAL.containsKey(entity)) {
-				BREW_REMOVAL.get(entity).add(brew);
-			} else {
-				BREW_REMOVAL.put(entity, Sets.newHashSet(brew));
-			}
-		}
 	}
 
 	/**
@@ -95,5 +81,19 @@ public final class BrewStorageHandler {
 				storage.addBrew(entity, effect);
 			}
 		}
+	}
+
+	/**
+	 * Returns the {@link IBrewStorage} interface of the brew storage.
+	 *
+	 * @param entity The entity
+	 * @return An {@link Optional <IBrewStorage>} for correctness
+	 */
+	@SuppressWarnings("ConstantConditions")
+	public static Optional<IBrewStorage> getBrewStorage(EntityLivingBase entity) {
+		if (entity.hasCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null)) {
+			return Optional.of(entity.getCapability(BrewStorageProvider.BREW_STORAGE_CAPABILITY, null));
+		}
+		return Optional.empty();
 	}
 }

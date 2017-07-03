@@ -40,8 +40,13 @@ public class BlockGemOre extends BlockMod {
 	}
 
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, GEM);
+	public int damageDropped(IBlockState state) {
+		return state.getValue(GEM).ordinal();
+	}
+
+	@Override
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.CUTOUT;
 	}
 
 	@Override
@@ -52,13 +57,8 @@ public class BlockGemOre extends BlockMod {
 	}
 
 	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
-
-	@Override
-	public int damageDropped(IBlockState state) {
-		return state.getValue(GEM).ordinal();
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, GEM);
 	}
 
 	@Override

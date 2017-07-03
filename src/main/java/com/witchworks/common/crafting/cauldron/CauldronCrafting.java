@@ -239,44 +239,6 @@ public final class CauldronCrafting {
 		CauldronRegistry.registerItemProcessing(fluid, in, out, perfectMatch);
 	}
 
-	private static void registerItemRitual(String name, ItemStack spawned, int cost, Object... needed) {
-		IRitual ritual = RitualRegistry.register(new ResourceLocation(LibMod.MOD_ID, name), new ItemRitual(spawned, cost));
-		CauldronRegistry.registerItemRitual((ItemRitual) ritual, needed);
-	}
-
-	private static void registerBrewRecipe(BrewRegistry.Brew brew, BrewEffect effect, Object... needed) {
-		CauldronRegistry.registerBrewRecipe(BrewUtils.createBrew(brew, effect), needed);
-	}
-
-	private static <T> void registerEffect(ItemStack key, T brew, boolean perfectMatch) {
-		CauldronRegistry.registerItemEffect(key, brew, perfectMatch);
-	}
-
-	private static void registerModifier(ItemStack key, BrewModifier modifier, boolean perfectMatch) {
-		CauldronRegistry.registerItemModifier(key, modifier, perfectMatch);
-	}
-
-	/**
-	 * Who needs to write the whole thing?
-	 *
-	 * @param item The item to make an ItemStack out of
-	 * @return An ItemStack
-	 */
-	private static ItemStack getStack(Item item) {
-		return getStack(item, 1, 0);
-	}
-
-	/**
-	 * Who needs to write the whole thing?
-	 *
-	 * @param item The block to make an ItemStack out of
-	 * @param size Size of ItemStack
-	 * @return An ItemStack
-	 */
-	private static ItemStack getStack(Item item, int size) {
-		return new ItemStack(item, size, 0);
-	}
-
 	/**
 	 * Who needs to write the whole thing?
 	 *
@@ -289,15 +251,20 @@ public final class CauldronCrafting {
 		return new ItemStack(item, size, meta);
 	}
 
+	private static void registerItemRitual(String name, ItemStack spawned, int cost, Object... needed) {
+		IRitual ritual = RitualRegistry.register(new ResourceLocation(LibMod.MOD_ID, name), new ItemRitual(spawned, cost));
+		CauldronRegistry.registerItemRitual((ItemRitual) ritual, needed);
+	}
+
 	/**
 	 * Who needs to write the whole thing?
 	 *
-	 * @param block The block to make an ItemStack out of
+	 * @param item The block to make an ItemStack out of
+	 * @param size Size of ItemStack
 	 * @return An ItemStack
 	 */
-	@SuppressWarnings("ConstantConditions")
-	private static ItemStack getStack(Block block) {
-		return getStack(Item.getItemFromBlock(block), 1, 0);
+	private static ItemStack getStack(Item item, int size) {
+		return new ItemStack(item, size, 0);
 	}
 
 	/**
@@ -316,6 +283,27 @@ public final class CauldronCrafting {
 	 * Who needs to write the whole thing?
 	 *
 	 * @param block The block to make an ItemStack out of
+	 * @return An ItemStack
+	 */
+	@SuppressWarnings("ConstantConditions")
+	private static ItemStack getStack(Block block) {
+		return getStack(Item.getItemFromBlock(block), 1, 0);
+	}
+
+	/**
+	 * Who needs to write the whole thing?
+	 *
+	 * @param item The item to make an ItemStack out of
+	 * @return An ItemStack
+	 */
+	private static ItemStack getStack(Item item) {
+		return getStack(item, 1, 0);
+	}
+
+	/**
+	 * Who needs to write the whole thing?
+	 *
+	 * @param block The block to make an ItemStack out of
 	 * @param size  Size of ItemStack
 	 * @param meta  Meta of ItemStack
 	 * @return An ItemStack
@@ -323,5 +311,17 @@ public final class CauldronCrafting {
 	@SuppressWarnings("ConstantConditions")
 	private static ItemStack getStack(Block block, int size, int meta) {
 		return getStack(Item.getItemFromBlock(block), size, meta);
+	}
+
+	private static void registerBrewRecipe(BrewRegistry.Brew brew, BrewEffect effect, Object... needed) {
+		CauldronRegistry.registerBrewRecipe(BrewUtils.createBrew(brew, effect), needed);
+	}
+
+	private static <T> void registerEffect(ItemStack key, T brew, boolean perfectMatch) {
+		CauldronRegistry.registerItemEffect(key, brew, perfectMatch);
+	}
+
+	private static void registerModifier(ItemStack key, BrewModifier modifier, boolean perfectMatch) {
+		CauldronRegistry.registerItemModifier(key, modifier, perfectMatch);
 	}
 }

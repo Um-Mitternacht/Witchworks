@@ -56,12 +56,6 @@ public class FlawlessRecipe implements IOreMatchRecipe {
 	}
 
 	@Override
-	public boolean itemMatches(ItemStack target, ItemStack input) {
-		return input != null && target != null && target.getItem() == input.getItem() && target.getCount() == input.getCount() && (target.getItemDamage() == input.getItemDamage()
-				|| input.getItemDamage() == WILDCARD_VALUE);
-	}
-
-	@Override
 	public ImmutableList<Object> getNeededItems() {
 		return neededItems;
 	}
@@ -69,5 +63,11 @@ public class FlawlessRecipe implements IOreMatchRecipe {
 	@Override
 	public ItemStack getResult() {
 		return result.copy();
+	}
+
+	@Override
+	public boolean itemMatches(ItemStack target, ItemStack input) {
+		return input != null && target != null && target.getItem() == input.getItem() && target.getCount() == input.getCount() && (target.getItemDamage() == input.getItemDamage()
+				|| input.getItemDamage() == WILDCARD_VALUE);
 	}
 }

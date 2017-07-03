@@ -66,6 +66,10 @@ public final class RegistryEvents {
 		ModItems.register(event.getRegistry());
 	}
 
+	private static void registerCrop(Crop crop, BlockCrop placed, Item cropItem, String seedName) {
+		CropRegistry.registerCrop(crop, placed, cropItem, new ItemSeed(seedName, placed, crop.getSoil()));
+	}
+
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		ModBlocks.register(event.getRegistry());
@@ -75,9 +79,5 @@ public final class RegistryEvents {
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().registerAll();
-	}
-
-	private static void registerCrop(Crop crop, BlockCrop placed, Item cropItem, String seedName) {
-		CropRegistry.registerCrop(crop, placed, cropItem, new ItemSeed(seedName, placed, crop.getSoil()));
 	}
 }

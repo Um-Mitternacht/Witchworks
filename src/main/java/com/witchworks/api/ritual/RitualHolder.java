@@ -47,16 +47,16 @@ public class RitualHolder<T extends TileEntity> {
 		}
 	}
 
+	public boolean hasEnded() {
+		return ticks >= 100;
+	}
+
 	public boolean isFail() {
 		return fail;
 	}
 
 	public void fail() {
 		this.fail = true;
-	}
-
-	public boolean hasEnded() {
-		return ticks >= 100;
 	}
 
 	@SuppressWarnings("unchecked")

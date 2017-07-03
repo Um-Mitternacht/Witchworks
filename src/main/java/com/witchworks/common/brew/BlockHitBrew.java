@@ -31,17 +31,6 @@ public abstract class BlockHitBrew implements IBrew, IBrewEntityImpact {
 	}
 
 	@Override
-	public void impact(RayTraceResult trace, World world, int amplifier) {
-		if (trace.typeOfHit == RayTraceResult.Type.ENTITY) {
-			safeImpact(trace.entityHit.getPosition(), null, world, amplifier);
-		} else if (trace.typeOfHit == RayTraceResult.Type.BLOCK) {
-			safeImpact(trace.getBlockPos(), trace.sideHit, world, amplifier);
-		}
-	}
-
-	abstract void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier);
-
-	@Override
 	public boolean isInstant() {
 		return true;
 	}
@@ -51,4 +40,15 @@ public abstract class BlockHitBrew implements IBrew, IBrewEntityImpact {
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
 		//NO-OP
 	}
+
+	@Override
+	public void impact(RayTraceResult trace, World world, int amplifier) {
+		if (trace.typeOfHit == RayTraceResult.Type.ENTITY) {
+			safeImpact(trace.entityHit.getPosition(), null, world, amplifier);
+		} else if (trace.typeOfHit == RayTraceResult.Type.BLOCK) {
+			safeImpact(trace.getBlockPos(), trace.sideHit, world, amplifier);
+		}
+	}
+
+	abstract void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier);
 }

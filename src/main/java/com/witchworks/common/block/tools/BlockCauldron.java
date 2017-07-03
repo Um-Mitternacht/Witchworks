@@ -58,14 +58,10 @@ public class BlockCauldron extends BlockMod implements IModelRegister, ITileEnti
 				.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM);
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
-		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_LEGS);
-		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_WEST);
-		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_NORTH);
-		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_EAST);
-		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_SOUTH);
+	@SideOnly(Side.CLIENT)
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -88,39 +84,9 @@ public class BlockCauldron extends BlockMod implements IModelRegister, ITileEnti
 		return i;
 	}
 
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, FACING, HALF);
-	}
-
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
-		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
-		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
-				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
-				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
-	}
-
-	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		final TileCauldron tile = (TileCauldron) worldIn.getTileEntity(pos);
-		return tile != null && tile.useKettle(playerIn, hand, playerIn.getHeldItem(hand));
-	}
-
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileCauldron();
-	}
-
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
@@ -135,9 +101,43 @@ public class BlockCauldron extends BlockMod implements IModelRegister, ITileEnti
 		return BOUNDING_BOX;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModel() {
-		ModelHandler.registerModel(this, 0);
+	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_LEGS);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_WEST);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_NORTH);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_EAST);
+		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_SOUTH);
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		final TileCauldron tile = (TileCauldron) worldIn.getTileEntity(pos);
+		return tile != null && tile.useKettle(playerIn, hand, playerIn.getHeldItem(hand));
+	}
+
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING, HALF);
+	}
+
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		IBlockState iblockstate = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
+		iblockstate = iblockstate.withProperty(FACING, placer.getHorizontalFacing());
+		return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || hitY <= 0.5F) ?
+				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.BOTTOM) :
+				iblockstate.withProperty(HALF, BlockStairs.EnumHalf.TOP);
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileCauldron();
 	}
 }

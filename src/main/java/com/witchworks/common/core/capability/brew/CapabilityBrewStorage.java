@@ -78,6 +78,11 @@ public final class CapabilityBrewStorage {
 		}
 
 		@Override
+		public void syncToNear(EntityLivingBase target) {
+			PacketHandler.sendNear(target, this);
+		}
+
+		@Override
 		public Collection<BrewEffect> getBrewEffects() {
 			return effects.values();
 		}
@@ -85,11 +90,6 @@ public final class CapabilityBrewStorage {
 		@Override
 		public Set<IBrew> getBrews() {
 			return effects.keySet();
-		}
-
-		@Override
-		public void syncToNear(EntityLivingBase target) {
-			PacketHandler.sendNear(target, this);
 		}
 
 		@Override

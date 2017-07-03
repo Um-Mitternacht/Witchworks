@@ -88,21 +88,6 @@ public class ClientProxy implements ISidedProxy {
 	}
 
 	/**
-	 * Register here all Renders. For example:
-	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
-	 * or
-	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
-	 *
-	 * @see RenderingRegistry
-	 */
-	private void registerRenders() {
-		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityBrewLinger.class, EmptyRenderer::new);
-
-		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderKettle());
-	}
-
-	/**
 	 * Display a Record text with a format and localization.
 	 *
 	 * @param text An {@link ITextComponent}
@@ -130,5 +115,20 @@ public class ClientProxy implements ISidedProxy {
 			chance = 0.2F;
 
 		return chance == 1F || Math.random() < chance;
+	}
+
+	/**
+	 * Register here all Renders. For example:
+	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
+	 * or
+	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
+	 *
+	 * @see RenderingRegistry
+	 */
+	private void registerRenders() {
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrewLinger.class, EmptyRenderer::new);
+
+		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderKettle());
 	}
 }

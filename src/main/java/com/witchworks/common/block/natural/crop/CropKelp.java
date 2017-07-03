@@ -25,7 +25,11 @@ public class CropKelp extends BlockCrop {
 		super(LibBlockName.CROP_KELP);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
+	public Material getMaterial(IBlockState state) {
+		return Material.WATER;
+	}	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		super.updateTick(worldIn, pos, state, rand);
 
@@ -41,11 +45,17 @@ public class CropKelp extends BlockCrop {
 	}
 
 	@Override
+	public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {
+		return false;
+	}	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		return worldIn.getBlockState(pos.up()).getBlock() == Blocks.WATER;
 	}
 
 	@Override
+	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
+		worldIn.setBlockState(pos, Blocks.WATER.getDefaultState(), 2);
+	}	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		BlockPos I = pos.add(-1, 0, -1);
 		BlockPos F = pos.add(1, 1, 1);
@@ -61,10 +71,7 @@ public class CropKelp extends BlockCrop {
 		}
 	}
 
-	@Override
-	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
-		worldIn.setBlockState(pos, Blocks.WATER.getDefaultState(), 2);
-	}
+
 
 	protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state) {
 		if (!this.canBlockStay(worldIn, pos, state)) {
@@ -89,14 +96,7 @@ public class CropKelp extends BlockCrop {
 		return new BlockStateContainer(this, LEVEL, AGE);
 	}
 
-	@Override
-	public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {
-		return false;
-	}
 
-	@SuppressWarnings("deprecation")
-	@Override
-	public Material getMaterial(IBlockState state) {
-		return Material.WATER;
-	}
+
+
 }

@@ -26,6 +26,10 @@ class ShapedRecipe {
 		return new RecipeMapping(this);
 	}
 
+	private void addRows(String... r) {
+		Collections.addAll(rows, r);
+	}
+
 	public RecipeMapping grid(String row1, String row2) {
 		addRows(row1, row2);
 		return new RecipeMapping(this);
@@ -34,10 +38,6 @@ class ShapedRecipe {
 	public RecipeMapping grid(String row1) {
 		addRows(row1);
 		return new RecipeMapping(this);
-	}
-
-	private void addRows(String... r) {
-		Collections.addAll(rows, r);
 	}
 
 	private ShapedRecipe map(char character, Object object) {
