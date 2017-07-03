@@ -22,10 +22,6 @@
 		<module name="ArrayTypeStyle">
 			<property name="javaStyle" value="true"/>
 		</module>
-		<module name="DeclarationOrder"/>
-		<module name="VariableDeclarationUsageDistance">
-			<property name="allowedDistance" value="16"/>
-		</module>
 		<!-- <module name="VisibilityModifier">
 			<property name="protectedAllowed" value="true"/>
 			<property name="allowPublicImmutableFields" value="true"/>
