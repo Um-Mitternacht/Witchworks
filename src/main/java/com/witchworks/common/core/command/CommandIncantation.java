@@ -22,7 +22,9 @@ public class CommandIncantation implements ICommand {
 	@Override
 	public int compareTo(ICommand o) {
 		return 0;
-	}	@Override
+	}
+
+	@Override
 	public String getName() {
 		return "incant";
 	}

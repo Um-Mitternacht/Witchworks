@@ -38,7 +38,9 @@ public final class WitchWorksCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		void addItem(Item item) {
 			item.getSubItems(item, this, list);
-		}		@Override
+		}
+
+		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return getIconItemStack();

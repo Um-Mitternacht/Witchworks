@@ -24,7 +24,9 @@ public class CropSilphium extends BlockCrop {
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		IBlockState state = worldIn.getBlockState(pos.down());
 		return canSustainBush(state);
-	}	@Override
+	}
+
+	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		if (rand.nextBoolean() || !worldIn.getBiome(pos).canRain()) return;
 		if (isMaxAge(state) && state.getValue(AGE) != 7 && canSustainBush(worldIn.getBlockState(pos.down())) && worldIn.isAirBlock(pos.up())) {
@@ -53,7 +55,6 @@ public class CropSilphium extends BlockCrop {
 			return false;
 		}
 	}
-
 
 
 	@Override

@@ -50,6 +50,41 @@ public class BlockSaltBarrier extends BlockMod {
 		setSound(SoundType.CLOTH);
 	}
 
+	private static boolean canConnectTo(IBlockState blockState) {
+		final Block block = blockState.getBlock();
+		return block == ModBlocks.salt_barrier;
+	}
+
+	private static boolean canConnectUpwardsTo(IBlockAccess worldIn, BlockPos pos) {
+		return canConnectTo(worldIn.getBlockState(pos));
+	}
+
+	private static int getAABBIndex(IBlockState state) {
+		int i = 0;
+		final boolean flag = state.getValue(NORTH) != BlockSaltBarrier.EnumAttachPosition.NONE;
+		final boolean flag1 = state.getValue(EAST) != BlockSaltBarrier.EnumAttachPosition.NONE;
+		final boolean flag2 = state.getValue(SOUTH) != BlockSaltBarrier.EnumAttachPosition.NONE;
+		final boolean flag3 = state.getValue(WEST) != BlockSaltBarrier.EnumAttachPosition.NONE;
+
+		if (flag || flag2 && !flag1 && !flag3) {
+			i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
+		}
+
+		if (flag1 || flag3 && !flag && !flag2) {
+			i |= 1 << EnumFacing.EAST.getHorizontalIndex();
+		}
+
+		if (flag2 || flag && !flag1 && !flag3) {
+			i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
+		}
+
+		if (flag3 || flag1 && !flag && !flag2) {
+			i |= 1 << EnumFacing.WEST.getHorizontalIndex();
+		}
+
+		return i;
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
@@ -96,15 +131,6 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-	private static boolean canConnectTo(IBlockState blockState) {
-		final Block block = blockState.getBlock();
-		return block == ModBlocks.salt_barrier;
-	}
-
-	private static boolean canConnectUpwardsTo(IBlockAccess worldIn, BlockPos pos) {
-		return canConnectTo(worldIn.getBlockState(pos));
-	}
-
 	@SuppressWarnings("deprecation")
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
@@ -143,32 +169,6 @@ public class BlockSaltBarrier extends BlockMod {
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SALT_BARRIER_AABB[getAABBIndex(state.getActualState(source, pos))];
-	}
-
-	private static int getAABBIndex(IBlockState state) {
-		int i = 0;
-		final boolean flag = state.getValue(NORTH) != BlockSaltBarrier.EnumAttachPosition.NONE;
-		final boolean flag1 = state.getValue(EAST) != BlockSaltBarrier.EnumAttachPosition.NONE;
-		final boolean flag2 = state.getValue(SOUTH) != BlockSaltBarrier.EnumAttachPosition.NONE;
-		final boolean flag3 = state.getValue(WEST) != BlockSaltBarrier.EnumAttachPosition.NONE;
-
-		if (flag || flag2 && !flag1 && !flag3) {
-			i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
-		}
-
-		if (flag1 || flag3 && !flag && !flag2) {
-			i |= 1 << EnumFacing.EAST.getHorizontalIndex();
-		}
-
-		if (flag2 || flag && !flag1 && !flag3) {
-			i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
-		}
-
-		if (flag3 || flag1 && !flag && !flag2) {
-			i |= 1 << EnumFacing.WEST.getHorizontalIndex();
-		}
-
-		return i;
 	}
 
 	@SuppressWarnings("deprecation")
