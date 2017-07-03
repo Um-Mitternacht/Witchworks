@@ -32,8 +32,8 @@ public class AutoPlantBrew extends BlockHitBrew {
 
 	@Override
 	void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
-		AxisAlignedBB space = new AxisAlignedBB(pos).expandXyz(2 + MathHelper.clamp(amplifier, 0, 5));
-		List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, space, input -> input != null && isSeed(input.getEntityItem()));
+		AxisAlignedBB space = new AxisAlignedBB(pos).grow(2 + MathHelper.clamp(amplifier, 0, 5));
+		List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, space, input -> input != null && isSeed(input.getItem()));
 		if (items.isEmpty()) return;
 		plantAll(items, world, pos, amplifier);
 	}
@@ -47,7 +47,7 @@ public class AutoPlantBrew extends BlockHitBrew {
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 
 		for (EntityItem item : items) {
-			ItemStack stack = item.getEntityItem();
+			ItemStack stack = item.getItem();
 			for (BlockPos spot : spots) {
 				if (stack.isEmpty()) {
 					item.setDead();

@@ -63,10 +63,10 @@ class ParticleBubble extends Particle {
 
 			GlStateManager.color(getRedColorF(), getGreenColorF(), getBlueColorF(), 1.0F);
 			buffer.begin(7, VERTEX_FORMAT);
-			buffer.pos((double) x + vec0.xCoord, (double) y + vec0.yCoord, (double) z + vec0.zCoord).tex((double) maxX, (double) maxY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
-			buffer.pos((double) x + vec1.xCoord, (double) y + vec1.yCoord, (double) z + vec1.zCoord).tex((double) maxX, (double) minY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
-			buffer.pos((double) x + vec2.xCoord, (double) y + vec2.yCoord, (double) z + vec2.zCoord).tex((double) minX, (double) minY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
-			buffer.pos((double) x + vec3.xCoord, (double) y + vec3.yCoord, (double) z + vec3.zCoord).tex((double) minX, (double) maxY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
+			buffer.pos((double) x + vec0.x, (double) y + vec0.y, (double) z + vec0.z).tex((double) maxX, (double) maxY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
+			buffer.pos((double) x + vec1.x, (double) y + vec1.y, (double) z + vec1.z).tex((double) maxX, (double) minY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
+			buffer.pos((double) x + vec2.x, (double) y + vec2.y, (double) z + vec2.z).tex((double) minX, (double) minY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
+			buffer.pos((double) x + vec3.x, (double) y + vec3.y, (double) z + vec3.z).tex((double) minX, (double) maxY).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(0, 240).normal(0.0F, 1.0F, 0.0F).endVertex();
 			Tessellator.getInstance().draw();
 		}
 	}

@@ -24,7 +24,7 @@ public final class EnergyHandler {
 
 	@SuppressWarnings("ConstantConditions")
 	public static <T extends Entity> List<T> getEnergySources(Class<T> type, World world, BlockPos pos, int range) {
-		return world.getEntitiesWithinAABB(type, new AxisAlignedBB(pos).expandXyz(range)).stream()
+		return world.getEntitiesWithinAABB(type, new AxisAlignedBB(pos).grow(range)).stream()
 				.filter(entity -> entity.hasCapability(EnergyProvider.ENERGY_CAPABILITY, null)).collect(Collectors.toList());
 	}
 

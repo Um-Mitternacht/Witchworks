@@ -69,7 +69,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
-		final ItemStack dropped = entityItem.getEntityItem();
+		final ItemStack dropped = entityItem.getItem();
 		if (dropped.isEmpty() || entityItem.isDead)
 			return;
 
@@ -630,7 +630,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		inv.setFluid(null);
 		onLiquidChange();
 
-		world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(getPos()).expandXyz(2))
+		world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(getPos()).grow(2))
 				.forEach(entity -> entity.attackEntityFrom(DamageSource.MAGIC, ingredients.length / 2));
 	}
 

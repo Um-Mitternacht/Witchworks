@@ -4,6 +4,7 @@ import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -21,6 +22,9 @@ public class OutcastsShameBrew implements IBrew {
 	//Todo: Make it target witches and mobs that extend witches, too.
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
+			int damage = (int) (entity.getHealth() * (double) (6 << amplifier) + 0.5D);
+			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+		} else if (entity instanceof EntityWitch) {
 			int damage = (int) (entity.getHealth() * (double) (6 << amplifier) + 0.5D);
 			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
 		}

@@ -52,7 +52,7 @@ public class ShellArmorBrew implements IBrew, IBrewHurt {
 
 	@Override
 	public void onHurt(LivingHurtEvent event, DamageSource source, EntityLivingBase affected, int amplifier) {
-		Entity attacker = source.getSourceOfDamage();
+		Entity attacker = source.getImmediateSource();
 		int redo = 5 - amplifier;
 		if (attacker != null && (redo < 0 || attacker.world.rand.nextInt(redo) == 0)) {
 			float damage = event.getAmount();

@@ -29,17 +29,17 @@ public final class RayTraceHelper {
 
 		if (includeEntities) {
 			if (raytraceresult != null) {
-				forward = new Vec3d(raytraceresult.hitVec.xCoord, raytraceresult.hitVec.yCoord, raytraceresult.hitVec.zCoord);
+				forward = new Vec3d(raytraceresult.hitVec.x, raytraceresult.hitVec.y, raytraceresult.hitVec.z);
 			}
 
 			Entity entity = null;
-			List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(source, source.getEntityBoundingBox().addCoord(vec3.xCoord, vec3.yCoord, vec3.zCoord).expandXyz(1.0D));
+			List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(source, source.getEntityBoundingBox().expand(vec3.x, vec3.y, vec3.z).grow(1.0D));
 			double d6 = 0.0D;
 
 			for (Entity ent : list) {
 
 				if (ent.canBeCollidedWith() && (excludeSource || !ent.isEntityEqual(source)) && !ent.noClip) {
-					AxisAlignedBB axisalignedbb = ent.getEntityBoundingBox().expandXyz(0.30000001192092896D);
+					AxisAlignedBB axisalignedbb = ent.getEntityBoundingBox().grow(0.30000001192092896D);
 					RayTraceResult raytraceresult1 = axisalignedbb.calculateIntercept(vec3d, forward);
 
 					if (raytraceresult1 != null) {
@@ -66,11 +66,11 @@ public final class RayTraceHelper {
 	}
 
 	public static Vec3d fromVecRange(Vec3d look, double range) {
-		return new Vec3d(look.xCoord * range, look.yCoord * range, look.zCoord * range);
+		return new Vec3d(look.x * range, look.y * range, look.z * range);
 	}
 
 	public static Vec3d fromLookVec(Entity entity, double range) {
 		Vec3d look = entity.getLookVec();
-		return new Vec3d(look.xCoord * range, entity.getEyeHeight() + look.yCoord * range, look.zCoord * range);
+		return new Vec3d(look.x * range, entity.getEyeHeight() + look.y * range, look.z * range);
 	}
 }

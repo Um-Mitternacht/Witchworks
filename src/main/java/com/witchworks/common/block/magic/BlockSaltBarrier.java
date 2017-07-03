@@ -148,7 +148,7 @@ public class BlockSaltBarrier extends BlockMod {
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return worldIn.getBlockState(pos.down()).isFullyOpaque() || worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE;
+		return worldIn.getBlockState(pos.down()).isTopSolid() || worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE;
 	}
 
 	private IBlockState updateSurroundingSalt(World worldIn, IBlockState state) {
