@@ -24,8 +24,7 @@ public class OutcastsShameBrew implements IBrew {
 		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
 			int damage = (int) (entity.getHealth() * (double) (6 << amplifier) + 0.5D);
 			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
-		}
-		else if (entity instanceof EntityWitch) {
+		} else if (entity instanceof EntityWitch) {
 			int damage = (int) (entity.getHealth() * (double) (6 << amplifier) + 0.5D);
 			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
 		}
