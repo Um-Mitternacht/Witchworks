@@ -76,10 +76,6 @@ repositories {
         url = "http://dvs1.progwml6.com/files/maven"
     }
     maven {
-        name = "ilexiconn"
-        url = "https://maven.mcmoddev.com"
-    }
-    maven {
         url 'https://jitpack.io'	
 	}
 }
