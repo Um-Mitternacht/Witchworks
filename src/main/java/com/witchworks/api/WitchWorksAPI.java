@@ -48,6 +48,14 @@ public final class WitchWorksAPI {
 	public static ResourceLocation ROCK_PULVERIZE = getLocation("rock_pulverize");
 	public static ResourceLocation PRUNE_LEAVES = getLocation("prune_leaves");
 	public static ResourceLocation AUTO_PLANT = getLocation("auto_plant");
+	public static ResourceLocation BANE_ARTHROPODS = getLocation("bane_arthropods");
+	public static ResourceLocation SINKING = getLocation("sinking");
+	public static ResourceLocation CURSED_LEAPING = getLocation("cursed_leaping");
+	public static ResourceLocation SKIN_TINT = getLocation("skin_tint");
+	public static ResourceLocation SNOW_TRAIL = getLocation("snow_trail");
+	public static ResourceLocation WOLFSBANE = getLocation("wolfsbane");
+	public static ResourceLocation OUTCASTS_SHAME = getLocation("outcasts_shame");
+	public static ResourceLocation IGNITION = getLocation("ignition");
 
 	private WitchWorksAPI() {
 	}
