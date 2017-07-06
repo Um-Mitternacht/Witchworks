@@ -19,6 +19,7 @@ import com.witchworks.common.core.proxy.ISidedProxy;
 import com.witchworks.common.entity.EntityBrew;
 import com.witchworks.common.entity.EntityBrewLinger;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.lib.LibMod;
 import com.witchworks.common.tile.TileCauldron;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -44,7 +45,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * the MIT license.
  */
 @SideOnly(Side.CLIENT)
-@Mod.EventBusSubscriber(Side.CLIENT)
+@Mod.EventBusSubscriber(modid = LibMod.MOD_ID)
 public class ClientProxy implements ISidedProxy {
 
 	/**

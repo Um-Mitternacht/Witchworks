@@ -9,6 +9,7 @@ import com.witchworks.common.item.food.*;
 import com.witchworks.common.item.food.seed.ItemKelpSeed;
 import com.witchworks.common.item.food.seed.ItemSeed;
 import com.witchworks.common.lib.LibItemName;
+import com.witchworks.common.lib.LibMod;
 import com.witchworks.common.tile.ModTiles;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -24,7 +25,7 @@ import static com.witchworks.api.crop.Crop.*;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = LibMod.MOD_ID)
 public final class RegistryEvents {
 
 	private RegistryEvents() {
