@@ -19,14 +19,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class OutcastsShameBrew implements IBrew {
 
 	@Override
-	//Todo: Make it target witches and mobs that extend witches, too.
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
-			int damage = (int) (entity.getHealth() * (double) (3 << amplifier) + 0.5D);
-			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+			entity.attackEntityFrom(DamageSource.MAGIC,10);
 		} else if (entity instanceof EntityWitch) {
-			int damage = (int) (entity.getHealth() * (double) (3 << amplifier) + 0.5D);
-			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+			entity.attackEntityFrom(DamageSource.MAGIC,10);
 		}
 	}
 
