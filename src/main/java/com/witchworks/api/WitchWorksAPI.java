@@ -3,7 +3,6 @@ package com.witchworks.api;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 /**

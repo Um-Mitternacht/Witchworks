@@ -15,8 +15,6 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
  * the MIT license.
  */
 
-//FIXME: Figure out why brews aren't showing in the creative tab.
-
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBrews {
 
