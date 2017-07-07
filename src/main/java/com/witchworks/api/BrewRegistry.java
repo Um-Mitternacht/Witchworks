@@ -100,14 +100,15 @@ public final class BrewRegistry {
 	}
 
 	public enum Brew {
-		DRINK(WitchWorksAPI.BREW_PHIAL_DRINK),
-		SPLASH(WitchWorksAPI.BREW_PHIAL_SPLASH),
-		LINGER(WitchWorksAPI.BREW_PHIAL_LINGER);
+		DRINK("brew_phial_drink"),
+		SPLASH("brew_phial_splash"),
+		LINGER("brew_phial_linger");
 
-		private final Item item;
+		private final String id;
+		private Item item;
 
-		Brew(Item item) {
-			this.item = item;
+		Brew(String id) {
+			this.id = id;
 		}
 
 		public static Brew byOrdinal(int ordinal) {
@@ -115,7 +116,7 @@ public final class BrewRegistry {
 		}
 
 		public Item getItem() {
-			return item;
+			return item != null ? item : (item = Item.REGISTRY.getObject(new ResourceLocation("witchworks", id)));
 		}
 	}
 }

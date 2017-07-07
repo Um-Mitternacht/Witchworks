@@ -27,11 +27,6 @@ public final class WitchWorksAPI {
 	public static final ResourceLocation BUZZ = getLocation("buzz");
 	public static final ResourceLocation CHALK_SCRIBBLE = getLocation("chalk_scribble");
 
-	//Brews
-	public static final Item BREW_PHIAL_DRINK = Item.REGISTRY.getObject(getLocation("brew_phial_drink"));
-	public static final Item BREW_PHIAL_SPLASH = Item.REGISTRY.getObject(getLocation("brew_phial_splash"));
-	public static final Item BREW_PHIAL_LINGER = Item.REGISTRY.getObject(getLocation("brew_phial_linger"));
-
 	public static ResourceLocation SHELL_ARMOR = getLocation("shell_armor");
 	public static ResourceLocation SPIDER_NIGHTMARE = getLocation("spider_nightmare");
 	public static ResourceLocation EXTINGUISH_FIRES = getLocation("extinguish_fires");
