@@ -38,33 +38,16 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		final TileCandle candle = (TileCandle) worldIn.getTileEntity(pos);
-		if (candle != null) {
-			ItemStack heldItem = playerIn.getHeldItem(hand);
-			if (!heldItem.isEmpty() && heldItem.getItem() == Items.FLINT_AND_STEEL) {
-				heldItem.damageItem(1, playerIn);
-				candle.litCandle();
-			} else {
-				candle.unLitCandle();
-			}
-		}
-		return true;
-	}
-
-	@Override
 	protected IBlockState defaultState() {
 		return super.defaultState().withProperty(COLOR, EnumDyeColor.WHITE);
 	}
 
 	@Override
-	public int damageDropped(IBlockState state) {
-		return getMetaFromState(state);
-	}
-
-	@Override
-	public BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, COLOR);
+	@SideOnly(Side.CLIENT)
+	public void registerModel() {
+		for (int i = 0; i < 16; i++) {
+			ModelHandler.registerModel(this, i);
+		}
 	}
 
 	@SuppressWarnings("deprecation")
@@ -83,9 +66,21 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 		return state.getValue(COLOR).getMetadata();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public int damageDropped(IBlockState state) {
+		return getMetaFromState(state);
 	}
 
 	@Override
@@ -99,26 +94,34 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		final TileCandle candle = (TileCandle) worldIn.getTileEntity(pos);
+		if (candle != null) {
+			ItemStack heldItem = playerIn.getHeldItem(hand);
+			if (!heldItem.isEmpty() && heldItem.getItem() == Items.FLINT_AND_STEEL) {
+				heldItem.damageItem(1, playerIn);
+				candle.litCandle();
+			} else {
+				candle.unLitCandle();
+			}
+		}
+		return true;
+	}
+
+	@Override
+	public BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, COLOR);
+	}
+
+	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 		final TileCandle candle = (TileCandle) world.getTileEntity(pos);
 		return candle != null && candle.isLit() ? (int) (15.0F * (0.5F + getType() * 0.25)) : 0;
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileCandle(getType(), EnumDyeColor.byMetadata(meta));
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}
 
 	public int getType() {
@@ -126,10 +129,7 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerModel() {
-		for (int i = 0; i < 16; i++) {
-			ModelHandler.registerModel(this, i);
-		}
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileCandle(getType(), EnumDyeColor.byMetadata(meta));
 	}
 }

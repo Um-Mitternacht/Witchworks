@@ -47,11 +47,6 @@ public class ContainerApiary extends Container {
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
-		return !playerIn.isSpectator();
-	}
-
-	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 		final Slot slot = inventorySlots.get(slotIndex);
 		ItemStack copy = ItemStack.EMPTY;
@@ -83,6 +78,11 @@ public class ContainerApiary extends Container {
 		}
 
 		return copy;
+	}
+
+	@Override
+	public boolean canInteractWith(EntityPlayer playerIn) {
+		return !playerIn.isSpectator();
 	}
 
 	private class SlotBee extends Slot {

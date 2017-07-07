@@ -35,6 +35,11 @@ public final class WitchWorksCreativeTabs {
 			setNoTitle();
 		}
 
+		@SideOnly(Side.CLIENT)
+		void addItem(Item item) {
+			item.getSubItems(item, this, list);
+		}
+
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
@@ -42,15 +47,12 @@ public final class WitchWorksCreativeTabs {
 		}
 
 		@SideOnly(Side.CLIENT)
-		void addItem(Item item) {
-			item.getSubItems(item, this, list);
-		}
-
-		@SideOnly(Side.CLIENT)
 		void addBlock(Block block) {
 			final ItemStack stack = new ItemStack(block);
 			block.getSubBlocks(stack.getItem(), this, list);
 		}
+
+
 	}
 
 	private static class PlantsCreativeTab extends CreativeTab {

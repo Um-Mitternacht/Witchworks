@@ -96,17 +96,6 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		}
 	}
 
-	public void dropItems() {
-		for (int i = 0; i < 16; ++i) {
-			final ItemStack stack = itemStacks.get(i);
-			if (!world.isRemote && !stack.isEmpty()) {
-				final EntityItem item = new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, stack);
-				world.spawnEntity(item);
-			}
-			itemStacks.set(i, ItemStack.EMPTY);
-		}
-	}
-
 	@Override
 	public int getInventoryStackLimit() {
 		return 1;
@@ -153,6 +142,17 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	public void clear() {
 		for (int i = 0; i < 16; ++i) {
 			this.itemStacks.set(i, ItemStack.EMPTY);
+		}
+	}
+
+	public void dropItems() {
+		for (int i = 0; i < 16; ++i) {
+			final ItemStack stack = itemStacks.get(i);
+			if (!world.isRemote && !stack.isEmpty()) {
+				final EntityItem item = new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, stack);
+				world.spawnEntity(item);
+			}
+			itemStacks.set(i, ItemStack.EMPTY);
 		}
 	}
 
@@ -208,17 +208,17 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 		);
 	}
 
-	private Iterable<BlockPos> getArea() {
-		final BlockPos posI = getPos().add(-5, -5, -5);
-		final BlockPos posF = getPos().add(5, 5, 5);
-		return BlockPos.getAllInBox(posI, posF);
-	}
-
 	private ItemStack randomItem() {
 		final Item item = world.rand.nextBoolean()
 				? (world.rand.nextInt(8) == 0 ? ModItems.bee : ModItems.honeycomb)
 				: ModItems.empty_honeycomb;
 		return new ItemStack(item);
+	}
+
+	private Iterable<BlockPos> getArea() {
+		final BlockPos posI = getPos().add(-5, -5, -5);
+		final BlockPos posF = getPos().add(5, 5, 5);
+		return BlockPos.getAllInBox(posI, posF);
 	}
 
 	@Override

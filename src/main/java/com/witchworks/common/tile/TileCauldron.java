@@ -92,6 +92,14 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		}
 	}
 
+	public ItemStack getContainer() {
+		return container;
+	}
+
+	public boolean isBoiling() {
+		return heat == 10;
+	}
+
 	public boolean recipeDropLogic(ItemStack dropped) {
 		if (mode == Mode.NORMAL && changeMode(dropped.getItem())) {
 			play(SoundEvents.ENTITY_FIREWORK_TWINKLE, 0.2F, 1F);
@@ -120,6 +128,105 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 			bol = true;
 		}
 		return bol;
+	}
+
+	@SuppressWarnings("ConstantConditions")
+	public boolean processingLogic(ItemStack stack) {
+		if (!isBoiling() || hasIngredients() || stack.getCount() > 64) return false;
+		Map<Item, ItemValidator<ItemStack>> processing = CauldronRegistry.getItemProcessing(inv.getInnerFluid());
+		if (processing != null && processing.containsKey(stack.getItem())) {
+			ItemValidator<ItemStack> validator = processing.get(stack.getItem());
+			Optional<ItemStack> optional = validator.getMatchFor(stack);
+			if (optional.isPresent()) {
+				ItemStack out = optional.get().copy();
+				if (stack.isItemDamaged() && out.isItemStackDamageable())
+					out.setItemDamage(stack.getItemDamage());
+				int fluidAmount = inv.getFluidAmount();
+				int fluidTaken = 250;
+				out.setCount(0);
+
+				if (stack.getCount() <= 16) {
+					out.setCount(stack.getCount());
+					stack.setCount(0);
+				} else {
+					while (stack.getCount() > 0 && fluidTaken <= fluidAmount) {
+						stack.shrink(1);
+						out.grow(1);
+						if (out.getCount() % 16 == 0) {
+							if (fluidTaken >= fluidAmount) {
+								fluidTaken = fluidAmount;
+								break;
+							}
+							fluidTaken += 250;
+						}
+					}
+				}
+
+				if (out.getCount() > 0) {
+					final double x = getPos().getX();
+					final double y = getPos().getY() + 1D;
+					final double z = getPos().getZ();
+					final EntityItem item = new EntityItem(world, x + 0.5D, y, z + 0.5D, out);
+					item.motionX = world.rand.nextDouble() * 2 - 1;
+					item.motionZ = world.rand.nextDouble() * 2 - 1;
+					item.motionY = 0.1D;
+					item.setPickupDelay(0);
+					world.spawnEntity(item);
+
+					play(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1F, 1F);
+					for (int i = 0; i < 4; i++) {
+						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), getParticleLevel(), z + world.rand.nextFloat(), 5, 0, 0, 0);
+					}
+
+					inv.drain(fluidTaken, true);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean acceptIngredient(ItemStack stack) {
+		if (ingredients[ingredients.length - 1].isEmpty()) {
+			addIngredient(stack);
+			final float hue = world.rand.nextFloat();
+			final float saturation = (world.rand.nextInt(2000) + 1000) / 7000f;
+			final float luminance = 0.25f;
+			setColorRGB(Color.getHSBColor(hue, saturation, luminance).getRGB());
+			PacketHandler.updateToNearbyPlayers(world, pos);
+			return true;
+		}
+		return false;
+	}
+
+	public void setMode(Mode mode) {
+		this.mode = mode;
+		markDirty();
+	}
+
+	public boolean hasIngredients() {
+		return !ingredients[0].isEmpty();
+	}
+
+	public float getParticleLevel() {
+		float level = (float) inv.getFluidAmount() / (Fluid.BUCKET_VOLUME * 2F);
+		return getPos().getY() + 0.1F + level;
+	}
+
+	public void addIngredient(ItemStack stack) {
+		for (int i = 0; i < ingredients.length; i++) {
+			if (ingredients[i].isEmpty()) {
+				ingredients[i] = stack.copy();
+				stack.setCount(0);
+				break;
+			}
+		}
+	}
+
+	public void setContainer(ItemStack container) {
+		this.container = container;
+		world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
+		PacketHandler.updateToNearbyPlayers(world, pos);
 	}
 
 	@SuppressWarnings("ConstantConditions")
@@ -387,37 +494,6 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 			PacketHandler.updateToNearbyPlayers(world, pos);
 	}
 
-	public boolean acceptIngredient(ItemStack stack) {
-		if (ingredients[ingredients.length - 1].isEmpty()) {
-			addIngredient(stack);
-			final float hue = world.rand.nextFloat();
-			final float saturation = (world.rand.nextInt(2000) + 1000) / 7000f;
-			final float luminance = 0.25f;
-			setColorRGB(Color.getHSBColor(hue, saturation, luminance).getRGB());
-			PacketHandler.updateToNearbyPlayers(world, pos);
-			return true;
-		}
-		return false;
-	}
-
-	public void addIngredient(ItemStack stack) {
-		for (int i = 0; i < ingredients.length; i++) {
-			if (ingredients[i].isEmpty()) {
-				ingredients[i] = stack.copy();
-				stack.setCount(0);
-				break;
-			}
-		}
-	}
-
-	public boolean isBoiling() {
-		return heat == 10;
-	}
-
-	public boolean hasIngredients() {
-		return !ingredients[0].isEmpty();
-	}
-
 	public int getColorRGB() {
 		return rgb;
 	}
@@ -426,87 +502,11 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		this.rgb = rgbIn;
 	}
 
-	public float getParticleLevel() {
-		float level = (float) inv.getFluidAmount() / (Fluid.BUCKET_VOLUME * 2F);
-		return getPos().getY() + 0.1F + level;
-	}
-
-	public ItemStack getContainer() {
-		return container;
-	}
-
-	public void setContainer(ItemStack container) {
-		this.container = container;
-		world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
-		PacketHandler.updateToNearbyPlayers(world, pos);
-	}
-
-	public void setMode(Mode mode) {
-		this.mode = mode;
-		markDirty();
-	}
+	//------------------------------------Crafting Logic------------------------------------//
 
 	public void setRitual(RitualHolder ritual) {
 		this.ritual = ritual;
 		markDirty();
-	}
-
-	//------------------------------------Crafting Logic------------------------------------//
-
-	@SuppressWarnings("ConstantConditions")
-	public boolean processingLogic(ItemStack stack) {
-		if (!isBoiling() || hasIngredients() || stack.getCount() > 64) return false;
-		Map<Item, ItemValidator<ItemStack>> processing = CauldronRegistry.getItemProcessing(inv.getInnerFluid());
-		if (processing != null && processing.containsKey(stack.getItem())) {
-			ItemValidator<ItemStack> validator = processing.get(stack.getItem());
-			Optional<ItemStack> optional = validator.getMatchFor(stack);
-			if (optional.isPresent()) {
-				ItemStack out = optional.get().copy();
-				if (stack.isItemDamaged() && out.isItemStackDamageable())
-					out.setItemDamage(stack.getItemDamage());
-				int fluidAmount = inv.getFluidAmount();
-				int fluidTaken = 250;
-				out.setCount(0);
-
-				if (stack.getCount() <= 16) {
-					out.setCount(stack.getCount());
-					stack.setCount(0);
-				} else {
-					while (stack.getCount() > 0 && fluidTaken <= fluidAmount) {
-						stack.shrink(1);
-						out.grow(1);
-						if (out.getCount() % 16 == 0) {
-							if (fluidTaken >= fluidAmount) {
-								fluidTaken = fluidAmount;
-								break;
-							}
-							fluidTaken += 250;
-						}
-					}
-				}
-
-				if (out.getCount() > 0) {
-					final double x = getPos().getX();
-					final double y = getPos().getY() + 1D;
-					final double z = getPos().getZ();
-					final EntityItem item = new EntityItem(world, x + 0.5D, y, z + 0.5D, out);
-					item.motionX = world.rand.nextDouble() * 2 - 1;
-					item.motionZ = world.rand.nextDouble() * 2 - 1;
-					item.motionY = 0.1D;
-					item.setPickupDelay(0);
-					world.spawnEntity(item);
-
-					play(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1F, 1F);
-					for (int i = 0; i < 4; i++) {
-						PacketHandler.spawnParticle(ParticleF.STEAM, world, x + world.rand.nextFloat(), getParticleLevel(), z + world.rand.nextFloat(), 5, 0, 0, 0);
-					}
-
-					inv.drain(fluidTaken, true);
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 
 	@SuppressWarnings("unchecked")

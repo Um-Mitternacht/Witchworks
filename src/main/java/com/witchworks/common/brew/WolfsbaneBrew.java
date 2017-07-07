@@ -20,7 +20,7 @@ public class WolfsbaneBrew implements IBrew {
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		if (entity instanceof EntityWolf) {
-			int damage = (int) (entity.getHealth() * (double) (6 << amplifier) + 0.5D);
+			int damage = (int) (entity.getHealth() * (double) (3 << amplifier) + 0.5D);
 			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
 		}
 	}

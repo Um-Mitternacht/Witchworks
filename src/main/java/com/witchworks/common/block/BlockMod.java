@@ -34,12 +34,12 @@ public class BlockMod extends Block implements IModelRegister {
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
-	public Block setSound(SoundType type) {
-		return super.setSoundType(type);
-	}
-
 	protected IBlockState defaultState() {
 		return blockState.getBaseState();
+	}
+
+	public Block setSound(SoundType type) {
+		return super.setSoundType(type);
 	}
 
 	@Override

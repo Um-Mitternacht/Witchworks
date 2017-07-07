@@ -57,6 +57,75 @@ public class BrewUtils {
 		return stack;
 	}
 
+	public static ItemStack createBrew(BrewRegistry.Brew enu, IBrew brew) {
+		ItemStack stack = new ItemStack(enu.getItem());
+		addBrewEffect(stack, BrewRegistry.getDefault(enu, brew));
+		NBTHelper.setString(stack, BREW_NAME, "brew." + brew.getName() + ".name");
+		NBTHelper.setString(stack, BREW_DESC, "brew." + brew.getName() + ".desc");
+		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
+		return stack;
+	}
+
+	public static ItemStack addBrewEffect(ItemStack stack, BrewEffect effect) {
+		NBTTagList list = addBrewData(stack);
+		NBTTagCompound tag = new NBTTagCompound();
+		IBrew brew = effect.getBrew();
+		tag.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
+		tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
+		tag.setInteger(BREW_DURATION, effect.getDuration());
+		list.appendTag(tag);
+		return stack;
+	}
+
+	public static NBTTagList addBrewData(ItemStack stack) {
+		if (!NBTHelper.hasTag(stack, BREW_DATA)) {
+			NBTTagList list = new NBTTagList();
+			NBTHelper.setNBT(stack, BREW_DATA, list);
+			return list;
+		}
+		return NBTHelper.getNBT(stack, BREW_DATA);
+	}
+
+	public static ItemStack createBrew(BrewRegistry.Brew enu, BrewEffect... effects) {
+		ItemStack stack = new ItemStack(enu.getItem());
+		NBTTagList list = addBrewData(stack);
+		for (BrewEffect effect : effects) {
+			NBTTagCompound tag = new NBTTagCompound();
+			IBrew brew = effect.getBrew();
+			tag.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
+			tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
+			tag.setInteger(BREW_DURATION, effect.getDuration());
+			list.appendTag(tag);
+		}
+		return stack;
+	}
+
+	public static ItemStack addBrewInfo(ItemStack stack, IBrew brew) {
+		NBTHelper.setString(stack, BREW_NAME, "brew." + brew.getName() + ".name");
+		NBTHelper.setString(stack, BREW_DESC, "brew." + brew.getName() + ".desc");
+		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
+
+		return stack;
+	}
+
+	public static NBTTagCompound serialize(Collection<Object> collection) {
+		List<BrewEffect> brewEffects = new ArrayList<>();
+		List<PotionEffect> potionEffects = new ArrayList<>();
+		for (Object brew : collection) {
+			if (brew instanceof BrewEffect) {
+				brewEffects.add((BrewEffect) brew);
+			} else if (brew instanceof PotionEffect) {
+				potionEffects.add((PotionEffect) brew);
+			}
+		}
+		NBTTagCompound compound = new NBTTagCompound();
+
+		appendPotions(compound, mixPotions(potionEffects));
+		appendBrews(compound, mixBrews(brewEffects));
+
+		return compound;
+	}
+
 	public static void appendPotions(NBTTagCompound tag, Collection<PotionEffect> effects) {
 		NBTTagList tagList = tag.getTagList("CustomPotionEffects", 9);
 		for (PotionEffect potioneffect : effects) {
@@ -76,29 +145,6 @@ public class BrewUtils {
 		}
 		effects.removeAll(list);
 		return effects;
-	}
-
-	public static ItemStack createBrew(BrewRegistry.Brew enu, IBrew brew) {
-		ItemStack stack = new ItemStack(enu.getItem());
-		addBrewEffect(stack, BrewRegistry.getDefault(enu, brew));
-		NBTHelper.setString(stack, BREW_NAME, "brew." + brew.getName() + ".name");
-		NBTHelper.setString(stack, BREW_DESC, "brew." + brew.getName() + ".desc");
-		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
-		return stack;
-	}
-
-	public static ItemStack createBrew(BrewRegistry.Brew enu, BrewEffect... effects) {
-		ItemStack stack = new ItemStack(enu.getItem());
-		NBTTagList list = addBrewData(stack);
-		for (BrewEffect effect : effects) {
-			NBTTagCompound tag = new NBTTagCompound();
-			IBrew brew = effect.getBrew();
-			tag.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
-			tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
-			tag.setInteger(BREW_DURATION, effect.getDuration());
-			list.appendTag(tag);
-		}
-		return stack;
 	}
 
 	public static void appendBrews(NBTTagCompound tag, Collection<BrewEffect> effects) {
@@ -124,67 +170,6 @@ public class BrewUtils {
 		}
 		effects.removeAll(list);
 		return effects;
-	}
-
-	public static ItemStack addBrewEffect(ItemStack stack, BrewEffect effect) {
-		NBTTagList list = addBrewData(stack);
-		NBTTagCompound tag = new NBTTagCompound();
-		IBrew brew = effect.getBrew();
-		tag.setString(BREW_ID, BrewRegistry.getBrewResource(brew).toString());
-		tag.setInteger(BREW_AMPLIFIER, effect.getAmplifier());
-		tag.setInteger(BREW_DURATION, effect.getDuration());
-		list.appendTag(tag);
-		return stack;
-	}
-
-	public static NBTTagList addBrewData(ItemStack stack) {
-		if (!NBTHelper.hasTag(stack, BREW_DATA)) {
-			NBTTagList list = new NBTTagList();
-			NBTHelper.setNBT(stack, BREW_DATA, list);
-			return list;
-		}
-		return NBTHelper.getNBT(stack, BREW_DATA);
-	}
-
-	public static ItemStack addBrewInfo(ItemStack stack, IBrew brew) {
-		NBTHelper.setString(stack, BREW_NAME, "brew." + brew.getName() + ".name");
-		NBTHelper.setString(stack, BREW_DESC, "brew." + brew.getName() + ".desc");
-		NBTHelper.setInteger(stack, BREW_COLOR, brew.getColor());
-
-		return stack;
-	}
-
-	public static List<BrewEffect> getBrewsFromStack(ItemStack stack) {
-		List<BrewEffect> effects = new ArrayList<>();
-
-		NBTTagList list = NBTHelper.getNBT(stack, BREW_DATA);
-		for (int i = 0, size = list.tagCount(); i < size; i++) {
-			NBTTagCompound tag = list.getCompoundTagAt(i);
-			IBrew brew = BrewRegistry.getRegisteredBrew(tag.getString(BREW_ID));
-			int duration = tag.getInteger(BREW_DURATION);
-			int amplifier = tag.getInteger(BREW_AMPLIFIER);
-			effects.add(new BrewEffect(brew, duration, amplifier));
-		}
-
-		return effects;
-	}
-
-	public static NBTTagCompound serialize(Collection<Object> collection) {
-		List<BrewEffect> brewEffects = new ArrayList<>();
-		List<PotionEffect> potionEffects = new ArrayList<>();
-		for (Object brew : collection) {
-			if (brew instanceof BrewEffect) {
-				brewEffects.add((BrewEffect) brew);
-			} else if (brew instanceof PotionEffect) {
-				potionEffects.add((PotionEffect) brew);
-			}
-		}
-		NBTTagCompound compound = new NBTTagCompound();
-
-		appendPotions(compound, mixPotions(potionEffects));
-		appendBrews(compound, mixBrews(brewEffects));
-
-		return compound;
 	}
 
 	public static Tuple<List<BrewEffect>, List<PotionEffect>> deSerialize(NBTTagCompound compound) {
@@ -223,6 +208,21 @@ public class BrewUtils {
 		if (brewsFromStack.isEmpty()) {
 			tooltip.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "---");
 		}
+	}
+
+	public static List<BrewEffect> getBrewsFromStack(ItemStack stack) {
+		List<BrewEffect> effects = new ArrayList<>();
+
+		NBTTagList list = NBTHelper.getNBT(stack, BREW_DATA);
+		for (int i = 0, size = list.tagCount(); i < size; i++) {
+			NBTTagCompound tag = list.getCompoundTagAt(i);
+			IBrew brew = BrewRegistry.getRegisteredBrew(tag.getString(BREW_ID));
+			int duration = tag.getInteger(BREW_DURATION);
+			int amplifier = tag.getInteger(BREW_AMPLIFIER);
+			effects.add(new BrewEffect(brew, duration, amplifier));
+		}
+
+		return effects;
 	}
 
 	@SideOnly(Side.CLIENT)

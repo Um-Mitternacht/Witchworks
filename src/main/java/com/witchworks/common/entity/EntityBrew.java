@@ -76,6 +76,39 @@ public class EntityBrew extends EntityThrowable {
 		}
 	}
 
+	@Override
+	public void writeEntityToNBT(NBTTagCompound compound) {
+		super.writeEntityToNBT(compound);
+		compound.setString("dispersion", dispersion.name());
+
+		ItemStack stack = getBrew();
+		if (!stack.isEmpty()) {
+			compound.setTag("Brew", stack.writeToNBT(new NBTTagCompound()));
+		}
+	}
+
+	@Override
+	public void readEntityFromNBT(NBTTagCompound compound) {
+		super.readEntityFromNBT(compound);
+		dispersion = BrewDispersion.valueOf(compound.getString("dispersion"));
+
+		ItemStack stack = new ItemStack(compound.getCompoundTag("Brew"));
+		if (stack.isEmpty()) {
+			this.setDead();
+		} else {
+			this.setBrew(stack);
+		}
+	}
+
+	public ItemStack getBrew() {
+		return getDataManager().get(ITEM);
+	}
+
+	public void setBrew(ItemStack stack) {
+		getDataManager().set(ITEM, stack);
+		getDataManager().setDirty(ITEM);
+	}
+
 	private void impact(RayTraceResult result) {
 		playSound(SoundEvents.ENTITY_SPLASH_POTION_BREAK, 1F, 1F);
 		List<BrewEffect> brewEffects = BrewUtils.getBrewsFromStack(getBrew());
@@ -118,41 +151,8 @@ public class EntityBrew extends EntityThrowable {
 		world.spawnEntity(linger);
 	}
 
-	@Override
-	public void writeEntityToNBT(NBTTagCompound compound) {
-		super.writeEntityToNBT(compound);
-		compound.setString("dispersion", dispersion.name());
-
-		ItemStack stack = getBrew();
-		if (!stack.isEmpty()) {
-			compound.setTag("Brew", stack.writeToNBT(new NBTTagCompound()));
-		}
-	}
-
-	@Override
-	public void readEntityFromNBT(NBTTagCompound compound) {
-		super.readEntityFromNBT(compound);
-		dispersion = BrewDispersion.valueOf(compound.getString("dispersion"));
-
-		ItemStack stack = new ItemStack(compound.getCompoundTag("Brew"));
-		if (stack.isEmpty()) {
-			this.setDead();
-		} else {
-			this.setBrew(stack);
-		}
-	}
-
 	public int getColor() {
 		return NBTHelper.getInteger(getBrew(), BrewUtils.BREW_COLOR);
-	}
-
-	public ItemStack getBrew() {
-		return getDataManager().get(ITEM);
-	}
-
-	public void setBrew(ItemStack stack) {
-		getDataManager().set(ITEM, stack);
-		getDataManager().setDirty(ITEM);
 	}
 
 	public enum BrewDispersion {

@@ -42,15 +42,10 @@ public class BlockAltar extends BlockMod {
 		return facing.getHorizontalIndex();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw);
-		return this.getDefaultState().withProperty(FACING, enumfacing);
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, FACING);
+	public boolean isFullCube(IBlockState state) {
+		return false;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -59,9 +54,14 @@ public class BlockAltar extends BlockMod {
 		return false;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw);
+		return this.getDefaultState().withProperty(FACING, enumfacing);
 	}
 }

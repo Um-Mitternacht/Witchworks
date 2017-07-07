@@ -19,6 +19,7 @@ import com.witchworks.common.core.proxy.ISidedProxy;
 import com.witchworks.common.entity.EntityBrew;
 import com.witchworks.common.entity.EntityBrewLinger;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.lib.LibMod;
 import com.witchworks.common.tile.TileCauldron;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -44,7 +45,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * the MIT license.
  */
 @SideOnly(Side.CLIENT)
-@Mod.EventBusSubscriber(Side.CLIENT)
+@Mod.EventBusSubscriber(modid = LibMod.MOD_ID)
 public class ClientProxy implements ISidedProxy {
 
 	/**
@@ -88,21 +89,6 @@ public class ClientProxy implements ISidedProxy {
 	}
 
 	/**
-	 * Register here all Renders. For example:
-	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
-	 * or
-	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
-	 *
-	 * @see RenderingRegistry
-	 */
-	private void registerRenders() {
-		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityBrewLinger.class, EmptyRenderer::new);
-
-		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderKettle());
-	}
-
-	/**
 	 * Display a Record text with a format and localization.
 	 *
 	 * @param text An {@link ITextComponent}
@@ -130,5 +116,20 @@ public class ClientProxy implements ISidedProxy {
 			chance = 0.2F;
 
 		return chance == 1F || Math.random() < chance;
+	}
+
+	/**
+	 * Register here all Renders. For example:
+	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
+	 * or
+	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
+	 *
+	 * @see RenderingRegistry
+	 */
+	private void registerRenders() {
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrewLinger.class, EmptyRenderer::new);
+
+		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderKettle());
 	}
 }

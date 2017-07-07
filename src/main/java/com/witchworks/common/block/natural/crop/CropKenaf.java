@@ -30,6 +30,11 @@ public class CropKenaf extends BlockCrop {
 	}
 
 	@Override
+	protected boolean canSustainBush(IBlockState state) {
+		return state.getBlock() == Blocks.FARMLAND || state.getBlock() == this;
+	}
+
+	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		super.updateTick(worldIn, pos, state, rand);
 		if (isMaxAge(state) && state.getValue(AGE) != 7 && canSustainBush(worldIn.getBlockState(pos.down())) && worldIn.isAirBlock(pos.up())) {
@@ -68,10 +73,5 @@ public class CropKenaf extends BlockCrop {
 			worldIn.setBlockToAir(pos);
 			return false;
 		}
-	}
-
-	@Override
-	protected boolean canSustainBush(IBlockState state) {
-		return state.getBlock() == Blocks.FARMLAND || state.getBlock() == this;
 	}
 }

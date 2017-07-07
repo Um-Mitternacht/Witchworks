@@ -38,6 +38,10 @@ public class AutoPlantBrew extends BlockHitBrew {
 		plantAll(items, world, pos, amplifier);
 	}
 
+	private boolean isSeed(ItemStack stack) {
+		return stack.getItem() instanceof IPlantable;
+	}
+
 	private void plantAll(List<EntityItem> items, World world, BlockPos pos, int amplifier) {
 		int box = 1 + (int) ((float) amplifier / 2F);
 
@@ -61,9 +65,5 @@ public class AutoPlantBrew extends BlockHitBrew {
 				}
 			}
 		}
-	}
-
-	private boolean isSeed(ItemStack stack) {
-		return stack.getItem() instanceof IPlantable;
 	}
 }

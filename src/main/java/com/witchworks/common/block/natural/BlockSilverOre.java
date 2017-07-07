@@ -22,15 +22,15 @@ public class BlockSilverOre extends BlockMod {
 	}
 
 	@Override
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.CUTOUT;
+	}
+
+	@Override
 	public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
 		if (this.getItemDropped(state, RANDOM, fortune) != Item.getItemFromBlock(this)) {
 			return 1 + RANDOM.nextInt(5);
 		}
 		return 0;
-	}
-
-	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.CUTOUT;
 	}
 }

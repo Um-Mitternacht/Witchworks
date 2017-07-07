@@ -18,13 +18,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public abstract class TileMod extends TileEntity {
 
 	@Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
-		return oldState.getBlock() != newState.getBlock();
-	}
-
-	@Override
-	public final NBTTagCompound getUpdateTag() {
-		return writeToNBT(new NBTTagCompound());
+	public void readFromNBT(NBTTagCompound par1nbtTagCompound) {
+		super.readFromNBT(par1nbtTagCompound);
+		readDataNBT(par1nbtTagCompound);
 	}
 
 	@Override
@@ -41,6 +37,11 @@ public abstract class TileMod extends TileEntity {
 		return new SPacketUpdateTileEntity(pos, 0, tag);
 	}
 
+	@Override
+	public final NBTTagCompound getUpdateTag() {
+		return writeToNBT(new NBTTagCompound());
+	}
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
@@ -49,12 +50,11 @@ public abstract class TileMod extends TileEntity {
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound par1nbtTagCompound) {
-		super.readFromNBT(par1nbtTagCompound);
-		readDataNBT(par1nbtTagCompound);
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
 	}
 
-	abstract void writeDataNBT(NBTTagCompound cmp);
-
 	abstract void readDataNBT(NBTTagCompound cmp);
+
+	abstract void writeDataNBT(NBTTagCompound cmp);
 }

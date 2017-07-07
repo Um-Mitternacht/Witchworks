@@ -50,6 +50,15 @@ public class BlockSaltBarrier extends BlockMod {
 		setSound(SoundType.CLOTH);
 	}
 
+	private static boolean canConnectTo(IBlockState blockState) {
+		final Block block = blockState.getBlock();
+		return block == ModBlocks.salt_barrier;
+	}
+
+	private static boolean canConnectUpwardsTo(IBlockAccess worldIn, BlockPos pos) {
+		return canConnectTo(worldIn.getBlockState(pos));
+	}
+
 	private static int getAABBIndex(IBlockState state) {
 		int i = 0;
 		final boolean flag = state.getValue(NORTH) != BlockSaltBarrier.EnumAttachPosition.NONE;
@@ -76,19 +85,15 @@ public class BlockSaltBarrier extends BlockMod {
 		return i;
 	}
 
-	private static boolean canConnectUpwardsTo(IBlockAccess worldIn, BlockPos pos) {
-		return canConnectTo(worldIn.getBlockState(pos));
-	}
-
-	private static boolean canConnectTo(IBlockState blockState) {
-		final Block block = blockState.getBlock();
-		return block == ModBlocks.salt_barrier;
-	}
-
 	@SuppressWarnings("deprecation")
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return SALT_BARRIER_AABB[getAABBIndex(state.getActualState(source, pos))];
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState();
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return 0;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -128,6 +133,46 @@ public class BlockSaltBarrier extends BlockMod {
 
 	@SuppressWarnings("deprecation")
 	@Override
+	public IBlockState withRotation(IBlockState state, Rotation rot) {
+		switch (rot) {
+			case CLOCKWISE_180:
+				return state.withProperty(NORTH, state.getValue(SOUTH)).withProperty(EAST, state.getValue(WEST)).withProperty(SOUTH, state.getValue(NORTH)).withProperty(WEST, state.getValue(EAST));
+			case COUNTERCLOCKWISE_90:
+				return state.withProperty(NORTH, state.getValue(EAST)).withProperty(EAST, state.getValue(SOUTH)).withProperty(SOUTH, state.getValue(WEST)).withProperty(WEST, state.getValue(NORTH));
+			case CLOCKWISE_90:
+				return state.withProperty(NORTH, state.getValue(WEST)).withProperty(EAST, state.getValue(NORTH)).withProperty(SOUTH, state.getValue(EAST)).withProperty(WEST, state.getValue(SOUTH));
+			default:
+				return state;
+		}
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
+		switch (mirrorIn) {
+			case LEFT_RIGHT:
+				return state.withProperty(NORTH, state.getValue(SOUTH)).withProperty(SOUTH, state.getValue(NORTH));
+			case FRONT_BACK:
+				return state.withProperty(EAST, state.getValue(WEST)).withProperty(WEST, state.getValue(EAST));
+			default:
+				return super.withMirror(state, mirrorIn);
+		}
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return SALT_BARRIER_AABB[getAABBIndex(state.getActualState(source, pos))];
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
@@ -139,35 +184,28 @@ public class BlockSaltBarrier extends BlockMod {
 		return false;
 	}
 
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+		final double d0 = (double) pos.getX() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
+		final double d1 = (double) ((float) pos.getY() + 0.0625F);
+		final double d2 = (double) pos.getZ() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
+		final float f = (float) 3 / 15.0F;
+		final float f1 = f * 0.6F + 0.4F;
+		final float f2 = Math.max(0.0F, f * f * 0.7F - 0.5F);
+		final float f3 = Math.max(0.0F, f * f * 0.6F - 0.7F);
+		worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, d0, d1, d2, (double) f1, (double) f2, (double) f3);
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return worldIn.getBlockState(pos.down()).isTopSolid() || worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE;
-	}
-
-	private IBlockState updateSurroundingSalt(World worldIn, IBlockState state) {
-		final List<BlockPos> list = Lists.newArrayList(this.blocksNeedingUpdate);
-		this.blocksNeedingUpdate.clear();
-
-		for (BlockPos blockpos : list) {
-			worldIn.notifyNeighborsOfStateChange(blockpos, this, true);
-		}
-
-		return state;
-	}
-
-	private void notifyBarrierNeighborsOfStateChange(World worldIn, BlockPos pos) {
-		if (worldIn.getBlockState(pos).getBlock() == this) {
-			worldIn.notifyNeighborsOfStateChange(pos, this, true);
-
-			for (EnumFacing enumfacing : EnumFacing.values()) {
-				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this, true);
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos toPos) {
+		if (!worldIn.isRemote) {
+			if (this.canPlaceBlockAt(worldIn, pos)) {
+				this.updateSurroundingSalt(worldIn, state);
+			} else {
+				this.dropBlockAsItem(worldIn, pos, state, 0);
+				worldIn.setBlockToAir(pos);
 			}
 		}
 	}
@@ -193,6 +231,27 @@ public class BlockSaltBarrier extends BlockMod {
 				} else {
 					this.notifyBarrierNeighborsOfStateChange(worldIn, blockpos.down());
 				}
+			}
+		}
+	}
+
+	private IBlockState updateSurroundingSalt(World worldIn, IBlockState state) {
+		final List<BlockPos> list = Lists.newArrayList(this.blocksNeedingUpdate);
+		this.blocksNeedingUpdate.clear();
+
+		for (BlockPos blockpos : list) {
+			worldIn.notifyNeighborsOfStateChange(blockpos, this, true);
+		}
+
+		return state;
+	}
+
+	private void notifyBarrierNeighborsOfStateChange(World worldIn, BlockPos pos) {
+		if (worldIn.getBlockState(pos).getBlock() == this) {
+			worldIn.notifyNeighborsOfStateChange(pos, this, true);
+
+			for (EnumFacing enumfacing : EnumFacing.values()) {
+				worldIn.notifyNeighborsOfStateChange(pos.offset(enumfacing), this, true);
 			}
 		}
 	}
@@ -224,47 +283,9 @@ public class BlockSaltBarrier extends BlockMod {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
-	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos toPos) {
-		if (!worldIn.isRemote) {
-			if (this.canPlaceBlockAt(worldIn, pos)) {
-				this.updateSurroundingSalt(worldIn, state);
-			} else {
-				this.dropBlockAsItem(worldIn, pos, state, 0);
-				worldIn.setBlockToAir(pos);
-			}
-		}
-	}
-
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return ModItems.salt;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		final double d0 = (double) pos.getX() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
-		final double d1 = (double) ((float) pos.getY() + 0.0625F);
-		final double d2 = (double) pos.getZ() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
-		final float f = (float) 3 / 15.0F;
-		final float f1 = f * 0.6F + 0.4F;
-		final float f2 = Math.max(0.0F, f * f * 0.7F - 0.5F);
-		final float f3 = Math.max(0.0F, f * f * 0.6F - 0.7F);
-		worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, d0, d1, d2, (double) f1, (double) f2, (double) f3);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(ModItems.salt);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState();
 	}
 
 	@Override
@@ -273,37 +294,16 @@ public class BlockSaltBarrier extends BlockMod {
 		return BlockRenderLayer.CUTOUT;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		return 0;
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+		return worldIn.getBlockState(pos.down()).isTopSolid() || worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE;
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public IBlockState withRotation(IBlockState state, Rotation rot) {
-		switch (rot) {
-			case CLOCKWISE_180:
-				return state.withProperty(NORTH, state.getValue(SOUTH)).withProperty(EAST, state.getValue(WEST)).withProperty(SOUTH, state.getValue(NORTH)).withProperty(WEST, state.getValue(EAST));
-			case COUNTERCLOCKWISE_90:
-				return state.withProperty(NORTH, state.getValue(EAST)).withProperty(EAST, state.getValue(SOUTH)).withProperty(SOUTH, state.getValue(WEST)).withProperty(WEST, state.getValue(NORTH));
-			case CLOCKWISE_90:
-				return state.withProperty(NORTH, state.getValue(WEST)).withProperty(EAST, state.getValue(NORTH)).withProperty(SOUTH, state.getValue(EAST)).withProperty(WEST, state.getValue(SOUTH));
-			default:
-				return state;
-		}
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-		switch (mirrorIn) {
-			case LEFT_RIGHT:
-				return state.withProperty(NORTH, state.getValue(SOUTH)).withProperty(SOUTH, state.getValue(NORTH));
-			case FRONT_BACK:
-				return state.withProperty(EAST, state.getValue(WEST)).withProperty(WEST, state.getValue(EAST));
-			default:
-				return super.withMirror(state, mirrorIn);
-		}
+	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+		return new ItemStack(ModItems.salt);
 	}
 
 	protected BlockStateContainer createBlockState() {

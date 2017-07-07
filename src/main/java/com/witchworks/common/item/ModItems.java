@@ -73,12 +73,16 @@ public final class ModItems {
 	public static final Item seed_silphium = PLACE_HOLDER;
 	public static final Item wormwood = PLACE_HOLDER;
 	public static final Item seed_wormwood = PLACE_HOLDER;
-
 	public static final Item bee = PLACE_HOLDER;
 	public static final Item glass_jar = PLACE_HOLDER;
+
+	@ObjectHolder("brew_phial_drink")
 	public static final Item brew_phial_drink = PLACE_HOLDER;
+	@ObjectHolder("brew_phial_splash")
 	public static final Item brew_phial_splash = PLACE_HOLDER;
+	@ObjectHolder("brew_phial_linger")
 	public static final Item brew_phial_linger = PLACE_HOLDER;
+
 	public static final Item wax = PLACE_HOLDER;
 	public static final Item honey = PLACE_HOLDER;
 	public static final Item salt = PLACE_HOLDER;

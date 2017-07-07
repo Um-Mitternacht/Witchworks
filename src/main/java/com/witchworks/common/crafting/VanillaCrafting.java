@@ -145,6 +145,14 @@ public final class VanillaCrafting {
 				.build();
 	}
 
+	private static ShapedRecipe shaped() {
+		return new ShapedRecipe();
+	}
+
+	private static ShapelessRecipe shapeless() {
+		return new ShapelessRecipe();
+	}
+
 	public static void blocks() {
 		shapeless()
 				.add(ModItems.wax)
@@ -260,14 +268,6 @@ public final class VanillaCrafting {
 				.build();
 	}
 
-	private static ShapedRecipe shaped() {
-		return new ShapedRecipe();
-	}
-
-	private static ShapelessRecipe shapeless() {
-		return new ShapelessRecipe();
-	}
-
 	@SuppressWarnings({"unused", "WeakerAccess"})
 	private static class ShapelessRecipe {
 
@@ -278,13 +278,13 @@ public final class VanillaCrafting {
 			return outputs(new ItemStack(out));
 		}
 
-		public ShapelessRecipe outputs(Item out) {
-			return outputs(new ItemStack(out));
-		}
-
 		public ShapelessRecipe outputs(ItemStack out) {
 			this.output = out;
 			return this;
+		}
+
+		public ShapelessRecipe outputs(Item out) {
+			return outputs(new ItemStack(out));
 		}
 
 		public ShapelessRecipe add(Block block) {

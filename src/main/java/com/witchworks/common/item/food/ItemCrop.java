@@ -41,6 +41,10 @@ public class ItemCrop extends ItemModFood {
 		tooltip.add(TextFormatting.ITALIC + I18n.format("witch.tooltip." + getNameInefficiently(stack) + "_description.name"));
 	}
 
+	public String getNameInefficiently(ItemStack stack) {
+		return getUnlocalizedName().substring(5);
+	}
+
 	@Override
 	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
 		if (!worldIn.isRemote && potions != null) {
@@ -51,15 +55,11 @@ public class ItemCrop extends ItemModFood {
 		}
 	}
 
-	public void setDry(ItemStack stack, boolean isDry) {
-		NBTHelper.setBoolean(stack, DRY, isDry);
-	}
-
 	public boolean isDry(ItemStack stack) {
 		return NBTHelper.getBoolean(stack, DRY);
 	}
 
-	public String getNameInefficiently(ItemStack stack) {
-		return getUnlocalizedName().substring(5);
+	public void setDry(ItemStack stack, boolean isDry) {
+		NBTHelper.setBoolean(stack, DRY, isDry);
 	}
 }

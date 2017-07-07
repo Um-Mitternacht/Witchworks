@@ -31,14 +31,6 @@ public class CropMint extends BlockCrop {
 		}
 	}
 
-	@Override
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		double x = rand.nextFloat();
-		double y = rand.nextFloat();
-		double z = rand.nextFloat();
-		worldIn.spawnParticle(EnumParticleTypes.END_ROD, x, y, z, 0, 0.05, 0);
-	}
-
 	private void trySpread(World world, BlockPos center, Random rand) {
 		BlockPos I = center.add(-1, -1, -1);
 		BlockPos F = center.add(1, 1, 1);
@@ -50,5 +42,13 @@ public class CropMint extends BlockCrop {
 					}
 				}
 		);
+	}
+
+	@Override
+	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+		double x = rand.nextFloat();
+		double y = rand.nextFloat();
+		double z = rand.nextFloat();
+		worldIn.spawnParticle(EnumParticleTypes.END_ROD, x, y, z, 0, 0.05, 0);
 	}
 }

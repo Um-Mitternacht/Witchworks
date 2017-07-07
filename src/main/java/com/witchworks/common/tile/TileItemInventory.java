@@ -29,8 +29,9 @@ public abstract class TileItemInventory extends TileEntity {
 	public ItemStackHandlerTile itemHandler = createItemHandler();
 
 	@Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
-		return oldState.getBlock() != newState.getBlock();
+	public void readFromNBT(NBTTagCompound nbtTagCompound) {
+		super.readFromNBT(nbtTagCompound);
+		readDataNBT(nbtTagCompound);
 	}
 
 	@Override
@@ -47,6 +48,11 @@ public abstract class TileItemInventory extends TileEntity {
 		return new SPacketUpdateTileEntity(pos, 0, tag);
 	}
 
+	@Override
+	public final NBTTagCompound getUpdateTag() {
+		return writeToNBT(new NBTTagCompound());
+	}
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
@@ -55,27 +61,8 @@ public abstract class TileItemInventory extends TileEntity {
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbtTagCompound) {
-		super.readFromNBT(nbtTagCompound);
-		readDataNBT(nbtTagCompound);
-	}
-
-	@Override
-	public final NBTTagCompound getUpdateTag() {
-		return writeToNBT(new NBTTagCompound());
-	}
-
-	public void writeDataNBT(NBTTagCompound nbtTagCompound) {
-		nbtTagCompound.merge(itemHandler.serializeNBT());
-	}
-
-	public void readDataNBT(NBTTagCompound tagCompound) {
-		itemHandler = createItemHandler();
-		itemHandler.deserializeNBT(tagCompound);
-	}
-
-	protected ItemStackHandlerTile createItemHandler() {
-		return new ItemStackHandlerTile(this, true);
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
 	}
 
 	@Override
@@ -88,6 +75,19 @@ public abstract class TileItemInventory extends TileEntity {
 		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(itemHandler);
 		return super.getCapability(capability, side);
+	}
+
+	public void readDataNBT(NBTTagCompound tagCompound) {
+		itemHandler = createItemHandler();
+		itemHandler.deserializeNBT(tagCompound);
+	}
+
+	protected ItemStackHandlerTile createItemHandler() {
+		return new ItemStackHandlerTile(this, true);
+	}
+
+	public void writeDataNBT(NBTTagCompound nbtTagCompound) {
+		nbtTagCompound.merge(itemHandler.serializeNBT());
 	}
 
 	public abstract int getSizeInventory();
@@ -117,15 +117,15 @@ public abstract class TileItemInventory extends TileEntity {
 			} else return ItemStack.EMPTY;
 		}
 
+		@Override
+		public void onContentsChanged(int slot) {
+			tile.markDirty();
+		}
+
 		public ItemStack getItemSimulate(int slot) {
 			if (allow) {
 				return super.extractItem(slot, 1, true);
 			} else return ItemStack.EMPTY;
-		}
-
-		@Override
-		public void onContentsChanged(int slot) {
-			tile.markDirty();
 		}
 	}
 }

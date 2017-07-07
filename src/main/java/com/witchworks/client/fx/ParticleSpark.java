@@ -37,14 +37,6 @@ class ParticleSpark extends Particle {
 		this.setParticleTextureIndex(65);
 	}
 
-	public void renderParticle(VertexBuffer buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-		float scale = ((float) this.particleAge + partialTicks) / (float) this.particleMaxAge * 32.0F;
-		scale = MathHelper.clamp(scale, 0.0F, 1.0F);
-		this.particleScale = this.oSize * scale;
-		super.renderParticle(buffer, entityIn, partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
-		GlStateManager.color(getRedColorF(), getGreenColorF(), getBlueColorF(), 1.0F);
-	}
-
 	public void onUpdate() {
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
@@ -65,6 +57,14 @@ class ParticleSpark extends Particle {
 			this.motionX *= 0.699999988079071D;
 			this.motionZ *= 0.699999988079071D;
 		}
+	}
+
+	public void renderParticle(VertexBuffer buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
+		float scale = ((float) this.particleAge + partialTicks) / (float) this.particleMaxAge * 32.0F;
+		scale = MathHelper.clamp(scale, 0.0F, 1.0F);
+		this.particleScale = this.oSize * scale;
+		super.renderParticle(buffer, entityIn, partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
+		GlStateManager.color(getRedColorF(), getGreenColorF(), getBlueColorF(), 1.0F);
 	}
 
 	@SideOnly(Side.CLIENT)

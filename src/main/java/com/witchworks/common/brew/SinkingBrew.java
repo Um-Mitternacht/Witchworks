@@ -24,12 +24,6 @@ public class SinkingBrew implements IBrew, IBrewClientSide {
 	}
 
 	@Override
-	public void onUpdateClientSide(LivingEvent.LivingUpdateEvent event, EntityLivingBase entity, int amplifier) {
-		if (entity.isInWater() && entity.motionY > 0)
-			entity.motionY *= -10;
-	}
-
-	@Override
 	public boolean isBad() {
 		return true;
 	}
@@ -53,5 +47,11 @@ public class SinkingBrew implements IBrew, IBrewClientSide {
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
 		render(x, y, mc, 11);
+	}
+
+	@Override
+	public void onUpdateClientSide(LivingEvent.LivingUpdateEvent event, EntityLivingBase entity, int amplifier) {
+		if (entity.isInWater() && entity.motionY > 0)
+			entity.motionY *= -10;
 	}
 }

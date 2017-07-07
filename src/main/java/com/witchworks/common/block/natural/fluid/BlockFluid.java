@@ -48,26 +48,6 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 	}
 
 	@Override
-	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
-		return flammable ? 30 : 0;
-	}
-
-	@Override
-	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
-		return flammability;
-	}
-
-	@Override
-	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
-		return flammable;
-	}
-
-	@Override
-	public boolean isFireSource(World world, BlockPos pos, EnumFacing side) {
-		return flammable && flammability == 0;
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		double d0 = pos.getX();
@@ -83,6 +63,26 @@ public class BlockFluid extends BlockFluidClassic implements IModelRegister {
 		} else if (rand.nextInt(10) == 0) {
 			worldIn.spawnParticle(EnumParticleTypes.SUSPENDED, d0 + rand.nextFloat(), d1 + rand.nextFloat(), d2 + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return flammability;
+	}
+
+	@Override
+	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return flammable;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return flammable ? 30 : 0;
+	}
+
+	@Override
+	public boolean isFireSource(World world, BlockPos pos, EnumFacing side) {
+		return flammable && flammability == 0;
 	}
 
 	@Override

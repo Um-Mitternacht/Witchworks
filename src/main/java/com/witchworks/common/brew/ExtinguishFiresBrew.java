@@ -20,6 +20,30 @@ import javax.annotation.Nullable;
 public class ExtinguishFiresBrew extends BlockHitBrew {
 
 	@Override
+	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		if (entity.isBurning() && canExtinguish(world, pos, amplifier)) {
+			world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
+
+			entity.extinguish();
+		}
+	}
+
+	@Override
+	public boolean isBad() {
+		return false;
+	}
+
+	@Override
+	public boolean isInstant() {
+		return false;
+	}
+
+	@Override
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		//NO-OP
+	}
+
+	@Override
 	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
 		if (side != null) pos = pos.offset(side);
 		if (canExtinguish(world, pos, amplifier)) {
@@ -42,23 +66,9 @@ public class ExtinguishFiresBrew extends BlockHitBrew {
 		}
 	}
 
-	@Override
-	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (entity.isBurning() && canExtinguish(world, pos, amplifier)) {
-			world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F);
-
-			entity.extinguish();
-		}
-	}
-
-	@Override
-	public boolean isBad() {
-		return false;
-	}
-
-	@Override
-	public boolean isInstant() {
-		return false;
+	private boolean canExtinguish(World world, BlockPos pos, int amplifier) {
+		int dimId = world.provider.getDimension();
+		return dimId == DimensionType.OVERWORLD.getId() || (dimId == DimensionType.NETHER.getId() && amplifier > 2);
 	}
 
 	@Override
@@ -69,15 +79,5 @@ public class ExtinguishFiresBrew extends BlockHitBrew {
 	@Override
 	public String getName() {
 		return "extinguish_fires";
-	}
-
-	@Override
-	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		//NO-OP
-	}
-
-	private boolean canExtinguish(World world, BlockPos pos, int amplifier) {
-		int dimId = world.provider.getDimension();
-		return dimId == DimensionType.OVERWORLD.getId() || (dimId == DimensionType.NETHER.getId() && amplifier > 2);
 	}
 }

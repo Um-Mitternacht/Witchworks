@@ -37,6 +37,17 @@ public class SnowTrailBrew extends BlockHitBrew {
 	}
 
 	@Override
+	public boolean isInstant() {
+		return false;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 8);
+	}
+
+	@Override
 	void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
 		int box = 1 + (int) ((float) amplifier / 2F);
 
@@ -62,16 +73,5 @@ public class SnowTrailBrew extends BlockHitBrew {
 	@Override
 	public String getName() {
 		return "snow_trail";
-	}
-
-	@Override
-	public boolean isInstant() {
-		return false;
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		render(x, y, mc, 8);
 	}
 }

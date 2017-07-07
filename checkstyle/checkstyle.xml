@@ -22,30 +22,6 @@
 		<module name="ArrayTypeStyle">
 			<property name="javaStyle" value="true"/>
 		</module>
-		<module name="DeclarationOrder"/>
-		<module name="DefaultComesLast"/>
-		<module name="ExplicitInitialization"/>
-		<module name="FallThrough"/>
-		<module name="HideUtilityClassConstructor"/>
-		<module name="InterfaceIsType"/>
-		<module name="MissingSwitchDefault"/>
-		<module name="ModifiedControlVariable"/>
-		<module name="ModifierOrder"/>
-		<module name="ModifierOrder"/>
-		<module name="MultipleVariableDeclarations"/>
-		<module name="NoFinalizer"/>
-		<module name="OneTopLevelClass"/>
-		<module name="OuterTypeFilename"/>
-		<module name="OverloadMethodsDeclarationOrder"/>
-		<module name="SimplifyBooleanExpression"/>
-		<module name="SimplifyBooleanReturn"/>
-		<module name="StringLiteralEquality"/>
-		<module name="TrailingComment"/>
-		<module name="UnnecessaryParentheses"/>
-		<module name="UpperEll"/>
-		<module name="VariableDeclarationUsageDistance">
-			<property name="allowedDistance" value="16"/>
-		</module>
 		<!-- <module name="VisibilityModifier">
 			<property name="protectedAllowed" value="true"/>
 			<property name="allowPublicImmutableFields" value="true"/>

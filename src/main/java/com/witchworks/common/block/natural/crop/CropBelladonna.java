@@ -22,6 +22,10 @@ public class CropBelladonna extends BlockCrop {
 		super(LibBlockName.CROP_BELLADONNA, 5);
 	}
 
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return CROPS_AABB[state.getValue(this.getAgeProperty())];
+	}
+
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		checkAndDropBlock(worldIn, pos, state);
 
@@ -37,9 +41,5 @@ public class CropBelladonna extends BlockCrop {
 				}
 			}
 		}
-	}
-
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return CROPS_AABB[state.getValue(this.getAgeProperty())];
 	}
 }

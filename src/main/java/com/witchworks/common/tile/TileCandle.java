@@ -47,6 +47,10 @@ public class TileCandle extends TileMod implements ITickable {
 		}
 	}
 
+	public boolean isLit() {
+		return lit;
+	}
+
 	@Override
 	public void update() {
 		if (lit && ticks % 10 == 0) {
@@ -64,19 +68,15 @@ public class TileCandle extends TileMod implements ITickable {
 		this.color = color;
 	}
 
-	public boolean isLit() {
-		return lit;
+	@Override
+	void readDataNBT(NBTTagCompound cmp) {
+		lit = cmp.getBoolean("lit");
+		color = EnumDyeColor.byMetadata(cmp.getInteger("color"));
 	}
 
 	@Override
 	void writeDataNBT(NBTTagCompound cmp) {
 		cmp.setBoolean("lit", lit);
 		cmp.setInteger("color", color.getMetadata());
-	}
-
-	@Override
-	void readDataNBT(NBTTagCompound cmp) {
-		lit = cmp.getBoolean("lit");
-		color = EnumDyeColor.byMetadata(cmp.getInteger("color"));
 	}
 }

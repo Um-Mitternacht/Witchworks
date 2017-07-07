@@ -11,14 +11,14 @@ import net.minecraft.stats.Achievement;
 
 class AchievementMod extends Achievement {
 
+	AchievementMod(String name, int x, int y, Item icon, Achievement parent) {
+		this(name, x, y, new ItemStack(icon), parent);
+	}
+
 	private AchievementMod(String name, int x, int y, ItemStack icon, Achievement parent) {
 		super("achievement.witchworks:" + name, "witchworks:" + name, x, y, icon, parent);
 		ModAchievements.achievements.add(this);
 		registerStat();
-	}
-
-	AchievementMod(String name, int x, int y, Item icon, Achievement parent) {
-		this(name, x, y, new ItemStack(icon), parent);
 	}
 
 	AchievementMod(String name, int x, int y, Block icon, Achievement parent) {

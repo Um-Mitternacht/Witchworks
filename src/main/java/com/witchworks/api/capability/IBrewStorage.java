@@ -26,6 +26,12 @@ public interface IBrewStorage {
 		}
 	}
 
+	Map<IBrew, BrewEffect> getBrewMap();
+
+	void setBrewMap(Map<IBrew, BrewEffect> effect);
+
+	void syncToNear(EntityLivingBase target);
+
 	default void removeBrew(EntityLivingBase entity, IBrew brew) {
 		BrewEffect effect = getBrew(brew);
 		if (effect != null) {
@@ -39,15 +45,9 @@ public interface IBrewStorage {
 		return getBrewMap().get(brew);
 	}
 
-	Map<IBrew, BrewEffect> getBrewMap();
-
-	void setBrewMap(Map<IBrew, BrewEffect> effect);
-
 	Collection<BrewEffect> getBrewEffects();
 
 	Set<IBrew> getBrews();
-
-	void syncToNear(EntityLivingBase target);
 
 	void syncTo(EntityPlayerMP target);
 }

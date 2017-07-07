@@ -43,16 +43,6 @@ public class ItemTaglock extends ItemMod {
 
 	//Todo: Make appearance change based on whether it has a taglock or not in it.
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		if (NBTHelper.hasTag(stack, TAGLOCK_ENTITY_NAME)) {
-			tooltip.add(TextFormatting.DARK_GRAY + NBTHelper.getString(stack, TAGLOCK_ENTITY_NAME));
-		} else {
-			tooltip.add(TextFormatting.DARK_GRAY + I18n.format("item.tag_lock.empty"));
-		}
-	}
-
 	@SuppressWarnings("ConstantConditions")
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
@@ -63,6 +53,16 @@ public class ItemTaglock extends ItemMod {
 			}
 		}
 		return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+		if (NBTHelper.hasTag(stack, TAGLOCK_ENTITY_NAME)) {
+			tooltip.add(TextFormatting.DARK_GRAY + NBTHelper.getString(stack, TAGLOCK_ENTITY_NAME));
+		} else {
+			tooltip.add(TextFormatting.DARK_GRAY + I18n.format("item.tag_lock.empty"));
+		}
 	}
 
 	@SuppressWarnings("ConstantConditions")
@@ -79,14 +79,21 @@ public class ItemTaglock extends ItemMod {
 		return super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);
 	}
 
-	public void removeVictim(ItemStack stack) {
-		NBTHelper.removeTag(stack, TAGLOCK_ENTITY);
-		NBTHelper.removeTag(stack, TAGLOCK_ENTITY_NAME);
+	private Optional<EntityPlayer> getPlayerFromBed(World world, BlockPos bed, boolean inBed) {
+		return world.playerEntities.stream().filter(
+				player -> inBed ? (player.isPlayerSleeping() && player.bedLocation.equals(bed))
+						: player.getBedLocation().equals(bed)
+		).findAny();
 	}
 
 	public void setVictim(ItemStack stack, EntityLivingBase victim) {
 		NBTHelper.setUniqueID(stack, TAGLOCK_ENTITY, victim.getUniqueID());
 		NBTHelper.setString(stack, TAGLOCK_ENTITY_NAME, victim.getName());
+	}
+
+	public void removeVictim(ItemStack stack) {
+		NBTHelper.removeTag(stack, TAGLOCK_ENTITY);
+		NBTHelper.removeTag(stack, TAGLOCK_ENTITY_NAME);
 	}
 
 	public Optional<EntityLivingBase> getVictim(ItemStack stack, World world) {
@@ -98,12 +105,5 @@ public class ItemTaglock extends ItemMod {
 		}
 		EntityPlayer victim = world.getPlayerEntityByUUID(uuid);
 		return Optional.ofNullable(victim);
-	}
-
-	private Optional<EntityPlayer> getPlayerFromBed(World world, BlockPos bed, boolean inBed) {
-		return world.playerEntities.stream().filter(
-				player -> inBed ? (player.isPlayerSleeping() && player.bedLocation.equals(bed))
-						: player.getBedLocation().equals(bed)
-		).findAny();
 	}
 }
