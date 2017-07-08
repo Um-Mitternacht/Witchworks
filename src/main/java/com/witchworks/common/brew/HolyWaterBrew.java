@@ -25,6 +25,7 @@ public class HolyWaterBrew extends BrewAtributeModifier {
 				entity.attackEntityFrom(DamageSource.MAGIC, 18);
 			}
 		}
+
 		if (entity.isEntityUndead()) {
 			entity.attackEntityFrom(DamageSource.MAGIC, 12);
 		}

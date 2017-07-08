@@ -5,6 +5,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.monster.EntityWitch;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -20,6 +22,14 @@ public class OutcastsShameBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		if (amplifier >= 3) {
+			if (entity instanceof EntityWitch && !entity.isBurning()) {
+				entity.setFire(500);
+				entity.attackEntityFrom(DamageSource.MAGIC, 18);
+			} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER)
+				entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 1500, 0));
+		}
+
 		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
 			entity.attackEntityFrom(DamageSource.MAGIC,10);
 		} else if (entity instanceof EntityWitch) {
