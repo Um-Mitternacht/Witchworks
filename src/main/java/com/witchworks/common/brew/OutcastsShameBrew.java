@@ -28,7 +28,7 @@ public class OutcastsShameBrew implements IBrew {
 				entity.attackEntityFrom(DamageSource.MAGIC, 18);
 			} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER)
 				entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 1500, 0));
-			entity.attackEntityFrom(DamageSource.MAGIC, 18);
+				entity.attackEntityFrom(DamageSource.MAGIC, 18);
 		}
 
 		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
