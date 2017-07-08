@@ -29,7 +29,7 @@ public class WolfsbaneBrew implements IBrew {
 		}
 
 		if (entity instanceof EntityWolf) {
-			entity.attackEntityFrom(DamageSource.MAGIC,10);
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		}
 	}
 
