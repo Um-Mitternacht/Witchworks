@@ -25,10 +25,10 @@ public class OutcastsShameBrew implements IBrew {
 		if (amplifier >= 3) {
 			if (entity instanceof EntityWitch && !entity.isBurning()) {
 				entity.setFire(500);
-				entity.attackEntityFrom(DamageSource.MAGIC, 18);
+				entity.attackEntityFrom(DamageSource.MAGIC, 20);
 			} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER)
 				entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 1500, 0));
-			entity.attackEntityFrom(DamageSource.MAGIC, 18);
+			entity.attackEntityFrom(DamageSource.MAGIC, 20);
 		}
 
 		if (amplifier == 2) {

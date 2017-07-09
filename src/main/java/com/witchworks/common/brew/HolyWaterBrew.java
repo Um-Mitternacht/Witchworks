@@ -22,7 +22,7 @@ public class HolyWaterBrew extends BrewAtributeModifier {
 		if (amplifier >= 3) {
 			if (entity.isEntityUndead() && !entity.isBurning()) {
 				entity.setFire(500);
-				entity.attackEntityFrom(DamageSource.MAGIC, 18);
+				entity.attackEntityFrom(DamageSource.MAGIC, 20);
 			}
 		}
 
