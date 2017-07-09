@@ -24,14 +24,20 @@ public class WolfsbaneBrew implements IBrew {
 		if (amplifier >= 3) {
 			if (entity instanceof EntityWolf) {
 				entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 1500, 0));
-				entity.attackEntityFrom(DamageSource.MAGIC, 15);
+				entity.attackEntityFrom(DamageSource.MAGIC, 18);
 			}
 		}
 
-		if (entity instanceof EntityWolf) {
-			entity.attackEntityFrom(DamageSource.MAGIC, 10);
+		if (amplifier == 2) {
+			if (entity instanceof EntityWolf) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			}
 		}
-	}
+
+			if (entity instanceof EntityWolf) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 10);
+			}
+		}
 
 	@Override
 	public boolean isBad() {

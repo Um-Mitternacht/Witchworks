@@ -25,10 +25,16 @@ public class BaneArthropodsBrew implements IBrew {
 			}
 		}
 
-		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD) {
-			entity.attackEntityFrom(DamageSource.MAGIC, 10);
+		if (amplifier == 2) {
+			if (entity.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			}
 		}
-	}
+
+			if (entity.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 10);
+			}
+		}
 
 	@Override
 	public boolean isBad() {

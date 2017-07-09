@@ -26,10 +26,16 @@ public class HolyWaterBrew extends BrewAtributeModifier {
 			}
 		}
 
-		if (entity.isEntityUndead()) {
-			entity.attackEntityFrom(DamageSource.MAGIC, 12);
+		if (amplifier == 2) {
+			if (entity.isEntityUndead()) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			}
 		}
-	}
+
+			if (entity.isEntityUndead()) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 10);
+			}
+		}
 
 	@Override
 	public boolean isBad() {
