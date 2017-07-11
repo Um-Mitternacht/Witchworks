@@ -3,7 +3,6 @@ package com.witchworks.api;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 /**
@@ -26,11 +25,6 @@ public final class WitchWorksAPI {
 	public static final ResourceLocation BOIL = getLocation("boil");
 	public static final ResourceLocation BUZZ = getLocation("buzz");
 	public static final ResourceLocation CHALK_SCRIBBLE = getLocation("chalk_scribble");
-
-	//Brews
-	public static final Item BREW_PHIAL_DRINK = Item.REGISTRY.getObject(getLocation("brew_phial_drink"));
-	public static final Item BREW_PHIAL_SPLASH = Item.REGISTRY.getObject(getLocation("brew_phial_splash"));
-	public static final Item BREW_PHIAL_LINGER = Item.REGISTRY.getObject(getLocation("brew_phial_linger"));
 
 	public static ResourceLocation SHELL_ARMOR = getLocation("shell_armor");
 	public static ResourceLocation SPIDER_NIGHTMARE = getLocation("spider_nightmare");

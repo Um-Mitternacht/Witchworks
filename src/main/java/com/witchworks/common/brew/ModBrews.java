@@ -15,8 +15,6 @@ import static net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
  * the MIT license.
  */
 
-//FIXME: Figure out why brews aren't showing in the creative tab.
-
 @ObjectHolder(LibMod.MOD_ID)
 public final class ModBrews {
 
@@ -88,7 +86,7 @@ public final class ModBrews {
 		addSplash(EXTINGUISH_FIRES, 0, 0);
 		addSplash(MARS_WATER, 500, 0);
 		addSplash(FROSTBITE, 500, 0);
-		addSplash(HOLY_WATER, 200, 0);
+		addSplash(HOLY_WATER, 1, 0);
 		addSplash(VOLATILE, 500, 0);
 		addSplash(HARVEST, 0, 0);
 		addSplash(FERTILIZE, 0, 0);
@@ -103,9 +101,9 @@ public final class ModBrews {
 		addSplash(SKIN_TINT, 1000, 0);
 		addSplash(CURSED_LEAPING, 1000, 0);
 		addSplash(SINKING, 1000, 0);
-		addSplash(BANE_ARTHROPODS, 1000, 0);
-		addSplash(WOLFSBANE, 1000, 0);
-		addSplash(OUTCASTS_SHAME, 200, 0);
+		addSplash(BANE_ARTHROPODS, 1, 0);
+		addSplash(WOLFSBANE, 1, 0);
+		addSplash(OUTCASTS_SHAME, 1, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);

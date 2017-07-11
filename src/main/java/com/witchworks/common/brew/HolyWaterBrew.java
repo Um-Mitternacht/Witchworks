@@ -19,9 +19,21 @@ public class HolyWaterBrew extends BrewAtributeModifier {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		if (amplifier >= 3) {
+			if (entity.isEntityUndead() && !entity.isBurning()) {
+				entity.setFire(500);
+				entity.attackEntityFrom(DamageSource.MAGIC, 20);
+			}
+		}
+
+		if (amplifier == 2) {
+			if (entity.isEntityUndead()) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			}
+		}
+
 		if (entity.isEntityUndead()) {
-			int damage = (int) (entity.getHealth() * (double) (3 << amplifier) + 0.5D);
-			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		}
 	}
 

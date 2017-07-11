@@ -5,6 +5,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.monster.EntityWitch;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -19,14 +21,28 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class OutcastsShameBrew implements IBrew {
 
 	@Override
-	//Todo: Make it target witches and mobs that extend witches, too.
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		if (amplifier >= 3) {
+			if (entity instanceof EntityWitch && !entity.isBurning()) {
+				entity.setFire(500);
+				entity.attackEntityFrom(DamageSource.MAGIC, 20);
+			} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER)
+				entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 1500, 0));
+			entity.attackEntityFrom(DamageSource.MAGIC, 20);
+		}
+
+		if (amplifier == 2) {
+			if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			} else if (entity instanceof EntityWitch) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			}
+		}
+
 		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
-			int damage = (int) (entity.getHealth() * (double) (3 << amplifier) + 0.5D);
-			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		} else if (entity instanceof EntityWitch) {
-			int damage = (int) (entity.getHealth() * (double) (3 << amplifier) + 0.5D);
-			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		}
 	}
 

@@ -4,6 +4,8 @@ import com.witchworks.api.brew.IBrew;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -19,9 +21,21 @@ public class WolfsbaneBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		if (amplifier >= 3) {
+			if (entity instanceof EntityWolf) {
+				entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 1500, 0));
+				entity.attackEntityFrom(DamageSource.MAGIC, 20);
+			}
+		}
+
+		if (amplifier == 2) {
+			if (entity instanceof EntityWolf) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			}
+		}
+
 		if (entity instanceof EntityWolf) {
-			int damage = (int) (entity.getHealth() * (double) (3 << amplifier) + 0.5D);
-			entity.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		}
 	}
 
