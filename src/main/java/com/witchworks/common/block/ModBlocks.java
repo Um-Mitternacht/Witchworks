@@ -54,6 +54,8 @@ public final class ModBlocks {
 	public static final Block coquina = PLACE_HOLDER;
 	public static final Block bloodstone_block = PLACE_HOLDER;
 	public static final Block tourmaline_block = PLACE_HOLDER;
+	public static final Block malachite_block = PLACE_HOLDER;
+	public static final Block tigers_eye_block = PLACE_HOLDER;
 	public static final Block cauldron = PLACE_HOLDER;
 	public static final Block candle_large = PLACE_HOLDER;
 	public static final Block candle_medium = PLACE_HOLDER;
@@ -116,6 +118,8 @@ public final class ModBlocks {
 				new BlockMod(LibBlockName.NETHERSTEEL, Material.IRON).setSound(SoundType.METAL).setHardness(5.0F),
 				new BlockMod(LibBlockName.TOURMALINE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.BLOODSTONE_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.MALACHITE_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.TIGERS_EYE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
 		);

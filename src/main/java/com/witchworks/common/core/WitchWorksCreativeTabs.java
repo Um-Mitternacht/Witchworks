@@ -175,6 +175,8 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.moldavite_block);
 			addBlock(ModBlocks.bloodstone_block);
 			addBlock(ModBlocks.tourmaline_block);
+			addBlock(ModBlocks.malachite_block);
+			addBlock(ModBlocks.tigers_eye_block);
 			addBlock(ModBlocks.silver_block);
 			addBlock(ModBlocks.nethersteel);
 			addBlock(ModBlocks.candle_large);
