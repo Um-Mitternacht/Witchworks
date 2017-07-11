@@ -34,10 +34,10 @@ public class WolfsbaneBrew implements IBrew {
 			}
 		}
 
-			if (entity instanceof EntityWolf) {
-				entity.attackEntityFrom(DamageSource.MAGIC, 10);
-			}
+		if (entity instanceof EntityWolf) {
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		}
+	}
 
 	@Override
 	public boolean isBad() {

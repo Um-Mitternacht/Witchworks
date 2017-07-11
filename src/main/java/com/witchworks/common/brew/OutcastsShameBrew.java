@@ -39,12 +39,12 @@ public class OutcastsShameBrew implements IBrew {
 			}
 		}
 
-			if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
-				entity.attackEntityFrom(DamageSource.MAGIC, 10);
-			} else if (entity instanceof EntityWitch) {
-				entity.attackEntityFrom(DamageSource.MAGIC, 10);
-			}
+		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
+		} else if (entity instanceof EntityWitch) {
+			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		}
+	}
 
 	@Override
 	public boolean isBad() {
