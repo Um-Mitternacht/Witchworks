@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "witchworks:blocks/crop_ginger"
+    "cross": "witchworks:blocks/crop_ginger_0"
   }
 }
