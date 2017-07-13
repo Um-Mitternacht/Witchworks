@@ -297,7 +297,7 @@ public class BlockSaltBarrier extends BlockMod {
 			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 10, 0));
 		}
 		if (entityIn instanceof EntityLivingBase && (((EntityLivingBase) entityIn).getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD)) {
-			entityIn.attackEntityFrom(DamageSource.MAGIC, 5);
+			entityIn.attackEntityFrom(DamageSource.MAGIC, 1);
 		}
 		if (entityIn instanceof EntityBlaze) {
 			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 255, 0));
