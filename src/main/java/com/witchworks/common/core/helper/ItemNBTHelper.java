@@ -1,14 +1,11 @@
 /**
  * This class was created by <Vazkii>. It's distributed as
  * part of the ThaumicTinkerer Mod.
- *
  * ThaumicTinkerer is Open Source and distributed under a
  * Botania License: http://botaniamod.net/license.php
- *
  * ThaumicTinkerer is a Derivative Work on Thaumcraft 4.
  * Thaumcraft 4 (c) Azanor 2012
  * (http://www.minecraftforum.net/topic/1585216-)
- *
  * File Created @ [8 Sep 2013, 19:36:25 (GMT)]
  */
 package com.witchworks.common.core.helper;
@@ -30,7 +27,7 @@ public final class ItemNBTHelper {
 	 * this will not do anything if the stack already has a tag
 	 * compound **/
 	public static void initNBT(ItemStack stack) {
-		if(!detectNBT(stack))
+		if (!detectNBT(stack))
 			injectNBT(stack, new NBTTagCompound());
 	}
 
@@ -82,7 +79,7 @@ public final class ItemNBTHelper {
 	}
 
 	public static void setCompound(ItemStack stack, String tag, NBTTagCompound cmp) {
-		if(!tag.equalsIgnoreCase("ench")) // not override the enchantments
+		if (!tag.equalsIgnoreCase("ench")) // not override the enchantments
 			getNBT(stack).setTag(tag, cmp);
 	}
 

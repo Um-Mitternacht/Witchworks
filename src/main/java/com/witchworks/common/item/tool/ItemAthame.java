@@ -4,12 +4,14 @@ import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.core.helper.ItemNBTHelper;
+import com.witchworks.common.item.ModItems;
 import com.witchworks.common.item.ModMaterials;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
@@ -56,19 +58,21 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 
 	@SubscribeEvent
 	public void onEntityDrops(LivingDropsEvent event) {
-		if(event.isRecentlyHit() && event.getSource().getTrueSource() != null && event.getSource().getTrueSource() instanceof EntityPlayer) {
+		if (event.isRecentlyHit() && event.getSource().getTrueSource() != null && event.getSource().getTrueSource() instanceof EntityPlayer) {
 			ItemStack weapon = ((EntityPlayer) event.getSource().getTrueSource()).getHeldItemMainhand();
-			if(!weapon.isEmpty() && weapon.getItem() == this) {
+			if (!weapon.isEmpty() && weapon.getItem() == this) {
 				Random rand = event.getEntityLiving().world.rand;
 				int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
 
-				if(event.getEntityLiving() instanceof AbstractSkeleton && rand.nextInt(26) <= 3 + looting)
+				if (event.getEntityLiving() instanceof AbstractSkeleton && rand.nextInt(26) <= 3 + looting)
 					addDrop(event, new ItemStack(Items.SKULL, 1, event.getEntityLiving() instanceof EntityWitherSkeleton ? 1 : 0));
-				else if(event.getEntityLiving() instanceof EntityZombie && !(event.getEntityLiving() instanceof EntityPigZombie) && rand.nextInt(26) <= 2 + 2 * looting)
+				else if (event.getEntityLiving() instanceof EntityZombie && !(event.getEntityLiving() instanceof EntityPigZombie) && rand.nextInt(26) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(Items.SKULL, 1, 2));
-				else if(event.getEntityLiving() instanceof EntityCreeper && rand.nextInt(26) <= 2 + 2 * looting)
+				else if (event.getEntityLiving() instanceof EntityCreeper && rand.nextInt(26) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(Items.SKULL, 1, 4));
-				else if(event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
+				else if (event.getEntityLiving() instanceof EntityBat)
+					addDrop(event, new ItemStack(ModItems.wool_of_bat, 3));
+				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);
 					ItemNBTHelper.setString(stack, "SkullOwner", event.getEntityLiving().getName());
 					addDrop(event, stack);
