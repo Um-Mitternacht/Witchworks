@@ -138,6 +138,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.unrefined_chalk);
 			addItem(ModItems.needle_bone);
 			addItem(ModItems.wool_of_bat);
+			addItem(ModItems.tongue_of_dog);
 		}
 	}
 

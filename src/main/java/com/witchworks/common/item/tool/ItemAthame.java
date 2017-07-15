@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityBat;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
@@ -72,6 +73,8 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 					addDrop(event, new ItemStack(Items.SKULL, 1, 4));
 				else if (event.getEntityLiving() instanceof EntityBat)
 					addDrop(event, new ItemStack(ModItems.wool_of_bat, 3));
+				else if (event.getEntityLiving() instanceof EntityWolf)
+					addDrop(event, new ItemStack(ModItems.tongue_of_dog, 1));
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);
 					ItemNBTHelper.setString(stack, "SkullOwner", event.getEntityLiving().getName());
