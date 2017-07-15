@@ -28,6 +28,8 @@ public final class ResourceLocations {
 	public static final ResourceLocation STEAM = getLocation("particle/steam");
 	public static final ResourceLocation BEE = getLocation("particle/bee");
 
+	//Loot Tables
+
 	private ResourceLocations() {
 	}
 

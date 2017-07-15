@@ -83,6 +83,7 @@ public final class ModItems {
 	public static final Item wax = PLACE_HOLDER;
 	public static final Item honey = PLACE_HOLDER;
 	public static final Item salt = PLACE_HOLDER;
+	public static final Item wool_of_bat = PLACE_HOLDER;
 	public static final Item honeycomb = PLACE_HOLDER;
 	public static final Item empty_honeycomb = PLACE_HOLDER;
 	public static final Item unrefined_chalk = PLACE_HOLDER;
@@ -142,6 +143,7 @@ public final class ModItems {
 				new ItemTaglock(),
 				new ItemMod(LibItemName.CHALK_ITEM),
 				new ItemMod(LibItemName.NEEDLE_BONE),
+				new ItemMod(LibItemName.WOOL_OF_BAT),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
 		);
