@@ -63,7 +63,7 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 			ItemStack weapon = ((EntityPlayer) event.getSource().getTrueSource()).getHeldItemMainhand();
 			if (!weapon.isEmpty() && weapon.getItem() == this) {
 				Random rand = event.getEntityLiving().world.rand;
-				int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
+				int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.LOOTING, weapon);
 
 				if (event.getEntityLiving() instanceof AbstractSkeleton && rand.nextInt(26) <= 3 + looting)
 					addDrop(event, new ItemStack(Items.SKULL, 1, event.getEntityLiving() instanceof EntityWitherSkeleton ? 1 : 0));
