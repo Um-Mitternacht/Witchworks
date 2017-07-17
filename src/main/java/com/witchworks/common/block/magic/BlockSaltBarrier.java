@@ -13,6 +13,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.monster.EntityGhast;
+import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -282,6 +289,30 @@ public class BlockSaltBarrier extends BlockMod {
 			}
 		}
 	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
+		if (entityIn instanceof EntityLivingBase && (((EntityLivingBase) entityIn).getCreatureAttribute() == EnumCreatureAttribute.UNDEAD)) {
+			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 10, 0));
+		}
+		if (entityIn instanceof EntityLivingBase && (((EntityLivingBase) entityIn).getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD)) {
+			entityIn.attackEntityFrom(DamageSource.MAGIC, 1);
+		}
+		if (entityIn instanceof EntityBlaze) {
+			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 255, 0));
+		}
+		if (entityIn instanceof EntityEnderman) {
+			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 255, 0));
+		}
+		if (entityIn instanceof EntityGhast) {
+			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 255, 0));
+		}
+		if (entityIn instanceof EntityVex) {
+			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 255, 0));
+		}
+	}
+
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {

@@ -83,6 +83,9 @@ public final class ModItems {
 	public static final Item wax = PLACE_HOLDER;
 	public static final Item honey = PLACE_HOLDER;
 	public static final Item salt = PLACE_HOLDER;
+	public static final Item wool_of_bat = PLACE_HOLDER;
+	public static final Item tongue_of_dog = PLACE_HOLDER;
+	public static final Item wood_ash = PLACE_HOLDER;
 	public static final Item honeycomb = PLACE_HOLDER;
 	public static final Item empty_honeycomb = PLACE_HOLDER;
 	public static final Item unrefined_chalk = PLACE_HOLDER;
@@ -142,6 +145,9 @@ public final class ModItems {
 				new ItemTaglock(),
 				new ItemMod(LibItemName.CHALK_ITEM),
 				new ItemMod(LibItemName.NEEDLE_BONE),
+				new ItemMod(LibItemName.WOOL_OF_BAT),
+				new ItemMod(LibItemName.TONGUE_OF_DOG),
+				new ItemMod(LibItemName.WOOD_ASH),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
 		);
@@ -189,6 +195,8 @@ public final class ModItems {
 				itemBlock(ModBlocks.apiary),
 				itemBlock(ModBlocks.beehive),
 				itemBlock(ModBlocks.tourmaline_block),
+				itemBlock(ModBlocks.malachite_block),
+				itemBlock(ModBlocks.tigers_eye_block),
 				itemBlock(ModBlocks.salt_ore),
 				itemBlock(ModBlocks.nethersteel),
 				itemBlock(ModBlocks.salt_barrier),

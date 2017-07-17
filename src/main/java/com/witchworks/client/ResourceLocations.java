@@ -17,6 +17,7 @@ public final class ResourceLocations {
 	public static final ResourceLocation POTION_TEXTURES = getLocation("textures/gui/potions.png");
 	public static final ResourceLocation BREW_TEXTURES = getLocation("textures/gui/brews.png");
 	public static final ResourceLocation APIARY_GUI = getLocation("textures/gui/apiary.png");
+	public static final ResourceLocation OVEN_GUI = getLocation("textures/gui/oven.png");
 	public static final ResourceLocation ENERGY = getLocation("textures/gui/energy.png");
 	public static final ResourceLocation[] ENERGY_BACKGROUND = new ResourceLocation[]{
 			getLocation("textures/gui/energy_dark.png"),
@@ -27,6 +28,8 @@ public final class ResourceLocations {
 	public static final ResourceLocation BUBBLE = getLocation("textures/particle/bubble.png");
 	public static final ResourceLocation STEAM = getLocation("particle/steam");
 	public static final ResourceLocation BEE = getLocation("particle/bee");
+
+	//Loot Tables
 
 	private ResourceLocations() {
 	}

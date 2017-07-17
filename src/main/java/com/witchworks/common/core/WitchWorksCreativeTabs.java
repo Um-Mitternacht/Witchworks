@@ -137,6 +137,9 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.taglock);
 			addItem(ModItems.unrefined_chalk);
 			addItem(ModItems.needle_bone);
+			addItem(ModItems.wool_of_bat);
+			addItem(ModItems.tongue_of_dog);
+			addItem(ModItems.wood_ash);
 		}
 	}
 
@@ -175,6 +178,8 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.moldavite_block);
 			addBlock(ModBlocks.bloodstone_block);
 			addBlock(ModBlocks.tourmaline_block);
+			addBlock(ModBlocks.malachite_block);
+			addBlock(ModBlocks.tigers_eye_block);
 			addBlock(ModBlocks.silver_block);
 			addBlock(ModBlocks.nethersteel);
 			addBlock(ModBlocks.candle_large);

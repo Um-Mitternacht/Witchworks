@@ -39,11 +39,6 @@
         "textures": {
           "cross": "witchworks:blocks/crop/crop_silphium_6"
         }
-      },
-      "7": {
-        "textures": {
-          "cross": "witchworks:blocks/crop/crop_silphium_false"
-        }
       }
     }
   }
