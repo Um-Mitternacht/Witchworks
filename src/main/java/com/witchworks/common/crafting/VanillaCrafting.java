@@ -8,6 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
@@ -266,6 +267,8 @@ public final class VanillaCrafting {
 				.add(ModBlocks.bloodstone_block)
 				.outputs(new ItemStack(ModItems.gem, 9, 5))
 				.build();
+
+		GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(ModItems.silver_ingot, 1), 0.35F);
 	}
 
 	@SuppressWarnings({"unused", "WeakerAccess"})
