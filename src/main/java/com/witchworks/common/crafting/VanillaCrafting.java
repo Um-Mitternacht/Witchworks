@@ -269,6 +269,7 @@ public final class VanillaCrafting {
 				.build();
 
 		GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(ModItems.silver_ingot, 1), 0.35F);
+		GameRegistry.addSmelting(Blocks.SAPLING, new ItemStack(ModItems.wood_ash, 4), 0.15F);
 	}
 
 	@SuppressWarnings({"unused", "WeakerAccess"})
