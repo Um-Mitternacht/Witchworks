@@ -1,7 +1,7 @@
 package com.witchworks.client.gui;
 
 import com.witchworks.client.ResourceLocations;
-import com.witchworks.client.gui.container.ContainerApiary;
+import com.witchworks.client.gui.container.ContainerOven;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -16,7 +16,7 @@ public class GuiOven extends GuiContainer {
 	private final IInventory tileFurnace;
 
 	public GuiOven(InventoryPlayer playerInventory, IInventory tileFurnace) {
-		super(new ContainerApiary(playerInventory, tileFurnace));
+		super(new ContainerOven(playerInventory, tileFurnace));
 		this.playerInventory = playerInventory;
 		this.tileFurnace = tileFurnace;
 	}
