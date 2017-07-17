@@ -53,12 +53,12 @@ public class CropSilphium extends BlockCrop {
 			IBlockState down = worldIn.getBlockState(pos.down());
 
 			//If the block below is Silphium and the age is 3 we place a top block in this position so it stops growing.
-			if(down.getBlock() == this && down.getValue(AGE) >= 3) {
+			if (down.getBlock() == this && down.getValue(AGE) >= 3) {
 				if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
 					worldIn.setBlockState(pos, getDefaultState().withProperty(AGE, 6), 3);
 					net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
 				}
-			//If it isn't then we place a new Silphium stem on top, only if the crop below is is full grown.
+				//If it isn't then we place a new Silphium stem on top, only if the crop below is is full grown.
 			} else if (state.getValue(AGE) == 5 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
 				worldIn.setBlockState(pos.up(), getDefaultState(), 3);
 				net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
@@ -71,7 +71,7 @@ public class CropSilphium extends BlockCrop {
 		int i = this.getAge(state) + this.getBonemealAgeIncrease(worldIn);
 		int j = 5;
 
-		if(i > j) {
+		if (i > j) {
 			i = j;
 		}
 
@@ -85,7 +85,7 @@ public class CropSilphium extends BlockCrop {
 
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		if(!this.canSustainBush(worldIn.getBlockState(pos.down()))) {
+		if (!this.canSustainBush(worldIn.getBlockState(pos.down()))) {
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
