@@ -32,17 +32,12 @@
       },
       "5": {
         "textures": {
-          "cross": "witchworks:blocks/crop/crop_silphium_4"
+          "cross": "witchworks:blocks/crop/crop_silphium_5"
         }
       },
       "6": {
         "textures": {
-          "cross": "witchworks:blocks/crop/crop_silphium_5"
-        }
-      },
-      "7": {
-        "textures": {
-          "cross": "witchworks:blocks/crop/crop_silphium_5"
+          "cross": "witchworks:blocks/crop/crop_silphium_6"
         }
       }
     }
