@@ -14,18 +14,19 @@ public class SeedDropRegistry {
 	public static void init() {
 
 		//Todo: Add unique ways of getting some of the seeds (silphium from dungeons and strongholds, white sage from dead bushes)
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_mandrake), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_belladonna), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_aconitum), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_thistle), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_mint), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_ginger), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_wormwood), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_lavender), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_asphodel), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_tulsi), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_kenaf), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_garlic), 5);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_white_sage), 5);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_mandrake), 4);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_belladonna), 8);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_aconitum), 6);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_thistle), 8);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_mint), 6);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_ginger), 3);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_wormwood), 8);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_lavender), 4);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_asphodel), 6);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_tulsi), 3);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_kenaf), 3);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_garlic), 4);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_white_sage), 3);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_silphium), 1);
 	}
 }
