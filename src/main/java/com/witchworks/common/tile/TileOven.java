@@ -1,6 +1,5 @@
 package com.witchworks.common.tile;
 
-import com.witchworks.api.helper.ItemNullHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -52,20 +51,19 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	}
 
 	@Override
-	public boolean isEmpty()
-		{
-			for (ItemStack itemstack : this.ovenItemStacks) {
-				if (!itemstack.isEmpty()) {
-					return false;
-				}
+	public boolean isEmpty() {
+		for (ItemStack itemstack : this.ovenItemStacks) {
+			if (!itemstack.isEmpty()) {
+				return false;
 			}
-
-			return true;
 		}
+
+		return true;
+	}
 
 	@Override
 	public ItemStack getStackInSlot(int index) {
-		return (ItemStack)this.ovenItemStacks.get(index);
+		return (ItemStack) this.ovenItemStacks.get(index);
 	}
 
 	@Override
@@ -140,8 +138,8 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public String getGuiID() {
-			return "witchworks:oven";
-		}
+		return "witchworks:oven";
+	}
 
 	@Override
 	public String getName() {
