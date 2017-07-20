@@ -5,9 +5,9 @@ import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.api.recipe.BrewModifier;
+import com.witchworks.api.recipe.CauldronBrewRecipe;
+import com.witchworks.api.recipe.CauldronItemRecipe;
 import com.witchworks.api.recipe.ItemValidator;
-import com.witchworks.api.recipe.KettleBrewRecipe;
-import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.api.ritual.RitualHolder;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.common.WitchWorks;
@@ -57,7 +57,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	private final String TAG_MODE = "mode";
 	private final String TAG_INGREDIENTS = "ingredients";
 	private final String TAG_CONTAINER = "container";
-	private final KettleFluid inv = tank();
+	private final CauldronFluid inv = tank();
 
 	private int rgb = 0x12193b;
 	private RitualHolder ritual;
@@ -230,7 +230,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	}
 
 	@SuppressWarnings("ConstantConditions")
-	public boolean useKettle(EntityPlayer player, EnumHand hand, ItemStack heldItem) {
+	public boolean useCauldron(EntityPlayer player, EnumHand hand, ItemStack heldItem) {
 		if (!world.isRemote) {
 			if (heldItem.isEmpty()) {
 				if (!getContainer().isEmpty()) {
@@ -511,11 +511,11 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings("unchecked")
 	public void itemRitualLogic() {
-		Optional<KettleItemRecipe> optional = CauldronRegistry.getItemRituals().stream().filter(
+		Optional<CauldronItemRecipe> optional = CauldronRegistry.getItemRituals().stream().filter(
 				i -> i.matches(ingredients)
 		).findAny();
 		if (optional.isPresent()) {
-			KettleItemRecipe recipe = optional.get();
+			CauldronItemRecipe recipe = optional.get();
 			setRitual(new RitualHolder<>(recipe.getRitual()));
 			if (ritual.canPerform(this, world, getPos())) {
 				setMode(Mode.RITUAL);
@@ -527,8 +527,8 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	}
 
 	public void potionRecipeLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		List<KettleBrewRecipe> potions = CauldronRegistry.getBrewRecipes();
-		Optional<KettleBrewRecipe> optional = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
+		List<CauldronBrewRecipe> potions = CauldronRegistry.getBrewRecipes();
+		Optional<CauldronBrewRecipe> optional = potions.stream().filter(recipe -> recipe.canTake(stack) && recipe.matches(ingredients)).findAny();
 		if (optional.isPresent()) {
 			ItemStack potion = optional.get().getResult();
 			potion.setCount(1 + getBrewMultiplier(player));

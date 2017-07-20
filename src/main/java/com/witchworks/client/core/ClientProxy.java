@@ -11,7 +11,7 @@ import com.witchworks.client.handler.ItemCandleColorHandler;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.client.render.entity.BrewRenderer;
 import com.witchworks.client.render.entity.EmptyRenderer;
-import com.witchworks.client.render.tile.TileRenderKettle;
+import com.witchworks.client.render.tile.TileRenderCauldron;
 import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.net.GuiHandler;
@@ -130,6 +130,6 @@ public class ClientProxy implements ISidedProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrewLinger.class, EmptyRenderer::new);
 
-		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderKettle());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileCauldron.class, new TileRenderCauldron());
 	}
 }

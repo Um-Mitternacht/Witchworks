@@ -120,7 +120,7 @@ public class BlockCauldron extends BlockMod implements IModelRegister, ITileEnti
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		final TileCauldron tile = (TileCauldron) worldIn.getTileEntity(pos);
-		return tile != null && tile.useKettle(playerIn, hand, playerIn.getHeldItem(hand));
+		return tile != null && tile.useCauldron(playerIn, hand, playerIn.getHeldItem(hand));
 	}
 
 	protected BlockStateContainer createBlockState() {

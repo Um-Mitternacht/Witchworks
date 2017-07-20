@@ -1,9 +1,9 @@
 package com.witchworks.api;
 
 import com.witchworks.api.recipe.BrewModifier;
+import com.witchworks.api.recipe.CauldronBrewRecipe;
+import com.witchworks.api.recipe.CauldronItemRecipe;
 import com.witchworks.api.recipe.ItemValidator;
-import com.witchworks.api.recipe.KettleBrewRecipe;
-import com.witchworks.api.recipe.KettleItemRecipe;
 import com.witchworks.common.crafting.cauldron.ItemRitual;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,8 +25,8 @@ public final class CauldronRegistry {
 
 	private static final Map<Fluid, Map<Item, ItemValidator<ItemStack>>> ITEM_PROCESSING = new HashMap<>();
 	private static final Map<Item, FluidStack> FLUID_INGREDIENTS = new HashMap<>();
-	private static final List<KettleItemRecipe> ITEM_RITUALS = new ArrayList<>();
-	private static final List<KettleBrewRecipe> BREW_RECIPES = new ArrayList<>();
+	private static final List<CauldronItemRecipe> ITEM_RITUALS = new ArrayList<>();
+	private static final List<CauldronBrewRecipe> BREW_RECIPES = new ArrayList<>();
 	private static final Map<Item, ItemValidator<Object>> BREW_EFFECTS = new HashMap<>();
 	private static final Map<Item, ItemValidator<BrewModifier>> BREW_MODIFIERS = new HashMap<>();
 
@@ -62,12 +62,12 @@ public final class CauldronRegistry {
 	}
 
 	public static void registerItemRitual(ItemRitual ritual, Object... objects) {
-		final KettleItemRecipe recipe = new KettleItemRecipe(ritual, objects);
+		final CauldronItemRecipe recipe = new CauldronItemRecipe(ritual, objects);
 		ITEM_RITUALS.add(recipe);
 	}
 
 	public static void registerBrewRecipe(ItemStack stack, Object... objects) {
-		final KettleBrewRecipe recipe = new KettleBrewRecipe(stack, objects);
+		final CauldronBrewRecipe recipe = new CauldronBrewRecipe(stack, objects);
 		BREW_RECIPES.add(recipe);
 	}
 
@@ -97,11 +97,11 @@ public final class CauldronRegistry {
 		return FLUID_INGREDIENTS;
 	}
 
-	public static List<KettleItemRecipe> getItemRituals() {
+	public static List<CauldronItemRecipe> getItemRituals() {
 		return ITEM_RITUALS;
 	}
 
-	public static List<KettleBrewRecipe> getBrewRecipes() {
+	public static List<CauldronBrewRecipe> getBrewRecipes() {
 		return BREW_RECIPES;
 	}
 

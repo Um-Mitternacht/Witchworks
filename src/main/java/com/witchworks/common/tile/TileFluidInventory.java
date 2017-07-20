@@ -31,8 +31,8 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 		tank = createFluidHandler();
 	}
 
-	private KettleFluid createFluidHandler() {
-		return new KettleFluid(this, Fluid.BUCKET_VOLUME);
+	private CauldronFluid createFluidHandler() {
+		return new CauldronFluid(this, Fluid.BUCKET_VOLUME);
 	}
 
 	abstract void onLiquidChange();
@@ -91,26 +91,26 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 		return stack != null ? Optional.of(stack) : Optional.empty();
 	}
 
-	KettleFluid tank() {
-		return (KettleFluid) tank;
+	CauldronFluid tank() {
+		return (CauldronFluid) tank;
 	}
 
 	@SuppressWarnings("WeakerAccess")
-	public class KettleFluid extends FluidTank {
+	public class CauldronFluid extends FluidTank {
 
 		private final TileFluidInventory tile;
 
-		public KettleFluid(TileFluidInventory tile, int capacity) {
+		public CauldronFluid(TileFluidInventory tile, int capacity) {
 			super(capacity);
 			this.tile = tile;
 		}
 
-		public KettleFluid(TileFluidInventory tile, @Nullable FluidStack fluidStack, int capacity) {
+		public CauldronFluid(TileFluidInventory tile, @Nullable FluidStack fluidStack, int capacity) {
 			super(fluidStack, capacity);
 			this.tile = tile;
 		}
 
-		public KettleFluid(TileFluidInventory tile, Fluid fluid, int amount, int capacity) {
+		public CauldronFluid(TileFluidInventory tile, Fluid fluid, int amount, int capacity) {
 			super(fluid, amount, capacity);
 			this.tile = tile;
 		}
@@ -141,7 +141,7 @@ public abstract class TileFluidInventory extends TileFluidHandler {
 
 		@Override
 		public String toString() {
-			return String.format("Kettle: %s, %d/%d", fluid != null && fluid.getFluid() != null ? fluid.getFluid().getName() : "Empty", getFluidAmount(), getCapacity());
+			return String.format("Cauldron: %s, %d/%d", fluid != null && fluid.getFluid() != null ? fluid.getFluid().getName() : "Empty", getFluidAmount(), getCapacity());
 		}
 
 		public boolean hasFluid() {

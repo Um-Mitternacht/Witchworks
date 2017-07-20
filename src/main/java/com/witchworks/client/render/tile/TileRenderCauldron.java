@@ -25,7 +25,7 @@ import java.util.Optional;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class TileRenderKettle extends TileEntitySpecialRenderer<TileCauldron> {
+public class TileRenderCauldron extends TileEntitySpecialRenderer<TileCauldron> {
 
 	@SuppressWarnings("ConstantConditions")
 	@Override
