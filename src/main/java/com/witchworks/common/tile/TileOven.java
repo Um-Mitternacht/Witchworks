@@ -1,5 +1,6 @@
 package com.witchworks.common.tile;
 
+import com.witchworks.client.gui.container.ContainerOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -12,13 +13,14 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.text.TextComponentTranslation;
 
 /**
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private NonNullList<ItemStack> ovenItemStacks = NonNullList.<ItemStack>withSize(5, ItemStack.EMPTY);
-	private String ovenCustomName;
+	private String customName;
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
@@ -133,7 +135,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-		return null;
+		return new ContainerOven(playerInventory, this);
 	}
 
 	@Override
@@ -141,13 +143,18 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 		return "witchworks:oven";
 	}
 
+	public void setCustomInventoryName(String name) {
+		this.customName = name;
+	}
+
 	@Override
 	public String getName() {
-		return this.hasCustomName() ? this.ovenCustomName : "container.oven";
+		return this.hasCustomName() ? this.customName : new TextComponentTranslation("container.oven").getFormattedText();
 	}
 
 	@Override
 	public boolean hasCustomName() {
-		return false;
+		return this.customName != null && !this.customName.isEmpty();
 	}
+
 }
