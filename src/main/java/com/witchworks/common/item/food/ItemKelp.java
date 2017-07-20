@@ -1,7 +1,11 @@
 package com.witchworks.common.item.food;
 
 import com.witchworks.common.lib.LibItemName;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 
 /**
  * This class was created by Arekkuusu on 02/03/2017.
@@ -12,6 +16,10 @@ public class ItemKelp extends ItemCrop {
 
 	public ItemKelp() {
 		super(LibItemName.KELP, 3, 0.8F, false);
-		addPotion(MobEffects.WATER_BREATHING, MobEffects.LUCK);
+	}
+
+	@Override
+	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
+		player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 10, 0));
 	}
 }
