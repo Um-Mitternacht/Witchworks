@@ -42,7 +42,7 @@ public class FlawlessRecipe implements IOreMatchRecipe {
 			for (int i = 0; i < list.size(); i++) {
 				final Object needed = neededItems.get(i);
 				final ItemStack used = list.get(i);
-				if (needed instanceof ItemStack && !itemMatches((ItemStack) needed, used)) {
+				if (needed instanceof ItemStack && !ItemStack.areItemStacksEqual(used, (ItemStack) needed)) {
 					matches = false;
 					break;
 				} else if (needed instanceof String && !containsMatch(OreDictionary.getOres((String) needed), used)) {
