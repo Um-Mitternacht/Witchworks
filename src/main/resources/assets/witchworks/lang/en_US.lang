@@ -10,6 +10,7 @@ witchworks.config.brew_hud=Brews HUD
 
 //Gui
 container.apiary=Apiary
+container.oven=Oven
 
 ////Names
 //Items
