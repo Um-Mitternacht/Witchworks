@@ -15,12 +15,18 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextComponentTranslation;
 
+import static net.minecraft.tileentity.TileEntityFurnace.getItemBurnTime;
+
 /**
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private NonNullList<ItemStack> ovenItemStacks = NonNullList.<ItemStack>withSize(5, ItemStack.EMPTY);
 	private String customName;
+
+	public static boolean isItemFuel(ItemStack stack) {
+		return getItemBurnTime(stack) > 0;
+	}
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
