@@ -107,6 +107,7 @@ public final class ModBrews {
 		addSplash(BANE_ARTHROPODS, 1, 0);
 		addSplash(WOLFSBANE, 1, 0);
 		addSplash(OUTCASTS_SHAME, 1, 0);
+		addSplash(IGNITION, 500, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);
@@ -117,8 +118,8 @@ public final class ModBrews {
 		addLinger(SKIN_TINT, 500, 0);
 		addLinger(CURSED_LEAPING, 500, 0);
 		addLinger(SINKING, 500, 0);
-		addLinger(BANE_ARTHROPODS, 500, 0);
-		addLinger(WOLFSBANE, 500, 0);
+		addLinger(BANE_ARTHROPODS, 50, 0);
+		addLinger(WOLFSBANE, 50, 0);
 	}
 
 	private static IBrew registerBrew(IBrew brew) {
