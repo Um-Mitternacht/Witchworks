@@ -216,7 +216,7 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.IGNITION), false);
 		registerEffect(getStack(ModItems.gemstone_amalgam)
 				, BrewRegistry.getDefault(ModBrews.OUTCASTS_SHAME), false);
-		registerEffect(getStack(Items.FEATHER)
+		registerEffect(getStack(ModItems.wool_of_bat)
 				, BrewRegistry.getDefault(ModBrews.GRACE), false);
 
 		registerModifier(getStack(Items.QUARTZ)

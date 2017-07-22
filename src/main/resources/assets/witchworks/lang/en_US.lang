@@ -269,7 +269,7 @@ brew.snow_trail.desc=Snow Layer everywhere and affected creatures leave trail of
 brew.snow_trail.tooltip=Snow Trail
 
 brew.skin_tint.name=Skin Tint Brew
-brew.skin_tint.desc=Tint the skin with a color
+brew.skin_tint.desc=Tints your skin with a specific color
 brew.skin_tint.tooltip=Skin Tint
 
 brew.wolfsbane.name=Wolfsbane Brew
