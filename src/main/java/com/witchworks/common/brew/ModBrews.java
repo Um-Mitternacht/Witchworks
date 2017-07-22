@@ -120,6 +120,8 @@ public final class ModBrews {
 		addLinger(SINKING, 500, 0);
 		addLinger(BANE_ARTHROPODS, 50, 0);
 		addLinger(WOLFSBANE, 50, 0);
+		addLinger(IGNITION, 500, 0);
+		addLinger(OUTCASTS_SHAME, 50, 0);
 	}
 
 	private static IBrew registerBrew(IBrew brew) {
