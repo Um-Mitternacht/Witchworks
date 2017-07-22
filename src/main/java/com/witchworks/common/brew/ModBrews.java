@@ -81,7 +81,7 @@ public final class ModBrews {
 		addDrink(SNOW_TRAIL, 1500, 0);
 		addDrink(SKIN_TINT, 1500, 0);
 		addDrink(IGNITION, 500, 0);
-		addDrink(GRACE, 1500, 0);
+		addDrink(GRACE, 200, 0);
 
 		//--------------------------------SPLASH--------------------------------//
 		addSplash(SPIDER_NIGHTMARE, 500, 0);
