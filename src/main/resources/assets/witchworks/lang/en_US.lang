@@ -10,6 +10,7 @@ witchworks.config.brew_hud=Brews HUD
 
 //Gui
 container.apiary=Apiary
+container.oven=Oven
 
 ////Names
 //Items
@@ -268,7 +269,7 @@ brew.snow_trail.desc=Snow Layer everywhere and affected creatures leave trail of
 brew.snow_trail.tooltip=Snow Trail
 
 brew.skin_tint.name=Skin Tint Brew
-brew.skin_tint.desc=Tint the skin with a color
+brew.skin_tint.desc=Tints your skin with a specific color
 brew.skin_tint.tooltip=Skin Tint
 
 brew.wolfsbane.name=Wolfsbane Brew
@@ -295,12 +296,16 @@ brew.ignition.name=Brew of Ignition
 brew.ignition.desc=Lights you or a target on fire.
 brew.ignition.tooltip=Ignition
 
+brew.grace.name=Brew of Grace
+brew.grace.desc=Negates fall damage
+brew.grace.tooltip=Grace
+
 brew..name=
 brew..desc=
 brew..tooltip=
 
 //Sound
-witchworks.subtitle.boil=Kettle boiling
+witchworks.subtitle.boil=Cauldron boiling
 witchworks.subtitle.buzz=Bees buzzing
 witchworks.subtitle.chalk_scribble=Chalk scribbling
 

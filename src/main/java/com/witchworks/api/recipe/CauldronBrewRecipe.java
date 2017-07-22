@@ -8,9 +8,9 @@ import net.minecraft.item.ItemStack;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class KettleBrewRecipe extends FlawlessRecipe {
+public class CauldronBrewRecipe extends FlawlessRecipe {
 
-	public KettleBrewRecipe(ItemStack result, Object... inputs) {
+	public CauldronBrewRecipe(ItemStack result, Object... inputs) {
 		super(result, inputs);
 	}
 

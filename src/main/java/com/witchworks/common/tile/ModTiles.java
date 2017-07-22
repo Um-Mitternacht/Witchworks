@@ -9,17 +9,19 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public final class ModTiles {
 
-	private static final String KETTLE = "cauldron";
+	private static final String CAULDRON = "cauldron";
 	private static final String CANDLE = "candle";
 	private static final String APIARY = "apiary";
+	private static final String OVEN = "oven";
 
 	private ModTiles() {
 	}
 
 	public static void registerAll() {
 
-		GameRegistry.registerTileEntity(TileCauldron.class, KETTLE);
+		GameRegistry.registerTileEntity(TileCauldron.class, CAULDRON);
 		GameRegistry.registerTileEntity(TileCandle.class, CANDLE);
 		GameRegistry.registerTileEntity(TileApiary.class, APIARY);
+		GameRegistry.registerTileEntity(TileOven.class, OVEN);
 	}
 }

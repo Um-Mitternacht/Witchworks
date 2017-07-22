@@ -8,6 +8,7 @@ package com.witchworks.common.lib;
 public final class LibGui {
 
 	public static final int APIARY = 0;
+	public static final int OVEN = 1;
 
 	private LibGui() {
 	}

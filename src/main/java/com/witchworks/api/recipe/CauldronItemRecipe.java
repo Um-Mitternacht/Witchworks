@@ -7,11 +7,11 @@ import com.witchworks.common.crafting.cauldron.ItemRitual;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class KettleItemRecipe extends FlawlessRecipe {
+public class CauldronItemRecipe extends FlawlessRecipe {
 
 	private final ItemRitual ritual;
 
-	public KettleItemRecipe(ItemRitual ritual, Object... inputs) {
+	public CauldronItemRecipe(ItemRitual ritual, Object... inputs) {
 		super(ritual.getStack(), inputs);
 		this.ritual = ritual;
 	}

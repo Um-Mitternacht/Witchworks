@@ -2,6 +2,7 @@ package com.witchworks.common.crafting;
 
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.item.ModMaterials;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -270,6 +271,9 @@ public final class VanillaCrafting {
 
 		GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(ModItems.silver_ingot, 1), 0.35F);
 		GameRegistry.addSmelting(Blocks.SAPLING, new ItemStack(ModItems.wood_ash, 4), 0.15F);
+		ModMaterials.TOOL_RITUAL.setRepairItem(new ItemStack(ModItems.silver_ingot));
+		ModMaterials.ARMOR_SILVER.setRepairItem(new ItemStack(ModItems.silver_ingot));
+		ModMaterials.TOOL_SILVER.setRepairItem(new ItemStack(ModItems.silver_ingot));
 	}
 
 	@SuppressWarnings({"unused", "WeakerAccess"})

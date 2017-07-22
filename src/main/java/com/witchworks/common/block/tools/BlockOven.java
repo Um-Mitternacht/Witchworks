@@ -1,13 +1,19 @@
 package com.witchworks.common.block.tools;
 
+import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.lib.LibBlockName;
+import com.witchworks.common.lib.LibGui;
+import com.witchworks.common.tile.TileOven;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -46,7 +52,18 @@ public class BlockOven extends BlockMod {
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if (!worldIn.isRemote) {
+			final TileEntity tile = worldIn.getTileEntity(pos);
+			if (tile == null || !(tile instanceof TileOven)) return false;
+
+			ItemStack heldItem = playerIn.getHeldItem(hand);
+			if (!heldItem.isEmpty() && heldItem.getItem() == Items.NAME_TAG) {
+				((TileOven) tile).setCustomInventoryName(heldItem.getDisplayName());
+			} else {
+				playerIn.openGui(WitchWorks.instance, LibGui.OVEN, worldIn, pos.getX(), pos.getY(), pos.getZ());
+			}
+		}
 		return true;
 	}
 

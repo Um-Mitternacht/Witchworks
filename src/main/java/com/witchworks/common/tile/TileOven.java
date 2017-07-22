@@ -1,6 +1,6 @@
 package com.witchworks.common.tile;
 
-import com.witchworks.api.helper.ItemNullHelper;
+import com.witchworks.client.gui.container.ContainerOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -13,13 +13,20 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.text.TextComponentTranslation;
+
+import static net.minecraft.tileentity.TileEntityFurnace.getItemBurnTime;
 
 /**
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private NonNullList<ItemStack> ovenItemStacks = NonNullList.<ItemStack>withSize(5, ItemStack.EMPTY);
-	private String ovenCustomName;
+	private String customName;
+
+	public static boolean isItemFuel(ItemStack stack) {
+		return getItemBurnTime(stack) > 0;
+	}
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
@@ -52,20 +59,19 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	}
 
 	@Override
-	public boolean isEmpty()
-		{
-			for (ItemStack itemstack : this.ovenItemStacks) {
-				if (!itemstack.isEmpty()) {
-					return false;
-				}
+	public boolean isEmpty() {
+		for (ItemStack itemstack : this.ovenItemStacks) {
+			if (!itemstack.isEmpty()) {
+				return false;
 			}
-
-			return true;
 		}
+
+		return true;
+	}
 
 	@Override
 	public ItemStack getStackInSlot(int index) {
-		return (ItemStack)this.ovenItemStacks.get(index);
+		return (ItemStack) this.ovenItemStacks.get(index);
 	}
 
 	@Override
@@ -135,21 +141,26 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-		return null;
+		return new ContainerOven(playerInventory, this);
 	}
 
 	@Override
 	public String getGuiID() {
-			return "witchworks:oven";
-		}
+		return "witchworks:oven";
+	}
+
+	public void setCustomInventoryName(String name) {
+		this.customName = name;
+	}
 
 	@Override
 	public String getName() {
-		return this.hasCustomName() ? this.ovenCustomName : "container.oven";
+		return this.hasCustomName() ? this.customName : new TextComponentTranslation("container.oven").getFormattedText();
 	}
 
 	@Override
 	public boolean hasCustomName() {
-		return false;
+		return this.customName != null && !this.customName.isEmpty();
 	}
+
 }
