@@ -296,6 +296,10 @@ brew.ignition.name=Brew of Ignition
 brew.ignition.desc=Lights you or a target on fire.
 brew.ignition.tooltip=Ignition
 
+brew.grace.name=Brew of Grace
+brew.grace.desc=Negates fall damage
+brew.grace.tooltip=Grace
+
 brew..name=
 brew..desc=
 brew..tooltip=

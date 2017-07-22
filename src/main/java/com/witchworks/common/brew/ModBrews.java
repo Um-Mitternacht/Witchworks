@@ -42,6 +42,7 @@ public final class ModBrews {
 	public static IBrew WOLFSBANE;
 	public static IBrew OUTCASTS_SHAME;
 	public static IBrew IGNITION;
+	public static IBrew GRACE;
 
 	private ModBrews() {
 	}
@@ -71,6 +72,7 @@ public final class ModBrews {
 		WOLFSBANE = registerBrew(new WolfsbaneBrew());
 		OUTCASTS_SHAME = registerBrew(new OutcastsShameBrew());
 		IGNITION = registerBrew(new IgnitionBrew());
+		GRACE = registerBrew(new GraceBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -79,6 +81,7 @@ public final class ModBrews {
 		addDrink(SNOW_TRAIL, 1500, 0);
 		addDrink(SKIN_TINT, 1500, 0);
 		addDrink(IGNITION, 500, 0);
+		addDrink(GRACE, 1500, 0);
 
 		//--------------------------------SPLASH--------------------------------//
 		addSplash(SPIDER_NIGHTMARE, 500, 0);

@@ -1,19 +1,12 @@
 package com.witchworks.common.brew;
 
 import com.witchworks.api.brew.IBrew;
-import com.witchworks.api.brew.IBrewClientSide;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import static net.minecraft.util.DamageSource.FALL;
 
 /**
  * This class was created by Arekkuusu on 24/04/2017.
@@ -25,6 +18,7 @@ public class GraceBrew implements IBrew {
 	//
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		entity.fallDistance = 0.0F;
 	}
 
 	@Override
@@ -52,4 +46,5 @@ public class GraceBrew implements IBrew {
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
 		render(x, y, mc, 11);
 	}
+
 }
