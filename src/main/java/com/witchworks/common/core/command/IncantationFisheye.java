@@ -20,8 +20,8 @@ class IncantationFisheye implements IIncantation {
 	public void cast(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		final EntityLivingBase entity = (EntityLivingBase) sender.getCommandSenderEntity();
 		if (entity.isEntityAlive()) {
-			entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 80, 0));
-			entity.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 80, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 275, 0));
+			entity.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 275, 0));
 		}
 	}
 }
