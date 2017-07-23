@@ -19,6 +19,7 @@ public final class ModCommands {
 		addIncantation("medico", new IncantationHeal());
 		addIncantation("lux", new IncantationCandlelight());
 		addIncantation("tenebrae", new IncantationSnuff());
+		addIncantation("aqua", new IncantationFisheye());
 	}
 
 	private static void addIncantation(String name, IIncantation incantation) {
