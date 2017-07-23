@@ -15,17 +15,17 @@ import net.minecraft.inventory.IInventory;
 public class GuiApiary extends GuiContainer {
 
 	private final InventoryPlayer playerInventory;
-	private final IInventory tileFurnace;
+	private final IInventory tileApiary;
 
-	public GuiApiary(InventoryPlayer playerInventory, IInventory tileFurnace) {
-		super(new ContainerApiary(playerInventory, tileFurnace));
+	public GuiApiary(InventoryPlayer playerInventory, IInventory tileApiary) {
+		super(new ContainerApiary(playerInventory, tileApiary));
 		this.playerInventory = playerInventory;
-		this.tileFurnace = tileFurnace;
+		this.tileApiary = tileApiary;
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		final String s = this.tileFurnace.getDisplayName().getUnformattedText();
+		final String s = this.tileApiary.getDisplayName().getUnformattedText();
 		this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
 		this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
 	}
