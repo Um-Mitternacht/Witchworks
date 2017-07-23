@@ -80,7 +80,7 @@ public final class ModBrews {
 		addDrink(PATH_OF_THE_DEEP, 1000, 0);
 		addDrink(SNOW_TRAIL, 1500, 0);
 		addDrink(SKIN_TINT, 1500, 0);
-		addDrink(IGNITION, 500, 0);
+		addDrink(IGNITION, 350, 0);
 		addDrink(GRACE, 200, 0);
 
 		//--------------------------------SPLASH--------------------------------//
@@ -107,7 +107,7 @@ public final class ModBrews {
 		addSplash(BANE_ARTHROPODS, 1, 0);
 		addSplash(WOLFSBANE, 1, 0);
 		addSplash(OUTCASTS_SHAME, 1, 0);
-		addSplash(IGNITION, 500, 0);
+		addSplash(IGNITION, 750, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);
@@ -120,7 +120,7 @@ public final class ModBrews {
 		addLinger(SINKING, 500, 0);
 		addLinger(BANE_ARTHROPODS, 50, 0);
 		addLinger(WOLFSBANE, 50, 0);
-		addLinger(IGNITION, 500, 0);
+		addLinger(IGNITION, 750, 0);
 		addLinger(OUTCASTS_SHAME, 50, 0);
 	}
 
