@@ -218,6 +218,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.OUTCASTS_SHAME), false);
 		registerEffect(getStack(ModItems.wool_of_bat)
 				, BrewRegistry.getDefault(ModBrews.GRACE), false);
+		registerEffect(getStack(ModItems.tulsi)
+				, BrewRegistry.getDefault(ModBrews.PURIFY), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);

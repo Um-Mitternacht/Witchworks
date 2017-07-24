@@ -24,7 +24,7 @@ public class OvenRecipe {
 	public ItemStack[] getOutputs() {
 		ItemStack[] other = new ItemStack[outputs.length];
 
-		for(int i = 0; i < outputs.length; i++) {
+		for (int i = 0; i < outputs.length; i++) {
 			other[i] = other[i].copy();
 		}
 

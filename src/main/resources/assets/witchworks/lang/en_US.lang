@@ -300,6 +300,10 @@ brew.grace.name=Brew of Grace
 brew.grace.desc=Negates fall damage
 brew.grace.tooltip=Grace
 
+brew.purify.name=Brew of Purification
+brew.purify.desc=Removes harmful brew effects
+brew.purify.tooltip=Purity
+
 brew..name=
 brew..desc=
 brew..tooltip=
