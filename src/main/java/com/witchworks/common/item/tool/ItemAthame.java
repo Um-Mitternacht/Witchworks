@@ -100,6 +100,8 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 					addDrop(event, new ItemStack(ModItems.spectral_dust, 2));
 				else if (event.getEntityLiving() instanceof EntityZombieHorse && rand.nextInt(16) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.spectral_dust, 1));
+				else if (event.getEntityLiving() instanceof EntityZombieVillager && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 1));
 				else if (event.getEntityLiving() instanceof EntityWither && rand.nextInt(16) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.spectral_dust, 6));
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
