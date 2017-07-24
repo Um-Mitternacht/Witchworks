@@ -101,6 +101,7 @@ public final class ModItems {
 	public static final Item athame = PLACE_HOLDER;
 	public static final Item boline = PLACE_HOLDER;
 	public static final Item taglock = PLACE_HOLDER;
+	public static final Item ectoplasm = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -148,6 +149,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.WOOL_OF_BAT),
 				new ItemMod(LibItemName.TONGUE_OF_DOG),
 				new ItemMod(LibItemName.WOOD_ASH),
+				new ItemMod(LibItemName.ECTOPLASM),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
 		);

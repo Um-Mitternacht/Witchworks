@@ -71,10 +71,18 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 					addDrop(event, new ItemStack(Items.SKULL, 1, 2));
 				else if (event.getEntityLiving() instanceof EntityCreeper && rand.nextInt(26) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(Items.SKULL, 1, 4));
-				else if (event.getEntityLiving() instanceof EntityBat)
+				else if (event.getEntityLiving() instanceof EntityBat && rand.nextInt(5) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.wool_of_bat, 3));
-				else if (event.getEntityLiving() instanceof EntityWolf)
+				else if (event.getEntityLiving() instanceof EntityWolf && rand.nextInt(5) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.tongue_of_dog, 1));
+				else if (event.getEntityLiving() instanceof EntityVex && rand.nextInt(5) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.ectoplasm, 4));
+				else if (event.getEntityLiving() instanceof EntityGhast && rand.nextInt(5) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.ectoplasm, 2));
+				else if (event.getEntityLiving() instanceof EntityBlaze && rand.nextInt(5) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.ectoplasm, 1));
+				else if (event.getEntityLiving() instanceof EntityEnderman && rand.nextInt(5) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.ectoplasm, 1));
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);
 					ItemNBTHelper.setString(stack, "SkullOwner", event.getEntityLiving().getName());
