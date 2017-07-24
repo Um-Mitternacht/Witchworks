@@ -9,10 +9,13 @@ import com.witchworks.common.item.ModMaterials;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityBat;
+import net.minecraft.entity.passive.EntitySkeletonHorse;
 import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.entity.passive.EntityZombieHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
@@ -81,8 +84,24 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 					addDrop(event, new ItemStack(ModItems.ectoplasm, 2));
 				else if (event.getEntityLiving() instanceof EntityBlaze && rand.nextInt(5) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.ectoplasm, 1));
-				else if (event.getEntityLiving() instanceof EntityEnderman && rand.nextInt(5) <= 2 + 2 * looting)
-					addDrop(event, new ItemStack(ModItems.ectoplasm, 1));
+				else if (event.getEntityLiving() instanceof EntityZombie && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 1));
+				else if (event.getEntityLiving() instanceof EntitySkeleton && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 1));
+				else if (event.getEntityLiving() instanceof EntitySkeletonHorse && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 2));
+				else if (event.getEntityLiving() instanceof EntityStray && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 1));
+				else if (event.getEntityLiving() instanceof EntityPigZombie && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 3));
+				else if (event.getEntityLiving() instanceof EntityHusk && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 1));
+				else if (event.getEntityLiving() instanceof EntityWitherSkeleton && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 2));
+				else if (event.getEntityLiving() instanceof EntityZombieHorse && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 1));
+				else if (event.getEntityLiving() instanceof EntityWither && rand.nextInt(16) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.spectral_dust, 6));
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);
 					ItemNBTHelper.setString(stack, "SkullOwner", event.getEntityLiving().getName());

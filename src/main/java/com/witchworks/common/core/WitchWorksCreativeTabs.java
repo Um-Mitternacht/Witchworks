@@ -141,6 +141,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.tongue_of_dog);
 			addItem(ModItems.wood_ash);
 			addItem(ModItems.ectoplasm);
+			addItem(ModItems.spectral_dust);
 		}
 	}
 
