@@ -13,17 +13,17 @@ import net.minecraft.inventory.IInventory;
 public class GuiOven extends GuiContainer {
 
 	private final InventoryPlayer playerInventory;
-	private final IInventory tileFurnace;
+	private final IInventory tileOven;
 
-	public GuiOven(InventoryPlayer playerInventory, IInventory tileFurnace) {
-		super(new ContainerOven(playerInventory, tileFurnace));
+	public GuiOven(InventoryPlayer playerInventory, IInventory tileOven) {
+		super(new ContainerOven(playerInventory, tileOven));
 		this.playerInventory = playerInventory;
-		this.tileFurnace = tileFurnace;
+		this.tileOven = tileOven;
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		final String s = this.tileFurnace.getDisplayName().getUnformattedText();
+		final String s = this.tileOven.getDisplayName().getUnformattedText();
 		this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
 		this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
 	}
