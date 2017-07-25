@@ -103,6 +103,7 @@ public final class ModItems {
 	public static final Item taglock = PLACE_HOLDER;
 	public static final Item ectoplasm = PLACE_HOLDER;
 	public static final Item spectral_dust = PLACE_HOLDER;
+	public static final Item silver_scales = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -152,6 +153,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.WOOD_ASH),
 				new ItemMod(LibItemName.ECTOPLASM),
 				new ItemMod(LibItemName.SPECTRAL_DUST),
+				new ItemMod(LibItemName.SILVER_SCALES),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
 		);

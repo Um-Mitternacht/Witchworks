@@ -142,6 +142,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.wood_ash);
 			addItem(ModItems.ectoplasm);
 			addItem(ModItems.spectral_dust);
+			addItem(ModItems.silver_scales);
 		}
 	}
 
