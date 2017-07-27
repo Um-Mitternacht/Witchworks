@@ -175,6 +175,10 @@ public final class CauldronCrafting {
 		registerEffect(getStack(Items.NETHER_STAR)
 				, new PotionEffect(MobEffects.LEVITATION, 500), false);
 		registerEffect(getStack(ModBlocks.coquina)
+				, new PotionEffect(MobEffects.ABSORPTION, 50), false);
+		registerEffect(getStack(ModItems.thistle)
+				, new PotionEffect(MobEffects.HEALTH_BOOST, 50), false);
+		registerEffect(getStack(Items.GOLDEN_APPLE)
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 		registerEffect(getStack(ModItems.mint)
 				, BrewRegistry.getDefault(ModBrews.EXTINGUISH_FIRES), false);
