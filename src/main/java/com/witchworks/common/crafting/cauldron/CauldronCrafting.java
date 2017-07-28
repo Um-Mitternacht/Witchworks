@@ -270,6 +270,10 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.PURIFY), false);
 		registerEffect(getStack(Items.GOLDEN_APPLE, 1, 1)
 				, BrewRegistry.getDefault(ModBrews.NOTCHED), false);
+		registerEffect(getStack(Blocks.MYCELIUM)
+				, BrewRegistry.getDefault(ModBrews.MYCOLOGICAL_CORRUPTION), false);
+		registerEffect(getStack(Blocks.GRASS)
+				, BrewRegistry.getDefault(ModBrews.GROWTH), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
