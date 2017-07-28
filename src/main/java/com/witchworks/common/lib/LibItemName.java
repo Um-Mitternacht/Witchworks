@@ -75,6 +75,7 @@ public final class LibItemName {
 	public static final String SPECTRAL_DUST = "spectral_dust";
 	public static final String SILVER_SCALES = "silver_scales";
 	public static final String EYE_OF_OLD = "eye_of_old";
+	public static final String ENVENOMED_FANG = "envenomed_fang";
 	public static final String HEART = "heart";
 	public static final String HONEYCOMB = "honeycomb";
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";

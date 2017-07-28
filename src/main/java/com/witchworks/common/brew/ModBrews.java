@@ -44,6 +44,7 @@ public final class ModBrews {
 	public static IBrew IGNITION;
 	public static IBrew GRACE;
 	public static IBrew PURIFY;
+	public static IBrew NOTCHED;
 
 	private ModBrews() {
 	}
@@ -75,6 +76,7 @@ public final class ModBrews {
 		IGNITION = registerBrew(new IgnitionBrew());
 		GRACE = registerBrew(new GraceBrew());
 		PURIFY = registerBrew(new PurifyBrew());
+		NOTCHED = registerBrew(new NotchedBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -85,6 +87,7 @@ public final class ModBrews {
 		addDrink(IGNITION, 350, 0);
 		addDrink(GRACE, 200, 0);
 		addDrink(PURIFY, 1, 0);
+		addDrink(NOTCHED, 1, 0);
 
 		//--------------------------------SPLASH--------------------------------//
 		addSplash(SPIDER_NIGHTMARE, 500, 0);

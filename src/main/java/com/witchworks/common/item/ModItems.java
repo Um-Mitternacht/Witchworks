@@ -107,6 +107,7 @@ public final class ModItems {
 	public static final Item silver_scales = PLACE_HOLDER;
 	public static final Item eye_of_old = PLACE_HOLDER;
 	public static final Item heart = PLACE_HOLDER;
+	public static final Item envenomed_fang = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -158,6 +159,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.SPECTRAL_DUST),
 				new ItemMod(LibItemName.SILVER_SCALES),
 				new ItemMod(LibItemName.EYE_OF_OLD),
+				new ItemMod(LibItemName.ENVENOMED_FANG),
 				new ItemHeart(),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()

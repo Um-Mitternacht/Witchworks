@@ -145,6 +145,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.silver_scales);
 			addItem(ModItems.eye_of_old);
 			addItem(ModItems.heart);
+			addItem(ModItems.envenomed_fang);
 		}
 	}
 
