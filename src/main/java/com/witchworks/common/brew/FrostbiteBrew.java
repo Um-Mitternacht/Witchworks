@@ -1,7 +1,5 @@
 package com.witchworks.common.brew;
 
-import com.witchworks.api.brew.IBrew;
-import jdk.nashorn.internal.ir.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
@@ -77,9 +75,9 @@ public class FrostbiteBrew extends BlockHitBrew {
 		}
 	}
 
-		@SideOnly(Side.CLIENT)
-		@Override
-		public void renderHUD ( int x, int y, Minecraft mc,int amplifier){
-			render(x, y, mc, 3);
-		}
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+		render(x, y, mc, 3);
 	}
+}
