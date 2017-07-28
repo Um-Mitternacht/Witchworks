@@ -1,6 +1,7 @@
 package com.witchworks.common.brew;
 
 import com.witchworks.api.brew.IBrew;
+import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -13,39 +14,36 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class IgnitionBrew implements IBrew {
+public class PurifyBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (!entity.isBurning()) {
-			entity.setFire(500);
-		}
+		BrewStorageHandler.getBrewEffects(entity).stream().map(effect -> effect.getBrew()).filter(brew -> brew.isBad()).forEach((brew -> BrewStorageHandler.removeActiveBrew(entity, brew)));
 	}
 
 	@Override
 	public boolean isBad() {
-		return true;
-	}
-
-	@Override
-	public boolean isInstant() {
 		return false;
 	}
 
 	@Override
+	public boolean isInstant() {
+		return true;
+	}
+
+	@Override
 	public int getColor() {
-		return 0xED2939;
+		return 0xFFD700;
 	}
 
 	@Override
 	public String getName() {
-		return "ignition";
+		return "purify";
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		render(x, y, mc, 13);
+		render(x, y, mc, 4);
 	}
-
 }

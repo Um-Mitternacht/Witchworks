@@ -43,6 +43,10 @@ public final class ModBrews {
 	public static IBrew OUTCASTS_SHAME;
 	public static IBrew IGNITION;
 	public static IBrew GRACE;
+	public static IBrew PURIFY;
+	public static IBrew NOTCHED;
+	public static IBrew MYCOLOGICAL_CORRUPTION;
+	public static IBrew GROWTH;
 
 	private ModBrews() {
 	}
@@ -73,6 +77,10 @@ public final class ModBrews {
 		OUTCASTS_SHAME = registerBrew(new OutcastsShameBrew());
 		IGNITION = registerBrew(new IgnitionBrew());
 		GRACE = registerBrew(new GraceBrew());
+		PURIFY = registerBrew(new PurifyBrew());
+		NOTCHED = registerBrew(new NotchedBrew());
+		MYCOLOGICAL_CORRUPTION = registerBrew(new MycologicalCorruptionBrew());
+		GROWTH = registerBrew(new GrassGrowBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -82,6 +90,8 @@ public final class ModBrews {
 		addDrink(SKIN_TINT, 1500, 0);
 		addDrink(IGNITION, 350, 0);
 		addDrink(GRACE, 200, 0);
+		addDrink(PURIFY, 1, 0);
+		addDrink(NOTCHED, 1, 0);
 
 		//--------------------------------SPLASH--------------------------------//
 		addSplash(SPIDER_NIGHTMARE, 500, 0);
@@ -108,6 +118,9 @@ public final class ModBrews {
 		addSplash(WOLFSBANE, 1, 0);
 		addSplash(OUTCASTS_SHAME, 1, 0);
 		addSplash(IGNITION, 750, 0);
+		addSplash(PURIFY, 1, 0);
+		addSplash(MYCOLOGICAL_CORRUPTION, 0, 0);
+		addSplash(GROWTH, 0, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);
@@ -122,6 +135,7 @@ public final class ModBrews {
 		addLinger(WOLFSBANE, 50, 0);
 		addLinger(IGNITION, 750, 0);
 		addLinger(OUTCASTS_SHAME, 50, 0);
+		addLinger(PURIFY, 50, 0);
 	}
 
 	private static IBrew registerBrew(IBrew brew) {

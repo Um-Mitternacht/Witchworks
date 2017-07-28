@@ -126,6 +126,48 @@ public final class CauldronCrafting {
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
 				, getStack(Items.DYE, 1, 0), Items.NETHER_WART);
 
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 1)
+				, getStack(Items.DYE, 1, 1), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 2)
+				, getStack(Items.DYE, 1, 2), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 3)
+				, getStack(Items.DYE, 1, 3), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 4)
+				, getStack(Items.DYE, 1, 4), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 5)
+				, getStack(Items.DYE, 1, 5), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 6)
+				, getStack(Items.DYE, 1, 6), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 7)
+				, getStack(Items.DYE, 1, 7), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 8)
+				, getStack(Items.DYE, 1, 8), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 9)
+				, getStack(Items.DYE, 1, 9), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 10)
+				, getStack(Items.DYE, 1, 10), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 11)
+				, getStack(Items.DYE, 1, 11), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 12)
+				, getStack(Items.DYE, 1, 12), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 13)
+				, getStack(Items.DYE, 1, 13), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 14)
+				, getStack(Items.DYE, 1, 14), Items.NETHER_WART);
+
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 15)
 				, getStack(Items.DYE, 1, 15), Items.NETHER_WART);
 
@@ -175,6 +217,12 @@ public final class CauldronCrafting {
 		registerEffect(getStack(Items.NETHER_STAR)
 				, new PotionEffect(MobEffects.LEVITATION, 500), false);
 		registerEffect(getStack(ModBlocks.coquina)
+				, new PotionEffect(MobEffects.ABSORPTION, 50), false);
+		registerEffect(getStack(ModItems.thistle)
+				, new PotionEffect(MobEffects.HEALTH_BOOST, 50), false);
+		registerEffect(getStack(Items.GOLDEN_APPLE)
+				, new PotionEffect(MobEffects.RESISTANCE, 50), false);
+		registerEffect(getStack(ModItems.heart)
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 		registerEffect(getStack(ModItems.mint)
 				, BrewRegistry.getDefault(ModBrews.EXTINGUISH_FIRES), false);
@@ -218,6 +266,14 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.OUTCASTS_SHAME), false);
 		registerEffect(getStack(ModItems.wool_of_bat)
 				, BrewRegistry.getDefault(ModBrews.GRACE), false);
+		registerEffect(getStack(ModItems.tulsi)
+				, BrewRegistry.getDefault(ModBrews.PURIFY), false);
+		registerEffect(getStack(Items.GOLDEN_APPLE, 1, 1)
+				, BrewRegistry.getDefault(ModBrews.NOTCHED), false);
+		registerEffect(getStack(Blocks.MYCELIUM)
+				, BrewRegistry.getDefault(ModBrews.MYCOLOGICAL_CORRUPTION), false);
+		registerEffect(getStack(Blocks.GRASS)
+				, BrewRegistry.getDefault(ModBrews.GROWTH), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);

@@ -59,6 +59,6 @@ public class BaneArthropodsBrew implements IBrew {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		//NO-OP
+		render(x, y, mc, 12);
 	}
 }

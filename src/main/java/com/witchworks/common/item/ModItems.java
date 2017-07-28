@@ -7,6 +7,7 @@ import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemGemOre;
 import com.witchworks.common.item.equipment.ItemSilverArmor;
+import com.witchworks.common.item.food.ItemHeart;
 import com.witchworks.common.item.food.ItemHoney;
 import com.witchworks.common.item.magic.ItemGem;
 import com.witchworks.common.item.magic.ItemTaglock;
@@ -101,6 +102,12 @@ public final class ModItems {
 	public static final Item athame = PLACE_HOLDER;
 	public static final Item boline = PLACE_HOLDER;
 	public static final Item taglock = PLACE_HOLDER;
+	public static final Item ectoplasm = PLACE_HOLDER;
+	public static final Item spectral_dust = PLACE_HOLDER;
+	public static final Item silver_scales = PLACE_HOLDER;
+	public static final Item eye_of_old = PLACE_HOLDER;
+	public static final Item heart = PLACE_HOLDER;
+	public static final Item envenomed_fang = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -148,6 +155,12 @@ public final class ModItems {
 				new ItemMod(LibItemName.WOOL_OF_BAT),
 				new ItemMod(LibItemName.TONGUE_OF_DOG),
 				new ItemMod(LibItemName.WOOD_ASH),
+				new ItemMod(LibItemName.ECTOPLASM),
+				new ItemMod(LibItemName.SPECTRAL_DUST),
+				new ItemMod(LibItemName.SILVER_SCALES),
+				new ItemMod(LibItemName.EYE_OF_OLD),
+				new ItemMod(LibItemName.ENVENOMED_FANG),
+				new ItemHeart(),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
 		);

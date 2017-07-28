@@ -41,6 +41,7 @@ public class BrewHUD {
 					IBrew brew = effect.getBrew();
 					if (brew.shouldRender()) {
 						GlStateManager.pushMatrix();
+						GlStateManager.enableBlend();
 
 						brew.renderHUD(xOffset, yOffset, mc, effect.getAmplifier());
 						if (ConfigHandler.BREW_HUD.orientation) {
@@ -49,6 +50,7 @@ public class BrewHUD {
 							xOffset += 22;
 						}
 
+						GlStateManager.disableBlend();
 						GlStateManager.popMatrix();
 					}
 				}

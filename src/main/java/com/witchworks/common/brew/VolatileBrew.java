@@ -53,6 +53,21 @@ public class VolatileBrew implements IBrew, IBrewAttack {
 
 	@Override
 	public void onAttack(LivingAttackEvent event, DamageSource source, EntityLivingBase affected, int amplifier) {
+		if (amplifier >= 3) {
+			if (!source.isExplosion()) {
+				BrewStorageHandler.removeActiveBrew(affected, this);
+				affected.world.createExplosion(source.getImmediateSource(), affected.posX, affected.posY + 1.2D, affected.posZ, amplifier + 3, true);
+
+			}
+		}
+
+		if (amplifier == 2) {
+			if (!source.isExplosion()) {
+				BrewStorageHandler.removeActiveBrew(affected, this);
+				affected.world.createExplosion(source.getImmediateSource(), affected.posX, affected.posY + 0.7D, affected.posZ, amplifier + 2, true);
+
+			}
+		}
 		if (!source.isExplosion()) {
 			BrewStorageHandler.removeActiveBrew(affected, this);
 			affected.world.createExplosion(source.getImmediateSource(), affected.posX, affected.posY + 0.5D, affected.posZ, amplifier + 1, true);

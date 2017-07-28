@@ -70,6 +70,12 @@ item.glass_jar.name=Glass Jar
 item.wool_of_bat.name=Wool of Bat
 item.tongue_of_dog.name=Tongue of Dog
 item.wood_ash.name=Wood Ash
+item.ectoplasm.name=Ectoplasm
+item.spectral_dust.name=Spectral Dust
+item.silver_scales.name=Silver Scales
+item.eye_of_old.name=Eye of Old
+item.heart.name=Heart
+item.envenomed_fang.name=Envenomed Fang
 item.bee.name=Bee
 item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
@@ -172,6 +178,8 @@ tile.gem_ore_tourmaline.name=Tourmaline Ore
 tile.tourmaline_block.name=Tourmaline Block
 tile.moldavite_block.name=Moldavite Block
 tile.bloodstone_block.name=Bloodstone Block
+tile.tigers_eye_block.name=Tiger's Eye Block
+tile.malachite_block.name=Malachite Block
 tile.silver_block.name=Silver Block
 tile.nethersteel.name=Nethersteel
 tile.gem_ore_jasper.name=Jasper Ore
@@ -299,6 +307,22 @@ brew.ignition.tooltip=Ignition
 brew.grace.name=Brew of Grace
 brew.grace.desc=Negates fall damage
 brew.grace.tooltip=Grace
+
+brew.purify.name=Brew of Purification
+brew.purify.desc=Removes harmful brew effects
+brew.purify.tooltip=Purity
+
+brew.notched.name=Notched Brew
+brew.notched.desc=Adds all of the effects a notch apple applies
+brew.notched.tooltip=Notched
+
+brew.mycological_corruption.name=Brew of Mycological Corruption
+brew.mycological_corruption.desc=Turns grass and dirt into mycelium
+brew.mycological_corruption.tooltip=Mycological Corruption
+
+brew.growth.name=Brew of Growth
+brew.growth.desc=Turns mycelium and dirt into grass
+brew.growth.tooltip=Growth
 
 brew..name=
 brew..desc=

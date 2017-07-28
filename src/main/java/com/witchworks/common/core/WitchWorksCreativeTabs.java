@@ -140,6 +140,12 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.wool_of_bat);
 			addItem(ModItems.tongue_of_dog);
 			addItem(ModItems.wood_ash);
+			addItem(ModItems.ectoplasm);
+			addItem(ModItems.spectral_dust);
+			addItem(ModItems.silver_scales);
+			addItem(ModItems.eye_of_old);
+			addItem(ModItems.heart);
+			addItem(ModItems.envenomed_fang);
 		}
 	}
 
