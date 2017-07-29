@@ -70,7 +70,15 @@ public class FrostbiteBrew extends BlockHitBrew {
 			IBlockState state = world.getBlockState(spot);
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
 			if (place && state.getBlock() == Blocks.WATER && world.isAirBlock(spot.up())) {
+				world.setBlockState(spot, Blocks.ICE.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.ICE) {
 				world.setBlockState(spot, Blocks.PACKED_ICE.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.SNOW_LAYER) {
+				world.setBlockState(spot, Blocks.SNOW.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.SNOW) {
+				world.setBlockState(spot, Blocks.PACKED_ICE.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.FROSTED_ICE) {
+				world.setBlockState(spot, Blocks.ICE.getDefaultState(), 3);
 			}
 		}
 	}
