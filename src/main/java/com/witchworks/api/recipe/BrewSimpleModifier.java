@@ -15,10 +15,14 @@ public class BrewSimpleModifier implements BrewModifier {
 
 	private final int duration;
 	private final int amplifier;
+	private final boolean splash;
+	private final boolean lingering;
 
-	public BrewSimpleModifier(int duration, int amplifier) {
+	public BrewSimpleModifier(int duration, int amplifier, boolean splash, boolean lingering) {
 		this.duration = duration;
 		this.amplifier = amplifier;
+		this.splash = splash;
+		this.lingering = lingering;
 	}
 
 	@Override
