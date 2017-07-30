@@ -280,17 +280,17 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.HELLS_WROTH), false);
 
 		registerModifier(getStack(Items.QUARTZ)
-				, new BrewSimpleModifier(2400, 0, false, false, false), true);
+				, new BrewSimpleModifier(2400, 0, false, false), true);
 		registerModifier(getStack(Items.REDSTONE)
-				, new BrewSimpleModifier(600, 0, false, false, false), true);
+				, new BrewSimpleModifier(600, 0, false, false), true);
 		registerModifier(getStack(Blocks.REDSTONE_BLOCK)
-				, new BrewSimpleModifier(1200, 0, false, false, false), true);
+				, new BrewSimpleModifier(1200, 0, false, false), true);
 		registerModifier(getStack(ModItems.gem, 1, 2)
-				, new BrewSimpleModifier(0, 3, false, false, false), true);
+				, new BrewSimpleModifier(0, 3, false, false), true);
 		registerModifier(getStack(Items.GLOWSTONE_DUST)
-				, new BrewSimpleModifier(0, 1, false, false, false), true);
+				, new BrewSimpleModifier(0, 1, false, false), true);
 		registerModifier(getStack(Blocks.GLOWSTONE)
-				, new BrewSimpleModifier(0, 2, false, false, false), true);
+				, new BrewSimpleModifier(0, 2, false, false), true);
 	}
 
 	private static void registerItemProcess(Fluid fluid, Item in, Item out, boolean perfectMatch) {
