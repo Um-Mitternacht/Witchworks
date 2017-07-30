@@ -17,14 +17,12 @@ public class BrewSimpleModifier implements BrewModifier {
 	private final int amplifier;
 	private final boolean splash;
 	private final boolean lingering;
-	private final boolean corrupted;
 
-	public BrewSimpleModifier(int duration, int amplifier, boolean splash, boolean lingering, boolean corrupted) {
+	public BrewSimpleModifier(int duration, int amplifier, boolean splash, boolean lingering) {
 		this.duration = duration;
 		this.amplifier = amplifier;
 		this.splash = splash;
 		this.lingering = lingering;
-		this.corrupted = corrupted;
 	}
 
 	@Override
