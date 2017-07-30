@@ -47,6 +47,7 @@ public final class ModBrews {
 	public static IBrew NOTCHED;
 	public static IBrew MYCOLOGICAL_CORRUPTION;
 	public static IBrew GROWTH;
+	public static IBrew OZYMANDIAS;
 
 	private ModBrews() {
 	}
@@ -81,6 +82,7 @@ public final class ModBrews {
 		NOTCHED = registerBrew(new NotchedBrew());
 		MYCOLOGICAL_CORRUPTION = registerBrew(new MycologicalCorruptionBrew());
 		GROWTH = registerBrew(new GrassGrowBrew());
+		OZYMANDIAS = registerBrew(new OzymandiasBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -121,6 +123,7 @@ public final class ModBrews {
 		addSplash(PURIFY, 1, 0);
 		addSplash(MYCOLOGICAL_CORRUPTION, 0, 0);
 		addSplash(GROWTH, 0, 0);
+		addSplash(OZYMANDIAS, 0, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);

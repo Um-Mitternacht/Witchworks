@@ -325,6 +325,10 @@ brew.growth.name=Brew of Growth
 brew.growth.desc=Turns mycelium and dirt into grass
 brew.growth.tooltip=Growth
 
+brew.ozymandias.name=Ozymandias' Brew
+brew.ozymandias.desc=Look on my Works, ye Mighty, and despair!
+brew.ozymandias.tooltip=Ozymandias
+
 brew..name=
 brew..desc=
 brew..tooltip=
