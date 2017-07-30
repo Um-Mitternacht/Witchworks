@@ -68,6 +68,8 @@ public class OzymandiasBrew extends BlockHitBrew {
 				world.setBlockState(spot, Blocks.SAND.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.MYCELIUM) {
 				world.setBlockState(spot, Blocks.SAND.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.DIRT) {
+				world.setBlockState(spot, Blocks.SAND.getDefaultState(), 3);
 			}
 		}
 	}
