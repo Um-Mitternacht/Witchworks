@@ -81,8 +81,14 @@ public class HellsWrothBrew extends BlockHitBrew {
 					world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
 				} else if (state.getBlock() == Blocks.GRASS) {
 					world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
+				} else if (state.getBlock() == Blocks.MYCELIUM) {
+					world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
 				} else if (state.getBlock() == Blocks.MAGMA) {
 					world.setBlockState(spot, Blocks.OBSIDIAN.getDefaultState(), 3);
+				} else if (state.getBlock() == Blocks.WATER) {
+					world.setBlockState(spot, Blocks.COBBLESTONE.getDefaultState(), 3);
+				} else if (state.getBlock() == Blocks.FLOWING_WATER) {
+					world.setBlockState(spot, Blocks.COBBLESTONE.getDefaultState(), 3);
 				}
 			}
 		}

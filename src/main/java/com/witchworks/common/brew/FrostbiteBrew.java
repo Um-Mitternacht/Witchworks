@@ -79,6 +79,12 @@ public class FrostbiteBrew extends BlockHitBrew {
 				world.setBlockState(spot, Blocks.PACKED_ICE.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.FROSTED_ICE) {
 				world.setBlockState(spot, Blocks.ICE.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.LAVA) {
+				world.setBlockState(spot, Blocks.OBSIDIAN.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.FLOWING_LAVA) {
+				world.setBlockState(spot, Blocks.OBSIDIAN.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.FLOWING_WATER) {
+				world.setBlockState(spot, Blocks.ICE.getDefaultState(), 3);
 			}
 		}
 	}

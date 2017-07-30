@@ -57,6 +57,7 @@ public final class WitchWorksAPI {
 	public static ResourceLocation GROWTH = getLocation("growth");
 	public static ResourceLocation OZYMANDIAS = getLocation("ozymandias");
 	public static ResourceLocation HELLS_WROTH = getLocation("hells_wroth");
+	public static ResourceLocation SETEHS_WASTES = getLocation("setehs_wastes");
 
 	private WitchWorksAPI() {
 	}

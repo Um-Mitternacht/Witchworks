@@ -333,6 +333,10 @@ brew.hells_wroth.name=Hell's Wroth Brew
 brew.hells_wroth.desc=Encases a target in scalding magma. May have other effects.
 brew.hells_wroth.tooltip=Hell's Wroth
 
+brew.setehs_wastes.name=Brew of Seteh's Wastes
+brew.setehs_wastes.desc=Converts sand and sandstone to their red variants.
+brew.setehs_wastes.tooltip=Seteh's Wastes
+
 brew..name=
 brew..desc=
 brew..tooltip=
