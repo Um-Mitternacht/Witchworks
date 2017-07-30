@@ -276,6 +276,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.GROWTH), false);
 		registerEffect(getStack(Blocks.MOSSY_COBBLESTONE)
 				, BrewRegistry.getDefault(ModBrews.OZYMANDIAS), false);
+		registerEffect(getStack(Blocks.RED_NETHER_BRICK)
+				, BrewRegistry.getDefault(ModBrews.HELLS_WROTH), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);

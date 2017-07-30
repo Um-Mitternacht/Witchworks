@@ -25,6 +25,7 @@ public class RockPulverizeBrew extends BlockHitBrew {
 		return "rock_pulverize";
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
 		int box = 1 + (int) ((float) amplifier / 2F);
@@ -41,6 +42,8 @@ public class RockPulverizeBrew extends BlockHitBrew {
 					world.setBlockState(spot, Blocks.SAND.getDefaultState(), 3);
 				} else if (state.getBlock() == Blocks.STONE) {
 					world.setBlockState(spot, Blocks.GRAVEL.getDefaultState(), 3);
+				} else if (state.getBlock() == Blocks.STONEBRICK) {
+					world.setBlockState(spot, Blocks.STONEBRICK.getStateFromMeta(2), 3);
 				}
 			}
 		}

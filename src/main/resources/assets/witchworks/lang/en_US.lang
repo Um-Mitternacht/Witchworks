@@ -218,7 +218,7 @@ brew.spider_nightmare.desc=Surround your enemy with webs and spiders
 brew.spider_nightmare.tooltip=Spider Nightmare
 
 brew.frostbite.name=Frostbite Brew
-brew.frostbite.desc=Encase your target in ice
+brew.frostbite.desc=Encases a target in ice. May have other effects.
 brew.frostbite.tooltip=Frostbite
 
 brew.extinguish_fires.name=Extinguish Fires Brew
@@ -328,6 +328,10 @@ brew.growth.tooltip=Growth
 brew.ozymandias.name=Ozymandias' Brew
 brew.ozymandias.desc=Look on my Works, ye Mighty, and despair!
 brew.ozymandias.tooltip=Ozymandias
+
+brew.hells_wroth.name=Hell's Wroth Brew
+brew.hells_wroth.desc=Encases a target in scalding magma. May have other effects.
+brew.hells_wroth.tooltip=Hell's Wroth
 
 brew..name=
 brew..desc=

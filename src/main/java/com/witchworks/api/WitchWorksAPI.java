@@ -56,6 +56,7 @@ public final class WitchWorksAPI {
 	public static ResourceLocation MYCOLOGICAL_CORRUPTION = getLocation("mycological_corruption");
 	public static ResourceLocation GROWTH = getLocation("growth");
 	public static ResourceLocation OZYMANDIAS = getLocation("ozymandias");
+	public static ResourceLocation HELLS_WROTH = getLocation("hells_wroth");
 
 	private WitchWorksAPI() {
 	}

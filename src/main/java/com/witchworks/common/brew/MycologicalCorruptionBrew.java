@@ -44,6 +44,8 @@ public class MycologicalCorruptionBrew extends BlockHitBrew {
 				world.setBlockState(spot, Blocks.RED_MUSHROOM.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.DEADBUSH) {
 				world.setBlockState(spot, Blocks.BROWN_MUSHROOM.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.SAND) {
+				world.setBlockState(spot, Blocks.DIRT.getDefaultState(), 3);
 			}
 		}
 	}

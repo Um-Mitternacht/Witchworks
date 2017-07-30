@@ -44,6 +44,8 @@ public class GrassGrowBrew extends BlockHitBrew {
 				world.setBlockState(spot, Blocks.TALLGRASS.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.DEADBUSH) {
 				world.setBlockState(spot, Blocks.YELLOW_FLOWER.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.SAND) {
+				world.setBlockState(spot, Blocks.DIRT.getDefaultState(), 3);
 			}
 		}
 	}

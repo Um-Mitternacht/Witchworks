@@ -48,6 +48,7 @@ public final class ModBrews {
 	public static IBrew MYCOLOGICAL_CORRUPTION;
 	public static IBrew GROWTH;
 	public static IBrew OZYMANDIAS;
+	public static IBrew HELLS_WROTH;
 
 	private ModBrews() {
 	}
@@ -83,6 +84,7 @@ public final class ModBrews {
 		MYCOLOGICAL_CORRUPTION = registerBrew(new MycologicalCorruptionBrew());
 		GROWTH = registerBrew(new GrassGrowBrew());
 		OZYMANDIAS = registerBrew(new OzymandiasBrew());
+		HELLS_WROTH = registerBrew(new HellsWrothBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -124,6 +126,7 @@ public final class ModBrews {
 		addSplash(MYCOLOGICAL_CORRUPTION, 0, 0);
 		addSplash(GROWTH, 0, 0);
 		addSplash(OZYMANDIAS, 0, 0);
+		addSplash(HELLS_WROTH, 500, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);
