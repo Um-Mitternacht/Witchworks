@@ -281,6 +281,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.HELLS_WROTH), false);
 		registerEffect(getStack(ModItems.dimensional_sand)
 				, BrewRegistry.getDefault(ModBrews.SETEHS_WASTES), false);
+		registerEffect(getStack(ModBlocks.nethersteel)
+				, BrewRegistry.getDefault(ModBrews.HELL_WORLD), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);

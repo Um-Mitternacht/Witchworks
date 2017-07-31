@@ -50,6 +50,7 @@ public final class ModBrews {
 	public static IBrew OZYMANDIAS;
 	public static IBrew HELLS_WROTH;
 	public static IBrew SETEHS_WASTES;
+	public static IBrew HELL_WORLD;
 
 	private ModBrews() {
 	}
@@ -87,6 +88,7 @@ public final class ModBrews {
 		OZYMANDIAS = registerBrew(new OzymandiasBrew());
 		HELLS_WROTH = registerBrew(new HellsWrothBrew());
 		SETEHS_WASTES = registerBrew(new SetehsWastesBrew());
+		HELL_WORLD = registerBrew(new HellWorldBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -130,6 +132,7 @@ public final class ModBrews {
 		addSplash(OZYMANDIAS, 0, 0);
 		addSplash(HELLS_WROTH, 500, 0);
 		addSplash(SETEHS_WASTES, 0, 0);
+		addSplash(HELL_WORLD, 0, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);

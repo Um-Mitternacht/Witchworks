@@ -337,6 +337,10 @@ brew.setehs_wastes.name=Brew of Seteh's Wastes
 brew.setehs_wastes.desc=Converts sand and sandstone to their red variants.
 brew.setehs_wastes.tooltip=Seteh's Wastes
 
+brew.hell_world.name=Brew of Fire World
+brew.hell_world.desc=Converts your surroundings to a hellish scene.
+brew.hell_world.tooltip=Fire World
+
 brew..name=
 brew..desc=
 brew..tooltip=
