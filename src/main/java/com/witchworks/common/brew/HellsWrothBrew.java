@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
@@ -8,6 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 12/06/2017.
@@ -15,6 +18,22 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 public class HellsWrothBrew extends BlockHitBrew {
+
+	private final Map<Block, IBlockState> stateMap = new HashMap<>();
+
+	public HellsWrothBrew() {
+		stateMap.put(Blocks.SNOW, Blocks.SOUL_SAND.getDefaultState());
+		stateMap.put(Blocks.PACKED_ICE, Blocks.NETHERRACK.getDefaultState());
+		stateMap.put(Blocks.FROSTED_ICE, Blocks.MAGMA.getDefaultState());
+		stateMap.put(Blocks.ICE, Blocks.MAGMA.getDefaultState());
+		stateMap.put(Blocks.SAND, Blocks.SOUL_SAND.getDefaultState());
+		stateMap.put(Blocks.STONE, Blocks.NETHERRACK.getDefaultState());
+		stateMap.put(Blocks.GRASS, Blocks.NETHERRACK.getDefaultState());
+		stateMap.put(Blocks.MYCELIUM, Blocks.NETHERRACK.getDefaultState());
+		stateMap.put(Blocks.MAGMA, Blocks.OBSIDIAN.getDefaultState());
+		stateMap.put(Blocks.WATER, Blocks.COBBLESTONE.getDefaultState());
+		stateMap.put(Blocks.FLOWING_WATER, Blocks.COBBLESTONE.getDefaultState());
+	}
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
@@ -64,32 +83,10 @@ public class HellsWrothBrew extends BlockHitBrew {
 
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
-			IBlockState state = world.getBlockState(spot);
-			boolean place = amplifier > 2 || world.rand.nextInt(3) == 0;
-			if (place) {
-				if (state.getBlock() == Blocks.SNOW) {
-					world.setBlockState(spot, Blocks.SOUL_SAND.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.PACKED_ICE) {
-					world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.FROSTED_ICE) {
-					world.setBlockState(spot, Blocks.MAGMA.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.ICE) {
-					world.setBlockState(spot, Blocks.MAGMA.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.SAND) {
-					world.setBlockState(spot, Blocks.SOUL_SAND.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.STONE) {
-					world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.GRASS) {
-					world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.MYCELIUM) {
-					world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.MAGMA) {
-					world.setBlockState(spot, Blocks.OBSIDIAN.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.WATER) {
-					world.setBlockState(spot, Blocks.COBBLESTONE.getDefaultState(), 3);
-				} else if (state.getBlock() == Blocks.FLOWING_WATER) {
-					world.setBlockState(spot, Blocks.COBBLESTONE.getDefaultState(), 3);
-				}
+			Block block = world.getBlockState(spot).getBlock();
+			boolean place = amplifier > 2 || world.rand.nextBoolean();
+			if (place && stateMap.containsKey(block)) {
+				world.setBlockState(spot, stateMap.get(block), 11);
 			}
 		}
 	}

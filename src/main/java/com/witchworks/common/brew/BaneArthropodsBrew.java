@@ -19,20 +19,14 @@ public class BaneArthropodsBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		if (amplifier >= 3) {
-			if (entity.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD) {
-				entity.attackEntityFrom(DamageSource.MAGIC, 20);
-			}
-		}
-
-		if (amplifier == 2) {
-			if (entity.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD) {
-				entity.attackEntityFrom(DamageSource.MAGIC, 16);
-			}
-		}
-
 		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD) {
-			entity.attackEntityFrom(DamageSource.MAGIC, 10);
+			if (amplifier >= 3) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 20);
+			} else if (amplifier == 2) {
+				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+			} else {
+				entity.attackEntityFrom(DamageSource.MAGIC, 10);
+			}
 		}
 	}
 

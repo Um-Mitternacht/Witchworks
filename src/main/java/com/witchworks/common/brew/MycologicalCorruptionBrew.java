@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -7,6 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 11/06/2017.
@@ -14,6 +17,16 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 public class MycologicalCorruptionBrew extends BlockHitBrew {
+
+	private final Map<Block, IBlockState> stateMap = new HashMap<>();
+
+	public MycologicalCorruptionBrew() {
+		stateMap.put(Blocks.GRASS, Blocks.MYCELIUM.getDefaultState());
+		stateMap.put(Blocks.DIRT, Blocks.MYCELIUM.getDefaultState());
+		stateMap.put(Blocks.TALLGRASS, Blocks.RED_MUSHROOM.getDefaultState());
+		stateMap.put(Blocks.DEADBUSH, Blocks.BROWN_MUSHROOM.getDefaultState());
+		stateMap.put(Blocks.SAND, Blocks.DIRT.getDefaultState());
+	}
 
 	@Override
 	public int getColor() {
@@ -34,18 +47,10 @@ public class MycologicalCorruptionBrew extends BlockHitBrew {
 
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
-			IBlockState state = world.getBlockState(spot);
+			Block block = world.getBlockState(spot).getBlock();
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
-			if (place && state.getBlock() == Blocks.GRASS && world.isAirBlock(spot.up())) {
-				world.setBlockState(spot, Blocks.MYCELIUM.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.DIRT) {
-				world.setBlockState(spot, Blocks.MYCELIUM.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.TALLGRASS) {
-				world.setBlockState(spot, Blocks.RED_MUSHROOM.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.DEADBUSH) {
-				world.setBlockState(spot, Blocks.BROWN_MUSHROOM.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.SAND) {
-				world.setBlockState(spot, Blocks.DIRT.getDefaultState(), 3);
+			if (place && stateMap.containsKey(block)) {
+				world.setBlockState(spot, stateMap.get(block), 11);
 			}
 		}
 	}

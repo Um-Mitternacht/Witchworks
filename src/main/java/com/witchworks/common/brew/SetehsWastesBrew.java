@@ -25,16 +25,6 @@ public class SetehsWastesBrew extends BlockHitBrew {
 	}
 
 	@Override
-	public boolean isBad() {
-		return true;
-	}
-
-	@Override
-	public boolean isInstant() {
-		return false;
-	}
-
-	@Override
 	public int getColor() {
 		return 0xD2691E;
 	}
@@ -53,6 +43,7 @@ public class SetehsWastesBrew extends BlockHitBrew {
 		BlockPos posF = pos.add(-box, -box, -box);
 
 		//Fixme: Get it to respect meta fully, and apply the appropriate changes. Currently, it defaults to red sandstone, even for chiselled and what not.
+		//OGMHYGOD: What the fuck did I just witness
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
 			IBlockState state = world.getBlockState(spot);
@@ -62,7 +53,7 @@ public class SetehsWastesBrew extends BlockHitBrew {
 			} else if (state.getBlock() == Blocks.SANDSTONE) {
 				world.setBlockState(spot, Blocks.RED_SANDSTONE.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.SANDSTONE_STAIRS) {
-				world.setBlockState(spot, Blocks.RED_SANDSTONE_STAIRS.getDefaultState(), 3);
+				world.setBlockState(spot, Blocks.RED_SANDSTONE_STAIRS.getStateFromMeta(state.getBlock().getMetaFromState(state)), 3);
 			} else if (state.getBlock() == Blocks.STONE_SLAB.getStateFromMeta(1)) {
 				world.setBlockState(spot, Blocks.STONE_SLAB2.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.STONE_SLAB.getStateFromMeta(9)) {
@@ -77,7 +68,5 @@ public class SetehsWastesBrew extends BlockHitBrew {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		render(x, y, mc, 3);
-	}
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {}
 }

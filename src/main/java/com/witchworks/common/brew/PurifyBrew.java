@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.IBrew;
 import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import net.minecraft.client.Minecraft;
@@ -18,7 +19,8 @@ public class PurifyBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		BrewStorageHandler.getBrewEffects(entity).stream().map(effect -> effect.getBrew()).filter(brew -> brew.isBad()).forEach((brew -> BrewStorageHandler.removeActiveBrew(entity, brew)));
+		BrewStorageHandler.getBrewEffects(entity).stream().map(BrewEffect::getBrew).filter(IBrew::isBad)
+				.forEach((brew -> BrewStorageHandler.removeActiveBrew(entity, brew)));
 	}
 
 	@Override

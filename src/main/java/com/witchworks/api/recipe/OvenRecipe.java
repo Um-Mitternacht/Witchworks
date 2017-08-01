@@ -5,7 +5,9 @@ import net.minecraft.item.ItemStack;
 import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
 
 /**
- * Created by Joseph on 7/21/2017.
+ * This class was created by Joseph on 7/21/2017..
+ * It's distributed as part of Witchworks under
+ * the MIT license.
  */
 public class OvenRecipe {
 

@@ -5,15 +5,19 @@ import com.witchworks.client.ResourceLocations;
 import com.witchworks.common.core.capability.energy.EnergyHandler;
 import com.witchworks.common.core.handler.ConfigHandler;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.texture.TextureManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
 
 import java.util.Optional;
 
@@ -75,48 +79,43 @@ public class EnergyHUD {
 	public void renderOverlay(RenderGameOverlayEvent.Post event) {
 		if (event.getType() == RenderGameOverlayEvent.ElementType.HOTBAR && renderTime > 0) {
 			Minecraft mc = Minecraft.getMinecraft();
+			TextureManager manager = mc.getTextureManager();
 			Optional<IEnergy> optional = EnergyHandler.getEnergy(mc.player);
 
 			if (optional.isPresent()) {
 				IEnergy energy = optional.get();
 
-				ScaledResolution res = event.getResolution();
 				GlStateManager.pushMatrix();
 				GlStateManager.enableBlend();
 
+				ScaledResolution resolution = event.getResolution();
 				float filled = (float) energy.get() / (float) energy.getMax();
-				int heightEnd = ConfigHandler.ENERGY_HUD.heightEnd;
-				int heightStart = ConfigHandler.ENERGY_HUD.heightStart;
-
+				int height = ConfigHandler.ENERGY_HUD.height;
 				int width = ConfigHandler.ENERGY_HUD.width;
+				int x = ConfigHandler.ENERGY_HUD.x;
+				int y = resolution.getScaledHeight() - ConfigHandler.ENERGY_HUD.y;
 
-				int heightUsed = heightEnd - heightStart;
-				int heightFilled = (int) ((heightUsed - 28) * filled);
-
-				int posX = ConfigHandler.ENERGY_HUD.x;
-				int posY = res.getScaledHeight() - ConfigHandler.ENERGY_HUD.y;
-
-				int startPosX = posX - heightEnd;
-
-				if (ConfigHandler.ENERGY_HUD.hide)
+				if (ConfigHandler.ENERGY_HUD.hide) {
 					GlStateManager.color(1F, 1F, 1F, visible);
+				}
 
-				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY_BACKGROUND[0]);
-				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY + 14, 0F, heightUsed - 28, width, heightFilled, width, heightUsed - 28);
+				manager.bindTexture(ResourceLocations.ENERGY_BACKGROUND[0]);
+				renderTexture(x, y, width, height, 0, filled);
 
 				GlStateManager.pushMatrix();
-
 				GlStateManager.color(1F, 1F, 1F, visible == 1F ? barAlpha : visible);
 
-				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY_BACKGROUND[1]);
-				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY + 14, 0F, heightUsed - 28, width, heightFilled, width, heightUsed - 28);
+				manager.bindTexture(ResourceLocations.ENERGY_BACKGROUND[1]);
+				renderTexture(x, y, width, height, 0, filled);
+
 				GlStateManager.popMatrix();
 
-				if (ConfigHandler.ENERGY_HUD.hide)
+				if (ConfigHandler.ENERGY_HUD.hide) {
 					GlStateManager.color(1F, 1F, 1F, visible);
+				}
 
-				mc.getTextureManager().bindTexture(ResourceLocations.ENERGY);
-				Gui.drawModalRectWithCustomSizedTexture(startPosX - 4, posY, 0F, 0F, width, heightUsed, width, heightUsed);
+				manager.bindTexture(ResourceLocations.ENERGY);
+				renderTexture(x, y, width, height, 0, 1);
 
 				int textColor = 0x990066;
 				if (ConfigHandler.ENERGY_HUD.hide) {
@@ -124,10 +123,24 @@ public class EnergyHUD {
 					textColor = alpha << 24 | 0x990066;
 				}
 
-				mc.fontRenderer.drawStringWithShadow("E: " + energy.get(), startPosX, posY - 15, textColor);
+				String text = "E: " + energy.get();
+				mc.fontRenderer.drawStringWithShadow(text, x, y - 10, textColor);
 				GlStateManager.disableBlend();
 				GlStateManager.popMatrix();
 			}
 		}
+	}
+
+	private void renderTexture(double x, double y, double width, double height, double vMin, double vMax) {
+		Tessellator tessellator = Tessellator.getInstance();
+		VertexBuffer buff = tessellator.getBuffer();
+
+		buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+		buff.pos(x + width, y            , 0).tex((double) 1, vMin).endVertex();
+		buff.pos(x           , y            , 0).tex((double) 0, vMin).endVertex();
+		buff.pos(x           , y + height, 0).tex((double) 0, vMax).endVertex();
+		buff.pos(x + width, y + height, 0).tex((double) 1, vMax).endVertex();
+
+		tessellator.draw();
 	}
 }

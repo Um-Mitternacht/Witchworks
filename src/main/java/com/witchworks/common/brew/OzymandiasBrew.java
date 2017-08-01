@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,6 +12,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 24/04/2017.
@@ -19,19 +22,22 @@ import javax.annotation.Nullable;
  */
 public class OzymandiasBrew extends BlockHitBrew {
 
+	private final Map<Block, IBlockState> stateMap = new HashMap<>();
+
+	@SuppressWarnings("deprecation")
+	public OzymandiasBrew() {
+		stateMap.put(Blocks.COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL.getStateFromMeta(1));
+		stateMap.put(Blocks.COBBLESTONE, Blocks.MOSSY_COBBLESTONE.getDefaultState());
+		stateMap.put(Blocks.TALLGRASS, Blocks.DEADBUSH.getDefaultState());
+		stateMap.put(Blocks.STONEBRICK, Blocks.STONEBRICK.getStateFromMeta(1));
+		stateMap.put(Blocks.GRASS, Blocks.SAND.getDefaultState());
+		stateMap.put(Blocks.MYCELIUM, Blocks.SAND.getDefaultState());
+		stateMap.put(Blocks.DIRT, Blocks.SAND.getDefaultState());
+	}
+
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		//NO-OP
-	}
-
-	@Override
-	public boolean isBad() {
-		return true;
-	}
-
-	@Override
-	public boolean isInstant() {
-		return false;
 	}
 
 	@Override
@@ -44,7 +50,6 @@ public class OzymandiasBrew extends BlockHitBrew {
 		return "ozymandias";
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
 		int box = 1 + (int) ((float) amplifier / 2F);
@@ -54,29 +59,15 @@ public class OzymandiasBrew extends BlockHitBrew {
 
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
-			IBlockState state = world.getBlockState(spot);
+			Block block = world.getBlockState(spot).getBlock();
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
-			if (place && state.getBlock() == Blocks.COBBLESTONE_WALL && world.isAirBlock(spot.up())) {
-				world.setBlockState(spot, Blocks.COBBLESTONE_WALL.getStateFromMeta(1), 3);
-			} else if (state.getBlock() == Blocks.COBBLESTONE) {
-				world.setBlockState(spot, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.TALLGRASS) {
-				world.setBlockState(spot, Blocks.DEADBUSH.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.STONEBRICK) {
-				world.setBlockState(spot, Blocks.STONEBRICK.getStateFromMeta(1), 3);
-			} else if (state.getBlock() == Blocks.GRASS) {
-				world.setBlockState(spot, Blocks.SAND.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.MYCELIUM) {
-				world.setBlockState(spot, Blocks.SAND.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.DIRT) {
-				world.setBlockState(spot, Blocks.SAND.getDefaultState(), 3);
+			if (place && stateMap.containsKey(block)) {
+				world.setBlockState(spot, stateMap.get(block), 11);
 			}
 		}
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		render(x, y, mc, 3);
-	}
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {}
 }
