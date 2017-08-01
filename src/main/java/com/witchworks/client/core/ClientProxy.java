@@ -1,9 +1,9 @@
 package com.witchworks.client.core;
 
+import com.witchworks.client.ResourceLocations;
 import com.witchworks.client.core.event.BrewHUD;
 import com.witchworks.client.core.event.ClientEvents;
 import com.witchworks.client.core.event.EnergyHUD;
-import com.witchworks.client.core.event.TextureStitch;
 import com.witchworks.client.fx.ParticleF;
 import com.witchworks.client.handler.BlockCandleColorHandler;
 import com.witchworks.client.handler.BrewItemColorHandler;
@@ -27,6 +27,7 @@ import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -48,22 +49,21 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod.EventBusSubscriber(modid = LibMod.MOD_ID)
 public class ClientProxy implements ISidedProxy {
 
-	/**
-	 * Here you can register your Item models that do not have a class.
-	 * <p>
-	 * According to the registry name of the item, the model loader will look
-	 * into the models file and bind the item to its corresponding model.
-	 * </p>
-	 */
 	@SubscribeEvent
 	public static void registerItemModels(ModelRegistryEvent event) {
 		ModelHandler.registerModels();
 	}
 
+	@SubscribeEvent
+	public static void stitchEventPre(TextureStitchEvent.Pre event) {
+		event.getMap().registerSprite(ResourceLocations.STEAM);
+		event.getMap().registerSprite(ResourceLocations.BEE);
+		event.getMap().registerSprite(ResourceLocations.GRAY_WATER);
+	}
+
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		registerRenders();
-		MinecraftForge.EVENT_BUS.register(new TextureStitch());
 		MinecraftForge.EVENT_BUS.register(new EnergyHUD());
 		MinecraftForge.EVENT_BUS.register(new BrewHUD());
 		MinecraftForge.EVENT_BUS.register(new ClientEvents());
@@ -88,12 +88,6 @@ public class ClientProxy implements ISidedProxy {
 		NetworkRegistry.INSTANCE.registerGuiHandler(WitchWorks.instance, new GuiHandler());
 	}
 
-	/**
-	 * Display a Record text with a format and localization.
-	 *
-	 * @param text An {@link ITextComponent}
-	 */
-	@Override
 	public void displayRecordText(ITextComponent text) {
 		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
@@ -118,14 +112,6 @@ public class ClientProxy implements ISidedProxy {
 		return chance == 1F || Math.random() < chance;
 	}
 
-	/**
-	 * Register here all Renders. For example:
-	 * {@code RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);}
-	 * or
-	 * {@code ClientRegistry.bindTileEntitySpecialRenderer(Tile.class, new RenderTile());}
-	 *
-	 * @see RenderingRegistry
-	 */
 	private void registerRenders() {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrew.class, BrewRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrewLinger.class, EmptyRenderer::new);

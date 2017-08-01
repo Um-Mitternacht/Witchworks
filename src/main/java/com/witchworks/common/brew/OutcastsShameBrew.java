@@ -26,22 +26,13 @@ public class OutcastsShameBrew implements IBrew {
 			if (entity instanceof EntityWitch && !entity.isBurning()) {
 				entity.setFire(500);
 				entity.attackEntityFrom(DamageSource.MAGIC, 20);
-			} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER)
+			} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
 				entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 1500, 0));
-			entity.attackEntityFrom(DamageSource.MAGIC, 20);
-		}
-
-		if (amplifier == 2) {
-			if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
-				entity.attackEntityFrom(DamageSource.MAGIC, 16);
-			} else if (entity instanceof EntityWitch) {
-				entity.attackEntityFrom(DamageSource.MAGIC, 16);
+				entity.attackEntityFrom(DamageSource.MAGIC, 20);
 			}
-		}
-
-		if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
-			entity.attackEntityFrom(DamageSource.MAGIC, 10);
-		} else if (entity instanceof EntityWitch) {
+		} else if (amplifier == 2 && entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER || entity instanceof EntityWitch) {
+			entity.attackEntityFrom(DamageSource.MAGIC, 16);
+		} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
 			entity.attackEntityFrom(DamageSource.MAGIC, 10);
 		}
 	}

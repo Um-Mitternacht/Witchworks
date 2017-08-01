@@ -140,6 +140,9 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 				else if (event.getEntityLiving() instanceof EntityCaveSpider && rand.nextInt(6) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.envenomed_fang, 2));
 
+				else if (event.getEntityLiving() instanceof EntityEndermite && rand.nextInt(6) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.dimensional_sand, 2));
+
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);
 					ItemNBTHelper.setString(stack, "SkullOwner", event.getEntityLiving().getName());

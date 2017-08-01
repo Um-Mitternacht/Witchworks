@@ -36,6 +36,7 @@ public final class CauldronCrafting {
 	private CauldronCrafting() {
 	}
 
+	//Todo: Add support for splash, lingering, and witchery-style gaseous brews in a custom brew.
 	public static void init() {
 		//------------------------------------Processing------------------------------------//
 		//Some recipes that return the non-dyed version of an Item
@@ -274,6 +275,14 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.MYCOLOGICAL_CORRUPTION), false);
 		registerEffect(getStack(Blocks.GRASS)
 				, BrewRegistry.getDefault(ModBrews.GROWTH), false);
+		registerEffect(getStack(Blocks.MOSSY_COBBLESTONE)
+				, BrewRegistry.getDefault(ModBrews.OZYMANDIAS), false);
+		registerEffect(getStack(Blocks.RED_NETHER_BRICK)
+				, BrewRegistry.getDefault(ModBrews.HELLS_WROTH), false);
+		registerEffect(getStack(ModItems.dimensional_sand)
+				, BrewRegistry.getDefault(ModBrews.SETEHS_WASTES), false);
+		registerEffect(getStack(ModBlocks.nethersteel)
+				, BrewRegistry.getDefault(ModBrews.HELL_WORLD), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);

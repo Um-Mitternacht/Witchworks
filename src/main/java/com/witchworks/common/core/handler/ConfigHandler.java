@@ -179,10 +179,8 @@ public final class ConfigHandler {
 	public static class EnergyHUD {
 		@Comment("Should the energy HUD be hidden?")
 		public boolean hide = true;
-		@Comment({"Pixels before HUD starts", "Size is calculated with heightEnd - heightStart"})
-		public int heightStart = 32;
-		@Comment({"Pixels after HUD ends", "Size is calculated with heightEnd - heightStart"})
-		public int heightEnd = 134;
+		@Comment("Height of the HUD")
+		public int height = 102;
 		@Comment("Width of the HUD")
 		public int width = 25;
 

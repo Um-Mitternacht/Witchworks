@@ -50,6 +50,15 @@ public final class WitchWorksAPI {
 	public static ResourceLocation WOLFSBANE = getLocation("wolfsbane");
 	public static ResourceLocation OUTCASTS_SHAME = getLocation("outcasts_shame");
 	public static ResourceLocation IGNITION = getLocation("ignition");
+	public static ResourceLocation GRACE = getLocation("grace");
+	public static ResourceLocation PURIFY = getLocation("purify");
+	public static ResourceLocation NOTCHED = getLocation("notched");
+	public static ResourceLocation MYCOLOGICAL_CORRUPTION = getLocation("mycological_corruption");
+	public static ResourceLocation GROWTH = getLocation("growth");
+	public static ResourceLocation OZYMANDIAS = getLocation("ozymandias");
+	public static ResourceLocation HELLS_WROTH = getLocation("hells_wroth");
+	public static ResourceLocation SETEHS_WASTES = getLocation("setehs_wastes");
+	public static ResourceLocation HELL_WORLD = getLocation("hell_world");
 
 	private WitchWorksAPI() {
 	}

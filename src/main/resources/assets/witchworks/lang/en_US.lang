@@ -76,6 +76,7 @@ item.silver_scales.name=Silver Scales
 item.eye_of_old.name=Eye of Old
 item.heart.name=Heart
 item.envenomed_fang.name=Envenomed Fang
+item.dimensional_sand.name=Dimensional Sand
 item.bee.name=Bee
 item.salt.name=Salt
 item.silver_ingot.name=Silver Ingot
@@ -217,7 +218,7 @@ brew.spider_nightmare.desc=Surround your enemy with webs and spiders
 brew.spider_nightmare.tooltip=Spider Nightmare
 
 brew.frostbite.name=Frostbite Brew
-brew.frostbite.desc=Encase your target in ice
+brew.frostbite.desc=Encases a target in ice. May have other effects.
 brew.frostbite.tooltip=Frostbite
 
 brew.extinguish_fires.name=Extinguish Fires Brew
@@ -323,6 +324,22 @@ brew.mycological_corruption.tooltip=Mycological Corruption
 brew.growth.name=Brew of Growth
 brew.growth.desc=Turns mycelium and dirt into grass
 brew.growth.tooltip=Growth
+
+brew.ozymandias.name=Ozymandias' Brew
+brew.ozymandias.desc=Look on my Works, ye Mighty, and despair!
+brew.ozymandias.tooltip=Ozymandias
+
+brew.hells_wroth.name=Hell's Wroth Brew
+brew.hells_wroth.desc=Encases a target in scalding magma. May have other effects.
+brew.hells_wroth.tooltip=Hell's Wroth
+
+brew.setehs_wastes.name=Brew of Seteh's Wastes
+brew.setehs_wastes.desc=Converts sand and sandstone to their red variants.
+brew.setehs_wastes.tooltip=Seteh's Wastes
+
+brew.hell_world.name=Brew of Fire World
+brew.hell_world.desc=Converts your surroundings to a hellish scene.
+brew.hell_world.tooltip=Fire World
 
 brew..name=
 brew..desc=

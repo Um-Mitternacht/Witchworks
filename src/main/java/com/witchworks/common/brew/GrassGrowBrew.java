@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -7,6 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 11/06/2017.
@@ -14,6 +17,16 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 public class GrassGrowBrew extends BlockHitBrew {
+
+	private final Map<Block, IBlockState> stateMap = new HashMap<>();
+
+	public GrassGrowBrew() {
+		stateMap.put(Blocks.MYCELIUM, Blocks.GRASS.getDefaultState());
+		stateMap.put(Blocks.DIRT, Blocks.GRASS.getDefaultState());
+		stateMap.put(Blocks.RED_MUSHROOM, Blocks.TALLGRASS.getDefaultState());
+		stateMap.put(Blocks.DEADBUSH, Blocks.YELLOW_FLOWER.getDefaultState());
+		stateMap.put(Blocks.SAND, Blocks.DIRT.getDefaultState());
+	}
 
 	@Override
 	public int getColor() {
@@ -34,12 +47,10 @@ public class GrassGrowBrew extends BlockHitBrew {
 
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
-			IBlockState state = world.getBlockState(spot);
+			Block block = world.getBlockState(spot).getBlock();
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
-			if (place && state.getBlock() == Blocks.MYCELIUM && world.isAirBlock(spot.up())) {
-				world.setBlockState(spot, Blocks.GRASS.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.DIRT) {
-				world.setBlockState(spot, Blocks.GRASS.getDefaultState(), 3);
+			if (place && stateMap.containsKey(block)) {
+				world.setBlockState(spot, stateMap.get(block), 11);
 			}
 		}
 	}

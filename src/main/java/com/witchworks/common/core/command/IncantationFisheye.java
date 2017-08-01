@@ -1,8 +1,10 @@
 package com.witchworks.common.core.command;
 
+import com.witchworks.common.core.capability.energy.EnergyHandler;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
@@ -22,6 +24,8 @@ class IncantationFisheye implements IIncantation {
 		if (entity.isEntityAlive()) {
 			entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 275, 0));
 			entity.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 275, 0));
+
+			EnergyHandler.addEnergy((EntityPlayer) sender, -8);
 		}
 	}
 }

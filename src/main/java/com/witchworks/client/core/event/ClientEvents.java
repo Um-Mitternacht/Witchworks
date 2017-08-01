@@ -1,11 +1,9 @@
 package com.witchworks.client.core.event;
 
 import com.witchworks.api.brew.BrewEffect;
-import com.witchworks.api.brew.IBrewClientSide;
 import com.witchworks.api.brew.IBrewRenderLiving;
 import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -19,15 +17,6 @@ import java.util.Collection;
  */
 @SideOnly(Side.CLIENT)
 public class ClientEvents {
-
-	@SubscribeEvent
-	public void onUpdateClientSide(LivingEvent.LivingUpdateEvent event) {
-		Collection<BrewEffect> effects = BrewStorageHandler.getBrewEffects(event.getEntityLiving());
-		effects.stream().filter(effect -> effect.getBrew() instanceof IBrewClientSide).forEach(effect -> {
-			if (event.isCanceled()) return;
-			((IBrewClientSide) effect.getBrew()).onUpdateClientSide(event, event.getEntityLiving(), effect.getAmplifier());
-		});
-	}
 
 	@SubscribeEvent
 	public void onRender(RenderLivingEvent.Pre event) {

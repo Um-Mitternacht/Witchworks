@@ -2,40 +2,52 @@ package com.witchworks.common.brew;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class was created by Arekkuusu on 11/06/2017.
+ * This class was created by Arekkuusu on 24/04/2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class MycologicalCorruptionBrew extends BlockHitBrew {
+public class OzymandiasBrew extends BlockHitBrew {
 
 	private final Map<Block, IBlockState> stateMap = new HashMap<>();
 
-	public MycologicalCorruptionBrew() {
-		stateMap.put(Blocks.GRASS, Blocks.MYCELIUM.getDefaultState());
-		stateMap.put(Blocks.DIRT, Blocks.MYCELIUM.getDefaultState());
-		stateMap.put(Blocks.TALLGRASS, Blocks.RED_MUSHROOM.getDefaultState());
-		stateMap.put(Blocks.DEADBUSH, Blocks.BROWN_MUSHROOM.getDefaultState());
-		stateMap.put(Blocks.SAND, Blocks.DIRT.getDefaultState());
+	@SuppressWarnings("deprecation")
+	public OzymandiasBrew() {
+		stateMap.put(Blocks.COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL.getStateFromMeta(1));
+		stateMap.put(Blocks.COBBLESTONE, Blocks.MOSSY_COBBLESTONE.getDefaultState());
+		stateMap.put(Blocks.TALLGRASS, Blocks.DEADBUSH.getDefaultState());
+		stateMap.put(Blocks.STONEBRICK, Blocks.STONEBRICK.getStateFromMeta(1));
+		stateMap.put(Blocks.GRASS, Blocks.SAND.getDefaultState());
+		stateMap.put(Blocks.MYCELIUM, Blocks.SAND.getDefaultState());
+		stateMap.put(Blocks.DIRT, Blocks.SAND.getDefaultState());
+	}
+
+	@Override
+	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		//NO-OP
 	}
 
 	@Override
 	public int getColor() {
-		return 0xD8BFD8;
+		return 0x16161D;
 	}
 
 	@Override
 	public String getName() {
-		return "mycological_corruption";
+		return "ozymandias";
 	}
 
 	@Override
@@ -53,5 +65,10 @@ public class MycologicalCorruptionBrew extends BlockHitBrew {
 				world.setBlockState(spot, stateMap.get(block), 11);
 			}
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
 	}
 }

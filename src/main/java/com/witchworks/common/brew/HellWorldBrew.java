@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import com.witchworks.common.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -16,26 +17,29 @@ import java.util.Map;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class MycologicalCorruptionBrew extends BlockHitBrew {
+public class HellWorldBrew extends BlockHitBrew {
 
 	private final Map<Block, IBlockState> stateMap = new HashMap<>();
 
-	public MycologicalCorruptionBrew() {
-		stateMap.put(Blocks.GRASS, Blocks.MYCELIUM.getDefaultState());
-		stateMap.put(Blocks.DIRT, Blocks.MYCELIUM.getDefaultState());
-		stateMap.put(Blocks.TALLGRASS, Blocks.RED_MUSHROOM.getDefaultState());
-		stateMap.put(Blocks.DEADBUSH, Blocks.BROWN_MUSHROOM.getDefaultState());
-		stateMap.put(Blocks.SAND, Blocks.DIRT.getDefaultState());
+	public HellWorldBrew() {
+		stateMap.put(Blocks.GRASS_PATH, Blocks.RED_NETHER_BRICK.getDefaultState());
+		stateMap.put(Blocks.GRAVEL, Blocks.SOUL_SAND.getDefaultState());
+		stateMap.put(Blocks.COBBLESTONE, Blocks.NETHERRACK.getDefaultState());
+		stateMap.put(Blocks.PLANKS, Blocks.NETHER_BRICK.getDefaultState());
+		stateMap.put(Blocks.OAK_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.LOG, ModBlocks.nethersteel.getDefaultState());
+		stateMap.put(Blocks.STONE_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.OAK_FENCE, Blocks.NETHER_BRICK_FENCE.getDefaultState());
 	}
 
 	@Override
 	public int getColor() {
-		return 0xD8BFD8;
+		return 0xED2939;
 	}
 
 	@Override
 	public String getName() {
-		return "mycological_corruption";
+		return "hell_world";
 	}
 
 	@Override
