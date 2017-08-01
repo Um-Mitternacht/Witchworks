@@ -136,9 +136,9 @@ public class EnergyHUD {
 		VertexBuffer buff = tessellator.getBuffer();
 
 		buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-		buff.pos(x + width, y            , 0).tex((double) 1, vMin).endVertex();
-		buff.pos(x           , y            , 0).tex((double) 0, vMin).endVertex();
-		buff.pos(x           , y + height, 0).tex((double) 0, vMax).endVertex();
+		buff.pos(x + width, y, 0).tex((double) 1, vMin).endVertex();
+		buff.pos(x, y, 0).tex((double) 0, vMin).endVertex();
+		buff.pos(x, y + height, 0).tex((double) 0, vMax).endVertex();
 		buff.pos(x + width, y + height, 0).tex((double) 1, vMax).endVertex();
 
 		tessellator.draw();

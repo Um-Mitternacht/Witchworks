@@ -68,5 +68,6 @@ public class SetehsWastesBrew extends BlockHitBrew {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {}
+	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
+	}
 }
