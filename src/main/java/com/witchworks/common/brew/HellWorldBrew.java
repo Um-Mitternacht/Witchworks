@@ -1,6 +1,7 @@
 package com.witchworks.common.brew;
 
 import com.witchworks.common.block.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -8,6 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 11/06/2017.
@@ -15,6 +18,19 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 public class HellWorldBrew extends BlockHitBrew {
+
+	private final Map<Block, IBlockState> stateMap = new HashMap<>();
+
+	public HellWorldBrew() {
+		stateMap.put(Blocks.GRASS_PATH, Blocks.RED_NETHER_BRICK.getDefaultState());
+		stateMap.put(Blocks.GRAVEL, Blocks.SOUL_SAND.getDefaultState());
+		stateMap.put(Blocks.COBBLESTONE, Blocks.NETHERRACK.getDefaultState());
+		stateMap.put(Blocks.PLANKS, Blocks.NETHER_BRICK.getDefaultState());
+		stateMap.put(Blocks.OAK_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.LOG, ModBlocks.nethersteel.getDefaultState());
+		stateMap.put(Blocks.STONE_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.OAK_FENCE, Blocks.NETHER_BRICK_FENCE.getDefaultState());
+	}
 
 	@Override
 	public int getColor() {
@@ -35,24 +51,10 @@ public class HellWorldBrew extends BlockHitBrew {
 
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
-			IBlockState state = world.getBlockState(spot);
+			Block block = world.getBlockState(spot).getBlock();
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
-			if (place && state.getBlock() == Blocks.GRASS_PATH && world.isAirBlock(spot.up())) {
-				world.setBlockState(spot, Blocks.RED_NETHER_BRICK.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.GRAVEL) {
-				world.setBlockState(spot, Blocks.SOUL_SAND.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.COBBLESTONE) {
-				world.setBlockState(spot, Blocks.NETHERRACK.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.PLANKS) {
-				world.setBlockState(spot, Blocks.NETHER_BRICK.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.OAK_STAIRS) {
-				world.setBlockState(spot, Blocks.NETHER_BRICK_STAIRS.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.LOG) {
-				world.setBlockState(spot, ModBlocks.nethersteel.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.STONE_STAIRS) {
-				world.setBlockState(spot, Blocks.NETHER_BRICK_STAIRS.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.OAK_FENCE) {
-				world.setBlockState(spot, Blocks.NETHER_BRICK_FENCE.getDefaultState(), 3);
+			if (place && stateMap.containsKey(block)) {
+				world.setBlockState(spot, stateMap.get(block), 11);
 			}
 		}
 	}
