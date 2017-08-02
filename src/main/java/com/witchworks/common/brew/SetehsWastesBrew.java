@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,6 +12,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class was created by Arekkuusu on 24/04/2017.
@@ -18,6 +21,14 @@ import javax.annotation.Nullable;
  * the MIT license.
  */
 public class SetehsWastesBrew extends BlockHitBrew {
+
+	private final Map<Block, IBlockState> stateMap = new HashMap<>();
+
+	public SetehsWastesBrew() {
+		stateMap.put(Blocks.SAND, Blocks.SAND.getStateFromMeta(1));
+		stateMap.put(Blocks.SANDSTONE, Blocks.RED_SANDSTONE.getDefaultState());
+		stateMap.put(Blocks.SANDSTONE_STAIRS, Blocks.RED_SANDSTONE_STAIRS.getDefaultState());
+	}
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
@@ -36,35 +47,21 @@ public class SetehsWastesBrew extends BlockHitBrew {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
-		int box = 1 + (int) ((float) amplifier / 2F);
+		void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
+			int box = 1 + (int) ((float) amplifier / 2F);
 
-		BlockPos posI = pos.add(box, box, box);
-		BlockPos posF = pos.add(-box, -box, -box);
+			BlockPos posI = pos.add(box, box, box);
+			BlockPos posF = pos.add(-box, -box, -box);
 
-		//Fixme: Get it to respect meta fully, and apply the appropriate changes. Currently, it defaults to red sandstone, even for chiselled and what not.
-		//OGMHYGOD: What the fuck did I just witness
-		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
-		for (BlockPos spot : spots) {
-			IBlockState state = world.getBlockState(spot);
-			boolean place = amplifier > 2 || world.rand.nextBoolean();
-			if (place && state.getBlock() == Blocks.SAND && world.isAirBlock(spot.up())) {
-				world.setBlockState(spot, Blocks.SAND.getStateFromMeta(1), 3);
-			} else if (state.getBlock() == Blocks.SANDSTONE) {
-				world.setBlockState(spot, Blocks.RED_SANDSTONE.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.SANDSTONE_STAIRS) {
-				world.setBlockState(spot, Blocks.RED_SANDSTONE_STAIRS.getStateFromMeta(state.getBlock().getMetaFromState(state)), 3);
-			} else if (state.getBlock() == Blocks.STONE_SLAB.getStateFromMeta(1)) {
-				world.setBlockState(spot, Blocks.STONE_SLAB2.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.STONE_SLAB.getStateFromMeta(9)) {
-				world.setBlockState(spot, Blocks.STONE_SLAB2.getStateFromMeta(8), 3);
-			} else if (state.getBlock() == Blocks.SANDSTONE.getStateFromMeta(1)) {
-				world.setBlockState(spot, Blocks.RED_SANDSTONE.getStateFromMeta(1), 3);
-			} else if (state.getBlock() == Blocks.SANDSTONE.getStateFromMeta(2)) {
-				world.setBlockState(spot, Blocks.RED_SANDSTONE.getStateFromMeta(2), 3);
+			Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
+			for (BlockPos spot : spots) {
+				Block block = world.getBlockState(spot).getBlock();
+				boolean place = amplifier > 2 || world.rand.nextBoolean();
+				if (place && stateMap.containsKey(block)) {
+					world.setBlockState(spot, stateMap.get(block), 11);
+				}
 			}
 		}
-	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
