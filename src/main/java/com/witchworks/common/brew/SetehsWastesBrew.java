@@ -1,6 +1,7 @@
 package com.witchworks.common.brew;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRedSandstone;
 import net.minecraft.block.BlockSandStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -46,7 +47,6 @@ public class SetehsWastesBrew extends BlockHitBrew {
 	}
 
 	//Todo: Apply this to slabs. Also, create the Brew of Ice World.
-	//Fixme: Deadly crash currently with this brew when it hits sandstone. Potentially world corrupting.
 	@SuppressWarnings("deprecation")
 	@Override
 	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
@@ -74,7 +74,7 @@ public class SetehsWastesBrew extends BlockHitBrew {
 
 	private IBlockState getSandStone(BlockSandStone.EnumType type) {
 		IBlockState state = Blocks.RED_SANDSTONE.getDefaultState();
-		return state.withProperty(BlockSandStone.TYPE, type);
+		return state.withProperty(BlockRedSandstone.TYPE, BlockRedSandstone.EnumType.byMetadata(type.getMetadata()));
 	}
 
 	@SideOnly(Side.CLIENT)
