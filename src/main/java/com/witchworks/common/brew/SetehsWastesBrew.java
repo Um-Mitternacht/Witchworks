@@ -57,22 +57,24 @@ public class SetehsWastesBrew extends BlockHitBrew {
 
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
-			Block block = world.getBlockState(spot).getBlock();
-			IBlockState state = world.getBlockState(spot);
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
-			if (place && stateMap.containsKey(block)) {
-				world.setBlockState(spot, stateMap.get(block), 11);
-			} else if (block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.DEFAULT) {
-				IBlockState redSandStone = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.DEFAULT);
-				world.setBlockState(pos, state, 3);
-			} else if (block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.SMOOTH) {
-				IBlockState redSandStone1 = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.SMOOTH);
-				world.setBlockState(pos, state, 3);
-			} else if (block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.CHISELED) {
-				IBlockState redSandStone2 = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED);
-				world.setBlockState(pos, state, 3);
+			if (place) {
+				IBlockState state = world.getBlockState(spot);
+				Block block = state.getBlock();
+				if  (stateMap.containsKey(block)) {
+					world.setBlockState(spot, stateMap.get(block), 11);
+				}  else if  (block == Blocks.SANDSTONE)  {
+					BlockSandStone.EnumType type = state.getValue(BlockSandStone.TYPE);
+					IBlockState other = getSandStone(type);
+					world.setBlockState(spot, other, 11);
+				}
 			}
 		}
+	}
+
+	private IBlockState getSandStone(BlockSandStone.EnumType type) {
+		IBlockState state = Blocks.RED_SANDSTONE.getDefaultState();
+		return state.withProperty(BlockSandStone.TYPE, type);
 	}
 
 	@SideOnly(Side.CLIENT)
