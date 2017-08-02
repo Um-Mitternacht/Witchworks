@@ -68,7 +68,7 @@ public class SetehsWastesBrew extends BlockHitBrew {
 					world.setBlockState(pos, state, 3);
 				}
 				else if(block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.CHISELED) {
-					IBlockState redSandStone = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED);
+					IBlockState redSandStone1 = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED);
 					world.setBlockState(pos, state, 3);
 				}
 			}
