@@ -1,6 +1,7 @@
 package com.witchworks.common.brew;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSandStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
@@ -56,9 +57,18 @@ public class SetehsWastesBrew extends BlockHitBrew {
 			Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 			for (BlockPos spot : spots) {
 				Block block = world.getBlockState(spot).getBlock();
+				IBlockState state = world.getBlockState(spot);
 				boolean place = amplifier > 2 || world.rand.nextBoolean();
 				if (place && stateMap.containsKey(block)) {
 					world.setBlockState(spot, stateMap.get(block), 11);
+				}
+				else if(block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.SMOOTH) {
+					IBlockState redSandStone = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.SMOOTH);
+					world.setBlockState(pos, state, 3);
+				}
+				else if(block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.CHISELED) {
+					IBlockState redSandStone = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED);
+					world.setBlockState(pos, state, 3);
 				}
 			}
 		}
