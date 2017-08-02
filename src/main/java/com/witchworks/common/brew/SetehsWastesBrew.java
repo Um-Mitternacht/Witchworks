@@ -27,7 +27,6 @@ public class SetehsWastesBrew extends BlockHitBrew {
 
 	public SetehsWastesBrew() {
 		stateMap.put(Blocks.SAND, Blocks.SAND.getStateFromMeta(1));
-		stateMap.put(Blocks.SANDSTONE, Blocks.RED_SANDSTONE.getDefaultState());
 		stateMap.put(Blocks.SANDSTONE_STAIRS, Blocks.RED_SANDSTONE_STAIRS.getDefaultState());
 	}
 
@@ -47,32 +46,34 @@ public class SetehsWastesBrew extends BlockHitBrew {
 	}
 
 	//Todo: Apply this to slabs. Also, create the Brew of Ice World.
+	//Fixme: Deadly crash currently with this brew when it hits sandstone. Potentially world corrupting.
 	@SuppressWarnings("deprecation")
 	@Override
-		void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
-			int box = 1 + (int) ((float) amplifier / 2F);
+	void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
+		int box = 1 + (int) ((float) amplifier / 2F);
 
-			BlockPos posI = pos.add(box, box, box);
-			BlockPos posF = pos.add(-box, -box, -box);
+		BlockPos posI = pos.add(box, box, box);
+		BlockPos posF = pos.add(-box, -box, -box);
 
-			Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
-			for (BlockPos spot : spots) {
-				Block block = world.getBlockState(spot).getBlock();
-				IBlockState state = world.getBlockState(spot);
-				boolean place = amplifier > 2 || world.rand.nextBoolean();
-				if (place && stateMap.containsKey(block)) {
-					world.setBlockState(spot, stateMap.get(block), 11);
-				}
-				else if(block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.SMOOTH) {
-					IBlockState redSandStone = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.SMOOTH);
-					world.setBlockState(pos, state, 3);
-				}
-				else if(block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.CHISELED) {
-					IBlockState redSandStone1 = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED);
-					world.setBlockState(pos, state, 3);
-				}
+		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
+		for (BlockPos spot : spots) {
+			Block block = world.getBlockState(spot).getBlock();
+			IBlockState state = world.getBlockState(spot);
+			boolean place = amplifier > 2 || world.rand.nextBoolean();
+			if (place && stateMap.containsKey(block)) {
+				world.setBlockState(spot, stateMap.get(block), 11);
+			} else if (block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.DEFAULT) {
+				IBlockState redSandStone = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.DEFAULT);
+				world.setBlockState(pos, state, 3);
+			} else if (block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.SMOOTH) {
+				IBlockState redSandStone1 = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.SMOOTH);
+				world.setBlockState(pos, state, 3);
+			} else if (block == Blocks.SANDSTONE && state.getValue(BlockSandStone.TYPE) == BlockSandStone.EnumType.CHISELED) {
+				IBlockState redSandStone2 = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED);
+				world.setBlockState(pos, state, 3);
 			}
 		}
+	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
