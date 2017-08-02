@@ -8,7 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.MathHelper;
@@ -133,7 +133,7 @@ public class EnergyHUD {
 
 	private void renderTexture(double x, double y, double width, double height, double vMin, double vMax) {
 		Tessellator tessellator = Tessellator.getInstance();
-		VertexBuffer buff = tessellator.getBuffer();
+		BufferBuilder buff = tessellator.getBuffer();
 
 		buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
 		buff.pos(x + width, y, 0).tex((double) 1, vMin).endVertex();

@@ -3,7 +3,7 @@ package com.witchworks.api.brew;
 import com.witchworks.client.ResourceLocations;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -50,7 +50,7 @@ public interface IBrew {
 	default void render(int x, int y, net.minecraft.client.Minecraft mc, int index) {
 		mc.renderEngine.bindTexture(ResourceLocations.BREW_TEXTURES);
 		final Tessellator tessellator = Tessellator.getInstance();
-		final VertexBuffer buf = tessellator.getBuffer();
+		final BufferBuilder buf = tessellator.getBuffer();
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		final float f = 0.00390625F;
 
