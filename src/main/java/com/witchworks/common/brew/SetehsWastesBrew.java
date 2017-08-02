@@ -49,7 +49,7 @@ public class SetehsWastesBrew extends BlockHitBrew {
 	//Fixme: Deadly crash currently with this brew when it hits sandstone. Potentially world corrupting.
 	@SuppressWarnings("deprecation")
 	@Override
-	void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
+	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
 		int box = 1 + (int) ((float) amplifier / 2F);
 
 		BlockPos posI = pos.add(box, box, box);
