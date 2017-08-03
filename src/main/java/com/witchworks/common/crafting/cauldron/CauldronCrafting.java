@@ -122,7 +122,7 @@ public final class CauldronCrafting {
 
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
-				, getStack(Items.field_191525_da, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.salt, getStack(ModItems.gem, 1, 6));
+				, getStack(Items.IRON_NUGGET, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.salt, getStack(ModItems.gem, 1, 6));
 
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 0)
 				, getStack(Items.DYE, 1, 0), Items.NETHER_WART);
@@ -255,7 +255,7 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.FERTILIZE), false);
 		registerEffect(getStack(Blocks.PACKED_ICE)
 				, BrewRegistry.getDefault(ModBrews.SNOW_TRAIL), false);
-		registerEffect(getStack(Items.field_191525_da)
+		registerEffect(getStack(Items.IRON_NUGGET)
 				, BrewRegistry.getDefault(ModBrews.SINKING), false);
 		registerEffect(getStack(Blocks.BROWN_MUSHROOM)
 				, BrewRegistry.getDefault(ModBrews.PRUNE_LEAVES), false);

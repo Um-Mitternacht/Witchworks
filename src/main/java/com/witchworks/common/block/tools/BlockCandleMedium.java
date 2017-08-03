@@ -30,7 +30,7 @@ public class BlockCandleMedium extends BlockCandle {
 	}
 
 	@Override
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
 		for (int i = 0; i < 16; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
 		}

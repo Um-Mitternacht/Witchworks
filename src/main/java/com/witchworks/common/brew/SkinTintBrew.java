@@ -73,7 +73,7 @@ public class SkinTintBrew implements IBrew, IBrewRenderLiving {
 		GlStateManager.pushMatrix();
 
 		EnumDyeColor dye = EnumDyeColor.byDyeDamage(Math.min(amplifier, EnumDyeColor.values().length - 1));
-		int rgb = dye.getMapColor().colorValue;
+		int rgb = dye.getColorValue();
 
 		float r = (rgb >>> 16 & 0xFF) / 256.0F;
 		float g = (rgb >>> 8 & 0xFF) / 256.0F;
@@ -96,7 +96,7 @@ public class SkinTintBrew implements IBrew, IBrewRenderLiving {
 		GlStateManager.pushMatrix();
 
 		EnumDyeColor dye = EnumDyeColor.byDyeDamage(Math.min(amplifier, EnumDyeColor.values().length - 1));
-		int rgb = dye.getMapColor().colorValue;
+		int rgb = dye.getColorValue();
 
 		float r = (rgb >>> 16 & 0xFF) / 256.0F;
 		float g = (rgb >>> 8 & 0xFF) / 256.0F;

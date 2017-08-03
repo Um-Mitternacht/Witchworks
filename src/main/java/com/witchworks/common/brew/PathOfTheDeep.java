@@ -22,7 +22,7 @@ public class PathOfTheDeep implements IBrew {
 		if (entity.moveForward > 0F && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isFlying)) {
 			if (entity.isInWater()) {
 				if (BrewStorageHandler.isBrewActive(entity, ModBrews.PATH_OF_THE_DEEP)) {
-					entity.moveRelative(0F, 0.5F, 0.085F);
+					entity.moveRelative(0F, 0.5F, 0.085F, 0.85F);
 				}
 			}
 		}
