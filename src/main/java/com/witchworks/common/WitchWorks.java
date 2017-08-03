@@ -2,7 +2,6 @@ package com.witchworks.common;
 
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.brew.ModBrews;
-import com.witchworks.common.core.achievement.ModAchievements;
 import com.witchworks.common.core.capability.brew.CapabilityBrewStorage;
 import com.witchworks.common.core.capability.energy.CapabilityEnergy;
 import com.witchworks.common.core.command.CommandIncantation;
@@ -66,7 +65,6 @@ public class WitchWorks {
 		CauldronCrafting.init();
 
 		SeedDropRegistry.init();
-		ModAchievements.init();
 		ModGen.init();
 	}
 
