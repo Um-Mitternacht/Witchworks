@@ -54,9 +54,9 @@ public class ItemBrewLinger extends ItemBrew {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		BrewRegistry.getDefaults().get(LINGER).forEach((brew, brewEffect) ->
-				subItems.add(BrewUtils.createBrew(LINGER, brew))
+				items.add(BrewUtils.createBrew(LINGER, brew))
 		);
 	}
 }

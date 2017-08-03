@@ -5,6 +5,7 @@ import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import com.witchworks.common.lib.LibItemName;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +23,9 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 import static com.witchworks.api.BrewRegistry.Brew.DRINK;
 
@@ -85,9 +89,9 @@ public class ItemBrewDrink extends ItemBrew {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		BrewRegistry.getDefaults().get(DRINK).forEach((brew, brewEffect) ->
-				subItems.add(BrewUtils.createBrew(DRINK, brew))
+				items.add(BrewUtils.createBrew(DRINK, brew))
 		);
 	}
 }
