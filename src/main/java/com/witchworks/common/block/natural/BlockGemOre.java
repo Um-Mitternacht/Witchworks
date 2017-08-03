@@ -8,7 +8,6 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
@@ -61,7 +60,7 @@ public class BlockGemOre extends BlockMod {
 		items.add(new ItemStack(this, 1, 7));
 		items.add(new ItemStack(this, 1, 8));
 		items.add(new ItemStack(this, 1, 9));
-		}
+	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {

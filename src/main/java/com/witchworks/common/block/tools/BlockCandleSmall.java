@@ -3,7 +3,6 @@ package com.witchworks.common.block.tools;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;

@@ -5,14 +5,12 @@ import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import com.witchworks.common.lib.LibItemName;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
@@ -23,9 +21,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 import static com.witchworks.api.BrewRegistry.Brew.DRINK;
 

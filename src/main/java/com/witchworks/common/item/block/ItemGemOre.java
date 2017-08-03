@@ -5,7 +5,6 @@ import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.natural.BlockGemOre;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -46,7 +45,7 @@ public class ItemGemOre extends ItemBlock implements IModelRegister {
 		items.add(new ItemStack(this, 1, 7));
 		items.add(new ItemStack(this, 1, 8));
 		items.add(new ItemStack(this, 1, 9));
-		}
+	}
 
 	@Override
 	public void registerModel() {

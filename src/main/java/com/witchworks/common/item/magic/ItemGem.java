@@ -5,7 +5,6 @@ import com.witchworks.common.block.natural.BlockGemOre;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
@@ -44,7 +43,7 @@ public class ItemGem extends ItemMod {
 		items.add(new ItemStack(this, 1, 7));
 		items.add(new ItemStack(this, 1, 8));
 		items.add(new ItemStack(this, 1, 9));
-		}
+	}
 
 	@Override
 	public void registerModel() {
