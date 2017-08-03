@@ -50,11 +50,18 @@ public class BlockGemOre extends BlockMod {
 	}
 
 	@Override
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
-		for (int i = 0; i < Gem.values().length; i++) {
-			list.add(new ItemStack(itemIn, 1, i));
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		items.add(new ItemStack(this));
+		items.add(new ItemStack(this, 1, 1));
+		items.add(new ItemStack(this, 1, 2));
+		items.add(new ItemStack(this, 1, 3));
+		items.add(new ItemStack(this, 1, 4));
+		items.add(new ItemStack(this, 1, 5));
+		items.add(new ItemStack(this, 1, 6));
+		items.add(new ItemStack(this, 1, 7));
+		items.add(new ItemStack(this, 1, 8));
+		items.add(new ItemStack(this, 1, 9));
 		}
-	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {

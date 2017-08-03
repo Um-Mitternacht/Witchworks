@@ -29,7 +29,7 @@ public class TileRenderCauldron extends TileEntitySpecialRenderer<TileCauldron> 
 
 	@SuppressWarnings("ConstantConditions")
 	@Override
-	public void renderTileEntityAt(TileCauldron te, double x, double y, double z, float partialTicks, int destroyStage) {
+	public void render(TileCauldron te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
 		Optional<FluidStack> optional = te.getFluid();
 		if (optional.isPresent() && optional.get().amount > 0) {
 			FluidStack fluidStack = optional.get();
