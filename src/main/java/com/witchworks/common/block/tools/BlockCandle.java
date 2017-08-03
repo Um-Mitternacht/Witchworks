@@ -51,8 +51,8 @@ public class BlockCandle extends BlockMod implements ITileEntityProvider {
 	}
 
 	@SuppressWarnings("deprecation")
-	public MapColor getMapColor(IBlockState state) {
-		return state.getValue(COLOR).getMapColor();
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		return MapColor.getBlockColor((EnumDyeColor)state.getValue(COLOR));
 	}
 
 	@SuppressWarnings("deprecation")

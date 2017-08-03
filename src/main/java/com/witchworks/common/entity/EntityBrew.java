@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class EntityBrew extends EntityThrowable {
 
-	private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBrew.class, DataSerializers.OPTIONAL_ITEM_STACK);
+	private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBrew.class, DataSerializers.ITEM_STACK);
 	private BrewDispersion dispersion;
 
 	public EntityBrew(World worldIn) {
