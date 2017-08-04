@@ -229,7 +229,7 @@ public final class VanillaCrafting {
 
 		shaped().grid("N N", "ISI", "III")
 				.map('I', Items.IRON_INGOT)
-				.map('N', Items.field_191525_da)
+				.map('N', Items.IRON_NUGGET)
 				.map('S', ModItems.silver_ingot)
 				.outputs(ModBlocks.cauldron)
 				.build();
