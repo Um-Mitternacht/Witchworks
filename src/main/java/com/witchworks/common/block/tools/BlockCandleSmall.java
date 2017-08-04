@@ -46,5 +46,5 @@ public class BlockCandleSmall extends BlockCandle {
 		items.add(new ItemStack(this, 1, 13));
 		items.add(new ItemStack(this, 1, 14));
 		items.add(new ItemStack(this, 1, 15));
-		}
 	}
+}

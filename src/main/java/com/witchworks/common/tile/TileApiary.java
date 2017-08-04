@@ -9,6 +9,7 @@ import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
@@ -41,6 +42,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 	private String customName;
 	private int flowerCount;
 	private int tick;
+	private EntityPlayerMP player;
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
@@ -170,7 +172,7 @@ public class TileApiary extends TileEntityLockable implements ITickable, ISidedI
 					if (world.rand.nextInt(3) == 0 && tick % (GEN - flowerCount * 3) == 0) {
 						for (int i = 1; i < 16; i++) {
 							if (!getStackInSlot(i).isEmpty()) {
-								bee.attemptDamageItem(1, world.rand);
+								bee.attemptDamageItem(1, world.rand, player);
 								bonemealArea();
 
 								itemStacks.set(i, randomItem());

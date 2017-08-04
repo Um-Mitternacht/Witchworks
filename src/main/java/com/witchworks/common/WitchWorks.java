@@ -8,7 +8,6 @@ import com.witchworks.common.core.command.CommandIncantation;
 import com.witchworks.common.core.command.ModCommands;
 import com.witchworks.common.core.event.ModEvents;
 import com.witchworks.common.core.gen.ModGen;
-import com.witchworks.common.core.handler.ModSounds;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
 import com.witchworks.common.crafting.cauldron.CauldronCrafting;
@@ -32,7 +31,7 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * the MIT license.
  */
 @SuppressWarnings("WeakerAccess")
-@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES, acceptedMinecraftVersions = "[1.11]")
+@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES, acceptedMinecraftVersions = "[1.12]")
 public class WitchWorks {
 
 	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
@@ -50,7 +49,6 @@ public class WitchWorks {
 		CapabilityBrewStorage.init();
 		PacketHandler.init();
 		ModEvents.init();
-		ModSounds.init();
 		ModEntities.init();
 		ModBrews.init();
 		proxy.preInit(event);

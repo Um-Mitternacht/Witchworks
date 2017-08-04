@@ -3,8 +3,6 @@ package com.witchworks.common.crafting;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
 
@@ -71,8 +69,8 @@ class ShapedRecipe {
 			recipes.add(o);
 		});
 
-		final ShapedOreRecipe recipe = new ShapedOreRecipe(out, recipes.toArray());
-		CraftingManager.getInstance().getRecipeList().add(recipe);
+		//final ShapedOreRecipe recipe = new ShapedOreRecipe(out, recipes.toArray());
+		//CraftingManager.getInstance().getRecipeList().add(recipe);
 	}
 
 	public static class RecipeMapping {

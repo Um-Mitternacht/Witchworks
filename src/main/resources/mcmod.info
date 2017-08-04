@@ -7,12 +7,12 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Sunconure11/Spinosaurus111", "ArekkuusuJerii", "Ingoleth", "KingEdward9830", "Thermawrench", "Felinoel", "BigHatMagnus", "Hman745", "BerciTheBeast", "Triliton", "mljola9"],
+  "authorList": ["Sunconure11/Spinosaurus111/NotLegalTender", "ArekkuusuJerii", "Ingoleth", "KingEdward9830", "Thermawrench", "Felinoel", "BigHatMagnus", "Hman745", "BerciTheBeast", "Triliton", "mljola9"],
   "credits": "To all contributors of the mod",
   "logoFile": "",
   "screenshots": [],
-  "requiredMods": [ "baubles", "forge", "craftstudioapi" ],
-  "dependencies": [ "baubles", "forge", "craftstudioapi" ],
+  "requiredMods": [ "baubles", "forge" ],
+  "dependencies": [ "baubles", "forge" ],
   "useDependencyInformation": true
 }
 ]
