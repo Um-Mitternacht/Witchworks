@@ -8,7 +8,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -318,6 +320,10 @@ public final class VanillaCrafting {
 			if (ingredients.isEmpty())
 				throw new IllegalArgumentException("You have to specify ingredients for the recipe!");
 			if (output == null) throw new IllegalArgumentException("Output not specified!");
+
+			//Fixme: Everything.
+			//final ShapelessOreRecipe recipe = new ShapelessOreRecipe(output, ingredients.toArray());
+			//CraftingManager.getInstance().getRecipeList().add(recipe);
 		}
 	}
 }
