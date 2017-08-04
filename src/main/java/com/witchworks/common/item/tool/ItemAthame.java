@@ -128,7 +128,7 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 				else if (event.getEntityLiving() instanceof EntityGuardian && rand.nextInt(10) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.eye_of_old, 1));
 
-				else if (event.getEntityLiving() instanceof EntityVillager && rand.nextInt(4) <= 2 + 2 * looting)
+				else if (event.getEntityLiving() instanceof EntityVillager && rand.nextInt(2) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.heart, 1));
 
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(4) <= 2 + 2 * looting)
@@ -142,6 +142,9 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 
 				else if (event.getEntityLiving() instanceof EntityEndermite && rand.nextInt(6) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.dimensional_sand, 2));
+
+				else if (event.getEntityLiving() instanceof EntityParrot && rand.nextInt(3) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.chromatic_quill, 2));
 
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);

@@ -109,6 +109,7 @@ public final class ModItems {
 	public static final Item heart = PLACE_HOLDER;
 	public static final Item envenomed_fang = PLACE_HOLDER;
 	public static final Item dimensional_sand = PLACE_HOLDER;
+	public static final Item chromatic_quill = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -162,6 +163,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.EYE_OF_OLD),
 				new ItemMod(LibItemName.ENVENOMED_FANG),
 				new ItemMod(LibItemName.DIMENSIONAL_SAND),
+				new ItemMod(LibItemName.CHROMATIC_QUILL),
 				new ItemHeart(),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
@@ -252,6 +254,7 @@ public final class ModItems {
 		OreDictionary.registerOre("dustSalt", new ItemStack(ModItems.salt));
 		OreDictionary.registerOre("materialSalt", new ItemStack(ModItems.salt));
 		OreDictionary.registerOre("lumpSalt", new ItemStack(ModItems.salt));
+		OreDictionary.registerOre("salt", new ItemStack(ModItems.salt));
 		OreDictionary.registerOre("cropLavender", new ItemStack(ModItems.lavender));
 		OreDictionary.registerOre("listAllherb", new ItemStack(ModItems.lavender));
 		OreDictionary.registerOre("cropBelladonna", new ItemStack(ModItems.belladonna));
@@ -281,5 +284,6 @@ public final class ModItems {
 		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.silphium));
 		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.wormwood));
 		OreDictionary.registerOre("cropWormwood", new ItemStack(ModItems.wormwood));
+		OreDictionary.registerOre("feather", new ItemStack(ModItems.chromatic_quill));
 	}
 }
