@@ -25,6 +25,7 @@ public final class VanillaCrafting {
 	private VanillaCrafting() {
 	}
 
+	//Todo: Convert all to JSON recipes.
 	public static void items() {
 		shaped().grid("NNN", "NNN", "NNN")
 				.map('N', ModItems.silver_nugget)
