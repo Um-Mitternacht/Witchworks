@@ -20,6 +20,7 @@ import java.util.List;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
+@Deprecated
 public final class VanillaCrafting {
 
 	private VanillaCrafting() {

@@ -11,6 +11,7 @@ import java.util.*;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
+@Deprecated
 @SuppressWarnings({"unused", "WeakerAccess"})
 class ShapedRecipe {
 
