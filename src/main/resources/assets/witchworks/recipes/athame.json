@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "SS ",
-    "  S",
-    "  G"
+    " S ",
+    "SGS",
+    " T "
   ],
   "key": {
     "S": {
@@ -11,11 +11,14 @@
     },
     "G": {
       "item": "witchworks:gem",
-      "data": 5
+      "data": 9
+    },
+    "T": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "witchworks:boline",
+    "item": "witchworks:athame",
     "data": 0
   }
 }

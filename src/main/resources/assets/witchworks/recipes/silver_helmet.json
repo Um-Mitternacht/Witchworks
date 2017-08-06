@@ -1,21 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "SS ",
-    "  S",
-    "  G"
+    "SSS",
+    "S S",
+    "   "
   ],
   "key": {
     "S": {
       "item": "witchworks:silver_ingot"
-    },
-    "G": {
-      "item": "witchworks:gem",
-      "data": 5
     }
   },
   "result": {
-    "item": "witchworks:boline",
+    "item": "witchworks:silver_helmet",
     "data": 0
   }
 }

@@ -8,11 +8,11 @@
     {
       "item": "witchworks:glass_jar",
       "data": 0
-    }	
+    }
   ],
   "result": {
     "item": "witchworks:taglock",
     "data": 0,
-	"count": 1
+    "count": 1
   }
 }

@@ -12,15 +12,15 @@
     {
       "item": "minecraft:quartz",
       "data": 0
-    },	
+    },
     {
       "item": "minecraft:netherbrick",
       "data": 0
-    }		
+    }
   ],
   "result": {
     "item": "witchworks:nethersteel",
     "data": 0,
-	"count": 4
+    "count": 4
   }
 }
