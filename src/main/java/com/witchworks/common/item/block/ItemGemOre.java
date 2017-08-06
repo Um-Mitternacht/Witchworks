@@ -6,9 +6,12 @@ import com.witchworks.common.block.natural.BlockGemOre;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+
+import javax.annotation.Nonnull;
 
 /**
  * This class was created by <Arekkuusu> on 27/06/2017.
@@ -22,7 +25,7 @@ public class ItemGemOre extends ItemBlock implements IModelRegister {
 		setRegistryName(block.getRegistryName());
 		setHasSubtypes(true);
 		setMaxDamage(0);
-		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
+		this.setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
 	@Override
@@ -36,7 +39,7 @@ public class ItemGemOre extends ItemBlock implements IModelRegister {
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+	public void getSubItems(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
 		items.add(new ItemStack(this));
 		items.add(new ItemStack(this, 1, 1));
 		items.add(new ItemStack(this, 1, 2));
