@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "witchworks:silver_ingot"
+    }
+  },
+  "result": {
+    "item": "witchworks:silver_chestplate",
+    "data": 0
+  }
+}
