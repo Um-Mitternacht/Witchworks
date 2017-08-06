@@ -8,6 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
+import javax.annotation.Nonnull;
+
 /**
  * This class was created by <Arekkuusu> on 28/06/2017.
  * It's distributed as part of Solar Epiphany under
@@ -32,7 +34,7 @@ public class ItemGem extends ItemMod {
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+	public void getSubItems(CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
 		items.add(new ItemStack(this));
 		items.add(new ItemStack(this, 1, 1));
 		items.add(new ItemStack(this, 1, 2));

@@ -77,7 +77,7 @@ public final class WitchWorksCreativeTabs {
 
 		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
+		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
@@ -106,6 +106,7 @@ public final class WitchWorksCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
+
 			addItem(ModItems.gem);
 			addItem(ModItems.gemstone_amalgam);
 			addItem(ModItems.bee);
@@ -172,7 +173,7 @@ public final class WitchWorksCreativeTabs {
 
 		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
+		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
 			addBlock(ModBlocks.cauldron);
 			addBlock(ModBlocks.beehive);

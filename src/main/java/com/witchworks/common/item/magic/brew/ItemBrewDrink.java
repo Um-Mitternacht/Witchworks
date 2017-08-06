@@ -22,6 +22,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+
 import static com.witchworks.api.BrewRegistry.Brew.DRINK;
 
 /**
@@ -84,7 +86,7 @@ public class ItemBrewDrink extends ItemBrew {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+	public void getSubItems(CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
 		BrewRegistry.getDefaults().get(DRINK).forEach((brew, brewEffect) ->
 				items.add(BrewUtils.createBrew(DRINK, brew))
 		);
