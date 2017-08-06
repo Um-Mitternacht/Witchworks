@@ -2,6 +2,7 @@ package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.BrewUtils;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.entity.EntityBrew;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,6 +31,7 @@ public class ItemBrewSplash extends ItemBrew {
 
 	public ItemBrewSplash() {
 		super(LibItemName.BREW_PHIAL_SPLASH);
+		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override

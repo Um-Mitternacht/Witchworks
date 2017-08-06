@@ -2,6 +2,7 @@ package com.witchworks.common.item.magic.brew;
 
 import com.witchworks.api.brew.BrewUtils;
 import com.witchworks.api.helper.NBTHelper;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -25,6 +26,7 @@ public class ItemBrew extends ItemMod {
 
 	public ItemBrew(String id) {
 		super(id);
+		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@SideOnly(Side.CLIENT)

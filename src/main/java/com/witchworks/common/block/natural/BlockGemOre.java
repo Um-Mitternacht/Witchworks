@@ -2,6 +2,7 @@ package com.witchworks.common.block.natural;
 
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -25,6 +26,7 @@ public class BlockGemOre extends BlockMod {
 	public BlockGemOre() {
 		super(LibBlockName.GEM_ORE, Material.ROCK);
 		setHardness(2.0F);
+		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
 	@SuppressWarnings("deprecation")

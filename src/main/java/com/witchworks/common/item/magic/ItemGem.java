@@ -2,6 +2,7 @@ package com.witchworks.common.item.magic;
 
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.natural.BlockGemOre;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,6 +22,7 @@ public class ItemGem extends ItemMod {
 		super(LibItemName.GEM);
 		setHasSubtypes(true);
 		setMaxDamage(0);
+		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override
