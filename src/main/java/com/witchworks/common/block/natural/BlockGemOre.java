@@ -2,7 +2,6 @@ package com.witchworks.common.block.natural;
 
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -13,6 +12,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
+
+import javax.annotation.Nonnull;
+
+import static com.witchworks.common.core.WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB;
 
 /**
  * This class was created by <Arekkuusu> on 27/06/2017.
@@ -26,7 +29,7 @@ public class BlockGemOre extends BlockMod {
 	public BlockGemOre() {
 		super(LibBlockName.GEM_ORE, Material.ROCK);
 		setHardness(2.0F);
-		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
+		setCreativeTab(BLOCKS_CREATIVE_TAB);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -51,17 +54,19 @@ public class BlockGemOre extends BlockMod {
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		items.add(new ItemStack(this));
-		items.add(new ItemStack(this, 1, 1));
-		items.add(new ItemStack(this, 1, 2));
-		items.add(new ItemStack(this, 1, 3));
-		items.add(new ItemStack(this, 1, 4));
-		items.add(new ItemStack(this, 1, 5));
-		items.add(new ItemStack(this, 1, 6));
-		items.add(new ItemStack(this, 1, 7));
-		items.add(new ItemStack(this, 1, 8));
-		items.add(new ItemStack(this, 1, 9));
+	public void getSubBlocks(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
+		{
+			items.add(new ItemStack(this));
+			items.add(new ItemStack(this, 1, 1));
+			items.add(new ItemStack(this, 1, 2));
+			items.add(new ItemStack(this, 1, 3));
+			items.add(new ItemStack(this, 1, 4));
+			items.add(new ItemStack(this, 1, 5));
+			items.add(new ItemStack(this, 1, 6));
+			items.add(new ItemStack(this, 1, 7));
+			items.add(new ItemStack(this, 1, 8));
+			items.add(new ItemStack(this, 1, 9));
+		}
 	}
 
 	@Override
