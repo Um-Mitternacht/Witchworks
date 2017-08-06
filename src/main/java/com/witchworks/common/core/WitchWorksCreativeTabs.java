@@ -12,6 +12,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
  * It's distributed as part of Witchworks under
@@ -102,7 +104,7 @@ public final class WitchWorksCreativeTabs {
 
 		@Override
 		@SideOnly(Side.CLIENT)
-		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
+		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
 			addItem(ModItems.gem);
 			addItem(ModItems.gemstone_amalgam);
