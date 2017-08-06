@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "G G",
+    " G "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:wooden_slab",
+      "data": 0	  
+    },
+    "G": {
+      "item": "minecraft:glass_pane",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "witchworks:glass_jar",
+    "data": 0,
+    "count": 3	
+  }
+}
