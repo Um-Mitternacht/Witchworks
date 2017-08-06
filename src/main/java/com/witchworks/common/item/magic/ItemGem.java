@@ -37,7 +37,7 @@ public class ItemGem extends ItemMod {
 
 	@Override
 	public void getSubItems(CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
-		if(this.isInCreativeTab(tab)) {
+		if (this.isInCreativeTab(tab)) {
 			items.add(new ItemStack(this));
 			items.add(new ItemStack(this, 1, 1));
 			items.add(new ItemStack(this, 1, 2));

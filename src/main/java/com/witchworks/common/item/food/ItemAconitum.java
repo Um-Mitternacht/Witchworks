@@ -1,5 +1,6 @@
 package com.witchworks.common.item.food;
 
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
@@ -15,6 +16,7 @@ public class ItemAconitum extends ItemCrop {
 	public ItemAconitum() {
 		super(LibItemName.ACONITUM, 2, 0.6F, false);
 		addPotion(MobEffects.POISON, MobEffects.NAUSEA);
+		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 
 	@Override

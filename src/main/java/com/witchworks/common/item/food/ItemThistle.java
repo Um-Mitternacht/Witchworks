@@ -1,5 +1,6 @@
 package com.witchworks.common.item.food;
 
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.init.MobEffects;
 
@@ -13,5 +14,6 @@ public class ItemThistle extends ItemCrop {
 	public ItemThistle() {
 		super(LibItemName.THISTLE, 4, 0.8F, false);
 		addPotion(MobEffects.STRENGTH);
+		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 }

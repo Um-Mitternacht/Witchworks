@@ -1,5 +1,6 @@
 package com.witchworks.common.item.food;
 
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -16,6 +17,7 @@ public class ItemBelladonna extends ItemCrop {
 
 	public ItemBelladonna() {
 		super(LibItemName.BELLADONNA, 6, 1.5F, false);
+		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 
 	@Override

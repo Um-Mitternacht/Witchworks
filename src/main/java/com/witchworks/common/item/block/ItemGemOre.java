@@ -3,6 +3,7 @@ package com.witchworks.common.item.block;
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.natural.BlockGemOre;
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
@@ -21,6 +22,7 @@ public class ItemGemOre extends ItemBlock implements IModelRegister {
 		setRegistryName(block.getRegistryName());
 		setHasSubtypes(true);
 		setMaxDamage(0);
+		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
 	@Override
@@ -35,6 +37,8 @@ public class ItemGemOre extends ItemBlock implements IModelRegister {
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+		if (this.isInCreativeTab(tab)) {
+		}
 		items.add(new ItemStack(this));
 		items.add(new ItemStack(this, 1, 1));
 		items.add(new ItemStack(this, 1, 2));
@@ -46,6 +50,7 @@ public class ItemGemOre extends ItemBlock implements IModelRegister {
 		items.add(new ItemStack(this, 1, 8));
 		items.add(new ItemStack(this, 1, 9));
 	}
+
 
 	@Override
 	public void registerModel() {

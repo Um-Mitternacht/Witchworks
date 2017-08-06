@@ -175,7 +175,7 @@ public final class WitchWorksCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 			this.list = list;
-			
+
 			addBlock(ModBlocks.cauldron);
 			addBlock(ModBlocks.beehive);
 			addBlock(ModBlocks.altar);
