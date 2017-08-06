@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class ItemBelladonna extends ItemCrop {
 
 	public ItemBelladonna() {
-		super(LibItemName.BELLADONNA, 6, 1.5F, false);
+		super(LibItemName.BELLADONNA, 2, 1.5F, false);
 		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 

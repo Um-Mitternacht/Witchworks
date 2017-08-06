@@ -37,8 +37,6 @@ public class ItemGemOre extends ItemBlock implements IModelRegister {
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (this.isInCreativeTab(tab)) {
-		}
 		items.add(new ItemStack(this));
 		items.add(new ItemStack(this, 1, 1));
 		items.add(new ItemStack(this, 1, 2));

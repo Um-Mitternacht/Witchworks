@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class ItemAsphodel extends ItemCrop {
 
 	public ItemAsphodel() {
-		super(LibItemName.ASPHODEL, 4, 0.2F, false);
+		super(LibItemName.ASPHODEL, 2, 0.2F, false);
 		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 
