@@ -30,21 +30,10 @@ public class BlockCandleSmall extends BlockCandle {
 
 	@Override
 	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		items.add(new ItemStack(this));
-		items.add(new ItemStack(this, 1, 1));
-		items.add(new ItemStack(this, 1, 2));
-		items.add(new ItemStack(this, 1, 3));
-		items.add(new ItemStack(this, 1, 4));
-		items.add(new ItemStack(this, 1, 5));
-		items.add(new ItemStack(this, 1, 6));
-		items.add(new ItemStack(this, 1, 7));
-		items.add(new ItemStack(this, 1, 8));
-		items.add(new ItemStack(this, 1, 9));
-		items.add(new ItemStack(this, 1, 10));
-		items.add(new ItemStack(this, 1, 11));
-		items.add(new ItemStack(this, 1, 12));
-		items.add(new ItemStack(this, 1, 13));
-		items.add(new ItemStack(this, 1, 14));
-		items.add(new ItemStack(this, 1, 15));
+		{
+			for (int i = 0; i < 16; ++i) {
+				items.add(new ItemStack(this, 1, i));
+			}
+		}
 	}
 }
