@@ -59,7 +59,7 @@ public class BlockWitchSapling extends BlockMod {
 	@Override
 	public void getSubBlocks(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
 		{
-			for (int i = 0; i < BlockGemOre.Gem.values().length; ++i) {
+			for (int i = 0; i < BlockWitchSapling.sapling.values().length; ++i) {
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
