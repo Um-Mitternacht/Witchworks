@@ -3,7 +3,6 @@ package com.witchworks.common.item;
 import com.witchworks.api.CropRegistry;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.natural.fluid.Fluids;
-import com.witchworks.common.block.natural.tree.BlockWitchSapling;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemGemOre;
@@ -200,7 +199,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.crop_kenaf),
 				itemBlock(ModBlocks.crop_garlic),
 				itemBlock(ModBlocks.crop_wormwood),
-				itemBlock(ModBlocks.witch_sapling),
+				itemBlock(ModBlocks.cypress_sapling),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
 				itemBlock(ModBlocks.silver_block),

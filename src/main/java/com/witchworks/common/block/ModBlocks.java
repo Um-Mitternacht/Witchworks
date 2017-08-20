@@ -67,7 +67,7 @@ public final class ModBlocks {
 	public static final Block apiary = PLACE_HOLDER;
 	public static final Block salt_ore = PLACE_HOLDER;
 	public static final Block gem_ore = PLACE_HOLDER;
-	public static final Block witch_sapling = PLACE_HOLDER;
+	public static final Block cypress_sapling = PLACE_HOLDER;
 	public static final Block chalk = PLACE_HOLDER;
 	public static final Block nethersteel = PLACE_HOLDER;
 	public static final Block fake_ice = PLACE_HOLDER;
@@ -124,7 +124,8 @@ public final class ModBlocks {
 				new BlockMod(LibBlockName.TIGERS_EYE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.FAKE_ICE, Material.ICE).setHardness(2.0F),
-				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
+				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.CYPRESS_SAPLING, Material.PLANTS).setHardness(1.0F)
 		);
 	}
 
