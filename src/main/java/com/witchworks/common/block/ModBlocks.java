@@ -95,13 +95,13 @@ public final class ModBlocks {
 				new CropThistle(),
 				new CropKelp(),
 				new CropBelladonna(),
-				new CropMint(),
-				new BlockWitchSapling()
+				new CropMint()
 		);
 		//Ore
 		registry.register(new BlockSilverOre());
 		registry.register(new BlockSaltOre());
 		registry.register(new BlockGemOre());
+		registry.register(new BlockWitchSapling());
 		//Tool Blocks
 		registry.registerAll(
 				new BlockCauldron(),
