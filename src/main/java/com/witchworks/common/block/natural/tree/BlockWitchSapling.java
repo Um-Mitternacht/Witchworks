@@ -70,16 +70,6 @@ public class BlockWitchSapling extends BlockMod {
 		return new BlockStateContainer(this, SAPLING);
 	}
 
-
-	@Override
-	public void registerModel() {
-		BlockWitchSapling.sapling[] values = BlockWitchSapling.sapling.values();
-		for (int i = 0; i < values.length; i++) {
-			BlockWitchSapling.sapling sapling = values[i];
-			ModelHandler.registerForgeModel(this, i, "sapling=" + sapling.getName());
-		}
-	}
-
 	public enum sapling implements IStringSerializable {
 		YEW,
 		OLIVE,
