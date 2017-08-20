@@ -4,7 +4,6 @@ import com.witchworks.api.CropRegistry;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.natural.fluid.Fluids;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
-import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemGemOre;
 import com.witchworks.common.item.block.ItemWitchSapling;
@@ -203,7 +202,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.crop_wormwood),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
-				new ItemWitchSapling(ModBlocks.witch_sapling).setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB),
+				new ItemWitchSapling(ModBlocks.witch_sapling),
 				itemBlock(ModBlocks.silver_block),
 				itemBlock(ModBlocks.silver_ore),
 				itemBlock(ModBlocks.moldavite_block),

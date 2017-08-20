@@ -16,7 +16,6 @@ import net.minecraft.util.NonNullList;
 
 import javax.annotation.Nonnull;
 
-import static com.witchworks.common.core.WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB;
 import static com.witchworks.common.core.WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB;
 
 /**

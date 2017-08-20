@@ -2,7 +2,6 @@ package com.witchworks.common.item.block;
 
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.block.natural.BlockGemOre;
 import com.witchworks.common.block.natural.tree.BlockWitchSapling;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.Block;
