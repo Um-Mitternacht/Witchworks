@@ -182,6 +182,7 @@ public final class ModItems {
 		);
 		//Item Blocks
 		registry.registerAll(
+				new ItemWitchSapling(ModBlocks.witch_sapling).setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB),
 				new ItemBlockColor(ModBlocks.candle_large),
 				new ItemBlockColor(ModBlocks.candle_medium),
 				new ItemBlockColor(ModBlocks.candle_small),
@@ -202,7 +203,6 @@ public final class ModItems {
 				itemBlock(ModBlocks.crop_wormwood),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
-				new ItemWitchSapling(ModBlocks.witch_sapling).setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB),
 				itemBlock(ModBlocks.silver_block),
 				itemBlock(ModBlocks.silver_ore),
 				itemBlock(ModBlocks.moldavite_block),
