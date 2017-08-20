@@ -82,6 +82,7 @@ public final class WitchWorksCreativeTabs {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
+			addBlock(ModBlocks.witch_sapling);
 		}
 	}
 

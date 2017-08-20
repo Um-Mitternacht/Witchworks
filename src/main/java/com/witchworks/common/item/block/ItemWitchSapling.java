@@ -20,8 +20,10 @@ import javax.annotation.Nonnull;
  */
 public class ItemWitchSapling extends ItemBlock implements IModelRegister {
 
+	@Nonnull
 	public ItemWitchSapling(Block block) {
 		super(block);
+		setRegistryName(block.getRegistryName());
 		setHasSubtypes(true);
 		setMaxDamage(0);
 		this.setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
