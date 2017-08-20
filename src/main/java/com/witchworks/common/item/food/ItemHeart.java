@@ -15,12 +15,12 @@ import net.minecraft.world.World;
 public class ItemHeart extends ItemModFood {
 
 	public ItemHeart() {
-		super(LibItemName.HEART, 8, 1.2F, true);
+		super(LibItemName.HEART, 8, 1.6F, true);
 	}
 
 	@Override
 	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
-		player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 750, 2));
-		player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 750, 2));
+		player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 750, 3));
+		player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 750, 3));
 	}
 }
