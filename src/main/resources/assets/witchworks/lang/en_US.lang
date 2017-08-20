@@ -342,6 +342,10 @@ brew.hell_world.name=Brew of Fire World
 brew.hell_world.desc=Converts your surroundings to a hellish scene.
 brew.hell_world.tooltip=Fire World
 
+brew.ice_world.name=Brew of Ice World
+brew.ice_world.desc=Converts your surroundings to a wintery wonderland
+brew.ice_world.tooltip=Ice World
+
 brew..name=
 brew..desc=
 brew..tooltip=
@@ -374,7 +378,7 @@ witch.tooltip.belladonna_description.name=Highly toxic, can be used as a halluci
 witch.tooltip.ginger_description.name=Meant to give energy and increased speed
 witch.tooltip.kelp_description.name=Related to water and protection overseas
 witch.tooltip.mint_description.name=Used for protection against magic
-witch.tooltip.white_sage_description.name=Used as an aid in excorcisms
+witch.tooltip.white_sage_description.name=Used as an aid in exorcisms
 witch.tooltip.mandrake_root_description.name=Used to amplify magical effects
 witch.tooltip.lavender_description.name=Associated with purity and grace
 witch.tooltip.thistle_description.name=A flower associated with strength and durability, and is the national flower of Scotland
