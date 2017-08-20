@@ -7,6 +7,7 @@ import com.witchworks.common.block.natural.BlockSaltOre;
 import com.witchworks.common.block.natural.BlockSilverOre;
 import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
+import com.witchworks.common.block.natural.tree.BlockWitchSapling;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.lib.LibBlockName;
@@ -67,6 +68,7 @@ public final class ModBlocks {
 	public static final Block apiary = PLACE_HOLDER;
 	public static final Block salt_ore = PLACE_HOLDER;
 	public static final Block gem_ore = PLACE_HOLDER;
+	public static final Block witch_sapling = PLACE_HOLDER;
 	public static final Block chalk = PLACE_HOLDER;
 	public static final Block nethersteel = PLACE_HOLDER;
 
@@ -93,7 +95,8 @@ public final class ModBlocks {
 				new CropThistle(),
 				new CropKelp(),
 				new CropBelladonna(),
-				new CropMint()
+				new CropMint(),
+				new BlockWitchSapling()
 		);
 		//Ore
 		registry.register(new BlockSilverOre());
