@@ -53,6 +53,7 @@ public final class LibBlockName {
 	public static final String NETHERSTEEL = "nethersteel";
 	public static final String CHALK = "chalk";
 	public static final String SALT_BARRIER = "salt_barrier";
+	public static final String FAKE_ICE = "fake_ice";
 
 	private LibBlockName() {
 	}

@@ -217,6 +217,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.tigers_eye_block),
 				itemBlock(ModBlocks.salt_ore),
 				itemBlock(ModBlocks.nethersteel),
+				itemBlock(ModBlocks.fake_ice),
 				itemBlock(ModBlocks.salt_barrier),
 				itemBlock(ModBlocks.chalk)
 		);

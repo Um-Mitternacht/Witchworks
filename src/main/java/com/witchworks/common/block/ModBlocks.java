@@ -70,6 +70,7 @@ public final class ModBlocks {
 	public static final Block witch_sapling = PLACE_HOLDER;
 	public static final Block chalk = PLACE_HOLDER;
 	public static final Block nethersteel = PLACE_HOLDER;
+	public static final Block fake_ice = PLACE_HOLDER;
 
 	private ModBlocks() {
 	}
@@ -122,6 +123,7 @@ public final class ModBlocks {
 				new BlockMod(LibBlockName.MALACHITE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.TIGERS_EYE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.FAKE_ICE, Material.ICE).setHardness(2.0F),
 				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
 		);
 	}

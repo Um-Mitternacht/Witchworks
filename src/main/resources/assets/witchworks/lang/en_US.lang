@@ -195,6 +195,7 @@ tile.gem_ore_alexandrite.name=Alexandrite Ore
 tile.coquina.name=Coquina
 tile.chalk.name=Raw Chalk
 tile.unrefined_chalk.name=Unrefined Chalk
+tile.fake_ice.name=Perpetual Ice
 
 //Devices
 tile.cauldron.name=Cauldron

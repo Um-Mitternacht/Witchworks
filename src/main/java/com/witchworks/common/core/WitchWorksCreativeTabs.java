@@ -197,6 +197,7 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.candle_large);
 			addBlock(ModBlocks.candle_medium);
 			addBlock(ModBlocks.candle_small);
+			addBlock(ModBlocks.fake_ice);
 		}
 	}
 }
