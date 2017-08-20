@@ -27,7 +27,7 @@ public class BlockWitchSapling extends BlockMod {
 
 	public static final PropertyEnum<sapling> SAPLING = PropertyEnum.create("sapling", sapling.class);
 
-	public BlockWitchSapling(Block block) {
+	public BlockWitchSapling() {
 		super(LibBlockName.WITCH_SAPLING, Material.PLANTS);
 		setHardness(1.0F);
 		setCreativeTab(PLANTS_CREATIVE_TAB);
