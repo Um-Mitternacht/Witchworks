@@ -18,11 +18,10 @@ import javax.annotation.Nonnull;
  * It's distributed as part of Solar Epiphany under
  * the MIT license.
  */
-public class ItemSapling extends ItemBlock implements IModelRegister {
+public class ItemWitchSapling extends ItemBlock implements IModelRegister {
 
-	public ItemSapling(Block block) {
+	public ItemWitchSapling(Block block) {
 		super(block);
-		setRegistryName(block.getRegistryName());
 		setHasSubtypes(true);
 		setMaxDamage(0);
 		this.setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
@@ -53,7 +52,7 @@ public class ItemSapling extends ItemBlock implements IModelRegister {
 		BlockWitchSapling.sapling[] values = BlockWitchSapling.sapling.values();
 		for (int i = 0; i < values.length; i++) {
 			BlockWitchSapling.sapling sapling = values[i];
-			ModelHandler.registerForgeModel(this, i, "gem=" + sapling.getName());
+			ModelHandler.registerForgeModel(this, i, "sapling=" + sapling.getName());
 		}
 	}
 }
