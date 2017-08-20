@@ -99,6 +99,7 @@ public final class ModItems {
 	public static final Item dusty_grimoire = PLACE_HOLDER;
 	public static final Item mortar_and_pestle = PLACE_HOLDER;
 	public static final Item chalk_item = PLACE_HOLDER;
+	public static final Item chalk = PLACE_HOLDER;
 	public static final Item wand = PLACE_HOLDER;
 	public static final Item athame = PLACE_HOLDER;
 	public static final Item boline = PLACE_HOLDER;
@@ -166,6 +167,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.DIMENSIONAL_SAND),
 				new ItemMod(LibItemName.CHROMATIC_QUILL),
 				new ItemHeart(),
+				new ItemChalk(),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
 		);

@@ -1,5 +1,7 @@
 package com.witchworks.common.block;
 
+import com.witchworks.common.block.magic.BlockChalkGlyph;
+import com.witchworks.common.block.magic.BlockHeartGlyph;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.BlockGemOre;
@@ -7,6 +9,7 @@ import com.witchworks.common.block.natural.BlockSaltOre;
 import com.witchworks.common.block.natural.BlockSilverOre;
 import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
+import com.witchworks.common.block.natural.tree.BlockWitchSapling;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.lib.LibBlockName;
@@ -67,8 +70,9 @@ public final class ModBlocks {
 	public static final Block apiary = PLACE_HOLDER;
 	public static final Block salt_ore = PLACE_HOLDER;
 	public static final Block gem_ore = PLACE_HOLDER;
-	public static final Block witch_sapling = PLACE_HOLDER;
 	public static final Block chalk = PLACE_HOLDER;
+	public static final Block chalk_glyph = PLACE_HOLDER;
+	public static final Block heart_glyph = PLACE_HOLDER;
 	public static final Block nethersteel = PLACE_HOLDER;
 
 	private ModBlocks() {
@@ -108,8 +112,11 @@ public final class ModBlocks {
 				new BlockCandleMedium(),
 				new BlockCandleSmall(),
 				new BlockSaltBarrier(),
+				new BlockChalkGlyph(),
+				new BlockHeartGlyph(),
 				new BlockApiary(),
 				new BlockAltar(),
+				new BlockWitchSapling(),
 				new BlockBeehive()
 		);
 		//Normal Blocks
