@@ -374,7 +374,7 @@ witch.tooltip.belladonna_description.name=Highly toxic, can be used as a halluci
 witch.tooltip.ginger_description.name=Meant to give energy and increased speed
 witch.tooltip.kelp_description.name=Related to water and protection overseas
 witch.tooltip.mint_description.name=Used for protection against magic
-witch.tooltip.white_sage_description.name=Is used as an aid in exorcisms or cleaning an area and to increase wisdom
+witch.tooltip.white_sage_description.name=Used as an aid in excorcisms
 witch.tooltip.mandrake_root_description.name=Used to amplify magical effects
 witch.tooltip.lavender_description.name=Associated with purity and grace
 witch.tooltip.thistle_description.name=A flower associated with strength and durability, and is the national flower of Scotland
@@ -407,7 +407,7 @@ item.dusty_grimoire.name=Dusty Grimoire
 //Incantation
 commands.incantation.notFound=The powers you cast forth fizzle to nothingness
 
-//Achievements
+//Advancements
 achievement.witchworks:craftMalachite=Let's Be Malachite Again!
 achievement.witchworks:craftMalachite.desc=This Is Between Us!
 
