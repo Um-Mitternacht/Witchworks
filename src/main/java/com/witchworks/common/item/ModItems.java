@@ -202,7 +202,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.crop_wormwood),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
-				new ItemWitchSapling(ModBlocks.witch_sapling),
+				new ItemWitchSapling(ModBlocks.witch_sapling).setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB),
 				itemBlock(ModBlocks.silver_block),
 				itemBlock(ModBlocks.silver_ore),
 				itemBlock(ModBlocks.moldavite_block),
