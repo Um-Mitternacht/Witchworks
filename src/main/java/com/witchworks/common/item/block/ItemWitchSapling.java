@@ -17,6 +17,11 @@ import javax.annotation.Nonnull;
  * It's distributed as part of Solar Epiphany under
  * the MIT license.
  */
+/**
+ * This class was created by <Arekkuusu> on 27/06/2017.
+ * It's distributed as part of Solar Epiphany under
+ * the MIT license.
+ */
 public class ItemWitchSapling extends ItemBlock implements IModelRegister {
 
 	@Nonnull

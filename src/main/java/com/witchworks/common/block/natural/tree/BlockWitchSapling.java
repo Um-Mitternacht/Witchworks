@@ -2,6 +2,7 @@ package com.witchworks.common.block.natural.tree;
 
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
+import com.witchworks.common.block.natural.BlockGemOre;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
