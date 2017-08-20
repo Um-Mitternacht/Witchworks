@@ -82,7 +82,6 @@ public final class WitchWorksCreativeTabs {
 			this.list = list;
 			CropRegistry.getFoods().forEach((crop, itemModFood) -> addItem(itemModFood));
 			CropRegistry.getSeeds().forEach((crop, item) -> addItem(item));
-			addBlock(ModBlocks.cypress_sapling);
 		}
 	}
 
@@ -199,6 +198,7 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.candle_medium);
 			addBlock(ModBlocks.candle_small);
 			addBlock(ModBlocks.fake_ice);
+			addBlock(ModBlocks.cypress_sapling);
 		}
 	}
 }
