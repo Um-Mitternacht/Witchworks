@@ -3,92 +3,39 @@ package com.witchworks.common.block.natural.tree;
 import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.block.natural.BlockGemOre;
-import com.witchworks.common.lib.LibBlockName;
-import net.minecraft.block.Block;
+import com.witchworks.common.lib.LibMod;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
-import static com.witchworks.common.core.WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB;
-
-/**
- * This class was created by <Arekkuusu> on 27/06/2017.
- * It's distributed as part of Solar Epiphany under
- * the MIT license.
- */
 public class BlockWitchSapling extends BlockMod {
 
-	public static final PropertyEnum<sapling> SAPLING = PropertyEnum.create("sapling", sapling.class);
-
-	public BlockWitchSapling() {
-		super(LibBlockName.WITCH_SAPLING, Material.PLANTS);
-		setHardness(1.0F);
-		setCreativeTab(PLANTS_CREATIVE_TAB);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(SAPLING, BlockWitchSapling.sapling.values()[meta]);
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return state.getValue(SAPLING).ordinal();
-	}
-
-	@Override
-	public int damageDropped(IBlockState state) {
-		return state.getValue(SAPLING).ordinal();
-	}
-
-	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.CUTOUT;
+	public BlockWitchSapling(String id) {
+		super(id, Material.PLANTS);
+		setSound(SoundType.PLANT);
+		this.setRegistryName(new ResourceLocation(LibMod.MOD_ID));
 	}
 
 	@Override
 	public void getSubBlocks(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
 		{
-			for (int i = 0; i < BlockWitchSapling.sapling.values().length; ++i) {
+			for (int i = 0; i < BlockGemOre.Gem.values().length; ++i) {
 				items.add(new ItemStack(this, 1, i));
 			}
-		}
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, SAPLING);
-	}
-
-	@Override
-	public void registerModel() {
-		BlockWitchSapling.sapling[] values = BlockWitchSapling.sapling.values();
-		for (int i = 0; i < values.length; i++) {
-			BlockWitchSapling.sapling sapling = values[i];
-			ModelHandler.registerForgeModel(this, i, "sapling=" + sapling.getName());
-		}
-	}
-
-	public enum sapling implements IStringSerializable {
-		YEW,
-		OLIVE,
-		CYPRESS,
-		ROWAN,
-		HAWTHORN,
-		ALDER;
-
-		@Override
-		public String getName() {
-			return name().toLowerCase();
 		}
 	}
 }
