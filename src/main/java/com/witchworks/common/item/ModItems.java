@@ -7,6 +7,7 @@ import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemGemOre;
+import com.witchworks.common.item.block.ItemSapling;
 import com.witchworks.common.item.equipment.ItemSilverArmor;
 import com.witchworks.common.item.food.ItemHeart;
 import com.witchworks.common.item.food.ItemHoney;
@@ -202,7 +203,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.crop_wormwood),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
-				new ItemGemOre(ModBlocks.witch_sapling).setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB),
+				new ItemSapling(ModBlocks.witch_sapling).setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB),
 				itemBlock(ModBlocks.silver_block),
 				itemBlock(ModBlocks.silver_ore),
 				itemBlock(ModBlocks.moldavite_block),
