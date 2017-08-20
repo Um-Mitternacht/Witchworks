@@ -227,7 +227,6 @@ public final class ModItems {
 	}
 
 	public static void init() {
-		VanillaCrafting.items();
 		initOreDictionary();
 	}
 
