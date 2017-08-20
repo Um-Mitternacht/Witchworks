@@ -30,7 +30,8 @@ public final class WitchWorksCreativeTabs {
 
 	private static class CreativeTab extends CreativeTabs {
 
-		@Nonnull NonNullList<ItemStack> list;
+		@Nonnull
+		NonNullList<ItemStack> list;
 
 		CreativeTab(String name) {
 			super(LibMod.MOD_ID + name);

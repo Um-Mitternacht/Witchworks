@@ -7,7 +7,6 @@ import com.witchworks.common.block.natural.BlockSaltOre;
 import com.witchworks.common.block.natural.BlockSilverOre;
 import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
-import com.witchworks.common.block.natural.tree.BlockWitchSapling;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.lib.LibBlockName;
@@ -95,7 +94,8 @@ public final class ModBlocks {
 				new CropThistle(),
 				new CropKelp(),
 				new CropBelladonna(),
-				new CropMint()
+				new CropMint(),
+				new BlockWitchSapling()
 		);
 		//Ore
 		registry.register(new BlockSilverOre());

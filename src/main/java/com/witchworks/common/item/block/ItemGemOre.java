@@ -6,7 +6,6 @@ import com.witchworks.common.block.natural.BlockGemOre;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
