@@ -197,6 +197,9 @@ tile.chalk.name=Raw Chalk
 tile.unrefined_chalk.name=Unrefined Chalk
 tile.fake_ice.name=Perpetual Ice
 
+//Saplings
+tile.cypress_sapling.name=Cypress Sapling
+
 //Devices
 tile.cauldron.name=Cauldron
 tile.apiary.name=Apiary
