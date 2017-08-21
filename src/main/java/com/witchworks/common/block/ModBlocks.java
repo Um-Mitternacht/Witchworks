@@ -7,6 +7,7 @@ import com.witchworks.common.block.natural.BlockSaltOre;
 import com.witchworks.common.block.natural.BlockSilverOre;
 import com.witchworks.common.block.natural.crop.*;
 import com.witchworks.common.block.natural.fluid.Fluids;
+import com.witchworks.common.block.natural.tree.BlockCypressSapling;
 import com.witchworks.common.block.tools.*;
 import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.lib.LibBlockName;
@@ -111,6 +112,7 @@ public final class ModBlocks {
 				new BlockSaltBarrier(),
 				new BlockApiary(),
 				new BlockAltar(),
+				new BlockCypressSapling(),
 				new BlockBeehive()
 		);
 		//Normal Blocks
@@ -124,8 +126,7 @@ public final class ModBlocks {
 				new BlockMod(LibBlockName.TIGERS_EYE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.FAKE_ICE, Material.ICE).setHardness(2.0F),
-				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.CYPRESS_SAPLING, Material.PLANTS).setHardness(1.0F)
+				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
 		);
 	}
 
