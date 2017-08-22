@@ -151,6 +151,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.heart);
 			addItem(ModItems.envenomed_fang);
 			addItem(ModItems.dimensional_sand);
+			addItem(ModItems.chromatic_quill);
 		}
 	}
 
