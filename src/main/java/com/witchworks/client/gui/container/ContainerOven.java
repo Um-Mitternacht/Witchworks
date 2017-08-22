@@ -26,7 +26,6 @@ public class ContainerOven extends Container {
 		return true;
 	}
 
-
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);

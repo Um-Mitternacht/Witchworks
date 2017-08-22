@@ -76,6 +76,7 @@ public class BrewEvents {
 			IBrewStorage storage = optional.get();
 			Map<IBrew, BrewEffect> brews = storage.getBrewMap();
 			if (brews.isEmpty()) return;
+			boolean update = false;
 
 			if (!entity.world.isRemote && BrewStorageHandler.BREW_REMOVAL.containsKey(entity)) {
 				for (IBrew brew : BrewStorageHandler.BREW_REMOVAL.get(entity)) {
@@ -83,27 +84,34 @@ public class BrewEvents {
 					brews.remove(brew);
 				}
 				BrewStorageHandler.BREW_REMOVAL.remove(entity);
-				storage.syncToNear(entity);
+				update = true;
 			}
 
 			Map<IBrew, BrewEffect> updated = new HashMap<>();
 			for (BrewEffect effect : brews.values()) {
 				if (effect.getDuration() <= 0) {
 					effect.end(entity.world, entity.getPosition(), entity);
+					update = true;
 				} else {
 					effect.update(entity.world, entity.getPosition(), entity);
 					updated.put(effect.getBrew(), effect);
 				}
 			}
 
-			storage.setBrewMap(updated);
+			if(!entity.world.isRemote) {
+				storage.setBrewMap(updated);
+				if(update) {
+					storage.syncToNear(entity);
+				}
+			}
 		}
 	}
 
 	@SubscribeEvent
 	public void onEntityStartTracking(StartTracking event) {
 		Entity entity = event.getTarget();
-		if (!entity.world.isRemote && entity instanceof EntityLivingBase && event.getEntityPlayer() instanceof EntityPlayerMP) {
+		EntityPlayer player = event.getEntityPlayer();
+		if (!entity.world.isRemote && entity != player && entity instanceof EntityLivingBase && player instanceof EntityPlayerMP) {
 			Optional<IBrewStorage> optional = BrewStorageHandler.getBrewStorage((EntityLivingBase) entity);
 			if (optional.isPresent()) {
 				IBrewStorage storage = optional.get();

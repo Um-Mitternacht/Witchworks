@@ -194,14 +194,12 @@ public class BlockSaltBarrier extends BlockMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		final double d0 = (double) pos.getX() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
-		final double d1 = (double) ((float) pos.getY() + 0.0625F);
-		final double d2 = (double) pos.getZ() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
+		double x = (double) pos.getX() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
+		double y = (double) ((float) pos.getY() + 0.0625F);
+		double z = (double) pos.getZ() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
 		final float f = (float) 3 / 15.0F;
-		final float f1 = f * 0.6F + 0.4F;
 		final float f2 = Math.max(0.0F, f * f * 0.7F - 0.5F);
-		final float f3 = Math.max(0.0F, f * f * 0.6F - 0.7F);
-		worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, d0, d1, d2, (double) f1, (double) f2, (double) f3);
+		worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, x, y, z, 0D, (double) f2,0D);
 	}
 
 	@SuppressWarnings("deprecation")

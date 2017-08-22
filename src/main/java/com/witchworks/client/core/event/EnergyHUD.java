@@ -89,7 +89,7 @@ public class EnergyHUD {
 				GlStateManager.enableBlend();
 
 				ScaledResolution resolution = event.getResolution();
-				float filled = (float) energy.get() / (float) energy.getMax();
+				double filled = (double) energy.get() / (double) energy.getMax();
 				int height = ConfigHandler.ENERGY_HUD.height;
 				int width = ConfigHandler.ENERGY_HUD.width;
 				int x = ConfigHandler.ENERGY_HUD.x;
@@ -99,14 +99,18 @@ public class EnergyHUD {
 					GlStateManager.color(1F, 1F, 1F, visible);
 				}
 
+				double off = 0.13725490196078431372549019607843D;
+
+				GlStateManager.disableCull();
 				manager.bindTexture(ResourceLocations.ENERGY_BACKGROUND[0]);
-				renderTexture(x, y, width, height, 0, filled);
+				renderTexture(x, y + 88, width, -((double) height - 28D) * filled, off, (1 - off) * filled);
 
 				GlStateManager.pushMatrix();
 				GlStateManager.color(1F, 1F, 1F, visible == 1F ? barAlpha : visible);
 
 				manager.bindTexture(ResourceLocations.ENERGY_BACKGROUND[1]);
-				renderTexture(x, y, width, height, 0, filled);
+				renderTexture(x, y + 88, width, -((double) height - 28D) * filled, off, (1 - off) * filled);
+				GlStateManager.enableCull();
 
 				GlStateManager.popMatrix();
 
@@ -136,10 +140,10 @@ public class EnergyHUD {
 		BufferBuilder buff = tessellator.getBuffer();
 
 		buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-		buff.pos(x + width, y, 0).tex((double) 1, vMin).endVertex();
-		buff.pos(x, y, 0).tex((double) 0, vMin).endVertex();
 		buff.pos(x, y + height, 0).tex((double) 0, vMax).endVertex();
 		buff.pos(x + width, y + height, 0).tex((double) 1, vMax).endVertex();
+		buff.pos(x + width, y, 0).tex((double) 1, vMin).endVertex();
+		buff.pos(x, y, 0).tex((double) 0, vMin).endVertex();
 
 		tessellator.draw();
 	}

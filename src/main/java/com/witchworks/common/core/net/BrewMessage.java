@@ -46,7 +46,7 @@ public class BrewMessage implements IMessage {
 
 		for (int i = 0; i < size; i++) {
 			IBrew brew = BrewRegistry.getBrew(buf.readInt());
-			effects.put(brew, new BrewEffect(brew, 0, buf.readInt()));
+			effects.put(brew, new BrewEffect(brew, buf.readInt(), buf.readInt()));
 		}
 	}
 
@@ -58,6 +58,7 @@ public class BrewMessage implements IMessage {
 		buf.writeInt(effects.size());
 		for (BrewEffect effect : effects.values()) {
 			buf.writeInt(BrewRegistry.getBrewId(effect.getBrew()));
+			buf.writeInt(effect.getDuration());
 			buf.writeInt(effect.getAmplifier());
 		}
 	}
