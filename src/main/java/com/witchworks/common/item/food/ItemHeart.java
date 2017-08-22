@@ -1,5 +1,6 @@
 package com.witchworks.common.item.food;
 
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -16,6 +17,7 @@ public class ItemHeart extends ItemModFood {
 
 	public ItemHeart() {
 		super(LibItemName.HEART, 8, 1.6F, true);
+		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public class ItemModFood extends ItemFood implements IModelRegister {
 		super(amount, saturation, isWolfFood);
 		setRegistryName(id);
 		setUnlocalizedName(id);
-		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 
 	@Override
