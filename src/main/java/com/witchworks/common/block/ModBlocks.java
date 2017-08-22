@@ -1,5 +1,6 @@
 package com.witchworks.common.block;
 
+import com.witchworks.common.block.magic.BlockFakeIce;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.BlockGemOre;
@@ -113,6 +114,7 @@ public final class ModBlocks {
 				new BlockApiary(),
 				new BlockAltar(),
 				new BlockCypressSapling(),
+				new BlockFakeIce(),
 				new BlockBeehive()
 		);
 		//Normal Blocks
@@ -125,7 +127,6 @@ public final class ModBlocks {
 				new BlockMod(LibBlockName.MALACHITE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.TIGERS_EYE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
-				new BlockMod(LibBlockName.FAKE_ICE, Material.ICE).setHardness(2.0F),
 				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
 		);
 	}

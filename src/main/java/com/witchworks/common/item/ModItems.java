@@ -200,6 +200,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.crop_garlic),
 				itemBlock(ModBlocks.crop_wormwood),
 				itemBlock(ModBlocks.cypress_sapling),
+				itemBlock(ModBlocks.fake_ice),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
 				itemBlock(ModBlocks.silver_block),
@@ -217,7 +218,6 @@ public final class ModItems {
 				itemBlock(ModBlocks.tigers_eye_block),
 				itemBlock(ModBlocks.salt_ore),
 				itemBlock(ModBlocks.nethersteel),
-				itemBlock(ModBlocks.fake_ice),
 				itemBlock(ModBlocks.salt_barrier),
 				itemBlock(ModBlocks.chalk)
 		);
