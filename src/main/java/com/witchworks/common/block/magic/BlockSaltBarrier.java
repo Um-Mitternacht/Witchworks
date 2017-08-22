@@ -199,7 +199,7 @@ public class BlockSaltBarrier extends BlockMod {
 		double z = (double) pos.getZ() + 0.5D + ((double) rand.nextFloat() - 0.5D) * 0.2D;
 		final float f = (float) 3 / 15.0F;
 		final float f2 = Math.max(0.0F, f * f * 0.7F - 0.5F);
-		worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, x, y, z, 0D, (double) f2,0D);
+		worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, x, y, z, 0D, (double) f2, 0D);
 	}
 
 	@SuppressWarnings("deprecation")

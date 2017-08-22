@@ -98,9 +98,9 @@ public class BrewEvents {
 				}
 			}
 
-			if(!entity.world.isRemote) {
+			if (!entity.world.isRemote) {
 				storage.setBrewMap(updated);
-				if(update) {
+				if (update) {
 					storage.syncToNear(entity);
 				}
 			}
