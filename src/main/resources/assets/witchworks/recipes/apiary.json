@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "STS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:planks"
+    },
+    "T": {
+      "item": "witchworks:empty_honeycomb",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "witchworks:apiary",
+    "data": 0
+  }
+}
