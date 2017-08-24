@@ -132,7 +132,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	@SuppressWarnings("ConstantConditions")
 	public boolean processingLogic(ItemStack stack) {
-		if (!isBoiling() || hasIngredients() || stack.getCount() > 64) return false;
+		if (!isBoiling() || hasIngredients() || stack.getCount() > 8192) return false;
 		Map<Item, ItemValidator<ItemStack>> processing = CauldronRegistry.getItemProcessing(inv.getInnerFluid());
 		if (processing != null && processing.containsKey(stack.getItem())) {
 			ItemValidator<ItemStack> validator = processing.get(stack.getItem());
