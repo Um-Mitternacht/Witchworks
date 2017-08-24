@@ -120,6 +120,15 @@ public final class CauldronCrafting {
 		registerItemRitual("gemstone_amalgam", getStack(ModItems.gemstone_amalgam, 1, 0), 4
 				, getStack(Items.EMERALD, 1, 0), getStack(ModItems.gem, 1, 9), getStack(ModItems.gem, 1, 1));
 
+		registerItemRitual("moldavite", getStack(ModItems.gem, 1, 1), 8
+				, getStack(Items.DYE, 1, 2), Blocks.SAND);
+
+		registerItemRitual("alexandrite", getStack(ModItems.gem, 1, 9), 8
+				, getStack(Items.DYE, 1, 6), Blocks.SAND);
+
+		registerItemRitual("bloodstone", getStack(ModItems.gem, 1, 5), 8
+				, getStack(Items.DYE, 1, 1), Blocks.SAND);
+
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
 				, getStack(Items.IRON_NUGGET, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.salt, getStack(ModItems.gem, 1, 6));
