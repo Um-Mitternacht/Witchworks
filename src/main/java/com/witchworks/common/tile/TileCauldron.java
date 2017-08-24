@@ -255,9 +255,8 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 				}
 			} else if (getContainer().isEmpty()) {
 				ItemStack copy = heldItem.copy();
-				copy.setCount(1);
 				setContainer(copy);
-				giveItem(player, hand, heldItem, ItemStack.EMPTY);
+				player.setHeldItem(hand, ItemStack.EMPTY);
 			}
 		}
 		return true;
