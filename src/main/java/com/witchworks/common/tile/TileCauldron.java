@@ -187,7 +187,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	}
 
 	public boolean acceptIngredient(ItemStack stack) {
-		if (ingredients.size() < 64) { //TODO: IS 64 THE MAX SIZE?
+		if (ingredients.size() < 8192) { //TODO: IS 64 THE MAX SIZE? //Response: No.
 			addIngredient(stack);
 			final float hue = world.rand.nextFloat();
 			final float saturation = (world.rand.nextInt(2000) + 1000) / 7000f;
@@ -451,9 +451,9 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 
 	private void loadItems(NBTTagCompound cmp) {
 		NBTTagList nbttaglist = cmp.getTagList(TAG_INGREDIENTS, 10);
-		if(nbttaglist.hasNoTags()) ingredients.clear();
+		if (nbttaglist.hasNoTags()) ingredients.clear();
 		for (NBTBase nbt : nbttaglist) {
-			if(nbt instanceof NBTTagCompound) {
+			if (nbt instanceof NBTTagCompound) {
 				ingredients.add(new ItemStack((NBTTagCompound) nbt));
 			}
 		}
