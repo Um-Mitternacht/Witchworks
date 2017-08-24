@@ -21,7 +21,10 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import static com.witchworks.common.lib.LibMod.MOD_NAME;
 import static net.minecraftforge.fml.common.Mod.EventHandler;
 import static net.minecraftforge.fml.common.Mod.Instance;
 
@@ -31,9 +34,10 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * the MIT license.
  */
 @SuppressWarnings("WeakerAccess")
-@Mod(modid = LibMod.MOD_ID, name = LibMod.MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES, acceptedMinecraftVersions = "[1.12,1.12.1]")
+@Mod(modid = LibMod.MOD_ID, name = MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES, acceptedMinecraftVersions = "[1.12,1.12.1]")
 public class WitchWorks {
 
+	public static final Logger logger = LogManager.getLogger(MOD_NAME);
 	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
 	@Instance(LibMod.MOD_ID)
@@ -52,6 +56,7 @@ public class WitchWorks {
 		ModEntities.init();
 		ModBrews.init();
 		proxy.preInit(event);
+		logger.info("Witchworks: Stand back, things could get weird.");
 	}
 
 	@EventHandler
@@ -64,6 +69,7 @@ public class WitchWorks {
 
 		SeedDropRegistry.init();
 		ModGen.init();
+		logger.info("Witchworks: Mod is fully booted.");
 	}
 
 	@EventHandler
