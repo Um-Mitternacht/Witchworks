@@ -3,7 +3,6 @@ package com.witchworks.api.recipe;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
@@ -15,22 +14,11 @@ import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
  */
 public interface IOreMatchRecipe {
 
-	boolean matches(ItemStack[] usedItems);
+	boolean matches(List<ItemStack> usedItems);
 
 	ImmutableList<Object> getNeededItems();
 
 	ItemStack getResult();
-
-	default List<ItemStack> getUsedItems(ItemStack[] stacks) {
-		final List<ItemStack> used = new ArrayList<>();
-		for (final ItemStack stack : stacks) {
-			if (stack.isEmpty()) {
-				break;
-			}
-			used.add(stack);
-		}
-		return used;
-	}
 
 	default boolean containsMatch(List<ItemStack> inputs, ItemStack target) {
 		for (ItemStack input : inputs) {

@@ -35,13 +35,12 @@ public class FlawlessRecipe implements IOreMatchRecipe {
 	}
 
 	@Override
-	public boolean matches(ItemStack[] usedItems) {
-		final List<ItemStack> list = getUsedItems(usedItems);
-		if (list.size() == neededItems.size()) {
+	public boolean matches(List<ItemStack> usedItems) {
+		if (usedItems.size() == neededItems.size()) {
 			boolean matches = true;
-			for (int i = 0; i < list.size(); i++) {
+			for (int i = 0; i < usedItems.size(); i++) {
 				final Object needed = neededItems.get(i);
-				final ItemStack used = list.get(i);
+				final ItemStack used = usedItems.get(i);
 				if (needed instanceof ItemStack && !ItemStack.areItemStacksEqual(used, (ItemStack) needed)) {
 					matches = false;
 					break;
