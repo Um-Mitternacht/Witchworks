@@ -7,7 +7,8 @@
   ],
   "key": {
     "S": {
-      "item": "minecraft:planks"
+      "item": "minecraft:planks",
+	  "data": 0
     },
     "T": {
       "item": "witchworks:empty_honeycomb",
