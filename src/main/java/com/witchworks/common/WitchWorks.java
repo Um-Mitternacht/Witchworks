@@ -56,7 +56,7 @@ public class WitchWorks {
 		ModEntities.init();
 		ModBrews.init();
 		proxy.preInit(event);
-		logger.info("Witchworks: Stand back, things could get weird.");
+		logger.info("Remember when I told you how my kin is different in some ways?");
 	}
 
 	@EventHandler
@@ -69,7 +69,7 @@ public class WitchWorks {
 
 		SeedDropRegistry.init();
 		ModGen.init();
-		logger.info("Witchworks: Mod is fully booted.");
+		logger.info("It's a fact, she is exactly that! A harbinger of death from the world of witchcraft, and she's feeding them cakes and her ale to this innocent boy, and her magic brings dismay!");
 	}
 
 	@EventHandler
