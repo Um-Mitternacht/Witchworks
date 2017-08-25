@@ -2,6 +2,7 @@ package com.witchworks.common.block;
 
 import com.witchworks.common.block.magic.BlockFakeIce;
 import com.witchworks.common.block.magic.BlockFakeIceFence;
+import com.witchworks.common.block.magic.BlockFakeIceSlab;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.BlockGemOre;
@@ -75,6 +76,8 @@ public final class ModBlocks {
 	public static final Block nethersteel = PLACE_HOLDER;
 	public static final Block fake_ice = PLACE_HOLDER;
 	public static final Block fake_ice_fence = PLACE_HOLDER;
+	public static final Block fake_ice_slab = PLACE_HOLDER;
+	public static final Block fake_ice_slab_full = PLACE_HOLDER;
 
 	private ModBlocks() {
 	}
@@ -118,6 +121,7 @@ public final class ModBlocks {
 				new BlockCypressSapling(),
 				new BlockFakeIce(),
 				new BlockFakeIceFence(),
+				new BlockFakeIceSlab(),
 				new BlockBeehive()
 		);
 		//Normal Blocks
@@ -130,6 +134,7 @@ public final class ModBlocks {
 				new BlockMod(LibBlockName.MALACHITE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.TIGERS_EYE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.FAKE_ICE_SLAB_FULL, Material.ROCK).setHardness(2.0F),
 				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
 		);
 	}

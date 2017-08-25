@@ -200,6 +200,8 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.candle_small);
 			addBlock(ModBlocks.fake_ice);
 			addBlock(ModBlocks.cypress_sapling);
+			addBlock(ModBlocks.fake_ice_slab);
+			addBlock(ModBlocks.fake_ice_fence);
 		}
 	}
 }
