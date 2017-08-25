@@ -202,8 +202,6 @@ public final class ModItems {
 				itemBlock(ModBlocks.cypress_sapling),
 				itemBlock(ModBlocks.fake_ice),
 				itemBlock(ModBlocks.fake_ice_fence),
-				itemBlock(ModBlocks.fake_ice_slab),
-				itemBlock(ModBlocks.fake_ice_slab_full),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
 				itemBlock(ModBlocks.silver_block),
