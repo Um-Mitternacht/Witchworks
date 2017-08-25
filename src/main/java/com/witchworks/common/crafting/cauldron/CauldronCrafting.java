@@ -229,9 +229,9 @@ public final class CauldronCrafting {
 		registerEffect(getStack(Items.PRISMARINE_SHARD)
 				, new PotionEffect(MobEffects.MINING_FATIGUE, 500), false);
 		registerEffect(getStack(Items.SHULKER_SHELL)
-				, new PotionEffect(MobEffects.RESISTANCE, 500), false);
-		registerEffect(getStack(Items.NETHER_STAR)
 				, new PotionEffect(MobEffects.LEVITATION, 500), false);
+		registerEffect(getStack(Items.NETHER_STAR)
+				, new PotionEffect(MobEffects.RESISTANCE, 500), false);
 		registerEffect(getStack(ModBlocks.coquina)
 				, BrewRegistry.getDefault(ModBrews.SHELL_ARMOR), false);
 		registerEffect(getStack(ModItems.thistle)
@@ -298,6 +298,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.SETEHS_WASTES), false);
 		registerEffect(getStack(ModBlocks.nethersteel)
 				, BrewRegistry.getDefault(ModBrews.HELL_WORLD), false);
+		registerEffect(getStack(ModItems.seed_mint)
+				, BrewRegistry.getDefault(ModBrews.ICE_WORLD), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
