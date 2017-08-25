@@ -39,6 +39,9 @@ public class HellWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.ACACIA_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
 		stateMap.put(Blocks.JUNGLE_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
 		stateMap.put(Blocks.DARK_OAK_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.END_BRICKS, Blocks.NETHER_BRICK.getDefaultState());
+		stateMap.put(Blocks.BRICK_BLOCK, Blocks.NETHER_BRICK.getDefaultState());
+		stateMap.put(Blocks.STONEBRICK, Blocks.NETHER_BRICK.getDefaultState());
 	}
 
 	@Override
