@@ -1,6 +1,7 @@
 package com.witchworks.common.block;
 
 import com.witchworks.common.block.magic.BlockFakeIce;
+import com.witchworks.common.block.magic.BlockFakeIceFence;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.BlockGemOre;
@@ -73,6 +74,7 @@ public final class ModBlocks {
 	public static final Block chalk = PLACE_HOLDER;
 	public static final Block nethersteel = PLACE_HOLDER;
 	public static final Block fake_ice = PLACE_HOLDER;
+	public static final Block fake_ice_fence = PLACE_HOLDER;
 
 	private ModBlocks() {
 	}
@@ -115,6 +117,7 @@ public final class ModBlocks {
 				new BlockAltar(),
 				new BlockCypressSapling(),
 				new BlockFakeIce(),
+				new BlockFakeIceFence(),
 				new BlockBeehive()
 		);
 		//Normal Blocks

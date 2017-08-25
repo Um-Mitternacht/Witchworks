@@ -54,6 +54,7 @@ public final class LibBlockName {
 	public static final String CHALK = "chalk";
 	public static final String SALT_BARRIER = "salt_barrier";
 	public static final String FAKE_ICE = "fake_ice";
+	public static final String FAKE_ICE_FENCE = "fake_ice_fence";
 
 	private LibBlockName() {
 	}
