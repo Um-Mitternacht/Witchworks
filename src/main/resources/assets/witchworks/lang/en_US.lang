@@ -198,6 +198,7 @@ tile.coquina.name=Coquina
 tile.chalk.name=Raw Chalk
 tile.unrefined_chalk.name=Unrefined Chalk
 tile.fake_ice.name=Perpetual Ice
+tile.fake_ice_fence.name=Perpetual Ice Fence
 
 //Saplings
 tile.cypress_sapling.name=Cypress Sapling
