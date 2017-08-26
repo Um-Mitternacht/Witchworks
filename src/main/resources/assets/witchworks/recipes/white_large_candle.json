@@ -7,7 +7,8 @@
   ],
   "key": {
     "S": {
-      "item": "witchworks:candle_large"
+      "item": "witchworks:candle_large",
+	  "data": 0
     },
     "T": {
       "item": "witchworks:wax",
