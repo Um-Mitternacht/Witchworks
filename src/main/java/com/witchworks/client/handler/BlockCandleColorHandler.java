@@ -19,52 +19,52 @@ public class BlockCandleColorHandler implements IBlockColor {
 	public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 		int color = 0;
 		switch (state.getValue(WitchWorksAPI.COLOR).getMetadata()) {
-			case 15:
+			case 0:
 				color = 1908001;
 				break;
-			case 14:
+			case 1:
 				color = 11546150;
 				break;
-			case 13:
+			case 2:
 				color = 6192150;
 				break;
-			case 12:
+			case 3:
 				color = 8606770;
 				break;
-			case 11:
+			case 4:
 				color = 3949738;
 				break;
-			case 10:
+			case 5:
 				color = 8991416;
 				break;
-			case 9:
+			case 6:
 				color = 1481884;
 				break;
-			case 8:
+			case 7:
 				color = 10329495;
 				break;
-			case 7:
+			case 8:
 				color = 4673362;
 				break;
-			case 6:
+			case 9:
 				color = 15961002;
 				break;
-			case 5:
+			case 10:
 				color = 8439583;
 				break;
-			case 4:
+			case 11:
 				color = 16701501;
 				break;
-			case 3:
+			case 12:
 				color = 3847130;
 				break;
-			case 2:
+			case 13:
 				color = 13061821;
 				break;
-			case 1:
+			case 14:
 				color = 16351261;
 				break;
-			case 0:
+			case 15:
 				color = 16383998;
 			default:
 				break;
