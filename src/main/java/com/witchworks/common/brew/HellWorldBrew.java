@@ -27,6 +27,11 @@ public class HellWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.COBBLESTONE, Blocks.NETHERRACK.getDefaultState());
 		stateMap.put(Blocks.PLANKS, Blocks.NETHER_BRICK.getDefaultState());
 		stateMap.put(Blocks.OAK_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.DARK_OAK_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.JUNGLE_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.ACACIA_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.BIRCH_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.SPRUCE_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
 		stateMap.put(Blocks.LOG, ModBlocks.nethersteel.getDefaultState());
 		stateMap.put(Blocks.STONE_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
 		stateMap.put(Blocks.OAK_FENCE, Blocks.NETHER_BRICK_FENCE.getDefaultState());
