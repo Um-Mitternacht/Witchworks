@@ -84,68 +84,6 @@ public final class VanillaCrafting {
 					.build();
 		}
 
-		shaped().grid("III", "III", "III")
-				.map('I', ModItems.silver_ingot)
-				.outputs(ModBlocks.silver_block)
-				.build();
-
-		shaped().grid("BBB", "BBB", "BBB")
-				.map('B', new ItemStack(ModItems.gem, 1, 5))
-				.outputs(ModBlocks.bloodstone_block)
-				.build();
-
-		shaped().grid("TTT", "TTT", "TTT")
-				.map('T', new ItemStack(ModItems.gem, 1, 4))
-				.outputs(ModBlocks.tourmaline_block)
-				.build();
-
-		shaped().grid("MMM", "MMM", "MMM")
-				.map('M', new ItemStack(ModItems.gem, 1, 1))
-				.outputs(ModBlocks.moldavite_block)
-				.build();
-
-		shaped().grid("N N", "ISI", "III")
-				.map('I', Items.IRON_INGOT)
-				.map('N', Items.IRON_NUGGET)
-				.map('S', ModItems.silver_ingot)
-				.outputs(ModBlocks.cauldron)
-				.build();
-
-		shaped().grid("WWW", "WHW", "WWW")
-				.map('W', "plankWood")
-				.map('H', ModItems.empty_honeycomb)
-				.outputs(ModBlocks.apiary)
-				.build();
-
-		shaped().grid("LML", "SSS", "WWW")
-				.map('W', "plankWood")
-				.map('S', Blocks.STONE)
-				.map('L', Blocks.CARPET)
-				.map('M', new ItemStack(ModItems.gem, 1, 1))
-				.outputs(ModBlocks.altar)
-				.build();
-
-		shaped().grid(" I ", "NNN", "NIN")
-				.map('I', Blocks.IRON_BARS)
-				.map('N', Items.IRON_INGOT)
-				.outputs(ModBlocks.oven)
-				.build();
-
-		shapeless()
-				.add(ModBlocks.moldavite_block)
-				.outputs(new ItemStack(ModItems.gem, 9, 1))
-				.build();
-
-		shapeless()
-				.add(ModBlocks.tourmaline_block)
-				.outputs(new ItemStack(ModItems.gem, 9, 4))
-				.build();
-
-		shapeless()
-				.add(ModBlocks.bloodstone_block)
-				.outputs(new ItemStack(ModItems.gem, 9, 5))
-				.build();
-
 		GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(ModItems.silver_ingot, 1), 0.35F);
 		GameRegistry.addSmelting(Blocks.SAPLING, new ItemStack(ModItems.wood_ash, 4), 0.15F);
 
