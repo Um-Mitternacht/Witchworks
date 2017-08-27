@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TMT",
+    "SSS",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:planks",
+      "data": 0
+    },
+    "T": {
+      "item": "minecraft:carpet",
+      "data": 0
+    },
+    "S": {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+    "M": {
+      "item": "witchworks:gem",
+      "data": 1
+    }		
+  },
+  "result": {
+    "item": "witchworks:altar",
+    "data": 0
+  }
+}
