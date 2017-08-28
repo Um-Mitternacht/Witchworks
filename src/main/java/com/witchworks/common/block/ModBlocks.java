@@ -2,6 +2,7 @@ package com.witchworks.common.block;
 
 import com.witchworks.common.block.magic.BlockFakeIce;
 import com.witchworks.common.block.magic.BlockFakeIceFence;
+import com.witchworks.common.block.magic.BlockFakeIceStairs;
 import com.witchworks.common.block.magic.BlockSaltBarrier;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.BlockGemOre;
@@ -49,7 +50,7 @@ public final class ModBlocks {
 	public static final BlockCrop crop_silphium = null;
 	public static final BlockCrop crop_garlic = null;
 	public static final BlockCrop crop_wormwood = null;
-	private static final Block PLACE_HOLDER = new Block(Material.AIR);
+	private static Block PLACE_HOLDER = new Block(Material.AIR);
 	//--------------------------------Blocks--------------------------------//
 	public static final Block silver_block = PLACE_HOLDER;
 	public static final Block silver_ore = PLACE_HOLDER;
@@ -75,8 +76,10 @@ public final class ModBlocks {
 	public static final Block nethersteel = PLACE_HOLDER;
 	public static final Block fake_ice = PLACE_HOLDER;
 	public static final Block fake_ice_fence = PLACE_HOLDER;
+	public static final Block fake_ice_stairs = PLACE_HOLDER;
 
 	private ModBlocks() {
+
 	}
 
 	public static void register(final IForgeRegistry<Block> registry) {
@@ -118,6 +121,7 @@ public final class ModBlocks {
 				new BlockCypressSapling(),
 				new BlockFakeIce(),
 				new BlockFakeIceFence(),
+				new BlockFakeIceStairs("fake_ice_stairs", PLACE_HOLDER.getDefaultState()),
 				new BlockBeehive()
 		);
 		//Normal Blocks

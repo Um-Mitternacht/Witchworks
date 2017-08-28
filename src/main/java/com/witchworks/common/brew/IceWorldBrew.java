@@ -31,9 +31,16 @@ public class IceWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.LEAVES, ModBlocks.fake_ice.getDefaultState());
 		stateMap.put(Blocks.LEAVES2, ModBlocks.fake_ice.getDefaultState());
 		stateMap.put(Blocks.STONEBRICK, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.OAK_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.OAK_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
+		stateMap.put(Blocks.SPRUCE_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
+		stateMap.put(Blocks.ACACIA_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
+		stateMap.put(Blocks.JUNGLE_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
+		stateMap.put(Blocks.DARK_OAK_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
+		stateMap.put(Blocks.BIRCH_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
+		stateMap.put(Blocks.RED_SANDSTONE_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
+		stateMap.put(Blocks.BRICK_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
 		stateMap.put(Blocks.LOG, Blocks.PACKED_ICE.getDefaultState());
-		stateMap.put(Blocks.STONE_STAIRS, Blocks.NETHER_BRICK_STAIRS.getDefaultState());
+		stateMap.put(Blocks.STONE_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
 		stateMap.put(Blocks.OAK_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
 		stateMap.put(Blocks.SPRUCE_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
 		stateMap.put(Blocks.ACACIA_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
