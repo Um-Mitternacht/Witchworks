@@ -29,6 +29,7 @@ public class BlockCypressSapling extends BlockMod {
 		setHardness(1F);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SAPLING_AABB;
