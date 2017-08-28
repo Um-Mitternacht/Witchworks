@@ -33,12 +33,6 @@ public final class VanillaCrafting {
 	}
 
 	public static void blocks() {
-		shapeless()
-				.add(ModItems.wax)
-				.add(ModItems.wax)
-				.add(Items.STRING)
-				.outputs(new ItemStack(ModBlocks.candle_small, 1))
-				.build();
 
 		for (int i = 0; i < 16; i++) {
 			shapeless()
@@ -50,13 +44,6 @@ public final class VanillaCrafting {
 					.build();
 		}
 
-		shapeless()
-				.add(ModItems.wax)
-				.add(ModItems.wax)
-				.add(ModBlocks.candle_small)
-				.outputs(new ItemStack(ModBlocks.candle_medium, 1))
-				.build();
-
 		for (int i = 0; i < 16; i++) {
 			shapeless()
 					.add(ModItems.wax)
@@ -66,13 +53,6 @@ public final class VanillaCrafting {
 					.outputs(new ItemStack(ModBlocks.candle_medium, 1, i))
 					.build();
 		}
-
-		shapeless()
-				.add(ModItems.wax)
-				.add(ModItems.wax)
-				.add(ModBlocks.candle_medium)
-				.outputs(new ItemStack(ModBlocks.candle_large, 1))
-				.build();
 
 		for (int i = 0; i < 16; i++) {
 			shapeless()
