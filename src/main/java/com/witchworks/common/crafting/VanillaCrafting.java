@@ -48,16 +48,6 @@ public final class VanillaCrafting {
 			shapeless()
 					.add(ModItems.wax)
 					.add(ModItems.wax)
-					.add(ModBlocks.candle_small)
-					.add(new ItemStack(Items.DYE, 1, 15 - i))
-					.outputs(new ItemStack(ModBlocks.candle_medium, 1, i))
-					.build();
-		}
-
-		for (int i = 0; i < 16; i++) {
-			shapeless()
-					.add(ModItems.wax)
-					.add(ModItems.wax)
 					.add(ModBlocks.candle_medium)
 					.add(new ItemStack(Items.DYE, 1, 15 - i))
 					.outputs(new ItemStack(ModBlocks.candle_large, 1, i))
