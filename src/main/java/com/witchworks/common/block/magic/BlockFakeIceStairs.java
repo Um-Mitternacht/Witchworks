@@ -1,5 +1,6 @@
 package com.witchworks.common.block.magic;
 
+import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
@@ -24,7 +25,9 @@ public class BlockFakeIceStairs extends BlockStairs {
 	public BlockFakeIceStairs(String unlocalizedName, IBlockState state) {
 		super(state);
 		setUnlocalizedName(LibBlockName.FAKE_ICE_STAIRS);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(HALF, BlockStairs.EnumHalf.BOTTOM).withProperty(SHAPE, BlockStairs.EnumShape.STRAIGHT));
 		setRegistryName(new ResourceLocation(LibMod.MOD_ID, unlocalizedName));
+		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 		useNeighborBrightness = true;
 		setResistance(2F);
 		setHardness(2F);
@@ -40,6 +43,12 @@ public class BlockFakeIceStairs extends BlockStairs {
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
 	}
 
 	@SuppressWarnings("deprecation")
