@@ -5,6 +5,7 @@ import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -22,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockFakeIceStairs extends BlockStairs {
 
 	@SuppressWarnings("deprecation")
-	public BlockFakeIceStairs(String unlocalizedName, IBlockState state) {
+	public BlockFakeIceStairs(String unlocalizedName, IBlockState state, Material material) {
 		super(state);
 		setUnlocalizedName(LibBlockName.FAKE_ICE_STAIRS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(HALF, BlockStairs.EnumHalf.BOTTOM).withProperty(SHAPE, BlockStairs.EnumShape.STRAIGHT));

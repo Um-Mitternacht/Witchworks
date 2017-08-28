@@ -51,6 +51,7 @@ public final class ModBlocks {
 	public static final BlockCrop crop_garlic = null;
 	public static final BlockCrop crop_wormwood = null;
 	private static Block PLACE_HOLDER = new Block(Material.AIR);
+	private static Block STAIRS_ICE = new Block(Material.ICE);
 	//--------------------------------Blocks--------------------------------//
 	public static final Block silver_block = PLACE_HOLDER;
 	public static final Block silver_ore = PLACE_HOLDER;
@@ -121,7 +122,7 @@ public final class ModBlocks {
 				new BlockCypressSapling(),
 				new BlockFakeIce(),
 				new BlockFakeIceFence(),
-				new BlockFakeIceStairs("fake_ice_stairs", PLACE_HOLDER.getDefaultState()),
+				new BlockFakeIceStairs("fake_ice_stairs", STAIRS_ICE.getDefaultState(), Material.ICE),
 				new BlockBeehive()
 		);
 		//Normal Blocks
