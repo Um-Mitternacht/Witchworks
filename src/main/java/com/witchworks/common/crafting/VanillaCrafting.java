@@ -34,26 +34,6 @@ public final class VanillaCrafting {
 
 	public static void blocks() {
 
-		for (int i = 0; i < 16; i++) {
-			shapeless()
-					.add(ModItems.wax)
-					.add(ModItems.wax)
-					.add(Items.STRING)
-					.add(new ItemStack(Items.DYE, 1, 15 - i))
-					.outputs(new ItemStack(ModBlocks.candle_small, 1, i))
-					.build();
-		}
-
-		for (int i = 0; i < 16; i++) {
-			shapeless()
-					.add(ModItems.wax)
-					.add(ModItems.wax)
-					.add(ModBlocks.candle_medium)
-					.add(new ItemStack(Items.DYE, 1, 15 - i))
-					.outputs(new ItemStack(ModBlocks.candle_large, 1, i))
-					.build();
-		}
-
 		GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(ModItems.silver_ingot, 1), 0.35F);
 		GameRegistry.addSmelting(Blocks.SAPLING, new ItemStack(ModItems.wood_ash, 4), 0.15F);
 
