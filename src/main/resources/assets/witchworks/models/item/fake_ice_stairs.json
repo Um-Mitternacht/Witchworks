@@ -1,5 +1,5 @@
 {
-  "parent": "witchworks:blocks/fake_ice_stairs",
+  "parent": "witchworks:block/fake_ice_stairs",
   "display": {
     "thirdperson": {
       "rotation": [
