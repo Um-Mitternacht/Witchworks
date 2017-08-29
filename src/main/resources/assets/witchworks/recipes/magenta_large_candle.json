@@ -7,7 +7,7 @@
   ],
   "key": {
     "S": {
-      "item": "witchworks:candle_small",
+      "item": "witchworks:candle_medium",
       "data": 0
     },
     "T": {
@@ -20,7 +20,7 @@
     }	
   },
   "result": {
-    "item": "witchworks:candle_medium",
+    "item": "witchworks:candle_large",
     "data": 2
   }
 }

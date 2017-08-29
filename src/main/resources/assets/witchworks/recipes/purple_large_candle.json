@@ -7,7 +7,7 @@
   ],
   "key": {
     "S": {
-      "item": "witchworks:candle_small",
+      "item": "witchworks:candle_medium",
       "data": 0
     },
     "T": {
@@ -16,11 +16,11 @@
     },
     "D": {
       "item": "minecraft:dye",
-      "data": 13
+      "data": 5
     }	
   },
   "result": {
-    "item": "witchworks:candle_medium",
-    "data": 2
+    "item": "witchworks:candle_large",
+    "data": 10
   }
 }
