@@ -84,6 +84,9 @@ public final class CauldronCrafting {
 		registerItemRitual("leather", getStack(Items.LEATHER, 2), 2
 				, getStack(Items.ROTTEN_FLESH, 2), ModItems.salt);
 
+		registerItemRitual("wax_from_leather", getStack(ModItems.wax, 2), 2
+				, getStack(Items.LEATHER, 2), ModItems.salt);
+
 		registerItemRitual("slime", getStack(Items.SLIME_BALL, 4), 2
 				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.salt);
 
