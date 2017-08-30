@@ -310,6 +310,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.GROW_FLOWER), false);
 		registerEffect(getStack(Blocks.RED_FLOWER)
 				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
+		registerEffect(getStack(Items.CHORUS_FRUIT)
+				, BrewRegistry.getDefault(ModBrews.CURSED_LEAPING), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
