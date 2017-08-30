@@ -42,7 +42,7 @@ public class BlockFakeIceStairs extends BlockStairs {
 
 	@Override
 	public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
-		return true;
+		return false;
 	}
 
 	@SideOnly(Side.CLIENT)
