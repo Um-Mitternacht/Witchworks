@@ -306,10 +306,6 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.HELL_WORLD), false);
 		registerEffect(getStack(ModItems.seed_mint)
 				, BrewRegistry.getDefault(ModBrews.ICE_WORLD), false);
-		registerEffect(getStack(Blocks.YELLOW_FLOWER)
-				, BrewRegistry.getDefault(ModBrews.GROW_FLOWER), false);
-		registerEffect(getStack(Blocks.RED_FLOWER)
-				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
 		registerEffect(getStack(Items.CHORUS_FRUIT)
 				, BrewRegistry.getDefault(ModBrews.CURSED_LEAPING), false);
 
