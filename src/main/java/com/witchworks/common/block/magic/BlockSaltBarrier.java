@@ -55,6 +55,7 @@ public class BlockSaltBarrier extends BlockMod {
 		super(LibBlockName.SALT_BARRIER, Material.CIRCUITS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(NORTH, BlockSaltBarrier.EnumAttachPosition.NONE).withProperty(EAST, BlockSaltBarrier.EnumAttachPosition.NONE).withProperty(SOUTH, BlockSaltBarrier.EnumAttachPosition.NONE).withProperty(WEST, BlockSaltBarrier.EnumAttachPosition.NONE));
 		setSound(SoundType.CLOTH);
+		setCreativeTab(null);
 	}
 
 	private static boolean canConnectTo(IBlockState blockState) {

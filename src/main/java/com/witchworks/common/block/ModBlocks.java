@@ -51,7 +51,6 @@ public final class ModBlocks {
 	public static final BlockCrop crop_garlic = null;
 	public static final BlockCrop crop_wormwood = null;
 	private static Block PLACE_HOLDER = new Block(Material.AIR);
-	private static Block STAIRS_ICE = new Block(Material.ICE);
 	//--------------------------------Blocks--------------------------------//
 	public static final Block silver_block = PLACE_HOLDER;
 	public static final Block silver_ore = PLACE_HOLDER;
@@ -78,6 +77,7 @@ public final class ModBlocks {
 	public static final Block fake_ice = PLACE_HOLDER;
 	public static final Block fake_ice_fence = PLACE_HOLDER;
 	public static final Block fake_ice_stairs = PLACE_HOLDER;
+	private static Block STAIRS_ICE = new Block(Material.ICE);
 
 	private ModBlocks() {
 

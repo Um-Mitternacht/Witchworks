@@ -24,7 +24,7 @@ public class BlockCrop extends BlockCrops implements ICrop, IModelRegister {
 		super();
 		setUnlocalizedName(id);
 		setRegistryName(id);
-		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(null);
 		this.maxAge = 7;
 	}
 
@@ -32,7 +32,7 @@ public class BlockCrop extends BlockCrops implements ICrop, IModelRegister {
 		super();
 		setUnlocalizedName(id);
 		setRegistryName(id);
-		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(null);
 		this.maxAge = maxAge;
 	}
 

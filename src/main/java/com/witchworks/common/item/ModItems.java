@@ -110,6 +110,7 @@ public final class ModItems {
 	public static final Item envenomed_fang = PLACE_HOLDER;
 	public static final Item dimensional_sand = PLACE_HOLDER;
 	public static final Item chromatic_quill = PLACE_HOLDER;
+	public static final Item carnivorous_tooth = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -164,6 +165,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.ENVENOMED_FANG),
 				new ItemMod(LibItemName.DIMENSIONAL_SAND),
 				new ItemMod(LibItemName.CHROMATIC_QUILL),
+				new ItemMod(LibItemName.CARNIVOROUS_TOOTH),
 				new ItemHeart(),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()

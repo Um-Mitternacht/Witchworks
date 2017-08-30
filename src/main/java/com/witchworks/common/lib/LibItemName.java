@@ -79,6 +79,7 @@ public final class LibItemName {
 	public static final String HEART = "heart";
 	public static final String DIMENSIONAL_SAND = "dimensional_sand";
 	public static final String CHROMATIC_QUILL = "chromatic_quill";
+	public static final String CARNIVOROUS_TOOTH = "carnivorous_tooth";
 	public static final String HONEYCOMB = "honeycomb";
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
 	public static final String HONEY = "honey";
