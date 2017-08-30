@@ -138,6 +138,9 @@ public final class CauldronCrafting {
 		registerItemRitual("malachite", getStack(ModItems.gem, 1, 7), 8
 				, getStack(Items.DYE, 1, 12), Blocks.SAND);
 
+		registerItemRitual("quartz", getStack(Items.QUARTZ), 8
+				, getStack(Items.DYE, 4, 15), Blocks.SAND, Items.GHAST_TEAR);
+
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
 				, getStack(Items.IRON_NUGGET, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.salt, getStack(ModItems.gem, 1, 6));
