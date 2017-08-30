@@ -153,7 +153,7 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 					addDrop(event, new ItemStack(ModItems.carnivorous_tooth, 4));
 
 				else if (event.getEntityLiving() instanceof EntityOcelot && rand.nextInt(5) <= 2 + 2 * looting)
-					addDrop(event, new ItemStack(ModItems.carnivorous_tooth, 4));
+					addDrop(event, new ItemStack(ModItems.carnivorous_tooth, 2));
 
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);
