@@ -26,7 +26,6 @@ public class BlockFakeIceStairs extends BlockStairs {
 	public BlockFakeIceStairs(String unlocalizedName, IBlockState state, Material material) {
 		super(state);
 		setUnlocalizedName(LibBlockName.FAKE_ICE_STAIRS);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(HALF, BlockStairs.EnumHalf.BOTTOM).withProperty(SHAPE, BlockStairs.EnumShape.STRAIGHT));
 		setRegistryName(new ResourceLocation(LibMod.MOD_ID, unlocalizedName));
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 		useNeighborBrightness = true;
@@ -41,6 +40,11 @@ public class BlockFakeIceStairs extends BlockStairs {
 		return false;
 	}
 
+	@Override
+	public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return true;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
@@ -48,7 +52,19 @@ public class BlockFakeIceStairs extends BlockStairs {
 
 	@SuppressWarnings("deprecation")
 	@Override
+	public boolean isBlockNormalCube(IBlockState state) {
+		return false;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
 	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isTopSolid(IBlockState state) {
 		return false;
 	}
 
