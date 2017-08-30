@@ -27,6 +27,7 @@ public class BlockCypressSapling extends BlockMod {
 		setSound(SoundType.PLANT);
 		setResistance(1F);
 		setHardness(1F);
+		useNeighborBrightness = true;
 	}
 
 	@SuppressWarnings("deprecation")
