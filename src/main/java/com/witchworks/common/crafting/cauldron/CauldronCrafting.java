@@ -266,7 +266,7 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.GROW_FLOWER), false);
 		registerEffect(getStack(ModItems.seed_silphium)
 				, BrewRegistry.getDefault(ModBrews.HARVEST), false);
-		registerEffect(getStack(Items.ENDER_PEARL)
+		registerEffect(getStack(ModItems.dimensional_sand)
 				, BrewRegistry.getDefault(ModBrews.ENDER_INHIBITION), false);
 		registerEffect(getStack(ModItems.gem, 1, 8)
 				, BrewRegistry.getDefault(ModBrews.TILL_LAND), false);
