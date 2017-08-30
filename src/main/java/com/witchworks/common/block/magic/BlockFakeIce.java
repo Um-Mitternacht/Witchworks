@@ -45,6 +45,6 @@ public class BlockFakeIce extends BlockMod {
 	public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 		IBlockState sideState = world.getBlockState(pos.offset(side));
 		Block block = sideState.getBlock();
-		return block == this ? false : super.shouldSideBeRendered(state, world, pos, side);
+		return block != this && super.shouldSideBeRendered(state, world, pos, side);
 	}
 }
