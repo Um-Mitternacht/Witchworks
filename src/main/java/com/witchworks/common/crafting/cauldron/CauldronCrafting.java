@@ -281,7 +281,7 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
 		registerEffect(getStack(ModItems.ginger)
 				, BrewRegistry.getDefault(ModBrews.IGNITION), false);
-		registerEffect(getStack(ModItems.gemstone_amalgam)
+		registerEffect(getStack(ModItems.carnivorous_tooth)
 				, BrewRegistry.getDefault(ModBrews.OUTCASTS_SHAME), false);
 		registerEffect(getStack(ModItems.wool_of_bat)
 				, BrewRegistry.getDefault(ModBrews.GRACE), false);
@@ -303,6 +303,10 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.HELL_WORLD), false);
 		registerEffect(getStack(ModItems.seed_mint)
 				, BrewRegistry.getDefault(ModBrews.ICE_WORLD), false);
+		registerEffect(getStack(Blocks.YELLOW_FLOWER)
+				, BrewRegistry.getDefault(ModBrews.GROW_FLOWER), false);
+		registerEffect(getStack(Blocks.RED_FLOWER)
+				, BrewRegistry.getDefault(ModBrews.AUTO_PLANT), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
