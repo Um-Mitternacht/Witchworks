@@ -300,7 +300,7 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.OZYMANDIAS), false);
 		registerEffect(getStack(Blocks.RED_NETHER_BRICK)
 				, BrewRegistry.getDefault(ModBrews.HELLS_WROTH), false);
-		registerEffect(getStack(ModItems.dimensional_sand)
+		registerEffect(getStack(Blocks.SAND, 1, 1)
 				, BrewRegistry.getDefault(ModBrews.SETEHS_WASTES), false);
 		registerEffect(getStack(ModBlocks.nethersteel)
 				, BrewRegistry.getDefault(ModBrews.HELL_WORLD), false);
