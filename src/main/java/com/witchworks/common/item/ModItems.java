@@ -220,6 +220,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.tourmaline_block),
 				itemBlock(ModBlocks.malachite_block),
 				itemBlock(ModBlocks.tigers_eye_block),
+				itemBlock(ModBlocks.nuummite_block),
 				itemBlock(ModBlocks.salt_ore),
 				itemBlock(ModBlocks.nethersteel),
 				itemBlock(ModBlocks.salt_barrier),
