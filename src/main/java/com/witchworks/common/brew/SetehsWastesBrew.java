@@ -46,7 +46,6 @@ public class SetehsWastesBrew extends BlockHitBrew {
 		return "setehs_wastes";
 	}
 
-	//Todo: Apply this to slabs. Also, create the Brew of Ice World.
 	@SuppressWarnings("deprecation")
 	@Override
 	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
