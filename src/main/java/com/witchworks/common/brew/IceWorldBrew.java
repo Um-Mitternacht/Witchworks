@@ -26,12 +26,6 @@ public class IceWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.GRASS_PATH, Blocks.PACKED_ICE.getDefaultState());
 		stateMap.put(Blocks.GRAVEL, Blocks.PACKED_ICE.getDefaultState());
 		stateMap.put(Blocks.COBBLESTONE, Blocks.PACKED_ICE.getDefaultState());
-		stateMap.put(Blocks.PLANKS, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.STONE, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.BRICK_BLOCK, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.LEAVES, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.LEAVES2, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.STONEBRICK, ModBlocks.fake_ice.getDefaultState());
 		stateMap.put(Blocks.OAK_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
 		stateMap.put(Blocks.SPRUCE_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
 		stateMap.put(Blocks.ACACIA_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
@@ -79,9 +73,22 @@ public class IceWorldBrew extends BlockHitBrew {
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
 			Block block = world.getBlockState(spot).getBlock();
+			IBlockState state = world.getBlockState(spot);
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
 			if (place && stateMap.containsKey(block)) {
 				world.setBlockState(spot, stateMap.get(block), 11);
+			} else if (state.getBlock() == Blocks.LEAVES) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.LEAVES2) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.PLANKS) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.STONE) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.BRICK_BLOCK) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.STONEBRICK) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
 			}
 		}
 	}
