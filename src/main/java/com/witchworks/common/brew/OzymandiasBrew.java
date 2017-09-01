@@ -24,7 +24,6 @@ public class OzymandiasBrew extends BlockHitBrew {
 
 	private final Map<Block, IBlockState> stateMap = new HashMap<>();
 
-	@SuppressWarnings("deprecation")
 	public OzymandiasBrew() {
 		stateMap.put(Blocks.COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL.getStateFromMeta(1));
 		stateMap.put(Blocks.COBBLESTONE, Blocks.MOSSY_COBBLESTONE.getDefaultState());
