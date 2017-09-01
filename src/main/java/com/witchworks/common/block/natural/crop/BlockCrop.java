@@ -3,7 +3,6 @@ package com.witchworks.common.block.natural.crop;
 import com.witchworks.api.crop.ICrop;
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;

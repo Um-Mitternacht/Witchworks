@@ -36,7 +36,6 @@ public final class CauldronCrafting {
 	private CauldronCrafting() {
 	}
 
-	//Todo: Add support for splash, lingering, and witchery-style gaseous brews in a custom brew.
 	public static void init() {
 		//------------------------------------Processing------------------------------------//
 		//Some recipes that return the non-dyed version of an Item
@@ -54,7 +53,7 @@ public final class CauldronCrafting {
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.FISH, Items.COOKED_FISH, true);
 		registerItemProcess(Fluids.MUNDANE_OIL, Items.POTATO, Items.BAKED_POTATO, true);
 		registerItemProcess(Fluids.MUNDANE_OIL, getStack(Items.FISH, 1, 1), getStack(Items.COOKED_FISH, 1, 1), true);
-		//Cooking with Water
+		//Cooking and Processing with Water
 		registerItemProcess(FluidRegistry.WATER, ModItems.empty_honeycomb, ModItems.wax, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.honeycomb, ModItems.honey, true);
 		registerItemProcess(FluidRegistry.WATER, getStack(Blocks.LOG2, 1, 0), getStack(ModItems.catechu, 6, 0), true);
