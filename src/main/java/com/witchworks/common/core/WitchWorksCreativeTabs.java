@@ -153,6 +153,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.dimensional_sand);
 			addItem(ModItems.chromatic_quill);
 			addItem(ModItems.carnivorous_tooth);
+			addItem(ModItems.catechu);
 		}
 	}
 

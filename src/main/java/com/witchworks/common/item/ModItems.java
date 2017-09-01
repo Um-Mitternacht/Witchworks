@@ -111,6 +111,7 @@ public final class ModItems {
 	public static final Item dimensional_sand = PLACE_HOLDER;
 	public static final Item chromatic_quill = PLACE_HOLDER;
 	public static final Item carnivorous_tooth = PLACE_HOLDER;
+	public static final Item catechu = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -166,6 +167,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.DIMENSIONAL_SAND),
 				new ItemMod(LibItemName.CHROMATIC_QUILL),
 				new ItemMod(LibItemName.CARNIVOROUS_TOOTH),
+				new ItemMod(LibItemName.CATECHU),
 				new ItemHeart(),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
@@ -291,5 +293,6 @@ public final class ModItems {
 		OreDictionary.registerOre("listAllspice", new ItemStack(ModItems.wormwood));
 		OreDictionary.registerOre("cropWormwood", new ItemStack(ModItems.wormwood));
 		OreDictionary.registerOre("feather", new ItemStack(ModItems.chromatic_quill));
+		OreDictionary.registerOre("dyeBrown", new ItemStack(ModItems.catechu));
 	}
 }

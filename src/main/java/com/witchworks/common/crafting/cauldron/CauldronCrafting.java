@@ -57,6 +57,7 @@ public final class CauldronCrafting {
 		//Cooking with Water
 		registerItemProcess(FluidRegistry.WATER, ModItems.empty_honeycomb, ModItems.wax, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.honeycomb, ModItems.honey, true);
+		registerItemProcess(FluidRegistry.WATER, getStack(Blocks.LOG2, 1, 0), getStack(ModItems.catechu, 6, 0), true);
 		//Banner pattern removal
 		for (int i = 0; i < 16; i++) {
 			registerItemProcess(FluidRegistry.WATER, getStack(Items.BANNER, 1, i), getStack(Items.BANNER, 1, i), true);
@@ -192,6 +193,9 @@ public final class CauldronCrafting {
 
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 15)
 				, getStack(Items.DYE, 1, 15), Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 3)
+				, getStack(ModItems.catechu, 1, 0), Items.NETHER_WART);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
 		registerEffect(getStack(ModItems.salt)

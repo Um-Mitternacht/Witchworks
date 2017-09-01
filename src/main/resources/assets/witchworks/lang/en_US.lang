@@ -106,6 +106,9 @@ item.brew_phial_drink.name=Brew Phial
 item.brew_phial_splash.name=Splash Brew Phial
 item.brew_phial_drink_lingering.name=Lingering Brew Phial
 
+//Dyes
+item.catechu.name=Catechu Brown
+
 //Blocks
 tile.candle_small.white.name=Small White Candle
 tile.candle_small.orange.name=Small Orange Candle
