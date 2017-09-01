@@ -55,7 +55,7 @@ public class IceWorldBrew extends BlockHitBrew {
 			IBlockState state = world.getBlockState(spot);
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
 			if (place && stateMap.containsKey(block)) {
-				world.setBlockState(spot, stateMap.get(block), 11);
+				world.setBlockState(spot, stateMap.get(block), 3);
 			} else if (state.getBlock() == Blocks.LEAVES) {
 				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.LEAVES2) {

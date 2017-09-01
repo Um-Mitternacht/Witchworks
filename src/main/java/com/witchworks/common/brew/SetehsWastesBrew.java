@@ -61,11 +61,11 @@ public class SetehsWastesBrew extends BlockHitBrew {
 				IBlockState state = world.getBlockState(spot);
 				Block block = state.getBlock();
 				if (stateMap.containsKey(block)) {
-					world.setBlockState(spot, stateMap.get(block), 11);
+					world.setBlockState(spot, stateMap.get(block), 3);
 				} else if (block == Blocks.SANDSTONE) {
 					BlockSandStone.EnumType type = state.getValue(BlockSandStone.TYPE);
 					IBlockState other = getSandStone(type);
-					world.setBlockState(spot, other, 11);
+					world.setBlockState(spot, other, 3);
 				}
 			}
 		}
