@@ -27,13 +27,6 @@ public class IceWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.GRAVEL, Blocks.PACKED_ICE.getDefaultState());
 		stateMap.put(Blocks.COBBLESTONE, Blocks.PACKED_ICE.getDefaultState());
 		stateMap.put(Blocks.LOG, Blocks.PACKED_ICE.getDefaultState());
-		stateMap.put(Blocks.STONE_STAIRS, ModBlocks.fake_ice_stairs.getDefaultState());
-		stateMap.put(Blocks.OAK_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
-		stateMap.put(Blocks.SPRUCE_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
-		stateMap.put(Blocks.ACACIA_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
-		stateMap.put(Blocks.JUNGLE_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
-		stateMap.put(Blocks.BIRCH_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
-		stateMap.put(Blocks.DARK_OAK_FENCE, ModBlocks.fake_ice_fence.getDefaultState());
 		stateMap.put(Blocks.DIRT, Blocks.SNOW.getDefaultState());
 		stateMap.put(Blocks.GRASS, Blocks.SNOW.getDefaultState());
 		stateMap.put(Blocks.MYCELIUM, Blocks.SNOW.getDefaultState());
@@ -89,7 +82,17 @@ public class IceWorldBrew extends BlockHitBrew {
 				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.JUNGLE_STAIRS) {
 				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
-			} else if (state.getBlock() == Blocks.JUNGLE_STAIRS) {
+			} else if (state.getBlock() == Blocks.ACACIA_STAIRS) {
+				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.RED_SANDSTONE_STAIRS) {
+				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.PURPUR_STAIRS) {
+				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.SANDSTONE_STAIRS) {
+				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.STONE_STAIRS) {
+				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.STONE_BRICK_STAIRS) {
 				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
 			}
 		}
