@@ -30,10 +30,6 @@ public class IceWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.DIRT, Blocks.SNOW.getDefaultState());
 		stateMap.put(Blocks.GRASS, Blocks.SNOW.getDefaultState());
 		stateMap.put(Blocks.MYCELIUM, Blocks.SNOW.getDefaultState());
-		stateMap.put(Blocks.SANDSTONE, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.NETHER_BRICK, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.RED_NETHER_BRICK, ModBlocks.fake_ice.getDefaultState());
-		stateMap.put(Blocks.END_BRICKS, ModBlocks.fake_ice.getDefaultState());
 	}
 
 	@Override
@@ -106,6 +102,14 @@ public class IceWorldBrew extends BlockHitBrew {
 				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.SPRUCE_FENCE) {
 				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.SANDSTONE) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.NETHER_BRICK) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.RED_NETHER_BRICK) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.END_BRICKS) {
+				world.setBlockState(spot, ModBlocks.fake_ice.getDefaultState(), 3);
 			}
 		}
 	}
