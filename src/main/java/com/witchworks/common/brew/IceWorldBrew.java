@@ -94,6 +94,18 @@ public class IceWorldBrew extends BlockHitBrew {
 				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
 			} else if (state.getBlock() == Blocks.STONE_BRICK_STAIRS) {
 				world.setBlockState(spot, ModBlocks.fake_ice_stairs.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.OAK_FENCE) {
+				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.ACACIA_FENCE) {
+				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.BIRCH_FENCE) {
+				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.DARK_OAK_FENCE) {
+				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.JUNGLE_FENCE) {
+				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.SPRUCE_FENCE) {
+				world.setBlockState(spot, ModBlocks.fake_ice_fence.getDefaultState(), 3);
 			}
 		}
 	}
