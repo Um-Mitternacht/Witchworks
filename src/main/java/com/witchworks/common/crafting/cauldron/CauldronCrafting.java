@@ -58,6 +58,7 @@ public final class CauldronCrafting {
 		registerItemProcess(FluidRegistry.WATER, ModItems.empty_honeycomb, ModItems.wax, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.honeycomb, ModItems.honey, true);
 		registerItemProcess(FluidRegistry.WATER, getStack(Blocks.LOG2, 1, 0), getStack(ModItems.catechu, 6, 0), true);
+		registerItemProcess(FluidRegistry.WATER, getStack(ModItems.wormwood, 1, 0), getStack(Items.DYE, 3, 2), true);
 		//Banner pattern removal
 		for (int i = 0; i < 16; i++) {
 			registerItemProcess(FluidRegistry.WATER, getStack(Items.BANNER, 1, i), getStack(Items.BANNER, 1, i), true);
