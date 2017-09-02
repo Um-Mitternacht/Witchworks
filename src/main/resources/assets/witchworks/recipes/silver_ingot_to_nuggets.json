@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "forge:ore_shapeless",
   "ingredients": [
     {
-      "item": "witchworks:silver_ingot",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "ingotSilver"
     }
   ],
   "result": {
