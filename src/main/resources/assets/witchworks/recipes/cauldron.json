@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "forge:ore_shaped",
   "pattern": [
     "I I",
     "GSG",
@@ -13,7 +13,8 @@
       "item": "minecraft:iron_nugget"
     },
     "S": {
-      "item": "witchworks:silver_ingot"
+      "type": "forge:ore_dict",
+      "ore": "ingotSilver"
     }
   },
   "result": {
