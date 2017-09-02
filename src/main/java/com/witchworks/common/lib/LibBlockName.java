@@ -51,6 +51,10 @@ public final class LibBlockName {
 	public static final String MALACHITE_BLOCK = "malachite_block";
 	public static final String TIGERS_EYE_BLOCK = "tigers_eye_block";
 	public static final String NUUMMITE_BLOCK = "nuummite_block";
+	public static final String ALEXANDRITE_BLOCK = "alexandrite_block";
+	public static final String AMETHYST_BLOCK = "amethyst_block";
+	public static final String JASPER_BLOCK = "jasper_block";
+	public static final String GARNET_BLOCK = "garnet_block";
 	public static final String NETHERSTEEL = "nethersteel";
 	public static final String CHALK = "chalk";
 	public static final String SALT_BARRIER = "salt_barrier";

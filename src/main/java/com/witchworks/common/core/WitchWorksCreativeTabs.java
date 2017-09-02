@@ -196,6 +196,10 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.malachite_block);
 			addBlock(ModBlocks.tigers_eye_block);
 			addBlock(ModBlocks.nuummite_block);
+			addBlock(ModBlocks.alexandrite_block);
+			addBlock(ModBlocks.jasper_block);
+			addBlock(ModBlocks.amethyst_block);
+			addBlock(ModBlocks.garnet_block);
 			addBlock(ModBlocks.silver_block);
 			addBlock(ModBlocks.nethersteel);
 			addBlock(ModBlocks.candle_large);

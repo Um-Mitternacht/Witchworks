@@ -61,6 +61,10 @@ public final class ModBlocks {
 	public static final Block malachite_block = PLACE_HOLDER;
 	public static final Block tigers_eye_block = PLACE_HOLDER;
 	public static final Block nuummite_block = PLACE_HOLDER;
+	public static final Block alexandrite_block = PLACE_HOLDER;
+	public static final Block jasper_block = PLACE_HOLDER;
+	public static final Block amethyst_block = PLACE_HOLDER;
+	public static final Block garnet_block = PLACE_HOLDER;
 	public static final Block cauldron = PLACE_HOLDER;
 	public static final Block candle_large = PLACE_HOLDER;
 	public static final Block candle_medium = PLACE_HOLDER;
@@ -136,6 +140,10 @@ public final class ModBlocks {
 				new BlockMod(LibBlockName.MALACHITE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.TIGERS_EYE_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.NUUMMITE_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.ALEXANDRITE_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.JASPER_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.AMETHYST_BLOCK, Material.ROCK).setHardness(5.0F),
+				new BlockMod(LibBlockName.GARNET_BLOCK, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.COQUINA, Material.ROCK).setHardness(5.0F),
 				new BlockMod(LibBlockName.CHALK, Material.ROCK).setHardness(5.0F)
 		);
