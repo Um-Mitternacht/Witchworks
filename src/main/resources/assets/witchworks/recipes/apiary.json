@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "forge:ore_shaped",
   "pattern": [
     "SSS",
     "STS",
@@ -7,8 +7,8 @@
   ],
   "key": {
     "S": {
-      "item": "minecraft:planks",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
     },
     "T": {
       "item": "witchworks:empty_honeycomb",

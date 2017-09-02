@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "forge:ore_shaped",
   "pattern": [
     "TMT",
     "SSS",
@@ -7,8 +7,8 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:planks",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
     },
     "T": {
       "item": "minecraft:carpet",
