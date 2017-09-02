@@ -1,41 +1,41 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "forge:ore_shapeless",
   "ingredients": [
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     },
     {
-      "item": "witchworks:silver_nugget",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
     }
   ],
   "result": {
