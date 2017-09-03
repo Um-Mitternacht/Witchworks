@@ -1,6 +1,10 @@
 {
-    "variants": {
-        "half=top": { "model": "witchworks:fake_ice_slab_double" },
-		"half=bottom": { "model": "witchworks:fake_ice_slab_half" }
+  "variants": {
+    "half=top": {
+      "model": "witchworks:fake_ice_slab_double"
+    },
+    "half=bottom": {
+      "model": "witchworks:fake_ice_slab_half"
     }
+  }
 }
