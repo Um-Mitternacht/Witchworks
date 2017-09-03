@@ -92,4 +92,27 @@ public abstract class BlockFakeIceSlab extends BlockSlab {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[]{HALF});
 	}
+
+	@Override
+	public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return false;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isBlockNormalCube(IBlockState state) {
+		return false;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isTopSolid(IBlockState state) {
+		return false;
+	}
 }
