@@ -1,9 +1,6 @@
 package com.witchworks.common.block;
 
-import com.witchworks.common.block.magic.BlockFakeIce;
-import com.witchworks.common.block.magic.BlockFakeIceFence;
-import com.witchworks.common.block.magic.BlockFakeIceStairs;
-import com.witchworks.common.block.magic.BlockSaltBarrier;
+import com.witchworks.common.block.magic.*;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.BlockGemOre;
 import com.witchworks.common.block.natural.BlockSaltOre;
@@ -82,6 +79,8 @@ public final class ModBlocks {
 	public static final Block fake_ice = PLACE_HOLDER;
 	public static final Block fake_ice_fence = PLACE_HOLDER;
 	public static final Block fake_ice_stairs = PLACE_HOLDER;
+	public static final Block fake_ice_slab_half = PLACE_HOLDER;
+	public static final Block fake_ice_slab_double = PLACE_HOLDER;
 	private static Block STAIRS_ICE = new Block(Material.ICE);
 
 	private ModBlocks() {
@@ -128,6 +127,8 @@ public final class ModBlocks {
 				new BlockFakeIce(),
 				new BlockFakeIceFence(),
 				new BlockFakeIceStairs("fake_ice_stairs", STAIRS_ICE.getDefaultState(), Material.ICE),
+				new BlockFakeIceSlabDouble("fake_ice_slab_double"),
+				new BlockFakeIceSlabHalf("fake_ice_slab_half"),
 				new BlockBeehive()
 		);
 		//Normal Blocks

@@ -84,7 +84,7 @@ public abstract class BlockFakeIceSlab extends BlockSlab {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return ModBlocks.fake_ice_slab_half;
+		return Item.getItemFromBlock(ModBlocks.fake_ice_slab_half);
 	}
 
 	@Override
