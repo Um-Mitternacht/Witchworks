@@ -1,3 +1,6 @@
 {
-  "parent": "witchworks:block/fake_ice_fence"
+    "parent": "block/fence_inventory",
+    "textures": {
+        "texture": "witchworks:blocks/fake_ice"
+    }
 }
