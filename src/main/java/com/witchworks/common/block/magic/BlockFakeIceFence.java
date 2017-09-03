@@ -65,6 +65,7 @@ public class BlockFakeIceFence extends BlockMod {
 		setResistance(2F);
 		setHardness(2F);
 		slipperiness = 0.98F;
+		useNeighborBrightness = true;
 	}
 
 	private static int getBoundingBoxIdx(IBlockState state) {

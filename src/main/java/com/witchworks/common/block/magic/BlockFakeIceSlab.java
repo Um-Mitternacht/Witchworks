@@ -33,6 +33,7 @@ public abstract class BlockFakeIceSlab extends BlockSlab {
 		this.setRegistryName(new ResourceLocation(LibMod.MOD_ID, unlocalizedName));
 		setHardness(2F);
 		slipperiness = 0.98F;
+		useNeighborBrightness = true;
 	}
 
 	@SuppressWarnings("deprecation")
