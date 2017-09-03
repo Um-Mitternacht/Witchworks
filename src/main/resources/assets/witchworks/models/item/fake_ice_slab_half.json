@@ -1,5 +1,5 @@
 {
-    "parent": "witchworks:block/fake_ice_slab_half",
+    "parent": "witchworks:fake_ice_slab_half",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
