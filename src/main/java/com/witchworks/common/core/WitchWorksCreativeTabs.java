@@ -209,6 +209,7 @@ public final class WitchWorksCreativeTabs {
 			addBlock(ModBlocks.cypress_sapling);
 			addBlock(ModBlocks.fake_ice_fence);
 			addBlock(ModBlocks.fake_ice_stairs);
+			addBlock(ModBlocks.fake_ice_slab_half);
 		}
 	}
 }

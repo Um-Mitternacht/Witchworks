@@ -207,6 +207,8 @@ public final class ModItems {
 				itemBlock(ModBlocks.fake_ice),
 				itemBlock(ModBlocks.fake_ice_fence),
 				itemBlock(ModBlocks.fake_ice_stairs),
+				itemBlock(ModBlocks.fake_ice_slab_half),
+				itemBlock(ModBlocks.fake_ice_slab_double),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
 				itemBlock(ModBlocks.silver_block),
