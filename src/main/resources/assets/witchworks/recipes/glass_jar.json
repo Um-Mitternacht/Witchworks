@@ -7,8 +7,8 @@
   ],
   "key": {
     "S": {
-      "item": "minecraft:wooden_slab",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "slabWood"
     },
     "G": {
       "item": "minecraft:glass_pane",
