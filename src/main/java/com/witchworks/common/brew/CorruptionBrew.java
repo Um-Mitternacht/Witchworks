@@ -19,7 +19,7 @@ public class CorruptionBrew implements IBrew {
 
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
-		BrewStorageHandler.getBrewEffects(entity).stream().map(BrewEffect::getBrew).filter(IBrew::isBad)
+		BrewStorageHandler.getBrewEffects(entity).stream().map(BrewEffect::getBrew).filter(brew -> !brew.isBad())
 				.forEach((brew -> BrewStorageHandler.removeActiveBrew(entity, brew)));
 	}
 

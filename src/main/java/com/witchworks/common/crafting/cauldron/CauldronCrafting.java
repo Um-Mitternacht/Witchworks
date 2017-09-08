@@ -226,6 +226,8 @@ public final class CauldronCrafting {
 				, new PotionEffect(MobEffects.LUCK, 500), false);
 		registerEffect(getStack(ModItems.wax)
 				, new PotionEffect(MobEffects.SLOWNESS, 500), false);
+		registerEffect(getStack(Items.FERMENTED_SPIDER_EYE)
+				, new PotionEffect(MobEffects.WEAKNESS, 500), false);
 		registerEffect(getStack(Items.POISONOUS_POTATO)
 				, new PotionEffect(MobEffects.NAUSEA, 500), false);
 		registerEffect(getStack(ModItems.belladonna)
@@ -312,6 +314,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.ICE_WORLD), false);
 		registerEffect(getStack(Items.CHORUS_FRUIT)
 				, BrewRegistry.getDefault(ModBrews.CURSED_LEAPING), false);
+		registerEffect(getStack(Items.BONE)
+				, BrewRegistry.getDefault(ModBrews.CORRUPTION), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);
