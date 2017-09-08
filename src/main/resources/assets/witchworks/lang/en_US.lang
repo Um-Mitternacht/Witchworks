@@ -228,11 +228,11 @@ fluid.for.honey=Honey
 brew.instant=Instant
 
 brew.shell_armor.name=Shell Armor Brew
-brew.shell_armor.desc=The edges of your shell may hurt those who attack you
+brew.shell_armor.desc=The edges of your shell may hurt those who attack you.
 brew.shell_armor.tooltip=Shell Armor
 
 brew.spider_nightmare.name=Spider Nightmare Brew
-brew.spider_nightmare.desc=Surround your enemy with webs and spiders
+brew.spider_nightmare.desc=Surround your enemy with webs and spiders.
 brew.spider_nightmare.tooltip=Spider Nightmare
 
 brew.frostbite.name=Frostbite Brew
@@ -240,75 +240,75 @@ brew.frostbite.desc=Encases a target in ice. May have other effects.
 brew.frostbite.tooltip=Frostbite
 
 brew.extinguish_fires.name=Extinguish Fires Brew
-brew.extinguish_fires.desc=Puts out any fires on you
+brew.extinguish_fires.desc=Puts out any fires on you.
 brew.extinguish_fires.tooltip=Extinguish Fires
 
 brew.mars_water.name=Water of Mars Brew
-brew.mars_water.desc=Inflicts nasty debuffs on the target
+brew.mars_water.desc=Inflicts nasty debuffs on the target.
 brew.mars_water.tooltip=Mars water
 
 brew.holy_water.name=Holy Water
-brew.holy_water.desc=Damages undead and demons, but has no effect on the living
+brew.holy_water.desc=Damages undead and demons, but has no effect on the living.
 brew.holy_water.tooltip=Holy Water
 
 brew.volatility.name=Brew of Volatility
-brew.volatility.desc=Makes you explode upon being hit
+brew.volatility.desc=Makes you explode upon being hit.
 brew.volatility.tooltip=Volatility
 
 brew.till_land.name=Tilled Land Brew
-brew.till_land.desc=Turns dirt into farmland
+brew.till_land.desc=Turns dirt into farmland when thrown.
 brew.till_land.tooltip=Tilled Land
 
 brew.fertilize.name=Fertilize Brew
-brew.fertilize.desc=Makes stuff grow
+brew.fertilize.desc=Makes stuff grow when thrown.
 brew.fertilize.tooltip=Fertilize
 
 brew.harvest.name=Harvest Festival Brew
-brew.harvest.desc=Harvests crops
+brew.harvest.desc=Harvests crops when thrown.
 brew.harvest.tooltip=Harvest Festival
 
 brew.grow_flowers.name=Flower Apparition Brew
-brew.grow_flowers.desc=Makes flowers appear
+brew.grow_flowers.desc=Makes flowers when thrown.
 brew.grow_flowers.tooltip=Flower Apparition
 
 brew.ender_inhibition.name=Ender Inhibition Brew
-brew.ender_inhibition.desc=Ender beings can't teleport
+brew.ender_inhibition.desc=Ender beings can't teleport.
 brew.ender_inhibition.tooltip=Ender Inhibition
 
 brew.path_of_the_deep.name=Path of the Deep Brew
-brew.path_of_the_deep.desc=Swim faster
+brew.path_of_the_deep.desc=Allows you to swim faster.
 brew.path_of_the_deep.tooltip=Path of the Deep
 
 brew.rock_pulverize.name=Rock Pulverize Brew
-brew.rock_pulverize.desc=Turns rock into gravel, gravel into sand
+brew.rock_pulverize.desc=Turns rock into gravel, and gravel into sand.
 brew.rock_pulverize.tooltip=Rock Pulverize
 
 brew.prune_leaves.name=Prune Leaves Brew
-brew.prune_leaves.desc=Removes leaves
+brew.prune_leaves.desc=Removes leaves.
 brew.prune_leaves.tooltip=Prune Leaves
 
 brew.auto_plant.name=Auto Plant Brew
-brew.auto_plant.desc=Plants any seed that is on the ground
+brew.auto_plant.desc=Plants any seed that is on the ground.
 brew.auto_plant.tooltip=Auto Plant
 
 brew.snow_trail.name=Snow Trail Brew
-brew.snow_trail.desc=Snow Layer everywhere and affected creatures leave trail of snow
+brew.snow_trail.desc=Places a snow layer as an affected mob or player walks.
 brew.snow_trail.tooltip=Snow Trail
 
 brew.skin_tint.name=Skin Tint Brew
-brew.skin_tint.desc=Tints your skin with a specific color
+brew.skin_tint.desc=Tints your skin with a specific color.
 brew.skin_tint.tooltip=Skin Tint
 
 brew.wolfsbane.name=Wolfsbane Brew
-brew.wolfsbane.desc=Deals damage to wolves and therians
+brew.wolfsbane.desc=Deals damage to wolves and therians.
 brew.wolfsbane.tooltip=Wolfsbane
 
 brew.sinking.name=Brew of Sinking
-brew.sinking.desc=Causes you to sink and be unable to jump
+brew.sinking.desc=Causes you to sink and be unable to jump.
 brew.sinking.tooltip=Sinking
 
 brew.cursed_leaping.name=Brew of Cursed Leaping
-brew.cursed_leaping.desc=Don't jump
+brew.cursed_leaping.desc=Don't jump.
 brew.cursed_leaping.tooltip=Cursed Leaping
 
 brew.bane_arthropods.name=Bane of Arthropods Brew
@@ -324,23 +324,23 @@ brew.ignition.desc=Lights you or a target on fire.
 brew.ignition.tooltip=Ignition
 
 brew.grace.name=Brew of Grace
-brew.grace.desc=Negates fall damage
+brew.grace.desc=Negates fall damage.
 brew.grace.tooltip=Grace
 
 brew.purify.name=Brew of Purification
-brew.purify.desc=Removes harmful brew effects
+brew.purify.desc=Removes harmful brew effects.
 brew.purify.tooltip=Purity
 
 brew.notched.name=Notched Brew
-brew.notched.desc=Adds all of the effects a notch apple applies
+brew.notched.desc=Adds all of the effects a notch apple applies.
 brew.notched.tooltip=Notched
 
 brew.mycological_corruption.name=Brew of Mycological Corruption
-brew.mycological_corruption.desc=Turns grass and dirt into mycelium
+brew.mycological_corruption.desc=Turns grass and dirt into mycelium.
 brew.mycological_corruption.tooltip=Mycological Corruption
 
 brew.growth.name=Brew of Growth
-brew.growth.desc=Turns mycelium and dirt into grass
+brew.growth.desc=Turns mycelium and dirt into grass.
 brew.growth.tooltip=Growth
 
 brew.ozymandias.name=Ozymandias' Brew
@@ -360,8 +360,12 @@ brew.hell_world.desc=Converts your surroundings to a hellish scene.
 brew.hell_world.tooltip=Fire World
 
 brew.ice_world.name=Brew of Ice World
-brew.ice_world.desc=Converts your surroundings to a wintery wonderland
+brew.ice_world.desc=Converts your surroundings to a wintery wonderland.
 brew.ice_world.tooltip=Ice World
+
+brew.corruption.name=Brew of Corruption
+brew.corruption.desc=Removes all beneficial brew effects.
+brew.corruption.tooltip=Corruption
 
 brew..name=
 brew..desc=

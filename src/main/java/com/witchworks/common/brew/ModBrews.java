@@ -52,6 +52,7 @@ public final class ModBrews {
 	public static IBrew SETEHS_WASTES;
 	public static IBrew HELL_WORLD;
 	public static IBrew ICE_WORLD;
+	public static IBrew CORRUPTION;
 
 	private ModBrews() {
 	}
@@ -91,6 +92,7 @@ public final class ModBrews {
 		SETEHS_WASTES = registerBrew(new SetehsWastesBrew());
 		HELL_WORLD = registerBrew(new HellWorldBrew());
 		ICE_WORLD = registerBrew(new IceWorldBrew());
+		CORRUPTION = registerBrew(new IceWorldBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -102,6 +104,7 @@ public final class ModBrews {
 		addDrink(GRACE, 200, 0);
 		addDrink(PURIFY, 1, 0);
 		addDrink(NOTCHED, 1, 0);
+		addDrink(CORRUPTION, 1, 0);
 
 		//--------------------------------SPLASH--------------------------------//
 		addSplash(SPIDER_NIGHTMARE, 500, 0);
@@ -136,6 +139,7 @@ public final class ModBrews {
 		addSplash(SETEHS_WASTES, 0, 0);
 		addSplash(HELL_WORLD, 0, 0);
 		addSplash(ICE_WORLD, 0, 0);
+		addSplash(CORRUPTION, 1, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);
@@ -151,6 +155,7 @@ public final class ModBrews {
 		addLinger(IGNITION, 750, 0);
 		addLinger(OUTCASTS_SHAME, 50, 0);
 		addLinger(PURIFY, 50, 0);
+		addLinger(CORRUPTION, 50, 0);
 	}
 
 	private static IBrew registerBrew(IBrew brew) {
