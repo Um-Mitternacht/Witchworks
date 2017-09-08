@@ -92,7 +92,7 @@ public final class ModBrews {
 		SETEHS_WASTES = registerBrew(new SetehsWastesBrew());
 		HELL_WORLD = registerBrew(new HellWorldBrew());
 		ICE_WORLD = registerBrew(new IceWorldBrew());
-		CORRUPTION = registerBrew(new IceWorldBrew());
+		CORRUPTION = registerBrew(new CorruptionBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
