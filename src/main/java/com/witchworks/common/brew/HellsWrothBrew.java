@@ -1,5 +1,6 @@
 package com.witchworks.common.brew;
 
+import com.witchworks.common.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,6 +30,7 @@ public class HellsWrothBrew extends BlockHitBrew {
 		stateMap.put(Blocks.SAND, Blocks.SOUL_SAND.getDefaultState());
 		stateMap.put(Blocks.STONE, Blocks.NETHERRACK.getDefaultState());
 		stateMap.put(Blocks.GRASS, Blocks.NETHERRACK.getDefaultState());
+		stateMap.put(Blocks.DIRT, Blocks.SOUL_SAND.getDefaultState());
 		stateMap.put(Blocks.MYCELIUM, Blocks.NETHERRACK.getDefaultState());
 		stateMap.put(Blocks.MAGMA, Blocks.OBSIDIAN.getDefaultState());
 		stateMap.put(Blocks.WATER, Blocks.COBBLESTONE.getDefaultState());
@@ -84,9 +86,14 @@ public class HellsWrothBrew extends BlockHitBrew {
 		Iterable<BlockPos> spots = BlockPos.getAllInBox(posI, posF);
 		for (BlockPos spot : spots) {
 			Block block = world.getBlockState(spot).getBlock();
+			IBlockState state = world.getBlockState(spot);
 			boolean place = amplifier > 2 || world.rand.nextBoolean();
 			if (place && stateMap.containsKey(block)) {
 				world.setBlockState(spot, stateMap.get(block), 3);
+			} else if (state.getBlock() == Blocks.LOG) {
+				world.setBlockState(spot, ModBlocks.nethersteel.getDefaultState(), 3);
+			} else if (state.getBlock() == Blocks.LOG2) {
+				world.setBlockState(spot, ModBlocks.nethersteel.getDefaultState(), 3);
 			}
 		}
 	}
