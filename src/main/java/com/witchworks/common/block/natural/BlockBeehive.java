@@ -95,6 +95,7 @@ public class BlockBeehive extends BlockMod {
 		return ModItems.empty_honeycomb;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		List<ItemStack> ret = new ArrayList<ItemStack>();

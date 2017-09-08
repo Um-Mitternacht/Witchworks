@@ -57,6 +57,7 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 		return true;
 	}
 
+	@SuppressWarnings("deprecation")
 	@SubscribeEvent
 	public void onEntityDrops(LivingDropsEvent event) {
 		if (event.isRecentlyHit() && event.getSource().getTrueSource() != null && event.getSource().getTrueSource() instanceof EntityPlayer) {
