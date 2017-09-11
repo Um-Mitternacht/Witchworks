@@ -37,9 +37,10 @@ public class MycologicalCorruptionBrew extends BlockHitBrew implements IBrew {
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		if (entity instanceof EntityCow) {
 			EntityMooshroom mooshroom = new EntityMooshroom(world);
+			EntityCow cow = new EntityCow(world);
 			mooshroom.setPosition(pos.getX(), pos.getY(), pos.getZ());
+			world.removeEntity(cow);
 			world.spawnEntity(mooshroom);
-			entity.attackEntityFrom(DamageSource.MAGIC, 650);
 		}
 	}
 
