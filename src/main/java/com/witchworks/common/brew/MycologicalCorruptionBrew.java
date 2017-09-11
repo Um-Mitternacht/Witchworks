@@ -38,6 +38,7 @@ public class MycologicalCorruptionBrew extends BlockHitBrew implements IBrew {
 			EntityMooshroom mooshroom = new EntityMooshroom(world);
 			EntityCow cow = new EntityCow(world);
 			mooshroom.setPosition(pos.getX(), pos.getY(), pos.getZ());
+			cow.setPosition(pos.getX(), pos.getY(), pos.getZ());
 			world.removeEntity(cow);
 			world.spawnEntity(mooshroom);
 		}
