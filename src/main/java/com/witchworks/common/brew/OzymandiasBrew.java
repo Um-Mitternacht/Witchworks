@@ -42,7 +42,7 @@ public class OzymandiasBrew extends BlockHitBrew {
 
 	@Override
 	public int getColor() {
-		return 0x16161D;
+		return 0x303E0C;
 	}
 
 	@Override

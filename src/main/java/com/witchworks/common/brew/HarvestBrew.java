@@ -18,7 +18,7 @@ public class HarvestBrew extends BlockHitBrew {
 
 	@Override
 	public int getColor() {
-		return 0xfcef00;
+		return 0xC48F31;
 	}
 
 	@Override
