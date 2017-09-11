@@ -1,8 +1,13 @@
 package com.witchworks.common.brew;
 
+import com.witchworks.api.brew.IBrew;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -16,7 +21,7 @@ import java.util.Map;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class MycologicalCorruptionBrew extends BlockHitBrew {
+public class MycologicalCorruptionBrew extends BlockHitBrew implements IBrew {
 
 	private final Map<Block, IBlockState> stateMap = new HashMap<>();
 
@@ -29,8 +34,18 @@ public class MycologicalCorruptionBrew extends BlockHitBrew {
 	}
 
 	@Override
+	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		if (entity instanceof EntityCow) {
+			EntityMooshroom mooshroom = new EntityMooshroom(world);
+			mooshroom.setPosition(pos.getX(), pos.getY(), pos.getZ());
+			world.spawnEntity(mooshroom);
+			entity.attackEntityFrom(DamageSource.MAGIC, 650);
+		}
+	}
+
+	@Override
 	public int getColor() {
-		return 0xD8BFD8;
+		return 0xFF80DC;
 	}
 
 	@Override

@@ -23,7 +23,7 @@ public class OutcastsShameBrew implements IBrew {
 	@Override
 	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
 		if (amplifier >= 3) {
-			if (entity instanceof EntityWitch && !entity.isBurning()) {
+			if (entity instanceof EntityWitch) {
 				entity.setFire(500);
 				entity.attackEntityFrom(DamageSource.MAGIC, 20);
 			} else if (entity.getCreatureAttribute() == EnumCreatureAttribute.ILLAGER) {
