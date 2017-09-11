@@ -34,7 +34,7 @@ public class IgnitionBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0xED2939;
+		return 0xB98228;
 	}
 
 	@Override
