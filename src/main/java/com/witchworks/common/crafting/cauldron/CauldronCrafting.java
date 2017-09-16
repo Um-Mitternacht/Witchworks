@@ -198,7 +198,7 @@ public final class CauldronCrafting {
 				, getStack(ModItems.catechu, 1, 0), Items.NETHER_WART);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
-		registerEffect(getStack(ModItems.salt)
+		registerEffect(getStack(Items.DYE, 1, 0)
 				, new PotionEffect(MobEffects.BLINDNESS, 500), false);
 		registerEffect(getStack(Items.ROTTEN_FLESH)
 				, new PotionEffect(MobEffects.HUNGER, 500), false);
@@ -316,6 +316,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.CURSED_LEAPING), false);
 		registerEffect(getStack(Items.BONE)
 				, BrewRegistry.getDefault(ModBrews.CORRUPTION), false);
+		registerEffect(getStack(ModItems.salt)
+				, BrewRegistry.getDefault(ModBrews.SALT_LAND), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);

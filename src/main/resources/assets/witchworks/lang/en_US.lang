@@ -367,6 +367,10 @@ brew.corruption.name=Brew of Corruption
 brew.corruption.desc=Removes all beneficial brew effects.
 brew.corruption.tooltip=Corruption
 
+brew.salt_land.name=Brew of Salting
+brew.salt_land.desc=Destroys farmland and renders it useless.
+brew.salt_land.tooltip=Salting
+
 brew..name=
 brew..desc=
 brew..tooltip=
