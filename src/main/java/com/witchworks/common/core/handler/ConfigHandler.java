@@ -195,7 +195,7 @@ public final class ConfigHandler {
 		@Comment({"Orientation of the brews", "true : vertical", "false : horizontal"})
 		public boolean orientation = true;
 		@Comment({"Position of the HUD in the screen", "\"x\" value is from right to left", "\"y\" value is from top to bottom"})
-		public int x = 21;
+		public int x = 100;
 		public int y = 100;
 	}
 }
