@@ -56,6 +56,7 @@ public final class CauldronCrafting {
 		//Cooking and Processing with Water
 		registerItemProcess(FluidRegistry.WATER, ModItems.empty_honeycomb, ModItems.wax, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.honeycomb, ModItems.honey, true);
+		registerItemProcess(FluidRegistry.WATER, ModItems.hoof, Items.SLIME_BALL, true);
 		registerItemProcess(FluidRegistry.WATER, getStack(Blocks.LOG2, 1, 0), getStack(ModItems.catechu, 6, 0), true);
 		registerItemProcess(FluidRegistry.WATER, getStack(ModItems.wormwood, 1, 0), getStack(Items.DYE, 3, 2), true);
 		//Banner pattern removal

@@ -82,6 +82,7 @@ public final class LibItemName {
 	public static final String CARNIVOROUS_TOOTH = "carnivorous_tooth";
 	public static final String EYE_OF_ANCIENT = "eye_of_ancient";
 	public static final String HOOF = "hoof";
+	public static final String EQUINE_TAIL = "equine_tail";
 	public static final String CATECHU = "catechu";
 	public static final String HONEYCOMB = "honeycomb";
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
