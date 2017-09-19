@@ -82,6 +82,10 @@ repositories {
     maven { 
     	url = "https://minecraft.curseforge.com/api/maven/"
     }    
+     maven {
+     	name = "ModMaven"
+    	url = "modmaven.k-4u.nl"
+    }    
     maven {
         url 'https://jitpack.io'	
 	}
