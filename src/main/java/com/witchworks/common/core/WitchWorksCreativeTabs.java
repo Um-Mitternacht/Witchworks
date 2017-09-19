@@ -153,6 +153,9 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.dimensional_sand);
 			addItem(ModItems.chromatic_quill);
 			addItem(ModItems.carnivorous_tooth);
+			addItem(ModItems.eye_of_ancient);
+			addItem(ModItems.hoof);
+			addItem(ModItems.equine_tail);
 			addItem(ModItems.catechu);
 		}
 	}

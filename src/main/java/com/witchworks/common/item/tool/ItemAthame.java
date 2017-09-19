@@ -156,6 +156,42 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 				else if (event.getEntityLiving() instanceof EntityOcelot && rand.nextInt(5) <= 2 + 2 * looting)
 					addDrop(event, new ItemStack(ModItems.carnivorous_tooth, 2));
 
+				else if (event.getEntityLiving() instanceof EntityElderGuardian && rand.nextInt(10) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.eye_of_ancient, 1));
+
+				else if (event.getEntityLiving() instanceof EntityHorse && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 4));
+
+				else if (event.getEntityLiving() instanceof EntityLlama && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 4));
+
+				else if (event.getEntityLiving() instanceof EntityCow && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 4));
+
+				else if (event.getEntityLiving() instanceof EntityDonkey && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 4));
+
+				else if (event.getEntityLiving() instanceof EntitySheep && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 4));
+
+				else if (event.getEntityLiving() instanceof EntityPigZombie && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 2));
+
+				else if (event.getEntityLiving() instanceof EntityPig && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 4));
+
+				else if (event.getEntityLiving() instanceof EntityMule && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.hoof, 4));
+
+				else if (event.getEntityLiving() instanceof EntityHorse && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.equine_tail, 1));
+
+				else if (event.getEntityLiving() instanceof EntityMule && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.equine_tail, 1));
+
+				else if (event.getEntityLiving() instanceof EntityDonkey && rand.nextInt(4) <= 2 + 2 * looting)
+					addDrop(event, new ItemStack(ModItems.equine_tail, 1));
+
 				else if (event.getEntityLiving() instanceof EntityPlayer && rand.nextInt(11) <= 1 + looting) {
 					ItemStack stack = new ItemStack(Items.SKULL, 1, 3);
 					ItemNBTHelper.setString(stack, "SkullOwner", event.getEntityLiving().getName());
