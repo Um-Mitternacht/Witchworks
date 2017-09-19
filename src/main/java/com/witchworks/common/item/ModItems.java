@@ -112,6 +112,7 @@ public final class ModItems {
 	public static final Item chromatic_quill = PLACE_HOLDER;
 	public static final Item carnivorous_tooth = PLACE_HOLDER;
 	public static final Item catechu = PLACE_HOLDER;
+	public static final Item eye_of_ancient = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -167,6 +168,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.DIMENSIONAL_SAND),
 				new ItemMod(LibItemName.CHROMATIC_QUILL),
 				new ItemMod(LibItemName.CARNIVOROUS_TOOTH),
+				new ItemMod(LibItemName.EYE_OF_ANCIENT),
 				new ItemMod(LibItemName.CATECHU),
 				new ItemHeart(),
 				new ItemShadowBook(),
