@@ -2,6 +2,9 @@ package com.witchworks.common.brew;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -26,6 +29,16 @@ public class GrassGrowBrew extends BlockHitBrew {
 		stateMap.put(Blocks.RED_MUSHROOM, Blocks.TALLGRASS.getDefaultState());
 		stateMap.put(Blocks.DEADBUSH, Blocks.YELLOW_FLOWER.getDefaultState());
 		stateMap.put(Blocks.SAND, Blocks.DIRT.getDefaultState());
+	}
+
+	@Override
+	public void apply(World world, BlockPos pos, EntityLivingBase entity, int amplifier, int tick) {
+		if (entity instanceof EntityMooshroom) {
+			EntityCow cow = new EntityCow(world);
+			cow.setPosition(pos.getX(), pos.getY(), pos.getZ());
+			entity.setDead();
+			world.spawnEntity(cow);
+		}
 	}
 
 	@Override
