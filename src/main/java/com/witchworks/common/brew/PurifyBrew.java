@@ -35,7 +35,7 @@ public class PurifyBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0xFFD700;
+		return 0xFAEBD7;
 	}
 
 	@Override

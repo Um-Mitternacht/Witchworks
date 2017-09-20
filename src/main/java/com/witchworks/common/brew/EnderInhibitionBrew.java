@@ -34,7 +34,7 @@ public class EnderInhibitionBrew implements IBrew, IBrewEnderTeleport {
 
 	@Override
 	public int getColor() {
-		return 0x250038;
+		return 0x86608E;
 	}
 
 	@Override
