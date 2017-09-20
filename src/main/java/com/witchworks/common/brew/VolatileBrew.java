@@ -37,7 +37,7 @@ public class VolatileBrew implements IBrew, IBrewAttack {
 
 	@Override
 	public int getColor() {
-		return 0xf20018;
+		return 0xFF3800;
 	}
 
 	@Override
