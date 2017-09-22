@@ -374,6 +374,10 @@ brew.salt_land.name=Brew of Salting
 brew.salt_land.desc=Destroys farmland and renders it useless.
 brew.salt_land.tooltip=Salting
 
+brew.absence.name=Absence Brew
+brew.absence.desc=Removes all brew effects from a player.
+brew.absence.tooltip=Absence
+
 brew..name=
 brew..desc=
 brew..tooltip=

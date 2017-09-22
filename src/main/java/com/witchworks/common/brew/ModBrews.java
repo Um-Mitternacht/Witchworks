@@ -56,6 +56,7 @@ public final class ModBrews {
 	public static IBrew ICE_WORLD;
 	public static IBrew CORRUPTION;
 	public static IBrew SALT_LAND;
+	public static IBrew ABSENCE;
 
 	private ModBrews() {
 	}
@@ -97,6 +98,7 @@ public final class ModBrews {
 		ICE_WORLD = registerBrew(new IceWorldBrew());
 		CORRUPTION = registerBrew(new CorruptionBrew());
 		SALT_LAND = registerBrew(new SaltLandBrew());
+		ABSENCE = registerBrew(new AbsenceBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -109,6 +111,7 @@ public final class ModBrews {
 		addDrink(PURIFY, 1, 0);
 		addDrink(NOTCHED, 1, 0);
 		addDrink(CORRUPTION, 1, 0);
+		addDrink(ABSENCE, 1, 0);
 
 		//--------------------------------SPLASH--------------------------------//
 		addSplash(SPIDER_NIGHTMARE, 500, 0);
@@ -161,6 +164,7 @@ public final class ModBrews {
 		addLinger(OUTCASTS_SHAME, 50, 0);
 		addLinger(PURIFY, 50, 0);
 		addLinger(CORRUPTION, 50, 0);
+		addLinger(ABSENCE, 50, 0);
 	}
 
 	private static IBrew registerBrew(IBrew brew) {

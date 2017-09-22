@@ -198,6 +198,15 @@ public final class CauldronCrafting {
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.SKIN_TINT, 500, 3)
 				, getStack(ModItems.catechu, 1, 0), Items.NETHER_WART);
 
+		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.ABSENCE, 1, 0)
+				, getStack(ModItems.salt, 1, 0), Items.BONE, Items.IRON_NUGGET, Items.NETHER_WART);
+
+		registerBrewRecipe(BrewRegistry.Brew.SPLASH, new BrewEffect(ModBrews.ABSENCE, 1, 0)
+				, getStack(ModItems.salt, 1, 0), Items.BONE, Items.IRON_NUGGET, Items.NETHER_WART, Items.GUNPOWDER);
+
+		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.ABSENCE, 50, 0)
+				, getStack(ModItems.salt, 1, 0), Items.BONE, Items.IRON_NUGGET, Items.NETHER_WART, Items.DRAGON_BREATH);
+
 		//------------------------------------Custom Brew Creation------------------------------------//
 		registerEffect(getStack(Items.DYE, 1, 0)
 				, new PotionEffect(MobEffects.BLINDNESS, 500), false);
