@@ -311,7 +311,7 @@ brew.sinking.desc=Causes you to sink and be unable to jump.
 brew.sinking.tooltip=Sinking
 
 brew.cursed_leaping.name=Brew of Cursed Leaping
-brew.cursed_leaping.desc=Don't jump.
+brew.cursed_leaping.desc=Causes a target to jump uncontrollably.
 brew.cursed_leaping.tooltip=Cursed Leaping
 
 brew.bane_arthropods.name=Bane of Arthropods Brew
@@ -402,7 +402,7 @@ witch.tooltip.seed_tulsi_description.name=Seed from a small herb
 
 witch.tooltip.aconitum_description.name=Poisonous, can prevent or revert shapeshifting, and wolves and therians have an aversion to it
 witch.tooltip.asphodel_description.name=Related to death and the afterlife, but not poisonous
-witch.tooltip.belladonna_description.name=Highly toxic, can be used as a hallucinogenic, thought to be used as part of a flying ointment
+witch.tooltip.belladonna_description.name=A highly toxic plant, this is a prime component of flying ointment
 witch.tooltip.ginger_description.name=Meant to give energy and increased speed
 witch.tooltip.kelp_description.name=Related to water and protection overseas
 witch.tooltip.mint_description.name=Used for protection against magic
@@ -437,7 +437,7 @@ item.book_of_shadows.name=Book of Shadows
 item.dusty_grimoire.name=Dusty Grimoire
 
 //Incantation
-commands.incantation.notFound=The powers you cast forth fizzle to nothingness
+commands.incantation.notFound=The powers you cast forth fizzle into nothingness
 
 //Advancements
 achievement.witchworks:craftMalachite=Let's Be Malachite Again!
