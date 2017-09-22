@@ -148,6 +148,7 @@ public final class ModBrews {
 		addSplash(ICE_WORLD, 0, 0);
 		addSplash(CORRUPTION, 1, 0);
 		addSplash(SALT_LAND, 0, 0);
+		addSplash(ABSENCE, 1, 0);
 
 		//--------------------------------LINGER--------------------------------//
 		addLinger(SPIDER_NIGHTMARE, 1000, 0);
