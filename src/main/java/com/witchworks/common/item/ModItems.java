@@ -316,5 +316,6 @@ public final class ModItems {
 		OreDictionary.registerOre("dyeBrown", new ItemStack(ModItems.catechu));
 		OreDictionary.registerOre("dyeWhite", new ItemStack(ModItems.albedo));
 		OreDictionary.registerOre("dyeBlack", new ItemStack(ModItems.iron_gall_ink));
+		OreDictionary.registerOre("dyeGreen", new ItemStack(ModItems.absinthe_green));
 	}
 }
