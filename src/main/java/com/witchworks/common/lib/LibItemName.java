@@ -84,6 +84,10 @@ public final class LibItemName {
 	public static final String HOOF = "hoof";
 	public static final String EQUINE_TAIL = "equine_tail";
 	public static final String CATECHU = "catechu";
+	public static final String ABSINTHE_GREEN = "absinthe_green";
+	public static final String ALBEDO = "albedo";
+	public static final String OAK_APPLE_GALL = "oak_apple_gall";
+	public static final String IRON_GALL_INK = "iron_gall_ink";
 	public static final String HONEYCOMB = "honeycomb";
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
 	public static final String HONEY = "honey";

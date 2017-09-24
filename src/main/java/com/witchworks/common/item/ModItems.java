@@ -115,6 +115,10 @@ public final class ModItems {
 	public static final Item eye_of_ancient = PLACE_HOLDER;
 	public static final Item hoof = PLACE_HOLDER;
 	public static final Item equine_tail = PLACE_HOLDER;
+	public static final Item albedo = PLACE_HOLDER;
+	public static final Item absinthe_green = PLACE_HOLDER;
+	public static final Item oak_apple_gall = PLACE_HOLDER;
+	public static final Item iron_gall_ink = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -174,6 +178,10 @@ public final class ModItems {
 				new ItemMod(LibItemName.HOOF),
 				new ItemMod(LibItemName.EQUINE_TAIL),
 				new ItemMod(LibItemName.CATECHU),
+				new ItemMod(LibItemName.OAK_APPLE_GALL),
+				new ItemMod(LibItemName.IRON_GALL_INK),
+				new ItemMod(LibItemName.ABSINTHE_GREEN),
+				new ItemMod(LibItemName.ALBEDO),
 				new ItemHeart(),
 				new ItemShadowBook(),
 				new ItemDustyGrimoire()
@@ -306,5 +314,7 @@ public final class ModItems {
 		OreDictionary.registerOre("cropWormwood", new ItemStack(ModItems.wormwood));
 		OreDictionary.registerOre("feather", new ItemStack(ModItems.chromatic_quill));
 		OreDictionary.registerOre("dyeBrown", new ItemStack(ModItems.catechu));
+		OreDictionary.registerOre("dyeWhite", new ItemStack(ModItems.albedo));
+		OreDictionary.registerOre("dyeBlack", new ItemStack(ModItems.iron_gall_ink));
 	}
 }
