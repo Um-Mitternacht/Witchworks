@@ -1,6 +1,8 @@
 package com.witchworks.common.core.event;
 
 import com.witchworks.common.item.ModItems;
+import net.minecraft.block.BlockNewLeaf;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
@@ -15,9 +17,9 @@ public class HarvestDropsEvent {
 	@SubscribeEvent
 	@Mod.EventHandler
 	public void onHarvestBlock(BlockEvent.HarvestDropsEvent event) {
-		if ((event.getState().getBlock() == Blocks.LEAVES2 && event.getWorld().rand.nextInt(100) < 55)) {
+		if ((event.getState().getBlock() == Blocks.LEAVES2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, BlockPlanks.EnumType.DARK_OAK) && event.getWorld().rand.nextInt(100) < 55)) {
 			event.getDrops().clear();
-			event.getDrops().add(new ItemStack(ModItems.oak_apple_gall, 1));
+			event.getDrops().add(new ItemStack(ModItems.oak_apple_gall, 2));
 		}
 	}
 }
