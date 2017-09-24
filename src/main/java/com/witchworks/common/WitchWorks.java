@@ -6,6 +6,7 @@ import com.witchworks.common.core.capability.brew.CapabilityBrewStorage;
 import com.witchworks.common.core.capability.energy.CapabilityEnergy;
 import com.witchworks.common.core.command.CommandIncantation;
 import com.witchworks.common.core.command.ModCommands;
+import com.witchworks.common.core.event.HarvestDropsEvent;
 import com.witchworks.common.core.event.ModEvents;
 import com.witchworks.common.core.gen.ModGen;
 import com.witchworks.common.core.net.PacketHandler;
@@ -15,6 +16,7 @@ import com.witchworks.common.entity.ModEntities;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.item.food.seed.SeedDropRegistry;
 import com.witchworks.common.lib.LibMod;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -70,6 +72,7 @@ public class WitchWorks {
 
 		SeedDropRegistry.init();
 		ModGen.init();
+		MinecraftForge.EVENT_BUS.register(new HarvestDropsEvent());
 		logger.info("It's a fact, she is exactly that!");
 		logger.info("A harbinger of death from the world of witchcraft,");
 		logger.info("And she's feeding them cakes and her ale to this innocent boy,");
