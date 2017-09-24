@@ -143,7 +143,7 @@ public final class CauldronCrafting {
 		registerItemRitual("quartz", getStack(Items.QUARTZ), 8
 				, getStack(Items.DYE, 4, 15), Blocks.SAND, Items.GHAST_TEAR);
 
-		registerItemRitual("albedo", getStack(ModItems.albedo), 4
+		registerItemRitual("albedo", getStack(ModItems.albedo, 4, 0), 4
 				, getStack(Blocks.STONE, 4), ModItems.white_sage);
 
 		//------------------------------------Brew Recipes------------------------------------//
