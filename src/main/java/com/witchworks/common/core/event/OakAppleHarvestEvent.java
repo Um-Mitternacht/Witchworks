@@ -12,14 +12,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 /**
  * Created by Joseph on 9/24/2017.
  */
-public class OakAppleHarvestEvent {
+//public class OakAppleHarvestEvent {
 
-	@SubscribeEvent
-	@Mod.EventHandler
-	public void onHarvestBlock(BlockEvent.HarvestDropsEvent event) {
-		if (event.getState().getValue(BlockNewLeaf.VARIANT) == BlockPlanks.EnumType.DARK_OAK && event.getWorld().rand.nextInt(100) < 25) {
-			event.getDrops().clear();
-			event.getDrops().add(new ItemStack(ModItems.oak_apple_gall, 1));
-		}
-	}
-}
+//	@SubscribeEvent
+//	@Mod.EventHandler
+//	public void onHarvestBlock(BlockEvent.HarvestDropsEvent event) {
+//		if (event.getState().getValue(BlockNewLeaf.VARIANT) == BlockPlanks.EnumType.DARK_OAK && event.getWorld().rand.nextInt(100) < 25) {
+//			event.getDrops().clear();
+//			event.getDrops().add(new ItemStack(ModItems.oak_apple_gall, 1));
+//		}
+//	}
+//}
