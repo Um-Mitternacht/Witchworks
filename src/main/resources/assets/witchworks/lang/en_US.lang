@@ -108,9 +108,13 @@ item.unrefined_chalk.name=Unrefined Chalk
 item.brew_phial_drink.name=Brew Phial
 item.brew_phial_splash.name=Splash Brew Phial
 item.brew_phial_drink_lingering.name=Lingering Brew Phial
+item.oak_apple_gall.name=Oak Apple Gall
 
 //Dyes
 item.catechu.name=Catechu Brown
+item.absinthe_green.name=Absinthe Green
+item.albedo.name=Alchemical White
+item.iron_gall_ink.name=Iron Gall Ink
 
 //Blocks
 tile.candle_small.white.name=Small White Candle

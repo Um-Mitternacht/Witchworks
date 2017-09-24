@@ -1,0 +1,18 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "witchworks:mortar_and_pestle",
+      "data": 0
+    },
+    {
+      "item": "witchworks:oak_apple_gall",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "witchworks:iron_gall_ink",
+    "data": 0,
+    "count": 2
+  }
+}

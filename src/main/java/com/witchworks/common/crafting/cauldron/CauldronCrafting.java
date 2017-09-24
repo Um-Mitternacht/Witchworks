@@ -58,7 +58,7 @@ public final class CauldronCrafting {
 		registerItemProcess(FluidRegistry.WATER, ModItems.honeycomb, ModItems.honey, true);
 		registerItemProcess(FluidRegistry.WATER, ModItems.hoof, Items.SLIME_BALL, true);
 		registerItemProcess(FluidRegistry.WATER, getStack(Blocks.LOG2, 1, 0), getStack(ModItems.catechu, 6, 0), true);
-		registerItemProcess(FluidRegistry.WATER, getStack(ModItems.wormwood, 1, 0), getStack(Items.DYE, 3, 2), true);
+		registerItemProcess(FluidRegistry.WATER, getStack(ModItems.wormwood, 1, 0), getStack(ModItems.absinthe_green), true);
 		//Banner pattern removal
 		for (int i = 0; i < 16; i++) {
 			registerItemProcess(FluidRegistry.WATER, getStack(Items.BANNER, 1, i), getStack(Items.BANNER, 1, i), true);
@@ -142,6 +142,9 @@ public final class CauldronCrafting {
 
 		registerItemRitual("quartz", getStack(Items.QUARTZ), 8
 				, getStack(Items.DYE, 4, 15), Blocks.SAND, Items.GHAST_TEAR);
+
+		registerItemRitual("albedo", getStack(ModItems.albedo), 4
+				, getStack(Blocks.STONE, 4), ModItems.white_sage);
 
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
