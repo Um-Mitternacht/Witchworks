@@ -16,14 +16,14 @@ import net.minecraft.item.ItemStack;
 //@JEIPlugin
 //public class WitchWorksJEIPlugin implements IModPlugin {
 
-//@Override
-//public void registerCategories(IRecipeCategoryRegistration registry) {
-//	registry.addRecipeCategories(new CauldronCategory(registry.getJeiHelpers().getGuiHelper()));
-//}
+	//@Override
+	//public void registerCategories(IRecipeCategoryRegistration registry) {
+	//	registry.addRecipeCategories(new CauldronCategory(registry.getJeiHelpers().getGuiHelper()));
+	//}
 
-//@Override
-//public void register (IModRegistry registry) {
-//registry.handleRecipes(CauldronRegistry.class, new CauldronWrapper, CauldronCategory.UID);
-//registry.addRecipeCatalyst(new ItemStack(ModBlocks.cauldron));
-//}
+	//@Override
+	//public void register (IModRegistry registry) {
+		//registry.handleRecipes(CauldronRegistry.class, new CauldronWrapper, CauldronCategory.UID);
+		//registry.addRecipeCatalyst(new ItemStack(ModBlocks.cauldron));
+	//}
 //}
