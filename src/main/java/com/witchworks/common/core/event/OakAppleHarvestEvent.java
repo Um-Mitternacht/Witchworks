@@ -17,7 +17,7 @@ public class OakAppleHarvestEvent {
 	@SubscribeEvent
 	@Mod.EventHandler
 	public void onHarvestBlock(BlockEvent.HarvestDropsEvent event) {
-		if (event.getState().getValue(BlockNewLeaf.VARIANT) == BlockPlanks.EnumType.DARK_OAK && event.getWorld().rand.nextInt(100) < 25) {
+		if ((event.getState().getBlock() == Blocks.LEAVES2 && event.getWorld().rand.nextInt(100) < 25)) {
 			event.getDrops().clear();
 			event.getDrops().add(new ItemStack(ModItems.oak_apple_gall, 1));
 		}
