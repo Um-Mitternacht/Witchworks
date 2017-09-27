@@ -21,6 +21,7 @@ public class HellWorldBrew extends BlockHitBrew {
 
 	private final Map<Block, IBlockState> stateMap = new HashMap<>();
 
+	@SuppressWarnings("deprecation")
 	public HellWorldBrew() {
 		stateMap.put(Blocks.GRASS_PATH, Blocks.RED_NETHER_BRICK.getDefaultState());
 		stateMap.put(Blocks.GRAVEL, Blocks.SOUL_SAND.getDefaultState());
@@ -46,6 +47,7 @@ public class HellWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.END_BRICKS, Blocks.NETHER_BRICK.getDefaultState());
 		stateMap.put(Blocks.BRICK_BLOCK, Blocks.NETHER_BRICK.getDefaultState());
 		stateMap.put(Blocks.STONEBRICK, Blocks.NETHER_BRICK.getDefaultState());
+		stateMap.put(Blocks.WOOL, Blocks.WOOL.getStateFromMeta(14));
 	}
 
 	@Override

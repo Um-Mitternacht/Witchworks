@@ -21,6 +21,7 @@ public class IceWorldBrew extends BlockHitBrew {
 
 	private final Map<Block, IBlockState> stateMap = new HashMap<>();
 
+	@SuppressWarnings("deprecation")
 	public IceWorldBrew() {
 		stateMap.put(Blocks.GRASS_PATH, Blocks.PACKED_ICE.getDefaultState());
 		stateMap.put(Blocks.GRAVEL, Blocks.PACKED_ICE.getDefaultState());
@@ -30,6 +31,7 @@ public class IceWorldBrew extends BlockHitBrew {
 		stateMap.put(Blocks.DIRT, Blocks.SNOW.getDefaultState());
 		stateMap.put(Blocks.GRASS, Blocks.SNOW.getDefaultState());
 		stateMap.put(Blocks.MYCELIUM, Blocks.SNOW.getDefaultState());
+		stateMap.put(Blocks.WOOL, Blocks.WOOL.getStateFromMeta(3));
 	}
 
 	@Override
