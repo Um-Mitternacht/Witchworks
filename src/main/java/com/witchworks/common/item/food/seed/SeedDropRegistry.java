@@ -26,7 +26,6 @@ public class SeedDropRegistry {
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_tulsi), 3);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_kenaf), 3);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_garlic), 4);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_white_sage), 3);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.seed_silphium), 1);
 	}
 }
