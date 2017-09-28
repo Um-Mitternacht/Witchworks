@@ -8,7 +8,6 @@ import com.witchworks.common.core.command.CommandIncantation;
 import com.witchworks.common.core.command.ModCommands;
 import com.witchworks.common.core.event.ModEvents;
 import com.witchworks.common.core.gen.ModGen;
-import com.witchworks.common.core.handler.ModSounds;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
 import com.witchworks.common.crafting.cauldron.CauldronCrafting;
@@ -55,7 +54,6 @@ public class WitchWorks {
 		PacketHandler.init();
 		ModEvents.init();
 		ModEntities.init();
-		ModSounds.init();
 		ModBrews.init();
 		proxy.preInit(event);
 		logger.info("Remember when I told you how my");
