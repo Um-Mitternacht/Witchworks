@@ -80,5 +80,8 @@ public class WitchWorks {
 	public void start(FMLServerStartingEvent event) {
 		ModCommands.init();
 		event.registerServerCommand(new CommandIncantation());
+
+		logger.info("I hear her in the wind, the bane of our town");
+		logger.info("Come with me, father, I'm to expose a heathen");
 	}
 }
