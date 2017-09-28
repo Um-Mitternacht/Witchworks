@@ -74,14 +74,14 @@ public class WitchWorks {
 		logger.info("A harbinger of death from the world of witchcraft,");
 		logger.info("And she's feeding them cakes and her ale to this innocent boy,");
 		logger.info("And her magic brings dismay!");
+
+		logger.info("I hear her in the wind, the bane of our town");
+		logger.info("Come with me, father, I'm to expose a heathen");
 	}
 
 	@EventHandler
 	public void start(FMLServerStartingEvent event) {
 		ModCommands.init();
 		event.registerServerCommand(new CommandIncantation());
-
-		logger.info("I hear her in the wind, the bane of our town");
-		logger.info("Come with me, father, I'm to expose a heathen");
 	}
 }
