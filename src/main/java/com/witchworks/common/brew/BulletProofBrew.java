@@ -47,7 +47,7 @@ public class BulletProofBrew implements IBrew, IBrewHurt {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUD(int x, int y, Minecraft mc, int amplifier) {
-		render(x, y, mc, 23);
+		render(x, y, mc, 14);
 	}
 
 	@Override
