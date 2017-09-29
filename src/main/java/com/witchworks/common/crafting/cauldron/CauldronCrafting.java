@@ -331,6 +331,8 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.CORRUPTION), false);
 		registerEffect(getStack(ModItems.salt)
 				, BrewRegistry.getDefault(ModBrews.SALT_LAND), false);
+		registerEffect(getStack(ModItems.silver_scales)
+				, BrewRegistry.getDefault(ModBrews.BULLETPROOF), false);
 
 		registerModifier(getStack(Items.QUARTZ)
 				, new BrewSimpleModifier(2400, 0), true);

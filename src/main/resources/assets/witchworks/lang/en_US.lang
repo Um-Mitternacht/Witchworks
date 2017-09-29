@@ -382,6 +382,10 @@ brew.absence.name=Absence Brew
 brew.absence.desc=Removes all brew effects from a player.
 brew.absence.tooltip=Absence
 
+brew.bulletproof.name=Bulletproof Brew
+brew.bulletproof.desc=Negates damage from projectiles.
+brew.bulletproof.tooltip=Bulletproof
+
 brew..name=
 brew..desc=
 brew..tooltip=

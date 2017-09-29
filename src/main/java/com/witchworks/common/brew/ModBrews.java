@@ -57,6 +57,7 @@ public final class ModBrews {
 	public static IBrew CORRUPTION;
 	public static IBrew SALT_LAND;
 	public static IBrew ABSENCE;
+	public static IBrew BULLETPROOF;
 
 	private ModBrews() {
 	}
@@ -99,6 +100,7 @@ public final class ModBrews {
 		CORRUPTION = registerBrew(new CorruptionBrew());
 		SALT_LAND = registerBrew(new SaltLandBrew());
 		ABSENCE = registerBrew(new AbsenceBrew());
+		BULLETPROOF = registerBrew(new BulletProofBrew());
 
 		//--------------------------------DRINKS--------------------------------//
 		addDrink(SHELL_ARMOR, 2500, 0);
@@ -112,6 +114,7 @@ public final class ModBrews {
 		addDrink(NOTCHED, 1, 0);
 		addDrink(CORRUPTION, 1, 0);
 		addDrink(ABSENCE, 1, 0);
+		addDrink(BULLETPROOF, 2500, 0);
 
 		//--------------------------------SPLASH--------------------------------//
 		addSplash(SPIDER_NIGHTMARE, 500, 0);

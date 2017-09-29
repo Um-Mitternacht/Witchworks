@@ -63,6 +63,7 @@ public final class WitchWorksAPI {
 	public static ResourceLocation CORRUPTION = getLocation("corruption");
 	public static ResourceLocation SALT_LAND = getLocation("salt_land");
 	public static ResourceLocation ABSENCE = getLocation("absence");
+	public static ResourceLocation BULLETPROOF = getLocation("bulletproof");
 
 	private WitchWorksAPI() {
 	}
