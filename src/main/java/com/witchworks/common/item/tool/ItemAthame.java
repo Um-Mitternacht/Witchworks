@@ -38,6 +38,7 @@ public class ItemAthame extends ItemSword implements IModelRegister {
 
 	public ItemAthame() {
 		super(ModMaterials.TOOL_RITUAL);
+		setMaxDamage(600);
 		setRegistryName(LibItemName.ATHAME);
 		setUnlocalizedName(LibItemName.ATHAME);
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);

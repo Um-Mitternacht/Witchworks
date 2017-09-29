@@ -24,7 +24,7 @@ public class ItemBoline extends ItemShears implements IModelRegister {
 	@Nonnull
 	public ItemBoline() {
 		super();
-		setMaxDamage(400);
+		setMaxDamage(600);
 		setRegistryName(LibItemName.BOLINE);
 		setUnlocalizedName(LibItemName.BOLINE);
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
