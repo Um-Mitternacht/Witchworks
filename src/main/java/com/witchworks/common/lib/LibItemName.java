@@ -102,6 +102,7 @@ public final class LibItemName {
 	//Materials
 	public static final String SILVER = "silver";
 	public static final String RITUAL = "ritual";
+	public static final String COLD_IRON = "cold_iron";
 
 	private LibItemName() {
 	}
