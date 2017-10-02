@@ -15,10 +15,10 @@ import net.minecraftforge.common.util.EnumHelper;
 public final class ModMaterials {
 
 	public static final Item.ToolMaterial TOOL_SILVER = EnumHelper.addToolMaterial(LibItemName.SILVER, 1, 200, 3.5F, 2.5F, 24);
-	public static final ItemArmor.ArmorMaterial ARMOR_SILVER = EnumHelper.addArmorMaterial(LibItemName.SILVER, LibMod.MOD_ID + ":" + LibItemName.COLD_IRON, 18, new int[]{2, 9, 4, 2}, 22, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.5F);
+	public static final ItemArmor.ArmorMaterial ARMOR_SILVER = EnumHelper.addArmorMaterial(LibItemName.SILVER, LibMod.MOD_ID + ":" + LibItemName.COLD_IRON, 18, new int[]{2, 9, 4, 2}, 22, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.5F);
 
-	public static final Item.ToolMaterial TOOL_COLD_IRON = EnumHelper.addToolMaterial(LibItemName.COLD_IRON, 1, 320, 3.5F, 3.0F, 18);
-	public static final ItemArmor.ArmorMaterial ARMOR_COLD_IRON = EnumHelper.addArmorMaterial(LibItemName.COLD_IRON, LibMod.MOD_ID + ":" + LibItemName.COLD_IRON, 18, new int[]{2, 9, 4, 2}, 18, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.5F);
+	public static final Item.ToolMaterial TOOL_COLD_IRON = EnumHelper.addToolMaterial(LibItemName.COLD_IRON, 1, 450, 3.5F, 3.0F, 18);
+	public static final ItemArmor.ArmorMaterial ARMOR_COLD_IRON = EnumHelper.addArmorMaterial(LibItemName.COLD_IRON, LibMod.MOD_ID + ":" + LibItemName.COLD_IRON, 18, new int[]{3, 6, 7, 3}, 18, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F);
 
 	public static final Item.ToolMaterial TOOL_RITUAL = EnumHelper.addToolMaterial(LibItemName.RITUAL, 2, 300, 2F, 1.5F, 30);
 
