@@ -118,6 +118,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.wax);
 			addItem(ModItems.mortar_and_pestle);
 			addItem(ModItems.salt);
+			addItem(ModItems.cold_iron_ingot);
 			addItem(ModItems.silver_powder);
 			addItem(ModItems.silver_ingot);
 			addItem(ModItems.silver_nugget);

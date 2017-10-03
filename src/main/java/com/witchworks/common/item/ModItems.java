@@ -91,6 +91,7 @@ public final class ModItems {
 	public static final Item empty_honeycomb = PLACE_HOLDER;
 	public static final Item unrefined_chalk = PLACE_HOLDER;
 	public static final Item needle_bone = PLACE_HOLDER;
+	public static final Item cold_iron_ingot = PLACE_HOLDER;
 	public static final Item silver_ingot = PLACE_HOLDER;
 	public static final Item silver_powder = PLACE_HOLDER;
 	public static final Item silver_nugget = PLACE_HOLDER;
@@ -141,6 +142,7 @@ public final class ModItems {
 		}
 		registry.register(new ItemGem());
 		registry.register(new ItemMod(LibItemName.GEMSTONE_AMALGAM));
+		registry.register(new ItemMod(LibItemName.COLD_IRON_INGOT));
 		registry.register(new ItemMod(LibItemName.SILVER_POWDER));
 		registry.register(new ItemMod(LibItemName.SILVER_INGOT));
 		registry.register(new ItemMod(LibItemName.SILVER_NUGGET));
