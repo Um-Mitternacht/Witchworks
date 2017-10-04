@@ -1,8 +1,6 @@
 package com.witchworks.common.core.event;
 
 import com.witchworks.common.item.ModItems;
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;

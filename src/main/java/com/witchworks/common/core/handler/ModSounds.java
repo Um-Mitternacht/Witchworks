@@ -20,14 +20,13 @@ import static com.witchworks.common.lib.LibMod.MOD_ID;
 @GameRegistry.ObjectHolder(MOD_ID)
 public final class ModSounds {
 
-	private ModSounds() {
-	}
-
 	@GameRegistry.ObjectHolder("buzz")
 	public static final SoundEvent BUZZ = createSoundEvent("buzz");
-
 	@GameRegistry.ObjectHolder("boil")
 	public static final SoundEvent BOIL = createSoundEvent("boil");
+
+	private ModSounds() {
+	}
 
 	/**
 	 * Create a {@link SoundEvent}.
