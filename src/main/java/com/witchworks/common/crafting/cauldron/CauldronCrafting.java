@@ -202,7 +202,7 @@ public final class CauldronCrafting {
 				, getStack(ModItems.catechu, 1, 0), Items.NETHER_WART);
 
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.OVERCOAT, 2500, 0)
-				, getStack(ModItems.wool_of_bat, 1, 0), ModItems.tongue_of_dog, ModItems.silver_scales, ModItems.tulsi, ModItems.dimensional_sand, Items.NETHER_WART);
+				, getStack(ModItems.wool_of_bat, 1, 0), ModItems.tongue_of_dog, ModItems.silver_scales, ModItems.tulsi, ModItems.dimensional_sand, Items.IRON_NUGGET, Items.NETHER_WART);
 
 		registerBrewRecipe(BrewRegistry.Brew.DRINK, new BrewEffect(ModBrews.ABSENCE, 1, 0)
 				, getStack(ModItems.salt, 1, 0), Items.BONE, Items.IRON_NUGGET, Items.NETHER_WART);
