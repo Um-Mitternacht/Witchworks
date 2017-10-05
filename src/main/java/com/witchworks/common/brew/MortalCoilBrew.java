@@ -40,7 +40,7 @@ public class MortalCoilBrew implements IBrew {
 
 	@Override
 	public int getColor() {
-		return 0xB0E0E6;
+		return 0x414A4C;
 	}
 
 	@Override
