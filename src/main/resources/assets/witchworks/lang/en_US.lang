@@ -386,6 +386,14 @@ brew.bulletproof.name=Bulletproof Brew
 brew.bulletproof.desc=Negates damage from projectiles.
 brew.bulletproof.tooltip=Bulletproof
 
+brew.overcoat.name=Overcoat Brew
+brew.overcoat.desc=Negates all damage.
+brew.overcoat.tooltip=Overcoat
+
+brew.mortal_coil.name=Mortal Coil Brew
+brew.mortal_coil.desc=Kills you at the end of the timer.
+brew.mortal_coil.tooltip=Mortal Coil
+
 brew..name=
 brew..desc=
 brew..tooltip=
