@@ -387,7 +387,7 @@ brew.bulletproof.desc=Negates damage from projectiles.
 brew.bulletproof.tooltip=Bulletproof
 
 brew.overcoat.name=Overcoat Brew
-brew.overcoat.desc=Negates all damage.
+brew.overcoat.desc=Negates most damage.
 brew.overcoat.tooltip=Overcoat
 
 brew.mortal_coil.name=Mortal Coil Brew
