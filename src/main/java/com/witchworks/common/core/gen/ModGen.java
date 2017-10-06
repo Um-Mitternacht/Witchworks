@@ -112,7 +112,6 @@ public final class ModGen {
 		//-------------------beehive-------------------//
 		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.beehive, ConfigHandler.WORLD_GEN.beehive.beehive_gen_chance)
 				.generateOn(Blocks.LEAVES)
-				.generateOn(Blocks.LEAVES2)
 				.setVeinSize(ConfigHandler.WORLD_GEN.beehive.beehive_min_amount, ConfigHandler.WORLD_GEN.beehive.beehive_max_amount)
 				.setHeightRange(ConfigHandler.WORLD_GEN.beehive.beehive_min_height, ConfigHandler.WORLD_GEN.beehive.beehive_max_height)
 				.build(DEFAULT_STATE), 0);
