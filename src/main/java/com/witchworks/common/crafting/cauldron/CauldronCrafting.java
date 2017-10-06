@@ -412,7 +412,7 @@ public final class CauldronCrafting {
 
 		registerModifier(getStack(Items.GLOWSTONE_DUST)
 				, new BrewSimpleModifier(0, 1), true);
-		
+
 		registerModifier(getStack(Blocks.GLOWSTONE)
 				, new BrewSimpleModifier(0, 2), true);
 	}

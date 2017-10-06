@@ -22,14 +22,6 @@ public final class VanillaCrafting {
 	private VanillaCrafting() {
 	}
 
-	private static ShapedRecipe shaped() {
-		return new ShapedRecipe();
-	}
-
-	private static ShapelessRecipe shapeless() {
-		return new ShapelessRecipe();
-	}
-
 	public static void blocks() {
 
 		GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(ModItems.silver_ingot, 1), 0.35F);

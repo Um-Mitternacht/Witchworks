@@ -69,8 +69,6 @@ class ShapedRecipe {
 			recipes.add(o);
 		});
 
-		//final ShapedOreRecipe recipe = new ShapedOreRecipe(out, recipes.toArray());
-		//CraftingManager.getInstance().getRecipeList().add(recipe);
 	}
 
 	public static class RecipeMapping {
