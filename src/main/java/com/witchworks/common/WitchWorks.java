@@ -56,6 +56,7 @@ public class WitchWorks {
 		ModEntities.init();
 		ModBrews.init();
 		proxy.preInit(event);
+
 		logger.info("Remember when I told you how my");
 		logger.info("Kin is different in some ways?");
 	}
@@ -70,6 +71,7 @@ public class WitchWorks {
 
 		SeedDropRegistry.init();
 		ModGen.init();
+
 		logger.info("It's a fact, she is exactly that!");
 		logger.info("A harbinger of death from the world of witchcraft,");
 		logger.info("And she's feeding them cakes and her ale to this innocent boy,");

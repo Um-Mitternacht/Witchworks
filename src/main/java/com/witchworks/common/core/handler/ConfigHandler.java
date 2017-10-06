@@ -34,35 +34,35 @@ public final class ConfigHandler {
 
 	public static class WorldGen {
 
-		@Comment("Silver Ore gen")
+		@Comment("Silver Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public SilverOre silver = new SilverOre();
-		@Comment("Moldavite Ore gen")
+		@Comment("Moldavite Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public MoldaviteOre moldavite = new MoldaviteOre();
-		@Comment("Bloodstone Ore gen")
+		@Comment("Bloodstone Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public BloodstoneOre blood_stone = new BloodstoneOre();
-		@Comment("Tourmaline Ore gen")
+		@Comment("Tourmaline Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Tourmaline tourmaline = new Tourmaline();
-		@Comment("Malachite Ore gen")
+		@Comment("Malachite Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Malachite malachite = new Malachite();
-		@Comment("Tigers Eye Ore gen")
+		@Comment("Tigers Eye Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public TigersEye tigers_eye = new TigersEye();
-		@Comment("Nuummite Ore gen")
+		@Comment("Nuummite Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Nuummite nuummite = new Nuummite();
-		@Comment("Garnet Ore gen")
+		@Comment("Garnet Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Garnet garnet = new Garnet();
-		@Comment("Jasper Ore gen")
+		@Comment("Jasper Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Jasper jasper = new Jasper();
-		@Comment("Salt Ore gen")
+		@Comment("Salt Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Salt salt = new Salt();
-		@Comment("Amethyst Ore gen")
+		@Comment("Amethyst Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Amethyst amethyst = new Amethyst();
-		@Comment("Alexandrite Ore gen")
+		@Comment("Alexandrite Ore gen, this determines how much can spawn in a chunk, and how far up")
 		public Alexandrite alexandrite = new Alexandrite();
-		@Comment("Coquina gen")
+		@Comment("Coquina gen, this determines how much can spawn in a chunk, and how far up")
 		public Coquina coquina = new Coquina();
-		@Comment("Chalk gen")
+		@Comment("Chalk gen, this determines how much can spawn in a chunk, and how far up")
 		public Chalk chalk = new Chalk();
-		@Comment("Beehive gen")
+		@Comment("Beehive gen, this determines how many can spawn in a chunk, and how far up")
 		public Beehive beehive = new Beehive();
 
 		public static class SilverOre {
