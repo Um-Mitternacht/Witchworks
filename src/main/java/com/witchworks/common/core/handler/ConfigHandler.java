@@ -62,6 +62,8 @@ public final class ConfigHandler {
 		public Coquina coquina = new Coquina();
 		@Comment("Chalk gen")
 		public Chalk chalk = new Chalk();
+		@Comment("Beehive gen")
+		public Beehive beehive = new Beehive();
 
 		public static class SilverOre {
 			public int silver_min_vein = 1;
@@ -173,6 +175,14 @@ public final class ConfigHandler {
 			public int chalk_min_height = 10;
 			public int chalk_max_height = 255;
 			public int chalk_gen_chance = 8;
+		}
+
+		public static class Beehive {
+			public int beehive_min_amount = 1;
+			public int beehive_max_amount = 4;
+			public int beehive_min_height = 64;
+			public int beehive_max_height = 128;
+			public int beehive_gen_chance = 8;
 		}
 	}
 

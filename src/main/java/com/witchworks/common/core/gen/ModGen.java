@@ -109,5 +109,12 @@ public final class ModGen {
 				.setHeightRange(ConfigHandler.WORLD_GEN.chalk.chalk_min_height, ConfigHandler.WORLD_GEN.chalk.chalk_max_height)
 				.setBiomes(BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.HILLS)
 				.build(DEFAULT_STATE), 0);
+		//-------------------beehive-------------------//
+		GameRegistry.registerWorldGenerator(WorldGenOre.OreGenBuilder.forOre(ModBlocks.beehive, ConfigHandler.WORLD_GEN.beehive.beehive_gen_chance)
+				.generateOn(Blocks.LEAVES)
+				.generateOn(Blocks.LEAVES2)
+				.setVeinSize(ConfigHandler.WORLD_GEN.beehive.beehive_min_amount, ConfigHandler.WORLD_GEN.beehive.beehive_max_amount)
+				.setHeightRange(ConfigHandler.WORLD_GEN.beehive.beehive_min_height, ConfigHandler.WORLD_GEN.beehive.beehive_max_height)
+				.build(DEFAULT_STATE), 0);
 	}
 }
