@@ -162,6 +162,7 @@ public final class WitchWorksCreativeTabs {
 			addItem(ModItems.iron_gall_ink);
 			addItem(ModItems.oak_apple_gall);
 			addItem(ModItems.absinthe_green);
+			addItem(ModItems.cold_iron_ingot);
 		}
 	}
 
