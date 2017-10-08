@@ -92,6 +92,7 @@ public final class LibItemName {
 	public static final String EMPTY_HONEYCOMB = "empty_honeycomb";
 	public static final String HONEY = "honey";
 	public static final String GEM = "gem";
+	public static final String GEM_POWDER = "gem_powder";
 	public static final String GEMSTONE_AMALGAM = "gemstone_amalgam";
 	public static final String SHADOW_BOOK = "book_of_shadows";
 	public static final String DUSTY_GRIMOIRE = "dusty_grimoire";
