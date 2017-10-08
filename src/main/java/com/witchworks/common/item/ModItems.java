@@ -43,6 +43,7 @@ public final class ModItems {
 	//--------------------------------Items--------------------------------//
 	public static final Item gem = PLACE_HOLDER;
 	public static final Item gemstone_amalgam = PLACE_HOLDER;
+	public static final Item gem_powder = PLACE_HOLDER;
 
 	public static final Item mandrake_root = PLACE_HOLDER;
 	public static final Item seed_mandrake = PLACE_HOLDER;
@@ -154,6 +155,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.BEE).setMaxDamage(35),
 				new ItemMod(LibItemName.HONEYCOMB),
 				new ItemMod(LibItemName.EMPTY_HONEYCOMB),
+				new ItemMod(LibItemName.GEM_POWDER),
 				new ItemMod(LibItemName.MORTAR_AND_PESTLE),
 				new ItemMod(LibItemName.UNREFINED_CHALK),
 				new ItemBrewDrink(),
