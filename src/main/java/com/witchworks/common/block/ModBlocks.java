@@ -80,10 +80,9 @@ public final class ModBlocks {
 	public static final Block fake_ice = PLACE_HOLDER;
 	public static final Block fake_ice_fence = PLACE_HOLDER;
 	public static final Block fake_ice_stairs = PLACE_HOLDER;
-	private static Block STAIRS_ICE = new Block(Material.ICE);
-
 	public static final BlockSlab fake_ice_slab_half = (BlockSlab) PLACE_HOLDER;
 	public static final BlockSlab fake_ice_slab_double = (BlockSlab) PLACE_HOLDER;
+	private static Block STAIRS_ICE = new Block(Material.ICE);
 
 	private ModBlocks() {
 

@@ -18,27 +18,35 @@ public final class ItemNBTHelper {
 
 	private static final int[] EMPTY_INT_ARRAY = new int[0];
 
-	/** Checks if an ItemStack has a Tag Compound **/
+	/**
+	 * Checks if an ItemStack has a Tag Compound
+	 **/
 	public static boolean detectNBT(ItemStack stack) {
 		return stack.hasTagCompound();
 	}
 
-	/** Tries to initialize an NBT Tag Compound in an ItemStack,
+	/**
+	 * Tries to initialize an NBT Tag Compound in an ItemStack,
 	 * this will not do anything if the stack already has a tag
-	 * compound **/
+	 * compound
+	 **/
 	public static void initNBT(ItemStack stack) {
 		if (!detectNBT(stack))
 			injectNBT(stack, new NBTTagCompound());
 	}
 
-	/** Injects an NBT Tag Compound to an ItemStack, no checks
-	 * are made previously **/
+	/**
+	 * Injects an NBT Tag Compound to an ItemStack, no checks
+	 * are made previously
+	 **/
 	public static void injectNBT(ItemStack stack, NBTTagCompound nbt) {
 		stack.setTagCompound(nbt);
 	}
 
-	/** Gets the NBTTagCompound in an ItemStack. Tries to init it
-	 * previously in case there isn't one present **/
+	/**
+	 * Gets the NBTTagCompound in an ItemStack. Tries to init it
+	 * previously in case there isn't one present
+	 **/
 	public static NBTTagCompound getNBT(ItemStack stack) {
 		initNBT(stack);
 		return stack.getTagCompound();
@@ -133,8 +141,10 @@ public final class ItemNBTHelper {
 		return verifyExistance(stack, tag) ? getNBT(stack).getDouble(tag) : defaultExpected;
 	}
 
-	/** If nullifyOnFail is true it'll return null if it doesn't find any
-	 * compounds, otherwise it'll return a new one. **/
+	/**
+	 * If nullifyOnFail is true it'll return null if it doesn't find any
+	 * compounds, otherwise it'll return a new one.
+	 **/
 	public static NBTTagCompound getCompound(ItemStack stack, String tag, boolean nullifyOnFail) {
 		return verifyExistance(stack, tag) ? getNBT(stack).getCompoundTag(tag) : nullifyOnFail ? null : new NBTTagCompound();
 	}
