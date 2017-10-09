@@ -13,6 +13,7 @@ import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
@@ -79,9 +80,10 @@ public final class ModBlocks {
 	public static final Block fake_ice = PLACE_HOLDER;
 	public static final Block fake_ice_fence = PLACE_HOLDER;
 	public static final Block fake_ice_stairs = PLACE_HOLDER;
-	public static final Block fake_ice_slab_half = PLACE_HOLDER;
-	public static final Block fake_ice_slab_double = PLACE_HOLDER;
 	private static Block STAIRS_ICE = new Block(Material.ICE);
+
+	public static final BlockSlab fake_ice_slab_half = (BlockSlab) PLACE_HOLDER;
+	public static final BlockSlab fake_ice_slab_double = (BlockSlab) PLACE_HOLDER;
 
 	private ModBlocks() {
 
