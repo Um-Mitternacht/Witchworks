@@ -20,6 +20,7 @@ import com.witchworks.common.item.tool.*;
 import com.witchworks.common.lib.LibItemName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -133,9 +134,6 @@ public final class ModItems {
 	public static final Item silver_leggings = PLACE_HOLDER;
 	public static final Item silver_boots = PLACE_HOLDER;
 
-	public static final Item fake_ice_slab_half = (ItemSlab) PLACE_HOLDER;
-	public static final Item fake_ice_slab_double = (ItemSlab) PLACE_HOLDER;
-
 	private ModItems() {
 	}
 
@@ -229,11 +227,9 @@ public final class ModItems {
 				itemBlock(ModBlocks.fake_ice),
 				itemBlock(ModBlocks.fake_ice_fence),
 				itemBlock(ModBlocks.fake_ice_stairs),
-				itemBlock(ModBlocks.fake_ice_slab_half),
-				itemBlock(ModBlocks.fake_ice_slab_double),
 
 				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
-				new ItemSlab(ModBlocks.fake_ice_slab_half, ModBlocks.fake_ice_slab_half, ModBlocks.fake_ice_slab_double).setRegistryName(ModBlocks.fake_ice_slab_half.getRegistryName()),
+				new ItemSlab(ModBlocks.fake_ice_slab_half, (BlockSlab) ModBlocks.fake_ice_slab_half, (BlockSlab) ModBlocks.fake_ice_slab_double).setRegistryName(ModBlocks.fake_ice_slab_half.getRegistryName()),
 				itemBlock(ModBlocks.silver_block),
 				itemBlock(ModBlocks.silver_ore),
 				itemBlock(ModBlocks.moldavite_block),
