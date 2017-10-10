@@ -13,7 +13,6 @@ import com.witchworks.common.crafting.VanillaCrafting;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
