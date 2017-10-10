@@ -8,13 +8,22 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
- * Created by Joseph on 9/24/2017.
+ * Created by Joseph on 10/10/2017.
  */
-public class OakAppleHarvestEvent {
+public class HarvestEvent {
 
 	@SubscribeEvent
 	@Mod.EventHandler
-	public void onHarvestBlock(BlockEvent.HarvestDropsEvent event) {
+	public void onHarvestBush(BlockEvent.HarvestDropsEvent harvest) {
+		if ((harvest.getState().getBlock() == Blocks.DEADBUSH && harvest.getWorld().rand.nextInt(100) < 25)) {
+			harvest.getDrops().clear();
+			harvest.getDrops().add(new ItemStack(ModItems.seed_white_sage, 1));
+		}
+	}
+
+	@SubscribeEvent
+	@Mod.EventHandler
+	public void onHarvestLeaves(BlockEvent.HarvestDropsEvent event) {
 		if ((event.getState().getBlock() == Blocks.LEAVES && event.getWorld().rand.nextInt(100) < 25)) {
 			event.getDrops().clear();
 			event.getDrops().add(new ItemStack(ModItems.oak_apple_gall, 1));
