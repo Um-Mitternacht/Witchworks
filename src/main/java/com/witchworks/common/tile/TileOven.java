@@ -96,7 +96,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public boolean isUsableByPlayer(EntityPlayer player) {
-		return false;
+		return true;
 	}
 
 	@Override

@@ -4,7 +4,9 @@ import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibGui;
+import com.witchworks.common.tile.TileApiary;
 import com.witchworks.common.tile.TileOven;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
@@ -26,7 +28,7 @@ import static net.minecraft.block.BlockHorizontal.FACING;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class BlockOven extends BlockMod {
+public class BlockOven extends BlockMod implements ITileEntityProvider {
 
 	//Todo: Add functionality.
 
@@ -88,5 +90,10 @@ public class BlockOven extends BlockMod {
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		final EnumFacing enumfacing = EnumFacing.fromAngle(placer.rotationYaw);
 		return this.getDefaultState().withProperty(FACING, enumfacing);
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileOven();
 	}
 }
