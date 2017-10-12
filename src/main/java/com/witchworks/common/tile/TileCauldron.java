@@ -1,8 +1,10 @@
 package com.witchworks.common.tile;
 
+import com.google.common.collect.Lists;
 import com.witchworks.api.CauldronRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
+import com.witchworks.api.helper.NBTHelper;
 import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.CauldronBrewRecipe;
 import com.witchworks.api.recipe.CauldronItemRecipe;
@@ -19,6 +21,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
@@ -34,6 +37,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
 import java.awt.*;
@@ -537,7 +541,6 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		boolean splash = ingredients.removeIf(s -> s.getItem() == Items.GUNPOWDER);
 		boolean linger = ingredients.removeIf(s -> s.getItem() == Items.DRAGON_BREATH);
-
 		NBTTagCompound tag = getBrewData();
 
 		if (tag != null) {
@@ -551,6 +554,56 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 			inv.setFluid(null);
 			onLiquidChange();
 		}
+	}
+
+	void setBrewColor() {
+		ArrayList<ItemStack> ingredients = Lists.newArrayList();
+		int mix = 0xFFFFFF;
+
+		for(ItemStack ingredient : ingredients) {
+			Optional<EnumDyeColor> color = getDyeColor(ingredient);
+			if(color.isPresent()) {
+				mix = blend(mix, color.get().getColorValue(), (float) 0.5);
+			}
+		}
+	}
+
+	static Optional<EnumDyeColor> getDyeColor(ItemStack stack) {
+		for(int oreId : OreDictionary.getOreIDs(stack)) {
+			String name = OreDictionary.getOreName(oreId);
+			if(name.startsWith("dye")) {
+				name = name.substring(0, 3);
+				return Optional.of(EnumDyeColor.valueOf(name));
+			}
+		}
+
+		return Optional.empty();
+	}
+
+	int blend(int a, int b, float ratio) {
+		if(ratio > 1f) {
+			ratio = 1f;
+		} else if(ratio < 0f) {
+			ratio = 0f;
+		}
+		float iRatio = 1.0f - ratio;
+
+		int aA = (a >> 24 & 0xff);
+		int aR = ((a & 0xff0000) >> 16);
+		int aG = ((a & 0xff00) >> 8);
+		int aB = (a & 0xff);
+
+		int bA = (b >> 24 & 0xff);
+		int bR = ((b & 0xff0000) >> 16);
+		int bG = ((b & 0xff00) >> 8);
+		int bB = (b & 0xff);
+
+		int A = ((int) (aA * iRatio) + (int) (bA * ratio));
+		int R = ((int) (aR * iRatio) + (int) (bR * ratio));
+		int G = ((int) (aG * iRatio) + (int) (bG * ratio));
+		int B = ((int) (aB * iRatio) + (int) (bB * ratio));
+
+		return A << 24 | R << 16 | G << 8 | B;
 	}
 
 	@Nullable
