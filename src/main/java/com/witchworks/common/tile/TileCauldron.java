@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import com.witchworks.api.CauldronRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
-import com.witchworks.api.helper.NBTHelper;
 import com.witchworks.api.recipe.BrewModifier;
 import com.witchworks.api.recipe.CauldronBrewRecipe;
 import com.witchworks.api.recipe.CauldronItemRecipe;
@@ -70,6 +69,18 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	private ItemStack container = ItemStack.EMPTY;
 	private int heat;
 	private int ticks;
+
+	public static Optional<EnumDyeColor> getDyeColor(ItemStack stack) {
+		for (int oreId : OreDictionary.getOreIDs(stack)) {
+			String name = OreDictionary.getOreName(oreId);
+			if (name.startsWith("dye")) {
+				name = name.substring(0, 3);
+				return Optional.of(EnumDyeColor.valueOf(name));
+			}
+		}
+
+		return Optional.empty();
+	}
 
 	@SuppressWarnings("ConstantConditions")
 	public void collideItem(EntityItem entityItem) {
@@ -488,11 +499,11 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		return rgb;
 	}
 
+	//------------------------------------Crafting Logic------------------------------------//
+
 	public void setColorRGB(int rgbIn) {
 		this.rgb = rgbIn;
 	}
-
-	//------------------------------------Crafting Logic------------------------------------//
 
 	public void setRitual(RitualHolder ritual) {
 		this.ritual = ritual;
@@ -560,30 +571,18 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		ArrayList<ItemStack> ingredients = Lists.newArrayList();
 		int mix = 0xFFFFFF;
 
-		for(ItemStack ingredient : ingredients) {
+		for (ItemStack ingredient : ingredients) {
 			Optional<EnumDyeColor> color = getDyeColor(ingredient);
-			if(color.isPresent()) {
+			if (color.isPresent()) {
 				mix = blend(mix, color.get().getColorValue(), (float) 0.5);
 			}
 		}
 	}
 
-	public static Optional<EnumDyeColor> getDyeColor(ItemStack stack) {
-		for(int oreId : OreDictionary.getOreIDs(stack)) {
-			String name = OreDictionary.getOreName(oreId);
-			if(name.startsWith("dye")) {
-				name = name.substring(0, 3);
-				return Optional.of(EnumDyeColor.valueOf(name));
-			}
-		}
-
-		return Optional.empty();
-	}
-
 	public int blend(int a, int b, float ratio) {
-		if(ratio > 1f) {
+		if (ratio > 1f) {
 			ratio = 1f;
-		} else if(ratio < 0f) {
+		} else if (ratio < 0f) {
 			ratio = 0f;
 		}
 		float iRatio = 1.0f - ratio;

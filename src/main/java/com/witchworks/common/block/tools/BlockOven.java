@@ -4,7 +4,6 @@ import com.witchworks.common.WitchWorks;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibGui;
-import com.witchworks.common.tile.TileApiary;
 import com.witchworks.common.tile.TileOven;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
