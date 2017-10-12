@@ -556,7 +556,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	void setBrewColor() {
+	public void setBrewColor() {
 		ArrayList<ItemStack> ingredients = Lists.newArrayList();
 		int mix = 0xFFFFFF;
 
@@ -568,7 +568,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	static Optional<EnumDyeColor> getDyeColor(ItemStack stack) {
+	public static Optional<EnumDyeColor> getDyeColor(ItemStack stack) {
 		for(int oreId : OreDictionary.getOreIDs(stack)) {
 			String name = OreDictionary.getOreName(oreId);
 			if(name.startsWith("dye")) {
@@ -580,7 +580,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		return Optional.empty();
 	}
 
-	int blend(int a, int b, float ratio) {
+	public int blend(int a, int b, float ratio) {
 		if(ratio > 1f) {
 			ratio = 1f;
 		} else if(ratio < 0f) {
