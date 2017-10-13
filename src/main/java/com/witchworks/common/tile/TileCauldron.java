@@ -660,9 +660,9 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		NBTTagCompound tag = BrewUtils.serialize(effects);
 		int mix = 0xFFFFFF;
 
-		for(ItemStack ingredient : ingredients) {
+		for (ItemStack ingredient : ingredients) {
 			Optional<EnumDyeColor> color = getDyeColor(ingredient);
-			if(color.isPresent()) {
+			if (color.isPresent()) {
 				mix = blend(mix, color.get().getColorValue(), (float) 0.5);
 			}
 		}
