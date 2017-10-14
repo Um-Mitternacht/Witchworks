@@ -552,7 +552,6 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		boolean splash = ingredients.removeIf(s -> s.getItem() == Items.GUNPOWDER);
 		boolean linger = ingredients.removeIf(s -> s.getItem() == Items.DRAGON_BREATH);
-		boolean color = ingredients.removeIf(s -> s.getItem() == Items.DYE);
 
 		NBTTagCompound tag = getBrewData();
 
@@ -576,7 +575,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		for (ItemStack ingredient : ingredients) {
 			Optional<EnumDyeColor> color = getDyeColor(ingredient);
 			if (color.isPresent()) {
-				mix = blend(mix, color.get().getColorValue(), (float) 0.5);
+				mix = blend(mix, color.get().getColorValue(), 0.5F);
 			}
 		}
 	}
@@ -665,7 +664,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		for (ItemStack ingredient : ingredients) {
 			Optional<EnumDyeColor> color = getDyeColor(ingredient);
 			if (color.isPresent()) {
-				mix = blend(mix, color.get().getColorValue(), (float) 0.5);
+				mix = blend(mix, color.get().getColorValue(), 0.5F);
 			}
 		}
 		tag.setInteger(BrewUtils.BREW_COLOR, mix);
