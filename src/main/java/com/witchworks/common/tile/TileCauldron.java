@@ -73,13 +73,39 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	public static Optional<EnumDyeColor> getDyeColor(ItemStack stack) {
 		for (int oreId : OreDictionary.getOreIDs(stack)) {
 			String name = OreDictionary.getOreName(oreId);
-			if (name.startsWith("dye")) {
-				name = name.substring(0, 3);
+			if (name.startsWith("blockWool")) {
+				name = name.substring(0, 9);
 				return Optional.of(EnumDyeColor.valueOf(name));
 			}
 		}
 
 		return Optional.empty();
+	}
+
+	public static int blend(int a, int b, float ratio) {
+		if (ratio > 1f) {
+			ratio = 1f;
+		} else if (ratio < 0f) {
+			ratio = 0f;
+		}
+		float iRatio = 1.0f - ratio;
+
+		int aA = (a >> 24 & 0xff);
+		int aR = ((a & 0xff0000) >> 16);
+		int aG = ((a & 0xff00) >> 8);
+		int aB = (a & 0xff);
+
+		int bA = (b >> 24 & 0xff);
+		int bR = ((b & 0xff0000) >> 16);
+		int bG = ((b & 0xff00) >> 8);
+		int bB = (b & 0xff);
+
+		int A = ((int) (aA * iRatio) + (int) (bA * ratio));
+		int R = ((int) (aR * iRatio) + (int) (bR * ratio));
+		int G = ((int) (aG * iRatio) + (int) (bG * ratio));
+		int B = ((int) (aB * iRatio) + (int) (bB * ratio));
+
+		return A << 24 | R << 16 | G << 8 | B;
 	}
 
 	@SuppressWarnings("ConstantConditions")
@@ -480,6 +506,8 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		}
 	}
 
+	//------------------------------------Crafting Logic------------------------------------//
+
 	@SuppressWarnings("ConstantConditions")
 	@Override
 	public void onLiquidChange() {
@@ -498,8 +526,6 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	public int getColorRGB() {
 		return rgb;
 	}
-
-	//------------------------------------Crafting Logic------------------------------------//
 
 	public void setColorRGB(int rgbIn) {
 		this.rgb = rgbIn;
@@ -569,49 +595,23 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		}
 	}
 
-	public void setBrewColor() {
-		ArrayList<ItemStack> ingredients = Lists.newArrayList();
-		int mix = 0xFFFFFF;
-
-		for (ItemStack ingredient : ingredients) {
-			Optional<EnumDyeColor> color = getDyeColor(ingredient);
-			if (color.isPresent()) {
-				mix = blend(mix, color.get().getColorValue(), 0.5F);
-			}
-		}
-	}
-
-	public int blend(int a, int b, float ratio) {
-		if (ratio > 1f) {
-			ratio = 1f;
-		} else if (ratio < 0f) {
-			ratio = 0f;
-		}
-		float iRatio = 1.0f - ratio;
-
-		int aA = (a >> 24 & 0xff);
-		int aR = ((a & 0xff0000) >> 16);
-		int aG = ((a & 0xff00) >> 8);
-		int aB = (a & 0xff);
-
-		int bA = (b >> 24 & 0xff);
-		int bR = ((b & 0xff0000) >> 16);
-		int bG = ((b & 0xff00) >> 8);
-		int bB = (b & 0xff);
-
-		int A = ((int) (aA * iRatio) + (int) (bA * ratio));
-		int R = ((int) (aR * iRatio) + (int) (bR * ratio));
-		int G = ((int) (aG * iRatio) + (int) (bG * ratio));
-		int B = ((int) (aB * iRatio) + (int) (bB * ratio));
-
-		return A << 24 | R << 16 | G << 8 | B;
-	}
-
 	@Nullable
 	public NBTTagCompound getBrewData() {
 		final Map<Item, ItemValidator<Object>> brewEffect = CauldronRegistry.getBrewEffects();
 		final Map<Item, ItemValidator<BrewModifier>> brewModifier = CauldronRegistry.getBrewModifiers();
 		List<Object> effects = new ArrayList<>();
+
+		int mix = 0xFFFFFF;
+
+		List<ItemStack> colors = Lists.newArrayList();
+		for (ItemStack ingredient : ingredients) {
+			Optional<EnumDyeColor> color = getDyeColor(ingredient);
+			if (color.isPresent()) {
+				mix = blend(mix, color.get().getColorValue(), 0.5F);
+				colors.add(ingredient);
+			}
+		}
+		ingredients.removeAll(colors);
 
 		for (int i = 0; i < ingredients.size(); i++) {
 			ItemStack ingredient = ingredients.get(i);
@@ -660,16 +660,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		}
 
 		NBTTagCompound tag = BrewUtils.serialize(effects);
-		int mix = 0xFFFFFF;
-
-		for (ItemStack ingredient : ingredients) {
-			Optional<EnumDyeColor> color = getDyeColor(ingredient);
-			if (color.isPresent()) {
-				mix = blend(mix, color.get().getColorValue(), 0.5F);
-			}
-		}
 		tag.setInteger(BrewUtils.BREW_COLOR, mix);
-
 		return tag;
 	}
 
