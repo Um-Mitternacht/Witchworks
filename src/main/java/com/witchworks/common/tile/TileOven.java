@@ -1,5 +1,6 @@
 package com.witchworks.common.tile;
 
+import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.client.gui.container.ContainerOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -15,13 +16,15 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextComponentTranslation;
 
+import java.util.List;
+
 import static net.minecraft.tileentity.TileEntityFurnace.getItemBurnTime;
 
 /**
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
-	private NonNullList<ItemStack> ovenItemStacks = NonNullList.<ItemStack>withSize(5, ItemStack.EMPTY);
+	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
 	private String customName;
 
 	public static boolean isItemFuel(ItemStack stack) {
@@ -55,12 +58,12 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public int getSizeInventory() {
-		return this.ovenItemStacks.size();
+		return this.itemStacks.size();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		for (ItemStack itemstack : this.ovenItemStacks) {
+		for (ItemStack itemstack : this.itemStacks) {
 			if (!itemstack.isEmpty()) {
 				return false;
 			}
@@ -71,17 +74,17 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public ItemStack getStackInSlot(int index) {
-		return (ItemStack) this.ovenItemStacks.get(index);
+		return (ItemStack) this.itemStacks.get(index);
 	}
 
 	@Override
 	public ItemStack decrStackSize(int index, int count) {
-		return ItemStackHelper.getAndSplit(this.ovenItemStacks, index, count);
+		return ItemStackHelper.getAndSplit(this.itemStacks, index, count);
 	}
 
 	@Override
 	public ItemStack removeStackFromSlot(int index) {
-		return ItemStackHelper.getAndRemove(this.ovenItemStacks, index);
+		return ItemStackHelper.getAndRemove(this.itemStacks, index);
 	}
 
 	@Override
