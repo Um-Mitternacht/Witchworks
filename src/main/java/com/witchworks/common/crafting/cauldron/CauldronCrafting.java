@@ -215,7 +215,7 @@ public final class CauldronCrafting {
 
 		//------------------------------------Custom Brew Creation------------------------------------//
 		registerEffect(getStack(ModItems.honeycomb, 1, 0)
-				, new PotionEffect(MobEffects.BLINDNESS, 500), false);
+				, new PotionEffect(MobEffects.BLINDNESS, 500), true);
 
 		registerEffect(getStack(Items.ROTTEN_FLESH)
 				, new PotionEffect(MobEffects.HUNGER, 500), false);
@@ -248,10 +248,10 @@ public final class CauldronCrafting {
 				, new PotionEffect(MobEffects.INSTANT_HEALTH, 1), false);
 
 		registerEffect(getStack(Items.FISH, 1, 3)
-				, new PotionEffect(MobEffects.WATER_BREATHING, 500), false);
+				, new PotionEffect(MobEffects.WATER_BREATHING, 500), true);
 
 		registerEffect(getStack(Blocks.RED_FLOWER, 1, 1)
-				, new PotionEffect(MobEffects.LUCK, 500), false);
+				, new PotionEffect(MobEffects.LUCK, 500), true);
 
 		registerEffect(getStack(ModItems.wax)
 				, new PotionEffect(MobEffects.SLOWNESS, 500), false);
@@ -290,7 +290,7 @@ public final class CauldronCrafting {
 				, new PotionEffect(MobEffects.HEALTH_BOOST, 50), false);
 
 		registerEffect(getStack(Items.GOLDEN_APPLE)
-				, new PotionEffect(MobEffects.ABSORPTION, 50), false);
+				, new PotionEffect(MobEffects.ABSORPTION, 50), true);
 
 		registerEffect(getStack(ModItems.heart)
 				, new PotionEffect(MobEffects.RESISTANCE, 50), false);
@@ -329,10 +329,10 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.ENDER_INHIBITION), false);
 
 		registerEffect(getStack(ModItems.gem, 1, 8)
-				, BrewRegistry.getDefault(ModBrews.TILL_LAND), false);
+				, BrewRegistry.getDefault(ModBrews.TILL_LAND), true);
 
 		registerEffect(getStack(ModItems.gem, 1, 6)
-				, BrewRegistry.getDefault(ModBrews.ROCK_PULVERIZE), false);
+				, BrewRegistry.getDefault(ModBrews.ROCK_PULVERIZE), true);
 
 		registerEffect(getStack(Items.DYE, 1, 15)
 				, BrewRegistry.getDefault(ModBrews.FERTILIZE), false);
@@ -362,7 +362,7 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.PURIFY), false);
 
 		registerEffect(getStack(Items.GOLDEN_APPLE, 1, 1)
-				, BrewRegistry.getDefault(ModBrews.NOTCHED), false);
+				, BrewRegistry.getDefault(ModBrews.NOTCHED), true);
 
 		registerEffect(getStack(Blocks.MYCELIUM)
 				, BrewRegistry.getDefault(ModBrews.MYCOLOGICAL_CORRUPTION), false);
