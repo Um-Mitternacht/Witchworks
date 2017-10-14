@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "witchworks:garnet_block",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "witchworks:gem",
+    "data": 0,
+    "count": 9
+  }
+}
