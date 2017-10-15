@@ -25,7 +25,7 @@ import javax.annotation.Nonnull;
 public class ItemSilverAxe extends ItemAxe implements IModelRegister {
 
 	public ItemSilverAxe() {
-		super(ModMaterials.TOOL_SILVER, ModMaterials.TOOL_SILVER.getDamageVsEntity(), ModMaterials.TOOL_SILVER.getEfficiencyOnProperMaterial());
+		super(ModMaterials.TOOL_SILVER, ModMaterials.TOOL_SILVER.getAttackDamage(), ModMaterials.TOOL_SILVER.getEfficiency());
 		setRegistryName(LibItemName.SILVER_AXE);
 		setUnlocalizedName(LibItemName.SILVER_AXE);
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);

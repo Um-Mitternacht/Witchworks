@@ -43,7 +43,7 @@ public class ItemBrewSplash extends ItemBrew {
 		if (!worldIn.isRemote) {
 			EntityBrew brew = new EntityBrew(worldIn, playerIn, copy, EntityBrew.BrewDispersion.SPLASH);
 
-			brew.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, -20.0F, 0.5F, 1.0F);
+			brew.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, -20.0F, 0.5F, 1.0F);
 			worldIn.spawnEntity(brew);
 		}
 

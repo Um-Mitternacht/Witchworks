@@ -126,7 +126,7 @@ public class EntityBrew extends EntityThrowable {
 			Tuple<List<BrewEffect>, List<PotionEffect>> tuple = BrewUtils.deSerialize(NBTHelper.fixNBT(getBrew()));
 
 			for (EntityLivingBase entity : list) {
-				double distance = this.getDistanceSqToEntity(entity);
+				double distance = this.getDistanceSq(entity);
 
 				if (distance < 16.0D) {
 					for (BrewEffect effect : tuple.getFirst()) {

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 public class BrewItemColorHandler implements IItemColor {
 
 	@Override
-	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+	public int colorMultiplier(ItemStack stack, int tintIndex) {
 		if (tintIndex == 1 && NBTHelper.hasTag(stack, BrewUtils.BREW_COLOR)) {
 			return NBTHelper.getInteger(stack, BrewUtils.BREW_COLOR);
 		}

@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 public class ItemCandleColorHandler implements IItemColor {
 
 	@Override
-	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+	public int colorMultiplier(ItemStack stack, int tintIndex) {
 		int color = 0;
 		switch (stack.getMetadata()) {
 			case 0:
