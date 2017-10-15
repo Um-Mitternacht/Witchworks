@@ -74,7 +74,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		for (int oreId : OreDictionary.getOreIDs(stack)) {
 			String name = OreDictionary.getOreName(oreId);
 			if (name.startsWith("blockWool")) {
-				name = name.substring(0, 15);
+				name = name.substring(0, 9);
 				return Optional.of(EnumDyeColor.valueOf(name));
 			}
 		}
