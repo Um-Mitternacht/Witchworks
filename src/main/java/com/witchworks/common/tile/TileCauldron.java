@@ -74,7 +74,7 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 		for (int oreId : OreDictionary.getOreIDs(stack)) {
 			String name = OreDictionary.getOreName(oreId);
 			if (name.startsWith("blockWool")) {
-				name = name.substring(0, 9);
+				name = name.substring(0, 15);
 				return Optional.of(EnumDyeColor.valueOf(name));
 			}
 		}
@@ -578,7 +578,6 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 	public void potionCustomLogic(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		boolean splash = ingredients.removeIf(s -> s.getItem() == Items.GUNPOWDER);
 		boolean linger = ingredients.removeIf(s -> s.getItem() == Items.DRAGON_BREATH);
-		boolean color = ingredients.removeIf(s -> s.getItem() == Items.DYE);
 
 		NBTTagCompound tag = getBrewData();
 
