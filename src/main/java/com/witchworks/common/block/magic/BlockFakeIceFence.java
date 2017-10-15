@@ -1,6 +1,5 @@
 package com.witchworks.common.block.magic;
 
-import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.Block;
