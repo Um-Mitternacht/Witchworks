@@ -1,5 +1,7 @@
 package com.witchworks.common.block.magic;
 
+import com.witchworks.api.helper.IModelRegister;
+import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibMod;
@@ -24,7 +26,7 @@ import java.util.Random;
 /**
  * Created by Joseph on 9/3/2017.
  */
-public abstract class BlockFakeIceSlab extends BlockSlab {
+public abstract class BlockFakeIceSlab extends BlockSlab implements IModelRegister {
 
 	@SuppressWarnings("deprecation")
 	public BlockFakeIceSlab(String unlocalizedName) {
@@ -116,5 +118,11 @@ public abstract class BlockFakeIceSlab extends BlockSlab {
 	@Override
 	public boolean isTopSolid(IBlockState state) {
 		return false;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }

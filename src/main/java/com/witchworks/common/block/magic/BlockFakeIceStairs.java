@@ -1,5 +1,7 @@
 package com.witchworks.common.block.magic;
 
+import com.witchworks.api.helper.IModelRegister;
+import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibMod;
@@ -20,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class BlockFakeIceStairs extends BlockStairs {
+public class BlockFakeIceStairs extends BlockStairs implements IModelRegister {
 
 	@SuppressWarnings("deprecation")
 	public BlockFakeIceStairs(String unlocalizedName, IBlockState state, Material material) {
@@ -74,5 +76,11 @@ public class BlockFakeIceStairs extends BlockStairs {
 		IBlockState sideState = world.getBlockState(pos.offset(side));
 		Block block = sideState.getBlock();
 		return block != this && super.shouldSideBeRendered(state, world, pos, side);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }
