@@ -323,21 +323,21 @@ public final class ModItems {
 		OreDictionary.registerOre("dyeWhite", new ItemStack(ModItems.albedo));
 		OreDictionary.registerOre("dyeBlack", new ItemStack(ModItems.iron_gall_ink));
 		OreDictionary.registerOre("dyeGreen", new ItemStack(ModItems.absinthe_green));
-		OreDictionary.registerOre("blockWoolWhite", new ItemStack(Blocks.WOOL, 1, 0));
-		OreDictionary.registerOre("blockWoolOrange", new ItemStack(Blocks.WOOL, 1, 1));
-		OreDictionary.registerOre("blockWoolMagenta", new ItemStack(Blocks.WOOL, 1, 2));
-		OreDictionary.registerOre("blockWoolLightBlue", new ItemStack(Blocks.WOOL, 1, 3));
-		OreDictionary.registerOre("blockWoolYellow", new ItemStack(Blocks.WOOL, 1, 4));
-		OreDictionary.registerOre("blockWoolLime", new ItemStack(Blocks.WOOL, 1, 5));
-		OreDictionary.registerOre("blockWoolPink", new ItemStack(Blocks.WOOL, 1, 6));
-		OreDictionary.registerOre("blockWoolGray", new ItemStack(Blocks.WOOL, 1, 7));
-		OreDictionary.registerOre("blockWoolLightGray", new ItemStack(Blocks.WOOL, 1, 8));
-		OreDictionary.registerOre("blockWoolCyan", new ItemStack(Blocks.WOOL, 1, 9));
-		OreDictionary.registerOre("blockWoolPurple", new ItemStack(Blocks.WOOL, 1, 10));
-		OreDictionary.registerOre("blockWoolBlue", new ItemStack(Blocks.WOOL, 1, 11));
-		OreDictionary.registerOre("blockWoolBrown", new ItemStack(Blocks.WOOL, 1, 12));
-		OreDictionary.registerOre("blockWoolGreen", new ItemStack(Blocks.WOOL, 1, 13));
-		OreDictionary.registerOre("blockWoolRed", new ItemStack(Blocks.WOOL, 1, 14));
-		OreDictionary.registerOre("blockWoolBlack", new ItemStack(Blocks.WOOL, 1, 15));
+		OreDictionary.registerOre("blockWoolWHITE", new ItemStack(Blocks.WOOL, 1, 0));
+		OreDictionary.registerOre("blockWoolORANGE", new ItemStack(Blocks.WOOL, 1, 1));
+		OreDictionary.registerOre("blockWoolMAGENTA", new ItemStack(Blocks.WOOL, 1, 2));
+		OreDictionary.registerOre("blockWoolLIGHT_BLUE", new ItemStack(Blocks.WOOL, 1, 3));
+		OreDictionary.registerOre("blockWoolYELLOW", new ItemStack(Blocks.WOOL, 1, 4));
+		OreDictionary.registerOre("blockWoolLIME", new ItemStack(Blocks.WOOL, 1, 5));
+		OreDictionary.registerOre("blockWoolPINK", new ItemStack(Blocks.WOOL, 1, 6));
+		OreDictionary.registerOre("blockWoolGRAY", new ItemStack(Blocks.WOOL, 1, 7));
+		OreDictionary.registerOre("blockWoolSILVER", new ItemStack(Blocks.WOOL, 1, 8));
+		OreDictionary.registerOre("blockWoolCYAN", new ItemStack(Blocks.WOOL, 1, 9));
+		OreDictionary.registerOre("blockWoolPURPLE", new ItemStack(Blocks.WOOL, 1, 10));
+		OreDictionary.registerOre("blockWoolBLUE", new ItemStack(Blocks.WOOL, 1, 11));
+		OreDictionary.registerOre("blockWoolBROWN", new ItemStack(Blocks.WOOL, 1, 12));
+		OreDictionary.registerOre("blockWoolGREEN", new ItemStack(Blocks.WOOL, 1, 13));
+		OreDictionary.registerOre("blockWoolRED", new ItemStack(Blocks.WOOL, 1, 14));
+		OreDictionary.registerOre("blockWoolBLACK", new ItemStack(Blocks.WOOL, 1, 15));
 	}
 }
