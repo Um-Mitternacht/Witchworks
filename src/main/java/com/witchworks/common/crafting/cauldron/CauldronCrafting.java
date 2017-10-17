@@ -214,7 +214,7 @@ public final class CauldronCrafting {
 				, getStack(ModItems.salt, 1, 0), Items.BONE, Items.IRON_NUGGET, Items.NETHER_WART, Items.DRAGON_BREATH);
 
 		//------------------------------------Custom Brew Creation------------------------------------//
-		registerEffect(getStack(ModItems.honeycomb, 1, 0)
+		registerEffect(getStack(Items.DYE, 1, 0)
 				, new PotionEffect(MobEffects.BLINDNESS, 500), true);
 
 		registerEffect(getStack(Items.ROTTEN_FLESH)
