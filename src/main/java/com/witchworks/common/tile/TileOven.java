@@ -22,20 +22,16 @@ import java.util.List;
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
-	private static final int[] SLOTS_TOP = new int[]{0};
-	private static final int[] SLOTS_BOTTOM = new int[]{2, 1, 3};
-	private static final int[] SLOTS_SIDES = new int[]{1, 2};
+	private static final int[] SLOT_TOP = new int[]{1, 2};
+	private static final int[] SLOT_BOTTOM = new int[]{1, 2, 3};
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
 	private String customName;
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
-		if (side == EnumFacing.DOWN) {
-			return SLOTS_BOTTOM;
-		} else {
-			return side == EnumFacing.UP ? SLOTS_TOP : SLOTS_SIDES;
-		}
+		return side == EnumFacing.UP ? SLOT_TOP : SLOT_BOTTOM;
 	}
+
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
