@@ -68,6 +68,15 @@ public class BlockOven extends BlockMod implements ITileEntityProvider {
 		return true;
 	}
 
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		final TileEntity tile = worldIn.getTileEntity(pos);
+		if (tile != null && tile instanceof TileOven) {
+			((TileOven) tile).dropItems();
+		}
+		worldIn.removeTileEntity(pos);
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isFullCube(IBlockState state) {
