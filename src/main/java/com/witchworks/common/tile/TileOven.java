@@ -34,6 +34,20 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 		return side == EnumFacing.UP ? SLOT_TOP : SLOT_BOTTOM;
 	}
 
+	@Override
+	public void setInventorySlotContents(int index, ItemStack stack) {
+		final boolean flag = !stack.isEmpty() && stack.isItemEqual(itemStacks.get(index)) && ItemStack.areItemStackTagsEqual(stack, itemStacks.get(index));
+		itemStacks.set(index, stack);
+
+		if (!stack.isEmpty() && stack.getCount() > this.getInventoryStackLimit()) {
+			stack.setCount(getInventoryStackLimit());
+		}
+
+		if (index == 0 && !flag) {
+			this.markDirty();
+		}
+	}
+
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
@@ -69,11 +83,6 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	@Override
 	public ItemStack removeStackFromSlot(int index) {
 		return ItemStackHelper.getAndRemove(itemStacks, index);
-	}
-
-	@Override
-	public void setInventorySlotContents(int index, ItemStack stack) {
-
 	}
 
 	@Override
