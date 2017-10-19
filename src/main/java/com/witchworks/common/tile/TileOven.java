@@ -73,17 +73,17 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public ItemStack getStackInSlot(int index) {
-		return (ItemStack) this.itemStacks.get(index);
+		return itemStacks.get(index);
 	}
 
 	@Override
 	public ItemStack decrStackSize(int index, int count) {
-		return ItemStackHelper.getAndSplit(this.itemStacks, index, count);
+		return ItemStackHelper.getAndSplit(itemStacks, index, count);
 	}
 
 	@Override
 	public ItemStack removeStackFromSlot(int index) {
-		return ItemStackHelper.getAndRemove(this.itemStacks, index);
+		return ItemStackHelper.getAndRemove(itemStacks, index);
 	}
 
 	@Override
