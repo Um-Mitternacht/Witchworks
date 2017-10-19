@@ -90,6 +90,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	public void openInventory(EntityPlayer player) {
 
 	}
+
 	public void dropItems() {
 		for (int i = 0; i < 16; ++i) {
 			final ItemStack stack = itemStacks.get(i);
@@ -118,7 +119,6 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public void setField(int id, int value) {
-
 	}
 
 	@Override
@@ -128,7 +128,9 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public void clear() {
-
+		for (int i = 0; i < 16; ++i) {
+			this.itemStacks.set(i, ItemStack.EMPTY);
+		}
 	}
 
 	@Override
