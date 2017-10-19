@@ -5,11 +5,9 @@ import com.witchworks.client.gui.container.ContainerOven;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -20,27 +18,21 @@ import net.minecraft.util.text.TextComponentTranslation;
 
 import java.util.List;
 
-import static net.minecraft.tileentity.TileEntityFurnace.getItemBurnTime;
-
 /**
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
+	private static final int[] SLOTS_TOP = new int[]{0};
+	private static final int[] SLOTS_BOTTOM = new int[]{2, 1, 3};
+	private static final int[] SLOTS_SIDES = new int[]{1, 2};
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
-	private static final int[] SLOTS_TOP = new int[] {0};
-	private static final int[] SLOTS_BOTTOM = new int[] {2, 1, 3};
-	private static final int[] SLOTS_SIDES = new int[] {1, 2};
 	private String customName;
 
 	@Override
-	public int[] getSlotsForFace(EnumFacing side)
-	{
-		if (side == EnumFacing.DOWN)
-		{
+	public int[] getSlotsForFace(EnumFacing side) {
+		if (side == EnumFacing.DOWN) {
 			return SLOTS_BOTTOM;
-		}
-		else
-		{
+		} else {
 			return side == EnumFacing.UP ? SLOTS_TOP : SLOTS_SIDES;
 		}
 	}
