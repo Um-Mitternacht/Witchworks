@@ -36,13 +36,13 @@ public class ContainerOven extends Container {
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 5, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else if (slotIndex > 5) {
 				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 5, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 

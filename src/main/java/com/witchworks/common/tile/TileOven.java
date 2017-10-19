@@ -26,10 +26,6 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
 	private String customName;
 
-	public static boolean isItemFuel(ItemStack stack) {
-		return getItemBurnTime(stack) > 0;
-	}
-
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
 		return new int[0];
@@ -42,17 +38,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		{
-			if (direction == EnumFacing.DOWN && index == 1) {
-				Item item = stack.getItem();
-
-				if (item != Items.WATER_BUCKET && item != Items.BUCKET) {
-					return false;
-				}
-			}
-
-			return true;
-		}
+		return direction == EnumFacing.DOWN && index > 0;
 	}
 
 	@Override
