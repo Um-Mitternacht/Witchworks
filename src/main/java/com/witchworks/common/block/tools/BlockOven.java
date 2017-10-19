@@ -31,6 +31,7 @@ public class BlockOven extends BlockMod implements ITileEntityProvider {
 
 	//Todo: Add functionality.
 
+
 	public BlockOven() {
 		super(LibBlockName.OVEN, Material.IRON);
 		setDefaultState(defaultState().withProperty(FACING, EnumFacing.NORTH));

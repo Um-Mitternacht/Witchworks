@@ -23,8 +23,8 @@ import java.util.List;
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
-	private static final int[] SLOT_TOP = new int[]{1, 2};
-	private static final int[] SLOT_BOTTOM = new int[]{1, 2, 3};
+	private static final int[] SLOT_TOP = new int[]{3, 4};
+	private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
 	private String customName;
 	private EntityPlayerMP player;
