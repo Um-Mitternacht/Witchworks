@@ -2,6 +2,7 @@ package com.witchworks.common.tile;
 
 import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.client.gui.container.ContainerOven;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -10,6 +11,8 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
@@ -24,11 +27,22 @@ import static net.minecraft.tileentity.TileEntityFurnace.getItemBurnTime;
  */
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
+	private static final int[] SLOTS_TOP = new int[] {0};
+	private static final int[] SLOTS_BOTTOM = new int[] {2, 1, 3};
+	private static final int[] SLOTS_SIDES = new int[] {1, 2};
 	private String customName;
 
 	@Override
-	public int[] getSlotsForFace(EnumFacing side) {
-		return new int[0];
+	public int[] getSlotsForFace(EnumFacing side)
+	{
+		if (side == EnumFacing.DOWN)
+		{
+			return SLOTS_BOTTOM;
+		}
+		else
+		{
+			return side == EnumFacing.UP ? SLOTS_TOP : SLOTS_SIDES;
+		}
 	}
 
 	@Override
@@ -92,6 +106,17 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	}
 
+	public void dropItems() {
+		for (int i = 0; i < 16; ++i) {
+			final ItemStack stack = itemStacks.get(i);
+			if (!world.isRemote && !stack.isEmpty()) {
+				final EntityItem item = new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, stack);
+				world.spawnEntity(item);
+			}
+			itemStacks.set(i, ItemStack.EMPTY);
+		}
+	}
+
 	@Override
 	public void closeInventory(EntityPlayer player) {
 
@@ -151,4 +176,46 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 		return this.customName != null && !this.customName.isEmpty();
 	}
 
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+		super.readFromNBT(compound);
+		final NBTTagList nbttaglist = compound.getTagList("Items", 10);
+		this.itemStacks = ItemNullHelper.asList(5);
+
+		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
+			final NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
+			final int j = nbttagcompound.getByte("Slot");
+
+			if (j >= 0 && j < 5) {
+				this.itemStacks.set(j, new ItemStack(nbttagcompound));
+			}
+		}
+
+		if (compound.hasKey("CustomName", 8)) {
+			this.customName = compound.getString("CustomName");
+		}
+	}
+
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+		super.writeToNBT(compound);
+		final NBTTagList nbttaglist = new NBTTagList();
+
+		for (int i = 0; i < 5; ++i) {
+			if (!itemStacks.get(i).isEmpty()) {
+				final NBTTagCompound nbttagcompound = new NBTTagCompound();
+				nbttagcompound.setByte("Slot", (byte) i);
+				itemStacks.get(i).writeToNBT(nbttagcompound);
+				nbttaglist.appendTag(nbttagcompound);
+			}
+		}
+
+		compound.setTag("Items", nbttaglist);
+
+		if (this.hasCustomName()) {
+			compound.setString("CustomName", this.customName);
+		}
+
+		return compound;
+	}
 }
