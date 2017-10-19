@@ -4,6 +4,7 @@ import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.client.gui.container.ContainerOven;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
@@ -26,6 +27,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	private static final int[] SLOT_BOTTOM = new int[]{1, 2, 3};
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
 	private String customName;
+	private EntityPlayerMP player;
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
@@ -45,19 +47,14 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public int getSizeInventory() {
-		return this.itemStacks.size();
+		return 5;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		for (ItemStack itemstack : this.itemStacks) {
-			if (!itemstack.isEmpty()) {
-				return false;
-			}
-		}
-
-		return true;
+		return ItemNullHelper.isEmpty(itemStacks);
 	}
+
 
 	@Override
 	public ItemStack getStackInSlot(int index) {
@@ -93,7 +90,6 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	public void openInventory(EntityPlayer player) {
 
 	}
-
 	public void dropItems() {
 		for (int i = 0; i < 16; ++i) {
 			final ItemStack stack = itemStacks.get(i);
