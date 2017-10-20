@@ -3,6 +3,7 @@ package com.witchworks.client.gui.container;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -17,6 +18,11 @@ public class ContainerOven extends Container {
 
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
+	}
+
+	public void addListener(IContainerListener listener) {
+		super.addListener(listener);
+		listener.sendAllWindowProperties(this, this.oven);
 	}
 
 	@Override
@@ -56,10 +62,5 @@ public class ContainerOven extends Container {
 	@Override
 	public boolean canInteractWith(EntityPlayer playerIn) {
 		return !playerIn.isSpectator();
-	}
-
-
-	public int getItemStackLimit(ItemStack stack) {
-		return 64;
 	}
 }
