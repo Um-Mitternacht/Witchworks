@@ -398,7 +398,7 @@ public final class CauldronCrafting {
 				, BrewRegistry.getDefault(ModBrews.BULLETPROOF), false);
 
 
-		//Extenders
+		//Time Extenders
 		registerModifier(getStack(Items.REDSTONE)
 				, new BrewSimpleModifier(600, 0), true);
 
@@ -420,12 +420,21 @@ public final class CauldronCrafting {
 
 		//Amplitude Decreasers
 		//Todo: Create gemstone powders, and add tourmaline powder as a tier 1 amplitude decreaser.
-
 		registerModifier(getStack(ModItems.gem, 1, 4)
 				, new BrewSimpleModifier(0, -2), true);
 
 		registerModifier(getStack(ModBlocks.tourmaline_block, 1, 0)
 				, new BrewSimpleModifier(0, -3), true);
+
+		//Time Decreasers
+		registerModifier(getStack(Items.COAL)
+				, new BrewSimpleModifier(-600, 0), true);
+
+		registerModifier(getStack(Items.COAL, 1, 1)
+				, new BrewSimpleModifier(-1200, 0), true);
+
+		registerModifier(getStack(Blocks.COAL_BLOCK)
+				, new BrewSimpleModifier(-2400, 0), true);
 	}
 
 	private static void registerItemProcess(Fluid fluid, Item in, Item out, boolean perfectMatch) {
