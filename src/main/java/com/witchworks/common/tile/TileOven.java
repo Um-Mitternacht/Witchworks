@@ -25,7 +25,7 @@ import java.util.List;
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOT_TOP = new int[]{3, 4};
 	private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
-	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
+	private List<ItemStack> itemStacks = ItemNullHelper.asList(4);
 	private String customName;
 	private EntityPlayerMP player;
 
@@ -61,7 +61,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public int getSizeInventory() {
-		return 5;
+		return 4;
 	}
 
 	@Override
@@ -175,13 +175,13 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		final NBTTagList nbttaglist = compound.getTagList("Items", 10);
-		this.itemStacks = ItemNullHelper.asList(5);
+		this.itemStacks = ItemNullHelper.asList(4);
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
 			final NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
 			final int j = nbttagcompound.getByte("Slot");
 
-			if (j >= 0 && j < 5) {
+			if (j >= 0 && j < 4) {
 				this.itemStacks.set(j, new ItemStack(nbttagcompound));
 			}
 		}
@@ -196,7 +196,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 		super.writeToNBT(compound);
 		final NBTTagList nbttaglist = new NBTTagList();
 
-		for (int i = 0; i < 5; ++i) {
+		for (int i = 0; i < 4; ++i) {
 			if (!itemStacks.get(i).isEmpty()) {
 				final NBTTagCompound nbttagcompound = new NBTTagCompound();
 				nbttagcompound.setByte("Slot", (byte) i);

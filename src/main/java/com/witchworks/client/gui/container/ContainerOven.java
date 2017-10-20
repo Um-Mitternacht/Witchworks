@@ -20,11 +20,6 @@ public class ContainerOven extends Container {
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
-		return true;
-	}
-
-	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 		final Slot slot = inventorySlots.get(slotIndex);
 		ItemStack copy = ItemStack.EMPTY;
@@ -34,13 +29,13 @@ public class ContainerOven extends Container {
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 5, 55, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 4, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
-			} else if (slotIndex > 5) {
+			} else if (slotIndex > 4) {
 				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 5, 55, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 4, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 
@@ -56,5 +51,15 @@ public class ContainerOven extends Container {
 		}
 
 		return copy;
+	}
+
+	@Override
+	public boolean canInteractWith(EntityPlayer playerIn) {
+		return !playerIn.isSpectator();
+	}
+
+
+	public int getItemStackLimit(ItemStack stack) {
+		return 64;
 	}
 }
