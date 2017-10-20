@@ -119,7 +119,7 @@ public class EntityBrew extends EntityThrowable {
 	}
 
 	private void doSplash() {
-		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().expand(8.0D, 6.0D, 8.0D);
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().expand(8.0D, 8.0D, 8.0D);
 		List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
 
 		if (!list.isEmpty()) {
