@@ -1,13 +1,11 @@
 package com.witchworks.client.gui.container;
 
-import com.witchworks.common.item.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nullable;
@@ -40,6 +38,7 @@ public class ContainerOven extends Container {
 			this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 142));
 		}
 	}
+
 	public void addListener(IContainerListener listener) {
 		super.addListener(listener);
 		listener.sendAllWindowProperties(this, this.oven);
@@ -79,6 +78,11 @@ public class ContainerOven extends Container {
 		return copy;
 	}
 
+	@Override
+	public boolean canInteractWith(EntityPlayer playerIn) {
+		return !playerIn.isSpectator();
+	}
+
 	private class SlotOvenFuel extends Slot {
 
 		SlotOvenFuel(IInventory inventoryIn, int slotIndex, int x, int y) {
@@ -92,11 +96,6 @@ public class ContainerOven extends Container {
 		public int getItemStackLimit(ItemStack stack) {
 			return 64;
 		}
-	}
-
-	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
-		return !playerIn.isSpectator();
 	}
 
 	private class SlotOvenItem extends Slot {
