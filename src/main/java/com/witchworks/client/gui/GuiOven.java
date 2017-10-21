@@ -2,7 +2,6 @@ package com.witchworks.client.gui;
 
 import com.witchworks.client.ResourceLocations;
 import com.witchworks.client.gui.container.ContainerOven;
-import com.witchworks.common.tile.TileOven;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
