@@ -45,37 +45,38 @@ public class ContainerOven extends Container {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
-		final Slot slot = inventorySlots.get(slotIndex);
-		ItemStack copy = ItemStack.EMPTY;
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
+		ItemStack itemstack = ItemStack.EMPTY;
+		Slot slot = inventorySlots.get(index);
 
 		if (slot != null && slot.getHasStack()) {
-			final ItemStack original = slot.getStack();
-			copy = original.copy();
+			ItemStack itemstack1 = slot.getStack();
+			itemstack = itemstack1.copy();
 
-			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 4, 55, true)) return ItemStack.EMPTY;
-				slot.onSlotChange(original, copy);
-			} else if (slotIndex > 4) {
-				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
-				slot.onSlotChange(original, copy);
-			} else {
-				if (!mergeItemStack(original, 4, 55, true)) return ItemStack.EMPTY;
-				slot.onSlotChange(original, copy);
+			int containerSlots = inventorySlots.size() - player.inventory.mainInventory.size();
+
+			if (index < containerSlots) {
+				if (!this.mergeItemStack(itemstack1, containerSlots, inventorySlots.size(), true)) {
+					return ItemStack.EMPTY;
+				}
+			} else if (!this.mergeItemStack(itemstack1, 0, containerSlots, false)) {
+				return ItemStack.EMPTY;
 			}
 
-			if (original.getCount() == 0) {
+			if (itemstack1.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
 
-			if (original.getCount() == copy.getCount()) return ItemStack.EMPTY;
+			if (itemstack1.getCount() == itemstack.getCount()) {
+				return ItemStack.EMPTY;
+			}
 
-			slot.onTake(player, original);
+			slot.onTake(player, itemstack1);
 		}
 
-		return copy;
+		return itemstack;
 	}
 
 	@Override
@@ -101,6 +102,21 @@ public class ContainerOven extends Container {
 	private class SlotOvenItem extends Slot {
 
 		SlotOvenItem(IInventory inventoryIn, int slotIndex, int x, int y) {
+			super(inventoryIn, slotIndex, x, y);
+		}
+
+		public boolean isItemValid(@Nullable ItemStack stack) {
+			return stack != null;
+		}
+
+		public int getItemStackLimit(ItemStack stack) {
+			return 64;
+		}
+	}
+
+	private class SlotOvenJar extends Slot {
+
+		SlotOvenJar(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
