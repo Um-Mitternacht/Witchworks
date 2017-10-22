@@ -2,6 +2,7 @@ package com.witchworks.common.tile;
 
 import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.client.gui.container.ContainerOven;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -9,15 +10,20 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
 
 import java.util.List;
+
+import static net.minecraftforge.event.ForgeEventFactory.getItemBurnTime;
 
 /**
  * Created by Joseph on 7/17/2017.
@@ -25,7 +31,7 @@ import java.util.List;
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOT_TOP = new int[]{3, 4};
 	private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
-	private List<ItemStack> itemStacks = ItemNullHelper.asList(4);
+	private List<ItemStack> itemStacks = ItemNullHelper.asList(6);
 	private String customName;
 	private EntityPlayerMP player;
 
@@ -142,9 +148,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 		}
 	}
 
-	@Override
 	public void update() {
-
 	}
 
 	@Override
@@ -175,13 +179,13 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		final NBTTagList nbttaglist = compound.getTagList("Items", 10);
-		this.itemStacks = ItemNullHelper.asList(4);
+		this.itemStacks = ItemNullHelper.asList(19);
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
 			final NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
 			final int j = nbttagcompound.getByte("Slot");
 
-			if (j >= 0 && j < 4) {
+			if (j >= 0 && j < 19) {
 				this.itemStacks.set(j, new ItemStack(nbttagcompound));
 			}
 		}
@@ -196,7 +200,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 		super.writeToNBT(compound);
 		final NBTTagList nbttaglist = new NBTTagList();
 
-		for (int i = 0; i < 4; ++i) {
+		for (int i = 0; i < 19; ++i) {
 			if (!itemStacks.get(i).isEmpty()) {
 				final NBTTagCompound nbttagcompound = new NBTTagCompound();
 				nbttagcompound.setByte("Slot", (byte) i);

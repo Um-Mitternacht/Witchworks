@@ -1,5 +1,6 @@
 package com.witchworks.client.gui.container;
 
+import com.witchworks.common.item.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -121,7 +122,8 @@ public class ContainerOven extends Container {
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null;
+			return stack != null && (stack.getItem() == ModItems.glass_jar
+					|| stack.getItem() == ModItems.glass_jar);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
