@@ -68,6 +68,7 @@ public class ContainerOven extends Container {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
+				oven.markDirty();
 			}
 
 			if (itemstack1.getCount() == itemstack.getCount()) {
@@ -124,6 +125,21 @@ public class ContainerOven extends Container {
 		public boolean isItemValid(@Nullable ItemStack stack) {
 			return stack != null && (stack.getItem() == ModItems.glass_jar
 					|| stack.getItem() == ModItems.glass_jar);
+		}
+
+		public int getItemStackLimit(ItemStack stack) {
+			return 64;
+		}
+	}
+
+	private class SlotOvenByproduct extends Slot {
+
+		SlotOvenByproduct(IInventory inventoryIn, int slotIndex, int x, int y) {
+			super(inventoryIn, slotIndex, x, y);
+		}
+
+		public boolean isItemValid(@Nullable ItemStack stack) {
+			return stack != null;
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
