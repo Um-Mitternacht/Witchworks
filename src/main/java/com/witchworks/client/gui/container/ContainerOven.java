@@ -25,7 +25,7 @@ public class ContainerOven extends Container {
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 6; j++) {
-				this.addSlotToContainer(new ContainerOven.SlotOvenItem(inventory, j + i * 6 + 1, 62 + j * 18, 16 + i * 18));
+				this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, j + i * 6 + 1, 62 + j * 18, 16 + i * 18));
 			}
 		}
 
@@ -101,9 +101,9 @@ public class ContainerOven extends Container {
 		}
 	}
 
-	private class SlotOvenItem extends Slot {
+	private class SlotOvenInput extends Slot {
 
-		SlotOvenItem(IInventory inventoryIn, int slotIndex, int x, int y) {
+		SlotOvenInput(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
@@ -135,6 +135,21 @@ public class ContainerOven extends Container {
 	private class SlotOvenByproduct extends Slot {
 
 		SlotOvenByproduct(IInventory inventoryIn, int slotIndex, int x, int y) {
+			super(inventoryIn, slotIndex, x, y);
+		}
+
+		public boolean isItemValid(@Nullable ItemStack stack) {
+			return stack != null;
+		}
+
+		public int getItemStackLimit(ItemStack stack) {
+			return 64;
+		}
+	}
+
+	private class SlotOvenFume extends Slot {
+
+		SlotOvenFume(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
