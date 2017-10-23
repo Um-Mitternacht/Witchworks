@@ -21,8 +21,10 @@ public class ContainerOven extends Container {
 
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
+
 		this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, 0, 19, 17));
 		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 0, 19, 53));
+		this.addSlotToContainer(new ContainerOven.SlotOvenJar(inventory, 0, 69, 53));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
@@ -127,9 +129,9 @@ public class ContainerOven extends Container {
 		}
 	}
 
-	private class SlotOvenByproduct extends Slot {
+	private class SlotOvenFume extends Slot {
 
-		SlotOvenByproduct(IInventory inventoryIn, int slotIndex, int x, int y) {
+		SlotOvenFume(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
@@ -142,9 +144,9 @@ public class ContainerOven extends Container {
 		}
 	}
 
-	private class SlotOvenFume extends Slot {
+	private class SlotOvenOutput extends Slot {
 
-		SlotOvenFume(IInventory inventoryIn, int slotIndex, int x, int y) {
+		SlotOvenOutput(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
