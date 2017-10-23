@@ -22,6 +22,7 @@ public class ContainerOven extends Container {
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
 		this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, 0, 19, 17));
+		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 0, 19, 53));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
