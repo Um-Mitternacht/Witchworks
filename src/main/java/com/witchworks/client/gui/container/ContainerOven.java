@@ -4,10 +4,7 @@ import com.witchworks.common.item.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IContainerListener;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nullable;
@@ -84,18 +81,14 @@ public class ContainerOven extends Container {
 		return !playerIn.isSpectator();
 	}
 
-	private class SlotOvenFuel extends Slot {
+	private class SlotOvenFuel extends SlotFurnaceFuel {
 
 		SlotOvenFuel(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
-		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null;
-		}
-
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 320;
 		}
 	}
 
@@ -105,12 +98,8 @@ public class ContainerOven extends Container {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
-		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null;
-		}
-
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 320;
 		}
 	}
 
@@ -126,7 +115,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 320;
 		}
 	}
 
@@ -136,12 +125,8 @@ public class ContainerOven extends Container {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
-		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null;
-		}
-
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 320;
 		}
 	}
 
@@ -151,12 +136,8 @@ public class ContainerOven extends Container {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
-		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null;
-		}
-
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 320;
 		}
 	}
 }

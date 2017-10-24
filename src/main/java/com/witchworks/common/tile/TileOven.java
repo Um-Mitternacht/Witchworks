@@ -53,7 +53,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
-		return this.isItemValidForSlot(index, itemStackIn);
+		return direction == EnumFacing.UP && isItemValidForSlot(index, itemStackIn);
 	}
 
 	@Override
@@ -70,7 +70,6 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	public boolean isEmpty() {
 		return ItemNullHelper.isEmpty(itemStacks);
 	}
-
 
 	@Override
 	public ItemStack getStackInSlot(int index) {
@@ -102,6 +101,11 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	}
 
+	@Override
+	public void closeInventory(EntityPlayer player) {
+
+	}
+
 	public void dropItems() {
 		for (int i = 0; i < 16; ++i) {
 			final ItemStack stack = itemStacks.get(i);
@@ -111,11 +115,6 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 			}
 			itemStacks.set(i, ItemStack.EMPTY);
 		}
-	}
-
-	@Override
-	public void closeInventory(EntityPlayer player) {
-
 	}
 
 	@Override
