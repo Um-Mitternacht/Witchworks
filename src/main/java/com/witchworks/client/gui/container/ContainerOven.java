@@ -3,6 +3,7 @@ package com.witchworks.client.gui.container;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
@@ -45,39 +46,37 @@ public class ContainerOven extends Container {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack itemstack = ItemStack.EMPTY;
-		Slot slot = inventorySlots.get(index);
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
+		final Slot slot = inventorySlots.get(slotIndex);
+		ItemStack copy = ItemStack.EMPTY;
 
 		if (slot != null && slot.getHasStack()) {
-			ItemStack itemstack1 = slot.getStack();
-			itemstack = itemstack1.copy();
+			final ItemStack original = slot.getStack();
+			copy = original.copy();
 
-			int containerSlots = inventorySlots.size() - player.inventory.mainInventory.size();
-
-			if (index < containerSlots) {
-				if (!this.mergeItemStack(itemstack1, containerSlots, inventorySlots.size(), true)) {
-					return ItemStack.EMPTY;
-				}
-			} else if (!this.mergeItemStack(itemstack1, 0, containerSlots, false)) {
-				return ItemStack.EMPTY;
+			if (slotIndex == 0) {
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				slot.onSlotChange(original, copy);
+			} else if (slotIndex > 19) {
+				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
+				slot.onSlotChange(original, copy);
+			} else {
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				slot.onSlotChange(original, copy);
 			}
 
-			if (itemstack1.getCount() == 0) {
+			if (original.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
-				oven.markDirty();
 			}
 
-			if (itemstack1.getCount() == itemstack.getCount()) {
-				return ItemStack.EMPTY;
-			}
+			if (original.getCount() == copy.getCount()) return ItemStack.EMPTY;
 
-			slot.onTake(player, itemstack1);
+			slot.onTake(player, original);
 		}
 
-		return itemstack;
+		return copy;
 	}
 
 	@Override
@@ -96,7 +95,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -111,7 +110,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -122,12 +121,12 @@ public class ContainerOven extends Container {
 		}
 
 		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null && (stack.getItem() == ModItems.glass_jar
+			return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
 					|| stack.getItem() == ModItems.glass_jar);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -142,7 +141,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -157,7 +156,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 }
