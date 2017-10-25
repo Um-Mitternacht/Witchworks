@@ -118,16 +118,6 @@ runClient {
     }
 }
 
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    from(sourceSets.api.output) {
-        for (StructExtApi api in apis) {
-            exclude api.exclusion
-        }
-    }
-    classifier = "deobf"
-}
-
 task signJar(type: SignJar, dependsOn: reobfJar) {
 
     // Skips if the keyStore property is missing.
