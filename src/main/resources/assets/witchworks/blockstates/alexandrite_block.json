@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": [
+      {
+        "model": "witchworks:alexandrite_block"
+      }
+    ]
+  }
+}
