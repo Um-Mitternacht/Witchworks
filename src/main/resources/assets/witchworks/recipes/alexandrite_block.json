@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    },
+    {
+      "item": "witchworks:gem",
+      "data": 9
+    }
+  ],
+  "result": {
+    "item": "witchworks:alexandrite_block",
+    "data": 0,
+    "count": 1
+  }
+}
