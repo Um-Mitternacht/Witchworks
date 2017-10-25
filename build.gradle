@@ -136,7 +136,7 @@ task signJar(type: SignJar, dependsOn: reobfJar) {
     outputFile = jar.archivePath
 }
 
-build.dependsOn signJar, deobfJar
+build.dependsOn signJar
 
 idea {
     module {
