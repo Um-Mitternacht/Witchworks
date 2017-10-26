@@ -1,9 +1,7 @@
 package com.witchworks.common.core.proxy;
 
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.lib.LibMod;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,7 +13,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * the MIT license.
  */
 @SideOnly(Side.SERVER)
-@Mod.EventBusSubscriber(modid = LibMod.MOD_ID)
 public class ServerProxy implements ISidedProxy {
 
 	@Override
