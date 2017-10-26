@@ -4,15 +4,12 @@ import com.witchworks.client.fx.ParticleF;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class was created by <Arekkuusu> on 26/02/2017.
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly(Side.SERVER)
 public class ServerProxy implements ISidedProxy {
 
 	@Override
