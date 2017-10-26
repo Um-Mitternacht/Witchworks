@@ -38,7 +38,7 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 public class WitchWorks {
 
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);
-	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
+	@SidedProxy(serverSide = "com.witchworks.common.core.proxy.ServerProxy", clientSide = "com.witchworks.client.core.ClientProxy")
 	public static ISidedProxy proxy;
 	@Instance(LibMod.MOD_ID)
 	public static WitchWorks instance;
