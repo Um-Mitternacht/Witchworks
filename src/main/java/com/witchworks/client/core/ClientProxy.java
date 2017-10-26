@@ -88,17 +88,20 @@ public class ClientProxy implements ISidedProxy {
 		NetworkRegistry.INSTANCE.registerGuiHandler(WitchWorks.instance, new GuiHandler());
 	}
 
+	@SideOnly(Side.CLIENT)
 	public void displayRecordText(ITextComponent text) {
 		Minecraft.getMinecraft().ingameGUI.setRecordPlayingMessage(text.getFormattedText());
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void spawnParticle(ParticleF particleF, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... args) {
 		if (doParticle()) {
 			Minecraft.getMinecraft().effectRenderer.addEffect(particleF.newInstance(x, y, z, xSpeed, ySpeed, zSpeed, args));
 		}
 	}
-	
+
+	@SideOnly(Side.CLIENT)
 	private boolean doParticle() {
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
 			return false;
