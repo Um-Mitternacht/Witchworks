@@ -18,7 +18,8 @@ public enum ParticleF {
 	CAULDRON_BUBBLE(new ParticleBubble.Factory()),
 	STEAM(new ParticleSteam.Factory()),
 	BEE(new ParticleBee.Factory()),
-	SPARK(new ParticleSpark.Factory());
+	SPARK(new ParticleSpark.Factory()),
+	FLAME(new ParticleOvenFlame.Factory());
 
 	private final IParticleF factory;
 
