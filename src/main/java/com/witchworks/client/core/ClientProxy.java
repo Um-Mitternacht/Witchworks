@@ -45,8 +45,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-@SideOnly(Side.CLIENT)
-@Mod.EventBusSubscriber(modid = LibMod.MOD_ID)
+@Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy implements ISidedProxy {
 
 	@SubscribeEvent
