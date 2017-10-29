@@ -15,7 +15,7 @@ public class HarvestEvent {
 	@SubscribeEvent
 	@Mod.EventHandler
 	public void onHarvestBush(BlockEvent.HarvestDropsEvent harvest) {
-		if ((harvest.getState().getBlock() == Blocks.DEADBUSH && harvest.getWorld().rand.nextInt(100) < 25)) {
+		if ((harvest.getState().getBlock() == Blocks.DEADBUSH && harvest.getWorld().rand.nextInt(150) < 25)) {
 			harvest.getDrops().clear();
 			harvest.getDrops().add(new ItemStack(ModItems.seed_white_sage, 1));
 		}
@@ -24,7 +24,7 @@ public class HarvestEvent {
 	@SubscribeEvent
 	@Mod.EventHandler
 	public void onHarvestLeaves(BlockEvent.HarvestDropsEvent event) {
-		if ((event.getState().getBlock() == Blocks.LEAVES && event.getWorld().rand.nextInt(100) < 25)) {
+		if ((event.getState().getBlock() == Blocks.LEAVES && event.getWorld().rand.nextInt(150) < 25)) {
 			event.getDrops().clear();
 			event.getDrops().add(new ItemStack(ModItems.oak_apple_gall, 1));
 		}
