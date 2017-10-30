@@ -1,7 +1,7 @@
 //CreativeTab
-itemGroup.witchworks_plants=Witchworks - Plants and Herbs
-itemGroup.witchworks_items=Witchworks - Sticks and Stones
-itemGroup.witchworks_blocks=Witchworks - Blocks
+itemGroup.witchworks_plants=Witchworks - Green stuff
+itemGroup.witchworks_items=Witchworks - Stikz and rokz
+itemGroup.witchworks_blocks=Witchworks - Blockz
 
 //Config
 witchworks.config.world_gen=World Gen
