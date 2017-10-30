@@ -30,7 +30,7 @@ public class ContainerOven extends Container {
 		this.oven = inventory;
 		this.te = te;
 		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.EAST);
-		
+
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 17));
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 53));
 		this.addSlotToContainer(new SlotOvenJar(handler, 0, 69, 53));
@@ -53,7 +53,6 @@ public class ContainerOven extends Container {
 		listener.sendAllWindowProperties(this, this.oven);
 	}
 
-	@Nonnull
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int fromSlot) {
 		ItemStack previous = null;

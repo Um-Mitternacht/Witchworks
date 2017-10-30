@@ -16,7 +16,8 @@ public class SlotOvenJar extends SlotItemHandler {
 		super(itemHandler, index, xPosition, yPosition);
 	}
 
-	public boolean isItemValid(@Nullable ItemStack stack) {
+	@Override
+	public boolean isItemValid(ItemStack stack) {
 		return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
 				|| stack.getItem() == ModItems.glass_jar);
 	}
