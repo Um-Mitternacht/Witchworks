@@ -24,7 +24,7 @@ public class ContainerOven extends Container {
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
 		this.te = te;
-		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.EAST);
+		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 17));
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 53));
