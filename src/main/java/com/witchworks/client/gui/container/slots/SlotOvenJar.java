@@ -6,8 +6,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-import javax.annotation.Nullable;
-
 /**
  * Created by Joseph on 10/29/2017.
  */

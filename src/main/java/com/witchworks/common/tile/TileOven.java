@@ -2,12 +2,10 @@ package com.witchworks.common.tile;
 
 import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.client.gui.container.ContainerOven;
-import com.witchworks.common.item.ModItems;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;

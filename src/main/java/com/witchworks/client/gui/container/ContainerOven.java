@@ -1,20 +1,15 @@
 package com.witchworks.client.gui.container;
 
 import com.witchworks.client.gui.container.slots.SlotOvenJar;
-import com.witchworks.common.item.ModItems;
 import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Created by Joseph on 7/17/2017.
@@ -55,7 +50,7 @@ public class ContainerOven extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int fromSlot) {
-		ItemStack previous = null;
+		ItemStack previous = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(fromSlot);
 
 		if (slot != null && slot.getHasStack()) {
@@ -64,10 +59,10 @@ public class ContainerOven extends Container {
 
 			if (fromSlot < this.handler.getSlots()) {
 				if (!this.mergeItemStack(current, handler.getSlots(), handler.getSlots() + 36, true))
-					return null;
+					return ItemStack.EMPTY;
 			} else {
 				if (!this.mergeItemStack(current, 0, handler.getSlots(), false))
-					return null;
+					return ItemStack.EMPTY;
 			}
 
 			if (current.getCount() == 0)
