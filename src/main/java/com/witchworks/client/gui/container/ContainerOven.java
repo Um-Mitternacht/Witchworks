@@ -1,12 +1,16 @@
 package com.witchworks.client.gui.container;
 
+import com.sun.istack.internal.NotNull;
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
@@ -16,6 +20,7 @@ public class ContainerOven extends Container {
 
 	//Todo: Continue, life is getting in the way, as well as a damaged sleep cycle.
 	private final IInventory oven;
+	private IItemHandler handler;
 
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
@@ -42,38 +47,34 @@ public class ContainerOven extends Container {
 		listener.sendAllWindowProperties(this, this.oven);
 	}
 
+	@Nonnull
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
-		final Slot slot = inventorySlots.get(slotIndex);
-		ItemStack copy = ItemStack.EMPTY;
+	public ItemStack transferStackInSlot(EntityPlayer playerIn, int fromSlot) {
+		ItemStack previous = null;
+		Slot slot = (Slot) this.inventorySlots.get(fromSlot);
 
 		if (slot != null && slot.getHasStack()) {
-			final ItemStack original = slot.getStack();
-			copy = original.copy();
+			ItemStack current = slot.getStack();
+			previous = current.copy();
 
-			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
-				slot.onSlotChange(original, copy);
-			} else if (slotIndex > 19) {
-				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
-				slot.onSlotChange(original, copy);
+			if (fromSlot < this.handler.getSlots()) {
+				if (!this.mergeItemStack(current, handler.getSlots(), handler.getSlots() + 36, true))
+					return null;
 			} else {
-				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
-				slot.onSlotChange(original, copy);
+				if (!this.mergeItemStack(current, 0, handler.getSlots(), false))
+					return null;
 			}
 
-			if (original.getCount() == 0) {
+			if (current.getCount() == 0)
 				slot.putStack(ItemStack.EMPTY);
-			} else {
+			else
 				slot.onSlotChanged();
-			}
 
-			if (original.getCount() == copy.getCount()) return ItemStack.EMPTY;
-
-			slot.onTake(player, original);
+			if (current.getCount() == previous.getCount())
+				return null;
+			slot.onTake(playerIn, current);
 		}
-
-		return copy;
+		return previous;
 	}
 
 	@Override
