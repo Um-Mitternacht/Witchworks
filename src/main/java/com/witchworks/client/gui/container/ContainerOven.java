@@ -1,12 +1,15 @@
 package com.witchworks.client.gui.container;
 
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -19,15 +22,18 @@ public class ContainerOven extends Container {
 	//Todo: Continue, life is getting in the way, as well as a damaged sleep cycle.
 	private final IInventory oven;
 	private IItemHandler handler;
+	private TileOven te;
 
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
+		this.te = te;
+		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 
-		this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, 0, 19, 17));
-		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 0, 19, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenJar(inventory, 0, 69, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenFume(inventory, 0, 128, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenOutput(inventory, 0, 124, 21));
+		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 17));
+		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 53));
+		this.addSlotToContainer(new SlotItemHandler(handler, 0, 69, 53));
+		this.addSlotToContainer(new SlotItemHandler(handler, 0, 128, 53));
+		this.addSlotToContainer(new SlotItemHandler(handler, 0, 124, 21));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {

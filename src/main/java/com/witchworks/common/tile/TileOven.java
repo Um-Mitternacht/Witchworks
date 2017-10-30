@@ -18,18 +18,21 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.List;
 
 /**
  * Created by Joseph on 7/17/2017.
  */
-public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
+public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory, ICapabilityProvider {
 	private static final int[] SLOT_TOP = new int[]{3, 4};
 	private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
 	private List<ItemStack> itemStacks = ItemNullHelper.asList(64);
 	private String customName;
 	private EntityPlayerMP player;
+	private ItemStackHandler handler;
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
