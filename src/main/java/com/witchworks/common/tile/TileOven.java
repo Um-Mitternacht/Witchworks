@@ -109,6 +109,11 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	}
 
+	@Override
+	public boolean isItemValidForSlot(int index, ItemStack stack) {
+		return true;
+	}
+
 	public void dropItems() {
 		for (int i = 0; i < 16; ++i) {
 			final ItemStack stack = itemStacks.get(i);
@@ -118,12 +123,6 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 			}
 			itemStacks.set(i, ItemStack.EMPTY);
 		}
-	}
-
-	@Override
-	public boolean isItemValidForSlot(int index, ItemStack stack) {
-		return index == 0 ? stack.getItem() == Items.GLASS_BOTTLE
-				: stack.getItem() == ModItems.glass_jar;
 	}
 
 	@Override

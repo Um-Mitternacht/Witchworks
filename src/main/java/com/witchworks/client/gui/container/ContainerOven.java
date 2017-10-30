@@ -1,5 +1,6 @@
 package com.witchworks.client.gui.container;
 
+import com.witchworks.client.gui.container.slots.SlotOvenJar;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +32,7 @@ public class ContainerOven extends Container {
 
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 17));
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 53));
-		this.addSlotToContainer(new SlotItemHandler(handler, 0, 69, 53));
+		this.addSlotToContainer(new SlotOvenJar(handler, 0, 69, 53));
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 128, 53));
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 124, 21));
 
@@ -101,22 +102,6 @@ public class ContainerOven extends Container {
 
 		SlotOvenInput(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
-		}
-
-		public int getItemStackLimit(ItemStack stack) {
-			return 64;
-		}
-	}
-
-	private class SlotOvenJar extends Slot {
-
-		SlotOvenJar(IInventory inventoryIn, int slotIndex, int x, int y) {
-			super(inventoryIn, slotIndex, x, y);
-		}
-
-		public boolean isItemValid(@Nullable ItemStack stack) {
-			return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
-					|| stack.getItem() == ModItems.glass_jar);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
