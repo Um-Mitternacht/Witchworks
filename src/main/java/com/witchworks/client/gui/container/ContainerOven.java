@@ -8,6 +8,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -28,8 +29,8 @@ public class ContainerOven extends Container {
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
 		this.te = te;
-		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-
+		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.EAST);
+		
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 17));
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 53));
 		this.addSlotToContainer(new SlotOvenJar(handler, 0, 69, 53));
