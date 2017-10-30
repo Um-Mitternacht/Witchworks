@@ -1,8 +1,6 @@
 package com.witchworks.client.gui.container;
 
-import com.sun.istack.internal.NotNull;
 import com.witchworks.common.item.ModItems;
-import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;

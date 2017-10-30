@@ -10,8 +10,6 @@ package com.witchworks.client.fx;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public enum ParticleF {
 	CAULDRON_BUBBLE(new ParticleBubble.Factory()),
