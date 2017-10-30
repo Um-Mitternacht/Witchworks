@@ -27,7 +27,7 @@ import java.util.List;
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOT_TOP = new int[]{3, 4};
 	private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
-	private List<ItemStack> itemStacks = ItemNullHelper.asList(64);
+	private List<ItemStack> itemStacks = ItemNullHelper.asList(24);
 	private String customName;
 	private EntityPlayerMP player;
 	private ItemStackHandler handler;
@@ -64,7 +64,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public int getSizeInventory() {
-		return 64;
+		return 24;
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public int getInventoryStackLimit() {
-		return 64;
+		return 1;
 	}
 
 	@Override
@@ -196,7 +196,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 		super.writeToNBT(compound);
 		final NBTTagList nbttaglist = new NBTTagList();
 
-		for (int i = 0; i < 64; ++i) {
+		for (int i = 0; i < 16; ++i) {
 			if (!itemStacks.get(i).isEmpty()) {
 				final NBTTagCompound nbttagcompound = new NBTTagCompound();
 				nbttagcompound.setByte("Slot", (byte) i);

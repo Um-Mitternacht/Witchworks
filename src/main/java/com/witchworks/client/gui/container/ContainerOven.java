@@ -16,12 +16,9 @@ public class ContainerOven extends Container {
 
 	//Todo: Continue, life is getting in the way, as well as a damaged sleep cycle.
 	private final IInventory oven;
-	private IItemHandler handler;
-	private TileOven te;
 
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
-		this.te = te;
 
 		this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, 0, 19, 17));
 		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 0, 19, 53));
@@ -91,7 +88,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -102,12 +99,11 @@ public class ContainerOven extends Container {
 		}
 
 		public boolean isItemValid(ItemStack stack) {
-			return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
-					|| stack.getItem() == ModItems.glass_jar);
+			return stack != null && stack.getItem() == ModItems.glass_jar;
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -118,7 +114,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -129,7 +125,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 
@@ -140,7 +136,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 1;
 		}
 	}
 }
