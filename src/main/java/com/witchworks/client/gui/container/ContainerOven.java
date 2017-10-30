@@ -1,14 +1,13 @@
 package com.witchworks.client.gui.container;
 
-import com.witchworks.client.gui.container.slots.SlotOvenJar;
+import com.witchworks.common.item.ModItems;
 import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
 
 /**
  * Created by Joseph on 7/17/2017.
@@ -23,13 +22,12 @@ public class ContainerOven extends Container {
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
 		this.te = te;
-		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 
-		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 17));
-		this.addSlotToContainer(new SlotItemHandler(handler, 0, 19, 53));
-		this.addSlotToContainer(new SlotOvenJar(handler, 0, 69, 53));
-		this.addSlotToContainer(new SlotItemHandler(handler, 0, 128, 53));
-		this.addSlotToContainer(new SlotItemHandler(handler, 0, 124, 21));
+		this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, 0, 19, 17));
+		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 0, 19, 53));
+		this.addSlotToContainer(new ContainerOven.SlotOvenJar(inventory, 0, 69, 53));
+		this.addSlotToContainer(new ContainerOven.SlotOvenFume(inventory, 0, 128, 53));
+		this.addSlotToContainer(new ContainerOven.SlotOvenOutput(inventory, 0, 124, 21));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
@@ -48,32 +46,37 @@ public class ContainerOven extends Container {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int fromSlot) {
-		ItemStack previous = ItemStack.EMPTY;
-		Slot slot = (Slot) this.inventorySlots.get(fromSlot);
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
+		final Slot slot = inventorySlots.get(slotIndex);
+		ItemStack copy = ItemStack.EMPTY;
 
 		if (slot != null && slot.getHasStack()) {
-			ItemStack current = slot.getStack();
-			previous = current.copy();
+			final ItemStack original = slot.getStack();
+			copy = original.copy();
 
-			if (fromSlot < this.handler.getSlots()) {
-				if (!this.mergeItemStack(current, handler.getSlots(), handler.getSlots() + 36, true))
-					return ItemStack.EMPTY;
+			if (slotIndex == 0) {
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				slot.onSlotChange(original, copy);
+			} else if (slotIndex > 19) {
+				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
+				slot.onSlotChange(original, copy);
 			} else {
-				if (!this.mergeItemStack(current, 0, handler.getSlots(), false))
-					return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				slot.onSlotChange(original, copy);
 			}
 
-			if (current.getCount() == 0)
+			if (original.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
-			else
+			} else {
 				slot.onSlotChanged();
+			}
 
-			if (current.getCount() == previous.getCount())
-				return previous;
-			slot.onTake(playerIn, current);
+			if (original.getCount() == copy.getCount()) return ItemStack.EMPTY;
+
+			slot.onTake(player, original);
 		}
-		return previous;
+
+		return copy;
 	}
 
 	@Override
@@ -85,6 +88,22 @@ public class ContainerOven extends Container {
 
 		SlotOvenFuel(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
+		}
+
+		public int getItemStackLimit(ItemStack stack) {
+			return 64;
+		}
+	}
+
+	private class SlotOvenJar extends Slot {
+
+		SlotOvenJar(IInventory inventoryIn, int slotIndex, int x, int y) {
+			super(inventoryIn, slotIndex, x, y);
+		}
+
+		public boolean isItemValid(ItemStack stack) {
+			return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
+					|| stack.getItem() == ModItems.glass_jar);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
