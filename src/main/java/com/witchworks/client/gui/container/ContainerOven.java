@@ -6,7 +6,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -71,7 +70,7 @@ public class ContainerOven extends Container {
 				slot.onSlotChanged();
 
 			if (current.getCount() == previous.getCount())
-				return null;
+				return previous;
 			slot.onTake(playerIn, current);
 		}
 		return previous;
