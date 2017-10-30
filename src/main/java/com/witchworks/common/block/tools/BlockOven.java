@@ -56,12 +56,12 @@ public class BlockOven extends BlockMod implements ITileEntityProvider {
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
-			final TileEntity tile1 = worldIn.getTileEntity(pos);
-			if (tile1 == null || !(tile1 instanceof TileOven)) return false;
+			final TileEntity tile = worldIn.getTileEntity(pos);
+			if (tile == null || !(tile instanceof TileOven)) return false;
 
 			ItemStack heldItem = playerIn.getHeldItem(hand);
 			if (!heldItem.isEmpty() && heldItem.getItem() == Items.NAME_TAG) {
-				((TileOven) tile1).setCustomInventoryName(heldItem.getDisplayName());
+				((TileOven) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
 				playerIn.openGui(WitchWorks.instance, LibGui.OVEN, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
@@ -71,9 +71,9 @@ public class BlockOven extends BlockMod implements ITileEntityProvider {
 
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		final TileEntity tile1 = worldIn.getTileEntity(pos);
-		if (tile1 != null && tile1 instanceof TileOven) {
-			((TileOven) tile1).dropItems();
+		final TileEntity tile = worldIn.getTileEntity(pos);
+		if (tile != null && tile instanceof TileOven) {
+			((TileOven) tile).dropItems();
 		}
 		worldIn.removeTileEntity(pos);
 	}
