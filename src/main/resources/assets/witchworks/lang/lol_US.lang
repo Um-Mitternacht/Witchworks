@@ -1,6 +1,6 @@
 //CreativeTab
 itemGroup.witchworks_plants=Witchworks - Green stuff
-itemGroup.witchworks_items=Witchworks - Stikz and rokz
+itemGroup.witchworks_items=Witchworks - Stikz n stonz
 itemGroup.witchworks_blocks=Witchworks - Blockz
 
 //Config
@@ -39,7 +39,7 @@ item.kelp.name=Kelp
 item.mint.name=Mint
 item.white_sage.name=White Sage
 item.mandrake_root.name=Mandrake Root
-item.lavender.name=Lavender
+item.lavender.name=smelly purple stuff
 item.thistle.name=PLANT DAT HURTS
 item.silphium.name=Silphium
 item.wormwood.name=Wormwood
