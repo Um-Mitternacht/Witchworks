@@ -24,6 +24,8 @@ public final class WitchWorksAPI {
 	//Sounds
 	public static final ResourceLocation BOIL = getLocation("boil");
 	public static final ResourceLocation BUZZ = getLocation("buzz");
+	public static final ResourceLocation BUBBLE = getLocation("bubble");
+	public static final ResourceLocation OVEN_OPEN = getLocation("oven_open");
 	public static final ResourceLocation CHALK_SCRIBBLE = getLocation("chalk_scribble");
 
 	public static ResourceLocation SHELL_ARMOR = getLocation("shell_armor");

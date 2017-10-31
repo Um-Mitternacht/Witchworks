@@ -14,6 +14,8 @@ public final class WitchSoundEvents {
 	public static final SoundEvent BOIL = getRegisteredSound(WitchWorksAPI.BOIL);
 	public static final SoundEvent BUZZ = getRegisteredSound(WitchWorksAPI.BUZZ);
 	public static final SoundEvent CHALK_SCRIBBLE = getRegisteredSound(WitchWorksAPI.CHALK_SCRIBBLE);
+	public static final SoundEvent BUBBLE = getRegisteredSound(WitchWorksAPI.BUBBLE);
+	public static final SoundEvent OVEN_OPEN = getRegisteredSound(WitchWorksAPI.OVEN_OPEN);
 
 	private WitchSoundEvents() {
 	}
