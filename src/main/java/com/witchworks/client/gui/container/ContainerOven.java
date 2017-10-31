@@ -22,7 +22,7 @@ public class ContainerOven extends Container {
 		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 0, 19, 53));
 		this.addSlotToContainer(new ContainerOven.SlotOvenJar(inventory, 0, 69, 53));
 		this.addSlotToContainer(new ContainerOven.SlotOvenFume(inventory, 0, 128, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenOutput(inventory, 0, 124, 21));
+		this.addSlotToContainer(new ContainerOven.SlotOvenOutput(inventory, 0, 124, 21, playerInventory.player));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
@@ -90,7 +90,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+			return 64;
 		}
 	}
 
@@ -105,7 +105,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+			return 64;
 		}
 	}
 
@@ -120,7 +120,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+			return 64;
 		}
 	}
 
@@ -135,22 +135,25 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+			return 64;
 		}
 	}
 
-	private class SlotOvenOutput extends Slot {
+	private class SlotOvenOutput extends SlotFurnaceOutput {
 
-		SlotOvenOutput(IInventory inventoryIn, int slotIndex, int x, int y) {
-			super(inventoryIn, slotIndex, x, y);
+		private final EntityPlayer player;
+
+		SlotOvenOutput(IInventory inventoryIn, int slotIndex, int x, int y, EntityPlayer player) {
+			super(player, inventoryIn, slotIndex, x, y);
+			this.player = player;
 		}
 
 		public boolean isItemValid(ItemStack stack) {
-			return true;
+			return false;
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+			return 64;
 		}
 	}
 }
