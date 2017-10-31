@@ -63,7 +63,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public int getSizeInventory() {
-		return 24;
+		return this.itemStacks.size();
 	}
 
 	@Override
