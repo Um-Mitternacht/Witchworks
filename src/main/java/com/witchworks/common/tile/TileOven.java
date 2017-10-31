@@ -16,7 +16,6 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.List;
@@ -27,7 +26,7 @@ import java.util.List;
 public class TileOven extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOT_TOP = new int[]{3, 4};
 	private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
-	private List<ItemStack> itemStacks = ItemNullHelper.asList(24);
+	private List<ItemStack> itemStacks = ItemNullHelper.asList(5);
 	private String customName;
 	private EntityPlayerMP player;
 	private ItemStackHandler handler;
@@ -54,12 +53,12 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
-		return direction == EnumFacing.UP && isItemValidForSlot(index, itemStackIn);
+		return this.isItemValidForSlot(index, itemStackIn);
 	}
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		return direction == EnumFacing.DOWN && index > 0;
+		return true;
 	}
 
 	@Override
@@ -107,10 +106,10 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 
 	}
 
-	@Override
 	public boolean isItemValidForSlot(int index, ItemStack stack) {
 		return true;
 	}
+
 
 	public void dropItems() {
 		for (int i = 0; i < 16; ++i) {
@@ -175,7 +174,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		final NBTTagList nbttaglist = compound.getTagList("Items", 10);
-		this.itemStacks = ItemNullHelper.asList(19);
+		this.itemStacks = ItemNullHelper.asList(320);
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
 			final NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);

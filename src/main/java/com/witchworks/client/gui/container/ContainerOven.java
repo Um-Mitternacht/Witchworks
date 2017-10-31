@@ -1,13 +1,11 @@
 package com.witchworks.client.gui.container;
 
 import com.witchworks.common.item.ModItems;
-import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.items.IItemHandler;
+import net.minecraft.tileentity.TileEntityFurnace;
 
 /**
  * Created by Joseph on 7/17/2017.
@@ -52,13 +50,13 @@ public class ContainerOven extends Container {
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 1, 320, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
-			} else if (slotIndex > 19) {
+			} else if (slotIndex > 320) {
 				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 19, 55, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 1, 320, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 
@@ -87,6 +85,10 @@ public class ContainerOven extends Container {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
+		public boolean isItemValid(ItemStack stack) {
+			return TileEntityFurnace.isItemFuel(stack) || isBucket(stack);
+		}
+
 		public int getItemStackLimit(ItemStack stack) {
 			return 1;
 		}
@@ -113,6 +115,10 @@ public class ContainerOven extends Container {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
+		public boolean isItemValid(ItemStack stack) {
+			return true;
+		}
+
 		public int getItemStackLimit(ItemStack stack) {
 			return 1;
 		}
@@ -124,6 +130,10 @@ public class ContainerOven extends Container {
 			super(inventoryIn, slotIndex, x, y);
 		}
 
+		public boolean isItemValid(ItemStack stack) {
+			return true;
+		}
+
 		public int getItemStackLimit(ItemStack stack) {
 			return 1;
 		}
@@ -133,6 +143,10 @@ public class ContainerOven extends Container {
 
 		SlotOvenOutput(IInventory inventoryIn, int slotIndex, int x, int y) {
 			super(inventoryIn, slotIndex, x, y);
+		}
+
+		public boolean isItemValid(ItemStack stack) {
+			return true;
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
