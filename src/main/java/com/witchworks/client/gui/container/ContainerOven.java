@@ -90,7 +90,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 64;
 		}
 	}
 
@@ -105,7 +105,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 64;
 		}
 	}
 
@@ -120,7 +120,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 64;
 		}
 	}
 
@@ -135,7 +135,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 64;
 		}
 	}
 
@@ -150,7 +150,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 1;
+			return 64;
 		}
 	}
 }
