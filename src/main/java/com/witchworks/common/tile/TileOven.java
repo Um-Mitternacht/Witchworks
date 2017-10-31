@@ -2,6 +2,7 @@ package com.witchworks.common.tile;
 
 import com.witchworks.api.helper.ItemNullHelper;
 import com.witchworks.client.gui.container.ContainerOven;
+import com.witchworks.common.item.ModItems;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -64,7 +65,7 @@ public class TileOven extends TileEntityLockable implements ITickable, ISidedInv
 			if (direction == EnumFacing.DOWN && index == 1) {
 				Item item = stack.getItem();
 
-				if (item != Items.WATER_BUCKET && item != Items.BUCKET) {
+				if (item != Items.WATER_BUCKET && item != Items.BUCKET && item != Items.GLASS_BOTTLE && item != ModItems.glass_jar) {
 					return false;
 				}
 			}
