@@ -50,13 +50,13 @@ public class ContainerOven extends Container {
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 1, 40, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 5, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
-			} else if (slotIndex > 40) {
-				if (original.getCount() == 1 && !mergeItemStack(original, 0, 40, false)) return ItemStack.EMPTY;
+			} else if (slotIndex > 55) {
+				if (original.getCount() == 5 && !mergeItemStack(original, 0, 55, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 1, 40, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 5, 55, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 
@@ -89,8 +89,9 @@ public class ContainerOven extends Container {
 			return TileEntityFurnace.isItemFuel(stack) || isBucket(stack);
 		}
 
-		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+		public int getSlotStackLimit()
+		{
+			return 64;
 		}
 	}
 
@@ -104,8 +105,9 @@ public class ContainerOven extends Container {
 			return stack != null && stack.getItem() == ModItems.glass_jar;
 		}
 
-		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+		public int getSlotStackLimit()
+		{
+			return 64;
 		}
 	}
 
@@ -134,8 +136,9 @@ public class ContainerOven extends Container {
 			return true;
 		}
 
-		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+		public int getSlotStackLimit()
+		{
+			return 64;
 		}
 	}
 
@@ -149,8 +152,9 @@ public class ContainerOven extends Container {
 			return true;
 		}
 
-		public int getItemStackLimit(ItemStack stack) {
-			return 65;
+		public int getSlotStackLimit()
+		{
+			return 64;
 		}
 	}
 }
