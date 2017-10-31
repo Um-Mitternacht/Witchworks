@@ -29,6 +29,9 @@ public class GuiHandler implements IGuiHandler {
 			case 1:
 				final TileEntity tile1 = world.getTileEntity(new BlockPos(x, y, z));
 				return tile1 != null && (tile1 instanceof TileOven) ? new ContainerApiary(player.inventory, (TileOven) tile1) : null;
+			//case 2:
+			//	final TileEntity tile2 = world.getTileEntity(new BlockPos(x, y, z));
+			//	return tile2 != null && (tile2 instanceof TileDistillery) ? new ContainerDistillery(player.inventory, (TileDistillery) tile2) : null;
 			default:
 				return null;
 		}
@@ -44,6 +47,9 @@ public class GuiHandler implements IGuiHandler {
 			case 1:
 				final TileEntity tile1 = world.getTileEntity(new BlockPos(x, y, z));
 				return tile1 != null && (tile1 instanceof TileOven) ? new GuiOven(player.inventory, (TileOven) tile1) : null;
+			//case 2:
+			//	final TileEntity tile2 = world.getTileEntity(new BlockPos(x, y, z));
+			//	return tile2 != null && (tile2 instanceof TileDistillery) ? new TileDistillery(player.inventory, (TileDistillery) tile2) : null;
 			default:
 				return null;
 		}
