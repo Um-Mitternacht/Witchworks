@@ -50,13 +50,13 @@ public class ContainerOven extends Container {
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 1, 320, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 1, 65, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
-			} else if (slotIndex > 320) {
-				if (original.getCount() == 1 && !mergeItemStack(original, 0, 1, false)) return ItemStack.EMPTY;
+			} else if (slotIndex > 65) {
+				if (original.getCount() == 1 && !mergeItemStack(original, 0, 65, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 1, 320, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 1, 65, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 
@@ -90,7 +90,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 65;
 		}
 	}
 
@@ -105,7 +105,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 65;
 		}
 	}
 
@@ -120,7 +120,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 65;
 		}
 	}
 
@@ -135,7 +135,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 65;
 		}
 	}
 
@@ -150,7 +150,7 @@ public class ContainerOven extends Container {
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
-			return 64;
+			return 65;
 		}
 	}
 }
