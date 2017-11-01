@@ -3,6 +3,7 @@ package com.witchworks.client.gui.container;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
@@ -100,7 +101,8 @@ public class ContainerOven extends Container {
 		}
 
 		public boolean isItemValid(ItemStack stack) {
-			return stack != null && stack.getItem() == ModItems.glass_jar;
+			return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
+						|| stack.getItem() == ModItems.glass_jar);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
@@ -130,7 +132,7 @@ public class ContainerOven extends Container {
 		}
 
 		public boolean isItemValid(ItemStack stack) {
-			return true;
+			return false;
 		}
 
 		public int getItemStackLimit(ItemStack stack) {
