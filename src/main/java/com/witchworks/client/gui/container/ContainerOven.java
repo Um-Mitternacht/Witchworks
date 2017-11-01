@@ -12,17 +12,16 @@ import net.minecraft.tileentity.TileEntityFurnace;
  */
 public class ContainerOven extends Container {
 
-	//Todo: Continue, life is getting in the way, as well as a damaged sleep cycle.
 	private final IInventory oven;
 
 	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
 		this.oven = inventory;
 
 		this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, 0, 19, 17));
-		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 0, 19, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenJar(inventory, 0, 69, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenFume(inventory, 0, 128, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenOutput(inventory, 0, 124, 21, playerInventory.player));
+		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 1, 19, 53));
+		this.addSlotToContainer(new ContainerOven.SlotOvenJar(inventory, 2, 69, 53));
+		this.addSlotToContainer(new ContainerOven.SlotOvenFume(inventory, 3, 128, 53));
+		this.addSlotToContainer(new ContainerOven.SlotOvenOutput(inventory, 4, 124, 21, playerInventory.player));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
@@ -50,13 +49,13 @@ public class ContainerOven extends Container {
 			copy = original.copy();
 
 			if (slotIndex == 0) {
-				if (!mergeItemStack(original, 1, 41, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 5, 41, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
-			} else if (slotIndex > 41) {
-				if (original.getCount() == 1 && !mergeItemStack(original, 0, 41, false)) return ItemStack.EMPTY;
+			} else if (slotIndex > 5) {
+				if (original.getCount() == 1 && !mergeItemStack(original, 0, 5, false)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			} else {
-				if (!mergeItemStack(original, 1, 41, true)) return ItemStack.EMPTY;
+				if (!mergeItemStack(original, 5, 41, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(original, copy);
 			}
 
