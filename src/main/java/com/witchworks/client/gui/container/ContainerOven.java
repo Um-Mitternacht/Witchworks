@@ -102,7 +102,7 @@ public class ContainerOven extends Container {
 
 		public boolean isItemValid(ItemStack stack) {
 			return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
-						|| stack.getItem() == ModItems.glass_jar);
+					|| stack.getItem() == ModItems.glass_jar);
 		}
 
 		public int getItemStackLimit(ItemStack stack) {

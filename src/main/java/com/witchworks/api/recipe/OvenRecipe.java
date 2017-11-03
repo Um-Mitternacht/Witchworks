@@ -9,6 +9,8 @@ import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
+
+//Todo: Revamp, now that the oven GUI is in place.
 public class OvenRecipe {
 
 	private final ItemStack[] outputs;
