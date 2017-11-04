@@ -45,6 +45,16 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 		return canSustainBush(state);
 	}
 
+	@Override
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+		super.updateTick(worldIn, pos, state, rand);
+			if (rand.nextInt(450) < 25) {
+				worldIn.setBlockState(pos, getDefaultState());
+			} else {
+				trySpread(worldIn, pos, rand);
+			}
+		}
+	
 	private void trySpread(World world, BlockPos center, Random rand) {
 		BlockPos I = center.add(-1, -1, -1);
 		BlockPos F = center.add(1, 1, 1);
