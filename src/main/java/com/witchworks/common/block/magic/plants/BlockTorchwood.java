@@ -22,7 +22,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 		super(LibBlockName.TORCHWOOD, Material.WOOD);
 		setResistance(3F);
 		setHardness(3F);
-		this.setLightLevel(10);
+		this.setLightLevel(0.7F);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
@@ -38,7 +38,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 
 	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-		return false;
+		return true;
 	}
 
 	@Override
