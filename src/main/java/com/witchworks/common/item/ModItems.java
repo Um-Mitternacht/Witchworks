@@ -240,6 +240,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.altar),
 				itemBlock(ModBlocks.oven),
 				itemBlock(ModBlocks.apiary),
+				itemBlock(ModBlocks.torchwood),
 				itemBlock(ModBlocks.beehive),
 				itemBlock(ModBlocks.tourmaline_block),
 				itemBlock(ModBlocks.malachite_block),
