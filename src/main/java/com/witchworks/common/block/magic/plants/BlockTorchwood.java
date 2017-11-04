@@ -1,13 +1,12 @@
 package com.witchworks.common.block.magic.plants;
 
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -27,13 +26,17 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state){
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
 	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
 		return false;
+	}
+
+	protected boolean canSustainBush(IBlockState state) {
+		return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.STONE || state.getBlock() == Blocks.FARMLAND;
 	}
 
 	@Override
