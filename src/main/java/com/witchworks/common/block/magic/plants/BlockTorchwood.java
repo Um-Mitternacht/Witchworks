@@ -35,8 +35,27 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 		return false;
 	}
 
-	protected boolean canSustainBush(IBlockState state) {
-		return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.STONE || state.getBlock() == Blocks.FARMLAND;
+	public boolean canSustainBush(IBlockState state) {
+		return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.STONE || state.getBlock() == Blocks.FARMLAND || state.getBlock() == this;
+	}
+
+	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+		IBlockState state = worldIn.getBlockState(pos.down());
+		return canSustainBush(state);
+	}
+
+	private void trySpread(World world, BlockPos center, Random rand) {
+		BlockPos I = center.add(-1, -1, -1);
+		BlockPos F = center.add(1, 1, 1);
+		BlockPos.getAllInBox(I, F).forEach(
+				pos -> {
+					if (rand.nextBoolean() && canSustainBush(world.getBlockState(pos.down()))
+							&& (world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isReplaceable(world, pos))) {
+						world.setBlockState(pos, getDefaultState(), 2);
+					}
+				}
+		);
 	}
 
 	@Override
