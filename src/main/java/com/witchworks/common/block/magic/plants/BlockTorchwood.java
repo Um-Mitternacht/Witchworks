@@ -3,6 +3,7 @@ package com.witchworks.common.block.magic.plants;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
+import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -74,6 +75,13 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 				}
 		);
 	}
+
+	@Override
+	public Block.EnumOffsetType getOffsetType()
+	{
+		return Block.EnumOffsetType.XYZ;
+	}
+
 
 	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
