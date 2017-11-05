@@ -1,6 +1,7 @@
 package com.witchworks.common.block.magic.plants;
 
 import com.witchworks.common.block.BlockMod;
+import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.Block;
@@ -44,7 +45,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 	}
 
 	public boolean canSustainBush(IBlockState state) {
-		return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.STONE || state.getBlock() == Blocks.FARMLAND || state.getBlock() == this;
+		return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.STONE || state.getBlock() == Blocks.FARMLAND || state.getBlock() == ModBlocks.chalk || state.getBlock() == ModBlocks.coquina || state.getBlock() == Blocks.SAND || state.getBlock() == Blocks.GRAVEL || state.getBlock() == this;
 	}
 
 	@Override
@@ -77,8 +78,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 	}
 
 	@Override
-	public Block.EnumOffsetType getOffsetType()
-	{
+	public Block.EnumOffsetType getOffsetType() {
 		return Block.EnumOffsetType.XYZ;
 	}
 
