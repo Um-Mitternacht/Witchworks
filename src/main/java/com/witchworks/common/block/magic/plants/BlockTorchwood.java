@@ -9,8 +9,11 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -41,7 +44,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 
 	@Override
 	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
-		return false;
+		return true;
 	}
 
 	public boolean canSustainBush(IBlockState state) {
@@ -62,6 +65,11 @@ public class BlockTorchwood extends BlockMod implements IGrowable {
 		} else {
 			trySpread(worldIn, pos, rand);
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.CUTOUT;
 	}
 
 	private void trySpread(World world, BlockPos center, Random rand) {
