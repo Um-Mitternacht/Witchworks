@@ -93,7 +93,7 @@ public final class CauldronCrafting {
 				, getStack(Items.DYE, 1, 2), Items.ROTTEN_FLESH, Items.WHEAT, ModItems.salt);
 
 		registerItemRitual("extra_bonemeal", getStack(Items.DYE, 6, 15), 3
-				, getStack(Items.BONE));
+				, getStack(Items.BONE, 1));
 
 		registerItemRitual("mycelia", getStack(Blocks.MYCELIUM, 4), 6
 				, getStack(Blocks.DIRT, 4), Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM, Items.SUGAR, Items.FERMENTED_SPIDER_EYE);
