@@ -6,6 +6,7 @@ import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -31,6 +32,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable, IPlantable {
 		super(LibBlockName.TORCHWOOD, Material.WOOD);
 		setResistance(3F);
 		setHardness(3F);
+		setSound(SoundType.WOOD);
 		this.setLightLevel(0.7F);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
