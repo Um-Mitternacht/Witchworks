@@ -222,6 +222,9 @@ tile.fake_ice_slab_half.name=Perpetual Ice Slab
 //Saplings
 tile.cypress_sapling.name=Cypress Sapling
 
+//Mutant Plants
+tile.torchwood.name=Torchwood
+
 //Devices
 tile.cauldron.name=Witches Cauldron
 tile.apiary.name=Apiary
