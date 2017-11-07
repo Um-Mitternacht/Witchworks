@@ -144,10 +144,4 @@ public class BlockTorchwood extends BlockMod implements IGrowable, IPlantable {
 	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
 		return this.getDefaultState();
 	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerModel() {
-		ModelHandler.registerModel(this, 0);
-	}
 }
