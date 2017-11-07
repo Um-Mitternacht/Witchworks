@@ -293,7 +293,7 @@ public class BlockSaltBarrier extends BlockMod {
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
 		if (entityIn instanceof EntityLivingBase && (((EntityLivingBase) entityIn).getCreatureAttribute() == EnumCreatureAttribute.UNDEAD)) {
-			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 10, 0));
+			collidingBoxes.add(new AxisAlignedBB(pos).expand(0, 255, 0));
 		}
 		if (entityIn instanceof EntityLivingBase && (((EntityLivingBase) entityIn).getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD)) {
 			entityIn.attackEntityFrom(DamageSource.MAGIC, 1);
