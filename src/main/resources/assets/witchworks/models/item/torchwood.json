@@ -1,3 +1,6 @@
 {
-  "parent": "witchworks:block/torchwood"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "witchworks:block/torchwood"
+  }
 }

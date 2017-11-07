@@ -1,3 +1,6 @@
 {
-  "parent": "witchworks:block/cypress_sapling"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "witchworks:block/cypress_sapling"
+  }
 }
