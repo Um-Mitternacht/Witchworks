@@ -1,5 +1,6 @@
 package com.witchworks.common.block.magic.plants;
 
+import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
@@ -30,8 +31,8 @@ public class BlockTorchwood extends BlockMod implements IGrowable, IPlantable {
 
 	public BlockTorchwood() {
 		super(LibBlockName.TORCHWOOD, Material.WOOD);
-		setResistance(3F);
-		setHardness(3F);
+		setResistance(0.5F);
+		setHardness(0.5F);
 		setSound(SoundType.WOOD);
 		this.setLightLevel(0.7F);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
@@ -142,5 +143,11 @@ public class BlockTorchwood extends BlockMod implements IGrowable, IPlantable {
 	@Override
 	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
 		return this.getDefaultState();
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerModel() {
+		ModelHandler.registerModel(this, 0);
 	}
 }
