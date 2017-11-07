@@ -25,6 +25,7 @@ public class SaltLandBrew extends BlockHitBrew {
 		return "salt_land";
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void safeImpact(BlockPos pos, @Nullable EnumFacing side, World world, int amplifier) {
 		int box = 1 + (int) ((float) amplifier / 2F);

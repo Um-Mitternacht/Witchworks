@@ -66,6 +66,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable, IPlantable {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
@@ -120,6 +121,7 @@ public class BlockTorchwood extends BlockMod implements IGrowable, IPlantable {
 		return Block.EnumOffsetType.XYZ;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
