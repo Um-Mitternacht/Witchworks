@@ -1,6 +1,7 @@
 package com.witchworks.api.recipe;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Tuple;
 
 import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
 
@@ -10,29 +11,23 @@ import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
  * the MIT license.
  */
 
-//Todo: Revamp, now that the oven GUI is in place.
 public class OvenRecipe {
 
-	private final ItemStack[] outputs;
+	private final ItemStack output1, output2;
 	private final ItemStack needed;
 
-	public OvenRecipe(ItemStack needed, ItemStack... outputs) {
+	public OvenRecipe(ItemStack needed, ItemStack output1, ItemStack output2) {
 		this.needed = needed;
-		this.outputs = outputs;
+		this.output1 = output1;
+		this.output2 = output2;
 	}
 
 	public ItemStack getNeeded() {
-		return needed;
+		return needed.copy();
 	}
 
-	public ItemStack[] getOutputs() {
-		ItemStack[] other = new ItemStack[outputs.length];
-
-		for (int i = 0; i < outputs.length; i++) {
-			other[i] = other[i].copy();
-		}
-
-		return other;
+	public Tuple<ItemStack, ItemStack> getOutputs() {
+		return new Tuple<>(output1.copy(), output2.copy());
 	}
 
 	public boolean matches(ItemStack input) {

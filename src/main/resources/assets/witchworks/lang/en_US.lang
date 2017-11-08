@@ -224,6 +224,7 @@ tile.cypress_sapling.name=Cypress Sapling
 
 //Mutant Plants
 tile.torchwood.name=Torchwood
+tile.ember_grass.name=Ember Grass
 
 //Devices
 tile.cauldron.name=Witches Cauldron
