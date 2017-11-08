@@ -147,7 +147,7 @@ public final class CauldronCrafting {
 				, getStack(Blocks.STONE, 4), ModItems.white_sage);
 
 		registerItemRitual("torchwood", getStack(ModBlocks.torchwood, 2), 6
-				, getStack(Items.COAL, 4), Blocks.TORCH, Items.BLAZE_POWDER, Blocks.SAPLING);
+				, getStack(Items.COAL, 4), Blocks.TORCH, Items.GLOWSTONE_DUST, Blocks.SAPLING);
 
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
