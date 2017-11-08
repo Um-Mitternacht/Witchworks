@@ -1,6 +1,5 @@
 package com.witchworks.common.block.magic.plants;
 
-import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.WitchWorksCreativeTabs;

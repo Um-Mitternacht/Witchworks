@@ -1,7 +1,6 @@
 package com.witchworks.common.block.magic.plants;
 
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.Block;
