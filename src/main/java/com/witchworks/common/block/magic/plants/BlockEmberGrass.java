@@ -12,6 +12,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -19,6 +20,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -34,7 +37,7 @@ public class BlockEmberGrass extends BlockMod implements IGrowable, IPlantable {
 		setResistance(0.5F);
 		setHardness(0.5F);
 		setSound(SoundType.PLANT);
-		this.setLightLevel(0.7F);
+		this.setLightLevel(0.1F);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
@@ -67,7 +70,7 @@ public class BlockEmberGrass extends BlockMod implements IGrowable, IPlantable {
 
 	@Override
 	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
-		return EnumPlantType.Nether;
+		return EnumPlantType.Plains;
 	}
 
 	@Override
@@ -109,6 +112,29 @@ public class BlockEmberGrass extends BlockMod implements IGrowable, IPlantable {
 	}
 
 	@Override
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+		super.updateTick(worldIn, pos, state, rand);
+		if (rand.nextInt(25) == 0) {
+			worldIn.setBlockState(pos, getDefaultState());
+		} else {
+			trySpread(worldIn, pos, rand);
+		}
+	}
+
+	private void trySpread(World world, BlockPos center, Random rand) {
+		BlockPos I = center.add(-1, -1, -1);
+		BlockPos F = center.add(1, 1, 1);
+		BlockPos.getAllInBox(I, F).forEach(
+				pos -> {
+					if (rand.nextBoolean() && canSustainBush(world.getBlockState(pos.down()))
+							&& (world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isReplaceable(world, pos))) {
+						world.setBlockState(pos, getDefaultState(), 2);
+					}
+				}
+		);
+	}
+
+	@Override
 	public Block.EnumOffsetType getOffsetType() {
 		return Block.EnumOffsetType.XYZ;
 	}
@@ -117,6 +143,11 @@ public class BlockEmberGrass extends BlockMod implements IGrowable, IPlantable {
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.CUTOUT;
 	}
 
 	@SuppressWarnings("deprecation")
