@@ -146,6 +146,9 @@ public final class CauldronCrafting {
 		registerItemRitual("albedo", getStack(ModItems.albedo, 4, 0), 4
 				, getStack(Blocks.STONE, 4), ModItems.white_sage);
 
+		registerItemRitual("torchwood", getStack(ModBlocks.torchwood, 2), 6
+				, getStack(Items.COAL, 4), Blocks.TORCH, Items.BLAZE_POWDER, Blocks.SAPLING);
+
 		//------------------------------------Brew Recipes------------------------------------//
 		registerBrewRecipe(BrewRegistry.Brew.LINGER, new BrewEffect(ModBrews.MARS_WATER, 500, 0)
 				, getStack(Items.IRON_NUGGET, 6), Items.POISONOUS_POTATO, Items.ROTTEN_FLESH, ModItems.salt, getStack(ModItems.gem, 1, 6));
