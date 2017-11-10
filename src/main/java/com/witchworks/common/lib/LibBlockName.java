@@ -63,6 +63,7 @@ public final class LibBlockName {
 	public static final String FAKE_ICE_STAIRS = "fake_ice_stairs";
 	public static final String TORCHWOOD = "torchwood";
 	public static final String EMBER_GRASS = "ember_grass";
+	public static final String RAGING_GRASS = "raging_grass";
 	public static final String FAKE_ICE_SLAB = "fake_ice_slab";
 	public static final String FAKE_ICE_SLAB_DOUBLE = "fake_ice_slab_double";
 	public static final String FAKE_ICE_SLAB_HALF = "fake_ice_slab_half";

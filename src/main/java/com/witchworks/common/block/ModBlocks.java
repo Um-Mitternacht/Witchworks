@@ -2,6 +2,7 @@ package com.witchworks.common.block;
 
 import com.witchworks.common.block.magic.*;
 import com.witchworks.common.block.magic.plants.BlockEmberGrass;
+import com.witchworks.common.block.magic.plants.BlockRagingGrass;
 import com.witchworks.common.block.magic.plants.BlockTorchwood;
 import com.witchworks.common.block.natural.BlockBeehive;
 import com.witchworks.common.block.natural.BlockGemOre;
@@ -85,6 +86,7 @@ public final class ModBlocks {
 	public static final Block fake_ice_slab_double = PLACE_HOLDER;
 	public static final Block torchwood = PLACE_HOLDER;
 	public static final Block ember_grass = PLACE_HOLDER;
+	public static final Block raging_grass = PLACE_HOLDER;
 	private static Block STAIRS_ICE = new Block(Material.ICE);
 
 	private ModBlocks() {
@@ -129,6 +131,7 @@ public final class ModBlocks {
 				new BlockAltar(),
 				new BlockTorchwood(),
 				new BlockEmberGrass(),
+				new BlockRagingGrass(),
 				new BlockCypressSapling(),
 				new BlockFakeIce(),
 				new BlockFakeIceFence(),
