@@ -55,6 +55,7 @@ public class ClientProxy implements ISidedProxy {
 	public static void stitchEventPre(TextureStitchEvent.Pre event) {
 		event.getMap().registerSprite(ResourceLocations.STEAM);
 		event.getMap().registerSprite(ResourceLocations.BEE);
+		event.getMap().registerSprite(ResourceLocations.FLAME);
 		event.getMap().registerSprite(ResourceLocations.GRAY_WATER);
 	}
 
