@@ -153,7 +153,7 @@ public class BlockEmberGrass extends BlockMod implements IGrowable, IPlantable {
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
 		if (entityIn instanceof EntityLivingBase) {
-			entityIn.attackEntityFrom(DamageSource.ON_FIRE, 2);
+			entityIn.attackEntityFrom(DamageSource.IN_FIRE, 4);
 		}
 	}
 }
