@@ -9,8 +9,8 @@ witchworks.config.energy_hud=Energy HUD
 witchworks.config.brew_hud=Brews HUD
 
 //Gui
-container.apiary=Apiary
-container.oven=Oven
+container.apiary=nopebawx
+container.oven=ovun
 
 ////Names
 //Items
@@ -75,10 +75,10 @@ item.spectral_dust.name=Spectral Dust
 item.silver_scales.name=Silver Scales
 item.eye_of_old.name=old eyebawl
 item.heart.name=heart
-item.envenomed_fang.name=Envenomed Fang
-item.dimensional_sand.name=Dimensional Sand
+item.envenomed_fang.name=NOPE
+item.dimensional_sand.name=sand dat hurtz moar
 item.chromatic_quill.name=feathur of manee colurs
-item.carnivorous_tooth.name=Carnivorous Tooth
+item.carnivorous_tooth.name=larg toof
 item.eye_of_ancient.name=ancent eyebawl
 item.hoof.name=huf
 item.equine_tail.name=horsie tail
@@ -202,7 +202,7 @@ tile.alexandrite_block.name=Alexandrite Block
 tile.jasper_block.name=Jasper Block
 tile.amethyst_block.name=Amethyst Block
 tile.silver_block.name=Silver Block
-tile.nethersteel.name=Nethersteel
+tile.nethersteel.name=pig eyron
 tile.gem_ore_jasper.name=Jasper Ore
 tile.gem_ore_tigers_eye.name=OH NOEZ A KAT IZ STUCK INSIDE
 tile.gem_ore_serpentine.name=Serpentine ore
@@ -214,10 +214,10 @@ tile.gem_ore_alexandrite.name=Alexandrite Ore
 tile.coquina.name=Bech Rawck
 tile.chalk.name=Raw Chalk
 tile.unrefined_chalk.name=Unrefined Chalk
-tile.fake_ice.name=Perpetual Ice
-tile.fake_ice_fence.name=Perpetual Ice Fence
-tile.fake_ice_stairs.name=Perpetual Ice Stairs
-tile.fake_ice_slab_half.name=Perpetual Ice Slab
+tile.fake_ice.name=ice dat doez nawt melt
+tile.fake_ice_fence.name=fence ov ice dat doez nawt melt
+tile.fake_ice_stairs.name=stairs ov ice dat doez nawt melt
+tile.fake_ice_slab_half.name=slab ov ice dat doez nawt melt
 
 //Saplings
 tile.cypress_sapling.name=Cypress Sapling
