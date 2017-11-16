@@ -71,8 +71,8 @@ item.wool_of_bat.name=bat fur
 item.tongue_of_dog.name=doggeh tonge
 item.wood_ash.name=burnt wuud
 item.ectoplasm.name=ghawst goo
-item.spectral_dust.name=Spectral Dust
-item.silver_scales.name=Silver Scales
+item.spectral_dust.name=ghostie dust
+item.silver_scales.name=scaelz
 item.eye_of_old.name=old eyebawl
 item.heart.name=heart
 item.envenomed_fang.name=NOPE
@@ -99,10 +99,10 @@ item.silver_leggings.name=Silver Leggings
 item.silver_boots.name=Silver Boots
 item.athame.name=pointy ting
 item.boline.name=circular pointeh ting
-item.mortar_and_pestle.name=Mortar and Pestle
+item.mortar_and_pestle.name=merter and pestul
 item.brew_phial.name=Funny Watr Bottle
 item.taglock.name=Taglock Kit
-item.chalk_item.name=Mundane Chalk
+item.chalk_item.name=a stik of rawk
 item.wand.name=ERMAGERD A WERND
 item.needle_bone.name=pointeh boen
 item.unrefined_chalk.name=Unrefined Chalk
@@ -220,7 +220,7 @@ tile.fake_ice_stairs.name=stairs ov ice dat doez nawt melt
 tile.fake_ice_slab_half.name=slab ov ice dat doez nawt melt
 
 //Saplings
-tile.cypress_sapling.name=Cypress Sapling
+tile.cypress_sapling.name=pointeh babby tree
 
 //Mutant Plants
 tile.torchwood.name=Gloweh Bush
