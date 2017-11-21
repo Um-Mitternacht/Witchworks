@@ -35,8 +35,8 @@ public class BlockRagingGrass extends BlockMod implements IGrowable, IPlantable 
 
 	public BlockRagingGrass() {
 		super(LibBlockName.RAGING_GRASS, Material.PLANTS);
-		setResistance(0.5F);
-		setHardness(0.5F);
+		setResistance(0.1F);
+		setHardness(0.1F);
 		setSound(SoundType.PLANT);
 		this.setLightLevel(0.1F);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);

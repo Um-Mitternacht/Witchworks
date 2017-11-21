@@ -33,8 +33,8 @@ public class BlockEmberGrass extends BlockMod implements IGrowable, IPlantable {
 
 	public BlockEmberGrass() {
 		super(LibBlockName.EMBER_GRASS, Material.PLANTS);
-		setResistance(0.5F);
-		setHardness(0.5F);
+		setResistance(0.1F);
+		setHardness(0.1F);
 		setSound(SoundType.PLANT);
 		this.setLightLevel(0.1F);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);

@@ -30,8 +30,8 @@ public class BlockTorchwood extends BlockMod implements IGrowable, IPlantable {
 
 	public BlockTorchwood() {
 		super(LibBlockName.TORCHWOOD, Material.WOOD);
-		setResistance(0.5F);
-		setHardness(0.5F);
+		setResistance(0.3F);
+		setHardness(0.3F);
 		setSound(SoundType.WOOD);
 		this.setLightLevel(0.7F);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
