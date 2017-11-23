@@ -3,6 +3,7 @@ package com.witchworks.common.crafting.oven;
 import com.google.common.collect.Maps;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import java.util.Map;
@@ -11,7 +12,7 @@ import java.util.Map;
  * Created by Joseph on 11/6/2017.
  */
 
-//Todo: Work on this after revamping the other class
+//Todo: Add RNG for fumes
 public class OvenCrafting {
 
 	private static final OvenCrafting OVEN_RECIPES = new OvenCrafting();
@@ -19,8 +20,9 @@ public class OvenCrafting {
 	private final Map<ItemStack, ItemStack> fumeList = Maps.<ItemStack, ItemStack>newHashMap();
 
 	public OvenCrafting() {
-		//test recipe
+		//test recipes
 		addSmeltingRecipe(new ItemStack(Blocks.SAPLING), new ItemStack(ModItems.brew_phial_drink), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.LEATHER), new ItemStack(ModItems.ectoplasm, 3));
 	}
 
 	public static OvenCrafting instance() {
