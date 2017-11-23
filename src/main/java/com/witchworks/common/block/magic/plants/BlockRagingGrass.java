@@ -11,7 +11,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.DamageSource;

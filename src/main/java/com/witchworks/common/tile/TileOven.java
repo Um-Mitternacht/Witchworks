@@ -1,13 +1,11 @@
 package com.witchworks.common.tile;
 
-import com.witchworks.api.recipe.OvenRecipe;
 import com.witchworks.common.crafting.oven.OvenCrafting;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
@@ -23,22 +21,21 @@ import javax.annotation.Nullable;
  * Created by Joseph on 7/17/2017.
  */
 public class TileOven extends TileEntity implements ITickable {
-	//come back to for input with hopper/other ducts
-	//private static final int[] SLOT_TOP = new int[]{3, 4};
-	//private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
-	private String customName;
 	public int workTime;
 	public int totalWorkTime;
 	public boolean isBurning = false;
 	public int burnTime;
 	public int itemBurnTime = 0;
-
 	public ItemStackHandler inventory = new ItemStackHandler(5) {
 		@Override
 		protected void onContentsChanged(int slot) {
 			TileOven.this.markDirty();
 		}
 	};
+	//come back to for input with hopper/other ducts
+	//private static final int[] SLOT_TOP = new int[]{3, 4};
+	//private static final int[] SLOT_BOTTOM = new int[]{0, 1, 2};
+	private String customName;
 
 	public void dropItems() {
 		for (int i = 0; i < 5; ++i) {
@@ -59,34 +56,34 @@ public class TileOven extends TileEntity implements ITickable {
 		}
 		this.totalWorkTime = getWorkTime();
 
-		if(!isBurning) {
-			if(!inventory.getStackInSlot(1).isEmpty()) {
-				if(TileEntityFurnace.isItemFuel(inventory.getStackInSlot(1))) {
-					if(canSmelt()) {
+		if (!isBurning) {
+			if (!inventory.getStackInSlot(1).isEmpty()) {
+				if (TileEntityFurnace.isItemFuel(inventory.getStackInSlot(1))) {
+					if (canSmelt()) {
 						itemBurnTime = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(1));
 						inventory.getStackInSlot(1).shrink(1);
 						isBurning = true;
 					}
 				}
 			}
-		}else if(isBurning) {
+		} else if (isBurning) {
 			burnTime++;
-			if(burnTime >= itemBurnTime) {
+			if (burnTime >= itemBurnTime) {
 				burnTime = 0;
 				isBurning = false;
 			}
-			if(canSmelt()) {
+			if (canSmelt()) {
 				workTime++;
-				if(workTime >= totalWorkTime) {
+				if (workTime >= totalWorkTime) {
 					workTime = 0;
 					smelt();
 				}
-			}else if(workTime > 0) {
+			} else if (workTime > 0) {
 				workTime = 0;
 			}
 		}
 
-		if(burnTime >= itemBurnTime) {
+		if (burnTime >= itemBurnTime) {
 			isBurning = false;
 			burnTime = 0;
 		}
@@ -108,13 +105,13 @@ public class TileOven extends TileEntity implements ITickable {
 							return true;
 						} else if (!inventory.getStackInSlot(3).isEmpty() && inventory.getStackInSlot(4).isEmpty()) {
 							ItemStack stackFume = inventory.getStackInSlot(3);
-							if(inventory.getStackInSlot(3).getCount() < 64) {
+							if (inventory.getStackInSlot(3).getCount() < 64) {
 								if (stackFume == OvenCrafting.instance().getFumesResult(stack)) {
 									return true;
 								}
 							}
 						} else if (!inventory.getStackInSlot(4).isEmpty() && inventory.getStackInSlot(3).isEmpty()) {
-							if(inventory.getStackInSlot(4).getCount() < 64) {
+							if (inventory.getStackInSlot(4).getCount() < 64) {
 								ItemStack stackOutput = inventory.getStackInSlot(4);
 								if (stackOutput == OvenCrafting.instance().getSmeltResult(stack)) {
 									return true;
@@ -123,7 +120,7 @@ public class TileOven extends TileEntity implements ITickable {
 						} else if (!inventory.getStackInSlot(3).isEmpty() && !inventory.getStackInSlot(4).isEmpty()) {
 							ItemStack stackFume = inventory.getStackInSlot(3);
 							ItemStack stackOutput = inventory.getStackInSlot(4);
-							if(inventory.getStackInSlot(3).getCount() < 64 && inventory.getStackInSlot(4).getCount() < 64) {
+							if (inventory.getStackInSlot(3).getCount() < 64 && inventory.getStackInSlot(4).getCount() < 64) {
 								if (stackFume == OvenCrafting.instance().getFumesResult(stack) && stackOutput == OvenCrafting.instance().getSmeltResult(stack)) {
 									return true;
 								}
@@ -141,15 +138,15 @@ public class TileOven extends TileEntity implements ITickable {
 	}
 
 	public void smelt() {
-		if(canSmelt()) {
+		if (canSmelt()) {
 			ItemStack stack = inventory.getStackInSlot(0);
 			ItemStack outputStack = OvenCrafting.instance().getSmeltResult(stack);
 			ItemStack fumesStack = OvenCrafting.instance().getFumesResult(stack);
 
-			if(inventory.getStackInSlot(3).isEmpty()) {
+			if (inventory.getStackInSlot(3).isEmpty()) {
 				inventory.setStackInSlot(3, fumesStack);
-			}else {
-				if(inventory.getStackInSlot(3).getCount() < 64) {
+			} else {
+				if (inventory.getStackInSlot(3).getCount() < 64) {
 					inventory.getStackInSlot(3).grow(1);
 				}
 			}
@@ -157,10 +154,10 @@ public class TileOven extends TileEntity implements ITickable {
 			/**
 			 * This is where you could add random checks for random chances
 			 */
-			if(inventory.getStackInSlot(4).isEmpty()) {
+			if (inventory.getStackInSlot(4).isEmpty()) {
 				inventory.setStackInSlot(4, outputStack);
-			}else {
-				if(inventory.getStackInSlot(4).getCount() < 64) {
+			} else {
+				if (inventory.getStackInSlot(4).getCount() < 64) {
 					inventory.getStackInSlot(4).grow(1);
 				}
 			}
@@ -224,7 +221,7 @@ public class TileOven extends TileEntity implements ITickable {
 	@Nullable
 	@Override
 	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
-		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
 			return (T) inventory;
 		}
 		return super.getCapability(capability, facing);

@@ -3,13 +3,13 @@ package com.witchworks.client.gui.container;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nonnull;

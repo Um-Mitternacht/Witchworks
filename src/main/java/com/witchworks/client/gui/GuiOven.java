@@ -6,8 +6,6 @@ import com.witchworks.common.tile.TileOven;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.tileentity.TileEntityFurnace;
 
 /**
  * Created by Joseph on 7/17/2017.
@@ -24,8 +22,7 @@ public class GuiOven extends GuiContainer {
 	}
 
 	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks)
-	{
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		this.renderHoveredToolTip(mouseX, mouseY);
@@ -46,8 +43,7 @@ public class GuiOven extends GuiContainer {
 		final int j = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
 
-		if (tileOven.isBurning)
-		{
+		if (tileOven.isBurning) {
 			int k = this.getBurnLeftScaled(13);
 			this.drawTexturedModalRect(i + 19, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
 		}
