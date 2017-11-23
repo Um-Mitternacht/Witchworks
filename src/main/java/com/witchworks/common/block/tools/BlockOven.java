@@ -61,7 +61,7 @@ public class BlockOven extends BlockMod implements ITileEntityProvider {
 
 			ItemStack heldItem = playerIn.getHeldItem(hand);
 			if (!heldItem.isEmpty() && heldItem.getItem() == Items.NAME_TAG) {
-				((TileOven) tile1).setCustomInventoryName(heldItem.getDisplayName());
+				((TileOven) tile1).setCustomName(heldItem.getDisplayName());
 			} else {
 				playerIn.openGui(WitchWorks.instance, LibGui.OVEN, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}

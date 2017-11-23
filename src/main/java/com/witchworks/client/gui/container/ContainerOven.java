@@ -1,28 +1,58 @@
 package com.witchworks.client.gui.container;
 
 import com.witchworks.common.item.ModItems;
+import com.witchworks.common.tile.TileOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created by Joseph on 7/17/2017.
  */
 public class ContainerOven extends Container {
 
-	private final IInventory oven;
+	private final TileOven oven;
 
-	public ContainerOven(InventoryPlayer playerInventory, IInventory inventory) {
-		this.oven = inventory;
-
-		this.addSlotToContainer(new ContainerOven.SlotOvenInput(inventory, 0, 19, 17));
-		this.addSlotToContainer(new ContainerOven.SlotOvenFuel(inventory, 1, 19, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenJar(inventory, 2, 69, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenFume(inventory, 3, 128, 53));
-		this.addSlotToContainer(new ContainerOven.SlotOvenOutput(inventory, 4, 124, 21, playerInventory.player));
+	public ContainerOven(IInventory playerInventory, TileOven te) {
+		this.oven = te;
+		//input slot
+		this.addSlotToContainer(new SlotItemHandler(oven.inventory, 0, 19, 17));
+		//fuel slot
+		this.addSlotToContainer(new SlotItemHandler(oven.inventory, 1, 19, 53) {
+			@Override
+			public boolean isItemValid(@Nonnull ItemStack stack) {
+				return TileEntityFurnace.isItemFuel(stack);
+			}
+		});
+		//jar slot
+		this.addSlotToContainer(new SlotItemHandler(oven.inventory, 2, 69, 53) {
+			@Override
+			public boolean isItemValid(@Nonnull ItemStack stack) {
+				return stack.getItem() == Items.GLASS_BOTTLE || stack.getItem() == ModItems.glass_jar;
+			}
+		});
+		//fume slot
+		this.addSlotToContainer(new SlotItemHandler(oven.inventory, 3, 128, 53) {
+			@Override
+			public boolean isItemValid(@Nonnull ItemStack stack) {
+				return false;
+			}
+		});
+		//output slot
+		this.addSlotToContainer(new SlotItemHandler(oven.inventory, 4, 124, 21) {
+			@Override
+			public boolean isItemValid(@Nonnull ItemStack stack) {
+				return false;
+			}
+		});
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
@@ -35,9 +65,10 @@ public class ContainerOven extends Container {
 		}
 	}
 
+	@Override
 	public void addListener(IContainerListener listener) {
 		super.addListener(listener);
-		listener.sendAllWindowProperties(this, this.oven);
+		//listener.sendAllWindowProperties(this, (IInventory) this.oven.inventory);
 	}
 
 	@Override
@@ -77,84 +108,5 @@ public class ContainerOven extends Container {
 	@Override
 	public boolean canInteractWith(EntityPlayer playerIn) {
 		return !playerIn.isSpectator();
-	}
-
-	private class SlotOvenFuel extends SlotFurnaceFuel {
-
-		SlotOvenFuel(IInventory inventoryIn, int slotIndex, int x, int y) {
-			super(inventoryIn, slotIndex, x, y);
-		}
-
-		public boolean isItemValid(ItemStack stack) {
-			return TileEntityFurnace.isItemFuel(stack) || isBucket(stack);
-		}
-
-		public int getItemStackLimit(ItemStack stack) {
-			return 64;
-		}
-	}
-
-	private class SlotOvenJar extends Slot {
-
-		SlotOvenJar(IInventory inventoryIn, int slotIndex, int x, int y) {
-			super(inventoryIn, slotIndex, x, y);
-		}
-
-		public boolean isItemValid(ItemStack stack) {
-			return stack != null && (stack.getItem() == Items.GLASS_BOTTLE
-					|| stack.getItem() == ModItems.glass_jar);
-		}
-
-		public int getItemStackLimit(ItemStack stack) {
-			return 64;
-		}
-	}
-
-	private class SlotOvenInput extends Slot {
-
-		SlotOvenInput(IInventory inventoryIn, int slotIndex, int x, int y) {
-			super(inventoryIn, slotIndex, x, y);
-		}
-
-		public boolean isItemValid(ItemStack stack) {
-			return true;
-		}
-
-		public int getItemStackLimit(ItemStack stack) {
-			return 64;
-		}
-	}
-
-	private class SlotOvenFume extends Slot {
-
-		SlotOvenFume(IInventory inventoryIn, int slotIndex, int x, int y) {
-			super(inventoryIn, slotIndex, x, y);
-		}
-
-		public boolean isItemValid(ItemStack stack) {
-			return false;
-		}
-
-		public int getItemStackLimit(ItemStack stack) {
-			return 64;
-		}
-	}
-
-	private class SlotOvenOutput extends SlotFurnaceOutput {
-
-		private final EntityPlayer player;
-
-		SlotOvenOutput(IInventory inventoryIn, int slotIndex, int x, int y, EntityPlayer player) {
-			super(player, inventoryIn, slotIndex, x, y);
-			this.player = player;
-		}
-
-		public boolean isItemValid(ItemStack stack) {
-			return false;
-		}
-
-		public int getItemStackLimit(ItemStack stack) {
-			return 64;
-		}
 	}
 }
