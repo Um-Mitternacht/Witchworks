@@ -91,7 +91,7 @@ public class TileOven extends TileEntity implements ITickable {
 
 	//Change to speed up smelting, lower = faster
 	public int getWorkTime() {
-		return 256;
+		return 512;
 	}
 
 	public boolean canSmelt() {
