@@ -1,6 +1,7 @@
 package com.witchworks.common.crafting.oven;
 
 import com.google.common.collect.Maps;
+import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -20,10 +21,22 @@ public class OvenCrafting {
 	private final Map<ItemStack, ItemStack> fumeList = Maps.<ItemStack, ItemStack>newHashMap();
 
 	public OvenCrafting() {
-		//test recipes
-		addSmeltingRecipe(new ItemStack(Blocks.SAPLING), new ItemStack(ModItems.brew_phial_drink), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Blocks.SAPLING), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 1), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 2), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 3), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 4), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 5), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
 		addSmeltingRecipe(new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.LEATHER), new ItemStack(ModItems.ectoplasm, 3));
-		addSmeltingRecipe(new ItemStack(Blocks.IRON_ORE), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_NUGGET, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.IRON_ORE), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_NUGGET, 4));
+		addSmeltingRecipe(new ItemStack(Blocks.GOLD_ORE), new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.GOLD_NUGGET, 2));
+		addSmeltingRecipe(new ItemStack(ModBlocks.silver_ore), new ItemStack(ModItems.silver_ingot), new ItemStack(ModItems.silver_nugget, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.LOG), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.LOG, 1, 1), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.LOG, 1, 2), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.LOG, 1, 3), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.LOG2), new ItemStack(Items.COAL, 1), new ItemStack(ModItems.wood_ash, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.LOG2), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
 	}
 
 	public static OvenCrafting instance() {
