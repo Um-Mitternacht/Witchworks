@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by Joseph on 11/6/2017.
  */
 
-//Todo: Add RNG for fumes
+//Todo: Add RNG for fumes, and add an optional setting for glass jars.
 public class OvenCrafting {
 
 	private static final OvenCrafting OVEN_RECIPES = new OvenCrafting();
@@ -23,6 +23,7 @@ public class OvenCrafting {
 		//test recipes
 		addSmeltingRecipe(new ItemStack(Blocks.SAPLING), new ItemStack(ModItems.brew_phial_drink), new ItemStack(ModItems.wood_ash));
 		addSmeltingRecipe(new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.LEATHER), new ItemStack(ModItems.ectoplasm, 3));
+		addSmeltingRecipe(new ItemStack(Blocks.IRON_ORE), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_NUGGET, 3));
 	}
 
 	public static OvenCrafting instance() {
