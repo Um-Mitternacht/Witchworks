@@ -37,7 +37,7 @@ public class OvenCrafting {
 		addSmeltingRecipe(new ItemStack(Blocks.LOG, 1, 3), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
 		addSmeltingRecipe(new ItemStack(Blocks.LOG2), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
 		addSmeltingRecipe(new ItemStack(Blocks.LOG2, 1, 1), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
-		addSmeltingRecipe(new ItemStack(Items.BONE), new ItemStack(Items.DYE, 6, 15), new ItemStack(ModItems.ectoplasm, 1));
+		addSmeltingRecipe(new ItemStack(Items.BONE), new ItemStack(Items.DYE, 1, 15), new ItemStack(ModItems.ectoplasm, 1));
 	}
 
 	public static OvenCrafting instance() {
