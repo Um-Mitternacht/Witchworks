@@ -37,7 +37,7 @@ public class OvenCrafting {
 	 */
 	public void addSmeltingRecipe(ItemStack input, ItemStack output, ItemStack outputFume) {
 		if (getSmeltResult(input) != ItemStack.EMPTY) {
-			net.minecraftforge.fml.common.FMLLog.log.info("Ignored smelting recipe with conflicting input: {} = {}", input, output);
+			net.minecraftforge.fml.common.FMLLog.log.info("Ignored smelting recipe with conflicting input, please report to author: {} = {}", input, output);
 			return;
 		}
 		this.smeltingList.put(input, output);
