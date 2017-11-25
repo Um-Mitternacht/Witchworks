@@ -14,21 +14,16 @@ import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
 public class OvenRecipe {
 
 	private final ItemStack output1, output2;
-	private final ItemStack needed, jar;
+	private final ItemStack needed;
 
-	public OvenRecipe(ItemStack needed, ItemStack jar, ItemStack output1, ItemStack output2) {
+	public OvenRecipe(ItemStack needed, ItemStack output1, ItemStack output2) {
 		this.needed = needed;
-		this.jar = jar;
 		this.output1 = output1;
 		this.output2 = output2;
 	}
 
 	public ItemStack getNeeded() {
 		return needed.copy();
-	}
-
-	public ItemStack getJar() {
-		return jar.copy();
 	}
 
 	public Tuple<ItemStack, ItemStack> getOutputs() {
