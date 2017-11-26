@@ -13,7 +13,7 @@ import net.minecraft.world.World;
  * It's distributed as part of Witchworks under
  * the MIT license.
  */
-public class ItemGrilledWatermelon extends ItemCrop {
+public class ItemGrilledWatermelon extends ItemModFood {
 
 	public ItemGrilledWatermelon() {
 		super(LibItemName.GRILLED_WATERMELON, 4, 2.5F, false);
