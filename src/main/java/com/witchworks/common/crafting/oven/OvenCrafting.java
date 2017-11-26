@@ -24,7 +24,7 @@ public class OvenCrafting {
 		addSmeltingRecipe(new ItemStack(Blocks.SAPLING), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
 		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 1), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
 		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 2), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
-		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 3), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
+		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 3), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.fume));
 		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 4), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
 		addSmeltingRecipe(new ItemStack(Blocks.SAPLING, 1, 5), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.wood_ash));
 		addSmeltingRecipe(new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.LEATHER), new ItemStack(ModItems.ectoplasm, 3));
@@ -38,6 +38,11 @@ public class OvenCrafting {
 		addSmeltingRecipe(new ItemStack(Blocks.LOG2), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
 		addSmeltingRecipe(new ItemStack(Blocks.LOG2, 1, 1), new ItemStack(Items.COAL, 1, 1), new ItemStack(ModItems.wood_ash, 3));
 		addSmeltingRecipe(new ItemStack(Items.BONE), new ItemStack(Items.DYE, 1, 15), new ItemStack(ModItems.ectoplasm, 1));
+		addSmeltingRecipe(new ItemStack(Items.WHEAT), new ItemStack(Items.BREAD), new ItemStack(ModItems.fume));
+		addSmeltingRecipe(new ItemStack(Items.RABBIT), new ItemStack(Items.COOKED_RABBIT), new ItemStack(ModItems.fume));
+		addSmeltingRecipe(new ItemStack(Items.PORKCHOP), new ItemStack(Items.COOKED_PORKCHOP), new ItemStack(ModItems.fume));
+		addSmeltingRecipe(new ItemStack(Items.BEEF), new ItemStack(Items.COOKED_BEEF), new ItemStack(ModItems.fume));
+		addSmeltingRecipe(new ItemStack(Items.CHICKEN), new ItemStack(Items.COOKED_CHICKEN), new ItemStack(ModItems.fume));
 	}
 
 	public static OvenCrafting instance() {

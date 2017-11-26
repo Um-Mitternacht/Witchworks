@@ -100,11 +100,13 @@ public final class LibItemName {
 	public static final String SILVER_POWDER = "silver_powder";
 	public static final String SILVER_INGOT = "silver_ingot";
 	public static final String COLD_IRON_INGOT = "cold_iron_ingot";
+	public static final String FUME = "fume";
 
 	//Materials
 	public static final String SILVER = "silver";
 	public static final String RITUAL = "ritual";
 	public static final String COLD_IRON = "cold_iron";
+
 
 	private LibItemName() {
 	}

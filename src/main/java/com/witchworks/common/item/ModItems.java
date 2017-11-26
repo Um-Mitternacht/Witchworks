@@ -9,6 +9,7 @@ import com.witchworks.common.item.block.ItemGemOre;
 import com.witchworks.common.item.equipment.ItemSilverArmor;
 import com.witchworks.common.item.food.ItemHeart;
 import com.witchworks.common.item.food.ItemHoney;
+import com.witchworks.common.item.magic.ItemFume;
 import com.witchworks.common.item.magic.ItemGem;
 import com.witchworks.common.item.magic.ItemTaglock;
 import com.witchworks.common.item.magic.books.ItemDustyGrimoire;
@@ -47,6 +48,8 @@ public final class ModItems {
 	public static final Item gem = PLACE_HOLDER;
 	public static final Item gemstone_amalgam = PLACE_HOLDER;
 	public static final Item gem_powder = PLACE_HOLDER;
+
+	public static final Item fume = PLACE_HOLDER;
 
 	public static final Item mandrake_root = PLACE_HOLDER;
 	public static final Item seed_mandrake = PLACE_HOLDER;
@@ -145,6 +148,7 @@ public final class ModItems {
 			registry.register(itemBlock((Block) fluidBlock));
 		}
 		registry.register(new ItemGem());
+		registry.register(new ItemFume());
 		registry.register(new ItemMod(LibItemName.GEMSTONE_AMALGAM));
 		registry.register(new ItemMod(LibItemName.COLD_IRON_INGOT));
 		registry.register(new ItemMod(LibItemName.SILVER_POWDER));
