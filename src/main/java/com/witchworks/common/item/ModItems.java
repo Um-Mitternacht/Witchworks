@@ -7,6 +7,7 @@ import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemGemOre;
 import com.witchworks.common.item.equipment.ItemSilverArmor;
+import com.witchworks.common.item.food.ItemGrilledWatermelon;
 import com.witchworks.common.item.food.ItemHeart;
 import com.witchworks.common.item.food.ItemHoney;
 import com.witchworks.common.item.magic.ItemFume;
@@ -127,6 +128,7 @@ public final class ModItems {
 	public static final Item absinthe_green = PLACE_HOLDER;
 	public static final Item oak_apple_gall = PLACE_HOLDER;
 	public static final Item iron_gall_ink = PLACE_HOLDER;
+	public static final Item grilled_watermelon = PLACE_HOLDER;
 
 	public static final Item silver_pickaxe = PLACE_HOLDER;
 	public static final Item silver_axe = PLACE_HOLDER;
@@ -195,6 +197,7 @@ public final class ModItems {
 				new ItemMod(LibItemName.ALBEDO),
 				new ItemHeart(),
 				new ItemShadowBook(),
+				new ItemGrilledWatermelon(),
 				new ItemDustyGrimoire()
 		);
 		//Equipment

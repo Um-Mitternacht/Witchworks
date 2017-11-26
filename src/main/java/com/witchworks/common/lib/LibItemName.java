@@ -101,6 +101,7 @@ public final class LibItemName {
 	public static final String SILVER_INGOT = "silver_ingot";
 	public static final String COLD_IRON_INGOT = "cold_iron_ingot";
 	public static final String FUME = "fume";
+	public static final String GRILLED_WATERMELON = "grilled_watermelon";
 
 	//Materials
 	public static final String SILVER = "silver";
