@@ -3,6 +3,7 @@ package com.witchworks.common.item.magic;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
+import net.minecraft.util.IStringSerializable;
 
 /**
  * Created by Joseph on 11/26/2017.
@@ -18,5 +19,23 @@ public class ItemFume extends ItemMod {
 	@Override
 	public int getMetadata(int damage) {
 		return damage;
+	}
+
+	public enum FumeEnum implements IStringSerializable {
+		FOUL_FUME,
+		BREATH_OF_THE_GODDESS,
+		EXHALE_OF_THE_HORNED_ONE,
+		HINT_OF_REBIRTH,
+		ODOR_OF_PURITY,
+		REEK_OF_MISFORTUNE,
+		WHIFF_OF_MAGIC,
+		SCENT_OF_SHADOWS,
+		AMETHYST,
+		ALEXANDRITE;
+
+		@Override
+		public String getName() {
+			return name().toLowerCase();
+		}
 	}
 }
