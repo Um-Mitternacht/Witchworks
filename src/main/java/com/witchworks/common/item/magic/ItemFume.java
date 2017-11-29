@@ -15,4 +15,8 @@ public class ItemFume extends ItemMod {
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
+	@Override
+	public int getMetadata(int damage) {
+		return damage;
+	}
 }
