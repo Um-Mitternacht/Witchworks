@@ -48,6 +48,7 @@ public class ItemFume extends ItemMod {
 		SOLAR_ESSENCE,
 		SOLAR_OIL,
 		SACRED_ESSENCE,
+		INFERNAL_ESSENCE,
 		DISTILLATE_OF_ORDER;
 
 		@Override
