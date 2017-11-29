@@ -30,8 +30,11 @@ public class ItemFume extends ItemMod {
 		REEK_OF_MISFORTUNE,
 		WHIFF_OF_MAGIC,
 		SCENT_OF_SHADOWS,
-		AMETHYST,
-		ALEXANDRITE;
+		PROTECTIVE_SCENT,
+		REEK_OF_DEATH,
+		PURE_TRANQUILITY,
+		ESSENCE_OF_LIFE,
+		OIL_OF_VITRIOL;
 
 		@Override
 		public String getName() {
