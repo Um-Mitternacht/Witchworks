@@ -3,6 +3,7 @@ package com.witchworks.common.item.magic;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
 /**
@@ -19,6 +20,11 @@ public class ItemFume extends ItemMod {
 	@Override
 	public int getMetadata(int damage) {
 		return damage;
+	}
+
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+		return super.getUnlocalizedName() + "_" + ItemFume.FumeEnum.values()[stack.getMetadata()].getName();
 	}
 
 	public enum FumeEnum implements IStringSerializable {
