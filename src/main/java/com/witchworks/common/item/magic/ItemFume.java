@@ -34,7 +34,10 @@ public class ItemFume extends ItemMod {
 		REEK_OF_DEATH,
 		PURE_TRANQUILITY,
 		ESSENCE_OF_LIFE,
-		OIL_OF_VITRIOL;
+		OIL_OF_VITRIOL,
+		REDSTONE_DISTILLATE,
+		TEAR_OF_THE_GODDESS,
+		DISTILLATE_OF_ORDER;
 
 		@Override
 		public String getName() {
