@@ -1,10 +1,15 @@
 package com.witchworks.common.item.magic;
 
+import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created by Joseph on 11/26/2017.
@@ -26,6 +31,25 @@ public class ItemFume extends ItemMod {
 	public String getUnlocalizedName(ItemStack stack) {
 		return super.getUnlocalizedName() + "_" + ItemFume.FumeEnum.values()[stack.getMetadata()].getName();
 	}
+
+	@Override
+	public void registerModel() {
+		ItemFume.FumeEnum[] values = ItemFume.FumeEnum.values();
+		for (int i = 0; i < values.length; i++) {
+			ItemFume.FumeEnum fume = values[i];
+			ModelHandler.registerForgeModel(this, i, "fume=" + fume.getName());
+		}
+	}
+
+	@Override
+	public void getSubItems(CreativeTabs tab, @Nonnull NonNullList<ItemStack> items) {
+		if (this.isInCreativeTab(tab)) {
+			for (int i = 0; i < ItemFume.FumeEnum.values().length; ++i) {
+				items.add(new ItemStack(this, 1, i));
+			}
+		}
+	}
+
 
 	public enum FumeEnum implements IStringSerializable {
 		FOUL_FUME,
