@@ -109,6 +109,7 @@ public final class WitchWorksCreativeTabs {
 			this.list = list;
 
 			addItem(ModItems.gem);
+			addItem(ModItems.fume);
 			addItem(ModItems.gem_powder);
 			addItem(ModItems.gemstone_amalgam);
 			addItem(ModItems.bee);

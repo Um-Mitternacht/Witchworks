@@ -18,6 +18,7 @@ public class ItemFume extends ItemMod {
 
 	public ItemFume() {
 		super(LibItemName.FUME);
+		setHasSubtypes(true);
 		setMaxDamage(0);
 		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
