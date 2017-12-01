@@ -48,6 +48,7 @@ public class OvenCrafting {
 		addSmeltingRecipe(new ItemStack(Items.MELON), new ItemStack(ModItems.grilled_watermelon), new ItemStack(ModItems.fume));
 		addSmeltingRecipe(new ItemStack(Blocks.CACTUS), new ItemStack(Items.DYE, 1, 2), new ItemStack(ModItems.fume));
 		addSmeltingRecipe(new ItemStack(Items.CHORUS_FRUIT), new ItemStack(Items.CHORUS_FRUIT_POPPED), new ItemStack(ModItems.dimensional_sand, 2));
+		addSmeltingRecipe(new ItemStack(ModItems.mandrake_root), new ItemStack(ModItems.wood_ash), new ItemStack(ModItems.fume));
 	}
 
 	public static OvenCrafting instance() {
