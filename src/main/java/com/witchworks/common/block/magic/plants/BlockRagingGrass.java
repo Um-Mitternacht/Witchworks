@@ -38,6 +38,7 @@ public class BlockRagingGrass extends BlockMod implements IGrowable, IPlantable 
 		setHardness(0.1F);
 		setSound(SoundType.PLANT);
 		this.setLightLevel(0.1F);
+		this.setTickRandomly(true);
 		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
@@ -115,6 +116,38 @@ public class BlockRagingGrass extends BlockMod implements IGrowable, IPlantable 
 	public EnumOffsetType getOffsetType() {
 		return EnumOffsetType.XYZ;
 	}
+
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+		if (rand.nextInt(25) == 0) {
+			int i = 5;
+			int j = 4;
+
+			for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
+				if (worldIn.getBlockState(blockpos).getBlock() == this) {
+					--i;
+
+					if (i <= 0) {
+						return;
+					}
+				}
+			}
+
+			BlockPos blockpos1 = pos.add(rand.nextInt(3) - 1, rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - 1);
+
+			for (int k = 0; k < 4; ++k) {
+				if (worldIn.isAirBlock(blockpos1) && this.canBlockStay(worldIn, blockpos1, this.getDefaultState())) {
+					pos = blockpos1;
+				}
+
+				blockpos1 = pos.add(rand.nextInt(3) - 1, rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - 1);
+			}
+
+			if (worldIn.isAirBlock(blockpos1) && this.canBlockStay(worldIn, blockpos1, this.getDefaultState())) {
+				worldIn.setBlockState(blockpos1, this.getDefaultState(), 2);
+			}
+		}
+	}
+
 
 	@SuppressWarnings("deprecation")
 	@Nullable
