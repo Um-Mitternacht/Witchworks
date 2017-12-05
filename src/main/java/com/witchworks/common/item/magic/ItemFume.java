@@ -4,6 +4,7 @@ import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.common.core.WitchWorksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
@@ -15,6 +16,8 @@ import javax.annotation.Nonnull;
  * Created by Joseph on 11/26/2017.
  */
 public class ItemFume extends ItemMod {
+
+	public static final PropertyEnum<ItemFume.FumeEnum> FUME = PropertyEnum.create("fume", ItemFume.FumeEnum.class);
 
 	public ItemFume() {
 		super(LibItemName.FUME);
