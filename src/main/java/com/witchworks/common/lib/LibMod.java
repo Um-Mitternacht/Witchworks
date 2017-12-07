@@ -17,7 +17,7 @@ public final class LibMod {
 	public static final String MOD_VER = "@VERSION@";
 
 	//Dependency
-	public static final String DEPENDENCIES = "required-after:forge@[14.23.0.2542,];required-after:JEI@[4.8.0.114,];required-after:Waila@[1.8.22-B37_1.12,];required-after:baubles@[1.5.1,];required-after:craftstudioapi@[0.3.0,]";
+	public static final String DEPENDENCIES = "required-after:forge@[14.23.1.2555,];required-after:JEI@[4.8.5.135,];required-after:Waila@[1.8.23-B38_1.12,];required-after:baubles@[1.5.1,];required-after:craftstudioapi@[0.3.0,]";
 
 	//Client proxy location
 	public static final String PROXY_CLIENT = "com.witchworks.client.core.ClientProxy";
