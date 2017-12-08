@@ -15,20 +15,20 @@ container.oven=ovun
 ////Names
 //Items
 item.seed_aconitum.name=deadle seeds
-item.seed_asphodel.name=Asphodel Seeds
-item.seed_belladonna.name=Belladonna Seeds
-item.seed_ginger.name=Ginger Seeds
+item.seed_asphodel.name=flowur seedz
+item.seed_belladonna.name=deadlest seedz
+item.seed_ginger.name=hawt seedz
 item.seed_kelp.name=hard 2 c seedz
-item.seed_mint.name=Mint Seeds
+item.seed_mint.name=cold seedz
 item.seed_white_sage.name=holeh seedz
-item.seed_mandrake.name=Mandrake Seeds
-item.seed_lavender.name=Lavender Seeds
+item.seed_mandrake.name=hoomin seedz
+item.seed_lavender.name=purpel seedz
 item.seed_thistle.name=ouchie seeds
-item.seed_silphium.name=Silphium Seeds
-item.seed_tulsi.name=Tulsi Seeds
+item.seed_silphium.name=tastee seedz
+item.seed_tulsi.name=smol seedz
 item.seed_garlic.name=spiceh seeds
 item.seed_kenaf.name=leaf seeds
-item.seed_wormwood.name=Wormwood Seeds
+item.seed_wormwood.name=bittur seedz
 
 //Crops
 item.aconitum.name=flowr nawt saf fur catz
