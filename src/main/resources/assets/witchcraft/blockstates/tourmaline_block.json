@@ -2,7 +2,7 @@
   "variants": {
     "normal": [
       {
-        "model": "witchworks:tourmaline_block"
+        "model": "witchcraft:tourmaline_block"
       }
     ]
   }

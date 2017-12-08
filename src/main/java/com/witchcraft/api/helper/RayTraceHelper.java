@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * This class was created by Arekkuusu on 20/05/2017.
- * It's distributed as part of Witch Works under
+ * It's distributed as part of Witchcraft under
  * the MIT license.
  */
 public final class RayTraceHelper {

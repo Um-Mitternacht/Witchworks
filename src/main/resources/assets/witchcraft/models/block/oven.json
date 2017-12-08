@@ -2,11 +2,11 @@
   "parent": "block/block",
   "__comment": "Copyright © InsomniaKitten 2017",
   "textures": {
-    "particle": "witchworks:blocks/oven/oven_up",
-    "down": "witchworks:blocks/oven/oven_down",
-    "up": "witchworks:blocks/oven/oven_up",
-    "side": "witchworks:blocks/oven/oven_side",
-    "door": "witchworks:blocks/oven/oven_door"
+    "particle": "witchcraft:blocks/oven/oven_up",
+    "down": "witchcraft:blocks/oven/oven_down",
+    "up": "witchcraft:blocks/oven/oven_up",
+    "side": "witchcraft:blocks/oven/oven_side",
+    "door": "witchcraft:blocks/oven/oven_door"
   },
   "elements": [
     {

@@ -2,7 +2,7 @@
   "variants": {
     "normal": [
       {
-        "model": "witchworks:silver_ore"
+        "model": "witchcraft:silver_ore"
       }
     ]
   }

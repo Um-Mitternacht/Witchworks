@@ -2,7 +2,7 @@
   "variants": {
     "normal": [
       {
-        "model": "witchworks:bloodstone_block"
+        "model": "witchcraft:bloodstone_block"
       }
     ]
   }

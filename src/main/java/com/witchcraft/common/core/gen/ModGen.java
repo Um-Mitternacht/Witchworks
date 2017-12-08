@@ -11,7 +11,7 @@ import static com.witchcraft.common.core.gen.WorldGenOre.OreGenBuilder.DEFAULT_S
 
 /**
  * This class was created by Arekkuusu on 21/05/2017.
- * It's distributed as part of Witch Works under
+ * It's distributed as part of Witchcraft under
  * the MIT license.
  */
 public final class ModGen {

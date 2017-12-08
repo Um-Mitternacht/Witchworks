@@ -2,44 +2,44 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 8
     }
   ],
   "result": {
-    "item": "witchworks:amethyst_block",
+    "item": "witchcraft:amethyst_block",
     "data": 0,
     "count": 1
   }

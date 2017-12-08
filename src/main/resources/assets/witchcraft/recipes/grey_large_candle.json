@@ -7,11 +7,11 @@
   ],
   "key": {
     "S": {
-      "item": "witchworks:candle_medium",
+      "item": "witchcraft:candle_medium",
       "data": 0
     },
     "T": {
-      "item": "witchworks:wax",
+      "item": "witchcraft:wax",
       "data": 0
     },
     "D": {
@@ -20,7 +20,7 @@
     }
   },
   "result": {
-    "item": "witchworks:candle_large",
+    "item": "witchcraft:candle_large",
     "data": 7
   }
 }

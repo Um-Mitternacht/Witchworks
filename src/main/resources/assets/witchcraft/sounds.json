@@ -1,20 +1,20 @@
 {
   "boil": {
     "sounds": [
-      "witchworks:boil"
+      "witchcraft:boil"
     ],
-    "subtitle": "witchworks.subtitle.boil"
+    "subtitle": "witchcraft.subtitle.boil"
   },
   "buzz": {
     "sounds": [
-      "witchworks:buzz"
+      "witchcraft:buzz"
     ],
-    "subtitle": "witchworks.subtitle.buzz"
+    "subtitle": "witchcraft.subtitle.buzz"
   },
   "chalk_scribble": {
     "sounds": [
-      "witchworks:chalk_scribble"
+      "witchcraft:chalk_scribble"
     ],
-    "subtitle": "witchworks.subtitle.chalk_scribble"
+    "subtitle": "witchcraft.subtitle.chalk_scribble"
   }
 }

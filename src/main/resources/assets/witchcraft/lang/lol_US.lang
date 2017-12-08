@@ -1,12 +1,12 @@
 //CreativeTab
-itemGroup.witchworks_plants=Witchcraft - Green stuff
-itemGroup.witchworks_items=Witchcraft - Stikz n stonz
-itemGroup.witchworks_blocks=Witchcraft - Blockz
+itemGroup.witchcraft_plants=Witchcraft - Green stuff
+itemGroup.witchcraft_items=Witchcraft - Stikz n stonz
+itemGroup.witchcraft_blocks=Witchcraft - Blockz
 
 //Config
-witchworks.config.world_gen=World Gen
-witchworks.config.energy_hud=Energy HUD
-witchworks.config.brew_hud=Brews HUD
+witchcraft.config.world_gen=World Gen
+witchcraft.config.energy_hud=Energy HUD
+witchcraft.config.brew_hud=Brews HUD
 
 //Gui
 container.apiary=nopebawx
@@ -405,9 +405,9 @@ brew..desc=
 brew..tooltip=
 
 //Sound
-witchworks.subtitle.boil=Cauldron boiling
-witchworks.subtitle.buzz=Bees buzzing
-witchworks.subtitle.chalk_scribble=Chalk scribbling
+witchcraft.subtitle.boil=Cauldron boiling
+witchcraft.subtitle.buzz=Bees buzzing
+witchcraft.subtitle.chalk_scribble=Chalk scribbling
 
 ///ToolTips
 witch.tooltip.seed_aconitum_description.name=Seed from a poisonous plant
@@ -466,7 +466,7 @@ item.dusty_grimoire.name=buuk dat is dusteh
 commands.incantation.notFound=ur powurz fizzel into nufingness, cuz ur nawt a wizard
 
 //Advancements
-achievement.witchworks:craftMalachite=Let's Be Malachite Again!
-achievement.witchworks:craftMalachite.desc=This Is Between Us!
+achievement.witchcraft:craftMalachite=Let's Be Malachite Again!
+achievement.witchcraft:craftMalachite.desc=This Is Between Us!
 
 ////JEI

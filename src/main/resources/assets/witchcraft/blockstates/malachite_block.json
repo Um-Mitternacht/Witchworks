@@ -2,7 +2,7 @@
   "variants": {
     "normal": [
       {
-        "model": "witchworks:malachite_block"
+        "model": "witchcraft:malachite_block"
       }
     ]
   }

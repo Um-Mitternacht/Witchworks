@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "witchworks:blocks/salt_dust_dot",
-    "line": "witchworks:blocks/salt_dust_line0",
-    "overlay": "witchworks:blocks/salt_dust_overlay"
+    "particle": "witchcraft:blocks/salt_dust_dot",
+    "line": "witchcraft:blocks/salt_dust_line0",
+    "overlay": "witchcraft:blocks/salt_dust_overlay"
   },
   "elements": [
     {

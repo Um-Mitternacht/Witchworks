@@ -2,7 +2,7 @@
   "type": "forge:ore_shapeless",
   "ingredients": [
     {
-      "item": "witchworks:mortar_and_pestle",
+      "item": "witchcraft:mortar_and_pestle",
       "data": 0
     },
     {
@@ -11,7 +11,7 @@
     }
   ],
   "result": {
-    "item": "witchworks:silver_powder",
+    "item": "witchcraft:silver_powder",
     "data": 0,
     "count": 2
   }

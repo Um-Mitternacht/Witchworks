@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "witchworks:bloodstone_block",
+      "item": "witchcraft:bloodstone_block",
       "data": 0
     }
   ],
   "result": {
-    "item": "witchworks:gem",
+    "item": "witchcraft:gem",
     "data": 5,
     "count": 9
   }

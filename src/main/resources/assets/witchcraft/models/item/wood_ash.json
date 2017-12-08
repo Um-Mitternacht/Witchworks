@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "witchworks:items/wood_ash"
+    "layer0": "witchcraft:items/wood_ash"
   }
 }

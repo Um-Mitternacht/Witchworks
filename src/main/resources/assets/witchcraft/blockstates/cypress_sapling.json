@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "witchworks:cypress_sapling"
+      "model": "witchcraft:cypress_sapling"
     }
   }
 }

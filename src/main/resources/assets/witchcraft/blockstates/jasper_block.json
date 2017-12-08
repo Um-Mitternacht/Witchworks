@@ -2,7 +2,7 @@
   "variants": {
     "normal": [
       {
-        "model": "witchworks:jasper_block"
+        "model": "witchcraft:jasper_block"
       }
     ]
   }

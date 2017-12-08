@@ -2,7 +2,7 @@
   "variants": {
     "normal": [
       {
-        "model": "witchworks:garnet_block"
+        "model": "witchcraft:garnet_block"
       }
     ]
   }

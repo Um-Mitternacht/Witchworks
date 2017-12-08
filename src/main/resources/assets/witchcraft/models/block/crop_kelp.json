@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "witchworks:blocks/crop_kelp"
+    "cross": "witchcraft:blocks/crop_kelp"
   }
 }

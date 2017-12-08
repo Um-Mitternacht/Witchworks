@@ -2,9 +2,9 @@
   "parent": "block/block",
   "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
   "textures": {
-    "particle": "witchworks:blocks/beehive",
-    "0": "witchworks:blocks/beehive",
-    "1": "witchworks:blocks/beehive"
+    "particle": "witchcraft:blocks/beehive",
+    "0": "witchcraft:blocks/beehive",
+    "1": "witchcraft:blocks/beehive"
   },
   "elements": [
     {

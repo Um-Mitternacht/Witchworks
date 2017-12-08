@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "witchworks:tigers_eye_block",
+      "item": "witchcraft:tigers_eye_block",
       "data": 0
     }
   ],
   "result": {
-    "item": "witchworks:gem",
+    "item": "witchcraft:gem",
     "data": 3,
     "count": 9
   }

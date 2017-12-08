@@ -11,7 +11,7 @@
       "ore": "ingotSilver"
     },
     "G": {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 9
     },
     "T": {
@@ -19,7 +19,7 @@
     }
   },
   "result": {
-    "item": "witchworks:athame",
+    "item": "witchcraft:athame",
     "data": 0
   }
 }

@@ -2,7 +2,7 @@
   "variants": {
     "normal": [
       {
-        "model": "witchworks:fake_ice"
+        "model": "witchcraft:fake_ice"
       }
     ]
   }

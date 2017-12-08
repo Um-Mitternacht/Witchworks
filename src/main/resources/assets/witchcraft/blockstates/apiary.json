@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "witchworks:apiary"
+      "model": "witchcraft:apiary"
     },
     "facing=south": {
-      "model": "witchworks:apiary",
+      "model": "witchcraft:apiary",
       "y": 180
     },
     "facing=east": {
-      "model": "witchworks:apiary",
+      "model": "witchcraft:apiary",
       "y": 90
     },
     "facing=west": {
-      "model": "witchworks:apiary",
+      "model": "witchcraft:apiary",
       "y": 270
     }
   }

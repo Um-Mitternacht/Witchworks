@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "witchworks:beehive"
+      "model": "witchcraft:beehive"
     },
     "facing=south": {
-      "model": "witchworks:beehive",
+      "model": "witchcraft:beehive",
       "y": 180
     },
     "facing=east": {
-      "model": "witchworks:beehive",
+      "model": "witchcraft:beehive",
       "y": 90
     },
     "facing=west": {
-      "model": "witchworks:beehive",
+      "model": "witchcraft:beehive",
       "y": 270
     }
   }

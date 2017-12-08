@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "witchworks:blocks/ember_grass"
+    "cross": "witchcraft:blocks/ember_grass"
   }
 }

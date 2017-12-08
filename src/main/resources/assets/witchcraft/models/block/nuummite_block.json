@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "witchworks:blocks/nuummite_block"
+    "all": "witchcraft:blocks/nuummite_block"
   }
 }

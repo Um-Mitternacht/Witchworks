@@ -2,44 +2,44 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     },
     {
-      "item": "witchworks:gem",
+      "item": "witchcraft:gem",
       "data": 1
     }
   ],
   "result": {
-    "item": "witchworks:moldavite_block",
+    "item": "witchcraft:moldavite_block",
     "data": 0,
     "count": 1
   }

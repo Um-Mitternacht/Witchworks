@@ -3,10 +3,10 @@
   "defaults": {
     "textures": {
       "all": "blocks/stone",
-      "overlay": "witchworks:blocks/garnet_ore",
+      "overlay": "witchcraft:blocks/garnet_ore",
       "particle": "blocks/stone"
     },
-    "model": "witchworks:block_overlay",
+    "model": "witchcraft:block_overlay",
     "uvlock": true
   },
   "variants": {
@@ -21,52 +21,52 @@
     "gem": {
       "garnet": {
         "textures": {
-          "overlay": "witchworks:blocks/garnet_ore"
+          "overlay": "witchcraft:blocks/garnet_ore"
         }
       },
       "moldavite": {
         "textures": {
-          "overlay": "witchworks:blocks/moldavite_ore"
+          "overlay": "witchcraft:blocks/moldavite_ore"
         }
       },
       "nuummite": {
         "textures": {
-          "overlay": "witchworks:blocks/nuummite_ore"
+          "overlay": "witchcraft:blocks/nuummite_ore"
         }
       },
       "tigers_eye": {
         "textures": {
-          "overlay": "witchworks:blocks/tigers_eye_ore"
+          "overlay": "witchcraft:blocks/tigers_eye_ore"
         }
       },
       "tourmaline": {
         "textures": {
-          "overlay": "witchworks:blocks/tourmaline_ore"
+          "overlay": "witchcraft:blocks/tourmaline_ore"
         }
       },
       "bloodstone": {
         "textures": {
-          "overlay": "witchworks:blocks/bloodstone_ore"
+          "overlay": "witchcraft:blocks/bloodstone_ore"
         }
       },
       "jasper": {
         "textures": {
-          "overlay": "witchworks:blocks/jasper_ore"
+          "overlay": "witchcraft:blocks/jasper_ore"
         }
       },
       "malachite": {
         "textures": {
-          "overlay": "witchworks:blocks/malachite_ore"
+          "overlay": "witchcraft:blocks/malachite_ore"
         }
       },
       "amethyst": {
         "textures": {
-          "overlay": "witchworks:blocks/amethyst_ore"
+          "overlay": "witchcraft:blocks/amethyst_ore"
         }
       },
       "alexandrite": {
         "textures": {
-          "overlay": "witchworks:blocks/alexandrite_ore"
+          "overlay": "witchcraft:blocks/alexandrite_ore"
         }
       }
     }
