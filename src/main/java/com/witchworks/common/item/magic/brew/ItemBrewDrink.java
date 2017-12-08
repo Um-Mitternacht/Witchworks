@@ -3,7 +3,7 @@ package com.witchworks.common.item.magic.brew;
 import com.witchworks.api.BrewRegistry;
 import com.witchworks.api.brew.BrewEffect;
 import com.witchworks.api.brew.BrewUtils;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.core.capability.brew.BrewStorageHandler;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.creativetab.CreativeTabs;
@@ -36,7 +36,7 @@ public class ItemBrewDrink extends ItemBrew {
 
 	public ItemBrewDrink() {
 		super(LibItemName.BREW_PHIAL_DRINK);
-		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override

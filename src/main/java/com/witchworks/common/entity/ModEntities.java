@@ -1,6 +1,6 @@
 package com.witchworks.common.entity;
 
-import com.witchworks.common.WitchWorks;
+import com.witchworks.common.Witchworks;
 import com.witchworks.common.item.ModItems;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.BlockDispenser;
@@ -27,7 +27,7 @@ public final class ModEntities {
 	public static void init() {
 		int id = 0;
 
-		EntityRegistry.registerModEntity(getResource("brew_throwable"), EntityBrew.class, "brew_throwable", id++, WitchWorks.instance, 64, 1, true);
+		EntityRegistry.registerModEntity(getResource("brew_throwable"), EntityBrew.class, "brew_throwable", id++, Witchworks.instance, 64, 1, true);
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.brew_phial_splash, new IBehaviorDispenseItem() {
 			@Override
 			public ItemStack dispense(IBlockSource source, final ItemStack stack) {
@@ -50,7 +50,7 @@ public final class ModEntities {
 				}).dispense(source, stack);
 			}
 		});
-		EntityRegistry.registerModEntity(getResource("brew_linger"), EntityBrewLinger.class, "brew_linger", id, WitchWorks.instance, 64, 1, false);
+		EntityRegistry.registerModEntity(getResource("brew_linger"), EntityBrewLinger.class, "brew_linger", id, Witchworks.instance, 64, 1, false);
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.brew_phial_linger, new IBehaviorDispenseItem() {
 			@Override
 			public ItemStack dispense(IBlockSource source, final ItemStack stack) {

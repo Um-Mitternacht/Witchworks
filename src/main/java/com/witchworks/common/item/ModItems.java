@@ -3,7 +3,7 @@ package com.witchworks.common.item;
 import com.witchworks.api.CropRegistry;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.block.natural.fluid.Fluids;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.item.block.ItemBlockColor;
 import com.witchworks.common.item.block.ItemGemOre;
 import com.witchworks.common.item.equipment.ItemSilverArmor;
@@ -236,7 +236,7 @@ public final class ModItems {
 				itemBlock(ModBlocks.fake_ice_fence),
 				itemBlock(ModBlocks.fake_ice_stairs),
 
-				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB),
+				new ItemGemOre(ModBlocks.gem_ore).setCreativeTab(WitchworksCreativeTabs.BLOCKS_CREATIVE_TAB),
 				new ItemSlab(ModBlocks.fake_ice_slab_half, (BlockSlab) ModBlocks.fake_ice_slab_half, (BlockSlab) ModBlocks.fake_ice_slab_double).setRegistryName(ModBlocks.fake_ice_slab_half.getRegistryName()),
 				itemBlock(ModBlocks.silver_block),
 				itemBlock(ModBlocks.silver_ore),

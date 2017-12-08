@@ -12,7 +12,7 @@ import com.witchworks.client.handler.ModelHandler;
 import com.witchworks.client.render.entity.BrewRenderer;
 import com.witchworks.client.render.entity.EmptyRenderer;
 import com.witchworks.client.render.tile.TileRenderCauldron;
-import com.witchworks.common.WitchWorks;
+import com.witchworks.common.Witchworks;
 import com.witchworks.common.block.ModBlocks;
 import com.witchworks.common.core.net.GuiHandler;
 import com.witchworks.common.core.proxy.ISidedProxy;
@@ -83,7 +83,7 @@ public class ClientProxy implements ISidedProxy {
 		items.registerItemColorHandler(new BrewItemColorHandler(),
 				ModItems.brew_phial_drink, ModItems.brew_phial_splash, ModItems.brew_phial_linger);
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(WitchWorks.instance, new GuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(Witchworks.instance, new GuiHandler());
 	}
 
 	public void displayRecordText(ITextComponent text) {

@@ -1,7 +1,7 @@
 package com.witchworks.common.block.tools;
 
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.WitchWorks;
+import com.witchworks.common.Witchworks;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibGui;
@@ -81,7 +81,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(5) == 0) {
-			WitchWorks.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
+			Witchworks.proxy.spawnParticle(ParticleF.BEE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0, 0, 0);
 		}
 	}
 
@@ -104,7 +104,7 @@ public class BlockApiary extends BlockMod implements ITileEntityProvider {
 			if (!heldItem.isEmpty() && heldItem.getItem() == Items.NAME_TAG) {
 				((TileApiary) tile).setCustomInventoryName(heldItem.getDisplayName());
 			} else {
-				playerIn.openGui(WitchWorks.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(Witchworks.instance, LibGui.APIARY, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 		}
 		return true;

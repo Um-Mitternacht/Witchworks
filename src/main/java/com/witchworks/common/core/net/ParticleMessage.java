@@ -1,7 +1,7 @@
 package com.witchworks.common.core.net;
 
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.WitchWorks;
+import com.witchworks.common.Witchworks;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -82,7 +82,7 @@ public class ParticleMessage implements IMessage {
 		public IMessage onMessage(ParticleMessage message, MessageContext ctx) {
 			if (ctx.side == Side.CLIENT) {
 				for (int i = 0; i < message.amount; i++) {
-					WitchWorks.proxy.spawnParticle(message.particleF, message.x, message.y, message.z, message.xSpeed, message.ySpeed, message.zSpeed, message.args);
+					Witchworks.proxy.spawnParticle(message.particleF, message.x, message.y, message.z, message.xSpeed, message.ySpeed, message.zSpeed, message.args);
 				}
 			}
 			return null;

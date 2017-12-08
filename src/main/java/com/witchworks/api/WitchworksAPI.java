@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
  * the MIT license.
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public final class WitchWorksAPI {
+public final class WitchworksAPI {
 
 	//States
 	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.create("color", EnumDyeColor.class);
@@ -69,7 +69,7 @@ public final class WitchWorksAPI {
 	public static ResourceLocation MORTAL_COIL = getLocation("mortal_coil");
 	public static ResourceLocation OVERCOAT = getLocation("overcoat");
 
-	private WitchWorksAPI() {
+	private WitchworksAPI() {
 	}
 
 	private static ResourceLocation getLocation(String name) {

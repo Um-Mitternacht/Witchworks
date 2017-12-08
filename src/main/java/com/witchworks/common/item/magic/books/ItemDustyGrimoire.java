@@ -1,6 +1,6 @@
 package com.witchworks.common.item.magic.books;
 
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
 
@@ -14,7 +14,7 @@ public class ItemDustyGrimoire extends ItemMod {
 	public ItemDustyGrimoire() {
 		super(LibItemName.DUSTY_GRIMOIRE);
 		setMaxDamage(0);
-		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	//Todo: Functionality, such as documentation.

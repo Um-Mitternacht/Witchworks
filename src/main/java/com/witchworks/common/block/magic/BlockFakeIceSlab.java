@@ -1,7 +1,7 @@
 package com.witchworks.common.block.magic;
 
 import com.witchworks.common.block.ModBlocks;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -32,7 +32,7 @@ public abstract class BlockFakeIceSlab extends BlockSlab {
 		setResistance(2F);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setRegistryName(new ResourceLocation(LibMod.MOD_ID, unlocalizedName));
-		this.setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
+		this.setCreativeTab(WitchworksCreativeTabs.BLOCKS_CREATIVE_TAB);
 		setHardness(2F);
 		slipperiness = 0.98F;
 		useNeighborBrightness = true;

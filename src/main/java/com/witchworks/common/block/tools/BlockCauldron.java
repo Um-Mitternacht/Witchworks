@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static com.witchworks.api.WitchWorksAPI.HALF;
+import static com.witchworks.api.WitchworksAPI.HALF;
 import static net.minecraft.block.BlockHorizontal.FACING;
 
 /**

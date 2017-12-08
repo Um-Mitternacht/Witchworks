@@ -10,7 +10,7 @@ import com.witchworks.api.recipe.CauldronItemRecipe;
 import com.witchworks.api.recipe.ItemValidator;
 import com.witchworks.api.ritual.RitualHolder;
 import com.witchworks.client.fx.ParticleF;
-import com.witchworks.common.WitchWorks;
+import com.witchworks.common.Witchworks;
 import com.witchworks.common.core.net.PacketHandler;
 import com.witchworks.common.item.ModItems;
 import net.minecraft.block.material.Material;
@@ -392,13 +392,13 @@ public class TileCauldron extends TileFluidInventory implements ITickable {
 			float posY = getParticleLevel();
 			double posZ = getPos().getZ() + 0.2D + world.rand.nextDouble() * 0.6D;
 
-			WitchWorks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
+			Witchworks.proxy.spawnParticle(ParticleF.CAULDRON_BUBBLE, posX, posY, posZ, 0, 0, 0, rgb);
 		}
 		if (ticks % 2 == 0 && hasIngredients()) {
 			final float x = getPos().getX() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
 			float y = getParticleLevel();
 			final float z = getPos().getZ() + MathHelper.clamp(world.rand.nextFloat(), 0.2F, 0.9F);
-			WitchWorks.proxy.spawnParticle(ParticleF.SPARK, x, y, z, 0.0D, 0.1D, 0.0D);
+			Witchworks.proxy.spawnParticle(ParticleF.SPARK, x, y, z, 0.0D, 0.1D, 0.0D);
 		}
 	}
 

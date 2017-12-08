@@ -1,6 +1,6 @@
 package com.witchworks.common.item.food;
 
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,7 +15,7 @@ public class ItemGinger extends ItemCrop {
 
 	public ItemGinger() {
 		super(LibItemName.GINGER, 4, 0.8F, false);
-		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 
 	@Override

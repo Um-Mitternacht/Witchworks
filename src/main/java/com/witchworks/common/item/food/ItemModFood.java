@@ -2,7 +2,7 @@ package com.witchworks.common.item.food;
 
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -18,7 +18,7 @@ public class ItemModFood extends ItemFood implements IModelRegister {
 		super(amount, saturation, isWolfFood);
 		setRegistryName(id);
 		setUnlocalizedName(id);
-		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 
 	@Override

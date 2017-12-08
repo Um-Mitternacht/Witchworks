@@ -1,6 +1,6 @@
 package com.witchworks.common.item.food;
 
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 
 /**
@@ -12,6 +12,6 @@ public class ItemGrilledWatermelon extends ItemModFood {
 
 	public ItemGrilledWatermelon() {
 		super(LibItemName.GRILLED_WATERMELON, 4, 2.5F, false);
-		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 }

@@ -35,13 +35,13 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  */
 @SuppressWarnings("WeakerAccess")
 @Mod(modid = LibMod.MOD_ID, name = MOD_NAME, version = LibMod.MOD_VER, dependencies = LibMod.DEPENDENCIES, acceptedMinecraftVersions = "[1.12,1.13]", certificateFingerprint = "@FINGERPRINT@")
-public class WitchWorks {
+public class Witchworks {
 
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);
 	@SidedProxy(serverSide = LibMod.PROXY_COMMON, clientSide = LibMod.PROXY_CLIENT)
 	public static ISidedProxy proxy;
 	@Instance(LibMod.MOD_ID)
-	public static WitchWorks instance;
+	public static Witchworks instance;
 
 	static {
 		FluidRegistry.enableUniversalBucket();

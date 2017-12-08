@@ -1,6 +1,6 @@
 package com.witchworks.api.sound;
 
-import com.witchworks.api.WitchWorksAPI;
+import com.witchworks.api.WitchworksAPI;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
@@ -11,11 +11,11 @@ import net.minecraft.util.SoundEvent;
  */
 public final class WitchSoundEvents {
 
-	public static final SoundEvent BOIL = getRegisteredSound(WitchWorksAPI.BOIL);
-	public static final SoundEvent BUZZ = getRegisteredSound(WitchWorksAPI.BUZZ);
-	public static final SoundEvent CHALK_SCRIBBLE = getRegisteredSound(WitchWorksAPI.CHALK_SCRIBBLE);
-	public static final SoundEvent BUBBLE = getRegisteredSound(WitchWorksAPI.BUBBLE);
-	public static final SoundEvent OVEN_OPEN = getRegisteredSound(WitchWorksAPI.OVEN_OPEN);
+	public static final SoundEvent BOIL = getRegisteredSound(WitchworksAPI.BOIL);
+	public static final SoundEvent BUZZ = getRegisteredSound(WitchworksAPI.BUZZ);
+	public static final SoundEvent CHALK_SCRIBBLE = getRegisteredSound(WitchworksAPI.CHALK_SCRIBBLE);
+	public static final SoundEvent BUBBLE = getRegisteredSound(WitchworksAPI.BUBBLE);
+	public static final SoundEvent OVEN_OPEN = getRegisteredSound(WitchworksAPI.OVEN_OPEN);
 
 	private WitchSoundEvents() {
 	}

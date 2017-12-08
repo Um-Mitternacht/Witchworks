@@ -1,7 +1,7 @@
 package com.witchworks.common.block.magic.plants;
 
 import com.witchworks.common.block.BlockMod;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -39,7 +39,7 @@ public class BlockRagingGrass extends BlockMod implements IGrowable, IPlantable 
 		setSound(SoundType.PLANT);
 		this.setLightLevel(0.1F);
 		this.setTickRandomly(true);
-		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.BLOCKS_CREATIVE_TAB);
 	}
 
 	@Override

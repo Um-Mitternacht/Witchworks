@@ -10,7 +10,7 @@ package com.witchworks.common.item;
 
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -26,7 +26,7 @@ public class ItemMod extends Item implements IModelRegister {
 		super();
 		setRegistryName(id);
 		setUnlocalizedName(id);
-		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override

@@ -5,7 +5,7 @@ package com.witchworks.common.integration;
  */
 
 //@JEIPlugin
-//public class WitchWorksJEIPlugin implements IModPlugin {
+//public class WitchworksJEIPlugin implements IModPlugin {
 
 //@Override
 //public void registerCategories(IRecipeCategoryRegistration registry) {

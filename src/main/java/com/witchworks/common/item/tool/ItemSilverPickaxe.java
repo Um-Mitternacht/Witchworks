@@ -3,7 +3,7 @@ package com.witchworks.common.item.tool;
 
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.item.ModMaterials;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,7 +29,7 @@ public class ItemSilverPickaxe extends ItemPickaxe implements IModelRegister {
 		super(ModMaterials.TOOL_SILVER);
 		setRegistryName(LibItemName.SILVER_PICKAXE);
 		setUnlocalizedName(LibItemName.SILVER_PICKAXE);
-		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override

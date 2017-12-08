@@ -1,6 +1,6 @@
 package com.witchworks.common.block.tools;
 
-import com.witchworks.common.WitchWorks;
+import com.witchworks.common.Witchworks;
 import com.witchworks.common.block.BlockMod;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibGui;
@@ -63,7 +63,7 @@ public class BlockOven extends BlockMod implements ITileEntityProvider {
 			if (!heldItem.isEmpty() && heldItem.getItem() == Items.NAME_TAG) {
 				((TileOven) tile1).setCustomName(heldItem.getDisplayName());
 			} else {
-				playerIn.openGui(WitchWorks.instance, LibGui.OVEN, worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(Witchworks.instance, LibGui.OVEN, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 		}
 		return true;

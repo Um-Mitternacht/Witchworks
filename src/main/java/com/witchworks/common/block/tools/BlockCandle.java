@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.witchworks.api.WitchWorksAPI.COLOR;
+import static com.witchworks.api.WitchworksAPI.COLOR;
 
 /**
  * This class was created by Arekkuusu on 11/03/2017.

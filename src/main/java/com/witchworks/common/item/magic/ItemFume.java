@@ -1,7 +1,7 @@
 package com.witchworks.common.item.magic;
 
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.item.ItemMod;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.block.properties.PropertyEnum;
@@ -23,7 +23,7 @@ public class ItemFume extends ItemMod {
 		super(LibItemName.FUME);
 		setHasSubtypes(true);
 		setMaxDamage(0);
-		setCreativeTab(WitchWorksCreativeTabs.ITEMS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.ITEMS_CREATIVE_TAB);
 	}
 
 	@Override

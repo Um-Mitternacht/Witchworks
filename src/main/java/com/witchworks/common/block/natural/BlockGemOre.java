@@ -15,7 +15,7 @@ import net.minecraft.util.NonNullList;
 
 import javax.annotation.Nonnull;
 
-import static com.witchworks.common.core.WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB;
+import static com.witchworks.common.core.WitchworksCreativeTabs.BLOCKS_CREATIVE_TAB;
 
 /**
  * This class was created by <Arekkuusu> on 27/06/2017.

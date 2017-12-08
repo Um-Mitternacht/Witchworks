@@ -2,7 +2,7 @@ package com.witchworks.common.block.magic;
 
 import com.witchworks.api.helper.IModelRegister;
 import com.witchworks.client.handler.ModelHandler;
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.lib.LibBlockName;
 import com.witchworks.common.lib.LibMod;
 import net.minecraft.block.Block;
@@ -29,7 +29,7 @@ public class BlockFakeIceStairs extends BlockStairs implements IModelRegister {
 		super(state);
 		setUnlocalizedName(LibBlockName.FAKE_ICE_STAIRS);
 		setRegistryName(new ResourceLocation(LibMod.MOD_ID, unlocalizedName));
-		setCreativeTab(WitchWorksCreativeTabs.BLOCKS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.BLOCKS_CREATIVE_TAB);
 		useNeighborBrightness = true;
 		setResistance(2F);
 		setHardness(2F);

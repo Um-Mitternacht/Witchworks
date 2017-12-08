@@ -1,6 +1,6 @@
 package com.witchworks.common.item.food;
 
-import com.witchworks.common.core.WitchWorksCreativeTabs;
+import com.witchworks.common.core.WitchworksCreativeTabs;
 import com.witchworks.common.lib.LibItemName;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -17,7 +17,7 @@ public class ItemAsphodel extends ItemCrop {
 
 	public ItemAsphodel() {
 		super(LibItemName.ASPHODEL, 2, 0.2F, false);
-		setCreativeTab(WitchWorksCreativeTabs.PLANTS_CREATIVE_TAB);
+		setCreativeTab(WitchworksCreativeTabs.PLANTS_CREATIVE_TAB);
 	}
 
 	@Override
